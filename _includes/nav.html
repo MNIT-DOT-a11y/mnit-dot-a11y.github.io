@@ -13,7 +13,14 @@
         href="{{ site.baseurl }}/web/">Web
       </a>
     </li>
-    <li class="web alpha">
+    <li class="native alpha">
+      <a
+        {% if page.url== "/native/" %} aria-current="page" {% endif %}
+        {% if page.url contains "native/" %} class="current" {% endif %}
+        href="{{ site.baseurl }}/native/">Native (Mobile)
+      </a>
+    </li>
+        <li class="web alpha">
       <a
         {% if page.url== "/identifying-components/" %} aria-current="page" {% endif %}
         {% if page.url contains "identifying-components/" %} class="current" {% endif %}
