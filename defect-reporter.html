@@ -80,7 +80,6 @@ layout: default
         </details>
 
         <h2 class="h-bravo">Validation test</h2>
-        {% comment %}
         {% assign ordered_pages = site.checklist-web | sort: "title" | sort: "order" %}
         {% assign categories =  ordered_pages | map: 'categories' | join: ','  | split: ',' | uniq  %}
         {% for category in site.web-categories-order %}
@@ -99,7 +98,6 @@ layout: default
         {% endfor %}
       </form>
     </div>
-    {% endcomment %}
     <div class="criteria-container">
       <label for="criteria-area" class="h-charlie">
         Full defect
