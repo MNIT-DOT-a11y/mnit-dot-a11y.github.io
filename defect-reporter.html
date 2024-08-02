@@ -80,24 +80,26 @@ layout: default
         </details>
 
         <h2 class="h-bravo">Validation test</h2>
-        #{% assign ordered_pages = site.checklist-web | sort: "title" | sort: "order" %}
-#        {% assign categories =  ordered_pages | map: 'categories' | join: ','  | split: ',' | uniq  %}
-        #{% for category in site.web-categories-order %}
+        {% comment %}
+        {% assign ordered_pages = site.checklist-web | sort: "title" | sort: "order" %}
+        {% assign categories =  ordered_pages | map: 'categories' | join: ','  | split: ',' | uniq  %}
+        {% for category in site.web-categories-order %}
         <details class="checklist-details" open>
           <summary id="{{ category | escape }}-category-title">
             <span aria-hidden="true">&lt;</span>{{ category | escape }}<span aria-hidden="true">&gt;</span>
           </summary>
           <div role="group" aria-labelledby="{{ category | escape }}-category-title">
             <ul>
-              #{% for page in ordered_pages %}
-              #{% include checklist-loop.html %}
-              #{% endfor %}
+              {% for page in ordered_pages %}
+              {% include checklist-loop.html %}
+              {% endfor %}
             </ul>
           </div>
         </details>
-        #{% endfor %}
+        {% endfor %}
       </form>
     </div>
+    {% endcomment %}
     <div class="criteria-container">
       <label for="criteria-area" class="h-charlie">
         Full defect
