@@ -1,7 +1,7 @@
 ---
 
 layout: home
-title: Accessibility checklist
+title: Guided accessibility testing
 
 ---
 
