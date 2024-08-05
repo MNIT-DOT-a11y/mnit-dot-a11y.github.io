@@ -20,15 +20,6 @@ screenreader:
   role:  |
     It identifies itself as an alert
 
-gherkin-keyboard: 
-  - when:  |
-      use features that trigger the alert
-    result: |
-      the alert (BUT focus DOES NOT transfer automatically when the alert appears)
-
-gherkin-mobile:
-  - when:  |
-      use features that trigger the alert
 ---
 
 ## Notes
