@@ -121,7 +121,7 @@
 
 //How Test Links & button examples
 .bad-contrast-button:hover {
-  color: #e20074;
+  color: #003865;
 }
 
 .play-button {
@@ -138,23 +138,23 @@
 
 
 .play-button:hover polygon {
-  fill: #e20074;  
+  fill: #003865;  
 }
 .play-button:focus-visible polygon {
-  fill: #e20074; 
+  fill: #003865; 
 }
 .play-button:hover circle {
-  stroke: #e20074; 
+  stroke: #003865; 
 }
 .play-button:focus-visible circle {
-  stroke: #e20074; 
+  stroke: #003865; 
 }
 
 
 .testSubmitButton {
   all: unset;
   margin-left: 10px; /* Adjust this value as per your needs */
-  background-color: #e20074; /* Green background */
+  background-color: #003865; /* Green background */
   border: none; /* Remove border */
   color: white; /* White text color */
   padding: 10px 24px; /* Padding to increase size of button */
