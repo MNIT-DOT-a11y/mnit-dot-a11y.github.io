@@ -1,6 +1,6 @@
 # About MagentaA11y
 
-MagentaA11y is a tool built to simplify the process of accessibility testing. 
+MNIT DOT A11y was developed to simplify the process of accessibility testing. 
 
 We wanted to build an intuitive way for product teams to define "done" in a way that ensures accessible experiences work for everyone.
 
@@ -33,7 +33,7 @@ These testing criteria are displayed in markdown format for easy copying/pasting
 
 ## Contribute 
 
-MagentaA11y is built and maintained by the [T-Mobile Accessibility Resource Center](https://github.com/tmobile/magentaA11y/graphs/contributors). 
+MNIT DOT A11y was sourced  from MagentaA11y is built and maintained by the [T-Mobile Accessibility Resource Center](https://github.com/tmobile/magentaA11y/graphs/contributors). 
 
 It was originally created by [Charlie Triplett](https://www.charliecharliecharlie.com/), author of [The Book on Accessibility](https://www.thebookonaccessibility.com/).
 
