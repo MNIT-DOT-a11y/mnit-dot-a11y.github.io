@@ -36,6 +36,9 @@ collections:
   checklist-web:
     output: true
     permalink: /:collection/:name/
+  checklist-native:
+    output: true
+    permalink: /:collection/:name/
   demos:
     output: true
     permalink: /:collection/:name/
