@@ -21,7 +21,7 @@ screenreader:
   name:  |
       Purpose is clear and matches any visible label
   role:  |
-      Identifies itself as a button in iOS and "double tap to activate" in Android
+      Identifies itself as a button in iOS and Android
   group: |
       Group visible label with control that opens picker
   state: |
