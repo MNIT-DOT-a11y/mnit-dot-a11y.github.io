@@ -148,7 +148,7 @@ This semantic HTML contains all accessibility features by default.
 
 ### Group of inputs
 
-After the screenreader focuses on each input, it will read the group name "Enter your personal information" after the input.
+After the screen reader focuses on each input, it will read the group name "Enter your personal information" after the input.
 
 {% highlight html %}
 {% include /examples/input-text-group.html %}
