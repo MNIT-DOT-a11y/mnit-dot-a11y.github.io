@@ -91,7 +91,7 @@ Animation is an element that “moves” on a webpage, such as a landing page an
 - **Visual Inspection:** Looks for elements that are moving on the webpage.
 - **HTML Attributes:** Inspect the HTML; look for `<video>` or `<svg>`, or `<img>` are the most common elements. Also, look for `<div>` and `<span>` elements with classes or IDs that may indicate animation.
 
-### Carousels or SLideshows
+### Carousels or Slideshows
 Carousels, also known as sliders, slideshows, or galleries, are interactive elements that display multiple images, text, graphics, or videos in a single, sliding block.
 
 **Identification:**
