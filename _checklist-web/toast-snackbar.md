@@ -1,7 +1,7 @@
 ---
 layout: entry
-title:  "Toast snackbar"
-description: "How to code and test an snackbar or toast for Web"
+title:  "Toast Snackbar"
+description: "How to code and test a snackbar or toast for Web"
 categories: main form
 
 keyboard:
@@ -67,7 +67,7 @@ It's **exceedingly rare** this is a good design choice.
     - Confirmation of choices (ex: Are you sure you want to send payment?)
     - Blocking error messages
 - On page load messaging/alerts
-  - Performing unexpected actions or alerts on page load is confusing to people using a screenreader
+  - Performing unexpected actions or alerts on page load is confusing to people using a screen reader
 
 ### Timing
 

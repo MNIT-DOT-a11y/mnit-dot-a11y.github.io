@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Video/audio player"
+title:  "Video/Audio Player"
 description: "How to code and test an accessible video/audio player for Web"
 categories: main
 
