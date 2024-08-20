@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Alert notification"
+title:  "Alert Notification"
 description: "How to code accessible alerts or status for web pages"
 categories: main form
 
@@ -63,7 +63,7 @@ Alerts are dynamic content that is injected into the page when it changes and a 
 ### Browser + screen reader quirks
 
 - Screen readers do not implement alerts uniformly and must be tested. (See [support for the alert role](https://a11ysupport.io/tech/aria/alert_role))
-  - Just because an alert pattern works in one screen reader doesn't mean it will work in all of them
+  - Just because an alert pattern works with one screen reader doesn't mean it will work with all of them
 - The element referenced by the `aria-describedby` attribute cannot use the `role="alert"` attribute (see example above for workaround). 
   - [VoiceOver fails to read a referenced `role="alert"` element when the input is in focus](https://a11ysupport.io/tests/tech__aria__aria-describedby-with-role-alert).
 - NVDA will read the alert twice if it appears while the input is in focus: once from the `role="alert"` being injected and from the `aria-describedby` association.
