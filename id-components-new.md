@@ -46,9 +46,11 @@ Image basic types are:
 ## Information and Status
 
 ### Alerts and Notifications
-{% highlight html %}
+{::nomarkdown}
+<example>
 {% include /examples/alert-notification.html %}
-{% endhighlight %}
+</example>
+{:/}
  An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task. There are two different types of alerts:
  - **System status messages.** An alert may be a notification that informs people of the system's status and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.
  - **Validation messages.** An alert may be a validation message informing a user that they just took an action that needs correcting or confirming that a task was completed successfully. 
