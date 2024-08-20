@@ -7,7 +7,7 @@ keyboard:
   tab, arrow keys or Ctl+tab: |
     Focus visibly moves, confined within the menu
   escape: |
-    The menu closes and returns focus to the button that launched it
+    The menu closes, and returns focus to the button that launched it
   space: |
     Any buttons or links are activated on iOS and Android
   enter: |
@@ -15,7 +15,7 @@ keyboard:
 
 mobile:
   swipe: |
-    Focus moves, confined within the menu.  Two finger swipe anywhere often dismisses menu (Android only)
+    Focus moves are confined to the menu. Using a Two finger swipe anywhere often dismisses the menu (Android only)
   doubletap: |
     Activates interactive elements
   group: |
@@ -25,7 +25,7 @@ screenreader:
   name:  |
     Interactive options within the menu should follow button guidance.  The name should match the visible text for those buttons
   role:  |
-    May identify itself as a menu, popover or modal. Confining the user within the menu communicates the context to the screen reader user that there is a modal present
+    It may identify itself as a menu, popover, or model. Confining the user within the menu communicates the context to the screen reader user that there is a modal present
   state: |
     Typically, when open, other content is inert. Expands/collapses, closes/opens states are announced on the elements that close or open the menu
 

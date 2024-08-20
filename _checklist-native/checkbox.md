@@ -19,17 +19,17 @@ mobile:
 
 screenreader:
   name:  |
-    Name describes the purpose of the control and matches the visible label
+   The name describes the purpose of the control and matches the visible label
   role:  |
     Identifies itself as a Check box in Android and a Button or checkbox in iOS
   group: |
-    Visible label can be grouped with the check box in a single swipe
+    Visible labels can be grouped with the check box in a single swipe
   state: |
     Expresses its state (disabled/dimmed, checked, not checked, selected, unselected)
 
 settings:
   text resize: |
-    Text label can resize up to 200% without losing information
+    Text labels can resize up to 200% without losing information
 
 ---
 ## iOS

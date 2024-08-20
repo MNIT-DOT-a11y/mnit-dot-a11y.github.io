@@ -13,13 +13,13 @@ keyboard:
           
 mobile:
   swipe: |
-    Initial focus moves to a logical place on screen, then to all meaningful images, text and controls
+    Initial focus moves to a logical place on the screen, then to all meaningful images, text and controls
   Doubletap: |
     Activates controls
     
 screenreader: 
   initial focus: |
-    Starts in a logical place (ex: back button, close button, top of screen)
+    Starts in a logical place (e.g. back button, close button, top of screen)
   navigate: |
     Focus moves left to right, top to bottom in a logical order
   visible focus indicator: |

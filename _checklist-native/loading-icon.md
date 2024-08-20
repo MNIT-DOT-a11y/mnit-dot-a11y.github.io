@@ -7,7 +7,7 @@ categories: patterns
 keyboard:
   tab, arrow keys or Ctl+tab: |
     N/A
-         
+
 mobile:
   swipe: |
     Focus can move to the loading icon, but it should not be necessary because “loading” is announced dynamically

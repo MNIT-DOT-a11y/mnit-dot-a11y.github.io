@@ -14,7 +14,7 @@ keyboard:
           
 mobile:
   swipe: |
-    Focus moves to the search field, expresses its name, role, state (if applicable)
+    Focus moves to the search field, expresses its name, role, and state (if applicable)
   doubletap: |
     Activates the search field
     

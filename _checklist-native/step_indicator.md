@@ -13,7 +13,7 @@ keyboard:
           
 mobile:
   swipe: |
-    Focus moves to the control, expresses its name, role, state (if applicable)
+    Focus moves to the control, expresses its name, role, and state (if applicable)
   doubletap: |
     Activates the control
     

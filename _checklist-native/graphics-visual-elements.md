@@ -22,7 +22,7 @@ screenreader:
   name:  |
     Purpose is clear and matches visible label for controls and announces all text and meaningful images
   role:  |
-    CTA identifies as a button in iOS and button or "double tap to activate" in Android
+    CTA identifies as a button in iOS and a button or "double tap to activate" in Android
   graphics: |
    Only meaningful, non-decorative images and graphics should be focused and announced
   state: |
@@ -30,7 +30,7 @@ screenreader:
 
 settings:
   text resize: |
-    Text can resize up to 200% without losing information.  Text in images do not resize
+    Text can resize up to 200% without losing information.  Text in images does not resize
 ---
 
 

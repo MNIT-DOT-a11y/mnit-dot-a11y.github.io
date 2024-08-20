@@ -14,7 +14,7 @@ keyboard:
           
 mobile:
   swipe: |
-    Focus moves to the interactive elements, expresses its state, if applicable
+    Focus moves to the interactive elements to express its state, if applicable
   doubletap: |
     Activates the button
     
@@ -22,7 +22,7 @@ screenreader:
   name:  |
     Purpose is clear (ex: "Captcha")
   role:  |
-    Identifies itself as a button or image button, if interactive
+    Identifies itself as a button or image button if interactive
   group: |
     n/a
   state: |

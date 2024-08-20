@@ -14,18 +14,18 @@ keyboard:
 mobile:
   swipe rt: |
     Focus moves to the next element 
-  3 finger swipe: | 
+  3-finger swipe: | 
     Focus moves to the next slide (iOS)
-  2 finger swipe: | 
+  2-finger swipe: | 
     Focus moves to the next slide (Android)
-  1 finger swipe up or down or other custom actions: |
+  1-finger swipe up or down or other custom actions: |
     Focus moves to the next slide on iOS
   doubletap: |
     Activates the button
     
 screenreader: 
   name:  |
-    Purpose of each item is clear and matches visible text.  Index should be announced in Android and iOS
+    The purpose of each item is clear and matches the visible text. The index should be announced on Android and iOS
   role:  |
     Identifies as a button in iOS and "double tap to activate" in Android
     Identifies as "adjustable" with custom actions (iOS)

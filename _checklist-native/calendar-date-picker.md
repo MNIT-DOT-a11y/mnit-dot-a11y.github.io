@@ -9,11 +9,11 @@ keyboard:
   spacebar: |
       Selects and opens the picker on iOS and Android
   enter: |
-      Selects and opens the picker on Android
+      Select and open the picker on Android
         
 mobile:
   swipe: |
-      Focus moves to the element, expresses its name, role, value & state (if applicable)
+      Focus moves to the element that expresses its name, role, value & state, if applicable.
   doubletap: |
      Selects and opens picker
 
@@ -23,7 +23,7 @@ screenreader:
   role:  |
       Identifies itself as a button in iOS and Android
   group: |
-      Group visible label with control that opens picker
+      Group visible label with control that opens the picker
   state: |
       Expresses its state (disabled/dimmed)
 

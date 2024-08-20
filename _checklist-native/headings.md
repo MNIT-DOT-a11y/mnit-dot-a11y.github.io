@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Headings" 
+title:  "Heading" 
 categories: patterns
 
 

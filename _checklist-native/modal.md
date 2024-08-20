@@ -7,7 +7,7 @@ keyboard:
   tab, arrow keys or Ctl+tab: |
     Focus visibly moves to any interactive element
   escape: |
-    The modal closes and returns focus to the button that launched it
+    The modal closes, and returns focus to the button that launched it
   space: |
     Any buttons or links are activated on iOS and Android
   enter: |
@@ -25,7 +25,7 @@ screenreader:
   name:  |
     The modal itself is not interactive.  Any close button label should describe the close action
   role:  |
-    Any CTA in the modal announces as a button
+    Any CTA in the modal announced as a button
   state: |
     n/a
     

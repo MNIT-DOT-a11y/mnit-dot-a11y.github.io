@@ -13,7 +13,7 @@ keyboard:
           
 mobile:
   swipe: |
-    Focus moves to the element, expresses its state, if applicable
+    Focus moves to the element expresses its state, if applicable
   doubletap: |
     Activates the row/blade
     

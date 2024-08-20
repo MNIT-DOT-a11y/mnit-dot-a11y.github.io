@@ -7,17 +7,17 @@ keyboard:
   tab, arrow keys or Ctl+tab: |
     Focus visibly moves to interactive elements
   arrow and space keys: |
-    Brings next page into view when focus is on page control (iOS)
+    Brings next page into view when the focus is on page control (iOS)
   arrow keys and space/enter: |
     Moves focus to next page (Android)
           
 mobile:
-  swipe up/down with one finger, double tap, or three finger horizontal swipe: |
-    Brings next page into view when focus is on page control (iOS)
-  two finger swipe: |
+  swipe up/down with one finger, double tap, or three-finger horizontal swipe: |
+    Brings next page into view when the focus is on page control (iOS)
+  two-finger swipe: |
     Brings next page into view when focus is not on page control (Android)
   swipe and double tap: |
-    Brings next page into view when focus is on page control (Android)
+    Brings next page into view when the focus is on page control (Android)
   
     
 screenreader: 

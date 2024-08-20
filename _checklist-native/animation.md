@@ -10,14 +10,14 @@ keyboard:
          
 mobile::
   swipe: |
-    Focus moves to and from the animation if in the swipe order
+    Focus moves to and from the animation if in the swipe order.
    
 screenreader: 
   Focus:  |
-    If meaningful, animation is focused and its meaning announced via alt text
+    If meaningful, animation is focused and its meaning is announced via alt text.
 
 group: |
-    Group any label and associated animation to minimize swipes
+    Group any label and associated animation to minimize swipes.
 
 settings:
   text resize: |

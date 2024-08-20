@@ -14,17 +14,17 @@ keyboard:
           
 mobile:
   swipe: |
-    Focus moves to the element, expresses its state, if applicable
+    Focus moves to the element expresses its state, if applicable
   doubletap: |
     Activates the button
     
 screenreader: 
   name:  |
-    Purpose is clear and matches visible label
+    Purpose is clear and matches the visible label
   role:  |
     Identifies as a button in iOS and "double tap to activate" in Android
   value: |
-    Express the stepper value dynamically when it has visibly changed and when value is in focus
+    Express the stepper value dynamically when it has visibly changed and when the value is in focus
   state: |
     Expresses its state (disabled/dimmed)
 
