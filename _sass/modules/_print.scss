@@ -1,4 +1,5 @@
 .print-button {
+  all: unset;
   border: none;
   color: grey;
   padding: 0; /* Remove default padding */
@@ -11,6 +12,7 @@
 }
 
 .print-button:before {
+  all: unset;
   content: url(https://mnit-dot-a11y.github.io/assets/images/icons/icon-print.svg);
   width: 32px; /* Icon width */
   height: 32px; /* Icon height */
