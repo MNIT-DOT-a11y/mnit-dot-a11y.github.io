@@ -18,7 +18,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves within the carousel
-  doubletap: |
+  double tap: |
     This typically activates most elements
 
 screenreader:
@@ -47,7 +47,7 @@ gherkin-mobile:
   - when:  |
       swipe to move focus to carousel controls (forward, backward, pause/play, stop)
   - then:  |
-      doubletap
+      double tap
     result: |
       the intended action occurs
 

@@ -14,7 +14,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves within footer.
-  doubletap: |
+  double tap: |
     This typically activates most elements.
 
 screenreader:

@@ -23,7 +23,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves through elements, expresses its state
-  doubletap: |
+  double tap: |
     Activates the element in focus
 
 screenreader:
@@ -76,7 +76,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on the date dialog button
   - then:  |
-      doubletap with the button in focus
+      double tap with the button in focus
     result: |
       the date picker dialog appears
   - then:  |
@@ -84,7 +84,7 @@ gherkin-mobile:
     result: |
       the date options and controls come into focus
   - then:  |
-      doubletap with the selection or button in focus
+      double tap with the selection or button in focus
     result: |
       the intended action occurs
 

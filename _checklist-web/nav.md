@@ -14,7 +14,7 @@ keyboard:
 mobile:
   swipe: |
       Focus moves within the nav
-  doubletap: |
+  double tap: |
       This typically activates most elements
 
 screenreader:

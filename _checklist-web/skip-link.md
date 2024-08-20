@@ -15,7 +15,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves to the skip link
-  doubletap:
+  double tap:
     Activates the link, focus/tabindex moves directly to the targeted element
 
 screenreader:
@@ -40,7 +40,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on a skip link
   - then:  |
-      doubletap with the link in focus
+      double tap with the link in focus
     result: |
       my focus moves directly to the targeted element
 ---

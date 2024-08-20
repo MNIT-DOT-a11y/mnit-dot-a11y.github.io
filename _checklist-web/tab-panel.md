@@ -17,7 +17,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves to the tabs and then the open tab panel
-  doubletap: |
+  double tap: |
     Activates the tab
 
 screenreader:
@@ -50,7 +50,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on a tab
   - then:  |
-      doubletap with the tab in focus
+      double tap with the tab in focus
     result: |
       the state is changed
 ---

@@ -21,7 +21,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves within the dialog and doesn't enter the rest of the page.
-  doubletap: |
+  double tap: |
     This typically activates most elements.
 
 screenreader:
@@ -60,7 +60,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus to the launch button
   - then:  |
-      doubletap with the button in focus
+      double tap with the button in focus
     result: |
       the dialog opens
   - then:  |

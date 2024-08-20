@@ -26,7 +26,7 @@ screenreader:
 mobile:
   swipe: |
     Focus moves to the element, expresses its state
-  doubletap: |
+  double tap: |
     Activates the button
 
 wcag:
@@ -73,7 +73,7 @@ wcag:
 ### Use semantic HTML
 
 - This semantic HTML contains all accessibility features by default.
-- It uses [CSS pseudo attributes](https://github.com/tmobile/magentaA11y/blob/main/_sass/modules/_button.scss) to create the arrow indicator, no Javascript.
+- It uses [CSS pseudo attributes](https://github.com/mnit-dot-a11y/mnit-dot-a11y.github.io/blob/main/_sass/modules/_button.scss) to create the arrow indicator, no Javascript.
 
 {% highlight html %}
 {% include /examples/button.html %}
@@ -101,7 +101,7 @@ The preferred method is to use `aria-disabled="true"` so screen reader users can
 
 ### Fully disabled button
 
-A button that uses the disabled attribute will not be focusable, but it is still discoverable by the screen reader while browsing.
+A button that uses the disabled attribute will not be focusable, but it is still discoverable by a screen reader while browsing with the arrow keys.
 
 {% highlight html %}
 {% include /examples/button-disabled.html %}
@@ -123,11 +123,11 @@ This custom button requires extra attributes and JS event listeners. Adding `tab
 </div>
 {% endhighlight %}
 
-### When there's no inner text that text doesn't make sense
+### When there's no inner text that makes sense visually
 
 - As a last resort, `aria-label` can be used.
-- `aria-label` will (typically) replace the inner text of the button for the screen reader output.
-- DO NOT repeat the inner text in the `aria-label` as some screenreaders will read both.
+- `aria-label` will typically replace the inner text of the button for the screen reader output.
+- DO NOT repeat the inner text in the `aria-label` as some screen readers will read both.
 
 {% highlight html %}
 <div role="button" tabindex="0" aria-label="Continue">
@@ -157,19 +157,19 @@ Sometimes the design will call for multiple buttons with the same text label. In
 
 ### Name
 - Inner text should describe the purpose of the button.
-- `aria-label="Button purpose"` can also be used (as a last resort)
+- As a last resort, `aria-label="Button purpose"` can also be used
 
 ### Role
 - Native button identifies as button by default
 - Use `role="button"` for custom elements
 
 ### Group
-- Use `aria-haspopup="true"` for menu, listbox or modal
+- Use `aria-haspopup="true"` for menus, listboxes or modals
 - `aria-controls="popupId"` is not well supported
 
 ### State
-- Toggle buttons `aria-pressed="true/false"`
-- Menus or expanders use `aria-expanded="true/false"` 
+- Toggle buttons should use `aria-pressed="true/false"`
+- Menus or expanders should use `aria-expanded="true/false"` 
 - Use the `disabled` state for completely inactive buttons that shouldn't be focusable
 - Use `aria-disabled="true/false"` state for inactive custom elements 
 

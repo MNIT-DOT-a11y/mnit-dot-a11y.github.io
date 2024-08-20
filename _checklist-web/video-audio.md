@@ -17,7 +17,7 @@ keyboard:
 mobile:
   swipe: |
     Focus visibly moves to each control
-  doubletap: |
+  double tap: |
     Activates the control
 
 screenreader:
@@ -48,7 +48,7 @@ gherkin-mobile:
   - when:  |
       swipe to move focus to a video control
   - then:  |
-      doubletap with the video control in focus
+      double tap with the video control in focus
     result: |
       the intended action occurs
 

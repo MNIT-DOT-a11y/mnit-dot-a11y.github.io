@@ -14,7 +14,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves to the link
-  doubletap: |
+  double tap: |
     Activates the link
 
 screenreader:
@@ -25,7 +25,7 @@ screenreader:
   state:  |
     The current page link is indicated when focused
   group:  |
-    Is discoverable with screenreader shortcuts as a navigation landmark
+    Is discoverable with screen reader shortcuts as a navigation landmark
 
 gherkin-keyboard: 
   - when:  |
@@ -41,7 +41,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on a link
   - then:  |
-      doubletap with the link in focus
+      double tap with the link in focus
     result: |
       my browser goes somewhere
 

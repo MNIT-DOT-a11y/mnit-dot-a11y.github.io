@@ -2,17 +2,17 @@
   "ci": {
     "collect": {
       "url": [
-        "https://www.magentaa11y.com/",
-        "https://www.magentaa11y.com/web/",
-        "https://www.magentaa11y.com/native/",
-        "https://www.magentaa11y.com/checklist-web/button/",
-        "https://www.magentaa11y.com/demos/button/",
-        "https://www.magentaa11y.com/checklist-web/radio/",
-        "https://www.magentaa11y.com/demos/radio/",
-        "https://www.magentaa11y.com/checklist-native/button/",
-        "https://www.magentaa11y.com/demos/nav/",
-        "https://www.magentaa11y.com/how-to-test/",
-        "https://www.magentaa11y.com/demos/basic-accessible-webpage/"
+        "https://mnit-dot-a11y.github.io/",
+        "https://mnit-dot-a11y.github.io/web/",
+        "https://mnit-dot-a11y.github.io/native/",
+        "https://mnit-dot-a11y.github.io/checklist-web/button/",
+        "https://mnit-dot-a11y.github.io/demos/button/",
+        "https://mnit-dot-a11y.github.io/checklist-web/radio/",
+        "https://mnit-dot-a11y.github.io/demos/radio/",
+        "https://mnit-dot-a11y.github.io/checklist-native/button/",
+        "https://mnit-dot-a11y.github.io/demos/nav/",
+        "https://mnit-dot-a11y.github.io/how-to-test/",
+        "https://mnit-dot-a11y.github.io/demos/basic-accessible-webpage/"
       ],
       "numberOfRuns": 1
     },
