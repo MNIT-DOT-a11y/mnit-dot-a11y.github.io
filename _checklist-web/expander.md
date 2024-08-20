@@ -15,7 +15,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves to the element, expresses its state (expanded/collapsed)
-  doubletap: |
+  double tap: |
     Toggles the expander
 
 screenreader:
@@ -40,7 +40,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on a button
   - then:  |
-      doubletap with the button in focus
+      double tap with the button in focus
     result: |
       the intended action occurs
 

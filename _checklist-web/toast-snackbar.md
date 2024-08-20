@@ -15,7 +15,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves in logical order to the toast
-  doubletap: |
+  double tap: |
     This typically activates most elements in the toast
 
 screenreader:

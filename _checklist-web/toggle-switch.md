@@ -13,7 +13,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves to the element, expresses its state
-  doubletap: |
+  double tap: |
     Element toggles between states.
 
 screenreader:
@@ -40,7 +40,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on a switch input
   - then:  |
-      doubletap with the switch in focus
+      double tap with the switch in focus
     result: |
       the state is changed
 

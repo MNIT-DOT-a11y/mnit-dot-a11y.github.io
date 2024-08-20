@@ -14,7 +14,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves to the element, expresses its state
-  doubletap: |
+  double tap: |
     Checkbox toggles between checked and unchecked states.
 
 screenreader:
@@ -41,7 +41,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on a checkbox input
   - then:  |
-      doubletap with the checkbox in focus
+      double tap with the checkbox in focus
     result: |
       the state is changed
 
@@ -87,7 +87,7 @@ wcag:
 
 ### Don't put interactive elements inside the label
 
-Even though this is valid HTML, it creates unpredictable results with screenreaders. A (currently) reliable method is to keep interactive elements outside the label and reference it with `aria-describedby="hint-id"`
+Even though this is valid HTML, it creates unpredictable results with screen readers. A (currently) reliable method is to keep interactive elements outside the label and reference it with `aria-describedby="hint-id"`
 
 {% highlight html %}
 {% include /examples/input-checkbox-legal.html %}
@@ -140,7 +140,7 @@ This custom checkbox requires extra attributes and event listeners.
 {% endhighlight %}
 
 
-### Speciality checkboxes
+### Special checkboxes
 
 Sometimes a design may call for a card type checkbox. 
 - Its core should still be a semantic checkbox input
@@ -161,7 +161,7 @@ Sometimes a design may call for a card type checkbox.
 ### Name
 - `label` text must describe the checkbox input.
 - Use `aria-describedby="hint-id"` for hints or additional descriptions
-- `aria-label="Checkbox input purpose"` can also be used (as a last resort)
+- As a last resort, `aria-label="Checkbox input purpose"` can also be used
 
 ### Role
 - **By default**, semantic HTML checkbox inputs identify as a checkbox

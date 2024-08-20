@@ -12,7 +12,7 @@ keyboard:
 mobile:
   swipe: |
       Focus moves within the nav
-  doubletap: |
+  double tap: |
       Activates links
 
 screenreader:
@@ -35,7 +35,7 @@ gherkin-mobile:
   - when:  |
       swipe to elements in the nav
   - then:  |
-      doubletap with the link in focus
+      double tap with the link in focus
     result: |
       my browser goes to the intended location
 

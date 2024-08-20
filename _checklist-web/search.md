@@ -16,7 +16,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves to the search text input and search button
-  doubletap: |
+  double tap: |
     Search button is activated
 
 screenreader:

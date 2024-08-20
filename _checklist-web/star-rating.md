@@ -15,7 +15,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves to the element, expresses its state
-  doubletap: |
+  double tap: |
     If the radio button with focus is not checked, changes the state to checked. Otherwise, does nothing.
 
 screenreader:
@@ -46,7 +46,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on a radio button
   - then:  |
-      doubletap with the radio in focus
+      double tap with the radio in focus
     result: |
       the state is changed
 

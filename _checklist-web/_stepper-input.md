@@ -53,7 +53,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on the select (+/- buttons are ignored)
   - then:  |
-      doubletap with the select in focus
+      double tap with the select in focus
     result: |
       the picker/spinner opens
 
@@ -81,7 +81,7 @@ wcag:
 
 ## Code examples
 
-### Speciality stepper integer input
+### Speciality Stepper Integer Input
 
 This component is useful for small-ish selections. If the max count is more than 20, this component will be cumbersome for people using a mouse.
 
@@ -101,9 +101,8 @@ This example provides the simplest answer to a number input with a stepper contr
 
 Notice that the stepper buttons are hidden from the screen reader because it's a better user experience to simply use the native select.
 
-Using a select also eliminates any issues with the update being read by the screenreader on button press.
+Using a select also eliminates any issues with the update being read by the screen reader on button press.
 
 ### Notable failed prototype attempts
 
-- Do not use a `input type="number"` — NVDA doesn't support number inputs
 - Wrapping a `input type="text"` with `aria-live="assertive"` isn't reliably output across all screen readers on change events

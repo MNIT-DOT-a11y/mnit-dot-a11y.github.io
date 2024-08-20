@@ -16,7 +16,7 @@ keyboard:
 mobile:
   swipe: |
     Focus moves directly to the header or navigation
-  doubletap: |
+  double tap: |
     This typically activates most elements
 
 screenreader:

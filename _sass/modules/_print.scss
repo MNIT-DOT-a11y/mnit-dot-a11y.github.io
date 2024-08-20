@@ -1,5 +1,24 @@
+.print-button {
+  border: none;
+  color: grey;
+  padding: 0; /* Remove default padding */
+  font-size: 0; /* Remove text size */
+  cursor: pointer;
+  display: inline-flex; /* Use flexbox for centering */
+  align-items: center; /* Center icon vertically */
+  justify-content: center; /* Center icon horizontally */
+  background: transparent; /* Transparent background */
+}
+
+.print-button:before {
+  content: url(https://mnit-dot-a11y.github.io/assets/images/icons/icon-print.svg);
+  width: 32px; /* Icon width */
+  height: 32px; /* Icon height */
+  margin: 0; /* Remove margins */
+}
+
 @media print {
-  #print_button {
+  .print-button {
       display: none;
   }
 }

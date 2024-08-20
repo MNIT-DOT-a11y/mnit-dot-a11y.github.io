@@ -12,7 +12,7 @@ keyboard:
 
 mobile:
   swipe: |
-    Focus does not move to the alert when it appears, but it can be browsed by the screenreader
+    Focus does not move to the alert when it appears, but it can be browsed by the screen reader
 
 screenreader:  
   name:  |
@@ -24,7 +24,7 @@ screenreader:
 
 ## Notes
 
-Alerts are dynamic content that is injected into the page when it changes and a person using a screenreader needs to know that some state of the application has changed.
+Alerts are dynamic content that is injected into the page when it changes and a person using a screen reader needs to know that some state of the application has changed.
 
 - Use alerts sparingly. 
 - If an alert is present on page load, it won't be read automatically
@@ -60,10 +60,10 @@ Alerts are dynamic content that is injected into the page when it changes and a 
 
 ## Developer notes
 
-### Browser + screenreader quirks
+### Browser + screen reader quirks
 
-- Screenreaders do not implement alerts uniformly and must be tested
-  - Just because an alert pattern works in one screenreader doesn't mean it will work in all three
+- Screen readers do not implement alerts uniformly and must be tested. (See [support for the alert role](https://a11ysupport.io/tech/aria/alert_role))
+  - Just because an alert pattern works in one screen reader doesn't mean it will work in all of them
 - The element referenced by the `aria-describedby` attribute cannot use the `role="alert"` attribute (see example above for workaround). 
   - [VoiceOver fails to read a referenced `role="alert"` element when the input is in focus](https://a11ysupport.io/tests/tech__aria__aria-describedby-with-role-alert).
 - NVDA will read the alert twice if it appears while the input is in focus: once from the `role="alert"` being injected and from the `aria-describedby` association.

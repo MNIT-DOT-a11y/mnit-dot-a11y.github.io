@@ -17,7 +17,7 @@ keyboard:
 mobile:
   swipe: |
     Focus visibly moves to each control
-  doubletap: |
+  double tap: |
     Activates the control
 
 screenreader:

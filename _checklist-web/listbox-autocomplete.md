@@ -55,7 +55,7 @@ gherkin-mobile:
   - when:  |
       swipe to focus on a select
   - then:  |
-      doubletap with the select in focus
+      double tap with the select in focus
     result: |
       the selected option is changed
 

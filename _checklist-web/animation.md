@@ -25,7 +25,7 @@ screenreader:
 mobile:
   swipe: |
     Focus moves to the control
-  doubletap: |
+  double tap: |
     Activates the button
 
 gherkin-keyboard:
@@ -46,7 +46,7 @@ gherkin-mobile:
   - when:  |
       swipe to move focus to the pause/play/hide controls
   - then:  |
-      doubletap to activate control
+      double tap to activate control
     result: |
       the intended action occurs
 
@@ -70,13 +70,13 @@ wcag:
       - criteria: Any control's purpose is clear in the context of the whole page
   - name: Robust
     list:
-      - criteria: The animation respects device reduce motion settings and still conveys any critical information
+      - criteria: The animation respects the device's reduce motion settings and still conveys any critical information
       - criteria: Meets criteria across platforms, devices and viewports
 
 ---
 ## Developer notes
 
-### Animations (like gifs) can be accessible if:
+### Animations (e.g. gifs) can be accessible if:
 - it automatically stops after 5 seconds or 
 - if users are presented with an intuitive way to pause it
 
@@ -86,7 +86,7 @@ wcag:
 
 People with vestibular disorders can be made ill by sweeping animations on screen.
 
-It is important to change or disable animations when device reduce motion settings are activated.
+It is important to change or disable animations when the device's reduce motion settings are activated.
 
 This can be accomplished via CSS media query.
 
