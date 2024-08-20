@@ -11,14 +11,6 @@
   background: transparent; /* Transparent background */
 }
 
-.print-button:before {
-  all: unset;
-  content: url(https://mnit-dot-a11y.github.io/assets/images/icons/icon-print.svg);
-  width: 32px; /* Icon width */
-  height: 32px; /* Icon height */
-  margin: 0; /* Remove margins */
-}
-
 @media print {
   .print-button {
       display: none;
