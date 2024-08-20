@@ -1,12 +1,11 @@
 ---
-layout: page
+layout: full-width
 title: Identifying Components
 permalink: /identifying-components-new/
 ---
 
 Before conducting accessibility testing, it's essential to identify a webpage's or web application's various components. Components are reusable user interface parts, such as a navigation menu, a button, or a table. Use this page to help identify components when completing the Accessibility Testing Scope Template and as a reference for a starting point for the first review of a project. 
 
-## Identifying components
 The process of identifying components can be performed by two different methods. One by visual inspection or by viewing the HTML attributes within the score code. Both methods are provided with each component. Follow which even method you prefer.
 
 
@@ -46,6 +45,11 @@ Image basic types are:
 ## Information and Status
 
 ### Alerts and Notifications
+{::nomarkdown}
+<example>
+{% include /examples/alert-notification.html %}
+</example>
+{:/}
  An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task. There are two different types of alerts:
  - **System status messages.** An alert may be a notification that informs people of the system's status and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.
  - **Validation messages.** An alert may be a validation message informing a user that they just took an action that needs correcting or confirming that a task was completed successfully. 
