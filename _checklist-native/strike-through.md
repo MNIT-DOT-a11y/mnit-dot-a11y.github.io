@@ -11,7 +11,7 @@ mobile:
     Focus moves to the strike-through text
     
 screenreader: 
-  Strike though text:  |
+  Strike through text:  |
     Expresses the previous and current data    
   group: |
     Group the previous and current data together for context

@@ -9,11 +9,11 @@ keyboard:
   spacebar: |
       Selects and opens the Dropdown on iOS and Android
   enter: |
-      Selects and opens the Dropdown on Android
+      Select and open the Dropdown on Android
         
 mobile:
   swipe: |
-      Focus moves to the element, expresses its name, role, value & state (expanded or collapsed)
+      Focus moves to the element that expresses its name, role, value & state (expanded or collapsed)
   doubletap: |
      Selects and opens Dropdown
 

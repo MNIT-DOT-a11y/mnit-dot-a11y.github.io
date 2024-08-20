@@ -20,9 +20,9 @@ mobile:
     
 screenreader: 
   name:  |
-    Purpose is clear and matches visible label
+    Purpose is clear and matches the visible label
   role:  |
-    Usually identifies as a button in iOS and button or "double tap to activate" in Android
+    Usually identifies as a button in iOS and a button or "double tap to activate" in Android
   group: |
     Visible label is grouped or associated with the button in a single swipe
   state: |

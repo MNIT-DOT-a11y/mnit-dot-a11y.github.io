@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Field Errors" 
+title:  "Field Error" 
 categories: patterns
 
 
@@ -14,7 +14,7 @@ mobile:
    
 screenreader: 
   Error message:  |
-    “Error” is usually announced as alt text for an error icon and the error message announcement follows it
+    “Error” is usually announced as the alt text for an error icon, and the error message announcement follows it
 
 group: |
     Group elements that are logical, like the error icon and the error message

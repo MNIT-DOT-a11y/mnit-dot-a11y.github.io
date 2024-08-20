@@ -21,15 +21,15 @@ screenreader:
   name:  |
       Purpose is clear and matches any visible label
   role:  |
-      Identifies itself as a button in iOS and radio button in Android
+      Identifies itself as a button in iOS and a radio button in Android
   group: |
-      Visible label can be grouped or associated with the radio button in a single swipe
+      Visible labels can be grouped or associated with the radio button in a single swipe
   state: |
       Expresses its state (disabled/dimmed, iOS: checked/unchecked, selected/unselected.  Android: checked/not checked)
 
 settings:
   text resize: |
-    Text label can resize up to 200% without losing information
+    Text labels can resize up to 200% without losing information
 ---
 
 ## iOS

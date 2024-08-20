@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Segmented Control / Tabs"
+title:  "Segmented Control/Tabs"
 categories: controls
 
 keyboard:
@@ -15,13 +15,13 @@ keyboard:
           
 mobile:
   swipe: |
-    Focus moves to the element, expresses its state, if applicable
+    Focus moves to the element expresses its state, if applicable
   doubletap: |
     Activates the button
     
 screenreader: 
   name:  |
-    Purpose is clear and matches visible label
+    Purpose is clear and matches the visible label
   role:  |
     Identifies as a button in iOS and "double tap to activate" in Android
   group: |

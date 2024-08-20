@@ -6,19 +6,19 @@ categories: controls
 
 keyboard:
   tab, arrow keys or Ctl+tab: |
-    Focus can visibly move to the reorder control, but cannot be activated  
+    Focus can visibly move to the reorder control but cannot be activated  
           
 mobile:
   swipe: |
-    Focus moves to the control, expresses its name, role, state (if applicable)
+    Focus moves to the control, expresses its name, role, and state (if applicable)
   Doubletap and hold: |
     Activates the reorder action
     
 screenreader: 
   name:  |
-    Purpose is clear and matches visible label 
+    Purpose is clear and matches the visible label 
   role:  |
-    Control identifies as a button and ”draggable”
+    Control identifies as a button and "draggable"
   group: |
     Associate the visible label with the reorder control
   state: |

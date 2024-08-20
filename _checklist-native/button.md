@@ -20,9 +20,9 @@ mobile:
     
 screenreader: 
   name:  |
-    Purpose is clear and matches visible label
+    Purpose is clear and matches the visible label.
   role:  |
-    Identifies as a button in iOS and in Android
+    Identifies as a button in iOS and Android
   group: |
     Visible label is grouped or associated with the button in a single swipe
   state: |

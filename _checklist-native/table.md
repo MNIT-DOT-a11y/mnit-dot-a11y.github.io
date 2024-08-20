@@ -6,7 +6,7 @@ categories: patterns
 
 keyboard:
   tab, arrow keys or Ctl+tab: |
-    Focus visibly moves to the first interactive element in table
+    Focus visibly moves to the first interactive element in the table
 spacebar: |
     Activates on iOS and Android
 enter: |
@@ -14,19 +14,19 @@ enter: |
           
 mobile:
   swipe: |
-    Focus moves to the first element in table 
+    Focus moves to the first element in the table 
   doubletap: |
     Activates any interactive element
     
 screenreader: 
   label:  |
-    Visible table title that describes table’s purpose is announced
+    A visible table title that describes the table’s purpose is announced
   column header:  |
     Each column header is announced with each row cell beneath it, along with cell data
   row header:  |
-    If applicable, each row header is announced with each cell in row, along with cell data
+    If applicable, each row header is announced with each cell in the row, along with cell data
   name:  |
-    Purpose of any interactive element is clear and matches visible label
+    The purpose of any interactive element is clear and matches the visible label
   role:  |
     Most interactive elements identify as a button in iOS and "double tap to activate" in Android
   state: |

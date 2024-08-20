@@ -13,7 +13,7 @@ keyboard:
 
 mobile:
   swipe: |
-    Focus moves to the element, expresses its state, if applicable
+    Focus moves to the element expresses its state, if applicable
   doubletap: |
     Activates the chip
 
@@ -29,7 +29,7 @@ screenreader:
 
 settings:
   text resize: |
-    Text label can resize up to 200% without losing information
+    Text labels can resize up to 200% without losing information
 ---
 ## iOS
 There is no native chip element for iOS.  The notes below are suggestions and accessibility guidance.

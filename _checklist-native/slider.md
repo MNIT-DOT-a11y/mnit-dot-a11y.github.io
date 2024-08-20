@@ -6,8 +6,8 @@ categories: controls
 keyboard:
   tab, Ctr+tab or arrow keys: |
     Focus moves visibly to the input
-  rt and left arrow-keys: |
-    Increase / decrease value one step
+  rt and left arrow keys: |
+    Increase/decrease value one step
 
 mobile:
   swipe: |
@@ -19,17 +19,17 @@ mobile:
 
 screenreader:
   name:  |
-    Name describes the purpose of the control and matches the visible label
+    The name describes the purpose of the control and matches the visible label
   role:  |
     Identifies itself as "adjustable" in iOS and "Slider" in Android
   group: |
-    Group label with control, when possible to give the slider a programmatic name
+    Group label with control, when possible, to give the slider a programmatic name
   state: |
     Expresses its current value, if applicable
 
 settings:
   text resize: |
-    Text label can resize up to 200% without losing information
+    Text labels can resize up to 200% without losing information
 ---
 
 ## iOS

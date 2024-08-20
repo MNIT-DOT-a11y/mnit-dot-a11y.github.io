@@ -9,7 +9,7 @@ keyboard:
   spacebar: |
       Selects and opens the picker on iOS and Android
   enter: |
-      Selects and opens the picker on Android
+      Select and open the picker on Android
         
 mobile:
   swipe: |
@@ -17,7 +17,7 @@ mobile:
   doubletap: |
      Selects and opens picker
   swipe up or down: |
-      Focus moves to next item in picker (iOS) or next item in column (Android), expresses its name, role 
+      Focus moves to the next item in the picker (iOS) or the next item in the column (Android), expresses its name, role 
 screenreader:
   name:  |
       Purpose is clear and matches any visible label

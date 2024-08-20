@@ -20,7 +20,7 @@ mobile:
     
 screenreader: 	
   name:  |
-    Purpose is clear and matches visible label
+    Purpose is clear and matches the visible label
   role:  |
     Identifies as an expandable region in iOS and expandable region or "double tap to activate" in Android
   group: |

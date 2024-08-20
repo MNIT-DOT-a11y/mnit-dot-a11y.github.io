@@ -50,11 +50,6 @@ Image basic types are:
  - **System status messages.** An alert may be a notification that informs people of the system's status and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.
  - **Validation messages.** An alert may be a validation message informing a user that they just took an action that needs correcting or confirming that a task was completed successfully. 
 
- {::nomarkdown}
-{% include /examples/alert.html %}
-{:/}
-
-
 **Identification:**
 - **Visual Inspection:** Look for messages or alerts on the page, often styled distinctively to draw attention (e.g., success, error, warning messages)
 - **HTML Attributes:** Inspect the HTML code for elements with roles like `alert` or classes associated with notifications (e.g., `alert`, `notification`).

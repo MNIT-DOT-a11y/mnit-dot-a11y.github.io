@@ -5,13 +5,13 @@ categories: notifications
 
 keyboard:
   tab, arrow keys or Ctl+tab: |
-    Focus visibly moves, confined within the alert
+    Focus visibly moves, confined within the alert.
   escape: |
-    The alert closes and returns focus to the element that launched it or to a logical place 
+    The alert closes, and returns focus to the element that launched it or to a logical place. 
   space: |
-    Any buttons or links are activated on iOS and Android
+    Any buttons or links are activated on iOS and Android.
   enter: |
-    Any buttons or links are activated on Android
+    Any buttons or links are activated on Android.
 
 mobile:
   swipe: |
