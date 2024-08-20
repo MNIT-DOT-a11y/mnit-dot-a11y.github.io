@@ -17,6 +17,12 @@ Audio and video are embedded in different players, which deliver the media.
 - **HTML Attributes:** Inspect the HTML code for `<audio>` or `<video>` elements.
 
 ## Forms
+{::nomarkdown}
+<example>
+{% include /examples/form-contact.html %}
+</example>
+{:/}
+
 A form allows users to enter information into a page.
 
 **Identification:**
@@ -26,17 +32,30 @@ A form allows users to enter information into a page.
 ## Tables and Grids
 A table shows information in columns and rows.
 
+{::nomarkdown}
+<example>
+{% include /examples/table.html %}
+</example>
+{:/}
+
 **Identification:**
 - **Visual Inspection:** Look for a structure with rows and columns, often containing header rows.
 - **HTML Attributes:** Inspect the HTML code for the `<table>` element. Within the table, look for `<tr>` for rows and `<td>` or `<th>` for cells and headers.
 
 ## Images
+
 Image basic types are:
-- **Decorative image** – can be in the form of solid lines or borders or images used as “eye candy” that don’t add information to the content of a page.
+- **Decorative image** – can be in the form of solid lines or borders or iocns used as “eye candy” that don’t add information to the content of a page.
 - **Image** – can be in the form of pictures or graphics.
 - **Icons** - small graphical elements often used as buttons or to represent actions (e.g., a trash can for a delete action)
 - **CAPTCHAs** – images used for a CAPTCHA test to determine if an online user is human or a bot.
 
+{::nomarkdown}
+<example>
+{% include /examples/image-decorative.html %}
+</example>
+{:/}
+The icons are considered decorative in this example as they are used as "eye candy."
 
 **Identification:**
 - **Visual Inspection:** Look for visual content representing the image types from the list above. 
@@ -59,6 +78,10 @@ Image basic types are:
 - **HTML Attributes:** Inspect the HTML code for elements with roles like `alert` or classes associated with notifications (e.g., `alert`, `notification`).
 
 ### Dialog (Modals)
+{::nomarkdown}
+<example>
+{% include /examples/modal-dialog.html %}
+</example>
 A dialog modal prevents interaction with page content until the user completes an action or dismisses the modal. This intentionally interrupts the user’s workflow.
 
 **Identification:**
@@ -68,12 +91,24 @@ A dialog modal prevents interaction with page content until the user completes a
 ### Progress Bar
 A progress bar can show users how far along they are in a process.
 
+{::nomarkdown}
+<example>
+{% include /examples/progress-bar.html %}
+</example>
+{:/}
+
 **Identification:**
 - **Visual Inspection:** Look for a visual indicator showing the progression of a task.
 - **HTML Attributes:** Inspect the HTML code for the `progress` element.
 
 ### Text Inputs
-A text input box allows users to enter any combination of letters, numbers, or symbols. It can span a single line or multiple lines. 
+A text input box allows users to enter any combination of letters, numbers, or symbols. It can span a single line or multiple lines.
+
+{::nomarkdown}
+<example>
+{% include /examples/textarea.html %}
+</example>
+{:/}
 
 **Identification:**
 - **Visual Inspection:** Look for fields where users can enter text, such as a search box.
@@ -97,6 +132,12 @@ Animation is an element that “moves” on a webpage, such as a landing page an
 
 ### Carousels or Slideshows
 Carousels, also known as sliders, slideshows, or galleries, are interactive elements that display multiple images, text, graphics, or videos in a single, sliding block.
+
+{::nomarkdown}
+<example>
+{% include /examples/carousel.html %}
+</example>
+{:/}
 
 **Identification:**
 - **Visual Inspection:** Look for an inactive element where images are cycling/rotating through a group of images.
