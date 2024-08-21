@@ -144,3 +144,27 @@
   pointer-events: none; 
   cursor: none !important;
 }
+
+@mixin sr-only() {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.sr-only {
+  @include sr-only();
+}
+
+.external-link {
+  &::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f08e"; /* Unicode for 'external-link' icon */
+    margin-left: 0.5em;
+    font-size: 0.75em;
+    vertical-align: middle;
+  }
+}

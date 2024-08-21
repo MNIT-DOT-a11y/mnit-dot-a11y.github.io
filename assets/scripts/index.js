@@ -713,3 +713,25 @@ function formValidationDemo() {
     });
 
 }
+
+// Select all anchor tags and determine if they are external.
+// If they are, add a special class for CSS icons and add screen reader-only text.
+    document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll("a");
+
+    links.forEach(function(link) {
+      if (link.hostname !== window.location.hostname) {
+        link.classList.add("external-link");
+
+        // Add screen reader-only text
+        const srText = document.createElement("span");
+        srText.classList.add("sr-only");
+        srText.textContent = " (External Link)";
+        link.appendChild(srText);
+
+        // Optionally, open external links in a new tab
+        // link.setAttribute("target", "_blank");
+        // link.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  });
