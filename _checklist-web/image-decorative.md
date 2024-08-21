@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Decorative image"
+title:  "Decorative Image"
 description: "How to code and test accessible decorative images (jpg, gif, png, svg)"
 categories: main
 

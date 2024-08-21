@@ -1,7 +1,7 @@
 ---
 layout: entry
-title:  "Carousel / slideshow"
-description: "How to code and test an accessible carousel slideshow wizard"
+title:  "Carousels and Slideshow"
+description: "How to code and test an accessible carousel or slideshow"
 categories: main
 order: 2
 

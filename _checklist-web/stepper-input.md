@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Stepper input"
+title:  "Stepper Input"
 description: "How to code and test an accessible stepper input"
 categories: form
 

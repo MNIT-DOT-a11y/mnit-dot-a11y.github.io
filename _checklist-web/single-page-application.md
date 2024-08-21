@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Single page application"
+title:  "Single Page Application"
 description: "How to code and test a dynamic content and single page apps"
 categories: main form
 order: 2

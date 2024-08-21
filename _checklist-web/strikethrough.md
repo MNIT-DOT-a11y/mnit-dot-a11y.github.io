@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Strikethrough content"
+title:  "Strikethrough Content"
 description: "How to code and test strikethrough text"
 categories: main form
 order: 0

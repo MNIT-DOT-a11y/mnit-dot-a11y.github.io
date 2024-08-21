@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Animation"
+title:  "Animations"
 description: "How to test accessible animations for the Web"
 categories: main
 

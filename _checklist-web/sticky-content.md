@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Sticky element"
+title:  "Sticky Element"
 description: "How to code and test an accessible sticky menu element for Web"
 categories: main
 
