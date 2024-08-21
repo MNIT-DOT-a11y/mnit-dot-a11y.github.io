@@ -159,11 +159,6 @@ A button is a widget that enables users to trigger an action or event, such as s
 ### Links
 A link points to another location. When you select a link, the link will take you to a webpage, document or other online content.
 
-{::nomarkdown}
-<example>
-{% include /examples/link.html %}
-</example>
-{:/}
 
 **Identification:**
 - **Visual Inspection:** Look for clickable elements that are usually designed and often styled as colored squares or rectangular shapes with rounded corners and call-to-action text inserted.
