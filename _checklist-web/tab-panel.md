@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Tab group"
+title:  "Tab Group"
 description: "How to test accessible tab panels"
 categories: main
 

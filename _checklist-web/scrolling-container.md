@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Scrolling container"
+title:  "Scrolling Container"
 description: "How to code and test a scrolling overflow text container"
 categories: form
 

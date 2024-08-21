@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Expander Accordion"
+title:  "Expanders and Accordion"
 description: "How to code and test accessible expander buttons"
 categories: main
 

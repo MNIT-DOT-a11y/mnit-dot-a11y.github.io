@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Text input"
+title:  "Text Input"
 description: "How to code and test an accessible text input for Web"
 categories: form
 

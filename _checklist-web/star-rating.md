@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Star rating input"
+title:  "Star Rating Input"
 description: "How to code and test an accessible star rating input for Web"
 categories: form
 

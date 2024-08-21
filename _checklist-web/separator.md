@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Separator / horizontal rule"
+title:  "Separator / Horizontal Rule"
 description: "How to code and test an accessible separator / horizontal rule for Web"
 categories: main form
 

@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Textarea multiline input"
+title:  "Textarea Multiline Input"
 description: "How to code and test an accessible textarea multiline input for Web"
 categories: form
 

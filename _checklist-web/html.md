@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Basic web page"
+title:  "Basic Web Page"
 description: "How to code and test accessible HTML"
 categories: html
 order: 0

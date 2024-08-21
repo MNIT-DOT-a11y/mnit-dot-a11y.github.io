@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Skip link"
+title:  "Skip Link"
 description: "How to code and test an accessible skip link for Web"
 
 categories: html

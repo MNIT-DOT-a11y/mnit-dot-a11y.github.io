@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Range slider input"
+title:  "Range Slider Input"
 description: "How to code and test an accessible range slider input for Web"
 categories: form
 
