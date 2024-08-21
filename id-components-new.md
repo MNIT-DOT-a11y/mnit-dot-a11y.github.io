@@ -79,7 +79,6 @@ The icons are considered decorative in this example as they are used as "eye can
 {% include /examples/modal-dialog.html %}
 </example>
 {:/}
-
 A dialog modal prevents interaction with page content until the user completes an action or dismisses the modal. This intentionally interrupts the user’s workflow.
 
 **Identification:**
