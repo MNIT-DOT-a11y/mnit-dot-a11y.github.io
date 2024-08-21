@@ -43,7 +43,6 @@ A table shows information in columns and rows.
 - **HTML Attributes:** Inspect the HTML code for the `<table>` element. Within the table, look for `<tr>` for rows and `<td>` or `<th>` for cells and headers.
 
 ## Images
-
 Images must have text alternatives that describe the information or function represented by them.
 
 {::nomarkdown}
@@ -60,14 +59,15 @@ The icons are considered decorative in this example as they are used as "eye can
 ## Information and Status
 
 ### Alerts and Notifications
-{::nomarkdown}
+An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task. There are two different types of alerts:
+ - **System status messages.** An alert may be a notification that informs people of the system's status and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.
+ - **Validation messages.** An alert may be a validation message informing a user that they just took an action that needs correcting or confirming that a task was completed successfully. 
+
+ {::nomarkdown}
 <example>
 {% include /examples/alert-notification.html %}
 </example>
 {:/}
- An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task. There are two different types of alerts:
- - **System status messages.** An alert may be a notification that informs people of the system's status and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.
- - **Validation messages.** An alert may be a validation message informing a user that they just took an action that needs correcting or confirming that a task was completed successfully. 
 
 **Identification:**
 - **Visual Inspection:** Look for messages or alerts on the page, often styled distinctively to draw attention (e.g., success, error, warning messages)
@@ -75,6 +75,7 @@ The icons are considered decorative in this example as they are used as "eye can
 
 ### Dialog (Modals)
 A dialog modal prevents interaction with page content until the user completes an action or dismisses the modal. This intentionally interrupts the user’s workflow.
+
 {::nomarkdown}
 <example>
 {% include /examples/modal-dialog.html %}
@@ -87,6 +88,7 @@ A dialog modal prevents interaction with page content until the user completes a
 
 ### Progress Bar
 A progress bar can show users how far along they are in a process.
+
 {::nomarkdown}
 <example>
 {% include /examples/progress-bar.html %}
