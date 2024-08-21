@@ -19,7 +19,7 @@ mobile:
   swipe: |
     Focus moves within the carousel
   double tap: |
-    This typically activates most elements
+    This will typically activates most elements
 
 screenreader:
   name:  |
@@ -64,7 +64,7 @@ Think carefully before you use a carousel or slideshow wizard. Consider another 
 
 - As a general rule, [carousels should be avoided](https://shouldiuseacarousel.com/) for critical functionality unless there is a strong business case.
 - People must be highly motivated to engage with a carousel beyond the first slide.
-- The cognitive load is immediately increased over other patterns aas the user must determine how to use the carousel:
+- The cognitive load is immediately increased over other patterns, as the user must determine how to use the carousel:
   - Is it easier to use previous/next buttons?
   - Is it possible to swipe left/right?
   - How many slides are present?
@@ -75,7 +75,7 @@ Carousels are worth testing against a normal scrolling format when people can ge
 
 - A multi-step form
   - This can work because it helps people stay on task.
-- A list of easily recognizable structure, like "US Presidents"
+- A list of easily recognizable structures, like "US Presidents"
   - This can work because the scope and contents are predictable.
 - Highlighted customer reviews
   - This can work to build trust because the contents are predictable and a motivated user seeking social proof may be willing to navigate the carousel.
@@ -83,7 +83,7 @@ Carousels are worth testing against a normal scrolling format when people can ge
 ### Avoid auto-advance carousels
 
 - This is distracting for people with attention differences
-- Live carousel updates are noisy for the screen reader 
+- Live carousel updates cause screen readers to speak excessive announcements every time the carousel advances, making it hard to navigate
 
 ## Code examples
 

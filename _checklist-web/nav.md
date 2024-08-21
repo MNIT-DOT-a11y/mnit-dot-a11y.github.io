@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Navigation landmark"
+title:  "Navigation Landmark"
 description: "How to code and test an accessible navigation menu for Web"
 categories: header nav footer html
 order: 2
@@ -21,7 +21,7 @@ screenreader:
   name:  |
     It indicates its role AND IF multiple navigations are present (ex: Main navigation, Site map, Breadcrumbs), the name of the navigation
   role:  |
-    It is discoverable with screenreader shortcuts as a navigation landmark
+    It is discoverable with screen reader shortcuts as a navigation landmark
 
 gherkin-keyboard: 
   - when:  |

@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Footer landmark"
+title:  "Footer Landmark"
 description: "How to test an accessible footer for the Web"
 categories: html footer
 order: 9
@@ -19,7 +19,7 @@ mobile:
 
 screenreader:
   role:  |
-    It is discoverable with screenreader shortcuts as a footer or contentinfo landmark
+    It is discoverable with screen reader shortcuts as a footer or contentinfo landmark
   group: |
     It typically contains copyright information, navigation links, and privacy statements.
 

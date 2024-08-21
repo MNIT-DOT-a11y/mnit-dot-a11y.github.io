@@ -85,7 +85,7 @@ wcag:
 
 ### Disabled and focusable
 
-If it's helpful for screenreaders to perceive a disabled toggle, use `aria-disabled="true"` and prevent click events with scripting.
+If it's helpful for screen readers to perceive a disabled toggle, use `aria-disabled="true"` and prevent click events with scripting.
 
 {% highlight html %}
 {% include /examples/input-switch-disabled-focusable.html %}
@@ -99,7 +99,7 @@ If it's helpful for screenreaders to perceive a disabled toggle, use `aria-disab
 
 ### Disabled and not focusable
 
-Using the `disabled` attribute will prevent the input from being clickable, but will also prevent it from being focusable, making it more difficult to discover for screenreaders.
+Using the `disabled` attribute will prevent the input from being clickable, but will also prevent it from being focusable, making it more difficult to discover for screen readers.
 
 {% highlight html %}
 <input type="checkbox"

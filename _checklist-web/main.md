@@ -17,7 +17,7 @@ mobile:
 
 screenreader:
   role:  |
-    It is discoverable with screenreader shortcuts as main landmark
+    It is discoverable with screen reader shortcuts as main landmark
   group: |
     It contains the content portion of the page starting with the H1
 

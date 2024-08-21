@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Number input"
+title:  "Number Input"
 description: "How to code and test an accessible number input for Web"
 categories: form
 

@@ -6,7 +6,7 @@ categories: main
 
 keyboard:
   arrow-keys: |
-    The table scrolls into view (and with a screenreader the cells become individually readable)
+    The table scrolls into view (and with a screen reader the cells become individually readable)
 
 mobile:
   swipe: |
@@ -18,7 +18,7 @@ screenreader:
   role:  |
     It identifies itself as a table
   group: |
-    Column headers and row headers are identified with screenreader shortcuts
+    Column headers and row headers are identified with screen reader shortcuts
 
 gherkin-keyboard: 
   - when:  |

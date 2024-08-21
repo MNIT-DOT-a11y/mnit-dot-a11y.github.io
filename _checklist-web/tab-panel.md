@@ -66,8 +66,8 @@ Either way, it's about trying to cram low quality content into a page until it b
 
 ### Why tab groups are problematic
 
-- Many people who use a screenreader don't know how to operate a tab group with the arrow keys and can miss parts of the content.
-- It requires the screenreader user to repeatedly parse the content to consume it.
+- Many people who use a screen reader don't know how to operate a tab group with the arrow keys and can miss parts of the content.
+- It requires the screen reader user to repeatedly parse the content to consume it.
 - Interaction rates will be exceedingly low for anything but the first tab panel (like a carousel).
 - It hides content from the user by default and not everyone will notice or know how it works.
 - If users need to compare information they cannot
@@ -95,8 +95,8 @@ You can find additional guidance as well as examples of automatic and manually a
 ## Code examples
 
 - [More details and working examples](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/)
-- You can also use **radio buttons** as controls. This will be easier to understand for screenreader users (as is done with this website's tabs).
-- Note: an `aria-selected` state is explicity required as some screenreaders will assume the tab is selected unless delared `false`.
+- You can also use **radio buttons** as controls. This will be easier to understand for screen reader users (as is done with this website's tabs).
+- Note: an `aria-selected` state is explicity required as some screen readers will assume the tab is selected unless delared `false`.
 
 ### Use semantic HTML where possible
 

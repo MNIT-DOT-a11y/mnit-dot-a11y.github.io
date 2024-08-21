@@ -25,7 +25,7 @@ screenreader:
   role:  |
     It identifies itself as a search input
   group: |
-    The form itself is discoverable with screenreader shortcuts as search landmark
+    The form itself is discoverable with screen reader shortcuts as search landmark
 
 gherkin-keyboard: 
   - when:  |

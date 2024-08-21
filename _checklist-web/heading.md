@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Heading: h1, h2, h3"
+title:  "Heading: H1, H2, H3"
 categories: main
 description: "How to code and test accessible headings for websites"
 
@@ -12,7 +12,7 @@ keyboard:
   
 mobile:
   swipe: |
-    The screenreader reads the heading and its level
+    The screen reader reads the heading and its level
 
 screenreader:
   name:  |

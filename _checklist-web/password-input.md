@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Password input"
+title:  "Password Input"
 description: "How to code and test an accessible password input for Web"
 categories: form
 

@@ -46,10 +46,10 @@ gherkin-mobile:
 
 ## How does dynamic `aria-live` content work?
 
-- The screenreader expects content **within** an element with a `aria-live="polite"` attribute to change
+- The screen reader expects content **within** an element with a `aria-live="polite"` attribute to change
 - By default, **only the content that has changed** will be read
-- To force the screenreader to read all contents even if it did not change within the element, add `aria-atomic="true"`
-- **Rarely** must you use `aria-live="assertive"` as it will override every other message from the screenreader
+- To force the screen reader to read all contents even if it did not change within the element, add `aria-atomic="true"`
+- **Rarely** must you use `aria-live="assertive"` as it will override every other message from the screen reader
 
 ## About alerts
 

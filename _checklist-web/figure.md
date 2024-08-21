@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Figure: maps, charts and graphics"
+title:  "Figure: Maps, Charts and Graphics"
 description: "How to test accessible figures, maps, charts and tables for the Web"
 categories: main
 

@@ -10,7 +10,7 @@ keyboard:
 
 mobile:
   swipe: |
-    The screenreader ignores the image completely
+    The screen reader ignores the image completely
 
 screenreader:
   role:  |
@@ -29,7 +29,7 @@ gherkin-mobile:
 wcag:
   - name: Perceivable
     list:
-      - criteria: All non-text content that is purely for decoration or which repeats existing on-screen text nearby should be ignored and skipped over by screenreaders.
+      - criteria: All non-text content that is purely for decoration or which repeats existing on-screen text nearby should be ignored and skipped over by screen readers.
 ---
 
 ## Decorative images
@@ -50,8 +50,8 @@ If your image contains text inside it, it should not! This is a violation of [WC
 ## Reinforce decorative images with aria-hidden
 
 - Use `aria-hidden="true"` as a backup and reinforcement to `alt`:
-  - Backup: **developers often mistakenly omit the alt attribute entirely**, meaning that some screenreaders will read the entire filename without an alt attribute. Including `aria-hidden="true"` will act as a backup.
-  - Reinforcement: using `aria-hidden="true"` ensures that screenreaders ignores the image. Screenreaders have been observed reading an image role even when the alt attribute is empty.
+  - Backup: **developers often mistakenly omit the alt attribute entirely**, meaning that some screen readers will read the entire filename without an alt attribute. Including `aria-hidden="true"` will act as a backup.
+  - Reinforcement: using `aria-hidden="true"` ensures that screen readers ignores the image. Screenreaders have been observed reading an image role even when the alt attribute is empty.
 
 <example>
 {% include /examples/image-decorative.html %}
