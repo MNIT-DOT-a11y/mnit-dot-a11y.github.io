@@ -74,12 +74,12 @@ The icons are considered decorative in this example as they are used as "eye can
 - **HTML Attributes:** Inspect the HTML code for elements with roles like `alert` or classes associated with notifications (e.g., `alert`, `notification`).
 
 ### Dialog (Modals)
+A dialog modal prevents interaction with page content until the user completes an action or dismisses the modal. This intentionally interrupts the user’s workflow.
 {::nomarkdown}
 <example>
 {% include /examples/modal-dialog.html %}
 </example>
 {:/}
-A dialog modal prevents interaction with page content until the user completes an action or dismisses the modal. This intentionally interrupts the user’s workflow.
 
 **Identification:**
 - **Visual Inspection:** Look for pop-up windows or overlays that appear on top of the current page content, often requiring interaction before returning to the main page.
@@ -87,6 +87,11 @@ A dialog modal prevents interaction with page content until the user completes a
 
 ### Progress Bar
 A progress bar can show users how far along they are in a process.
+{::nomarkdown}
+<example>
+{% include /examples/progress-bar.html %}
+</example>
+{:/}
 
 **Identification:**
 - **Visual Inspection:** Look for a visual indicator showing the progression of a task.
