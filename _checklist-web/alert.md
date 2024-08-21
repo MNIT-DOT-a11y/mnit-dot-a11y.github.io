@@ -14,7 +14,7 @@ mobile:
   swipe: |
     Focus does not move to the alert when it appears, but it can be browsed by the screen reader
 
-screenreader:  
+screen reader:  
   name:  |
     The alert is read when it appears (BUT focus DOES NOT transfer automatically when the alert appears)
   role:  |
