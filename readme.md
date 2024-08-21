@@ -1,6 +1,6 @@
-# About MagentaA11y
+# About MNIT DOT A11y Test Guidance
 
-MNIT DOT A11y was developed to simplify the process of accessibility testing. 
+The MNIT DOT A11y website was developed to simplify the process of accessibility testing. it is based exclusively off of the work done at TMobile for [MagentaA11y](https://magentaa11y.com/).
 
 We wanted to build an intuitive way for product teams to define "done" in a way that ensures accessible experiences work for everyone.
 
@@ -11,7 +11,7 @@ It uses Jekyll with a custom theme as a CMS and relies on markdown for entry cre
 - This is not a comprehensive list of all of the WCAG success criteria or techniques required to become WCAG compliant and should not be used as such.
 - Adherence to this list also does not guarantee that a digital asset will be free from accessibility issues or complaints.
 
-## Using MagentaA11y
+## Using MNIT DOT A11y
 
 Product owners, designers, developers or testers can use the checklist builder to collect testing instructions for web or native app components.
 
