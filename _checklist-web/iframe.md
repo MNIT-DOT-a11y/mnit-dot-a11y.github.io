@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "iframe"
+title:  "Iframe"
 description: "How to code and test an accessible iframe for Web"
 categories: main form
 

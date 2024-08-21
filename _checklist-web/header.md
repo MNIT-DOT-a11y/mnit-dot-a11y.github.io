@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Header landmark"
+title:  "Header Landmark"
 categories: header html
 description: "How to code and test an accessible header for websites"
 order: 2
@@ -21,7 +21,7 @@ mobile:
 
 screenreader:
   role:  |
-    It is discoverable with screenreader shortcuts as header/banner landmark
+    It is discoverable with screen reader shortcuts as header/banner landmark
   group: |
     It typically contains the name and primary navigation of the website
 

@@ -86,7 +86,7 @@ wcag:
 
 ### Custom listbox with autocomplete
 
-Custom listboxes are notoriously difficult to build in an accessible fashion for screenreaders.
+Custom listboxes are notoriously difficult to build in an accessible fashion for screen readers.
 
 - [WAI-ARIA examples](https://w3c.github.io/aria-practices/examples/combobox/combobox-autocomplete-list.html)
 

@@ -31,7 +31,7 @@ gherkin-mobile:
 
 ## Developer notes
 
-- Do not use `aria-label` to add context. Some screenreaders will not read `aria-label` from non-interactive components.
+- Do not use `aria-label` to add context. Some screen readers will not read `aria-label` from non-interactive components.
 
 ## Code examples
 

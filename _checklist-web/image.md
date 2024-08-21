@@ -10,7 +10,7 @@ keyboard:
 
 mobile:
   swipe: |
-    The screenreader reads the alt text (ignored if decorative)
+    The screen reader reads the alt text (ignored if decorative)
 
 screenreader:
   name:  |
@@ -51,7 +51,7 @@ If you were describing the image to someone via phone conversation and they coul
 
 ### Inline SVG that conveys meaning
 
-Inline SVGs require some special code to be read consistently in all screenreaders:
+Inline SVGs require some special code to be read consistently in all screen readers:
 - Name: either `aria-label` or `<title />`
 - Role: `role="img"`
 

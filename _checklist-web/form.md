@@ -19,9 +19,9 @@ screenreader:
   name:  |
     If multiple forms are present (Ex: Search, Sign in, Newsletter subscription), the form must have a name
   role:  |
-    It is discoverable with screenreader shortcuts as a form landmark along with its name
+    It is discoverable with screen reader shortcuts as a form landmark along with its name
   mode:  |
-    the screenreader switch from browse shortcuts to forms shortcuts
+    the screen reader switch from browse shortcuts to forms shortcuts
 
 gherkin-keyboard: 
   - when:  |
@@ -150,7 +150,7 @@ Form field width should afford the user space to enter the characters that will 
 
 ### Output from inputs
 
-- Screenreader support varies
+- Screen reader support varies
 - `output` can be used for a dynamic content that changes based on user inputs (example: a calculator).
 - Alternatively, using a custom element with role="status" will achieve more predictable results
 

@@ -109,7 +109,7 @@ wcag:
 
 ### Required radio inputs
 
-Ensuring all screenreaders indicate radio inputs as being required requires some aria and reinforcement.
+Ensuring all screen readers indicate radio inputs as being required requires some aria and reinforcement.
 
 - Use `aria-required="true"` to indicate the group is required
 - Use `aria-invalid="true/false"` to indicate an error state

@@ -1,7 +1,7 @@
 ---
 layout: entry
-title:  "Pagination nav"
-description: "How to code and test an accessible pagination nav for Web"
+title:  "Pagination Navigation"
+description: "How to code and test an accessible pagination navigation for Web"
 categories: main nav
 order: 0
 
@@ -19,7 +19,7 @@ screenreader:
   name:  |
     The pagination nav has a logical name ("pagination")
   role:  |
-    The nav landmark is discoverable with screenreader shortcuts
+    The nav landmark is discoverable with screen reader shortcuts
 
 gherkin-keyboard: 
   - when:  |

@@ -12,7 +12,7 @@ keyboard:
   
 mobile:
   swipe: |
-    The screenreader reads the list content
+    The screen reader reads the list content
 
 screenreader:
   role:  |

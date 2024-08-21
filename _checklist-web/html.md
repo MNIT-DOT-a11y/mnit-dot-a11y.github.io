@@ -23,7 +23,7 @@ screenreader:
   name:  |
     The page has a unique logical title in the browser tab
   role:  |
-    Major landmarks are discoverable with screenreader shortcuts: header/banner, navigation, main and footer/content info landmarks
+    Major landmarks are discoverable with screen reader shortcuts: header/banner, navigation, main and footer/content info landmarks
 
 gherkin-keyboard: 
   - when:  |
@@ -53,7 +53,7 @@ Use [HTML validation](https://validator.w3.org/nu/) as the foundation for ensuri
 
 ### Declare a language
 
-This affects the screenreader pronunciation.
+This affects the screen reader pronunciation.
 
 {% highlight html %}
 <html lang="en">
@@ -86,7 +86,7 @@ People with low vision need the ability to enlarge the page on mobile and deskto
 
 ### Structure your page with landmarks
 
-Landmarks give structure to the page for the screenreader user to be able to navigate the page by major sections.
+Landmarks give structure to the page for the screen reader user to be able to navigate the page by major sections.
 
 Each page must include:
 
