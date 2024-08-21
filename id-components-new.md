@@ -43,12 +43,7 @@ A table shows information in columns and rows.
 - **HTML Attributes:** Inspect the HTML code for the `<table>` element. Within the table, look for `<tr>` for rows and `<td>` or `<th>` for cells and headers.
 
 ## Images
-
-Image basic types are:
-- **Decorative image** – can be in the form of solid lines or borders or iocns used as “eye candy” that don’t add information to the content of a page.
-- **Image** – can be in the form of pictures or graphics.
-- **Icons** - small graphical elements often used as buttons or to represent actions (e.g., a trash can for a delete action)
-- **CAPTCHAs** – images used for a CAPTCHA test to determine if an online user is human or a bot.
+Images must have text alternatives that describe the information or function represented by them.
 
 {::nomarkdown}
 <example>
@@ -64,25 +59,28 @@ The icons are considered decorative in this example as they are used as "eye can
 ## Information and Status
 
 ### Alerts and Notifications
-{::nomarkdown}
+An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task. There are two different types of alerts:
+ - **System status messages.** An alert may be a notification that informs people of the system's status and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.
+ - **Validation messages.** An alert may be a validation message informing a user that they just took an action that needs correcting or confirming that a task was completed successfully. 
+
+ {::nomarkdown}
 <example>
 {% include /examples/alert-notification.html %}
 </example>
 {:/}
- An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task. There are two different types of alerts:
- - **System status messages.** An alert may be a notification that informs people of the system's status and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.
- - **Validation messages.** An alert may be a validation message informing a user that they just took an action that needs correcting or confirming that a task was completed successfully. 
 
 **Identification:**
 - **Visual Inspection:** Look for messages or alerts on the page, often styled distinctively to draw attention (e.g., success, error, warning messages)
 - **HTML Attributes:** Inspect the HTML code for elements with roles like `alert` or classes associated with notifications (e.g., `alert`, `notification`).
 
 ### Dialog (Modals)
+A dialog modal prevents interaction with page content until the user completes an action or dismisses the modal. This intentionally interrupts the user’s workflow.
+
 {::nomarkdown}
 <example>
 {% include /examples/modal-dialog.html %}
 </example>
-A dialog modal prevents interaction with page content until the user completes an action or dismisses the modal. This intentionally interrupts the user’s workflow.
+{:/}
 
 **Identification:**
 - **Visual Inspection:** Look for pop-up windows or overlays that appear on top of the current page content, often requiring interaction before returning to the main page.
@@ -155,12 +153,19 @@ A date picker helps users select a date from a display calendar or date selector
 ### Buttons
 A button is a widget that enables users to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation. 
 
+{::nomarkdown}
+<example>
+{% include /examples/button.html %}
+</example>
+{:/}
+
 **Identification:**
 - **Visual Inspection:** Look for clickable elements that are usually designed and often styled as colored squares or rectangular shapes with rounded corners and call-to-action text inserted.
 - **HTML Attributes:** Inspect the HTML code for the `<button>` element or `<input>` elements with `type="button"`, `type="submit"`, or `type="reset"`.
 
 ### Links
 A link points to another location. When you select a link, the link will take you to a webpage, document or other online content.
+
 
 **Identification:**
 - **Visual Inspection:** Look for clickable elements that are usually designed and often styled as colored squares or rectangular shapes with rounded corners and call-to-action text inserted.
@@ -169,6 +174,12 @@ A link points to another location. When you select a link, the link will take yo
 ### Toggle Switches (on/off button)
 A switch is an input widget that allows users to choose one of two values: on or off.
 
+{::nomarkdown}
+<example>
+{% include /examples/input-switch.html %}
+</example>
+{:/}
+
 **Identification:**
 - **Visual Inspection:** Look for button or slider elements that allow you to turn something on or off.
 - **HTML Attributes:** Inspect the HTML code for the role `switch`.
@@ -176,6 +187,12 @@ A switch is an input widget that allows users to choose one of two values: on or
 ## Page Structure
 ### Accordions
 An accordion is a vertically stacked list of interactive headings that hide or reveal additional content when selected. The headings function as controls that enable users to reveal or hide their associated content sections.
+
+{::nomarkdown}
+<example>
+{% include /examples/expander.html %}
+</example>
+{:/}
 
 **Identification:**
 - **Visual Inspection:** Look for a vertically stacked list of interactive headings that hide or reveal additional content.
@@ -198,6 +215,12 @@ Landmarks are sections of a webpage that are used to identify the organization a
 ### Navigation
 Navigation is a collection of organized links that allows users to find information by enabling them to move to various sections and subsections of a website.
 
+{::nomarkdown}
+<example>
+{% include /examples/nav-menu.html %}
+</example>
+{:/}
+
 **Identification:**
 - **Visual Inspection:** Look for lists or bars with multiple links or buttons, usually found at the top or side of the page.
 - **HTML Attributes:** Inspect the HTML code for `<nav>` or `<ul>` elements with navigation-related classes.
@@ -211,6 +234,12 @@ The page title is the title of a webpage that appears at the top of the browser 
 
 ### Pagination
 Pagination is used whenever content needs to be divided into separate pages. It is a simple way to make large amounts of content more manageable and user-friendly.
+
+{::nomarkdown}
+<example>
+{% include /examples/nav-pagination.html %}
+</example>
+{:/}
 
 **Identification:**
 - **Visual Inspection:** Look for navigation elements at the bottom or top of a content list. These elements often show page numbers and “Next” or “Previous” buttons.
