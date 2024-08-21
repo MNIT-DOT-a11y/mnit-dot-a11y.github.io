@@ -89,12 +89,6 @@ A dialog modal prevents interaction with page content until the user completes a
 ### Progress Bar
 A progress bar can show users how far along they are in a process.
 
-{::nomarkdown}
-<example>
-{% include /examples/progress-bar.html %}
-</example>
-{:/}
-
 **Identification:**
 - **Visual Inspection:** Look for a visual indicator showing the progression of a task.
 - **HTML Attributes:** Inspect the HTML code for the `progress` element.
