@@ -722,25 +722,14 @@ document.addEventListener("DOMContentLoaded", function() {
     links.forEach(function(link) {
       if (link.hostname !== window.location.hostname) {
         link.classList.add("external-link");
-  
-        // Create a wrapper div for the external link
-        const wrapperDiv = document.createElement("div");
+  const wrapperDiv = document.createElement("div");
         wrapperDiv.classList.add("external-link-wrapper");
-  
-        // Insert the wrapper div before the link
-        link.parentNode.insertBefore(wrapperDiv, link);
-  
-        // Move the link inside the wrapper div
-        wrapperDiv.appendChild(link);
-  
-        // Add screen reader-only text
-        const srText = document.createElement("span");
+          link.parentNode.insertBefore(wrapperDiv, link);
+          wrapperDiv.appendChild(link);
+      const srText = document.createElement("span");
         srText.classList.add("sr-only");
         srText.textContent = " (External Link)";
         link.appendChild(srText);
-  
-        // Optionally, open external links in a new tab
-        
-    });
-  });
-  
+      }
+});
+});
