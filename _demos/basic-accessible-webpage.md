@@ -1,6 +1,6 @@
 ---
 layout: basic-accessible-demo
-title:  Basic web page demo
+title:  Basic Web Page Demo
 description: This basic web page demonstrates page structure, images, forms and interactive elements.
 ---
 

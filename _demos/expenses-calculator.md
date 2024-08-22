@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Expenses calculator
+title: Expenses Calculator
 ---
 
 

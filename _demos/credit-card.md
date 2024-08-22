@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Credit card
+title: Credit Card
 ---
 
 
