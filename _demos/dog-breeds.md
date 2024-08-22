@@ -1,6 +1,6 @@
 ---
 layout: full-width
-title:  "Popular dog breeds by category"
+title:  "Popular Dog Breeds by Category"
 ---
 
 # Popular dog breeds by category

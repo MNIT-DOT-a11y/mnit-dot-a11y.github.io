@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Carousel slideshow
+title: Carousel Slideshow
 ---
 
 {::nomarkdown}
