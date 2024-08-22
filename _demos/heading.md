@@ -5,34 +5,16 @@ title:  "Heading: h1, h2, h3"
 
 ## About headings
 
-Headings must be logically ordered starting with a single `<h1>`. On this page, the title is the `<h1>`.
+Headings give the page structure and meaning to the screen reader user and search engines.
 
-## How headings are used
+Headings are ranked `<h1>` through `<h6>`
 
-There are common 3 ways screenreaders interact with headings.
+`<h1>` represents the most important idea on the page, and sub-sections are organized with `<h2>` level headings. Those sub-sections can be divided with `<h3>` level headings, and so on.
 
-### Browse mode
+All pages should at least have a `<h1>` level heading giving the page title. On this page Heading: h1, h2, h3 is the `<h1>`
 
-Screenreaders can simply read the entire page item by item.
+Heading levels should not be skipped to be more specific (for example, do not skip from <h2> to <h5>). It is permissible to skip headings in the other direction if the outline of the page calls for it (for example, from <h5> to <h2>).
 
-### Shortcuts / quick keys
+## How screen readers use headings
 
-Screenreaders can skip from heading to heading
-
-### Rotor / list
-
-Screenreaders can gather all headings into a single list to choose from.
-
-## Headings must be in logical order
-
-Starting with a singular unique `<h1>`, the outline of the page must be apparent from just the headings.
-
-Use `<h2>` as a heading for major sections.
-
-Subsections should be an `<h3>`.
-
-(It should be rare that `<h4>` or `<h5>` will be used.)
-
-## Why headings matter
-
-Headings give the page structure and meaning to both the screen reader user and for search engines like Google.
+Screen reader users can navigate a page according to its headings, listen to a list of all headings, and skip to a desired heading to begin reading at that point.
