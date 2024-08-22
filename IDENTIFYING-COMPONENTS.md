@@ -262,7 +262,7 @@ A table shows information in columns and rows.
 
 <div role="table" aria-label="Students" aria-describedby="students_table_desc">
   <div id="students_table_desc">Students currently enrolled in WAI-ARIA 101 for the coming semester</div>
-  <div role="rowgroup>
+  <div role="rowgroup">
     <div role="row">
       <span role="columnheader">First Name</span>
       <span role="columnheader">Last Name</span>
