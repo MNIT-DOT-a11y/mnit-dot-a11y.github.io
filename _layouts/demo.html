@@ -9,7 +9,14 @@ layout: default
   </div>
 </div>
 <ul class="container">
-  <!-- <li><a class="" href="{{ site.baseurl }}/checklist-web/{{ page.slug }}/">{{ page.title | escape }} success criteria</a></li> -->
-  <li><a class="" href="#content">Back to top of page</a></li>
+{% assign checklist_page = site.checklist-web | where: "slug", page.slug | first %}
+{% if checklist_page %}
+  <li><a class="" href="/checklist-web/{{ page.slug }}">How to test {{ page.title | downcase | escape }} on the web</a></li>
+{% endif %}
+{% assign checklist_page = site.checklist-native | where: "slug", page.slug | first %}
+{% if checklist_page %}
+  <li><a class="" href="/checklist-native/{{ page.slug }}">How to test {{ page.title | downcase | escape }} on native mobile</a></li>
+{% endif %}
+    <li><a class="" href="#content">Back to top of page</a></li>
 </ul>
 
