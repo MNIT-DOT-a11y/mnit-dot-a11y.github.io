@@ -262,7 +262,7 @@ A table shows information in columns and rows.
 
 {::nomarkdown}
 <example>
-{% include /examples/table-comparion.html %}
+{% include /examples/table-comparison.html %}
 </example>
 {:/}
 
