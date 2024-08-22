@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Loading spinner
+title: Loading Spinner
 ---
 
 ## Full takeover spinner

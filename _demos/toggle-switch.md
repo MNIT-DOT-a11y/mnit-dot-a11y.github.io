@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "Toggle switch"
+title:  "Toggle Switch"
 ---
 
 ## Good examples

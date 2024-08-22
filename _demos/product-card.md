@@ -1,6 +1,6 @@
 ---
 layout: full-width
-title:  "Product card"
+title:  "Product Card"
 ---
 {::nomarkdown}
 {% include /examples/product.html %}

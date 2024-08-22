@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "Password input"
+title:  "Password Input"
 ---
 
 {::nomarkdown}

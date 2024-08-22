@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "Pagination nav"
+title:  "Pagination Navigation"
 ---
 
 Pagination will identify itself as a navigation and indicate the current page on focus.

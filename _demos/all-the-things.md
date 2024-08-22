@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "All the things"
+title:  "All the Things"
 ---
 
 ## Alert

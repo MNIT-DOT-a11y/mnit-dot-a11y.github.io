@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Star rating input
+title: Star Rating Input
 ---
 ### Star rating input
 

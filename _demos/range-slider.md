@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Range slider
+title: Range Slider
 
 ---
 

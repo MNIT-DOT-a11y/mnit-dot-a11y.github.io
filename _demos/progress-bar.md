@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "Progress bar"
+title:  "Progress Bar"
 ---
 
 {::nomarkdown}

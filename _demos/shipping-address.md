@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Shipping address
+title: Shipping Address
 ---
 
 {::nomarkdown}
