@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "Toast snackbar"
+title:  "Toast Snackbar"
 ---
 
 Do not use these. They're an unnecessary menace.

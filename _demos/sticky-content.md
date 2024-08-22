@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "Sticky content"
+title:  "Sticky Content"
 ---
 
 

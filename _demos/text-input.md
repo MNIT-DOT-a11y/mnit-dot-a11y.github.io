@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "Text input"
+title:  "Text Input"
 ---
 
 

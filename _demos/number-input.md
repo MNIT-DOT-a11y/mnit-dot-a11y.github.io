@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "Number input"
+title:  "Number Input"
 ---
 
 {::nomarkdown}

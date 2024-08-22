@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Radio filter
+title: Radio Filter
 ---
 
 Alternative to tabs or custom listbox menu

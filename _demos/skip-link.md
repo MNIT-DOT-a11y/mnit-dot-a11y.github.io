@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Skip link
+title: Skip Link
 ---
 {::nomarkdown}
 <example>
