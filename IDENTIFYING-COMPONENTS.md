@@ -175,7 +175,7 @@ A form allows users to enter information into a page.
 
 {::nomarkdown}
 <example>
-{% include /examples/form-contactshipping.html %}
+{% include /examples/form-contact.html %}
 </example>
 {:/}
 
