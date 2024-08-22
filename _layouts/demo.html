@@ -20,7 +20,8 @@ layout: default
 {% endif %}
 {% if has_links %}
   <h2 class="h-bravo">How to test</h2>
-  <ul class="container">
+  <div class="container">
+    <ul>
     {% if checklist_page_web %}
       <li><a class="" href="/checklist-web/{{ page.slug }}">How to test {{ page.title | downcase | escape }} on the web</a></li>
     {% endif %}
@@ -28,8 +29,9 @@ layout: default
       <li><a class="" href="/checklist-native/{{ page.slug }}">How to test {{ page.title | downcase | escape }} on native mobile</a></li>
     {% endif %}
   </ul>
+  <hr/>
+    </div>
   {% endif %}
-<hr/>
-<ul class="container">
-  <li><a class="" href="#content">Back to top of page</a></li>
-</ul>
+<div class="container">
+  <a class="" href="#content">Back to top of page</a>
+</div>
