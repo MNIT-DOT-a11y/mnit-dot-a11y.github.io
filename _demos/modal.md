@@ -1,6 +1,6 @@
 ---
 layout: demo
-title:  "Modal Dialog"
+title:  Modal
 ---
 
 {::nomarkdown}
