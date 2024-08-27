@@ -171,12 +171,12 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
     <tr>
       <td>
   <img 
-  src="/assets/images/examples/how-to-test-dnr-logo.png" 
+  src="/assets/images/examples/how-to-images-dnr-logo.png" 
   alt="Minnesota Department of Transportation"/>
       </td>   
       <td>
   <img 
-  src="/assets/images/examples/how-to-test-example-iphone.png" 
+  src="/assets/images/examples/how-to-images-dnr-logo.png" 
   alt="DOT-logo-RGB-Reverse.png"/>
       </td>
     </tr>  
