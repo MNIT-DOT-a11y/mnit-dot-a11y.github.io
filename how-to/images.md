@@ -6,31 +6,38 @@ permalink: /how-to-test/images/
 
 ## <step-number>1</step-number> Types of images
 {: .divider }
-There are many types of images. The type of image can be determined by the context of the page being tested. These different types of images have different testing steps.
+Images must have text alternatives or alt text that describe the information or function they represent. This tutorial demonstrates how to check for the appropriate alt text based on the image's purpose.
 
-- **Informative Images:** These are visuals like pictures, photos, and illustrations that convey important information or concepts. To make them accessible, we need to include a brief description in text form that captures the key content of the image.
+- **Informative Images:** Images, typically pictures, photos, and illustrations, convey important information or concepts. The alt text should be a short description that conveys the essential information the image presents. It can be a sentence or two, including prior punctuation. The alt text should not describe the image itself but the purpose it serves on the page.
 
-- **Decorative Images:** Sometimes, images are used purely for aesthetic purposes and don't convey meaningful information. In such cases, it's best to provide an empty text alternative (alt="") to indicate that the image serves a decorative role and doesn't require a description.
+- **Decorative Images:** These visuals are used purely for aesthetic purposes or “eye candy” and don’t convey meaningful information. Provide a null text alternative (alt="") when the only purpose of an image is to add visual decoration to the page to indicate that the image serves a decorative role and doesn’t require a description.
 
-- **Functional Images:** Images that serve as links or buttons should have text alternatives that describe their function rather than just their appearance. For example, if you have an image of a printer icon that initiates a printing action, the alt text should convey this functionality, like "Print."
+- **Functional Images:** Images that serve as links or buttons should have text alternatives that describe their function rather than just their appearance. For example, if you have an image of a printer icon that initiates a printing action, the alt text should convey this functionality, like “Print.”
 
-- **Images of Text:** Images of text should be avoided whenever possible. In fact, some images of text can violate [WCAG 1.4.5 Images of Text](https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html). However, if you must use images with text, ensure that the alt text contains the exact same words as the text within the image to maintain consistency.
+- **Images of Text:** Readable text is sometimes presented within an image. If the image is not a logo, avoid text in images. In fact, some images of text can violate [WCAG 1.4.5 Images of Text](https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html). However, if images of text are used, the text alternative should contain the exact words as in the image.
 
-- **Complex Images such as Graphs and Diagrams:** When using images to present complex data or detailed information, it's crucial to provide a comprehensive text description that conveys all the data and details found in the image. This allows individuals who cannot see the image to still access and understand its content.
+- **Complex Images such as Graphs and Diagrams:** When using images to present complex data or detailed information, it’s crucial to provide a comprehensive text description that conveys all the data and details in the image. This allows individuals who cannot see the image to understand its content.
+
+- **Groups of images:** If multiple images convey a single piece of information, the text alternative for one image should convey the information for the entire group.
+
+- **Image maps:** The text alternative for an image that contains multiple clickable areas should provide an overall context for the set of links. Also, each individually clickable area should have alternative text describing the link's purpose or destination.
+
+For a quick overview of which category a particular image fits into, see the [alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/). The author must determine the text alternative depending on an image's usage, context, and content. For example, a bird's exact type and look in an image might be less relevant and described only briefly on a website about parks. Still, they may be appropriate on a website specifically about birds.
+
 
 
 ## <step-number>2</step-number> How to test
 ### Automated Testing
 {: .divider }
 
-Automated scanning tools, such as [WAVE](https://wave.webaim.org/), [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/), or [Deque's Axe DevTools](https://www.deque.com/blog/axe-devtools-extension-update-new-color-contrast-analyzer/) are a great starting point for image testing. All of these tools can run page scans that quickly generate reports identifying some image issues. Scans are:
+Perform a page scan using Deque's axe DevTools for image testing. The axe DevTools will help you identify simple issues like missing alt attributes on images or empty alt attributes on functional images. 
 
-- <strong>Good</strong> at identifying simple issues like missing <code>alt</code> attributes on images or empty alt attributes on functional images.
-- <strong>Bad</strong> at identifying issues related to alternative text quality or whether or not an image should be marked as decorative and hidden from screen readers.
+**Note:** The scan will not help you identify issues related to alternative text quality or whether an image should be marked as decorative and hidden from screen readers. You will need to work with the subject matter expert on the project.
+
 
 ### Manual testing
 {: .divider }
-Automated scanning must be complemented with a manual review of the page. Manual image testing can test for alt text quality, ensuring that decorative images are hidden from assistive technology, all text found in images of text are present in alt text, and that functional images have the appropriate alt text.
+A manual image test of each image must be performed to verify alt text quality. This ensures that decorative images are hidden from assistive technology, all text found in images of text is present in the alt text, and functional images have the appropriate alt text.
 
 #### <strong>Getting started</strong>
 - Open Chrome DevTools in your browser window (<span class="keyboard-key">F12</span>)
@@ -47,13 +54,13 @@ Automated scanning must be complemented with a manual review of the page. Manual
 <example>
   <img
     src="/assets/images/examples/how-to-images-meaningful-1.png"
-    alt="Inspecting an image in DevTools to check alt text, meaningful image">
+    alt="cars at intersection">...
 </example>
 {:/}
 
 ### IMG
 {% highlight html %}
-<img alt="A rear view of the iPhone 15 Pro in silver, along with a front view of the iPhone 15 Pro Max in silver." src="../iphone.png" ... >
+<img alt="cars at intersection" >
 {% endhighlight %}
 
 
@@ -114,12 +121,12 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 <example>
   <img
     src="/assets/images/examples/how-to-test-images-text.png"
-    alt="Inspecting an image in DevTools to check alt text, image of text example">
+    alt="screen shot showing DOT homepage with Developer tool Element tab active">
 </example>
 {:/}
 
 {% highlight html %}
-<img src="apple-iphone-15-pro.png" alt="Titanium Apple iPhone 15 Pro">
+<img src="https://www.dot.state.mn.us/images/16template/templat/DOT-Logo-RGB-Reverse.png" alt="Minnesota Department of Transportation">
 {% endhighlight %}
 
 ## <step-number>5</step-number> Complex Images
@@ -134,28 +141,14 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 <example>
   <img
     src="/assets/images/examples/how-to-test-images-complex-data.png"
-    alt="Complex chart with nearby HTML table for text alternative">
+    alt="Screenshot of a map with Developer Tool Inspect Elements tab open">
 </example>
 {:/}
 
 {% highlight html %}
   <img
     src="/assets/images/examples/how-to-test-images-complex-data.png"
-    alt="Complex chart with nearby HTML table for text alternative">
-
-    <table>
-      <caption>NASDAQ: TMUS</caption>
-      <tr>
-        <th>Date</th>
-        <th>Price</th>
-        <!-- ... -->
-      </tr>
-      <tr>
-        <td>January 10</td>
-        <td>122.20</td>
-        <!-- ... -->
-      </tr>
-    </table>
+    alt="Active and accessibility project map. See listlink in text for details.">
 {% endhighlight %}
 
 
@@ -164,7 +157,7 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 
 <div class="how-to-test-checklist-item">
   <h3>✓ Ensure meaningful images have alt text</h3>
-  <p><strong>Note:</strong> The passing example has alt text that matches the text found in the image. The failing example uses the filename for the <code>alt</code> attribute value. Screen readers will announce the filename <code>234@@4-JWKK##KK4442221-11-phone-apple-prod.png</code> which will create a confusing experience.</p>
+  <p><strong>Note:</strong> The passing example has alt text that matches the text found in the image. The failing example uses the filename for the <code>alt</code> attribute value. Screen readers will announce the filename <code>DOT-logo-RGB-Reverse.png</code> which will create a confusing experience.</p>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -178,13 +171,13 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
     <tr>
       <td>
   <img 
-  src="/assets/images/examples/how-to-test-example-iphone.png" 
-  alt="Titanium Apple iPhone 15 Pro"/>
+  src="/assets/images/examples/how-to-test-dnr-logo.png" 
+  alt="Minnesota Department of Transportation"/>
       </td>   
       <td>
   <img 
   src="/assets/images/examples/how-to-test-example-iphone.png" 
-  alt="234@@4-JWKK##KK4442221-11-phone-apple-prod.png"/>
+  alt="DOT-logo-RGB-Reverse.png"/>
       </td>
     </tr>  
     </tbody>
@@ -207,21 +200,19 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
     <tr>
       <td>
         <div style="text-align: center;">
-          <a href="#">
             <img 
-    src="/assets/images/how-to-test-images-decorative-example.jpg" 
+    src="/assets/images/examples/how-to-test-images-decorative-example.png" 
     alt="" style="max-width: 200px; margin: 0 auto;" />
-            <span style="display: block;">Home Internet</span>
+            <span style="display: block;">Two Trees</span>
           </a>
         </div>
       </td>   
       <td>
       <div style="text-align: center;">
-        <a href="#">
           <img 
-  src="/assets/images/how-to-test-images-decorative-example.jpg" 
-  alt="Home internet. Picture of a magenta colored gateway device inside of an open box, icon" style="max-width: 200px; margin: 0 auto;" />
-          <span style="display: block;">Home Internet</span>
+  src="/assets/images/examples/how-to-test-images-decorative-example.png" 
+  alt="icons of two trees with river between them" style="max-width: 200px; margin: 0 auto;" />
+          <span style="display: block;">Two Trees</span>
         </a>
       </div>
       </td>
@@ -267,11 +258,11 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 </div>
 
 ## Related WCAG
-- 1.1.1 Non-text Content
-- 1.4.5 Images of Text
-- 2.4.4 Link Purpose
-- 2.5.3 Label in Name
-- 4.1.2 Name, Role, Value
+- [1.1.1 Non-text Content](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html)
+- [1.4.5 Images of Text](https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html)
+- [2.4.4 Link Purpose](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html)
+- [2.5.3 Label in Name](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#label-in-name)
+- [4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#name-role-value)
 
 ## Resources
 - [W3C Images Tutorial](https://www.w3.org/WAI/tutorials/images/)
