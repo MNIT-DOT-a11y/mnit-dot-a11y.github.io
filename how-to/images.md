@@ -204,7 +204,6 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
     src="/assets/images/examples/how-to-test-images-decorative-example.png" 
     alt="" style="max-width: 200px; margin: 0 auto;" />
             <span style="display: block;">Two Trees</span>
-          </a>
         </div>
       </td>   
       <td>
@@ -213,7 +212,6 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
   src="/assets/images/examples/how-to-test-images-decorative-example.png" 
   alt="icons of two trees with river between them" style="max-width: 200px; margin: 0 auto;" />
           <span style="display: block;">Two Trees</span>
-        </a>
       </div>
       </td>
     </tr>  
