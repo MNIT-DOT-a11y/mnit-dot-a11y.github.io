@@ -4,25 +4,26 @@ title: Forms
 permalink: /how-to-test/form/
 ---
 
-There are several types of HTML form fields and ensuring each type is accessible is crucial to enabling all users to fully engage with a site.
+There are several types of HTML form fields, and ensuring each type is accessible is crucial. It's about providing an equal and respectful user experience for all, regardless of their abilities.
+## <step-number>1</step-number> How to test
 
-## <step-number>1</step-number> Input Fields
+## Input Fields
 {: .divider }
-Input fields allow users to provide information such as text, numbers and passwords. Keyboard and screen reader users should be able focus on each input field with their tab key, enter the relevant information, and tab away. 
+Input fields, such as text, numbers, and passwords, are designed to be user-friendly. Keyboard and screen reader users can easily focus on each input field with their tab key, enter the relevant information, and tab away, just like any other user.
 <example>
 {% include /examples/input-text.html %}
 </example>
 
-## <step-number>2</step-number> Checkboxes
+## Checkboxes
 {: .divider }
-Checkboxes allow users to select one or more options from a list. Keyboard and screen reader users should be able to focus on each checkbox field with their tab key and use the enter or space keys to select or unselect the item. 
+Checkboxes allow users to select one or more options from a list. Keyboard and screen reader users should be able to focus on each checkbox field with their tab key and use the enter or space keys to select or unselect the item.
 <example>
 {% include /examples/input-checkbox.html %}
 </example>
 
-## <step-number>3</step-number> Radio Buttons
+## Radio Buttons
 {: .divider }
-Radio buttons allow users to select a single option from a list. Only one radio button in a group should be be selectable at a time. Keyboard and screen reader users should be able to focus on the group of radio buttons using the tab key. Arrow keys move focus between each radio option. Options can be automatically selected as they receive focus with the arrow keys, or they can be selected using the space key. Pressing tab navigates aways from the radio group. 
+Radio buttons allow users to select a single option from a list. Only one radio button in a group should be selectable at a time. Keyboard and screen reader users should be able to focus on the group of radio buttons using the tab key. Arrow keys move focus between each radio option. Options can be automatically selected as they receive focus with the arrow keys, or they can be selected using the space key. Pressing the tab navigates you away from the radio group.
 <example>
 <fieldset>
   <legend>
@@ -39,17 +40,17 @@ Radio buttons allow users to select a single option from a list. Only one radio 
 </fieldset>
 </example>
 
-## <step-number>4</step-number> Select Fields
+## Select Fields
 {: .divider }
-Select fields allow users to select one or more options from an expandable list of options. Keyboard and screen reader users should be able to focus on the select using their tab key. The space key expands the list of options, the arrow keys traverse the options, and the space or enter keys make a selection. Escape collapses the list. 
+Select fields allow users to select one or more options from an expandable list. Keyboard and screen reader users should be able to focus on the selection using their tab key. The space key expands the list of options, the arrow keys move you through the options, and the space or enter keys make the selection. The escape key collapses the list.
 <example>
 {% include /examples/input-select.html %}
 </example>
 
-## <step-number>5</step-number> What to test for
+## <step-number>2</step-number> What to test for
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure forms have persistent visible labels</h3>
+  <h3>Ensure forms have persistent visible labels</h3>
   <p><strong>Note:</strong> A <code>placeholder</code> does not count as a visually persistant label</p>
   <table class="column-2">
     <thead>
@@ -75,7 +76,7 @@ Select fields allow users to select one or more options from an expandable list 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure forms can receive keyboard focus and have focus indicators</h3>
+  <h3>Ensure forms can receive keyboard focus and have focus indicators</h3>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -101,7 +102,7 @@ Select fields allow users to select one or more options from an expandable list 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure forms meet color contrast requirements</h3>
+  <h3>Ensure forms meet color contrast requirements</h3>
     <p><strong>Note:</strong> Form field keyboard focus states and form field borders must meet WCAG's 3:1 color contrast ratio minimum</p>
   <table class="column-2">
     <thead>
@@ -128,7 +129,7 @@ Select fields allow users to select one or more options from an expandable list 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure interating with a form doesn't automatically or unexpectedly change context on the page without informing users</h3>
+  <h3>Ensure interating with a form doesn't automatically or unexpectedly change context on the page without informing users</h3>
   <p><strong>Note:</strong> Forms should have submit buttons so the change of context is initiated by the user.</p>
   <table class="column-2">
     <thead>
@@ -172,7 +173,7 @@ Select fields allow users to select one or more options from an expandable list 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure required and/or optional forms are clearly indicated and announced as such</h3>
+  <h3>Ensure required and/or optional forms are clearly indicated and announced as such</h3>
   <p><strong>Note:</strong> Use of * or "required" in the field label in addition to <code>aria-required="true"</code> or <code>required</code> attributes help communicate to screen reader users the required nature of the field.</p>
   <table class="column-2">
     <thead>
@@ -200,7 +201,7 @@ Select fields allow users to select one or more options from an expandable list 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure related form fields are announced as grouped together</h3>
+  <h3>Ensure related form fields are announced as grouped together</h3>
   <p><strong>Note:</strong> Valid use of <code>fieldset</code> is a good method for grouping form fields.</p>
   <table class="column-2">
     <thead>
@@ -252,7 +253,7 @@ Select fields allow users to select one or more options from an expandable list 
 
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure any associated instructions or helper text is announced when tabbing to a form</h3>
+  <h3>Ensure any associated instructions or helper text is announced when tabbing to a form</h3>
   <p><strong>Note:</strong> Use of <code>aria-describedby</code> programmatically associates nearby text with form fields.</p>
   <table class="column-2">
     <thead>
@@ -296,7 +297,7 @@ Select fields allow users to select one or more options from an expandable list 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure there is proper error handling for required fields</h3>
+  <h3>Ensure there is proper error handling for required fields</h3>
   <p><strong>Note:</strong> Error messages should be announced for screen reader users when the form field receives focus. Forms should also notify screen reader users if invalid content has been entered in a field.</p>
   <table class="column-2">
     <thead>
@@ -332,13 +333,15 @@ Select fields allow users to select one or more options from an expandable list 
 </div>
 
 ## Related WCAG
-- 1.3.1 Info and Relationships
-- 3.2.2 On Input
-- 3.3.1 Error Identification
-- 3.3.2 Labels or Instructions
-- 3.3.3 Error Suggestion
-- 3.3.4 Error Prevention
-- 4.1.2 Name, Role, Value
+- [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html)
+- [1.3.5 Indentify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html)
+- [3.2.2 On Input](https://www.w3.org/WAI/WCAG22/Understanding/on-input.html)
+- [2.4.6 Heading and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html)
+- [3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html)
+- [3.3.2 Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html)
+- [3.3.3 Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html)
+- [3.3.4 Error Prevention (Legal, Financial, Data)](https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html)
+- [4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html)
 
 ## Resources
 - [WebAIM: Creating Accessible Forms](https://webaim.org/techniques/forms/)
