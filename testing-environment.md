@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Identifying Components
+title: Setting Up Your Testing Environment
 permalink: /testing-environment/
 ---
-
-# Setting up accessibility testing tools
 
 As part of the digital accessibility testing workflow, you will use several tools to determine whether the website and web, native mobile, and desktop applications meet accessibility guidelines.
 
