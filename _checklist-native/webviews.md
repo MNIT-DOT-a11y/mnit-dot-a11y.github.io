@@ -21,7 +21,8 @@ mobile:
 screenreader: 
   focus:  |
       Initial focus should go to all elements in the navigation bars
-  navigation:  |Initial focus should be on the first interactive element in the navigation bars
+  navigation:  |
+      Initial focus should be on the first interactive element in the navigation bars
       Native and web view elements are all in the swipe order      
 
 settings:
