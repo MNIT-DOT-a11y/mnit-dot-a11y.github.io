@@ -4,7 +4,7 @@ title: Keyboard & focus
 permalink: /how-to-test/keyboard-focus/
 ---
 
-Manual testing is not difficult or time consuming once a team understands keyboard interactions.
+Manual testing is not difficult or time consuming once you understands keyboard interactions.
 
 ## <step-number>1</step-number> Test with the keyboard only
 {: .divider }
@@ -15,17 +15,17 @@ It is crucial to **test with only the keyboard first**, without the screen reade
 
 - Keyboard accessibility is **prerequisite** to screen reader accessibility. 
   - If it doesn't work with only the keyboard, it won't work with a screen reader.
-- screen reader applications will sometimes cover missing functionality that the sighted keyboard user won't be able to use.
 
 ### Devices
 
-- Test with a mobile device and a bluetooth keyboard
-- Test with a desktop device and a keyboard
+- Test with a desktop device and a keyboard.
+- Test with a mobile device and a bluetooth keyboard.
+
 
 ### Browsers
 
 - Any major browser (Chrome, Safari, Firefox) is acceptable for keyboard testing.
-- Note: In Safari, you'll have to activate tab in Preferences » Advanced » Press Tab
+- **Note:** In Safari, you'll have to activate tab in Preferences » Advanced » Press Tab
 
 ## <step-number>2</step-number> How to test
 {: .divider }
@@ -106,17 +106,17 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
 {: .divider }
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure all mouse functionality is present for keyboard</h3>
+  <h3>Ensure all mouse functionality is present for keyboard</h3>
   <p>Identify functionality within the experience that can be operated with a mouse or pointing device. Ensure this content can be accessed with they keyboard alone.</p>
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure there is a highly visible visual indication of keyboard focus</h3>
+  <h3>Ensure there is a highly visible visual indication of keyboard focus</h3>
   <p>Keyboard users need to understand where they are in the interface at all times. The visual indication of keyboard focus (focus ring) should be highly visible and have a color contrast ratio of 3:1 against the background. Verify that overlap items (e.g. cookie banners, sticky footers, sticky headers, and non-modal dialogs) do not obscure the visual indicator. </p>
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure that there are no keyboard traps</h3>
+  <h3>Ensure that there are no keyboard traps</h3>
   <p>Ensure that while navigating the experience, you do not encounter situations where you are not able to move forward or backward with the keyboard alone.</p>
 </div>
 
@@ -126,12 +126,12 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ On focus does not create a change of context</h3>
+  <h3>On focus does not create a change of context</h3>
   <p>Ensure that when an interactive element receives keyboard focus that a change of context is not initiated without warning of such behavoir. An example of change of context is a page load or web form submission.</p>
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Test for skip links</h3>
+  <h3>Test for skip links</h3>
   <p>Where there are large chunks of repeated content, ensure that there are skip links present for keboard users. For example, on a site with a large site navigation system, the first focusable element in the page should be a link that allows users to jump to the main content of the site.</p>
 </div>
 
@@ -142,12 +142,13 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
 <hr>
 
 ## Related WCAG
-- 1.4.11: Non-text Contrast
-- 2.1.1 Keyboard
-- 2.1.2 No Keyboard Trap
-- 2.4.3 Focus Order
-- 2.4.7 Focus Visible
-- 3.2.1 On Focus
+- [1.4.11: Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)
+- [2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html)
+- [2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html)
+- [2.1.4 Charater Key Shortcuts](https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html)
+- [2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html)
+- [2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html)
+- [3.2.1 On Focus](https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html)
 
 ## Resources
 - [WebAIM Keyboard Accessibility](https://webaim.org/techniques/keyboard/)
