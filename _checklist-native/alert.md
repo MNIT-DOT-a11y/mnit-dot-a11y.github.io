@@ -4,7 +4,7 @@ title:  "Alert Dialog"
 categories: notifications
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Focus visibly moves, confined within the alert.
   escape: |
     The alert closes, and returns focus to the element that launched it or to a logical place. 

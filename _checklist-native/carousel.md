@@ -4,7 +4,7 @@ title:  "Carousel"
 categories: controls
 
 keyboard:
- tab, arrow keys or Ctl+tab: |
+ tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to the next item
  spacebar: |
     Activates button or interactive slide on iOS and Android

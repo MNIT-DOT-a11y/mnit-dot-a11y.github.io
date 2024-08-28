@@ -4,7 +4,7 @@ title:  "Timer"
 categories: controls
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to a part of the control that is interactive
   spacebar: |
     Activates on iOS and Android

@@ -4,7 +4,7 @@ title:  "Snackbar/Toast"
 categories: notifications
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Focus visibly moves in logical order to the snackbar, if there is an interactive element in the snackbar
   space: |
     Any elements inside are activated on iOS and Android

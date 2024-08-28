@@ -1,11 +1,11 @@
 ---
 layout: entry
-title:  "Web view" 
+title:  "Web View" 
 categories: patterns
 
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Moves to all interactive elements in navigation bar and web view
   spacebar: |
     Activates on iOS and Android
@@ -21,7 +21,7 @@ mobile:
 screenreader: 
   focus:  |
       Initial focus should go to all elements in the navigation bars
-  navigation:  |
+  navigation:  |Initial focus should be on the first interactive element in the navigation bars
       Native and web view elements are all in the swipe order      
 
 settings:
@@ -32,14 +32,14 @@ settings:
 ## iOS
 
 ### Developer notes
-- A webview is a portion of a webpage, usually html code, incorporated seamlessly into the app’s UI
+- A web view is a portion of a webpage, usually html code, incorporated seamlessly into the app’s UI
 - Sometimes a hidden web element is announced 
-- An obvious sign that you are in a webview is web-only accessibility announcements such as a “landmark” or a heading level
+- An obvious sign that you are in a web view is web-only accessibility announcements such as a “landmark” or a heading level
 - A common use for web views is if the content changes often
-- Sometimes the container that includes the web view may announce seperately, which is usually ok
+- Sometimes the container that includes the web view may announce separately, which is usually ok
 - A “Link” announcement in web views usually navigates the user to a new screen.  In a native app “link” usually means the action will open a browser on your phone
-- External Blue Tooth keyboard testing can be erratic and inconsistent on web views, which is a known issue
-- Enlarging text from Accessibility settings does not work on the web view sections of the screen
+- External Bluetooth keyboard testing can be erratic and inconsistent on web views, which is a known issue
+- Enlarging text from Accessibility settings does not work on web view sections of the screen
 
 ### Role
 - **UIKit and SwiftUI**
@@ -69,13 +69,13 @@ settings:
 ## Android
 
 ### Developer notes
-- A webview is a portion of a webpage, usually html code, incorporated seamlessly into the app’s UI
+- A web view is a portion of a webpage, usually html code, incorporated seamlessly into the app’s UI
 - Sometimes a hidden web element is announced 
-- An obvious sign that you are in a webview is web-only accessibility announcements such as a “landmark” or a heading level
+- An obvious sign that you are in a web view is web-only accessibility announcements such as a “landmark” or a heading level
 - A common use for web views is if the content changes often
-- Sometimes the container that includes the web view may announce seperately, which is usually ok 
+- Sometimes the container that includes the web view may announce separately, which is usually ok 
 - A “Link” announcement in web views usually navigates the user to a new screen.  In a native app “link” usually means the action will open a browser on your phone
-- External Blue Tooth keyboard testing can be erratic and inconsistent on web views
+- External Bluetooth keyboard testing can be erratic and inconsistent on web views
 - Enlarging text from Accessibility settings does not work on the web view sections of the screen
 
 ### Role

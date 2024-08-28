@@ -4,7 +4,7 @@ title:  "Menu"
 categories: controls
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Focus visibly moves, confined within the menu
   escape: |
     The menu closes, and returns focus to the button that launched it

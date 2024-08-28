@@ -5,7 +5,7 @@ categories: controls
 
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Focus can visibly move to the reorder control but cannot be activated  
           
 mobile:

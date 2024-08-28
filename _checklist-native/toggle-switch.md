@@ -4,7 +4,7 @@ title:  "Toggle switch"
 categories: controls
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to the switch or table row with switch
   spacebar: |
     Activates on iOS and Android
@@ -117,6 +117,43 @@ settings:
     - Use the property wrapper `@FocusState` in conjunction with the view modifier `focused(_:)` to assign focus on a view with `@FocusState` as the source of truth.
     - Use the property wrapper `@FocusState`in conjunction with the view modifier `focused(_:equals:)` to assign focus on a view, when the view is equal to a specific value.
   - If necessary, use property wrapper `@AccessibilityFocusState` to assign identifiers to specific views to manually shift focus from one view to another as the user interacts with the screen with VoiceOver on.
+
+### SwiftUI Examples
+
+```import SwiftUI
+
+struct AccessibleToggleView: View {
+    @State private var isOn: Bool = false
+
+    var body: some View {
+        HStack {
+            Text("Enable Notifications")
+                .accessibilityLabel("Notifications")
+                .accessibilityHint("Toggles notifications on or off")
+                .accessibilityElement(children: .combine)
+
+            Toggle(isOn: $isOn) {
+                // This is an empty label, as the label is provided by the Text view
+            }
+            .toggleStyle(SwitchToggleStyle())
+            .accessibilityValue(isOn ? "On" : "Off")
+        }
+        .padding()
+        .accessibilityElement(children: .combine)  // Group the label and toggle together
+    }
+}
+
+struct ContentView: View {
+    var body: some View {
+        AccessibleToggleView()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}```
 
 ### Announcement examples
 - “Label, off, double tap to toggle setting” (On or off)

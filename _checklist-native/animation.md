@@ -5,7 +5,7 @@ categories: patterns
 
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     N/A
          
 mobile::

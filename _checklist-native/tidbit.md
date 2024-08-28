@@ -5,8 +5,8 @@ categories: patterns
 
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
-    Focus visibly moves to the tidbit if there is a CTA
+  tab, arrow keys or Ctrl+tab: |
+    Focus visibly moves to the tidbit if there is a call to action (CTA)
   spacebar: |
     Activates CTA on iOS and Android
   enter: |
@@ -37,7 +37,7 @@ settings:
 ## iOS
 
 ### Developer notes
-- Initial screen reader focus can be on the entire tidbit and announce everything with or without a CTA.  Or, the text and CTA can have separate focus.
+- Initial screen reader focus can be on the entire tidbit and announce everything with or without a CTA, or the text and CTA can have separate focus.
 - Meaningful images should have an accessibility label
   
 ### Name
@@ -125,7 +125,7 @@ Enter information for iOS Focus using SwiftUI, update below with appropriate det
 
 - **Android Views**
   - `android:text` XML attribute
-  - Optional: use `contentDescription` for a more descriptive name, depending on type of view and for elements (icons) without a visible label
+  - Optional: use `contentDescription` for a more descriptive name, depending on the type of view, and for elements (icons) without a visible label.
   - `contentDescription` overrides `android:text`
   - Use `labelFor` attribute to associate the visible label with the control
 

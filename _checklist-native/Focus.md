@@ -5,7 +5,7 @@ categories: patterns
 
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to all controls
   visible focus indicator: |
     Is clearly shown around controls in a logical order

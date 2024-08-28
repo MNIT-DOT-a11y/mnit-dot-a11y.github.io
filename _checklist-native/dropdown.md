@@ -4,7 +4,7 @@ title:  "Dropdown"
 categories: controls
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
       Focus visibly moves to the Dropdown
   spacebar: |
       Selects and opens the Dropdown on iOS and Android
