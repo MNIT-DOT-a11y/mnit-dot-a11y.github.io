@@ -722,13 +722,13 @@ document.addEventListener("DOMContentLoaded", function() {
     links.forEach(function(link) {
       if (link.hostname !== window.location.hostname) {
         link.classList.add("external-link");
-  const wrapperDiv = document.createElement("div");
-        wrapperDiv.classList.add("external-link-wrapper");
-          link.parentNode.insertBefore(wrapperDiv, link);
-          wrapperDiv.appendChild(link);
+  //const wrapperDiv = document.createElement("div");
+        //wrapperDiv.classList.add("external-link-wrapper");
+//          link.parentNode.insertBefore(wrapperDiv, link);
+          //wrapperDiv.appendChild(link);
       const srText = document.createElement("span");
         srText.classList.add("sr-only");
-        srText.textContent = " (External Link)";
+        srText.textContent = "\u00A0(External Link)";
         link.appendChild(srText);
       }
 });

@@ -152,18 +152,15 @@
   width:1px;
   height:1px;
   overflow:hidden;
+  white-space: nowrap;
 }
 
 .sr-only {
   @include sr-only();
 }
 
-.external-link-wrapper {
-  display: flex;
-  align-items: center;
-}
-
 .external-link {
+  display: inline-flex;
   position: relative; /* To position the pseudo-element relative to the link text */
   align-items: center; /* Ensures the icon and text are aligned inside the link */
 }
