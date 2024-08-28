@@ -25,13 +25,9 @@ description: >- # this means to ignore newlines until "baseurl:"
   MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mnit-dot-a11y.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username:
-github_username:
 google_analytics:
 # Build settings
 theme: minima
-#plugins:
-#- jekyll-feed
 collections:
   checklist-web:
     output: true
