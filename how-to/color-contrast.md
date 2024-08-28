@@ -1,6 +1,6 @@
 ---
 layout: how-to-test
-title: Color & contrast
+title: Color and Contrast
 permalink: /how-to-test/color-contrast/
 ---
 
@@ -38,8 +38,8 @@ Automated scanning must be complemented with a manual review of the page.
 {::nomarkdown}
 <example>
   <img
-    src="/assets/images/examples/hex-codes-for-contrast.png"
-    alt="Inspecting an element in chrome to find hex codes">
+    src="/assets/images/examples/how-to-test-color.png"
+    alt="Screenshot showing Colour Contrast Analyser app being used to test color contrast">
 </example>
 {:/}
 
@@ -253,9 +253,9 @@ Automated scanning must be complemented with a manual review of the page.
 </div>
 
 ## Related WCAG
-- 1.4.3 Contrast
-- 1.4.11 Non-text Contrast
-- 1.4.1 Use of Color
+- [1.4.1 Use of Color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html)
+- [1.4.3 Contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
+- [1.4.11 Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)
 
 ## Resources
 - [WebAIM Color Contrast](https://webaim.org/articles/contrast/evaluating)

@@ -1,6 +1,6 @@
 ---
 layout: how-to-test
-title: Links & Buttons
+title: Links and Buttons
 permalink: /how-to-test/link-button/
 ---
 

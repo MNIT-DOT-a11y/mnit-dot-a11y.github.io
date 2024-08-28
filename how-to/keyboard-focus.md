@@ -1,6 +1,6 @@
 ---
 layout: how-to-test
-title: Keyboard & focus
+title: Keyboard and Focus
 permalink: /how-to-test/keyboard-focus/
 ---
 
