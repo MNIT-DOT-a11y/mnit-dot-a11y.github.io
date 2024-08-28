@@ -33,6 +33,7 @@
 }
 
 .print-button:focus {
+  all: unset;
   outline: 2px solid #000; /* Outline for accessibility */
   outline-offset: 2px; /* Space between outline and button */
 }
