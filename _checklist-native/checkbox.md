@@ -4,7 +4,7 @@ title:  "Checkbox"
 categories: controls
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to the checkbox
   spacebar: |
     Activates on iOS and Android

@@ -4,7 +4,7 @@ title:  "Chip"
 categories: controls
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to the chip
   space: |
     Any elements inside are activated on iOS and Android

@@ -13,7 +13,7 @@ keyboard:
           
 mobile:
   swipe: |
-    Focus moves to the element expresses its state, if applicable
+    Focus moves to the element and expresses its state, if applicable
   doubletap: |
     Activates the row/blade
     
@@ -37,7 +37,7 @@ settings:
 - A table row/list item can be created by using different types of native components in iOS, such as iOS `List`, `Button`, `UITableView` 
 - In general, a table row/list item can be a single interactive row or an interactive item within a scrolling, single-column row or list of rows. The table row/list item can contain multiple elements inside it such as text, images, icons, form inputs, buttons, etc.
  - However, a table row/list item can also be a non-interactive element as well.
-- Generally, all items in the row are grouped together, ie., the caret is not focused separately
+- Generally, all items in the row are grouped together, i.e., the caret is not focused separately
 - If there are two interactive elements, there will be two focusable areas.
  - Often, the first focus is around the whole row, but will activate only the first interactive element
 - You should use a native component rather than custom component, because it will have the correct name, role, and values associated with it for accessibility.
@@ -46,7 +46,7 @@ settings:
 The programmatic name describes the purpose of the control.
 
 - If visible text label exists, the programmatic name should match the visible text label.
-    - **Note:** Setting a programmatic name while a visible text label exists may cause VoiceOver to duplicate the announcement of the name. If this happens, hide the visible text label from VoiceOver recognization.
+    - **Note:** Setting a programmatic name while a visible text label exists may cause VoiceOver to duplicate the announcement of the name. If this happens, hide the visible text label from VoiceOver recognizing it.
 - The visible label is the programmatic name
   - If there is a description following the visible label, it must be announced before the role.
 
@@ -67,7 +67,7 @@ When using non-native controls (custom controls), roles will need to be manually
 - Implement a [`UITableView`](https://developer.apple.com/documentation/uikit/uitableview) which is defined as "A view that presents data using rows in a single column."
 - If `UITableView` does not fit the use case, please use a `UIButton` and style as appropriate.
 - Set the specific `UITableViewCell` as interactive or capable of a tap gesture.
-- If user is redirected away from the app, set `accessibilityTraits` to `.link`.
+- If the user is redirected away from the app, set `accessibilityTraits` to `.link`.
 - If user is redirected to a screen within the app, set `accessibilityTraits` to `.button`.
 
 **SwiftUI**

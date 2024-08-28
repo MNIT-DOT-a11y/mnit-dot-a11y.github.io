@@ -4,7 +4,7 @@ title:  "Calendar Date Picker"
 categories: controls
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
       Focus visibly moves to the picker
   spacebar: |
       Selects and opens the picker on iOS and Android

@@ -4,14 +4,14 @@ title:  "Text input"
 categories: controls
 
 keyboard:
-  tab, arrow keys or ctl+tab: |
+  tab, arrow keys or ctrl+tab: |
     Focus visibly moves to and from the text input 
   space bar: |
     Places the user in editing mode inside the input
           
 mobile:
   swipe: |
-    Focus moves to the element, expresses its name, role, input value and state- if disabled
+    Focus moves to the element, expresses its name, role, input value, and state (if disabled)
   doubletap: |
     Keyboard appears to edit
 
@@ -42,7 +42,7 @@ settings:
   - Only announcing the label for the text input in the swipe before the input field does not meet this requirement
 - Beware of "On Focus" Level A Violation
   - Focus should never be sent to a text input field automatically from another component
-  - The user must control navigating to and from a text input, or any other form input (radio button, dropdown, etc)
+  - The user must control navigating to and from a text input, or any other form input (radio button, drop-down list, etc)
 - Label
   - Describes the purpose of the control
   - The label should be visible at all times
@@ -127,7 +127,7 @@ Group the visible label with the text input field, if applicable, to provide a p
 - “Label, value, text field, double tap to edit”  (value entered)
 - “Label, placeholder, text field, double tap to edit” (placeholder)
 - “Label, text field, double tap to edit”  (no placeholder or value)
-- "text field" or "editbox" is sometimes announced prior to "adjustable", picker item or other controls.
+- "text field" or "edit box" is sometimes announced prior to "adjustable", picker item or other controls.
 - Announcement for disabled is "dimmed"
 
 ## Android
@@ -141,7 +141,7 @@ Group the visible label with the text input field, if applicable, to provide a p
   - Only announcing the label for the text input in the swipe before the input field does not meet this requirement
 - Beware of "On Focus" Level A Violation
   - Focus should never be sent to a text input field automatically from another component
-  - The user must control navigating to and from a text input, or any other form input (radio button, dropdown, etc)
+  - The user must control navigating to and from a text input, or any other form input (radio button, drop-down list, etc)
 - Label
   - Describes the purpose of the control
   - The label should be visible at all times

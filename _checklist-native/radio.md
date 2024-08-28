@@ -4,7 +4,7 @@ title:  "Radio button"
 categories: controls
 
 keyboard:
-  tab, arrow keys or Ctl+tab: |
+  tab, arrow keys or Ctrl+tab: |
       Focus visibly moves to the radio button
   spacebar: |
       Activates on iOS and Android
