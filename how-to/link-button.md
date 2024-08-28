@@ -4,7 +4,27 @@ title: Links & Buttons
 permalink: /how-to-test/link-button/
 ---
 
-Testing links and buttons is essential to ensuring a site is accessible and functional for all users.
+Links and buttons serve different functions on websites and should be used appropriately. The text for either element should be unique within a website or webpage application, meaningful when read out of context, and help users learn something about their destination if they click on it.
+
+## Links vs Buttons
+
+### If it goes somewhere, it's `<a>` link.
+
+- When the user clicks a link, they are taken to a different location in the site.
+  - Either another page or even another area of the same page
+- A link can look like a big shiny button but it must be coded as `<a>` link
+- An interactive link should have a valid href value so it can receive keyboard focus.<br>For example `<a href="/some-page">...</a>`.
+
+### If it does something, it's a `<button>`
+
+- Buttons cause an action to occur on the same page
+  - Submit a form (even when submission takes you to a new page)
+  - Open a menu
+  - Launch a modal
+  - Expand details
+- A button can look like a link, but it must be coded as a `<button>`
+
+This distinction matters significantly because it directly impacts user expectations. If a screen reader announces an element as a “link” or “button,” users have specific expectations about what will happen when they click that element.  If something else happens, it can be disorienting and can lead to a negative user experience.
 
 ## <step-number>1</step-number> How to test
 {: .divider }
@@ -18,7 +38,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 {: .divider }
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure each link and button receives focus and has a visible focus indicator</h3>
+  <h3>Ensure each link and button receives focus and has a visible focus indicator</h3>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -50,7 +70,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure buttons and links can be activated with the <code>enter</code> key and that buttons can also be activated with the <code>space</code> key</h3>
+  <h3>Ensure buttons and links can be activated with the <code>enter</code> key and that buttons can also be activated with the <code>space</code> key</h3>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -75,10 +95,10 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
     </tr>  
         <tr>
       <td>
-        <a href="https://www.magentaa11y.com/">Magentaa11y home</a>
+        <a href="https://mnit-dot-a11y.github.io/">MNIT DOT A11y home</a>
       </td>
       <td>
-        <a tabindex="0" onmouseup = "location.href='https://www.magentaa11y.com/'">Magentaa11y home</a>
+        <a tabindex="0" onmouseup = "location.href=https://mnit-dot-a11y.github.io/'">MNIT DOT A11y home</a>
       </td>
     </tr> 
     </tbody>
@@ -86,7 +106,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure disabled controls are focusable but not actionable, and have an <code>aria-disabled="true"</code> attribute</h3>
+  <h3>Ensure disabled controls are focusable but not actionable, and have an <code>aria-disabled="true"</code> attribute</h3>
   <p><strong>Note:</strong> A control that is disabled should not be interactive to any users. Nothing should happen when activated.</p>
   <table class="column-2">
     <thead>
@@ -111,7 +131,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure all links and buttons have clear labels and that all graphical controls have accurate <code>aria-label</code> attributes</h3>
+  <h3>Ensure all links and buttons have clear labels and that all graphical controls have accurate <code>aria-label</code> attributes</h3>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -149,7 +169,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure all CTA buttons or links have appropriate <code>aria-label</code> values.</h3>
+  <h3>Ensure all CTA buttons or links have appropriate <code>aria-label</code> values.</h3>
     <p><strong>Note:</strong> If a control has <code>aria-label</code>, the <code>aria-label</code> must contain the text that is presented visually. The text should not be broken up and be the first part of the label.</p>
   <table class="column-2">
     <thead>
@@ -186,7 +206,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure screen readers accurately announce any button or link state that is conveyed visually</h3>
+  <h3>Ensure screen readers accurately announce any button or link state that is conveyed visually</h3>
    <p><strong>Note:</strong> States such as expanded,collapsed, or current can be communicated to screen reader users.</p>
   <table class="column-2">
     <thead>
@@ -270,7 +290,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure skip to & same-page links move focus for screen reader and keyboard users</h3>
+  <h3>Ensure skip to and same-page links move focus for screen reader and keyboard users</h3>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -294,7 +314,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure controls are announced correctly as links OR buttons based on their function and purpose regardless of visual design</h3>
+  <h3>Ensure controls are announced correctly as links OR buttons based on their function and purpose regardless of visual design</h3>
   <p><strong>Note:</strong> The role of the element <code>button</code> or <code>link</code> communicates to screen reader users what may happen after they interact with it.</p>
   <table class="column-2">
     <thead>
@@ -308,10 +328,10 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
     <tbody>
     <tr>
       <td>
-        <a href="https://www.magentaa11y.com/" class="button">Home</a>
+        <a href="https://mnit-dot-a11y.github.io/" class="button">Home</a>
       </td>
       <td>
-        <button onclick = "location.href='https://www.magentaa11y.com/'">Home</button>
+        <button onclick = "location.href='https://mnit-dot-a11y.github.io/'">Home</button>
       </td>
     </tr> 
     <tr>
@@ -340,30 +360,11 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
   </table>
 </div>
 
-## <step-number>3</step-number> What's the difference between a link and a button?
-{: .divider }
-
-### If it goes somewhere, it's `<a>` link.
-
-- When the user clicks a link, they are taken to a different location in the site.
-  - Either another page or even another area of the same page
-- A link can look like a big shiny button but it must be coded as `<a>` link
-- An interactive link should have a valid href value so it can receive keyboard focus.<br>For example `<a href="/some-page">...</a>`.
-
-### If it does something, it's a `<button>`
-
-- Buttons cause an action to occur on the same page
-  - Submit a form (even when submission takes you to a new page)
-  - Open a menu
-  - Launch a modal
-  - Expand details
-- A button can look like a link, but it must be coded as a `<button>`
-
 ## Related WCAG
-- 2.4.4 Link Purpose (In Context)
-- 2.5.3 Label in Name
-- 3.2.4 Consistent Identification
-- 4.1.2 Name, Role, Value
+- [2.4.4 Link Purpose (In Context)](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html)
+- [2.5.3 Label in Name](https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html)
+- [3.2.4 Consistent Identification](https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html)
+- [4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html)
 
 ## Resources
 - [WebAIM: Links and Hypertext](https://webaim.org/techniques/hypertext/)
