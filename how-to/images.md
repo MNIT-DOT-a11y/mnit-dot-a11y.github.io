@@ -6,7 +6,9 @@ permalink: /how-to-test/images/
 
 ## <step-number>1</step-number> Types of images
 {: .divider }
-Images must have text alternatives or alt text that describe the information or function they represent. This tutorial demonstrates how to check for the appropriate alt text based on the image's purpose.
+Images must have text alternatives or alt text that describe the information or function they represent. The author must determine the text alternative depending on an image's usage, context, and content. For example, a bird's exact type and look in an image might be less relevant and described only briefly on a website about parks. Still, they may be appropriate on a website specifically about birds.
+
+This tutorial demonstrates how to check for the appropriate alt text based on the image's purpose.
 
 - **Informative Images:** Images, typically pictures, photos, and illustrations, convey important information or concepts. The alt text should be a short description that conveys the essential information the image presents. It can be a sentence or two, including prior punctuation. The alt text should not describe the image itself but the purpose it serves on the page.
 
@@ -22,9 +24,7 @@ Images must have text alternatives or alt text that describe the information or 
 
 - **Image maps:** The text alternative for an image that contains multiple clickable areas should provide an overall context for the set of links. Also, each individually clickable area should have alternative text describing the link's purpose or destination.
 
-For a quick overview of which category a particular image fits into, see the [alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/). The author must determine the text alternative depending on an image's usage, context, and content. For example, a bird's exact type and look in an image might be less relevant and described only briefly on a website about parks. Still, they may be appropriate on a website specifically about birds.
-
-
+For a quick overview of which category a particular image fits into, see the [alt Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/) on the W3 website. 
 
 ## <step-number>2</step-number> How to test
 ### Automated Testing
@@ -43,7 +43,7 @@ A manual image test of each image must be performed to verify alt text quality. 
 - Open Chrome DevTools in your browser window (<span class="keyboard-key">F12</span>)
 - Right-click and select "Inspect" on the image in the page you want to test.
 
-## <step-number>3</step-number> Informative Images
+## Informative Images
 {: .divider }
 - Check that the image owns an <code>alt</code> attribute.
 - Ensure that the <code>alt</code> attribute is present is not empty.
@@ -71,7 +71,7 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 <svg role="img" aria-label="I am the alt text">...</svg>
 {% endhighlight %}
 
-## <step-number>3</step-number> Decorative Images
+## Decorative Images
 {: .divider }
 - Ensure that the <code>alt</code> attribute is present and owns an empty or null value. <code>alt=""</code>.
 - <strong>Note:</strong> <code>aria-hidden="true"</code> is not needed if an image has an empty or null alt attribute value <code>alt=""</code>.
@@ -85,10 +85,10 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 {:/}
 
 {% highlight html %}
-<img alt="" src="../some-image.png" ...>
+<img src="/images/cars.jpg" alt="" ...>
 {% endhighlight %}
 
-## <step-number>3</step-number> Functional Images
+## Functional Images
 {: .divider }
 - Ensure the <code>alt</code> attribute is present and owns a value that includes <strong>all</strong> of the text found in the image.
 - Functional images are typically links or buttons so the alt text should define the purpose of the link instead of describing the image.
@@ -97,20 +97,20 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 <example>
   <img
     src="/assets/images/examples/how-to-images-functional.png"
-    alt="Inspecting an image in DevTools to check alt text, functional image">
+    alt="print icon functional image">
 </example>
 {:/}
 
-- **Note:** Functional images can have empty or null alt attribute values <code>alt=""</code> if the text alternative is conveyed in the parent control's label. For example, <code>aria-label="Download on the Apple App Store"</code>.
+- **Note:** Functional images can have empty or null alt attribute values <code>alt=""</code> if the text alternative is conveyed in the parent control's label. For example, <code>aria-label="Print page"</code>.
 
 {% highlight html %}
-<button aria-label="Download on the Apple App Store">
-    <img src="apple.png" alt="">
+<button aria-label="Print page">
+    <img src="/assets/images/examples/how-to-images-functional.png" alt="">
 </button>
 {% endhighlight %}
 
 
-## <step-number>4</step-number> Images of Text
+## Images of Text
 {: .divider }
 
 - Sometimes text can't be easily created with HTML and CSS and an image must contain text. In this case, ensure the <code>alt</code> attribute is present and owns a value that includes <strong>all</strong> of the text found in the image. 
@@ -129,7 +129,7 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 <img src="https://www.dot.state.mn.us/images/16template/templat/DOT-Logo-RGB-Reverse.png" alt="Minnesota Department of Transportation">
 {% endhighlight %}
 
-## <step-number>5</step-number> Complex Images
+## Complex Images
 {: .divider }
 
 - Data visualizations, charts, and graphs can be very difficult to author alternative text for. Some features like charts and graphs may not be accessible themselves but there can be text alternatives nearby that can act as an accessible alternative.
@@ -152,11 +152,11 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 {% endhighlight %}
 
 
-## <step-number>6</step-number> What to test for
+## <step-number>3</step-number> What to test for
 {: .divider }
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure meaningful images have alt text</h3>
+  <h3>Ensure meaningful images have alt text</h3>
   <p><strong>Note:</strong> The passing example has alt text that matches the text found in the image. The failing example uses the filename for the <code>alt</code> attribute value. Screen readers will announce the filename <code>DOT-logo-RGB-Reverse.png</code> which will create a confusing experience.</p>
   <table class="column-2">
     <thead>
@@ -185,7 +185,7 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure decorative images are hidden from assistive technology</h3>
+  <h3>Ensure decorative images are hidden from assistive technology</h3>
   <p><strong>Note:</strong> Passing example image has an empty <code>alt</code> attribute value. The failing example has a very long redundant description of the image. Not only is it too verbose, it has the same text as the nearby text content.</p>
   <table class="column-2">
     <thead>
@@ -220,7 +220,7 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure complex images have a text alternative</h3>
+  <h3>Ensure complex images have a text alternative</h3>
   <p><strong>Note:</strong> The passing chart has a general text alternative describing what the image is but also references nearby text data for reference. <code>alt="Fruit chart, data below"</code>. The failing example owns an empty alt attribute value which hides the image from screen reader users and does not provide an alternative.</p>
   <table class="column-2">
     <thead>
