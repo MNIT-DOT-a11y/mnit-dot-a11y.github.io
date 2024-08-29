@@ -5,8 +5,10 @@ permalink: /how-to-test/color-contrast/
 ---
 
 There are two main accessibility considerations when using color in your web-based, native mobile, and desktop applications.
+
 1.	Color contrast: This is the difference in lightness/darkness between two colors (not differences in hue). Text, icons, and important graphics must have sufficient color contrast. 
 2.	Use of color to convey information: WCAG also requires that we not use color alone (or visual characteristics) to convey information. Examples are when a chart uses color alone or when a site uses color-coded text to convey information.
+
 ---
 ## Color Contrast
 When working with color, it is essential to remember that only brightness is visible to all users. Red text on a green background may disappear entirely for people who are color blind, have low vision, or view the site from outside.
@@ -48,7 +50,8 @@ When testing the color contrast of an state changes such as focus or hover, you 
   a. Place your cursor over the browser window where you want to inspect, *right-click* the desired element on the page and *select* **Inspect** from the pop-up window.
   b. Using your keyboard, *Select* **Ctrl+Shift+I** or F12.
 2. Go to the *Elements tab* and *right-click* on the highlighted element.
-3. In the pop-up window, *select* **Force State*, then **hover**.
+3. In the pop-up window, *select* **Force State**, then **hover**.
+
 {::nomarkdown}
 <example>
   <img
@@ -89,6 +92,7 @@ Review the charts and graphs and answer the following questions.
 - Is there some visual differentiation between line or shape segments? 
 - If you couldn’t see the color, can you understand the content?
 - Are labels provided for pie or bar charts?
+
 **If the answer is no**, send the graphic back to the content owner for remediation.
 
 **If the answer is yes**, verify that the color used in the graphic has a color contrast of at least 3:1 against adjacent color(s).
