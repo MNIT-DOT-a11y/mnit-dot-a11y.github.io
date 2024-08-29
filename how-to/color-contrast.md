@@ -1,105 +1,105 @@
 ---
 layout: how-to-test
-title: Color and Contrast
+title: Color Contrast and Use of Color
 permalink: /how-to-test/color-contrast/
 ---
 
-Testing color contrast is a simple yet crucial step in ensuring content is perceivable for users with low vision and color blindness. 
+There are two main accessibility considerations when using color in your web-based, native mobile, and desktop applications.
+1.	Color contrast: This is the difference in lightness/darkness between two colors (not differences in hue). Text, icons, and important graphics must have sufficient color contrast. 
+2.	Use of color to convey information: WCAG also requires that we not use color alone (or visual characteristics) to convey information. Examples are when a chart uses color alone or when a site uses color-coded text to convey information.
+---
+## Color Contrast
+When working with color, it is essential to remember that only brightness is visible to all users. Red text on a green background may disappear entirely for people who are color blind, have low vision, or view the site from outside.
 
-## <step-number>1</step-number> General requirements
-{: .divider }
-The Web Content Accessibility Guidelines (WCAG) provide very specific color contrast requirements:
-- Normal text (up to 18pt/24px or 14pt/18.5px if bold) must have a contrast ratio of at least 4.5:1 between the text color and background color.
-- Large text (at least 18pt/24px or 14pt/18.5px if bold) must have a contrast ratio of at least 3:1 between the text color and background color.
-- Meaningful graphics, user interface components and their various states, as well as focus indicactors must have a contrast ratio of at least 3:1 with the background color. 
-- <strong>Exceptions:</strong> Logos, incidental or decorative text and graphics, and disabled controls do not need to meet color contrast requirements. 
+The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color contrast requirements with one exception: logos, incidental or decorative text and graphics, and disabled controls do not need to meet color contrast requirements.
 
-## <step-number>2</step-number> How to test
-{: .divider }
-### Automated scanning
+- **Normal text** (up to 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 4.5:1 between the text color and background color.**
+- **Large text** (at least 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 3:1 between the text color and background color.**
+- **Meaningful graphics**, user interface components and their various states, and focus indicators must have a **contrast ratio of at least 3:1 with the background color.**
 
-Automated scanning tools, such as [WAVE](https://wave.webaim.org/), [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/), or [Deque's Axe DevTools](https://www.deque.com/blog/axe-devtools-extension-update-new-color-contrast-analyzer/) are a great starting point for color contrast testing. All of these tools can run page scans that quickly generate reports identifying color contrast issues. Scans are:
+**Note:** The combination of Minnesota green (#78BE21) with white will not be accessible at any point size or non-text contrast.  
 
-- <strong>Good</strong> at identifying simple issues like solid colored text on solid colored backgrounds that do not meet contrast ratios. 
-- <strong>Bad</strong> at idenitfying anything more complex like text on background images, gradients, and different states for user interface components (like hover or focus) that do not meet contrast ratios.
+Check out [WebAIM’s Contrast and Color Accessibility](https://webaim.org/articles/contrast/) article to learn more.
 
-### Manual testing
+### How to Test Color Contrast
 
-Automated scanning must be complemented with a manual review of the page.  
+#### Automated Testing
+Run a page scan using Deque’s axe DevTool. How to use Deque's axe Dev Tool can be found on the [Setting Up Your Testing Environment webpage](https://mnit-dot-a11y.github.io/testing-environment/).
 
-#### <strong>Getting started</strong>
-- Open DevTools in your browser window (<span class="keyboard-key">F12</span>)
-- Right-click and select "Inspect" on the different color combinations that you see as you move from the top of the page on down
-- Find the hexidecimal color values in the "Styles" tab of your DevTools window (see example image below)
-- Enter the hex values into a contrast checking tool (like [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) or [Deque's Color Contrast Analyzer](https://dequeuniversity.com/color-contrast)) to see if they meet contrast requirments.
+**Attention!** Axe DevTool is excellent at identifying simple issues like solid-colored text on solid-colored backgrounds that do not meet contrast ratios. It’s terrible at identifying anything more complex, like text on background images, gradients, and different states for user interface components (like hover or focus) that do not meet contrast ratios. You must manually review the page to verify that the color elements meet accessibility requirements.
 
 
+#### Manual Testing
+
+Manual testing is completed using the Colour Contrast Analyser (CCA) tool. This tool is handy for checking colors in various applications, including documents or software, not just websites.
+
+How to use CCA can be found on the [Setting Up Your Testing Environment webpage](https://mnit-dot-a11y.github.io/testing-environment/).
+
+When performing a manual check, you must also identify the interactive elements, such as links, buttons, and menu links, that change color based on their states, such as focus or hover, and meet the color contrast requirements.
+
+Be sure to manually check color contrast for all types of digital content, including:
+- Images containing text.
+- Graphics, including charts, graphs, and maps.
+- Instances of text and user interface elements that sit on top of background images or color gradients or state changes.
+
+**Testing an State Changes**
+When testing the color contrast of an state changes such as focus or hover, you must use both the browser’s developer tools and the CCA tool.
+1.	To open the browser developer tools by either:
+  a. Place your cursor over the browser window where you want to inspect, *right-click* the desired element on the page and *select* **Inspect** from the pop-up window.
+  b. Using your keyboard, *Select* **Ctrl+Shift+I** or F12.
+2. Go to the *Elements tab* and *right-click* on the highlighted element.
+3. In the pop-up window, *select* **Force State*, then **hover**.
+{::nomarkdown}
+<example>
+  <img
+    src="/assets/images/examples/how-to-test-color-force-state.png"
+    alt="screenshot showing step 2.">
+</example>
+{:/}
+
+4. Go to the *Styles tab* and look for the *hover* style.
+5. Open CCA and test the hover color against the background.
 
 {::nomarkdown}
 <example>
   <img
-    src="/assets/images/examples/how-to-test-color.png"
-    alt="Screenshot showing Colour Contrast Analyser app being used to test color contrast">
+    src="/assets/images/examples/how-to-test-color-hover-state.png"
+    alt="screenshot showing steps 4 and 5.">
 </example>
 {:/}
 
-#### <strong>Hover to inspect</strong>
-- Chrome has an "Inspect Element by Mouse" DevTools feature that is useful for checking contrast
-- Click the button located in the upper left-hand corner of your DevTools window to enable the feature
-- Hover over elements on the page with your cursor
-- A popup will appear that often indicates whether the element passes contrast by displaying a green check mark within a circle (see example image below)
+---
 
-{::nomarkdown}
-<example>
-  <img
-    src="/assets/images/examples/chrome-contrast-inspector.png"
-    alt="using Chrome's inspect element by mouse feature to see if element meets contrast requirmenets">
-</example>
-{:/}
+## Use of Color
+Some users cannot perceive color differences or may not perceive color the same way you do. Therefore, it is essential to avoid using color alone to communicate information. For example, “required fields are in red”. It is okay to communicate “required” using red text, but to communicate this information to people who cannot perceive color, there must be one or more ways to convey the same idea. For example, required fields could include “required” as part of the label.
 
-#### <strong>Background images and gradients</strong>
+Another example includes identifying different groups of data in a graph. If different colors represent different groups, they should also be distinguishable via other means. For instance, in a bar chart, the bars could differ by color but have different fill patterns; in a line chart, the lines could vary by color. Always include labels to identify each reported element.
 
-- Identify instances of text and user insterface elements that sit on top of background images or color gradients
-- Use a color picker tool to get representative hex codes from the background
-- In Chrome's DevTools, under the "Styles" tab you can click on any of the color boxes to bring up the Color Picker popup 
-- Within the popup, activate the eyedropper icon
-- Hover over the desired area on the background image with your cursor and click
-- The hex value will be displayed in the Color Picker (see example image below)
+Check out WebAIM’s [Use of Color information](https://webaim.org/articles/contrast/#sc141) to learn more.
 
-{::nomarkdown}
-<example>
-  <img
-    src="/assets/images/examples/chrome-color-picker.png"
-    alt="using Chrome's color picker and eyedropper tool to get hex codes for background images.">
-</example>
-{:/}
+### How to Test Use of Color
 
-#### <strong>State changes</strong>
-- Identify interactive elements that change color based on their states, such as focus or hover
-- Ensure that the state changes meet contrast requirements
-- You can force some state changes to persist, which makes them easier to check
-- Inspect the desired element 
-- In Chrome's DevTools, under the "Styles" tab, activate the ":hov" toggle button
-- Select the checkbox with desired state
-- This will force a persistent state and allow you to check for contrast on the element (see example image below) 
+There are no automated for this requirement; you have to review the content and design to ensure they do not have any items (like charts, graphs, and hyperlinks) that rely on color as the sole means of communication.
 
-{::nomarkdown}
-<example>
-  <img
-    src="/assets/images/examples/set-hover-state.png"
-    alt="using Chrome's DevTools to force hover state on a link.">
-</example>
-{:/}
+**Links**
+Review links and ensure they are not solely indicated by color. Links should also be underlined, bold, or displayed on a colored background.
 
-### Browsers
+**Charts and Graphs**
+Review the charts and graphs and answer the following questions.
+- Is there some visual differentiation between line or shape segments? 
+- If you couldn’t see the color, can you understand the content?
+- Are labels provided for pie or bar charts?
+**If the answer is no**, send the graphic back to the content owner for remediation.
 
-- Any major browser (Chrome, Safari, Firefox) is acceptable for color contrast testing.
+**If the answer is yes**, verify that the color used in the graphic has a color contrast of at least 3:1 against adjacent color(s).
 
-## <step-number>3</step-number> What to test for
+---
+
+## What to test for
 {: .divider }
 
 <div class="how-to-test-checklist-item">
-<h3>✓ Ensure text has sufficient contrast to the background color</h3>
+<h3>Ensure text has sufficient contrast to the background color</h3>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -131,7 +131,7 @@ Automated scanning must be complemented with a manual review of the page.
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure text over images and color gradients has sufficient contrast</h3>
+  <h3>Ensure text over images and color gradients has sufficient contrast</h3>
   <strong>Note:</strong> All of the text must have sufficient color contrast.
 <table class="column-2" style="background: /assets/images/background/assistive-technology-bg.png">
   <thead>
@@ -174,7 +174,7 @@ Automated scanning must be complemented with a manual review of the page.
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure that the different states of user interface components have sufficient contrast</h3>
+  <h3>Ensure that the different states of user interface components have sufficient contrast</h3>
   <p><strong>Note:</strong> Default state, keyboard focus state, and hover state</p>
   <table class="column-2">
     <thead>
@@ -199,7 +199,7 @@ Automated scanning must be complemented with a manual review of the page.
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure meaningful graphical objects have sufficient contrast to their background</h3>
+  <h3>Ensure meaningful graphical objects have sufficient contrast to their background</h3>
   <p><strong>Note:</strong> 3:1 color contrast ratio</p>
   <table class="column-2">
     <thead>
@@ -224,7 +224,7 @@ Automated scanning must be complemented with a manual review of the page.
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Ensure color alone is not used to convey information</h3>
+  <h3>Ensure color alone is not used to convey information</h3>
   <p><strong>Note:</strong> Use of additional visual cues that do not rely on color alone</p>
   <table class="column-2">
     <thead>
