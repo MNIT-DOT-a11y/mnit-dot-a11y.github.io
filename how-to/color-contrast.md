@@ -44,7 +44,7 @@ Be sure to manually check color contrast for all types of digital content, inclu
 - Graphics, including charts, graphs, and maps.
 - Instances of text and user interface elements that sit on top of background images or color gradients or state changes.
 
-##### Testing State Changes
+#### **Testing State Changes**
 <p>When testing the color contrast of an state changes such as focus or hover, you must use both the browser’s developer tools and the CCA tool.</p>
 <ol>
   <li> To open the browser developer tools by either:
