@@ -34,7 +34,9 @@ The steps below will get you up and running.
 1. _Go to_ the **_Start_** menu and open the **_Software Center_** application.
 2. From the Applications window, _search_ for **_NVDA_**.
 3. _Select_ the **_Install_** button.
-![Screenshot showing steps 2 and 3.](assets/images/testing-tools/nvda-software-center.jpg)
+    <example>
+        <img src="assets/images/testing-tools/nvda-software-center.jpg" alt="Screenshot showing steps 2 and 3">
+    </example>
 **Note:** To complete the installation, you must submit a Service Hub work request to complete the installation. Installation requires admin access to complete.
 
 #### Launching NVDA
@@ -53,14 +55,19 @@ Setting modifier key to Caps lock
 2. _Go to_ the general setting by selecting **CAPS LOCK + Crtl + g**
 3. In the _Categories_ column, _select_ **_Keyboard_**.
 4. Under the _Select NVDA Modifier Keys_ title, **_check caps lock_**.  
-    ![Screenshot showing steps 3 and 4.](assets/images/testing-tools/nvda-settings-caps-lock.jpg)
+    <example>
+        <img src="/assets/images/testing-tools/nvda-settings-caps-lock.jpg" alt="Screenshot showing steps 3 and 4">
+    </example>
 #### Adjusting the Voice
 
 By default, NVDA will use the built-in voices provided by Microsoft. Altering the parameters of the voice may be helpful, for example, if you wish to slow the speaking voice down for a demonstration, increase the volume, or change the voice entirely.
 
 1. _Go to_ _General Setting_ by selecting **CAPS LOCK + Crtl + g.**
 2. In the _Categories column_. _Select_ **_Speech_**. Adjust the speech rate, volume, and voice to your preference.
-3. ![Screenshot showing step 2](assets/images/testing-tools/nvda-setting-speech.jpg)
+    <example>
+        <img src="/assets/images/testing-tools/nvda-setting-speech.jpg" alt="Screenshot showing step 2">
+    </example>
+
 #### Speech Viewer
 
 The NVDA speech viewer is a valuable tool for screen reader testers. Enabling the Speech Viewer opens a window that shows everything NVDA states, which is helpful for sighted users. The Speech Viewer also allows you to take a screenshot or a screen recording when reporting an issue.
@@ -68,7 +75,10 @@ The NVDA speech viewer is a valuable tool for screen reader testers. Enabling th
 1. _Open the NVDA Menu_ by pressing **CAPS LOCK + n**.
 2. Navigate to Tools and **_Select Speech Viewer_**. _Check_ the "**Show speech viewer on startup**” box to enable the speech viewer to appear on startup. The speech viewer will open when NVDA is started.
 3. A window will appear, updating in real-time with the content that NVDA speaks.  
-    ![Screenshot showing step 2.](assets/images/testing-tools/nvda-speech-viewer.jpg)
+        <example>
+        <img src="/assets/images/testing-tools/nvda-speech-viewer.jpg" alt="Screenshot showing step 2">
+    </example>
+    
 ### Windows Magnifier on Windows 11
 
 Windows Magnifier is a screen magnification tool built into the Windows operating system. It provides a zoomed-in view of a select part of the screen at up to 1600% zoom. By default, it opens on the entire screen and will follow your mouse pointer, keyboard entry, and text cursor.
