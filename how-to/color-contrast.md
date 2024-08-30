@@ -49,20 +49,22 @@ Be sure to manually check color contrast for all types of digital content, inclu
 <ol>
   <li> To open the browser developer tools by either:
     <ol type="a">
-      <li>Place your cursor over the browser window where you want to inspect, *right-click* the desired element on the page and *select* **Inspect** from the pop-up window.</li>
-      <li>Using your keyboard, *Select* **Ctrl+Shift+I** or F12.</li>
+      <li>Place your cursor over the browser window where you want to inspect, <em>right-click</em> the desired element on the page and <em>Select </em><strong><em>Inspect</em></strong> from the pop-up window.</li>
+		<li>Using your keyboard,<em> Select </em> <strong>Ctrl+Shift+</strong>I or F12.</li>
+	</li>
 	 </ol>
-<li>Go to the *Elements tab* and *right-click* on the highlighted element.</li>
-   <li>In the pop-up window, *select* **Force State**, then **hover**.
-    {::nomarkdown} 
-    <example>
+<li>Go to the <em>Elements tab in the developer tool</em> and <em>right-click</em> on the highlighted element.</li>
+   <li>In the pop-up window, <em>Select <strong>Force State</strong>,</em> then <em><strong>hover</strong></em>.</li>
+    {::nomarkdown}
+<example>
     <img
     src="/assets/images/examples/how-to-test-color-force-state.png"
     alt="screenshot showing step 2.">
-  	</example>{:/} 
-	</li> 
-<li>Go to the *Styles tab* and look for the *hover* style.</li> 
-   <li>Open CCA and test the hover color against the background
+  	</example>
+	{:/} 
+	 
+<li>Go to the <em>Styles tab</em> and look for the <em>hover </em>style.</li> 
+   <li>Open CCA and test the hover color against the background</li>
     {::nomarkdown}
 	<example>
 	<img
@@ -70,8 +72,8 @@ Be sure to manually check color contrast for all types of digital content, inclu
 		alt="screenshot showing steps 4 and 5.">
 	</example>
 	{:/}
-	</li>
-	</ol>
+
+</ol>
 
 ---
 
