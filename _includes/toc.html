@@ -81,24 +81,20 @@
     {% assign firstHeader = true %}
     {% assign currLevel = 0 %}
     {% assign lastLevel = 0 %}
-    {% assign bad_ids = "dialog-title" | split: "," %}
-
+    
     {% assign listModifier = '' %}
     {% if orderedList %}
         {% assign listModifier = 'ol' %}
     {% else %}
         {% assign listModifier = 'ul' %}
     {% endif %}
-
     {% if noEnclosingList == false %}
         {% capture jekyll_toc %}{{ listModifier }}{% endcapture %}
     {% endif %}
-
     {% for node in nodes %}
         {% if node == "" %}
             {% continue %}
         {% endif %}
-
         {% assign currLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
 
         {% if currLevel < minHeader or currLevel > maxHeader %}
@@ -137,9 +133,7 @@
 
         {% capture anchorBody %}{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}{% endcapture %}
 
-        {% if htmlID and bad_ids contains htmlID %}
-        {% continue %}
-        {% elsif htmlID %}
+        {% if htmlID %}
         {% capture anchorAttributes %} href="{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %}
             {% if include.anchor_class %}
                 {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
