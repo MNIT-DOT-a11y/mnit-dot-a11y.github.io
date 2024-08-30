@@ -55,24 +55,19 @@ Be sure to manually check color contrast for all types of digital content, inclu
 	 </ol>
 <li>Go to the <em>Elements tab in the developer tool</em> and <em>right-click</em> on the highlighted element.</li>
    <li>In the pop-up window, <em>Select <strong>Force State</strong>,</em> then <em><strong>hover</strong></em>.</li>
-    {::nomarkdown}
 <example>
     <img
     src="/assets/images/examples/how-to-test-color-force-state.png"
     alt="screenshot showing step 2.">
   	</example>
-	{:/} 
-	 
+
 <li>Go to the <em>Styles tab</em> and look for the <em>hover </em>style.</li> 
    <li>Open CCA and test the hover color against the background</li>
-    {::nomarkdown}
 	<example>
 	<img
 		src="/assets/images/examples/how-to-test-color-hover-state.png"
 		alt="screenshot showing steps 4 and 5.">
-	</example>
-	{:/}
-
+  </example>
 </ol>
 
 ---
