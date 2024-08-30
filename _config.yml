@@ -28,6 +28,8 @@ url: "https://mnit-dot-a11y.github.io" # the base hostname & protocol for your s
 google_analytics:
 # Build settings
 theme: minima
+kramdown:
+  auto_ids: false
 collections:
   checklist-web:
     output: true
@@ -38,6 +40,9 @@ collections:
   demos:
     output: true
     permalink: /:collection/:name/
+  identifying-components:
+    output: true
+    permalink: /:collection/:name
 web-categories-order:
 - html
 - header
