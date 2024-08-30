@@ -1,0 +1,16 @@
+---
+layout: base
+---
+<article>
+  <div class="container">
+    <nav aria-label="Table of Contents" class="how-to-test">
+      {% include toc.html html=content %}
+      </nav>    
+    {% if page.url != '/about/' and page.url != '/code-of-conduct/' %}
+      <h1 class="h-alpha">{{ page.title | escape }}</h1>
+    {% endif %}
+    <div class="post-content narrow">
+      {{ content }}
+    </div>
+  </div>
+</article>
