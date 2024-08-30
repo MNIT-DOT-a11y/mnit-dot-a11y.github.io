@@ -2,6 +2,7 @@
 layout: identifying-components
 title: Tables
 permalink: /identifying-components/tables/
+needs_toc: false
 ---
 
 A table shows information in columns and rows.
