@@ -25,13 +25,13 @@ Check out [WebAIM’s Contrast and Color Accessibility](https://webaim.org/artic
 
 ### How to Test Color Contrast
 
-#### Automated Testing
+#### **Automated Testing**
 Run a page scan using Deque’s axe DevTool. How to use Deque's axe Dev Tool can be found on the [Setting Up Your Testing Environment webpage](https://mnit-dot-a11y.github.io/testing-environment/).
 
 **Attention!** Axe DevTool is excellent at identifying simple issues like solid-colored text on solid-colored backgrounds that do not meet contrast ratios. It’s terrible at identifying anything more complex, like text on background images, gradients, and different states for user interface components (like hover or focus) that do not meet contrast ratios. You must manually review the page to verify that the color elements meet accessibility requirements.
 
 
-#### Manual Testing
+#### **Manual Testing**
 
 Manual testing is completed using the Colour Contrast Analyser (CCA) tool. This tool is handy for checking colors in various applications, including documents or software, not just websites.
 
@@ -44,32 +44,34 @@ Be sure to manually check color contrast for all types of digital content, inclu
 - Graphics, including charts, graphs, and maps.
 - Instances of text and user interface elements that sit on top of background images or color gradients or state changes.
 
-**Testing an State Changes**
-When testing the color contrast of an state changes such as focus or hover, you must use both the browser’s developer tools and the CCA tool.
-1.	To open the browser developer tools by either:
-  a. Place your cursor over the browser window where you want to inspect, *right-click* the desired element on the page and *select* **Inspect** from the pop-up window.
-  b. Using your keyboard, *Select* **Ctrl+Shift+I** or F12.
-2. Go to the *Elements tab* and *right-click* on the highlighted element.
-3. In the pop-up window, *select* **Force State**, then **hover**.
-
-{::nomarkdown}
-<example>
-  <img
+##### Testing State Changes
+<p>When testing the color contrast of an state changes such as focus or hover, you must use both the browser’s developer tools and the CCA tool.</p>
+<ol>
+  <li> To open the browser developer tools by either:
+    <ol type="a">
+      <li>Place your cursor over the browser window where you want to inspect, *right-click* the desired element on the page and *select* **Inspect** from the pop-up window.</li>
+      <li>Using your keyboard, *Select* **Ctrl+Shift+I** or F12.</li>
+	 </ol>
+<li>Go to the *Elements tab* and *right-click* on the highlighted element.</li>
+   <li>In the pop-up window, *select* **Force State**, then **hover**.
+    {::nomarkdown} 
+    <example>
+    <img
     src="/assets/images/examples/how-to-test-color-force-state.png"
     alt="screenshot showing step 2.">
-</example>
-{:/}
-
-4. Go to the *Styles tab* and look for the *hover* style.
-5. Open CCA and test the hover color against the background.
-
-{::nomarkdown}
-<example>
-  <img
-    src="/assets/images/examples/how-to-test-color-hover-state.png"
-    alt="screenshot showing steps 4 and 5.">
-</example>
-{:/}
+  	</example>{:/} 
+	</li> 
+<li>Go to the *Styles tab* and look for the *hover* style.</li> 
+   <li>Open CCA and test the hover color against the background
+    {::nomarkdown}
+	<example>
+	<img
+		src="/assets/images/examples/how-to-test-color-hover-state.png"
+		alt="screenshot showing steps 4 and 5.">
+	</example>
+	{:/}
+	</li>
+	</ol>
 
 ---
 
@@ -80,14 +82,14 @@ Another example includes identifying different groups of data in a graph. If dif
 
 Check out WebAIM’s [Use of Color information](https://webaim.org/articles/contrast/#sc141) to learn more.
 
-### How to Test Use of Color
+### **How to Test Use of Color**
 
 There are no automated for this requirement; you have to review the content and design to ensure they do not have any items (like charts, graphs, and hyperlinks) that rely on color as the sole means of communication.
 
-**Links**
+#### Links
 Review links and ensure they are not solely indicated by color. Links should also be underlined, bold, or displayed on a colored background.
 
-**Charts and Graphs**
+#### Charts and Graphs
 Review the charts and graphs and answer the following questions.
 - Is there some visual differentiation between line or shape segments? 
 - If you couldn’t see the color, can you understand the content?
