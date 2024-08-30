@@ -17,12 +17,15 @@ A form allows users to enter information into a page.
 - **Visual Inspection:** Look for collections of input fields, dropdowns, checkboxes, and buttons designed to submit data. 
 - **HTML Attributes:** Inspect the HTML code for the `<form>` element. Within the form, look for various `<input>`, `<select>` `<label>`, `<fieldset>` and `<textarea>` elements.
 
-## Headings [#headings}]
+## Headings {#headings}
 Headings are large, bold text that breaks up content into meaningful sections, making a page easier to read and navigate.
-
-# Heading 1
-## Heading 2
-### Heading 3
+{::nomarkdown}
+<example>
+<h1 class="no_toc">Heading 1</h1>
+<h2 class="no_toc">Heading 2</h2>
+<h3 class="no_toc">Heading 3</h3>
+</example>
+{:/}
 
 **Identification:**
 - **Visual Inspection:** Look for large, bold text at the top of sections or pages.
