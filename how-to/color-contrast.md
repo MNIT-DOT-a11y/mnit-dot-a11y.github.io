@@ -18,7 +18,8 @@ The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color c
 - **Normal text** (up to 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 4.5:1 between the text color and background color.**
 - **Large text** (at least 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 3:1 between the text color and background color.**
 - **Meaningful graphics**, user interface components and their various states, and focus indicators must have a **contrast ratio of at least 3:1 with the background color.**
-**Note:** The combination of Minnesota green (#78BE21) and white **will not be accessible at any point size or non-text contrast**. 
+
+**Note:** The combination of Minnesota green (#78BE21) and white **will not be accessible at any point size or non-text contrast**.
 <example>
     <img
     src="/assets/images/examples/how-to-text-color-minnesota-green.png"
@@ -96,7 +97,7 @@ There are no automated for this requirement; you have to review the content and 
 #### **Testing Hyperlinks**
 Review links and ensure they are not solely indicated by color. Links should also be underlined, bold, or displayed on a colored background.
 
-#### ** Testing Charts and Graphs**
+#### **Testing Charts and Graphs**
 Review the charts and graphs and answer the following questions.
 - Is there some visual differentiation between line or shape segments? 
 - If you couldn’t see the color, can you understand the content?
