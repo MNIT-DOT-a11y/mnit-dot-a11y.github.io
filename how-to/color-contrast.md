@@ -82,7 +82,7 @@ Some users cannot perceive color differences or may not perceive color the same 
 
 Another example includes identifying different groups of data in a graph. If different colors represent different groups, they should also be distinguishable via other means. For instance, in a bar chart, the bars could differ by color but have different fill patterns; in a line chart, the lines could vary by color and have different shapes at each data point. Always include labels to identify each reported element.
 
-Example of a accessibile line chart with different shapes at each data point.
+Example of a accessible line chart with different shapes at each data point.
 <example>
 	<img
 		src="/assets/images/examples/how-to-test-color-line-chart.jpg"
