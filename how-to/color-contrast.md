@@ -18,8 +18,12 @@ The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color c
 - **Normal text** (up to 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 4.5:1 between the text color and background color.**
 - **Large text** (at least 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 3:1 between the text color and background color.**
 - **Meaningful graphics**, user interface components and their various states, and focus indicators must have a **contrast ratio of at least 3:1 with the background color.**
-
-**Note:** The combination of Minnesota green (#78BE21) with white will not be accessible at any point size or non-text contrast.  
+**Note:** The combination of Minnesota green (#78BE21) and white **will not be accessible at any point size or non-text contrast**. 
+<example>
+    <img
+    src="/assets/images/examples/how-to-text-color-minnesota-green.png"
+    alt=" a button and icon examples using Minnestoa green">
+  	</example>
 
 Check out [WebAIM’s Contrast and Color Accessibility](https://webaim.org/articles/contrast/) article to learn more.
 
@@ -28,7 +32,7 @@ Check out [WebAIM’s Contrast and Color Accessibility](https://webaim.org/artic
 #### **Automated Testing**
 Run a page scan using Deque’s axe DevTool. How to use Deque's axe Dev Tool can be found on the [Setting Up Your Testing Environment webpage](https://mnit-dot-a11y.github.io/testing-environment/).
 
-**Attention!** Axe DevTool is excellent at identifying simple issues like solid-colored text on solid-colored backgrounds that do not meet contrast ratios. It’s terrible at identifying anything more complex, like text on background images, gradients, and different states for user interface components (like hover or focus) that do not meet contrast ratios. You must manually review the page to verify that the color elements meet accessibility requirements.
+**Attention!** Axe DevTool is excellent at identifying simple issues like solid-colored text on solid-colored backgrounds that do not meet contrast ratios. It’s terrible at identifying anything more complex, like text on background images, gradients, and different states for user interface components (like hover or focus) that do not meet contrast ratios. **You must manually review the page to verify that the color elements meet accessibility requirements**.
 
 
 #### **Manual Testing**
@@ -62,7 +66,7 @@ Be sure to manually check color contrast for all types of digital content, inclu
   	</example>
 
 <li>Go to the <em>Styles tab</em> and look for the <em>hover </em>style.</li> 
-   <li>Open CCA and test the hover color against the background</li>
+   <li><em>Open</em> <strong>CCA</strong> and test the hover color against the background</li>
 	<example>
 	<img
 		src="/assets/images/examples/how-to-test-color-hover-state.png"
@@ -75,26 +79,32 @@ Be sure to manually check color contrast for all types of digital content, inclu
 ## Use of Color
 Some users cannot perceive color differences or may not perceive color the same way you do. Therefore, it is essential to avoid using color alone to communicate information. For example, “required fields are in red”. It is okay to communicate “required” using red text, but to communicate this information to people who cannot perceive color, there must be one or more ways to convey the same idea. For example, required fields could include “required” as part of the label.
 
-Another example includes identifying different groups of data in a graph. If different colors represent different groups, they should also be distinguishable via other means. For instance, in a bar chart, the bars could differ by color but have different fill patterns; in a line chart, the lines could vary by color. Always include labels to identify each reported element.
+Another example includes identifying different groups of data in a graph. If different colors represent different groups, they should also be distinguishable via other means. For instance, in a bar chart, the bars could differ by color but have different fill patterns; in a line chart, the lines could vary by color and have different shapes at each data point. Always include labels to identify each reported element.
 
+Example of a accessibile line chart with different shapes at each data point.
+<example>
+	<img
+		src="/assets/images/examples/how-to-test-color-line-chart.jpg"
+		alt="line chart showing different shapes at each data point">
+  </example>
 Check out WebAIM’s [Use of Color information](https://webaim.org/articles/contrast/#sc141) to learn more.
 
 ### **How to Test Use of Color**
 
-There are no automated for this requirement; you have to review the content and design to ensure they do not have any items (like charts, graphs, and hyperlinks) that rely on color as the sole means of communication.
+There are no automated for this requirement; you have to review the content and design to ensure they do not have any items (like hyperlink, charts, and graphs) that rely on color as the sole means of communication.
 
-#### Links
+#### **Testing Hyperlinks**
 Review links and ensure they are not solely indicated by color. Links should also be underlined, bold, or displayed on a colored background.
 
-#### Charts and Graphs
+#### ** Testing Charts and Graphs**
 Review the charts and graphs and answer the following questions.
 - Is there some visual differentiation between line or shape segments? 
 - If you couldn’t see the color, can you understand the content?
-- Are labels provided for pie or bar charts?
+- Are axis labels, data labels and legends included?
 
 **If the answer is no**, send the graphic back to the content owner for remediation.
 
-**If the answer is yes**, verify that the color used in the graphic has a color contrast of at least 3:1 against adjacent color(s).
+**If the answer is yes**, Using CCA to verify that the colors used in the charts or graphs have a color contrast of at least 3:1 against adjacent color(s).
 
 ---
 
@@ -118,7 +128,7 @@ Review the charts and graphs and answer the following questions.
         <p>This text passes contrast</p>
       </td>
       <td>
-        <p style="color:#0FE000">This text does NOT pass contrast</p>
+        <p style="color:#78BE21">This text does NOT pass contrast</p>
       </td>
     </tr>  
     <tr>
