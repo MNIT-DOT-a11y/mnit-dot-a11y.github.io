@@ -46,7 +46,7 @@ A manual image test of each image must be performed to verify alt text quality. 
 ## Informative Images
 {: .divider }
 - Check that the image owns an <code>alt</code> attribute.
-- Ensure that the <code>alt</code> attribute is present is not empty.
+- Ensure that the <code>alt</code> attribute is present and is not empty.
 - Ensure that the alt attribute is present is not empty, such as <code>alt</code> or <code>alt=""</code>
 - The <code>alt</code> attribute value / description of the image should be accurate and succinct. The image alternative should not consist of information that duplicates nearby text content.
 
@@ -65,7 +65,7 @@ A manual image test of each image must be performed to verify alt text quality. 
 
 
 ### SVG
-Some images are implemented using inline <code>SVG</code>. Text alernatives for these images can be defined by use of <code>role="img"</code> and <code>aria-label="I am the alt text"</code>. The <code>alt</code> attribute should not be on an element whose <code>role</code> is <code>role="img"</code> this is instead handled by <code>aria-label</code>. 
+Some images are implemented using inline <code>SVG</code>. Text alternatives for these images can be defined by use of <code>role="img"</code> and <code>aria-label="I am the alt text"</code>. The <code>alt</code> attribute should not be on an element whose <code>role</code> is <code>role="img"</code> this is instead handled by <code>aria-label</code>. 
 
 {% highlight html %}
 <svg role="img" aria-label="I am the alt text">...</svg>
@@ -85,7 +85,7 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 {:/}
 
 {% highlight html %}
-<img src="/images/cars.jpg" alt="" ...>
+<img src="/images/cars.jpg" alt="">
 {% endhighlight %}
 
 ## Functional Images
@@ -148,7 +148,7 @@ Some images are implemented using inline <code>SVG</code>. Text alernatives for 
 {% highlight html %}
   <img
     src="/assets/images/examples/how-to-test-images-complex-data.png"
-    alt="Active and accessibility project map. See listlink in text for details.">
+    alt="Active and accessibility project map">
 {% endhighlight %}
 
 

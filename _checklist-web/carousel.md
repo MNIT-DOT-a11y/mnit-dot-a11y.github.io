@@ -10,7 +10,7 @@ keyboard:
     Focus moves to carousel controls (forward, backward, pause/play, stop)
   arrow-keys: |
     Advance or reverse the slides
-  spacebar: |
+  space bar: |
     Activates the button
   enter: |
     Activates the button
@@ -35,7 +35,7 @@ gherkin-keyboard:
     result: |
       focus is strongly visually indicated
   - then:  |
-      the spacebar or enter key
+      the space bar or enter key
     result: |
       the intended action occurs
   - then:  |

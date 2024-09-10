@@ -7,7 +7,7 @@ categories: form
 keyboard:
   tab: |
     Focus moves visibly to the input or show password checkbox
-  spacebar: |
+  space bar: |
     Toggles the show password checkbox
       
 mobile:

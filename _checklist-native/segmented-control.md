@@ -8,7 +8,7 @@ keyboard:
     Focus visibly moves to the button
   arrow keys: |
     Navigate through group
-  spacebar: |
+  space bar: |
     Activates the button on iOS and Android
   enter: |
     Activates the button on Android

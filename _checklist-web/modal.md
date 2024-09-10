@@ -36,7 +36,7 @@ screenreader:
 
 gherkin-keyboard: 
   - when:  |
-      the tab key to move focus to the launch button and use spacebar and/or enter key to activate the button
+      the tab key to move focus to the launch button and use space bar and/or enter key to activate the button
     result: |
       the dialog opens and is in focus
   - then:  |
@@ -52,7 +52,7 @@ gherkin-keyboard:
     result: |
       focus returns to the launch button
   - or:  |
-      the tab key to move focus to the dismiss/close button <strong>AND THEN</strong> use the spacebar or enter key to activate the dismiss/close button
+      the tab key to move focus to the dismiss/close button <strong>AND THEN</strong> use the space bar or enter key to activate the dismiss/close button
     result: |
       focus returns to the launch button
 

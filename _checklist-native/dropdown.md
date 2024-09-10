@@ -6,7 +6,7 @@ categories: controls
 keyboard:
   tab, arrow keys or Ctrl+tab: |
       Focus visibly moves to the Dropdown
-  spacebar: |
+  space bar: |
       Selects and opens the Dropdown on iOS and Android
   enter: |
       Select and open the Dropdown on Android

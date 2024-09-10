@@ -8,7 +8,7 @@ Links and buttons serve different functions on websites and should be used appro
 
 ## Links vs Buttons
 
-### If it goes somewhere, it's `<a>` link.
+### If it goes somewhere, it's a `<a>` link.
 
 - When the user clicks a link, they are taken to a different location in the site.
   - Either another page or even another area of the same page
@@ -98,7 +98,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
         <a href="https://mnit-dot-a11y.github.io/">MNIT DOT A11y home</a>
       </td>
       <td>
-        <a tabindex="0" onmouseup = "location.href=https://mnit-dot-a11y.github.io/'">MNIT DOT A11y home</a>
+        <a tabindex="0" onmouseup = "location.href="https://mnit-dot-a11y.github.io/'">MNIT DOT A11y home</a>
       </td>
     </tr> 
     </tbody>
@@ -106,8 +106,9 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>Ensure disabled controls are focusable but not actionable, and have an <code>aria-disabled="true"</code> attribute</h3>
-  <p><strong>Note:</strong> A control that is disabled should not be interactive to any users. Nothing should happen when activated.</p>
+  <h3>Ensure disabled controls are both **not** focusable or actionable, and have an <code>aria-disabled="true"</code> attribute</h3>
+  <p><strong>Note:</strong> A control that is disabled should not be interactive to any users. Nothing should happen when activated, and it should not appear in the tabbing order.</p>
+  <p><strong>Note 2:</strong> <code>Aria-disabled</code> is useful for elements that are not normally disabled (e.g., custom controls), while the <code>disabled</code> attribute is useful for native links or buttons that have built-in handling for being placed in a disabled state.</p>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -170,7 +171,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 
 <div class="how-to-test-checklist-item">
   <h3>Ensure all CTA buttons or links have appropriate <code>aria-label</code> values.</h3>
-    <p><strong>Note:</strong> If a control has <code>aria-label</code>, the <code>aria-label</code> must contain the text that is presented visually. The text should not be broken up and be the first part of the label.</p>
+    <p><strong>Note:</strong> If a control has <code>aria-label</code>, the <code>aria-label</code> must contain the text that is presented visually. The text should not be broken up and be the first part of the label. The text should match what is conveyed by the visual label and not contradict it.</p>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -225,7 +226,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
       More details
     </button>
     <div class="expander-content">
-      This button expressed its state as expanded or collapsed
+      This button indicated its state as expanded or collapsed
     </div>
   </div>
       </td>
@@ -235,7 +236,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
       More details
     </button>
     <div class="expander-content">
-      This button is not conveying it's state.
+      This button is not conveying its state.
     </div>
   </div>
       </td>

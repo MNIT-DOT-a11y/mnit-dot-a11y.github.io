@@ -17,7 +17,7 @@ keyboard:
     Changes the grid of dates to the previous/next year.
   home/end: |
     Moves focus to the first/last day of the current week.   
-  spacebar or enter: |
+  space bar or enter: |
     Activates the date picker buttons and calendar navigation buttons
 
 mobile:
@@ -44,7 +44,7 @@ gherkin-keyboard:
     result: |
       focus is strongly visually indicated
   - then:  |
-      the spacebar and/or enter key
+      the space bar and/or enter key
     result: |
       the date picker dialog appears
   - then:  |
@@ -64,7 +64,7 @@ gherkin-keyboard:
     result: |
       the grid of dates moves to the next/previous year
   - then:  |
-      the spacebar and/or enter key
+      the space bar and/or enter key
     result: |
       the button or selection is activated
   - then:  |

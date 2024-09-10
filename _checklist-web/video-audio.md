@@ -7,7 +7,7 @@ categories: main
 keyboard:
   tab: |
     Focus visibly moves to each control
-  spacebar: |
+  space bar: |
     Activates the control button
   enter: |
     Activates the control button
@@ -36,7 +36,7 @@ gherkin-keyboard:
     result: |
       focus is strongly visually indicated
   - then:  |
-      the spacebar and/or enter key to activate the button
+      the space bar and/or enter key to activate the button
     result: |
       the intended action occurs
   - then:  |

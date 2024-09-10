@@ -7,7 +7,7 @@ categories: controls
 keyboard:
   tab, Ctr+tab or arrow keys: |
     Focus visibly moves to the button
-  spacebar: |
+  space bar: |
     Activates the button on iOS and Android
   enter: |
     Activates the button on Android

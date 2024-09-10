@@ -8,7 +8,7 @@ categories: form
 keyboard:
   tab: |
     Focus visibly moves to the checkbox
-  spacebar: |
+  space bar: |
     Toggles the checkbox between states
 
 mobile:
@@ -33,7 +33,7 @@ gherkin-keyboard:
     result: |
       focus is strongly visually indicated
   - then:  |
-      the spacebar to activate the checkbox
+      the space bar to activate the checkbox
     result: |
       the state is changed
 

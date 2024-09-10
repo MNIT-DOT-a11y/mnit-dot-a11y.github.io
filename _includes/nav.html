@@ -6,11 +6,18 @@
         href="{{ site.baseurl }}/">{{ site.title }}
       </a>
     </li>
-    <li class="web alpha">
+      <li class="web alpha">
       <a
         {% if page.url== "/web/" %} aria-current="page" {% endif %}
         {% if page.url contains "web/" %} class="current" {% endif %}
         href="{{ site.baseurl }}/web/">Web
+      </a>
+    </li>
+    <li class="web alpha">
+      <a
+        {% if page.url== "/desktop/" %} aria-current="page" {% endif %}
+        {% if page.url contains "desktop/" %} class="current" {% endif %}
+        href="{{ site.baseurl }}/desktop/">Desktop
       </a>
     </li>
     <li class="native alpha">

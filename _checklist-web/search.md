@@ -37,7 +37,7 @@ gherkin-keyboard:
     result: |
       the button is focused
   - then:  |
-      the enter or spacebar key
+      the enter or space bar key
     result: |
       the search results are presented
 

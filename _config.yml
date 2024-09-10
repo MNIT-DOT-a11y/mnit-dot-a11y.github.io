@@ -35,6 +35,9 @@ collections:
   checklist-native:
     output: true
     permalink: /:collection/:name/
+  checklist-desktop:
+    output: true
+    permalink: /:collection/:name/
   demos:
     output: true
     permalink: /:collection/:name/
@@ -50,6 +53,11 @@ web-categories-order:
 - footer
 native-categories-order:
 - controls
+- notifications
+- patterns
+desktop-categories-order:
+- controls
+- dialogs
 - notifications
 - patterns
 video-demos:

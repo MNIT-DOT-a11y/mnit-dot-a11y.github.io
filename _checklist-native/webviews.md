@@ -7,7 +7,7 @@ categories: patterns
 keyboard:
   tab, arrow keys or Ctrl+tab: |
     Moves to all interactive elements in navigation bar and web view
-  spacebar: |
+  space bar: |
     Activates on iOS and Android
   enter: |
     Activates on Android

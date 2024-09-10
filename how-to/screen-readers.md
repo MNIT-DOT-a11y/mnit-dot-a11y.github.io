@@ -1,6 +1,6 @@
 ---
 layout: how-to-test
-title: Screen readers
+title: Screen Readers
 permalink: /how-to-test/screen-readers/
 ---
 
@@ -9,11 +9,11 @@ permalink: /how-to-test/screen-readers/
 
 ### About the tab key
 
-The tab key is not the only key the screen readers use to browse content. Before you test, learn the difference between **interactive elements that should receive focus** with the tab key and **content that should not**.
+The tab key is not the only key that screen readers use to browse content. Before you test, learn the difference between **interactive elements that should receive focus** with the tab key and **content that should not**.
 
-- Arrow keys browse content for reading
+- Arrow keys browse content for reading.
 - The tab key focuses interactive controls
-- screen readers can also consume content automatically, starting reading at the top with no keyboard interaction
+- screen readers can also consume content automatically, starting reading at the top with no keyboard interaction.
 
 ### Do not use a mouse
 
@@ -22,7 +22,7 @@ The tab key is not the only key the screen readers use to browse content. Before
 ## <step-number>2</step-number> Test with mobile screen readers
 {: .divider }
 
-Because many websites have crossed the threshold to a majority of visits being from mobile devices this may be higher priority than desktop testing.
+Because many websites have crossed the threshold to a majority of visits being from mobile devices, this may be higher priority than desktop testing.
 
 - Follow the mobile gesture test instructions (swipe, tap, doubletap, etc.)
   - **Do not tap** on elements to navigate, you must swipe to browse the content in a linear pattern
@@ -68,7 +68,7 @@ Follow the [screen reader browser pairings table](#screen-readers-are-all-slight
 
 ### NVDA differences
 
-- NVDA has 2 modes with different keyboard shortcuts.
+- NVDA has two modes with different keyboard shortcuts.
   - Browse (Red focus indicator)
     - Arrow keys will browse from element to element
   - Focus (Blue focus indicator)

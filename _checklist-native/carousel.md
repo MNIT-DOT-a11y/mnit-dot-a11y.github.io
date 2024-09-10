@@ -6,7 +6,7 @@ categories: controls
 keyboard:
  tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to the next item
- spacebar: |
+ space bar: |
     Activates button or interactive slide on iOS and Android
  enter: |
     Activates button or interactive slide on Android

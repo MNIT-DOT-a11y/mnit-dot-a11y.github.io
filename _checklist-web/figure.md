@@ -11,7 +11,7 @@ keyboard:
     Interactive figure controls are focusable
   enter: |
     Activates controls
-  spacebar: |
+  space bar: |
     Activates controls
 
 mobile:
@@ -38,7 +38,7 @@ gherkin-keyboard:
     result: |
       the control is in focus
   - then:  |
-      the spacebar or enter key
+      the space bar or enter key
     result: |
       the intended action occurs
 

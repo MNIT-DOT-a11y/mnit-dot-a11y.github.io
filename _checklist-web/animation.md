@@ -7,7 +7,7 @@ categories: main
 keyboard:
   tab: |
     Where applicable, focus moves directly to pause/play/hide controls
-  spacebar: |
+  space bar: |
     Activates the control
   enter: |
     Activates the control
@@ -34,7 +34,7 @@ gherkin-keyboard:
     result: |
       the control is strongly visibly focused
   - then:  |
-      the spacebar or enter key to activate the control
+      the space bar or enter key to activate the control
     result: |
       the intended action occurs
   - then:  |

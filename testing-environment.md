@@ -74,8 +74,8 @@ The NVDA speech viewer is a valuable tool for screen reader testers. Enabling th
 
 1. _Open the NVDA Menu_ by pressing **CAPS LOCK + n**.
 2. Navigate to Tools and **_Select Speech Viewer_**. _Check_ the "**Show speech viewer on startup**” box to enable the speech viewer to appear on startup. The speech viewer will open when NVDA is started.
-3. A window will appear, updating in real-time with the content that NVDA speaks.  
-        <example>
+3. A window will appear, updating in real-time with the content that NVDA speaks.
+    <example>
         <img src="/assets/images/testing-tools/nvda-speech-viewer.jpg" alt="Screenshot showing step 2">
     </example>
     
@@ -98,8 +98,10 @@ There are two different ways you can turn Windows Magnifier on.
 
 **Using the Mouse**
 
-1. _Select_ **Start** \> **Settings** > **Accessibility** \> **Magnifier,** then turn on the **Magnifier** switch.  
-    ![Screenshot showing steps of using a mouse.](assets/images/testing-tools/magnifier.jpg)
+1. _Select_ **Start** \> **Settings** > **Accessibility** \> **Magnifier,** then turn on the **Magnifier** switch.
+    <example>
+        <img src="assets/images/testing-tools/magnifier.jpg" alt="Screenshot showing steps of using a mouse">
+    </example>
 ### axe Browser Extension
 
 axe DevTools browser extension automates accessibility testing for web-based applications to help identify common accessibility issues.
@@ -109,7 +111,9 @@ axe DevTools browser extension automates accessibility testing for web-based app
 1. _Open_ Chrome, Edge or Firefox browser.
 2. _Go to_ [Deque’s browser extension webpage](https://www.deque.com/axe/browser-extensions/).
 3. _Scroll to the bottom of the page_ and _select_ the **_Install free extension_** for Chrome, Edge, and Firefox browsers.
-- ![Screenshot showing steps 3.](assets/images/testing-tools/browser-extension-links.png)
+    <example>
+        <img src="assets/images/testing-tools/browser-extension-links.png" alt="Screenshot showing steps 3">
+    </example>
 **Notes:**
 
 - The usage and installation are identical for axe DevTools and axe DevPro tools.
@@ -122,18 +126,27 @@ You will only need to do this once.
 1. _Open_ Chrome, Edge, or Firefox browser.
 2. _Open_ the browser’s Developer Tools by pressing **_Ctrl + Shift + I_** on a keyboard or **_right-click on the page_** and _select_ **_Inspect_** in the pop-up window.
 3. _Select_ the **_Axe DevTools_** tab in the developer tools menu.  
-    ![Screenshot showing step 6.](assets/images/testing-tools/axe-tool-tab.jpg)4. _Activate the "kebab"_ ⋮ button in the left panel (the accessible name is "Options") and _choose_ **_Settings_**_._
+    <example>
+        <img src="assets/images/testing-tools/axe-tool-tab.jpg" alt="Screenshot showing step 6">
+    </example>
+    4. _Activate the "kebab"_ ⋮ button in the left panel (the accessible name is "Options") and _choose_ **_Settings_**_._
 5. _Go to_ **_Rules and Issues > Best Practices_** on the right-hand page.
 6. **_Select Enable_.**
+    <example>
+        <img src="assets/images/testing-tools/axe-best-practices.png" alt="Screenshot showing step 8">
+    </example>
 
-![Screenshot showing step 8.](assets/images/testing-tools/axe-best-pracitces.png)
 #### Using axe DevTools
 
 1. _Open_ the browser’s Developer Tools by pressing **_Ctrl + Shift + I_** on a keyboard or **_right-click on the page_** and _select_ **_Inspect_** in the pop-up window.
 2. _Select_ the **_Axe DevTools_** tab in the developer tools menu.
-    ![Screenshot showing step 2.](assets/images/testing-tools/axe-tool-tab.jpg)
+    <example>
+        <img src="assets/images/testing-tools/axe-tool-tab.jpg" alt="Screenshot showing step 2">
+    </example>
     3. _Select_ the **_Full Page Scan_** at the bottom.
-    ![Screenshot showing step 3.](assets/images/testing-tools/ax-page-scan.jpg)
+    <example>
+    <img src="assets/images/testing-tools/ax-page-scan.jpg" alt="Screenshot showing step 3">
+    </example>
     4. Make sure Best Practices is on. If it is not, select Best Practices and Re-run the scan.
     5. When the scan is complete, you will see the total number of issues on the page and the number of issues grouped by severity.
         - On the left-hand side of the Axe DevTools, you’ll see an overview of the results.
@@ -144,7 +157,9 @@ You will only need to do this once.
 - The “&lt;/&gt;” button next to the snippet will bring you to the problem code in your browser’s page inspector.
 - Guidelines for fixing the issue.
 - Information about the severity of the issue and which accessibility guidelines are being violated (e.g., WCAG 2.1, Section 508, etc.).
-![Screenshot showing step 4 through 4 v.](assets/images/testing-tools/axe-scan-resutls.jpg)
+    <example>
+        <img src="assets/images/testing-tools/axe-scan-results.jpg" alt="Screenshot showing step 4 through 4 v">
+    </example>
 - Record the results in the Accessibility testing report spreadsheet.
 
 ### Browser Developer tools
@@ -160,17 +175,22 @@ For our purposes, we will focus on the Chrome and Firefox browsers.
 To open the browser developer tools, choose one of the three methods.
 
 1. Place your cursor over the browser window where you want to inspect, right-click the desired element on the page and select Inspect from the pop-up window.  
-    ![Screenshot showing inspect highlighted.](assets/images/testing-tools/devtools-inspect.jpg)
-
+    <example>
+        <img src="assets/images/testing-tools/devtools-inspect.jpg" alt="Screenshot showing inspect highlighted">
+    </example>
 2. Using your keyboard, _Select_ **Ctrl+Shift+I or F12.**
 3. _Select_ the _three dots_ (Chrome) or hamburger menu (Firefox) in the top right corner of the browser window, then _select_ **_More Tools_** and **_Developer Tools_**.  
-    ![screenshot showing option 3.](assets/images/testing-tools/devtools-open-three-dots.jpg)
+    <example>
+        <img src="assets/images/testing-tools/devtools-open-three-dots.jpg" alt="screenshot showing option 3">
+    </example>
 
 #### Accessing the DevTools Accessibility Pane
 
 1. Open Developer tools.
 2. Within the Developer tools Pane, select the Accessibility tab. If the accessibility tab is not visible, you must select arrows >> to reveal the tab.  
-    ![Screenshoot showing step 2](assets/images/testing-tools/devtools-accessibility-tab.jpg)
+    <example>
+        <img src="assets/images/testing-tools/devtools-accessibility-tab.jpg" alt="Screenshot showing step 2">
+    </example>
 The [Accessibility features reference](https://developer.chrome.com/docs/devtools/accessibility/reference) the webpage provides detailed information on using the accessibility feature in the developer tools.
 
 ### PEAT (Photosensitive Epilepsy Analysis Tool)
@@ -202,10 +222,16 @@ The CCA uses an eye drop tool to find the color code of two colors. You can also
 3. Find the image or font you need to check with CCA.
 4. _Select the dropper tool_ in the **Foreground color** section of the CCA tool. A large zoom circle will appear.
 5. Move to the image or font you want to check and select the color. Be sure to choose the darkest color within the zoom area.  
-    ![screenshot showing step 4 and 4a.](assets/images/testing-tools/cca-foreground.jpg)6. _Next_, _select the dropper tool_ in the **Background Colour** section, following the same process in step 4.
+    <example>
+        <img src="assets/images/testing-tools/cca-foreground.jpg" alt="screenshot showing step 4 and 4a">
+    </example>
+    6. _Next_, _select the dropper tool_ in the **Background Colour** section, following the same process in step 4.
 7. _Review the results_ in the **_WCAG 2.1 results_** section near the bottom of the application window. This section displays the results of the color contrast ratio between the two select color combinations.
 8. If the color combination does not pass, you must increase the darkness of one of the colors or find a different color combination.  
-    ![screen shot showing step 6.](assets/images/testing-tools/cca-results.jpg)
+    <example>
+        <img src="assets/images/testing-tools/cca-results.jpg" alt="screenshot showing step 6">
+    </example>
+
 [Colour Contrast Analyser video tutorial](https://www.youtube.com/watch?v=agCzn4gdRyY) – created by Berkely University, walks you through how to use the application.
 
 ## Testing tools for mobile
@@ -243,7 +269,10 @@ The VoiceOver Caption Panel displays the text VoiceOver speaks at the bottom of 
 2. _Scroll down_ and _tap_ **_Accessibility._**
 3. _Tap_ **_VoiceOver_** at the top.
 4. _Scroll_ to the bottom and toggle the **_Caption Panel_** switch **_on_**.  
-    ![Screenshot showing step 2.](assets/images/testing-tools/voice-over-caption-panel.jpg)
+    <example>
+        <img src="assets/images/testing-tools/voice-over-caption-panel.jpg" alt="Screenshot showing step 2">
+    </example>
+
 #### Basic Usage
 
 - Use a single tap to select an item.
@@ -281,10 +310,13 @@ TalkBack is the screen reader included with Android OS.
 
 #### Enable Caption Preference
 
-1. _Go to_ **_Settings_**
-2. _Tap on_ **_Accessibility_**.
-3. _Scroll_ to **_Hearing enhancements_**
-4. _Select_ **_Caption Preferences_**.
-5. _Toggle the Show Captions to_ **_on_**. You can also adjust the caption size and style from this screen.
-
-![Screen shot showing step 5.](assets/images/testing-tools/android-caption-preference.jpg)
+1. Go to **Settings**
+2. Tap on **Accessibility**.
+3. Scroll to **Hearing enhancements**
+4. Select **Caption Preferences**.
+5. Toggle the Show Captions to on. You can also adjust the caption size and style from this screen.
+    <example>
+        <img src="assets/images/testing-tools/android-caption-preference.jpg" alt="Screenshot showing step 5">
+    </example>
+    
+    <p><a href="#content">Back to Top</a></p>

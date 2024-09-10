@@ -7,7 +7,7 @@ categories: patterns
 keyboard:
   tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to the tidbit if there is a call to action (CTA)
-  spacebar: |
+  space bar: |
     Activates CTA on iOS and Android
   enter: |
     Activates CTA on Android

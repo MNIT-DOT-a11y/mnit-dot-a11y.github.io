@@ -7,7 +7,7 @@ categories: form
 keyboard:
   tab: |
     Focus moves visibly to the select
-  enter or spacebar: |
+  enter or space bar: |
     If select is focused, expands the select and places focus on the currently selected option in the list. 
     If focus is in the options, collapses the select and keeps the currently selected option.
   arrow-keys: |

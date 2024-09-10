@@ -7,7 +7,7 @@ categories: main
 keyboard:
   tab: |
     Focus visibly moves to the expander.
-  spacebar: |
+  space bar: |
     Toggles the expander.
   enter: |
     Toggles the expander.
@@ -32,7 +32,7 @@ gherkin-keyboard:
     result: |
       focus is strongly visually indicated
   - then:  |
-      the spacebar and/or enter key to activate the expander
+      the space bar and/or enter key to activate the expander
     result: |
       the hidden content is revealed
 
