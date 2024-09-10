@@ -156,13 +156,3 @@ Sometimes the design will call for multiple buttons with the same text label. In
 ### Group
 - Use `aria-haspopup="true"` for menus, listboxes, or modals
 - `aria-controls="popupId"` is not well supported
-
-### State
-- Toggle buttons should use `aria-pressed="true/false"`
-- Menus or expanders should use `aria-expanded="true/false"`
-- Use the `disabled` state for completely inactive buttons that shouldn't be focusable
-- Use `aria-disabled="true/false"` state for inactive custom elements 
-
-### Focus
-- Focus must be visible
-- Custom elements (like `<div>`) need `tabindex="0"` to be focusable
