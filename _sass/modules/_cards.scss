@@ -22,14 +22,14 @@
 
     .card-how-to {
       @include break($break-mid) {
-        grid-column: 3;
+        grid-column: 4;
         grid-row: 1;
       } 
     }
 
     .card-demo {
       @include break($break-mid) {
-        grid-column: 3;
+        grid-column: 4;
         grid-row: 2;
       } 
     }
