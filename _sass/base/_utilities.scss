@@ -161,8 +161,7 @@
 
 .external-link {
   display: inline-flex;
-  position: relative; /* To position the pseudo-element relative to the link text */
-  align-items: center; /* Ensures the icon and text are aligned inside the link */
+  align-items: center;
 }
 
 .external-link::after {
@@ -170,7 +169,7 @@
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin-left: 12px; /* Add space between the text and icon */
-  font-size: 0.8rem;
+  font-size: inherit;
   display: inline-block;
   vertical-align: middle;
 }

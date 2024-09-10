@@ -7,7 +7,7 @@ categories: form
 keyboard:
   tab: |
     Focus visibly moves to the switch
-  spacebar: |
+  space bar: |
     Toggles the switch between states
 
 mobile:
@@ -32,7 +32,7 @@ gherkin-keyboard:
     result: |
       focus is strongly visually indicated
   - then:  |
-      the spacebar to activate the switch
+      the space bar to activate the switch
     result: |
       the state is changed
 

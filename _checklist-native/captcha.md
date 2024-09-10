@@ -7,7 +7,7 @@ categories: controls
 keyboard:
   tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to the captcha button
-  spacebar: |
+  space bar: |
     Activates the captcha on iOS and Android
   enter: |
     Activates the button on Android

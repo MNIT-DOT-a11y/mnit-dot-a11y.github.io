@@ -7,7 +7,7 @@ categories: form
 keyboard:
   tab: |
     Focus visibly moves to the checked radio button in the group. If a radio button is not checked, focus moves to the first radio button in the group.
-  spacebar: |
+  space bar: |
     If the radio button with focus is not checked, changes the state to checked.  Otherwise, does nothing.
   arrow-keys: |
     Moves focus to and checks the previous or next radio button in the group
@@ -34,7 +34,7 @@ gherkin-keyboard:
     result: |
       focus is strongly visually indicated on the first unselected option or the selected option
   - then:  |
-      the spacebar to activate the radio button
+      the space bar to activate the radio button
     result: |
       the radio button with focus change state to selected.
   - then:  |

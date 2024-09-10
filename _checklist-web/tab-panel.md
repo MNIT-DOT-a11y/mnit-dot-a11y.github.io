@@ -11,7 +11,7 @@ keyboard:
     Moves focus to the next or previous tab and activates the tab
   left/right-arrow-keys (manual activation): |
     Moves focus to the next or previous tab
-  spacebar or enter (manual activation): |
+  space bar or enter (manual activation): |
     Activates the focused tab
         
 mobile:
@@ -36,7 +36,7 @@ gherkin-keyboard:
   - if tab activation is manual: |
       the left/right arrow keys
     result: |
-      focus moves to other tabs and I use the spacebar or enter key to activate the tab
+      focus moves to other tabs and I use the space bar or enter key to activate the tab
   - if tab activation is automatic: |
       the left/right arrow keys
     result: |

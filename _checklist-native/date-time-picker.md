@@ -6,7 +6,7 @@ categories: controls
 keyboard:
   tab, arrow keys or Ctrl+tab: |
       Focus visibly moves to the picker
-  spacebar: |
+  space bar: |
       Selects and opens the picker on iOS and Android
   enter: |
       Select and open the picker on Android

@@ -7,7 +7,7 @@ categories: patterns
 keyboard:
   tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to the first interactive element in the table
-spacebar: |
+space bar: |
     Activates on iOS and Android
 enter: |
     Activates on Android

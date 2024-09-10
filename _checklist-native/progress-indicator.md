@@ -6,7 +6,7 @@ categories: controls
 keyboard:
   tab, arrow keys or Ctrl+tab: |
     Focus visibly moves to the part of the control that is interactive
-  spacebar: |
+  space bar: |
     Activates on iOS and Android
   enter: |
     Activates on Android

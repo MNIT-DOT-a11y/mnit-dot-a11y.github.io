@@ -129,7 +129,7 @@ Select fields allow users to select one or more options from an expandable list.
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>Ensure interating with a form doesn't automatically or unexpectedly change context on the page without informing users</h3>
+  <h3>Ensure interacting with a form doesn't automatically or unexpectedly change context on the page without informing users</h3>
   <p><strong>Note:</strong> Forms should have submit buttons so the change of context is initiated by the user.</p>
   <table class="column-2">
     <thead>
@@ -152,7 +152,7 @@ Select fields allow users to select one or more options from an expandable list.
           <option value="Bravo">Bravo</option>
           <option value="Charlie">Charlie</option>
         </select>
-        <button aria-disabled="true" class="button" id="submitSelectPassSelection" type="submit">Submit</button>
+        <button disabled aria-disabled="true" class="button" id="submitSelectPassSelection" type="submit">Submit</button>
         <div role="alert" id="messagePass" style="display: none;">This was an expected submission!</div>
       </td>
       <td>
@@ -283,7 +283,8 @@ Select fields allow users to select one or more options from an expandable list.
       <td>
       <div>
       <input type="checkbox"
-            id="echoCheckboxCard">    
+            id="echoCheckboxCard"
+            aria-describedby="descriptionEcho">    
       <label for="echoCheckboxCard">Echo</label>
       <div class="hint"
           id="descriptionEcho">
@@ -334,7 +335,7 @@ Select fields allow users to select one or more options from an expandable list.
 
 ## Related WCAG
 - [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html)
-- [1.3.5 Indentify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html)
+- [1.3.5 Identify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html)
 - [3.2.2 On Input](https://www.w3.org/WAI/WCAG22/Understanding/on-input.html)
 - [2.4.6 Heading and Labels](https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html)
 - [3.3.1 Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html)

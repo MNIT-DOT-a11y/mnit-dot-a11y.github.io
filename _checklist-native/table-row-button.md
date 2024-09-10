@@ -6,7 +6,7 @@ categories: controls
 keyboard:
   tab: |
     Focus visibly moves to the row/blade, if interactive
-  spacebar: |
+  space bar: |
     Activates the row/blade on iOS and Android
   enter: |
     Activates the row/blade on Android

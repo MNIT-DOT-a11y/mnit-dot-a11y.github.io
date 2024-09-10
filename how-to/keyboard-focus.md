@@ -4,7 +4,7 @@ title: Keyboard and Focus
 permalink: /how-to-test/keyboard-focus/
 ---
 
-Manual testing is not difficult or time consuming once you understands keyboard interactions.
+Manual testing is not difficult or time consuming once you understand keyboard interactions.
 
 ## <step-number>1</step-number> Test with the keyboard only
 {: .divider }
@@ -77,7 +77,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
       <span class="keyboard-key">Enter</span>
     </th>
     <td>
-      Active links and buttons
+      Activates links and buttons
     </td>
   </tr> 
 
@@ -112,7 +112,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
 
 <div class="how-to-test-checklist-item">
   <h3>Ensure there is a highly visible visual indication of keyboard focus</h3>
-  <p>Keyboard users need to understand where they are in the interface at all times. The visual indication of keyboard focus (focus ring) should be highly visible and have a color contrast ratio of 3:1 against the background. Verify that overlap items (e.g. cookie banners, sticky footers, sticky headers, and non-modal dialogs) do not obscure the visual indicator. </p>
+  <p>Keyboard users need to understand where they are in the interface at all times. The visual indication of keyboard focus (focus ring) should be highly visible and have a color contrast ratio of 3:1 against the background. Verify that overlapping items (e.g. cookie banners, sticky footers, sticky headers, and non-modal dialogs) do not obscure the visual indicator. </p>
 </div>
 
 <div class="how-to-test-checklist-item">
@@ -127,12 +127,12 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
 
 <div class="how-to-test-checklist-item">
   <h3>On focus does not create a change of context</h3>
-  <p>Ensure that when an interactive element receives keyboard focus that a change of context is not initiated without warning of such behavoir. An example of change of context is a page load or web form submission.</p>
+  <p>Ensure that when an interactive element receives keyboard focus that a change of context is not initiated without warning of such behavior. An example of change of context is a page load or web form submission.</p>
 </div>
 
 <div class="how-to-test-checklist-item">
   <h3>Test for skip links</h3>
-  <p>Where there are large chunks of repeated content, ensure that there are skip links present for keboard users. For example, on a site with a large site navigation system, the first focusable element in the page should be a link that allows users to jump to the main content of the site.</p>
+  <p>Where there are large chunks of repeated content, ensure that there are skip links present for keyboard users. For example, on a site with a large site navigation system, the first focusable element in the page should be a link that allows users to jump to the main content of the site.</p>
 </div>
 
 ## Video Example
@@ -145,7 +145,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
 - [1.4.11: Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)
 - [2.1.1 Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html)
 - [2.1.2 No Keyboard Trap](https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html)
-- [2.1.4 Charater Key Shortcuts](https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html)
+- [2.1.4 Character Key Shortcuts](https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html)
 - [2.4.3 Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html)
 - [2.4.7 Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html)
 - [3.2.1 On Focus](https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html)
