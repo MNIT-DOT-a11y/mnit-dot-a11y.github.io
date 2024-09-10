@@ -5,4 +5,4 @@ title: Guided accessibility testing
 
 ---
 
-## Automatically generate accessibility test cases for web-based, native mobile, and desktop applications.
+## Automatically generate accessibility test cases for web, desktop, and native apps.
