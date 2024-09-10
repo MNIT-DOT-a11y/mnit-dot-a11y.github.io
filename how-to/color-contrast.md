@@ -6,8 +6,8 @@ permalink: /how-to-test/color-contrast/
 
 There are two main accessibility considerations when using color in your web-based, native mobile, and desktop applications.
 
-1.	Color contrast: This is the difference in lightness/darkness between two colors (not differences in hue). Text, icons, and important graphics must have sufficient color contrast. 
-2.	Use of color to convey information: WCAG also requires that we not use color alone (or visual characteristics) to convey information. Examples are when a chart uses color alone or when a site uses color-coded text to convey information.
+1.	**Color contrast**: Is the difference in lightness/darkness between two colors (background and foreground). Text, icons, and important graphics must have sufficient color contrast between colors for users who have low vision or who are colorblind. 
+2.	**Use of color to convey information**: WCAG requires that we not use color alone (or visual characteristics) to convey information. Examples are when a chart uses color alone or when a site uses color-coded text to convey information. This is important for users who have any amount of color deficiency, or color blindness.
 
 ---
 ## Color Contrast
