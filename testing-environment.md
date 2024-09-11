@@ -18,7 +18,7 @@ Before you start testing, you must install and set up the accessibility testing 
 
 ---
 
-## Testing tools for desktop
+## Testing tools for Website and Web-based Applications
 
 ### NVDA (Non-Visual Desktop Access)
 
@@ -249,7 +249,7 @@ The CCA uses an eye drop tool to find the color code of two colors. You can also
 
 ---
 
-## Testing tools for mobile
+## Testing tools for Mobile
 
 ### VoiceOver on iOS (iPhone and iPad)
 
