@@ -11,7 +11,7 @@ keyboard:
   space bar: |
     Activates interactive CAPTCHA elements, such as selecting a checkbox or submitting an answer.
   enter: |
-    Activates the CAPTCHA verification process, such as submitting the CAPTCHA after completing it.
+    Activates the CAPTCHA verification process, such as submitting the CAPTCHA after completion.
 
 screenreader:
   name:  |
@@ -19,9 +19,9 @@ screenreader:
   role:  |
     Identifies the CAPTCHA as an interactive verification mechanism (e.g., form element).
   instructions: |
-    Provides clear instructions on how to interact with the CAPTCHA, such as "Click on all images that contain traffic lights."
+    It provides clear instructions on how to interact with the CAPTCHA, such as "Click on all images that contain traffic lights."
   state: |
-    Indicates the current state, such as whether the CAPTCHA has been successfully verified, or if it needs further input.
+    Indicates the current state, such as whether the CAPTCHA has been successfully verified or needs further input.
 
 mobile:
   swipe: |
@@ -29,7 +29,7 @@ mobile:
   double tap: |
     Activates interactive CAPTCHA elements, such as selecting checkboxes or images.
   pinch/zoom: |
-    Ensures that CAPTCHA images and text are readable and can be zoomed without breaking the layout or functionality.
+    Ensures that CAPTCHA images and text are readable and can be zoomed in without breaking the layout or functionality.
 
 wcag:
   - name: Perceivable
@@ -63,7 +63,7 @@ wcag:
 ### Clarity of Instructions
 
 - Ensure CAPTCHA instructions are clear and easy to understand. Avoid ambiguous terms.
-- If images are used, ensure they are clear and easy to distinguish. Offer an alternative (e.g., audio CAPTCHA) for users who may struggle with visual recognition.
+- If images are used, ensure they are easy to distinguish. Offer an alternative (e.g., audio CAPTCHA) for users struggling with visual recognition
 
 ### Readability
 
@@ -71,18 +71,18 @@ wcag:
 
 ### Keyboard Navigation
 
-- Verify that all CAPTCHA elements are fully navigable using the keyboard, without requiring a mouse.
+- Verify that all CAPTCHA elements are fully navigable using the keyboard without requiring a mouse.
 
 ### Screen Reader Compatibility
 
-- Ensure that screen readers can accurately describe the CAPTCHA elements, and that the CAPTCHA is operable by users relying on assistive technologies. This may include offering an audio alternative (see below).
+- Ensure that screen readers can accurately describe the CAPTCHA elements and that users relying on assistive technologies can operate the CAPTCHA. This may include offering an audio alternative (see below).
 
 ### Alternative Methods
 
-- Provide accessible alternatives to visual CAPTCHAs, such as audio or text-based challenges.
-- DO not require the user to perform complex processes to bypass the CAPTCHA. Some CAPTCHA software, such as [hCaptcha](https://hcaptcha.com/) require disabled users to install a browser cookie on their machine, which is prone to confusing users and violates their privacy.
+- Provide accessible alternatives to visual CAPTCHAs, such as audio or text-based challenges
+- **Do not** require the user to perform complex processes to bypass the CAPTCHA.  Some CAPTCHA software, such as [hCaptcha](https://hcaptcha.com/) require disabled users to install a browser cookie on their machine, which can confuse users and violate their privacy.
 
 ### Error Handling
 
-- Clearly communicate any errors or incorrect CAPTCHA entries. Provide guidance on how to correct the mistake.
-- Allow users to retry the CAPTCHA if they fail, without requiring them to reload the entire form or page.
+- Communicates any errors or incorrect CAPTCHA entries and provides guidance on how to correct the mistake.
+- Allow users to retry the CAPTCHA if they fail without requiring them to reload the entire form or page.
