@@ -106,6 +106,9 @@ There are two different ways you can turn Windows Magnifier on.
     <example>
         <img src="/assets/images/testing-tools/magnifier.jpg" alt="Screenshot showing steps of using a mouse">
     </example>
+
+    --
+
 ### axe Browser Extension
 
 axe DevTools browser extension automates accessibility testing for web-based applications to help identify common accessibility issues.
@@ -123,9 +126,7 @@ axe DevTools browser extension automates accessibility testing for web-based app
 - The usage and installation are identical for axe DevTools and axe DevPro tools.
 - If you have installed the Axe extension and upgraded to Axe Pro, you only need to sign in using the account with the Axe Pro subscription. No further installation is required. The features will be unlocked automatically.
 
----
-
-### Setting up axe DevTools
+#### Setting up axe DevTools
 
 You will only need to do this once.
 
@@ -167,6 +168,8 @@ You will only need to do this once.
         <img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Screenshot showing step 4 through 4 v">
     </example>
 - Record the results in the Accessibility testing report spreadsheet.
+
+---
 
 ### Browser Developer tools
 
