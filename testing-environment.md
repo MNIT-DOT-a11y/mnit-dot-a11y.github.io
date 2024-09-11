@@ -16,6 +16,8 @@ MNIT DOT recommends that anyone testing applications use the following tools for
 
 Before you start testing, you must install and set up the accessibility testing tools to ensure accurate results. Follow the setup outline here to get started.
 
+---
+
 ## Testing tools for desktop
 
 ### NVDA (Non-Visual Desktop Access)
@@ -78,7 +80,9 @@ The NVDA speech viewer is a valuable tool for screen reader testers. Enabling th
     <example>
         <img src="/assets/images/testing-tools/nvda-speech-viewer.jpg" alt="Screenshot showing step 2">
     </example>
-    
+ 
+ ---  
+
 ### Windows Magnifier on Windows 11
 
 Windows Magnifier is a screen magnification tool built into the Windows operating system. It provides a zoomed-in view of a select part of the screen at up to 1600% zoom. By default, it opens on the entire screen and will follow your mouse pointer, keyboard entry, and text cursor.
@@ -119,7 +123,9 @@ axe DevTools browser extension automates accessibility testing for web-based app
 - The usage and installation are identical for axe DevTools and axe DevPro tools.
 - If you have installed the Axe extension and upgraded to Axe Pro, you only need to sign in using the account with the Axe Pro subscription. No further installation is required. The features will be unlocked automatically.
 
-#### Setting up axe DevTools
+---
+
+### Setting up axe DevTools
 
 You will only need to do this once.
 
@@ -193,6 +199,8 @@ To open the browser developer tools, choose one of the three methods.
     </example>
 The [Accessibility features reference](https://developer.chrome.com/docs/devtools/accessibility/reference) the webpage provides detailed information on using the accessibility feature in the developer tools.
 
+---
+
 ### PEAT (Photosensitive Epilepsy Analysis Tool)
 
 PEAT is used to analyze videos and animated content for potentially seizure-inducing flashes or movement.
@@ -204,6 +212,8 @@ PEAT is used to analyze videos and animated content for potentially seizure-indu
 3. Open the download and PEAT zip folders and follow the installation steps.
 
 Refer to PEAT’s [user guide](https://trace.umd.edu/photosensitive-epilepsy-analysis-tool-peat-user-guide/) to understand all of its features.
+
+---
 
 ### Color Contrast Analyzer (CCA)
 
@@ -233,6 +243,8 @@ The CCA uses an eye drop tool to find the color code of two colors. You can also
     </example>
 
 [Colour Contrast Analyser video tutorial](https://www.youtube.com/watch?v=agCzn4gdRyY) – created by Berkely University, walks you through how to use the application.
+
+---
 
 ## Testing tools for mobile
 
