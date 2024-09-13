@@ -121,7 +121,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>✓ Verify that the focus order is logical</h3>
+  <h3>Verify that the focus order is logical</h3>
   <p>In an English-based experience, keyboard focus should move top-to-bottom and left-to-right in a logical order. Ensure focus is not jumping around the experience in a way that makes it hard to understand the content.</p>
 </div>
 
