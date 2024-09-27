@@ -34,7 +34,7 @@ screenreader:
 
 settings:
   text resize: |
-    Text can resize up to 200% without losing information
+    Text can resize up to 400% without losing information
 ---
 
 ## iOS
@@ -50,7 +50,7 @@ settings:
 - All column headers must have a visible label that describes column (text or icon)
 - If rows have multiple identical buttons like delete or edit, the programmatic name must be unique for each row (Delete address, Delete phone, etc)
 - Ensure scrolling is supported, if needed
-- Text must enlarge to 200% in each cell
+- Text must enlarge to 400% in each cell
 
 ### See the Details section for a specific control for interactive guidance
 
@@ -97,7 +97,7 @@ settings:
 - All column headers must have a visible label that describes column (text or icon)
 - If rows have multiple identical buttons like delete or edit, the programmatic name must be unique for each row (Delete address, Delete phone, etc)
 - Ensure scrolling is supported, if needed
-- Text must enlarge to 200% in each cell
+- Text must enlarge to 400% in each cell
 
 ### See the Details section for a specific control for interactive guidance
 - **Android Views**

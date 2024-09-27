@@ -18,7 +18,7 @@ screenreader:
 
 settings:
   text resize: |
-    Text can resize up to 200% without losing information
+    Text can resize up to 400% without losing information
 ---
 
 ## iOS
@@ -28,7 +28,7 @@ settings:
 - A heading should describe a section, not just look like a heading because it is large or bold font.
 - The title of a screen should announce as a heading by default
 - Text can announce as a heading as well as a button
-- Following Apple's guidelines for font sizes for headings, the maximum size for the larger size heading may be less than 200%
+- Following Apple's guidelines for font sizes for headings, the maximum size for the larger size heading may be less than 400%
 
 ### Accessibility Trait
 - **UIKit**

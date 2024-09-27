@@ -30,7 +30,7 @@ screenreader:
 
 settings:
   text resize: |
-    Text can resize up to 200% without losing information
+    Text can resize up to 400% without losing information
 ---
 
 

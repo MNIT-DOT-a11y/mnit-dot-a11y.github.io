@@ -29,7 +29,7 @@ screenreader:
 
 settings:
   text resize: |
-    Text label can resize up to 200% without losing information
+    Text label can resize up to 400% without losing information
 ---
 
 ## Developer Notes

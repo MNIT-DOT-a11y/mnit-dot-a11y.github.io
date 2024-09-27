@@ -31,7 +31,7 @@ state: |
 
 settings:
   text resize: |
-    Text can resize up to 200% without losing information (exceptions may apply)
+    Text can resize up to 400% without losing information (exceptions may apply)
 ---
 
 ## iOS
