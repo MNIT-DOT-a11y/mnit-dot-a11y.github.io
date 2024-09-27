@@ -9,13 +9,13 @@ keyboard:
   tab: |
     Enters the page and visibly focuses only interactive elements
   zoom: |
-    Content zooms up to 200%
+    Content zooms up to 400%
 
 mobile:
   swipe: |
     Focus moves within page
   pinch/stretch: |
-    Content zooms up to 200%
+    Content zooms up to 400%
   orientation: |
     Content is accessible in landscape or portrait orientation
 
@@ -41,7 +41,7 @@ gherkin-mobile:
 
 settings:
   zoom/pinch: |
-    text can resize up to 200% without losing information
+    text can resize up to 400% without losing information
 ---
 ## Developer notes
 

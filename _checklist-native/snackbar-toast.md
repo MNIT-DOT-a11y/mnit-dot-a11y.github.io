@@ -29,7 +29,7 @@ screenreader:
 
 settings:
   text resize: |
-    Text can resize up to 200% without losing information
+    Text can resize up to 400% without losing information
 ---
 ## iOS
 - There is no native snackbar or toast element for iOS.  The notes below are suggestions and accessibility guidance.

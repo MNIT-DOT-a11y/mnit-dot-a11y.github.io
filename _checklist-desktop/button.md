@@ -1,7 +1,7 @@
 ---
 layout: entry  
 title: "Button"  
-description: "How to code and test accessible buttons for desktop applications"  
+description: "How to test accessible buttons for desktop applications"  
 categories: controls
 order: 1  
 
@@ -33,7 +33,7 @@ wcag:
       - criteria: The focus indication has a minimum area equal to the width of the element and 2px in height  
   - name: Understandable  
     list:  
-      - criteria: Its purpose is clear in the context of the whole page  
+      - criteria: Its purpose is clear in the context of the whole screen or dialog  
   - name: Robust  
     list:  
       - criteria: Conveys the correct semantic role  
@@ -42,117 +42,3 @@ wcag:
 
 ---
 
-## Buttons vs links
-
-### If it goes somewhere, it's `<a>` link.
-
-- When the user clicks a link, they are taken to a different location in the application.
-  - Either another page or even another area of the same page
-- A link can look like a big shiny button but it must be coded as `<a>` link
-
-### If it does something, it's a `<button>`
-
-- Buttons cause an action to occur within the same window
-  - Submit a form (even when submission takes you to a new page)
-  - Open a menu
-  - Launch a modal
-  - Expand details
-- A button can look like a link, but it must be coded as a `<button>`
-
-## Code examples
-
-### Use semantic HTML
-
-- This semantic HTML contains all accessibility features by default.
-- It uses [CSS pseudo attributes](https://github.com/mnit-dot-a11y/mnit-dot-a11y.github.io/blob/main/_sass/modules/_button.scss) to create the arrow indicator, no Javascript.
-
-{% highlight html %}
-{% include /examples/button.html %}
-{% endhighlight %}
-
-{::nomarkdown}
-<example>
-{% include /examples/button.html %}
-</example>
-{:/}
-
-### Focusable disabled button
-
-The preferred method is to use `aria-disabled="true"` so screen reader users can find the button, click submit and be notified of errors in the form.
-
-{% highlight html %}
-{% include /examples/button-focusable-disabled.html %}
-{% endhighlight %}
-
-{::nomarkdown}
-<example>
-{% include /examples/button-focusable-disabled.html %}
-</example>
-{:/}
-
-### Fully disabled button
-
-A button that uses the disabled attribute will not be focusable, but it is still discoverable by a screen reader while browsing with the arrow keys.
-
-{% highlight html %}
-{% include /examples/button-disabled.html %}
-{% endhighlight %}
-
-{::nomarkdown}
-<example>
-{% include /examples/button-disabled.html %}
-</example>
-{:/}
-
-### When you can't use semantic HTML
-
-This custom button requires extra attributes and JS event listeners. Adding `tabindex="0"` makes it focusable.
-
-{% highlight html %}
-<div role="button" tabindex="0">
-  Continue
-</div>
-{% endhighlight %}
-
-### When there's no inner text that makes sense visually
-
-- As a last resort, `aria-label` can be used.
-- `aria-label` will typically replace the inner text of the button for the screen reader output.
-- DO NOT repeat the inner text in the `aria-label` as some screen readers will read both.
-
-{% highlight html %}
-<div role="button" tabindex="0" aria-label="Continue">
-  <!-- icon but no text -->
-</div>
-
-<div role="button" tabindex="0" aria-label="Buy now, iPhone 17">
-  Buy now <!-- Ambiguous text doesn't describe the intent -->
-</div>
-{% endhighlight %}
-
-### When there are repeating buttons
-
-Sometimes the design will call for multiple buttons with the same text label. In a case like this, `aria-label` can be used to name each control's purpose.
-
-{% highlight html %}
-<button aria-label="Edit payment date">
-  Edit
-</button>
-<button aria-label="Edit payment amount">
-  Edit
-</button>
-{% endhighlight %}
-
-## Developer notes
-
-### Name
-- Inner text should describe the purpose of the button.
-- As a last resort, `aria-label="Button purpose"` can also be used
-
-### Role
-- Native button identifies as button by default
-- Use `role="button"` for custom elements
-
-### Group
-- Use `aria-haspopup="true"` for menus, listboxes, or modals
-- `aria-controls="popupId"` is not well supported

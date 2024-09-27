@@ -1,5 +1,5 @@
 ---
-layout: checklist-web
+layout: checklist-desktop
 title: Desktop accessibility checklist
 permalink: /desktop/
 entrytype: checklist-desktop

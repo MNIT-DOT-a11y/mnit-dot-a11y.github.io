@@ -30,7 +30,7 @@ screenreader:
 
 settings:
   text resize: |
-    Text can resize up to 200% without losing information
+    Text can resize up to 400% without losing information
 ---
 ## General Notes
 This entry describes native app pickers that allow a user to set information such as a time or date. There may be more uses for such picker inputs as well.
