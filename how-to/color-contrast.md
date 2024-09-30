@@ -42,12 +42,12 @@ Manual testing is completed using the Colour Contrast Analyser (CCA) tool. This 
 
 How to use CCA can be found on the [Setting Up Your Testing Environment webpage](https://mnit-dot-a11y.github.io/testing-environment/).
 
-When performing a manual check, you must also identify the interactive elements, such as links, buttons, and menu links, that change color based on their states, such as focus or hover, and meet the color contrast requirements.
+When conducting a manual color contrast check, it's important to identify and test interactive elements such as links, buttons, and menu links, and their states when focused or hovered over.
 
-Be sure to manually check color contrast for all types of digital content, including:
+**Be sure to manually check color contrast for all types of digital content, including:
 - Images containing text.
 - Graphics, including charts, graphs, and maps.
-- Instances of text and user interface elements that sit on top of background images or color gradients or state changes.
+- Instances of text and user interface elements that sit on top of background images or color gradients or state changes.**
 
 #### **Testing State Changes**
 <p>When testing the color contrast of an state changes such as focus or hover, you must use both the browser’s developer tools and the CCA tool.</p>
@@ -113,7 +113,7 @@ Review the charts and graphs and answer the following questions.
 {: .divider }
 
 <div class="how-to-test-checklist-item">
-<h3>Ensure text has sufficient contrast to the background color</h3>
+<h3>Ensure text has sufficient contrast to the background color.</h3>
   <table class="column-2">
     <thead>
       <th scope="col">
@@ -188,7 +188,7 @@ Review the charts and graphs and answer the following questions.
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>Ensure that the different states of user interface components have sufficient contrast</h3>
+  <h3>Ensure that the different states of user interface components such as button and links have sufficient contrast</h3>
   <p><strong>Note:</strong> Default state, keyboard focus state, and hover state</p>
   <table class="column-2">
     <thead>
@@ -213,7 +213,7 @@ Review the charts and graphs and answer the following questions.
 </div>
 
 <div class="how-to-test-checklist-item">
-  <h3>Ensure meaningful graphical objects have sufficient contrast to their background</h3>
+  <h3>Ensure meaningful graphical objects such as decorative images have sufficient contrast to their background.</h3>
   <p><strong>Note:</strong> 3:1 color contrast ratio</p>
   <table class="column-2">
     <thead>
