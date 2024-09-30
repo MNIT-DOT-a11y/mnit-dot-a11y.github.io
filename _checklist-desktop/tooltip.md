@@ -1,5 +1,5 @@
 ---
-layout: entry  
+layout: entry-desktop
 title: "Tool Tip"
-description: "How to code and test accessible tool tips for desktop applications"  
-categories: controls
+description: "How to test accessible tool tips for desktop applications"  
+categories: notifications & alerts
