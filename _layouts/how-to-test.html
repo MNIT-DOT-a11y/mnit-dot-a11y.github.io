@@ -3,7 +3,7 @@ layout: base
 ---
 <div class="container">
   <div class="how-to-test-wrapper">
-    <nav aria-label="How to test" class="how-to-test">
+    <nav aria-label="How to test" class="toc-nav">
       <ul>
         <li>
           <a
@@ -65,8 +65,8 @@ layout: base
             <li>
               <a
                 {% if page.url== "/how-to-test/electron-desktop/" %} aria-current="page" {% endif %}
-                {% if page.url == "/how-to-test/desktop-electron/" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/how-to-test/desktop-electron/">
+                {% if page.url == "/how-to-test/electron-desktop/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/electron-desktop/">
                 Desktop Electron Applications
               </a>
             </li>

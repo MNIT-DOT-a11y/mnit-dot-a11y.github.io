@@ -15,13 +15,11 @@ Jekyll is a static site generator that transforms your plain text into static we
 ## Directories
 
 - **_config.yml**: The configuration file where you set site-wide settings.
-- **_checklist-[web|native|desktop]/**: Component-based checklists for web, native mobile, and desktop. Each component is its own markdown file under the corresponding folder.
+- **_checklist-\[web\|native\|desktop\]/**: Component-based checklists for web, native mobile, and desktop. Each component is its own markdown file under the corresponding folder.
 - **_demos/**: Markdown files for each demo available on the Demos page. Many of these markdown files rely upon HTML files under **_includes/examples/**.
-- **_identifying-components//**: Markdown files containing each sub-section of the Identifying Components pages.
+- **_identifying-components/**: Markdown files containing each sub-section of the Identifying Components pages.
 - **_layouts/**: Templates that define the structure of the pages.
 - **_includes/**: Reusable components that can be included in your layouts.
-
-## Setting Up Your Environment
 
 ### Prerequisites
 
