@@ -102,44 +102,6 @@ layout: base
               </ul>
             </div>
 
-            <div id="step3" itemprop="step" itemscope itemtype="http://schema.org/HowToStep">
-
-              <h3 class="h-charlie" itemprop="name">
-                <step-number>3</step-number> Mobile screen reader
-              </h3>
-              <ul class="gherkin-list">
-                {% for action in page.gherkin-mobile limit:1 %}
-                  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
-                    <div itemprop="text">
-                      <strong>WHEN</strong> I use a mobile screen reader (Talkback, VoiceOver) 
-                      <strong>AND</strong> 
-                      {% for action in page.gherkin-mobile limit:1 %}
-                        I {{ action.when }} 
-                        <ul>
-                          {% for requirement in page.screenreader %}
-                            <li>
-                              <strong>I HEAR</strong>
-                              <span class="lowercase">{{ requirement[1] | escape }}</span>
-                            </li>
-                          {% endfor %}
-                        </ul>
-                      {% endfor %}
-                    </div>
-                  </li>
-                {% endfor %}
-                {% for action in page.gherkin-mobile offset:1 %}
-                  {% if action and action != "" %} 
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
-                      <div itemprop="text">
-                        <strong class="uppercase">{{ action.first[0] | capitalize  }}</strong> when I {{ action.first[1] }} 
-                        <strong>I HEAR</strong> <span class="lowercase">{{ action.result }}</span>
-                      </div>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-            {% if page.settings and page.settings != "" %} 
               <div id="step4" itemprop="step" itemscope itemtype="http://schema.org/HowToStep">
                 <h3 class="h-charlie" itemprop="name">
                   <step-number>4</step-number> Device settings
@@ -184,36 +146,11 @@ layout: base
               </table>
             </div>
           </div>
-
+        
           <div id="step2" itemprop="step" itemscope itemtype="http://schema.org/HowToStep">
             <link itemprop="url" href="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html',''}}#step2" />
             <h3 class="h-charlie" itemprop="name">
-              <step-number>2 </step-number>Mobile screen reader gestures
-            </h3>
-            <div itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
-              <table itemprop="text">
-                <thead>
-                <tr>
-                  <th scope="col">When I use</th>
-                  <th scope="col">I hear</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for gesture in page.mobile %}
-                <tr>
-                  <th scope="row">{{ gesture[0] | capitalize  }}</th>
-                  <td>{{ gesture[1] | escape }}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div id="step3" itemprop="step" itemscope itemtype="http://schema.org/HowToStep">
-            <link itemprop="url" href="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html',''}}#step3" />
-            <h3 class="h-charlie" itemprop="name">
-              <step-number>3 </step-number>Screen reader output for all devices
+              <step-number>2 </step-number>Screen reader output for all devices
             </h3>
             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
               <table itemprop="text">
@@ -236,10 +173,10 @@ layout: base
           </div>
           
           {% if page.settings and page.settings != "" %}
-          <div id="step4" itemprop="step" itemscope itemtype="http://schema.org/HowToStep">
+          <div id="step3" itemprop="step" itemscope itemtype="http://schema.org/HowToStep">
             <link itemprop="url" href="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html',''}}#step3" />
             <h3 class="h-charlie" itemprop="name">
-              <step-number>4 </step-number>Device settings
+              <step-number>3 </step-number>Device settings
             </h3>
             <div itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
               <table itemprop="text">
