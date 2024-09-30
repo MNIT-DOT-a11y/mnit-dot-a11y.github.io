@@ -3,4 +3,3 @@ layout: entry
 title: "Toolbar"
 description: "How to test accessible toolbars for desktop applications"  
 categories: controls
-order: 1  
