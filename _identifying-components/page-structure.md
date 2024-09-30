@@ -19,13 +19,13 @@ A form allows users to enter information into a page.
 
 ## Headings {#headings}
 Headings are large, bold text that breaks up content into meaningful sections, making a page easier to read and navigate.
-{::nomarkdown}
+
 <example>
 <h1 class="no_toc">Heading 1</h1>
 <h2 class="no_toc">Heading 2</h2>
 <h3 class="no_toc">Heading 3</h3>
 </example>
-{:/}
+
 
 **Identification:**
 - **Visual Inspection:** Look for large, bold text at the top of sections or pages.
@@ -40,6 +40,7 @@ Images must have text alternatives that describe the information or function rep
 
 ## Landmarks {#landmarks}
 Landmarks are sections of a webpage that are used to identify the organization and structure of a webpage.
+**Example**
 ![showing landmark location for a webpage structure](https://mnit-dot-a11y.github.io/assets/images/examples/landmarks.png)
 **Identification:**
 - **Visual Inspection:** Look for blocks of content (typically the logo, navigation, search, footer, main content area, etc.).
