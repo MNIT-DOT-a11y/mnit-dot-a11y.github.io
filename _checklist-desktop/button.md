@@ -1,5 +1,5 @@
 ---
-layout: entry  
+layout: entry  -desktop
 title: "Button"  
 description: "How to test accessible buttons for desktop applications"  
 categories: controls  
