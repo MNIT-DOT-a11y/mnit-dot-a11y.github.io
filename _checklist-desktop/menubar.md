@@ -1,6 +1,5 @@
 ---
 layout: entry  
-title: "Menu Bar"
-description: "How to test accessible menu bars for desktop applications"  
+title: "Menu Bar and Ribbon"
+description: "How to test accessible menu bars and ribbons for desktop applications"  
 categories: controls
-order: 1  

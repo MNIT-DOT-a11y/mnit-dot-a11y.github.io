@@ -3,7 +3,6 @@ layout: entry
 title: "Checkbox"
 description: "How to code and test accessible checkboxes for desktop applications"
 categories: controls
-order: 2
 
 keyboard:
   tab: |
