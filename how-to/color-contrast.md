@@ -44,10 +44,10 @@ How to use CCA can be found on the [Setting Up Your Testing Environment webpage]
 
 When conducting a manual color contrast check, it's important to identify and test interactive elements such as links, buttons, and menu links, and their states when focused or hovered over.
 
-**Be sure to manually check color contrast for all types of digital content, including:
-- Images containing text.
-- Graphics, including charts, graphs, and maps.
-- Instances of text and user interface elements that sit on top of background images or color gradients or state changes.**
+**Be sure to manually check color contrast for all types of digital content, including:**
+**- Images containing text.**
+**- Graphics, including charts, graphs, and maps.**
+**- Instances of text and user interface elements that sit on top of background images or color gradients or state changes.**
 
 #### **Testing State Changes**
 <p>When testing the color contrast of an state changes such as focus or hover, you must use both the browser’s developer tools and the CCA tool.</p>
