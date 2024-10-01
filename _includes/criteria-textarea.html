@@ -1,6 +1,6 @@
 <div class="criteria-container">
   <div class="sticky-group">
-    {% if page.url != "/native/" %}
+    {% if page.url != "/native/" and page.url != "/desktop/" %}
       {% include criteria-tabs.html %}
     {% else %}
       <label for="condensed-textarea" class="h-charlie">
@@ -8,7 +8,7 @@
       </label>
     {% endif %}
 
-    {% if page.url != "/native/" %}
+    {% if page.url != "/native/" and page.url != "/desktop/" %}
     <div class="textarea-container gherkin-criteria tab-panel" id="gherkin-panel">
       <textarea aria-label="Gherkin acceptance criteria" id="gherkin-textarea">Choose components for gherkin acceptance criteria</textarea>
       <div class="textarea-controls">
