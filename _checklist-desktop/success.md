@@ -1,6 +1,9 @@
 ---
 layout: entry  -desktop
-title: "Success Message"  
+title: "Success Messages"  
 description: "How to test accessible success messages for desktop applications"  
 categories: dialogs
-order: 1  
+
+---
+
+## Best practices
