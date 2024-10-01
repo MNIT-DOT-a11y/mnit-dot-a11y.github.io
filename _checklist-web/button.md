@@ -29,6 +29,24 @@ mobile:
   double tap: |
     Activates the button
 
+gherkin-keyboard: 
+  - when:  |
+      the tab key to move focus to a button
+    result: |
+      focus is strongly visually indicated
+  - then:  |
+      the spacebar and/or enter key to activate the button
+    result: |
+      the intended action occurs
+
+gherkin-mobile:
+  - when:  |
+      swipe to focus on a button
+  - then:  |
+      doubletap with the button in focus
+    result: |
+      the intended action occurs
+
 wcag:
   - name: Perceivable
     list:

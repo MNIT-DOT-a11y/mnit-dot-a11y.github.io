@@ -1,14 +1,14 @@
 ---
 layout: entry
-title:  "Captcha"
+title:  "CAPTCHA"
 categories: controls
 
 
 keyboard:
   tab, arrow keys or Ctrl+tab: |
-    Focus visibly moves to the captcha button
+    Focus visibly moves to the CAPTCHA button
   space bar: |
-    Activates the captcha on iOS and Android
+    Activates the CAPTCHA on iOS and Android
   enter: |
     Activates the button on Android
           
@@ -20,7 +20,7 @@ mobile:
     
 screenreader: 
   name:  |
-    Purpose is clear (ex: "Captcha")
+    Purpose is clear (ex: "CAPTCHA")
   role:  |
     Identifies itself as a button or image button if interactive
   group: |
@@ -36,12 +36,12 @@ settings:
 ## iOS
 
 ### Developer notes
-- Here are just a few experiences for Captcha:  
+- Here are just a few experiences for CAPTCHA:  
   - 1 A non-interactive image in a table row, where the whole table row acts like a button.  
   - 2 A single interactive element, like an image button
   - 3 An audio challenge as an equivalent experience to the image challenge
-- When selecting the type of Captcha, do not limit the options to only <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html#dfn-cognitive-function-test"> cognitive function tests </a> (e.g. remembering or transcribing a word, or recognizing a picture the website provided).  When possible, leverage <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html#examples"> recommended techniques recommended by the W3C</a> such as email link authentication, 3rd party  authentication, or 2 factor authentication.
-- Captcha is not common in native apps, as there are other options for authentication
+- When selecting the type of CAPTCHA, do not limit the options to only <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html#dfn-cognitive-function-test"> cognitive function tests </a> (e.g. remembering or transcribing a word, or recognizing a picture the website provided).  When possible, leverage <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html#examples"> recommended techniques recommended by the W3C</a> such as email link authentication, 3rd party  authentication, or 2 factor authentication.
+- CAPTCHA is not common in native apps, as there are other options for authentication
 
 ### Name
 - Experiences (refer to number above):  
@@ -90,7 +90,7 @@ settings:
 
 ### State
 - Experiences (refer to number above):  
-  - 1 If grouped in table row, it's possible for the whole row to have a dimmed/disabled state, or the captcha button disabled separately
+  - 1 If grouped in table row, it's possible for the whole row to have a dimmed/disabled state, or the CAPTCHA button disabled separately
   - 2 Image button can have a disabled state (dimmed)
   - 3 Buttons in audio challenge can have a disabled state (dimmed)
 
@@ -129,12 +129,12 @@ settings:
 ## Android
 
 ### Developer notes
-- There are several experiences for Captcha:  
+- There are several experiences for CAPTCHA:  
   - 1 A non-interactive image in a table row, where the whole table row acts like a button.  
   - 2 A single interactive element, like an image button
   - 3 An audio challenge as an equivalent experience to the image challenge
-- When selecting the type of Captcha, do not limit the options to only <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html#dfn-cognitive-function-test"> cognitive function tests </a> (e.g. remembering or transcribing a word, or recognizing a picture the website provided).  When possible, leverage <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html#examples"> recommended techniques recommended by the W3C</a> such as email link authentication, 3rd party  authentication, or 2 factor authentication.
-- Captcha is not common in apps, as there are other options for authentication
+- When selecting the type of CAPTCHA, do not limit the options to only <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html#dfn-cognitive-function-test"> cognitive function tests </a> (e.g. remembering or transcribing a word, or recognizing a picture the website provided).  When possible, leverage <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html#examples"> recommended techniques recommended by the W3C</a> such as email link authentication, 3rd party  authentication, or 2 factor authentication.
+- CAPTCHA is not common in apps, as there are other options for authentication
   
 ### Name  
 - Experiences (refer to number above):  
@@ -176,7 +176,7 @@ settings:
 
 ### State
 - Experiences (refer to number above):  
-  - 1 If grouped in table row, it's possible for the whole row to have a disabled state, or the captcha button disabled separately
+  - 1 If grouped in table row, it's possible for the whole row to have a disabled state, or the CAPTCHA button disabled separately
   - 2 Image button can have a disabled state (disabled)
   - 3 Buttons in audio challenge can have a disabled state (disabled)
     
