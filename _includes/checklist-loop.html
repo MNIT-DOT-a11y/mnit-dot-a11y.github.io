@@ -4,9 +4,9 @@ How to test {% assign firstLetter = page.title | downcase | slice: 0 %}{% if fir
 
 1. Test keyboard{% unless page.url contains "native" %} only, then screen reader + keyboard{% endunless %} actions
 {% for action in page.keyboard %}- {{ action[0] | capitalize }}: {{ action[1] | escape }}{% endfor %}
-2. Test mobile screenreader gestures
+2. Test mobile screen reader gestures
 {% for gesture in page.mobile %}- {{ gesture[0] | capitalize }}: {{ gesture[1] | escape }}{% endfor %}
-3. Listen to screenreader output on all devices
+3. Listen to screen reader output on all devices
 {% for output in page.screenreader %}- {{ output[0] | capitalize }}: {{ output[1] | escape }}{% endfor %}
 {% if page.settings and page.settings != "" -%}
 4. Device OS settings
@@ -32,9 +32,9 @@ GIVEN THAT I am on a page with {% if firstLetter == 'a' or firstLetter== 'e' or 
 {% for action in page.gherkin-keyboard offset:1 -%}
   - {{ action.first[0] | upcase  }} when I use {{ action.first[1] | strip_newlines | strip_html }} I SEE {{ action.result | strip_newlines | strip_html }}
 {% endfor %}
-2 - Desktop screenreader
+2 - Desktop screen reader
 {% for action in page.gherkin-keyboard limit:1 -%}
-- WHEN I use a desktop screenreader (NVDA, JAWS, VoiceOver) AND 
+- WHEN I use a desktop screen reader (NVDA, JAWS, VoiceOver) AND 
 {% for action in page.gherkin-keyboard limit:1 -%}
 - I use {{ action.when | strip_newlines }}
 {%- for requirement in page.screenreader %}
@@ -46,9 +46,9 @@ GIVEN THAT I am on a page with {% if firstLetter == 'a' or firstLetter== 'e' or 
 - {{ action.first[0] | upcase  }} when I use {{ action.first[1] | strip_newlines | strip_html }} I HEAR {{ action.result | strip_newlines | strip_html }}
 {%- endfor %}
 
-3 - Mobile screenreader
+3 - Mobile screen reader
 {% for action in page.gherkin-mobile limit:1 -%}
-- WHEN I use a mobile screenreader (Talkback, VoiceOver) AND
+- WHEN I use a mobile screen reader (Talkback, VoiceOver) AND
 {%- for action in page.gherkin-mobile limit:1 %}
 - I {{ action.when | strip_newlines }}
 {%- for requirement in page.screenreader %}
