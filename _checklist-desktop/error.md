@@ -44,3 +44,28 @@ wcag:
       - criteria: The state of the error (critical, warning, etc.) is conveyed both visually and programmatically  
       - criteria: Error dialogs function consistently across various screen resolutions, input methods, and assistive technologies  
 ---
+
+## Best practices for focus management
+
+- When an error dialog appears, focus should automatically move to the dialog, typically on the dialog's first actionable element (e.g., the “OK” or “Close” button).
+- When the error has been closed, focus should return to the previously focused item.
+
+## Visual and Sound Cues
+
+- The most common color for error-related elements is red, signaling urgency or problems. While it is best practice to use this color, for accessibility, red should be combined with other visual cues like icons and bold text, not relying solely on color to convey the error.
+- In addition to the visual cue, Windows also uses a system error sound when an error dialog appears, signaling an issue even for users who may not immediately see the dialog. This is especially valuable for screen reader users.
+
+## Developer notes
+
+### UI Automation
+
+	- Use the Microsoft UI Automation (UIA) framework to expose your error dialog and its contents to assistive technologies. Ensure that the dialog and its content are properly exposed through UIA as Dialog and Text, respectively.
+  - In Win32, you can use the IAccPropServices interface to customize properties of UI elements.
+  - In WPF, ensure that the dialog's contents and controls are recognized by UIA (this happens automatically with most controls if properly labeled).
+
+  ## Design notes
+
+## Resources
+
+- [Messages in Win32 Apps](https://learn.microsoft.com/en-us/windows/win32/uxguide/messages)
+- [Win32 Error Message Guidelines](https://learn.microsoft.com/en-us/windows/win32/debug/error-message-guidelines)
