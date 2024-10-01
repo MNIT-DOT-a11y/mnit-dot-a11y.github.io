@@ -36,9 +36,9 @@ gherkin-keyboard:
     result: |
       focus is moved to the CAPTCHA controls and is strongly indicated
   - then:  |
-      attempt to solve the CAPTCHA or use accessibility features
+      accessibility features to solve the CAPTCHA
     result: |
-      the CAPTCHA is solved and the user can complete the task
+      the CAPTCHA is solved and I can complete the task
 
 gherkin-mobile:
   - when:  |
@@ -46,7 +46,7 @@ gherkin-mobile:
   - then:  |
       double tap with the relevant controls to begin filling out the CAPTCHA
     result: |
-      the CAPTCHA is solved and user may proceed
+      the CAPTCHA is solved and I may proceed with the task
 
 wcag:
   - name: Perceivable
