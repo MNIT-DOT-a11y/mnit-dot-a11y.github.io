@@ -81,18 +81,18 @@ data-gherkin-criteria="
   <label for="{{ category | escape }}-{{ page.url | replace_first: '/', '' | replace: '/', '-'  | replace: '.html', '' }}">
     {{ page.title | escape }}
   </label>
-  <!--
   <div class="checkbox-item-controls">
+    <!--
     <input class="favorite" type="checkbox" id="favorite-{{ category | escape }}-{{ page.url | replace_first: '/', '' | replace: '/', '-'  | replace: '.html', '' }}">
     <label for="favorite-{{ category | escape }}-{{ page.url | replace_first: '/', '' | replace: '/', '-'  | replace: '.html', '' }}">
       <span class="hidden">Add {{ page.title | escape }} to favorites</span>
     </label>
+  -->
     <a class="checklist-link" href="{{ page.url | relative_url }}">
       <span class="hidden">
       {{ page.title | escape }}
       </span>
     </a>
   </div>
-  -->
 </li>
 {% endif %}
