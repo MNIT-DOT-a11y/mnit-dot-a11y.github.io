@@ -92,43 +92,44 @@ A table shows information in columns and rows.
 
 {::nomarkdown}
 <example>
-<div role="table" aria-label="Students" aria-describedby="students_table_desc">
-  <div id="students_table_desc">Students currently enrolled in WAI-ARIA 101 for the coming semester</div>
-  <div role="rowgroup">
-    <div role="row">
-      <span role="columnheader">First Name</span>
-      <span role="columnheader">Last Name</span>
-      <span role="columnheader">Company</span>
-      <span role="columnheader">Address</span>
-    </div>
-  </div>
-  <div role="rowgroup" >
-    <div role="row">
-      <span role="cell">Fred</span>
-      <span role="cell">Jackson</span>
-      <span role="cell">Acme, Inc.</span>
-      <span role="cell">123 Broad St.</span>
-    </div>
-    <div role="row">
-      <span role="cell" >Sara</span>
-      <span role="cell">James</span>
-      <span role="cell">Acme, Inc.</span>
-      <span role="cell">123 Broad St.</span>
-    </div>
-    <div role="row">
-      <span role="cell">Ralph</span>
-      <span role="cell">Jefferson</span>
-      <span role="cell">XYZ, Inc.</span>
-      <span role="cell">456 Main St.</span>
-    </div>
-    <div role="row">
-      <span role="cell">Nancy</span>
-      <span role="cell">Jensen</span>
-      <span role="cell">XYZ, Inc.</span>
-      <span role="cell">456 Main St.</span>
-    </div>
-  </div>
-</div>
+<table>
+	<caption>Table Example</caption>
+  <tbody>
+	<thead>
+		<tr>
+		  <th scope="col">First Name</td>
+		  <th scope="col">Last Name</td>
+		  <th scope="col">Company</td>
+		  <th scope="col">Address</td>
+		</tr>
+	</thead>
+	<tbody>
+    <tr>
+      <td>Fred</td>
+      <td>Jackson</td>
+      <td>Acme, Inc.</td>
+      <td>123 Broad St.</td>
+    </tr>
+    <tr>
+      <td>Sara</td>
+      <td>James</td>
+      <td>Acme, Inc.</td>
+      <td>123 Broad St.</td>
+    </tr>
+    <tr>
+      <td>Ralph</td>
+      <td>Jefferson</td>
+      <td>XYZ, Inc.</td>
+      <td>456 Main St.</td>
+    </tr>
+	  <tr>
+      <td>Nancy</td>
+      <td>Jensen</td>
+      <td>XYZ, Inc.</td>
+      <td>456 Main St.</td>
+    </tr>
+  </tbody>
+</table>
 </example>
 {:/}
 
