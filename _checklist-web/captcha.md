@@ -4,7 +4,6 @@ title: "CAPTCHA"
 description: "How to code and test an accessible CAPTCHA"
 categories: main
 
-
 keyboard:
   tab: |
     Focus visibly moves to the CAPTCHA field.
@@ -30,6 +29,24 @@ mobile:
     Activates interactive CAPTCHA elements, such as selecting checkboxes or images.
   pinch/zoom: |
     Ensures that CAPTCHA images and text are readable and can be zoomed in without breaking the layout or functionality.
+
+gherkin-keyboard: 
+  - when:  |
+      the tab key to move focus to the CAPTCHA field
+    result: |
+      focus is moved to the CAPTCHA controls and is strongly indicated
+  - then:  |
+      attempt to solve the CAPTCHA or use accessibility features
+    result: |
+      the CAPTCHA is solved and the user can complete the task
+
+gherkin-mobile:
+  - when:  |
+      swipe to focus on a CAPTCHA field or control
+  - then:  |
+      double tap with the relevant controls to begin filling out the CAPTCHA
+    result: |
+      the CAPTCHA is solved and user may proceed
 
 wcag:
   - name: Perceivable
