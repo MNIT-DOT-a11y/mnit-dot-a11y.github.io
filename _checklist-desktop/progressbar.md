@@ -1,7 +1,7 @@
 ---
-layout: entry -desktop
+layout: entry-desktop
 title: "Progress Controls"
-description: "How to test accessible progress bars and rings for desktop applications"  
+description: "How to test accessible progress controls for desktop applications"  
 categories: patterns
 
 screenreader:  
