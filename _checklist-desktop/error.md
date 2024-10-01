@@ -1,6 +1,6 @@
 ---
 layout: entry-desktop  
-title: "Error"  
+title: "Error Messages"  
 description: "How to test accessible error dialogs for desktop applications"  
 categories: dialogs
 

@@ -58,7 +58,7 @@ native-categories-order:
 desktop-categories-order:
 - controls
 - dialogs
-- notifications & Alerts
+- notifications & alerts
 - patterns
 video-demos:
 - title: iOS Voiceover
