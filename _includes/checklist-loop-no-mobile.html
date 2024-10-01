@@ -4,7 +4,7 @@ How to test {% assign firstLetter = page.title | downcase | slice: 0 %}{% if fir
 
 1. Test screen reader + keyboard actions
 {% for action in page.keyboard %}- {{ action[0] | capitalize }}: {{ action[1] | escape }}{% endfor %}
-2. Listen to screenreader output on
+2. Listen to screen reader output
 {% for output in page.screenreader %}- {{ output[0] | capitalize }}: {{ output[1] | escape }}{% endfor %}
 {% if page.settings and page.settings != "" -%}
 3. Device OS settings
@@ -65,18 +65,18 @@ data-gherkin-criteria="
   <label for="{{ category | escape }}-{{ page.url | replace_first: '/', '' | replace: '/', '-'  | replace: '.html', '' }}">
     {{ page.title | escape }}
   </label>
-  <!--
   <div class="checkbox-item-controls">
+    <!--
     <input class="favorite" type="checkbox" id="favorite-{{ category | escape }}-{{ page.url | replace_first: '/', '' | replace: '/', '-'  | replace: '.html', '' }}">
     <label for="favorite-{{ category | escape }}-{{ page.url | replace_first: '/', '' | replace: '/', '-'  | replace: '.html', '' }}">
       <span class="hidden">Add {{ page.title | escape }} to favorites</span>
     </label>
+    -->
     <a class="checklist-link" href="{{ page.url | relative_url }}">
       <span class="hidden">
       {{ page.title | escape }}
       </span>
     </a>
   </div>
--->
 </li>
 {% endif %}
