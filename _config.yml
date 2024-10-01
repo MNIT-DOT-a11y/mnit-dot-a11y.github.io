@@ -59,6 +59,7 @@ desktop-categories-order:
 - controls
 - dialogs
 - notifications & Alerts
+- patterns
 video-demos:
 - title: iOS Voiceover
   directory: ios/

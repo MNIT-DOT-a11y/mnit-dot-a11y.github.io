@@ -7,11 +7,11 @@ categories: controls
 
 keyboard:
   tab: |
-    Focus visibly moves to the checkbox
+    Focus visibly moves to the checkbox.  
   space bar: |
-    Toggles the checkbox between states
+    Toggles the checkbox between states.  
   arrow keys: |
-    Moves between programmatically grouped checkboxes (i.e. a section of an extensive settings screen)
+    Moves between programmatically grouped checkboxes (i.e. a section of an extensive settings screen).  
 
 screenreader:
   name:  |
@@ -56,9 +56,32 @@ wcag:
       - criteria: Expresses its state (and group name if applicable)
 ---
 
-## When a checkbox invalidates another option
+## Clear purpose
+- Verify that the purpose and current state of the check box is clear and understandable.
+- The checkbox label should be a statement that the check mark makes true, and the absence of a check mark makes false.
+- The label should not change when the box is checked or unchecked.
 
+## Groups
+- Multiple checkbox groups should be labeled appropriately, especially when directly next to or adjacent from another group.
+- Groups should include checkboxes that share a similar purpose, for example, a subsection of a settings dialog.
+
+## Checkboxes are not on/off controls.
+- Don't use a check box as an on/off control or to perform a command; instead, a [toggle button](/checklist-desktop/button) should be used.
+
+## When a checkbox invalidates another option
 If a checkbox will cause another checkbox to be unchecked, similarly to the function of radio buttons, it should notify the user of the change when it occurs.
 
 - If you press space on a checkbox to check or uncheck it, and another checkbox's state is changed, announce this to screen readers.
 - Alternatively, if only one checkbox can be checked at a time, a radio button control would be a better choice.
+
+## Checkboxes should not cause dialogs to appear
+- Do not launch a dialog box or modal when a checkbox is checked or unchecked.
+- If the user should be warned about an action that might occur after checking or unchecking the box, these warnings should be displayed after the user confirms options or submits the form. (i.e. clicking 'Apply' in a settings dialog).
+
+## States
+- When using the indeterminate state, there should always be associated checkboxes that influence this state. Indeterminate is used to indicate that an option is set for some, but not all, sub-choices. 
+
+## Design Notes
+
+### Resources
+- [Checkboxes in Microsoft Windows Apps](https://learn.microsoft.com/en-us/windows/apps/design/controls/checkbox)
