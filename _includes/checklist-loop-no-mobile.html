@@ -65,6 +65,7 @@ data-gherkin-criteria="
   <label for="{{ category | escape }}-{{ page.url | replace_first: '/', '' | replace: '/', '-'  | replace: '.html', '' }}">
     {{ page.title | escape }}
   </label>
+  <!---->
   <div class="checkbox-item-controls">
     <input class="favorite" type="checkbox" id="favorite-{{ category | escape }}-{{ page.url | replace_first: '/', '' | replace: '/', '-'  | replace: '.html', '' }}">
     <label for="favorite-{{ category | escape }}-{{ page.url | replace_first: '/', '' | replace: '/', '-'  | replace: '.html', '' }}">
@@ -76,5 +77,6 @@ data-gherkin-criteria="
       </span>
     </a>
   </div>
+-->
 </li>
 {% endif %}
