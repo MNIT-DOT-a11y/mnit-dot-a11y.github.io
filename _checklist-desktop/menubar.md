@@ -69,6 +69,6 @@ wcag:
 
 ## Developer notes
 
-## Resources
+### Resources
 
 - [Creating a Ribbon in Windows](https://learn.microsoft.com/en-us/windows/win32/windowsribbon/windowsribbon-stepbystep)
