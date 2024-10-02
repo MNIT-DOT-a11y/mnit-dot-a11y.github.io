@@ -26,6 +26,7 @@ It's not always obvious what control or what state (determinate vs indeterminate
 
 ### Resources
 - [Guidelines for Progress Controls](https://learn.microsoft.com/en-us/windows/apps/design/controls/progress-controls)
+
 ## Developer notes
 
 ### Roles

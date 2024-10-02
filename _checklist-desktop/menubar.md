@@ -23,7 +23,7 @@ screenreader:
     Menu items are correctly identified as menu options or tabs on the ribbon  
   state: |  
     Menu items convey their state, including enabled, disabled, checked, or unchecked  
-  Shortcut keys: |  
+  shortcut keys: |  
     Screen readers announce any shortcut key, such as the underlined letters in a menu item or ribbon command  
 
 wcag:  
