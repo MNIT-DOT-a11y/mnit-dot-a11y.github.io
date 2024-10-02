@@ -59,11 +59,11 @@ wcag:
 
 ### UI Automation
 
-	- Use the Microsoft UI Automation (UIA) framework to expose your error dialog and its contents to assistive technologies. Ensure that the dialog and its content are properly exposed through UIA as Dialog and Text, respectively.
+  - Use the Microsoft UI Automation (UIA) framework to expose your error dialog and its contents to assistive technologies. Ensure that the dialog and its content are properly exposed through UIA as Dialog and Text, respectively.
   - In Win32, you can use the IAccPropServices interface to customize properties of UI elements.
   - In WPF, ensure that the dialog's contents and controls are recognized by UIA (this happens automatically with most controls if properly labeled).
 
-  ## Design notes
+## Design notes
 
 ## Resources
 
