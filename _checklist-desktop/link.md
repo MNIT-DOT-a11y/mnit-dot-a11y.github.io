@@ -68,7 +68,6 @@ Users must be able to activate links via clicking with a mouse or tapping on tou
 
 - Use a mouse to click the link and observe if it responds as expected.
 - Ensure the link is sized appropriately for those with motor disabilities that may not be able to control the mouse (no smaller than 44px).
----
 
 ## Managing focus
 
