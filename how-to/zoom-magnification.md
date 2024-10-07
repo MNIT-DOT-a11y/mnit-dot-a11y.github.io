@@ -18,10 +18,14 @@ permalink: /how-to-test/zoom-magnification/
     <li><strong>Test  Different Browsers</strong>: Perform  the resizing test on multiple browsers to ensure consistent behavior across  different platforms.</li>
     <li><strong>Review  Captions and Images of Text</strong>:  Ensure that captions and images of text are excluded from the resizing  requirement, as they are exceptions to this criterion.</li>
   </ul>
+   
+{::nomarkdown}
  <example>
 <img scr="/assets/images/examples/how-to-browser-zoom-200.jpg" 
 alt="screen shot showing MnDOT website zoomed to 200%">
 </example>
+{:/}
+
 <h3>Related WCAG</h3>
   <p><a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">1.4.4 Resize  Test</a></p>
   <h2>Reflow</h2>
@@ -68,10 +72,14 @@ alt="screen shot showing MnDOT website zoomed to 200%">
       <strong>Note:</strong> Sometimes, navigation menus change to an icon that can be clicked  to access the menu. This is fine.</li>
   </ul>
 </ul>
+
+ {::nomarkdown}
 <example>
 	<img scr="/assets/images/examples/how-to-browser-zoom-400.jpg" 
     alt="screen shot showing MnDOT website with browser zoomed to 400%">
 </example>
+{:/}
+
 <h3>How to test using Windows Magnifier.</h3>
 <ul>
   <li>Open the  Magnifier. <a href="https://mnit-dot-a11y.github.io/testing-environment/#windows-magnifier-on-windows-11">Using  Magnifier on Windows 11</a>.</li>
@@ -93,10 +101,14 @@ alt="screen shot showing MnDOT website zoomed to 200%">
     </ul>
   </li>
 </ul>
+
+ {::nomarkdown}
 <example>
     <img scr="/assets/images/examples/how-to-magnifier-on-off.jpg" 
     alt="two screen shows showing MnDOT's website in normal veiw and another with magnifier on.">
 </example>
+{:/}
+
 <h3>Related WCAG</h3>
 <p><a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">1.4.10 Reflow</a></p>
 <h2>Text spacing</h2>
@@ -113,10 +125,14 @@ alt="screen shot showing MnDOT website zoomed to 200%">
 <p>Before you begin, open  a browser and bookmark the <a href="http://html5accessibility.com/tests/tsbookmarklet.html">text spacing bookmarklet</a>.</p>
   <p>Once the bookmarklet has  been bookmarked, go to a webpage and select the bookmarklet in your bookmark bar.</p>
   <p>Text spacing is already set to 1.4.12 Level AA WCAG criterion. Verify that increasing text spacing does not  result in a loss of content or functionality.</p>
+
+  {::nomarkdown}
   <example>
 	<img scr="/assets/images/examples/how-to-line-spacing.jpg" 
     alt="two screen shows showing MnDOT's webiste in normal view and another with test spacing bookmarklet.">
     </example>
+    {:/}
+    
 <h2>Related WCAG</h2>
 <ul>
   <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html">1.4.12 Text Spacing</a></li>
