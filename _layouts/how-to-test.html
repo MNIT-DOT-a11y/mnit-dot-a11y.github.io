@@ -62,6 +62,14 @@ layout: base
                 Links & buttons
               </a>
             </li>
+            <li></li>
+              <a
+                {% if page.url== "/how-to-test/zoom-magnification/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/zoom-magnification/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/zoom-magnification/">
+                Zoom and magnification
+              </a>
+            </li>
            
       </ul>
     </nav>
