@@ -1,6 +1,6 @@
 ---
 layout: how-to-test
-title: Zoom and Magnification
+title: Zoom and magnification
 permalink: /how-to-test/zoom-magnification/
 ---
 
