@@ -21,7 +21,7 @@ permalink: /how-to-test/zoom-magnification/
 
  <example>
     <img 
-        scr="/assets/images/examples/how-to-browser-zoom-200.jpg" 
+        src="/assets/images/examples/how-to-browser-zoom-200.jpg" 
         alt="screen shot showing MnDOT website zoomed to 200%">
 </example>
 
@@ -73,7 +73,7 @@ permalink: /how-to-test/zoom-magnification/
 </ul>
 <example>
 	<img 
-    scr="/assets/images/examples/how-to-browser-zoom-400.jpg" 
+    src="/assets/images/examples/how-to-browser-zoom-400.jpg" 
     alt="screen shot showing MnDOT website with browser zoomed to 400%">
 </example>
 <h3>How to test using Windows Magnifier.</h3>
@@ -100,8 +100,8 @@ permalink: /how-to-test/zoom-magnification/
 
 <example>
     <img 
-    scr="/assets/images/examples/how-to-magnifier-on-off.jpg" 
-    alt="two screen shows showing MnDOT's website in normal veiw and another with magnifier on.">
+    src="/assets/images/examples/how-to-magnifier-on-off.jpg" 
+    alt="two screenshots showing MnDOT's website in normal veiw and another with magnifier on.">
 </example>
 
 <h3>Related WCAG</h3>
@@ -123,8 +123,8 @@ permalink: /how-to-test/zoom-magnification/
 
   <example>
 	<img 
-    scr="/assets/images/examples/how-to-line-spacing.jpg" 
-    alt="two screen shows showing MnDOT's webiste in normal view and another with test spacing bookmarklet.">
+    src="/assets/images/examples/how-to-line-spacing.jpg" 
+    alt="two screenshots showing MnDOT's website in normal view and another with test spacing bookmarklet.">
     </example>
 
 <h2>Related WCAG</h2>
