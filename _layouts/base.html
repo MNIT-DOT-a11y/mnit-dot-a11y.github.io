@@ -24,28 +24,41 @@
       $("body").removeClass("preload"); // Prevents animations on pageload
     </script>
     <script>
-      $(".criteria-checkbox").change(function() {
-          var condensedArr = [];
-          var gherkinArr = [];
-          condensedArr.push([ '#a11y - {{ page.url | replace: '/', '' | capitalize }} Accessibility Acceptance Criteria' ]);
-          gherkinArr.push([ '#a11y - {{ page.url | replace: '/', '' | capitalize }} Accessibility Acceptance Criteria' ]);
+      function convertLinksToAnchors(text) {
+    const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text.replace(urlRegex, (url) => {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+    });
+}
 
-          $(".criteria-checkbox:checked").each(function(){
-              var $this = $(this);
-              condensedArr.push([ $this.data('condensed-criteria') ]);
-              gherkinArr.push([ $this.data('gherkin-criteria') ]);
-          });
-          
-          var textareaCondensed = document.getElementById("condensed-textarea");
-          textareaCondensed.value = condensedArr.join("\n");
+$(".criteria-checkbox").change(function() {
+    var condensedArr = [];
+    var gherkinArr = [];
+    condensedArr.push([ '#a11y - {{ page.url | replace: "/", "" | capitalize }} Accessibility Acceptance Criteria' ]);
+    gherkinArr.push([ '#a11y - {{ page.url | replace: "/", "" | capitalize }} Accessibility Acceptance Criteria' ]);
 
-          var textareaGherkin = document.getElementById("gherkin-textarea");
-          textareaGherkin.value = gherkinArr.join("\n");
+    // Iterate over checked checkboxes and populate arrays
+    $(".criteria-checkbox:checked").each(function(){
+        var $this = $(this);
+        condensedArr.push([ $this.data('condensed-criteria') ]);
+        gherkinArr.push([ $this.data('gherkin-criteria') ]);
+    });
+    var condensedEditable = document.getElementById("condensed-textarea");
+    condensedEditable.innerText = convertLinksToAnchors(condensedArr.join("\n"));
+    var gherkinEditable = document.getElementById("gherkin-textarea");
+    gherkinEditable.innerText = convertLinksToAnchors(gherkinArr.join("\n"));
+});
 
-      });
       $("#copy-gherkin").click(function(){
-          $("#gherkin-textarea").select();
-          document.execCommand('copy');
+        var gherkinTextarea = document.getElementById("gherkin-textarea");
+    var range = document.createRange();
+    range.selectNodeContents(gherkinTextarea);
+
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
       });
       $("#copy-condensed").click(function(){
           $("#condensed-textarea").select();
