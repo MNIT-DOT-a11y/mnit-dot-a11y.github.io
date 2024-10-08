@@ -62,7 +62,12 @@
           background-image: var(--icon-speaker-dark);
         }
       }
-      &.icon-form {
+      &.icon-zoom {
+        &:before {
+          background-image: var(--icon-zoom-dark);
+        }
+      }
+        &.icon-form {
         &:before {
           background-image: var(--icon-form-dark);
         }
