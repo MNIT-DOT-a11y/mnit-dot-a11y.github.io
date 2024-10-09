@@ -11,7 +11,8 @@ layout: base
     {{ content }}
 
     <ul>
-      {% for page in site.demos %}
+    {% assign demos = site.demos | sort: 'order' %}
+    {% for page in demos %}
       <li><a href="{{ site.baseurl }}{{ page.url }}"> {{ page.title}}</a> </li>
       {% endfor %}
     </ul>
