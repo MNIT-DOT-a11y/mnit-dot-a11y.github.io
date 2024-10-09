@@ -9,7 +9,7 @@ There are two main accessibility considerations when using color in your web-bas
 1.	**Color contrast**: Is the difference in lightness/darkness between two colors (background and foreground). Text, icons, and important graphics must have sufficient color contrast between colors for users who have low vision or who are colorblind. 
 2.	**Use of color to convey information**: WCAG requires that we not use color alone (or visual characteristics) to convey information. Examples are when a chart uses color alone or when a site uses color-coded text to convey information. This is important for users who have any amount of color deficiency, or color blindness.
 
----
+{: .divider }
 ## Color Contrast
 When working with color, it is essential to remember that only brightness is visible to all users. Red text on a green background may disappear entirely for people who are color blind, have low vision, or view the site from outside.
 
@@ -75,7 +75,7 @@ When conducting a manual color contrast check, it's important to identify and te
   </example>
 </ol>
 
----
+{: .divider }
 
 ## Use of Color
 Some users cannot perceive color differences or may not perceive color the same way you do. Therefore, it is essential to avoid using color alone to communicate information. For example, “required fields are in red”. It is okay to communicate “required” using red text, but to communicate this information to people who cannot perceive color, there must be one or more ways to convey the same idea. For example, required fields could include “required” as part of the label.
@@ -107,7 +107,7 @@ Review the charts and graphs and answer the following questions.
 
 **If the answer is yes**, Using CCA to verify that the colors used in the charts or graphs have a color contrast of at least 3:1 against adjacent color(s).
 
----
+{: .divider }
 
 ## What to test for
 {: .divider }
