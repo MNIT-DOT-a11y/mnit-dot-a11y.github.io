@@ -17,16 +17,15 @@ permalink: /how-to-test/test-pdf/
 <ol>
   <li><em>Open</em> <strong><em>Acrobat Pro</em></strong><em>.</em></li>
   <li><em>Open</em> the PDF file you want to check.</li>
-  <li><em>Select  Accessibility in the Tools panel on the right side of the window.</em><br>
+  <li><em>Select <strong>Accessibility</strong> in the <em>Tools panel</em> on the right side of the window.
     <example><img src="/assets/images/examples/pdf-tools-panel.jpg" alt="screen shot showing the location of the accessibility tool."/></example>
-<ul>
+    <ul>
       <li>If Accessibility is not visible in the tools  panel. 
-      <li><em>Select</em> the&nbsp;<strong>Tools tab</strong>. Scroll down to the&nbsp;Protect  &amp; Standardize section. Locate <strong>Accessibility</strong> and&nbsp;<em>select </em><strong>Add</strong>.<br>
+      <li><em>Select</em> the <strong>Tools tab</strong>. Scroll down to the Protect &amp; Standardize section. Locate <strong>Accessibility</strong> and <em>select </em><strong>Add</strong>.<br>
      <example><img src="/assets/images/examples/pdf-add-accessibility-tool.jpg" alt="screen shot showing the location of the accessibility tool with the drop-down open showing close, add shortcut, learn more."/></example></li>
     </ul>
   </li>
-
-  <li>Return to the PDF you opened by selecting the  file&rsquo;s name in the tab at the top. </li>
+  <li>Return to the PDF you opened by selecting the  file's name in the tab at the top. </li>
   <li>From the right Tools panel, select  Accessibility. This will open the Accessibility Checker, then select  Accessibility Check. In the dialog box that appears
     <ul>
       <li>Change <strong>Report Options</strong> to where you store accessibility test findings for the  project.</li>
@@ -36,8 +35,8 @@ permalink: /how-to-test/test-pdf/
   <li><em>Select</em><strong> Start Checking</strong>
     <ul>
       <li>Acrobat will process the document and provide a  detailed report on accessibility issues.</li>
-      <li>The results will also be displayed in the  left-hand pane, with issues categorized by type (e.g., Document, Page Content, Forms).<br>
-      <example><img src="/assets/images/examples/pdf-accessibility-checker-dialog-box.jpg"  alt="screen shot showing steps 5a, 5b, and 6."/></example>      </li>
+      <li>The results will also be displayed in the  left-hand pane, with issues categorized by type (e.g., Document, Page Content, Forms).
+      <example><img src="/assets/images/examples/pdf-accessibility-checker-dialog-box.jpg"  alt="screen shot showing steps 5a, 5b, and 6."/></example>    </li>
     </ul>
   </li>
   <li><strong>Review</strong> the checker results by selecting  the arrow to the right of each reported issue. This will help you understand  the problems encountered during the manual and screen reader testing.<br>
@@ -63,6 +62,7 @@ permalink: /how-to-test/test-pdf/
     <li>Consider providing screenshots or examples for clarity.</li>
   </ul>
 </ul>
+---
 <h3>Verify Color Contrast</h3>
 <ul>
   <li>For color contrast specifically, ensure that  text meets the minimum contrast ratios outlined by <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG 1.4.3</a> (4.5:1 for  normal text, 3:1 for large text).</li>
@@ -77,6 +77,7 @@ permalink: /how-to-test/test-pdf/
     <li>Consider  providing screenshots or examples for clarity.</li>
   </ul>
 </ul>
+---
 <h3>Verify Use of Color</h3>
 <ul>
   <ul>
@@ -104,6 +105,7 @@ permalink: /how-to-test/test-pdf/
     <li>Consider providing screenshots or examples for  clarity.</li>
   </ul>
 </ul>
+---
 <h3>Verify Reading Order</h3>
 <p>You will need to check the document's reading order manually.  This is often referred to as <strong>Walking the tag tree</strong>. Open the tags  panel (instruction below) and arrow down the tags to check the reading order.  As you do, you will see a color box around the content in your document. As you  move down the list of tags, the highlighted text should follow the logical  reading order. If they are not, report on the inaccurate reading order.</p>
 <ul>
@@ -131,7 +133,7 @@ permalink: /how-to-test/test-pdf/
     </ul>
   </li>
 </ol>
-
+---
 <h3>Verify Form and form fields.</h3>
 <ul>
   <li>Ensure form fields have clear labels and  descriptive tooltips.</li>
@@ -139,27 +141,27 @@ permalink: /how-to-test/test-pdf/
   <li>Ensure hyperlinks have meaningful link text.  Avoid generic phrases like "click here" or "learn more."</li>
 </ul>
 <h4>How to test</h4>
-<ol start="1" type="1">
+<ol>
   <li>Run the Accessiblity Checker as outlined in Step 2.</li>
-  <li>Open the       Form Editing Mode</li>
-  <ul type="circle">
+  <li>Open the  Form Editing Mode</li>
+  <ul>
     <li>Access the Prepare Forms tool. From the <strong>top menu</strong>, navigate to <strong>Tools</strong> and select <strong>Prepare Form</strong>. </li>
   </ul>
-  <li>Check       Field Labels</li>
-  <ul type="circle">
+  <li>Check Field Labels</li>
+  <ul>
     <li>Ensure each form field has a clear, descriptive label.</li>
     <li>Right-click on a field, <em>select</em> <strong>Properties</strong> and <em>review</em> the <strong>Name and Tooltip fields</strong>.<br>
     <example><img src="/assets/images/examples/pdf-form-properties.jpg" alt="screen shot showing the text filed properites dialog box with the general tab active and the name and tooltip displayed."/></example></li>
   </ul>
-  <li>Verify       Field Type</li>
-  <ul type="circle">
+  <li>Verify Field Type</li>
+  <ul >
     <li>Ensure that the correct field type is used (e.g., text fields,        checkboxes, radio buttons).</li>
   </ul>
   <li>Check Tab Order</li>
-  <ul type="circle">
+  <ul>
     <li>Ensure the tab order follows a logical flow from top to bottom and left to right.</li>
   </ul>
-  <ul type="circle">
+  <ul>
     <li><em>Use</em> the <strong>Tab key</strong> to navigate the form fields and confirm the intuitive order.
       <ul>
         <li>Interact with all the input fields (checkboxes, radio         buttons, drop-downs, etc.), verify that you can move through with them and read that the order is correct.</li>
@@ -167,22 +169,22 @@ permalink: /how-to-test/test-pdf/
     </li>
   </ul>
   <li>Review Error Handling</li>
-  <ul type="circle">
+  <ul>
     <li>Test the form by entering invalid data to see if the screen reader announces error messages.</li>
     <li>Ensure that error messages are clear and tied to the relevant        fields.</li>
   </ul>
   <li>Check  instructions.
-     <ul type="circle">
+     <ul>
       <li>Check the instructional text is visible and accessible.</li>
     </ul>
   </li>
-
   <li>Document Findings.</li>
- <ul type="circle">
+ <ul>
     <li>Note any accessibility issues found during testing and recommendations for improvements.</li>
     <li>Consider providing screenshots or examples for clarity.</li>
   </ul>
 </ol>
+---
 <h3>Verify Tables</h3>
 <ul>
   <li>Ensure the table can be interacted with a keyboard.</li>
@@ -192,7 +194,7 @@ permalink: /how-to-test/test-pdf/
 <h4>How to test</h4>
 <ol>
   <li>Inspect the table tags.
- <ul type="circle">
+ <ul>
       <li>Open  the <strong>Accessibility Tags panel. </strong></li>
       <li>Scroll down the  tag tree until you see &lt;table&gt;. Verify that the table is  properly tagged as &lt;table&gt; and that the rows &lt;td&gt; and headers  &lt;th&gt; are identified and correctly nested.<br>
       <example><img src="/assets/images/examples/pdf-table-tag-tree.jpg" alt="screenshot showing a table in the tag tree."/></example></li>
@@ -200,68 +202,68 @@ permalink: /how-to-test/test-pdf/
   </li>
   <li>Verify the table has either a title or caption.</li>
   <li>Check navigation and reading order.
-    <ul type="circle">
+    <ul>
       <li><em>Use  </em>the <em>Tab key</em> to navigate through the table. Ensure all cells are reachable and  read in the correct order.</li>
     </ul>
   </li>
   <li>Document Findings
-    <ul type="circle">
+    <ul>
       <li>Note any accessibility issues found during testing and  recommendations for improvements.</li>
       <li>Consider providing screenshots or examples for  clarity.</li>
     </ul>
   </li>
 </ol>
-
+---
 <h2>Step 4 – Screen Reading Test </h2>
 <ol>
   <li><em>Launch</em> <a href="https://mnit-dot-a11y.github.io/testing-environment/#nvda-non-visual-desktop-access">NVDA</a> screen reader.</li>
   <li><em>Open </em>the PDF. </li>
   <li>Verify and can navigate to and that the screen  reader announces:</li>
   <li>Headings:
-      <ul type="circle">
+      <ul>
       <li>Navigate to  the first heading using your screen reader&rsquo;s heading navigation commands (e.g.,  H for NVDA).</li>
       <li>Confirm that  headings are announced correctly and in the proper order.</li>
     </ul>
   </li>
   <li>Lists:
-      <ul type="circle">
+      <ul>
       <li>Navigate to  any lists (bulleted or numbered) using list navigation commands.</li>
       <li>Ensure the  screen reader correctly identifies the list and reads the items.</li>
     </ul>
   </li>
   <li>Tables:
-     <ul type="circle">
+     <ul>
       <li>Navigate to  any tables using table navigation commands.</li>
       <li>Verify that  the screen reader announces the table structure, including headers, rows, and  columns.</li>
     </ul>
   </li>
   <li>Check Links and Buttons
-     <ul type="circle">
+     <ul>
       <li>Navigate to  any hyperlinks and buttons using link navigation commands.</li>
       <li>Confirm that  links are clearly labeled and their destinations or actions are appropriately  conveyed.</li>
     </ul>
   </li>
   <li>Form Fields (if applicable)
-      <ul type="circle">
+      <ul>
       <li>If the PDF  includes form fields:</li>
       <li>Navigate to  each field using tab or form field navigation commands.</li>
       <li>Verify that  field labels are read clearly and that any instructions or error messages are  conveyed.</li>
     </ul>
   </li>
   <li>Inspect Images and Graphics
-      <ul type="circle">
+      <ul>
       <li>Navigate to  any images in the PDF.</li>
       <li>Check that the  alternative (alt) text is read aloud and accurately describes the image.</li>
     </ul>
   </li>
   <li>Check for Logical Reading Order
-      <ul type="circle">
+      <ul>
       <li>Move through  the document using the reading order commands (e.g., arrow keys).</li>
       <li>Ensure that  the content is read in a logical sequence, as intended.</li>
     </ul>
   </li>
   <li>Document Findings
-      <ul type="circle">
+      <ul>
       <li>Note any  accessibility issues found during testing and recommendations for improvements.</li>
       <li>Consider  providing screenshots or examples for clarity.</li>
     </ul>
@@ -274,5 +276,3 @@ permalink: /how-to-test/test-pdf/
   <li><a href="https://webaim.org/techniques/acrobat/">PDF  Accessibility</a> - WebAIM</li>
   <li><a href="https://www.section508.gov/create/pdfs/">Create  Accessible PDFs</a> – Section 508</li>
 </ul>
-
-making chage
