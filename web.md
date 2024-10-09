@@ -5,4 +5,4 @@ permalink: /web/
 entrytype: checklist-web
 ---
 
-## Choose components to define your accessibility success criteria
+## Choose components to generate accessibility test cases
