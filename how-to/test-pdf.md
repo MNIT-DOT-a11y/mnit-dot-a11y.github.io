@@ -11,8 +11,10 @@ permalink: /how-to-test/test-pdf/
   <li>Assistive  technology testing using a keyboard and NVDA to identify usability and  functionality inconsistencies.</li>
 </ul>
 <p><strong>Attention! Acrobat Pro is the only version of Acrobat  that allows you to view and test PDF's accessibility.</strong></p>
+<hr/>
 <h2>Step 1 - Initial Visual Inspection</h2>
 <p>Before beginning your review, quickly skim the document to  check for headings, lists, tables, and images. This will help you understand  the document's structure.<strong></strong></p>
+<hr/>
 <h2>Step 2 - Acrobat Automated PDF checker </h2>
 <ol>
   <li><em>Open</em> <strong><em>Acrobat Pro</em></strong><em>.</em></li>
@@ -47,7 +49,7 @@ permalink: /how-to-test/test-pdf/
      <example><img src="/assets/images/examples/pdf-report-options.jpg" alt="screenshot showing report options"/></example></li>
     </ul>
 </ol>
-
+<hr/>
 <h2>Step 3 - Manual Review</h2>
 <h3>Verify Navigation and Accessibility  Features</h3>
 <ul>
@@ -62,7 +64,6 @@ permalink: /how-to-test/test-pdf/
     <li>Consider providing screenshots or examples for clarity.</li>
   </ul>
 </ul>
----
 <h3>Verify Color Contrast</h3>
 <ul>
   <li>For color contrast specifically, ensure that  text meets the minimum contrast ratios outlined by <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG 1.4.3</a> (4.5:1 for  normal text, 3:1 for large text).</li>
@@ -77,7 +78,6 @@ permalink: /how-to-test/test-pdf/
     <li>Consider  providing screenshots or examples for clarity.</li>
   </ul>
 </ul>
----
 <h3>Verify Use of Color</h3>
 <ul>
   <ul>
@@ -105,7 +105,6 @@ permalink: /how-to-test/test-pdf/
     <li>Consider providing screenshots or examples for  clarity.</li>
   </ul>
 </ul>
----
 <h3>Verify Reading Order</h3>
 <p>You will need to check the document's reading order manually.  This is often referred to as <strong>Walking the tag tree</strong>. Open the tags  panel (instruction below) and arrow down the tags to check the reading order.  As you do, you will see a color box around the content in your document. As you  move down the list of tags, the highlighted text should follow the logical  reading order. If they are not, report on the inaccurate reading order.</p>
 <ul>
@@ -133,7 +132,6 @@ permalink: /how-to-test/test-pdf/
     </ul>
   </li>
 </ol>
----
 <h3>Verify Form and form fields.</h3>
 <ul>
   <li>Ensure form fields have clear labels and  descriptive tooltips.</li>
@@ -184,7 +182,6 @@ permalink: /how-to-test/test-pdf/
     <li>Consider providing screenshots or examples for clarity.</li>
   </ul>
 </ol>
----
 <h3>Verify Tables</h3>
 <ul>
   <li>Ensure the table can be interacted with a keyboard.</li>
@@ -213,7 +210,7 @@ permalink: /how-to-test/test-pdf/
     </ul>
   </li>
 </ol>
----
+<hr/>
 <h2>Step 4 – Screen Reading Test </h2>
 <ol>
   <li><em>Launch</em> <a href="https://mnit-dot-a11y.github.io/testing-environment/#nvda-non-visual-desktop-access">NVDA</a> screen reader.</li>
@@ -269,6 +266,7 @@ permalink: /how-to-test/test-pdf/
     </ul>
   </li>
 </ol>
+<hr/>
 <h2>Resources</h2>
 <ul>
   <li><a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html">Create  and verify PDF accessibility (Acrobat Pro)</a> – Adobe</li>
