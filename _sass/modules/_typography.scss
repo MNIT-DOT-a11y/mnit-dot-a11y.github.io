@@ -240,15 +240,12 @@ ul {
   margin-bottom: 2rem;
   li {
     margin: 0 0 0 1rem;
-    padding: 1rem 0;
+    padding: .5rem 0;
     list-style-type: square;
     line-height: 1.6;
     ul {
-      margin-top: 1rem;
       margin-bottom: inherit;
-      padding-left: 1rem;
-    }
-  }
+        }
 }
 
 ol {
