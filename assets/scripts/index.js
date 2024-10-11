@@ -732,3 +732,8 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 });
 });
+
+document.querySelector('.print-button').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.print();
+  });
