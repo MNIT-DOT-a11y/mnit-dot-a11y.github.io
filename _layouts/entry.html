@@ -299,6 +299,7 @@ layout: base
         {% assign path = page.id | replace: page.slug , ""  | prepend: '/assets/media/video' | append: video.directory | append: page.slug | append: ".mp4"  %}
         {% assign file_exists = site.static_files | where: "path", path  %}
         {% if file_exists.size != 0 %}
+        <div class="entry-video-section">
           <h2 class="h-bravo">
             Video examples
           </h2>
@@ -315,7 +316,15 @@ layout: base
         {% endfor %}
       </media-gallery>
 
-      {{ content }}
+      {% for video in site.video-demos limit:1 %}
+      {% assign path = page.id | replace: page.slug , ""  | prepend: '/assets/media/video' | append: video.directory | append: page.slug | append: ".mp4"  %}
+      {% assign file_exists = site.static_files | where: "path", path  %}
+      {% if file_exists.size != 0 %}
+        </div>
+      {% endif %}
+    {% endfor %}
+
+{{ content }}
     </div>
   </div>
 </article>
