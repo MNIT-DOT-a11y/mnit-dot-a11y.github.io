@@ -12,14 +12,14 @@ permalink: /how-to-test/test-pdf/
 </ul>
 <p><strong>Attention! Acrobat Pro is the only version of Acrobat  that allows you to view and test PDF's accessibility.</strong></p>
 <hr/>
-<h2>Step 1 - Initial Visual Inspection</h2>
+<h2><s<step-number>1</step-number> - Initial Visual Inspection</h2>
 <p>Before beginning your review, quickly skim the document to  check for headings, lists, tables, and images. This will help you understand  the document's structure.<strong></strong></p>
 <hr/>
-<h2>Step 2 - Acrobat Automated PDF checker </h2>
+<h2><step-number>2</step-number> - Acrobat Automated PDF checker </h2>
 <ol>
   <li><em>Open</em> <strong><em>Acrobat Pro</em></strong><em>.</em></li>
   <li><em>Open</em> the PDF file you want to check.</li>
-  <li><em>Select <strong>Accessibility</strong> in the <em>Tools panel</em> on the right side of the window.
+  <li><em>Select</em> <strong>Accessibility</strong> in the <em>Tools panel</em> on the right side of the window.
     <example><img src="/assets/images/examples/pdf-tools-panel.jpg" alt="screen shot showing the location of the accessibility tool."/></example>
     <ul>
       <li>If Accessibility is not visible in the tools panel.</li>
@@ -27,7 +27,7 @@ permalink: /how-to-test/test-pdf/
      <example><img src="/assets/images/examples/pdf-add-accessibility-tool.jpg" alt="screen shot showing the location of the accessibility tool with the drop-down open showing close, add shortcut, learn more."/></example></li>
     </ul>
   </li>
-  <li>Return to the PDF you opened by selecting the  file's name in the tab at the top. </li>
+  <li>Return to the PDF you opened by selecting the  file's name in the tab at the top.</li>
   <li>From the right Tools panel, select  Accessibility. This will open the Accessibility Checker, then select  Accessibility Check. In the dialog box that appears
     <ul>
       <li>Change <strong>Report Options</strong> to where you store accessibility test findings for the  project.</li>
@@ -50,7 +50,7 @@ permalink: /how-to-test/test-pdf/
     </ul>
 </ol>
 <hr/>
-<h2>Step 3 - Manual Review</h2>
+<h2><step-number>3</step-number> - Manual Review</h2>
 <h3>Verify Navigation and Accessibility  Features</h3>
 <ul>
   <li>Verify that the document structure can be navigated only using a mouse.</li>
@@ -106,7 +106,7 @@ permalink: /how-to-test/test-pdf/
   </ul>
 </ul>
 <h3>Verify Reading Order</h3>
-<p>You will need to check the document's reading order manually.  This is often referred to as <strong>Walking the tag tree</strong>. Open the tags  panel (instruction below) and arrow down the tags to check the reading order.  As you do, you will see a color box around the content in your document. As you  move down the list of tags, the highlighted text should follow the logical  reading order. If they are not, report on the inaccurate reading order.</p>
+<p>You will need to check the document's reading order manually. This is often referred to as <strong>Walking the tag tree</strong>. Open the tags  panel (instruction below) and arrow down the tags to check the reading order. As you do, you will see a color box around the content in your document. As you  move down the list of tags, the highlighted text should follow the logical  reading order. If they are not, report on the inaccurate reading order.</p>
 <ul>
   <li>Tags  should be semantic (headings, paragraphs, lists, tables, etc.).</li>
   <li>The first  heading should be an "H1," and only heading levels 1-6 should be used.</li>
@@ -153,13 +153,11 @@ permalink: /how-to-test/test-pdf/
   </ul>
   <li>Verify Field Type</li>
   <ul>
-    <li>Ensure that the correct field type is used (e.g., text fields,        checkboxes, radio buttons).</li>
+    <li>Ensure that the correct field type is used (e.g., text fields, checkboxes, radio buttons).</li>
   </ul>
   <li>Check Tab Order</li>
   <ul>
     <li>Ensure the tab order follows a logical flow from top to bottom and left to right.</li>
-  </ul>
-  <ul>
     <li><em>Use</em> the <strong>Tab key</strong> to navigate the form fields and confirm the intuitive order.
       <ul>
         <li>Interact with all the input fields (checkboxes, radio         buttons, drop-downs, etc.), verify that you can move through with them and read that the order is correct.</li>
@@ -211,7 +209,7 @@ permalink: /how-to-test/test-pdf/
   </li>
 </ol>
 <hr/>
-<h2>Step 4 – Screen Reading Test </h2>
+<h2><step-number>4</step-number> – Screen Reading Test </h2>
 <ol>
   <li><em>Launch</em> <a href="https://mnit-dot-a11y.github.io/testing-environment/#nvda-non-visual-desktop-access">NVDA</a> screen reader.</li>
   <li><em>Open </em>the PDF. </li>
