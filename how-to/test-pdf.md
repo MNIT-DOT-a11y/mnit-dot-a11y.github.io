@@ -50,7 +50,7 @@ permalink: /how-to-test/test-pdf/
     </ul>
 </ol>
 <hr/>
-<h2><step-number>3</step-number> - Manual Review</h2>
+<h2><step-number>3</step-number> Manual Review</h2>
 <h3>Verify Navigation and Accessibility  Features</h3>
 <ul>
   <li>Verify that the document structure can be navigated only using a mouse.</li>
