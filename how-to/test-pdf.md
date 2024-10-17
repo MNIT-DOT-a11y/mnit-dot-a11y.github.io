@@ -12,10 +12,10 @@ permalink: /how-to-test/test-pdf/
 </ul>
 <p><strong>Attention! Acrobat Pro is the only version of Acrobat  that allows you to view and test PDF's accessibility.</strong></p>
 <hr/>
-<h2><s<step-number>1</step-number> - Initial Visual Inspection</h2>
+<h2><step-number>1</step-number> Initial Visual Inspection</h2>
 <p>Before beginning your review, quickly skim the document to  check for headings, lists, tables, and images. This will help you understand  the document's structure.<strong></strong></p>
 <hr/>
-<h2><step-number>2</step-number> - Acrobat Automated PDF checker </h2>
+<h2><step-number>2</step-number> Acrobat Automated PDF checker </h2>
 <ol>
   <li><em>Open</em> <strong><em>Acrobat Pro</em></strong><em>.</em></li>
   <li><em>Open</em> the PDF file you want to check.</li>
@@ -55,7 +55,7 @@ permalink: /how-to-test/test-pdf/
 <ul>
   <li>Verify that the document structure can be navigated only using a mouse.</li>
 </ul>
-<h4>How to test</h4>
+<h4><strong>How to test</strong></h4>
 <ol>
   <li>Test keyboard navigation (<em>using the Tab key and arrow keys</em>) to ensure all elements are accessible using a mouse and can be navigated efficiently without a mouse.</li>
   <li>Document findings.</li>
@@ -69,15 +69,16 @@ permalink: /how-to-test/test-pdf/
   <li>For color contrast specifically, ensure that  text meets the minimum contrast ratios outlined by <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG 1.4.3</a> (4.5:1 for  normal text, 3:1 for large text).</li>
   <li>Manual inspection is required by using the <a href="https://mnit-dot-a11y.github.io/testing-environment/#color-contrast-analyzer-cca">Colour Contrast Analyzer</a>, especially if the  Accessibility Checker doesn&rsquo;t flag specific color contrast issues. </li>
 </ul>
-<h4>How to test</h4>
+<h4><strong>How to test</strong></h4>
 <ol>
   <li><em>Open</em> the <a href="https://mnit-dot-a11y.github.io/testing-environment/#color-contrast-analyzer-cca">Colour Contrast Analyzer</a> application  and check all the components.</li>
   <li>Document findings.</li>
   <ul>
     <li>Note any  accessibility issues found during testing and recommendations for improvements.</li>
     <li>Consider  providing screenshots or examples for clarity.</li>
-  </ol>
 </ul>
+</ol>
+
 <h3>Verify Use of Color</h3>
 <ul>
   <ul>
@@ -85,13 +86,13 @@ permalink: /how-to-test/test-pdf/
     <li>Verify  that there is, in addition to color, shapes or text, to convey meaning.</li>
   </ul>
 </ul>
-<h4>How to test</h4>
+<h4><strong>How to test</strong></h4>
 <p>Review the document, focusing on colors used in forms,  charts and graphs and answer the following questions.</p>
-<ul>
+<ol>
   <li>Is there some  visual differentiation between line or shape segments?</li>
   <li>If you couldn't see the color, can you understand the content or identify if something  is essential or required?</li>
   <li>Are labels  provided for pie or bar charts?</li>
-</ul>
+</ol>
 <p>If the answer is <strong><em>no,</em></strong> document the findings.</p>
 <ul>
   <li>Note any accessibility issues found during testing and recommendations for improvements.</li>
@@ -115,7 +116,7 @@ permalink: /how-to-test/test-pdf/
     <li>Heading  levels can restart (e.g., H3 followed by H4, followed by H2).</li>
   </ul>
 </ul>
-<h4>How to test</h4>
+<h4><strong>How to test</strong></h4>
 <ol>
   <li><em>Open</em> the <strong>Accessibility Tags panel.</strong>
     <ul>
@@ -138,12 +139,12 @@ permalink: /how-to-test/test-pdf/
   <li>Ensure the appropriate tab order has been set.</li>
   <li>Ensure hyperlinks have meaningful link text.  Avoid generic phrases like "click here" or "learn more."</li>
 </ul>
-<h4>How to test</h4>
+<h4><strong>How to test</strong></h4>
 <ol>
   <li>Run the Accessiblity Checker as outlined in Step 2.</li>
-  <li>Open the  Form Editing Mode</li>
+  <li>Open the Form Editing Mode.</li>
   <ul>
-    <li>Access the Prepare Forms tool. From the <strong>top menu</strong>, navigate to <strong>Tools</strong> and select <strong>Prepare Form</strong>. </li>
+    <li>To access the Prepare Forms tool. From the <strong>top menu</strong>, navigate to <strong>Tools</strong> and select <strong>Prepare Form</strong>.</li>
   </ul>
   <li>Check Field Labels</li>
   <ul>
@@ -158,11 +159,7 @@ permalink: /how-to-test/test-pdf/
   <li>Check Tab Order</li>
   <ul>
     <li>Ensure the tab order follows a logical flow from top to bottom and left to right.</li>
-    <li><em>Use</em> the <strong>Tab key</strong> to navigate the form fields and confirm the intuitive order.
-      <ul>
-        <li>Interact with all the input fields (checkboxes, radio         buttons, drop-downs, etc.), verify that you can move through with them and read that the order is correct.</li>
-      </ul>
-    </li>
+    <li><em>Use</em> the <strong>Tab key</strong> to navigate the form fields and confirm the intuitive order. Make sure you interact with all the input fields (checkboxes, radio         buttons, drop-downs, etc.), verify that you can move through with them and read that the order is correct.    </li>
   </ul>
   <li>Review Error Handling</li>
   <ul>
@@ -170,7 +167,7 @@ permalink: /how-to-test/test-pdf/
     <li>Ensure that error messages are clear and tied to the relevant fields.</li>
   </ul>
   <li>Check instructions.
-     <ul>
+    <ul>
       <li>Check the instructional text is visible and accessible.</li>
     </ul>
   </li>
@@ -186,14 +183,14 @@ permalink: /how-to-test/test-pdf/
 	<li>Ensure table caption and row and or column headers are present.</li>
   <li>Confirm that tables are only used for tabular data and not for layout.</li>
 </ul>
-<h4>How to test</h4>
+<h4><strong>How to test</strong></h4>
 <ol>
   <li>Inspect the table tags.
  <ul>
       <li>Open  the <strong>Accessibility Tags panel. </strong></li>
-      <li>Scroll down the  tag tree until you see &lt;table&gt;. Verify that the table is  properly tagged as &lt;table&gt; and that the rows &lt;td&gt; and headers  &lt;th&gt; are identified and correctly nested.<br>
-      <example><img src="/assets/images/examples/pdf-table-tag-tree.jpg" alt="screenshot showing a table in the tag tree."/></example></li>
-    </ul>
+      <li>Scroll down the  tag tree until you see &lt;table&gt;. Verify that the table is  properly tagged as &lt;table&gt; and that the rows &lt;td&gt; and headers  &lt;th&gt; are identified and correctly nested.</li>
+   <example><img src="/assets/images/examples/pdf-table-tag-tree.jpg" alt="screenshot showing a table in the tag tree."/></example>  
+ </ul>
   </li>
   <li>Verify the table has either a title or caption.</li>
   <li>Check navigation and reading order.
@@ -209,7 +206,7 @@ permalink: /how-to-test/test-pdf/
   </li>
 </ol>
 <hr/>
-<h2><step-number>4</step-number> – Screen Reading Test </h2>
+<h2><step-number>4</step-number> Screen Reading Test</h2>
 <ol>
   <li><em>Launch</em> <a href="https://mnit-dot-a11y.github.io/testing-environment/#nvda-non-visual-desktop-access">NVDA</a> screen reader.</li>
   <li><em>Open </em>the PDF. </li>
