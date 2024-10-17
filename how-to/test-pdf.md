@@ -22,7 +22,7 @@ permalink: /how-to-test/test-pdf/
   <li><em>Select <strong>Accessibility</strong> in the <em>Tools panel</em> on the right side of the window.
     <example><img src="/assets/images/examples/pdf-tools-panel.jpg" alt="screen shot showing the location of the accessibility tool."/></example>
     <ul>
-      <li>If Accessibility is not visible in the tools  panel. 
+      <li>If Accessibility is not visible in the tools panel.</li>
       <li><em>Select</em> the <strong>Tools tab</strong>. Scroll down to the Protect &amp; Standardize section. Locate <strong>Accessibility</strong> and <em>select </em><strong>Add</strong>.<br>
      <example><img src="/assets/images/examples/pdf-add-accessibility-tool.jpg" alt="screen shot showing the location of the accessibility tool with the drop-down open showing close, add shortcut, learn more."/></example></li>
     </ul>
@@ -56,27 +56,27 @@ permalink: /how-to-test/test-pdf/
   <li>Verify that the document structure can be navigated only using a mouse.</li>
 </ul>
 <h4>How to test</h4>
-<ul type="disc">
+<ol>
   <li>Test keyboard navigation (<em>using the Tab key and arrow keys</em>) to ensure all elements are accessible using a mouse and can be navigated efficiently without a mouse.</li>
   <li>Document findings.</li>
-  <ul type="circle">
+  <ul>
     <li>Note any accessibility issues found during testing and recommendations for improvements.</li>
     <li>Consider providing screenshots or examples for clarity.</li>
   </ul>
-</ul>
+</ol>
 <h3>Verify Color Contrast</h3>
 <ul>
   <li>For color contrast specifically, ensure that  text meets the minimum contrast ratios outlined by <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG 1.4.3</a> (4.5:1 for  normal text, 3:1 for large text).</li>
   <li>Manual inspection is required by using the <a href="https://mnit-dot-a11y.github.io/testing-environment/#color-contrast-analyzer-cca">Colour Contrast Analyzer</a>, especially if the  Accessibility Checker doesn&rsquo;t flag specific color contrast issues. </li>
 </ul>
 <h4>How to test</h4>
-<ul>
+<ol>
   <li><em>Open</em> the <a href="https://mnit-dot-a11y.github.io/testing-environment/#color-contrast-analyzer-cca">Colour Contrast Analyzer</a> application  and check all the components.</li>
   <li>Document findings.</li>
   <ul>
     <li>Note any  accessibility issues found during testing and recommendations for improvements.</li>
     <li>Consider  providing screenshots or examples for clarity.</li>
-  </ul>
+  </ol>
 </ul>
 <h3>Verify Use of Color</h3>
 <ul>
@@ -89,13 +89,13 @@ permalink: /how-to-test/test-pdf/
 <p>Review the document, focusing on colors used in forms,  charts and graphs and answer the following questions.</p>
 <ul>
   <li>Is there some  visual differentiation between line or shape segments?</li>
-  <li>If you  couldn't see the color, can you understand the content or identify if something  is essential or required?</li>
+  <li>If you couldn't see the color, can you understand the content or identify if something  is essential or required?</li>
   <li>Are labels  provided for pie or bar charts?</li>
 </ul>
 <p>If the answer is <strong><em>no,</em></strong> document the findings.</p>
 <ul>
-  <li>Note any  accessibility issues found during testing and recommendations for improvements.</li>
-  <li>Consider  providing screenshots or examples for clarity.</li>
+  <li>Note any accessibility issues found during testing and recommendations for improvements.</li>
+  <li>Consider providing screenshots or examples for clarity.</li>
 </ul>
 <p>If <strong><em>yes</em></strong>, verify that the color used in the  graphic contrasts at least 3:1 against adjacent color(s).</p>
 <ul>
@@ -152,7 +152,7 @@ permalink: /how-to-test/test-pdf/
     <example><img src="/assets/images/examples/pdf-form-properties.jpg" alt="screen shot showing the text filed properites dialog box with the general tab active and the name and tooltip displayed."/></example></li>
   </ul>
   <li>Verify Field Type</li>
-  <ul >
+  <ul>
     <li>Ensure that the correct field type is used (e.g., text fields,        checkboxes, radio buttons).</li>
   </ul>
   <li>Check Tab Order</li>
@@ -169,9 +169,9 @@ permalink: /how-to-test/test-pdf/
   <li>Review Error Handling</li>
   <ul>
     <li>Test the form by entering invalid data to see if the screen reader announces error messages.</li>
-    <li>Ensure that error messages are clear and tied to the relevant        fields.</li>
+    <li>Ensure that error messages are clear and tied to the relevant fields.</li>
   </ul>
-  <li>Check  instructions.
+  <li>Check instructions.
      <ul>
       <li>Check the instructional text is visible and accessible.</li>
     </ul>
@@ -200,7 +200,7 @@ permalink: /how-to-test/test-pdf/
   <li>Verify the table has either a title or caption.</li>
   <li>Check navigation and reading order.
     <ul>
-      <li><em>Use  </em>the <em>Tab key</em> to navigate through the table. Ensure all cells are reachable and  read in the correct order.</li>
+      <li><em>Use </em>the <em>Tab key</em> to navigate through the table. Ensure all cells are reachable and  read in the correct order.</li>
     </ul>
   </li>
   <li>Document Findings
