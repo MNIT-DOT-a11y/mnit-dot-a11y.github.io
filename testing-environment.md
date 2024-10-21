@@ -54,7 +54,7 @@ Some keyboard shortcuts require using the NVDA modifier key. By default, both th
 Setting modifier key to Caps lock
 
 1. _Open_ **_NVDA_**
-2. _Go to_ the general setting by selecting **CAPS LOCK + Crtl + g**
+2. _Go to_ the general setting by selecting **CAPS LOCK + n**
 3. In the _Categories_ column, _select_ **_Keyboard_**.
 4. Under the _Select NVDA Modifier Keys_ title, **_check caps lock_**.  
     <example>
@@ -64,8 +64,9 @@ Setting modifier key to Caps lock
 
 By default, NVDA will use the built-in voices provided by Microsoft. Altering the parameters of the voice may be helpful, for example, if you wish to slow the speaking voice down for a demonstration, increase the volume, or change the voice entirely.
 
-1. _Go to_ _General Setting_ by selecting **CAPS LOCK + Crtl + g.**
-2. In the _Categories column_. _Select_ **_Speech_**. Adjust the speech rate, volume, and voice to your preference.
+1. Open the NVDA Menu by pressing by selecting **CAPS LOCK + n**
+2. Navigate to **Preference**, then **Settings**.
+3. In the Categories column of the dialog box, _Select_ **Speech**. Adjust the speech rate, volume, and voice to your preference.
     <example>
         <img src="/assets/images/testing-tools/nvda-setting-speech.jpg" alt="Screenshot showing step 2">
     </example>
@@ -74,13 +75,34 @@ By default, NVDA will use the built-in voices provided by Microsoft. Altering th
 
 The NVDA speech viewer is a valuable tool for screen reader testers. Enabling the Speech Viewer opens a window that shows everything NVDA states, which is helpful for sighted users. The Speech Viewer also allows you to take a screenshot or a screen recording when reporting an issue.
 
-1. _Open the NVDA Menu_ by pressing **CAPS LOCK + n**.
-2. Navigate to Tools and **_Select Speech Viewer_**. _Check_ the "**Show speech viewer on startup**” box to enable the speech viewer to appear on startup. The speech viewer will open when NVDA is started.
-3. A window will appear, updating in real-time with the content that NVDA speaks.
+1. _Open_ the NVDA Menu by pressing **CAPS LOCK + n**.
+2. _Navigate_ to **Tools** and **Select Speech Viewer**. 
+3. _Select_ the **Show speech viewer on startup** box to enable the speech viewer to appear on startup. The speech viewer will open when NVDA is started. A window will appear, updating in real-time with the content that NVDA speaks.
+
     <example>
         <img src="/assets/images/testing-tools/nvda-speech-viewer.jpg" alt="Screenshot showing step 2">
     </example>
- 
+
+**Note:** NVDA starts reading all content by default when the page loads. If you prefer NVDA not to start reading, you can disable this by going to 'Preferences' > 'Settings' > 'Browse Mode' and then unchecking 'Automatic Say All on page load.'
+
+ #### Visual Highlight
+
+   NVDA has a useful Visual Highlight that displays the element on the page with the current system focus.
+1. Start NVDA
+2. Open the NVDA Menu by pressing **CAPS LOCK + n**.
+3. Navigate to **Preferences**, then **Settings**
+4. In the Categories list, select **Vision**
+5. Under Visual Highlight, select **Enable Highlighting**
+6. Select **Apply**, then **OK**.
+    <example>
+        <img src="/assets/images/testing-tools/nvda-visual-highlighting.jpg" alt="Screenshot showing step 2">
+    </example>
+
+    A screenshot showing the Speech Viewer and Visual Highlight are active on a web page.
+    <example>
+        <img src="/assets/images/testing-tools/nvda-speech-visual-viewers.jpg" alt="Screenshot showing the location of the speech viewer and visual highlight in the window.">
+    </example>
+
  ---  
 
 ### Windows Magnifier on Windows 11
