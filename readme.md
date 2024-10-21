@@ -21,6 +21,7 @@
 <p>Software is an application  that runs locally on a desktop or laptop computer or a native application for a  mobile phone. It must be developed and installed for a particular operating  system. Software can have specific hardware requirements that must be met to  function correctly. Software is often dependent on the storage and processing  power of the computer. Updates must be applied directly to the desktop or  laptop installation.</p>
 <h3>Native App (Mobile)<a id="native"></a></h3>
 <p>A native mobile app is built for a specific platform, such  as iOS for an Apple iPhone or Android for a Samsung tablet. Apps are downloaded  and installed via an app store. They may have access to system resources, like  Global Positioning Systems (GPS) or the camera. Native mobile apps live and run  on the device. They require the user to download updates and may be able to  work offline.</p>
+<hr/>
 <h2>Disclaimer</h2>
 <p>This is not a comprehensive list of all WCAG success  criteria or techniques required to become WCAG 2.1 Level A and AA compliant and  should not be used as such.</p>
   <p>Adherence to this list also does not guarantee that a  digital asset will be free from accessibility issues or complaints.</p>
