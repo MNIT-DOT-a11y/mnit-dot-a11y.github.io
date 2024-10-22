@@ -10,7 +10,7 @@
 
     {% if page.url != "/native/" and page.url != "/desktop/" %}
     <div class="textarea-container gherkin-criteria tab-panel" id="gherkin-panel">
-      <div aria-label="Gherkin acceptance criteria" id="gherkin-textarea" contenteditable="true" class="contenteditable-textarea">
+      <div aria-label="Gherkin acceptance criteria" id="gherkin-textarea" class="contenteditable-textarea">
         When components are selected, corresponding test cases will appear here.
       </div>
       <div class="textarea-controls">
@@ -24,7 +24,7 @@
     {% endif %}
 
     <div class="textarea-container condensed-criteria tab-panel" {% if page.url == "/native/" or page.url == "/desktop/" %}style="display:block;"{% endif %} id="condensed-panel">
-      <div aria-label="Condensed acceptance criteria" id="condensed-textarea" contenteditable="true" class="contenteditable-textarea">
+      <div aria-label="Condensed acceptance criteria" id="condensed-textarea" class="contenteditable-textarea">
         When components are selected, corresponding test cases will appear here.
       </div>
       <div class="textarea-controls">
