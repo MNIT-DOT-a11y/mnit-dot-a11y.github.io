@@ -26,12 +26,12 @@ NVDA is a screen reader and can be downloaded from the Software Center. NVDA wor
 
 The steps below will get you up and running.
 
-#### Resources
+#### **Resources**
 
 - [NVDA User Guide](https://www.nvaccess.org/files/nvda/documentation/userGuide.html)
 - [Deque’s Quick Reference Guide: NVDA for Windows Keyboard Commands](https://media.dequeuniversity.com/en/courses/generic/testing-screen-readers/2.0/docs/nvda-guide.pdf)
 
-#### Installation
+#### **Installation**
 
 1. _Go to_ the **_Start_** menu and open the **_Software Center_** application.
 2. From the Applications window, _search_ for **_NVDA_**.
@@ -41,11 +41,11 @@ The steps below will get you up and running.
     </example>
 **Note:** To complete the installation, you must submit a Service Hub work request to complete the installation. Installation requires admin access to complete.
 
-#### Launching NVDA
+#### **Launching NVDA**
 
 When launching NVDA for the first time, follow the [Configuring NVDA instructions](https://webaim.org/articles/nvda/#configuring) on the WebAIM webpage to set up the application for screen reader testing.
 
-#### NVDA modifier key
+#### **NVDA modifier key**
 
 Some keyboard shortcuts require using the NVDA modifier key. By default, both the Numpad Insert key and the Insert key are set as **NVDA modifier keys**, but you can also designate the Caps Lock key as an additional NVDA modifier key.
 
@@ -60,7 +60,7 @@ Setting modifier key to Caps lock
     <example>
         <img src="/assets/images/testing-tools/nvda-settings-caps-lock.jpg" alt="Screenshot showing steps 3 and 4">
     </example>
-#### Adjusting the Voice
+#### **Adjusting the Voice**
 
 By default, NVDA will use the built-in voices provided by Microsoft. Altering the parameters of the voice may be helpful, for example, if you wish to slow the speaking voice down for a demonstration, increase the volume, or change the voice entirely.
 
@@ -71,7 +71,7 @@ By default, NVDA will use the built-in voices provided by Microsoft. Altering th
         <img src="/assets/images/testing-tools/nvda-setting-speech.jpg" alt="Screenshot showing step 2">
     </example>
 
-#### Speech Viewer
+#### **Speech Viewer**
 
 The NVDA speech viewer is a valuable tool for screen reader testers. Enabling the Speech Viewer opens a window that shows everything NVDA states, which is helpful for sighted users. The Speech Viewer also allows you to take a screenshot or a screen recording when reporting an issue.
 
@@ -85,7 +85,7 @@ The NVDA speech viewer is a valuable tool for screen reader testers. Enabling th
 
 **Note:** NVDA starts reading all content by default when the page loads. If you prefer NVDA not to start reading, you can disable this by going to 'Preferences' > 'Settings' > 'Browse Mode' and then unchecking 'Automatic Say All on page load.'
 
- #### Visual Highlight
+#### **Visual Highlight**
 
    NVDA has a useful Visual Highlight that displays the element on the page with the current system focus.
 1. Start NVDA
@@ -129,13 +129,13 @@ There are two different ways you can turn Windows Magnifier on.
         <img src="/assets/images/testing-tools/magnifier.jpg" alt="Screenshot showing steps of using a mouse">
     </example>
 
-    --
+ --- 
 
 ### axe Browser Extension
 
 axe DevTools browser extension automates accessibility testing for web-based applications to help identify common accessibility issues.
 
-#### Installation
+####  **Installation**
 
 1. _Open_ Chrome, Edge or Firefox browser.
 2. _Go to_ [Deque’s browser extension webpage](https://www.deque.com/axe/browser-extensions/).
@@ -144,11 +144,10 @@ axe DevTools browser extension automates accessibility testing for web-based app
         <img src="/assets/images/testing-tools/browser-extension-links.png" alt="Screenshot showing steps 3">
     </example>
 **Notes:**
-
 - The usage and installation are identical for axe DevTools and axe DevPro tools.
 - If you have installed the Axe extension and upgraded to Axe Pro, you only need to sign in using the account with the Axe Pro subscription. No further installation is required. The features will be unlocked automatically.
 
-#### Setting up axe DevTools
+#### **Setting up axe DevTools**
 
 You will only need to do this once.
 
@@ -165,7 +164,7 @@ You will only need to do this once.
         <img src="/assets/images/testing-tools/axe-best-practices.png" alt="Screenshot showing step 8">
     </example>
 
-#### Using axe DevTools
+#### **Using axe DevTools**
 
 1. _Open_ the browser’s Developer Tools by pressing **_Ctrl + Shift + I_** on a keyboard or **_right-click on the page_** and _select_ **_Inspect_** in the pop-up window.
 2. _Select_ the **_Axe DevTools_** tab in the developer tools menu.
@@ -177,20 +176,19 @@ You will only need to do this once.
     <img src="/assets/images/testing-tools/ax-page-scan.jpg" alt="Screenshot showing step 3">
     </example>
 4. Make sure Best Practices is on. If it is not, select Best Practices and Re-run the scan.
- 5. When the scan is complete, you will see the total number of issues on the page and the number of issues grouped by severity.
-        - On the left-hand side of the Axe DevTools, you’ll see an overview of the results.
-        - On the left-hand pane, you have a total of the issues found, categorized by type. When you select an issue, the accordion will open, showing:
-            - The “Highlight” button will highlight the locale on the web page where the issue is.
-            - A description of the issue with a link ("more information") to additional info available for free on Deque University.
-            - A snippet of the code that has caused the issue.
-- The “&lt;/&gt;” button next to the snippet will bring you to the problem code in your browser’s page inspector.
+5. When the scan is complete, you will see the total number of issues on the page and the number of issues grouped by severity.
+- On the left-hand side of the Axe DevTools, you’ll see an overview of the results.
+- On the left-hand pane, you have a total of the issues found, categorized by type. When you select an issue, the accordion will open, showing:
+    - The “Highlight” button will highlight the locale on the web page where the issue is.
+    - A description of the issue with a link ("more information") to additional info available for free on Deque University.
+    - A snippet of the code that has caused the issue.
+- The "&lt;/&gt;" button next to the snippet will bring you to the problem code in your browser’s page inspector.
 - Guidelines for fixing the issue.
 - Information about the severity of the issue and which accessibility guidelines are being violated (e.g., WCAG 2.1, Section 508, etc.).
     <example>
         <img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Screenshot showing step 4 through 4 v">
     </example>
 - Record the results in the Accessibility testing report spreadsheet.
-
 ---
 
 ### Browser Developer tools
@@ -201,7 +199,7 @@ For our purposes, we will focus on the Chrome and Firefox browsers.
 
 **Note:** MS Edge developer tool mirrors Chrome’s developer tool.
 
-#### How to open the developer tools
+#### **How to open the developer tools**
 
 To open the browser developer tools, choose one of the three methods.
 
@@ -215,7 +213,7 @@ To open the browser developer tools, choose one of the three methods.
         <img src="/assets/images/testing-tools/devtools-open-three-dots.jpg" alt="screenshot showing option 3">
     </example>
 
-#### Accessing the DevTools Accessibility Pane
+#### **Accessing the DevTools Accessibility Pane**
 
 1. Open Developer tools.
 2. Within the Developer tools Pane, select the Accessibility tab. If the accessibility tab is not visible, you must select arrows >> to reveal the tab.  
@@ -248,7 +246,7 @@ Refer to PEAT’s [user guide](https://trace.umd.edu/photosensitive-epilepsy-ana
 2. From the Applications window, _search for_ **_CCA_**.
 3. **Select** the **_Install_** button.
 
-#### Using the Colour Contrast Analyzer
+#### **Using the Colour Contrast Analyzer**
 
 The CCA uses an eye drop tool to find the color code of two colors. You can also use it to check how users with color blindness and low vision impairments will see your chosen colors.
 
@@ -277,28 +275,28 @@ The CCA uses an eye drop tool to find the color code of two colors. You can also
 
 VoiceOver is the screen reader built into Apple iOS devices.
 
-#### Resources
+#### **Resources**
 
 - Apple’s [Turn on and Practice VoiceOver on iPhone](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/17.0/ios/17.0).
 - [How to Navigate your iPhone or iPad with VoiceOver](https://www.youtube.com/watch?v=ROIe49kXOc8&t=81s)
 - Deque University [Quick Reference Guide: VoiceOver for iOS](https://media.dequeuniversity.com/en/courses/generic/testing-screen-readers/2.0/docs/voiceover-ios-guide.pdf)
 - Deque University [Quick Reference Guide (with Images): VoiceOver for iOS](https://media.dequeuniversity.com/en/courses/generic/testing-screen-readers/2.0/docs/voiceover-ios-images-guide.pdf).
 
-#### Turn VoiceOver on
+#### **Turn VoiceOver on**
 
 1. _Go to_ **_Settings_**
 2. _Scroll down_ and _tap_ **_Accessibility._**
 3. _Tap_ **_VoiceOver_** at the top.
 4. _Toggle_ the setting **_on_** _or_ _tell Siri_ to “**Turn on VoiceOver**.”
 
-#### Turn VoiceOver off
+#### **Turn VoiceOver off**
 
 1. _Go to_ **_Settings_**
 2. _Scroll down_ and _tap_ **_Accessibility._**
 3. _Tap_ **_VoiceOver_** at the top.
 4. Toggle the setting **_off_** _or_ _tell Siri_ to “**_Turn off VoiceOver_**.”
 
-#### Enabling Caption Panel
+#### **Enabling Caption Panel**
 
 The VoiceOver Caption Panel displays the text VoiceOver speaks at the bottom of the screen. Having this turned on is very helpful for accessibility testing. If the Caption Panel text is too small, you can enlarge it by adjusting your iOS text size settings.
 
@@ -310,7 +308,7 @@ The VoiceOver Caption Panel displays the text VoiceOver speaks at the bottom of 
         <img src="/assets/images/testing-tools/voice-over-caption-panel.jpg" alt="Screenshot showing step 2">
     </example>
 
-#### Basic Usage
+#### **Basic Usage**
 
 - Use a single tap to select an item.
 - When selecting an item, such as buttons or a hyperlink, double-tap anywhere on the screen to select it.
@@ -320,14 +318,14 @@ The VoiceOver Caption Panel displays the text VoiceOver speaks at the bottom of 
 
 TalkBack is the screen reader included with Android OS.
 
-#### Resources
+#### **Resources**
 
 - [Android Accessibility Help](https://support.google.com/accessibility/android#topic=9078845) to learn how to use TalkBack.
 - [Navigate your device with TalkBack](https://support.google.com/accessibility/android/answer/6006598?hl)
 - Deque University [Quick Reference Guide: TalkBack 9.1+for Android](https://media.dequeuniversity.com/en/courses/generic/testing-screen-readers/2.0/docs/talkback-guide.pdf).
 - Deque University [Quick Reference Guide (with Images): TalkBack 9.1+ for Android](https://media.dequeuniversity.com/en/courses/generic/testing-screen-readers/2.0/docs/talkback-images-guide.pdf)
 
-#### Turn TalkBack on
+#### **Turn TalkBack on**
 
 1. _Go to_ **_Settings_**
 2. _Tap on_ **_Accessibility_**.
@@ -339,13 +337,13 @@ TalkBack is the screen reader included with Android OS.
 2. _Tap on_ **_Accessibility_**.
 3. _Tap on TalkBack_ and toggle the switch to **off**.
 
-#### Basic Usage
+#### **Basic Usage**
 
 - Use a single tap to select an item.
 - When selecting an item, such as buttons or a hyperlink, double-tap anywhere on the screen to select it.
 - Swipe left or right with one finger to move to the previous or next item.
 
-#### Enable Caption Preference
+#### **Enable Caption Preference**
 
 1. Go to **Settings**
 2. Tap on **Accessibility**.
@@ -355,5 +353,3 @@ TalkBack is the screen reader included with Android OS.
     <example>
         <img src="/assets/images/testing-tools/android-caption-preference.jpg" alt="Screenshot showing step 5">
     </example>
-    
-    <p><a href="#content">Back to Top</a></p>
