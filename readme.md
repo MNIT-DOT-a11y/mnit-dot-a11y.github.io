@@ -24,7 +24,7 @@
 <hr/>
 <h2>Disclaimer</h2>
 <p>This is not a comprehensive list of all WCAG success  criteria or techniques required to become WCAG 2.1 Level A and AA compliant and  should not be used as such.</p>
-  <p>Adherence to this list also does not guarantee that a  digital asset will be free from accessibility issues or complaints.</p>
+<p>Adherence to this list also does not guarantee that a  digital asset will be free from accessibility issues or complaints.</p>
 <h2>Credits</h2>
 <p>MNIT DOT A11y was sourced from <a href="https://www.magentaa11y.com/web/">MagentaA11y</a> by T-Mobile. It was  created by <a href="https://www.charliecharliecharlie.com">Charlie Triplett</a>,  author of The Book on Accessibility.</p>
 <h2>License</h2>
