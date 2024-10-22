@@ -720,10 +720,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const links = document.querySelectorAll("a");
   
     links.forEach(function(link) {
-        if (link.hostname !== window.location.hostname && !link.href.startsWith('mailto:')) {  link.classList.add("external-link");
-  //const wrapperDiv = document.createElement("div");
-        //wrapperDiv.classList.add("external-link-wrapper");
-//          link.parentNode.insertBefore(wrapperDiv, link);
+        if (link.hostname !== window.location.hostname && !link.href.startsWith('mailto:') && !link.href.startsWith('#')) {  link.classList.add("external-link");
+            link.parentNode.insertBefore(wrapperDiv, link);
           //wrapperDiv.appendChild(link);
       const srText = document.createElement("span");
         srText.classList.add("sr-only");
