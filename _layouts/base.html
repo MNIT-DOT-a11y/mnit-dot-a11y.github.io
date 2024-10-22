@@ -26,10 +26,10 @@
     </script>
     <script>
       function convertLinksToAnchors(text) {
-    const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-    return text.replace(urlRegex, (url) => {
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
-    });
+  const urlPattern = /(https?:\/\/[^\s]+)/g;
+  text = text.replace(urlPattern, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+
+  return text.replace(/\n/g, '<br>');
 }
 
 $(".criteria-checkbox").change(function() {
@@ -45,9 +45,9 @@ $(".criteria-checkbox").change(function() {
         gherkinArr.push([ $this.data('gherkin-criteria') ]);
     });
     var condensedEditable = document.getElementById("condensed-textarea");
-    condensedEditable.innerText = convertLinksToAnchors(condensedArr.join("\n"));
+    condensedEditable.innerHTML = convertLinksToAnchors(condensedArr.join("\n"));
     var gherkinEditable = document.getElementById("gherkin-textarea");
-    gherkinEditable.innerText = convertLinksToAnchors(gherkinArr.join("\n"));
+    gherkinEditable.innerHTML = convertLinksToAnchors(gherkinArr.join("\n"));
 });
 
       $("#copy-gherkin").click(function(){
