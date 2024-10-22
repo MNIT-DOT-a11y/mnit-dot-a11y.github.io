@@ -15,11 +15,11 @@
   <li><strong>Condensed</strong> is a streamlined format summarizing the essential steps and outcomes for quick reference.</li>
 </ul>
 <h2>Definitions of Web, Desktop App and Native App.</h2>
-<h3>Web Application<a id="web"></a></h3>
+<h3>Web Application <id="web"></a></h3>
 <p>A Web Application is  delivered over the Internet from a remote server using a web browser. It works  primarily with resources made available over the Internet, such as storage and  processing power. The use of modern web browsers increases web application  capabilities. This allows developers to create more interactive interfaces that  mimic a desktop application. Web applications may be limited by bandwidth.</p>
-<h3>Desktop App<a id="desktop"></a></h3>
+<h3>Desktop App <id="desktop"></a></h3>
 <p>Software is an application  that runs locally on a desktop or laptop computer or a native application for a  mobile phone. It must be developed and installed for a particular operating  system. Software can have specific hardware requirements that must be met to  function correctly. Software is often dependent on the storage and processing  power of the computer. Updates must be applied directly to the desktop or  laptop installation.</p>
-<h3>Native App (Mobile)<a id="native"></a></h3>
+<h3>Native App (Mobile) <id="native"></a></h3>
 <p>A native mobile app is built for a specific platform, such  as iOS for an Apple iPhone or Android for a Samsung tablet. Apps are downloaded  and installed via an app store. They may have access to system resources, like  Global Positioning Systems (GPS) or the camera. Native mobile apps live and run  on the device. They require the user to download updates and may be able to  work offline.</p>
 <hr/>
 <h2>Disclaimer</h2>
