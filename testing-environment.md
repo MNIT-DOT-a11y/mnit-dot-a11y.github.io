@@ -25,6 +25,7 @@ Before you start testing, you must install and set up the accessibility testing 
 NVDA is a screen reader and can be downloaded from the Software Center. NVDA works well with Chrome, Firefox, and Edge.
 
 The steps below will get you up and running.
+Steps to how to test with a screen reader can be found on the [How-to Test Screen Reader](https://mnit-dot-a11y.github.io/how-to-test/screen-readers/) page.
 
 #### **Resources**
 
@@ -108,6 +109,8 @@ The NVDA speech viewer is a valuable tool for screen reader testers. Enabling th
 ### Windows Magnifier on Windows 11
 
 Windows Magnifier is a screen magnification tool built into the Windows operating system. It provides a zoomed-in view of a select part of the screen at up to 1600% zoom. By default, it opens on the entire screen and will follow your mouse pointer, keyboard entry, and text cursor.
+
+Sets on how to test zoom can be found on the [How-to Zoom and maginification](https://mnit-dot-a11y.github.io/how-to-test/zoom-magnification/) page.
 
 **Attention!** Do not use Windows Magnifier when checking zooming and magnification in a web browser.
 
@@ -239,6 +242,7 @@ Refer to PEAT’s [user guide](https://trace.umd.edu/photosensitive-epilepsy-ana
 ---
 
 ### Color Contrast Analyzer (CCA)
+Steps how to test for color contrast can be found on the [How-to Test Color Contrast and Use of Color](https://mnit-dot-a11y.github.io/how-to-test/color-contrast/) page.
 
 #### Installation
 
