@@ -36,14 +36,14 @@
     }
   }
 
-
   .textarea-container {
     position: sticky;
     position: -webkit-sticky;
     top: 0rem;
-    z-index: 0;
-    textarea {
-      height: calc(100vh - 6.25rem);
+      z-index: 0;
+    .contenteditable-textarea {
+      max-height: calc(100vh - 6.25rem);
+      overflow-y: auto;
       width: 100%;
       margin: 0;
       padding-top: 1rem;
@@ -53,8 +53,7 @@
       border-radius: 0;
       margin-bottom: 0;
       color: $color-text;
-      overflow-y: auto;
-    }
+      
   }
 }
 
