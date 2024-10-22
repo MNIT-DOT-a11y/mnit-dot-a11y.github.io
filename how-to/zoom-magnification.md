@@ -29,12 +29,14 @@ permalink: /how-to-test/zoom-magnification/
   <p><a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">1.4.4 Resize  Test</a></p>
   <h2>Reflow</h2>
   <p>To test reflow, you  must zoom proportionally to increase the size of all content, including images.  Depending on screen size, zooming may trigger the "mobile" or  small-screen view of the web page.</p>
-   <p>There are two different testing processes for testing reflow. One test uses Zoom in the browser, and the other uses the built-in Windows Magnifier.</p>
+   <p>There are two different testing processes for testing reflow. One test uses Zoom in the browser, and the other uses the built-in Windows Magnifier.
+   </p>
   <h3>Browser Zoom vs. Windows Magnifier</h3>
   <p><strong>Browser Zoom:</strong></p>
   <ul>
-    <li><strong>Purpose</strong>: Simulates how low-vision or mild visual impairments  users might adjust the zoom level within a browser to read content more easily. The tests allow the tester to "see" how scaling  fonts impacts readability and content flow as a browser zoom scales the entire  page.</li>
-    <li><strong>Use Cases</strong>: </li>
+    <li><strong>Purpose</strong>: Simulates how low-vision or mild visual impairments  users might adjust the zoom level within a browser to read content more easily. The tests allow the tester to "see" how scaling  fonts impacts readability and content flow as a browser zoom scales the entire  page.
+    </li>
+    <li><strong>Use Cases</strong>:</li>
     <ul>
       <li><strong>Responsive  Design</strong>: Ensures the layout  adapts correctly at different zoom levels.</li>
       <li><strong>Text  Readability</strong>: Checks if the text  remains legible and doesn't overlap or get cut off.</li>
@@ -44,7 +46,7 @@ permalink: /how-to-test/zoom-magnification/
   <p><strong>Windows Magnifier:</strong></p>
   <ul>
     <li><strong>Purpose</strong>: Provides a system-wide magnification, useful  for users who need to zoom into specific screen parts. The test simulates the  experience for someone severely visually impaired by using extreme  magnification, often only showing a small part of the screen at a time.</li>
-    <li><strong>Use  Cases</strong>: </li>
+    <li><strong>Use  Cases</strong>:</li>
     <ul>
       <li><strong>Accessibility  Testing</strong>: Ensures that all application  parts are accessible when magnified.</li>
       <li><strong>Pixel-Level  Inspection</strong>: Useful for  checking the clarity of images and icons at high magnification levels.</li>
