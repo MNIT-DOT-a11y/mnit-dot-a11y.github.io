@@ -27,7 +27,7 @@
     <script>
       function convertLinksToAnchors(text) {
   const urlPattern = /(https?:\/\/[^\s]+)/g;
-  text = text.replace(urlPattern, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+  text = text.replace(urlPattern, '<a href="$1">$1</a>');
 
   return text.replace(/\n/g, '<br>');
 }
