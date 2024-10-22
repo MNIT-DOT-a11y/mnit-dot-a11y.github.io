@@ -84,7 +84,9 @@ The NVDA speech viewer is a valuable tool for screen reader testers. Enabling th
         <img src="/assets/images/testing-tools/nvda-speech-viewer.jpg" alt="Screenshot showing step 2">
     </example>
 
-**Note:** NVDA starts reading all content by default when the page loads. If you prefer NVDA not to start reading, you can disable this by going to 'Preferences' > 'Settings' > 'Browse Mode' and then unchecking 'Automatic Say All on page load.'
+**Notes:** 
+- The first thing that you will notice is that the Speech Viewer updates with a constant stream of information whenever you move the mouse. In order to stop this go to the NVDA menu and click on Preferences > Settings > Mouse and then uncheck Enable mouse tracking.
+- By default NVDA starts reading all content when the page loads. To disable this, click on Preferences > Settings > Browse Mode and then uncheck Automatic Say All on page load.
 
 #### **Visual Highlight**
 
