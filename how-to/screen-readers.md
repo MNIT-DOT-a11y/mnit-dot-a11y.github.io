@@ -6,12 +6,15 @@ permalink: /how-to-test/screen-readers/
 
 <div class="how-to-test-checklist-item">
 	<p><strong>Attention!</strong> NVDA is the preferred screen reader for accessibility testing at MNIT DOT. You are welcome to use JAWS if you have access to it.</p>
-	</div>
+</div>
 <h2>Getting Started with Screen Readers</h2>
-    <p>The voice output can  be a bit overwhelming when using a screen reader for the first time. If you are  new to screen reader testing, plan on spending some time to become comfortable.  Practice exploring the <a href="https://mnit-dot-a11y.github.io/demos/basic-accessible-webpage/">Basic</a>or <a href="https://mnit-dot-a11y.github.io/demos/basic-inaccessible-webpage/">Inaccessible</a> webpage demos. Don't get discouraged if things still seem confusing.  Slow down the reading speed and take your time. Good news: NVDA has a useful  Speech Viewer that allows you to view the screen reader output as text.</p>
-     <p> While testing, pay  close attention to image alt texts and form controls. Ask yourself whether the  content is understandable and operable without visual cues. Avoid drawing broad  conclusions. Regular screen reader users may have a different experience when  navigating the content. Remember that many screen reader users do not use a  mouse, so try using only the keyboard as you become more comfortable with a  screen reader.</p>
-    <h2><step-number>1</step-number> How to test</h2>
-	{: .divider }
+  <p>The voice output can  be a bit overwhelming when using a screen reader for the first time. If you are  new to screen reader testing, plan on spending some time to become comfortable.  Practice exploring the <a href="https://mnit-dot-a11y.github.io/demos/basic-accessible-webpage/">Basic</a>or <a href="https://mnit-dot-a11y.github.io/demos/basic-inaccessible-webpage/">Inaccessible</a> webpage demos. Don't get discouraged if things still seem confusing.  Slow down the reading speed and take your time. Good news: NVDA has a useful  Speech Viewer that allows you to view the screen reader output as text.
+  </p>
+  <p>While testing, pay  close attention to image alt texts and form controls. Ask yourself whether the  content is understandable and operable without visual cues. Avoid drawing broad  conclusions. Regular screen reader users may have a different experience when  navigating the content. Remember that many screen reader users do not use a  mouse, so try using only the keyboard as you become more comfortable with a  screen reader.
+  </p>
+  <h2><step-number>1</step-number> How to test
+  </h2>
+{: .divider }
     <p>Using a screen reader is very different than using a monitor  and mouse. While testing with a screen reader, <strong><em>never</em></strong> use a mouse,  and rely <strong><em>only</em></strong> on what you can hear (i.e., do not look at the  screen to fill in gaps in "what" you're hearing). Do not make custom  setting changes other than speech rate.</p>
     <p>Before you start testing, review the following.</p>
     <h3>NVDA Resources</h3>
@@ -59,12 +62,13 @@ permalink: /how-to-test/screen-readers/
       <li>To quickly  jump directly to headings, links, and other landmarks. Press <strong>Caps Lock + F7</strong>.</li>
       <li>If  Forms/Focus Mode turns on (with a pop or chime), press <strong>Esc </strong>(once  or twice) and then continue pressing Down Arrow until you rest the bottom.</li>
     </ul>
-<h2><step-number>2</step-number> First pass – What to test for.</h2>
-	{: .divider }
+  <h2><step-number>2</step-number> First pass – What to test for.
+  </h2>
+{: .divider }
     For each document or  webpage, check:
 	<ul> 
-      <li><strong>Text </strong>– any text displayed on the screen should be  read (<a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">WCAG 1.1.1</a>)</li>
-      <li><strong>Headings </strong>– any text that is large and bold at the  beginning of a section should be indicated as a "heading" of the appropriate  level, e.g., "heading level 1" for the main heading, "heading level 2" for  section headings, "heading level 3" for sub-section headings, etc.). (<a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 1.3.1</a>)</li>
+      <li><strong>Text </strong>– any text displayed on the screen should be  read <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">WCAG 1.1.1</a></li>
+      <li><strong>Headings </strong>– any text that is large and bold at the  beginning of a section should be indicated as a "heading" of the appropriate  level, e.g., "heading level 1" for the main heading, "heading level 2" for  section headings, "heading level 3" for sub-section headings, etc. <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 1.3.1</a></li>
       <ul>
         <li>To navigate  by headings, Press the tab key and then the <strong>H</strong> key to move forward  through headings. Press <strong>Shift + H</strong> to move backward. </li>
       </ul>
@@ -72,23 +76,21 @@ permalink: /how-to-test/screen-readers/
       <ul>
         <li>To navigate  lists, Press the tab key and then the <strong>L</strong> key to jump to the following  list. Press <strong>Shift + L</strong> to move backward. Use the arrow keys to move  through individual list items once inside a list. </li>
       </ul>
-      <li><strong>Images </strong>– meaningful images should be indicated as a  "graphic" followed by a concise statement of what the image communicates (not a  description of what it looks like). You should not hear "graphic graphic" or "graphic  photo." If an image does not communicate anything (i.e., is decorative), it  should not be read. (<a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">WCAG 1.1.1</a>)</li>
+      <li><strong>Images </strong>– meaningful images should be indicated as a  "graphic" followed by a concise statement of what the image communicates (not a  description of what it looks like). You should not hear "graphic graphic" or "graphic  photo." If an image does not communicate anything (i.e., is decorative), it  should not be read. <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">WCAG 1.1.1</a></li>
       <li><strong>Links </strong>- Wait until the second pass to test. </li>
       <li><strong>Form  Fields </strong>– wait until the second  pass to test.</li>
-      <li><strong>Tables </strong>– anything that looks like a table of data  should be indicated as a "table of x rows and y columns" or a "grid" (<a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 1.3.1</a>). 
+      <li><strong>Tables </strong>– anything that looks like a table of data  should be indicated as a "table of x rows and y columns" or a "grid" <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 1.3.1</a>. 
         <ul>
           <li>Make sure  the Focus Highlight add-on is enabled. A red outline indicates browse mode; a  blue outline indicates focus mode.</li>
           <li>Make sure  the Speech Viewer is visible.</li>
           <li>Press <strong>T</strong> to move to the next table. NVDA will read out the number of rows and columns in  the table.</li>
-        
- 
-      <li>Press <strong>Ctrl  + Alt + Right Arrow</strong> – cell content and column number should be read.  Repeat until the end of the row/edge of the table.</li>
-      <li>Press the<strong> Down Arrow </strong>– the content of the first cell in the<strong> </strong>next row  should be read. Repeat until in the first cell in the body of the table.</li>
-      <li>Press <strong>Ctrl  + Alt + Right Arrow</strong> – column header(s), column number, and the cell content  should be read. Repeat until the end of the row/edge of the table.</li>
-      <li>Press <strong>Ctrl  + Alt + Down Arrow</strong> – row header (optionally), row number, and the cell  content should be read. Repeat until the bottom of the column/edge of the table.</li>
-      <li>Verify  that the navigation order of the table makes sense.</li>
-      <li>Ensure  that interactive items within the table, such as links and buttons, are read  out.</li></ul>
-      <li><strong>Order </strong>– all content should be read in a logical  order, usually left to right, top to bottom, within any sections or columns of  the page (<a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">WCAG 1.3.2</a>)</li>
+          <li>Press <strong>Ctrl  + Alt + Right Arrow</strong> – cell content and column number should be read.  Repeat until the end of the row/edge of the table.</li>
+          <li>Press the<strong> Down Arrow </strong>– the content of the first cell in the<strong> </strong>next row  should be read. Repeat until in the first cell in the body of the table.</li>
+          <li>Press <strong>Ctrl  + Alt + Right Arrow</strong> – column header(s), column number, and the cell content  should be read. Repeat until the end of the row/edge of the table.</li>
+          <li>Press <strong>Ctrl  + Alt + Down Arrow</strong> – row header (optionally), row number, and the cell  content should be read. Repeat until the bottom of the column/edge of the table.</li>
+          <li>Verify  that the navigation order of the table makes sense.</li>
+          <li>Ensure  that interactive items within the table, such as links and buttons, are read  out.</li></ul>
+          <li><strong>Order </strong>– all content should be read in a logical  order, usually left to right, top to bottom, within any sections or columns of the page <a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">WCAG 1.3.2</a></li>
     </ul>
 <h2><step-number>3</step-number> Second pass – What to test for.</h2>
 	{: .divider }
@@ -111,14 +113,14 @@ permalink: /how-to-test/screen-readers/
       </li>
       <li>For each  interactive element, check: 
         <ol>
-          <li><strong>Links </strong>– links should be indicated as "link" (or "visited  link" or "same page link") with text that clearly and uniquely indicates the  destination or purpose of the link (<a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html">WCAG 2.4.3</a>)
+          <li><strong>Links </strong>– links should be indicated as "link" (or "visited  link" or "same page link") with text that clearly and uniquely indicates the  destination or purpose of the link <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html">WCAG 2.4.3</a>
             <ol>
               <li>Can you  access and activate elements using the <strong>Tab and Enter</strong> keys?</li>
               <li>Does the  visible name on the button match the name that you hear? </li>
               <li>Is the  link text descriptive instead of vague, like &quot;click here&quot; or  &quot;read more&quot;?</li>
             </ol>
           </li>
-          <li><strong>Dynamic  Content</strong> – content changes in  response to user interactions or other variables should be announced and  visually indicated to the reader. (WCAG <a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">1.3.2</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html">4.1.3</a>)
+          <li><strong>Dynamic  Content</strong> – content changes in  response to user interactions or other variables should be announced and  visually indicated to the reader. WCAG <a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">1.3.2</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html">4.1.3</a>
             <ol>
               <li>Use  various keyboard keys.</li>
               <li>Test  elements like pop-up dialog boxes and modal windows.</li>
@@ -130,7 +132,7 @@ permalink: /how-to-test/screen-readers/
           </li>
         </ol>
       </li>
-      <li><strong>Form  Fields</strong> – name, role  value, and state should be indicated. Use standard keyboard commands to ensure  all elements, such as radio buttons, drop-downs, checkboxes, etc., are  identified and operable. (<a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">WCAG 4.1.2</a>)
+      <li><strong>Form  Fields</strong> – name, role  value, and state should be indicated. Use standard keyboard commands to ensure  all elements, such as radio buttons, drop-downs, checkboxes, etc., are  identified and operable. <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">WCAG 4.1.2</a>
         <ol>
           <li>Make sure <a href="https://mnit-dot-a11y.github.io/testing-environment/#visual-highlight">Visual  Highlight</a> is enabled. A red outline indicates browse mode and a blue  outline indicates focus mode.</li>
           <li>Make sure  the <a href="https://mnit-dot-a11y.github.io/testing-environment/#speech-viewer">Speech  Viewer</a> is enabled and visible.</li>
@@ -152,7 +154,7 @@ permalink: /how-to-test/screen-readers/
     </ol>
     <p>Once a piece of  content is in screen reader focus, <strong>double-tap</strong> anywhere on the  screen <strong>to activate it</strong>.</p>
     <h3>Testing iOS</h3>
-    <p>Every iOS device has a built-in screen reader called <a href="https://www.apple.com/ca/accessibility/iphone/learning/" target="_blank">VoiceOver</a>.  If you're testing in a mobile browser, the typical <strong>pairing</strong> is <strong>Safari</strong>.<br>
+    <p>Every iOS device has a built-in screen reader called <a href="https://www.apple.com/ca/accessibility/iphone/learning/">VoiceOver</a>. If you're testing in a mobile browser, the typical <strong>pairing</strong> is <strong>Safari</strong>.<br>
       Before testing with VoiceOver, review the VoiceOver tutorial  from any iPhone or iPad on iOS 18 or later by going to  Settings &gt; Accessibility &gt; VoiceOver &gt; VoiceOver Tutorial.</p>
     <h3>Testing Android</h3>
     <p>Every Android device  has a built-in screen reader called TalkBack. If you're testing in a  mobile browser, the typical pairing is Chrome.<br>
