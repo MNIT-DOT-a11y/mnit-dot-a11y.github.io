@@ -12,20 +12,19 @@ permalink: /how-to-test/screen-readers/
   </p>
   <p>While testing, pay  close attention to image alt texts and form controls. Ask yourself whether the  content is understandable and operable without visual cues. Avoid drawing broad  conclusions. Regular screen reader users may have a different experience when  navigating the content. Remember that many screen reader users do not use a  mouse, so try using only the keyboard as you become more comfortable with a  screen reader.
   </p>
-  <h2><step-number>1</step-number> How to test
-  </h2>
-{: .divider }
-    <p>Using a screen reader is very different than using a monitor  and mouse. While testing with a screen reader, <strong><em>never</em></strong> use a mouse,  and rely <strong><em>only</em></strong> on what you can hear (i.e., do not look at the  screen to fill in gaps in "what" you're hearing). Do not make custom  setting changes other than speech rate.</p>
-    <p>Before you start testing, review the following.</p>
-    <h3>NVDA Resources</h3>
+<h2><step-number>1</step-number> How to test
+</h2>
+  <p>Using a screen reader is very different than using a monitor  and mouse. While testing with a screen reader, <strong><em>never</em></strong> use a mouse,  and rely <strong><em>only</em></strong> on what you can hear (i.e., do not look at the  screen to fill in gaps in "what" you're hearing). Do not make custom  setting changes other than speech rate.</p>
+  <p>Before you start testing, review the following.</p>
+  <h3>NVDA Resources</h3>
     <ul>
       <li><a href="https://mnit-dot-a11y.github.io/testing-environment/#nvda-non-visual-desktop-access">Installing  and setting up NVDA</a></li>
       <li><a href="https://webaim.org/articles/nvda/">Using  NVDA to Evaluate Web Accessibility</a> - WebAIM.</li>
       <li><a href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts">Keyboard  Shortcut</a> - Deque</li>
       <li><a href="https://www.nvaccess.org/files/nvda/documentation/userGuide.html">NVDA  User Guide</a> – NV Access</li>
     </ul>
-    <h3>NVDA - Browse and Focus Modes</h3>
-    <p>NVDA has two primary modes for interacting with content: <strong>Browse Mode</strong> and <strong>Focus Mode</strong>:</p>
+  <h3>NVDA - Browse and Focus Modes</h3>
+  <p>NVDA has two primary modes for interacting with content: <strong>Browse Mode</strong> and <strong>Focus Mode</strong>:</p>
     <ul>
       <ul>
         <li><strong>Browse Mode</strong>: This mode is used for reading documents or  webpages. In Browse Mode, NVDA reads content sequentially, element by element,  allowing you to navigate through headings, links, and other elements using specific  keys. It's ideal for quickly scanning through content.</li>
@@ -64,8 +63,7 @@ permalink: /how-to-test/screen-readers/
     </ul>
   <h2><step-number>2</step-number> First pass – What to test for.
   </h2>
-{: .divider }
-    For each document or  webpage, check:
+  <p>For each document or  webpage, check:</p>
 	<ul> 
       <li><strong>Text </strong>– any text displayed on the screen should be  read <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">WCAG 1.1.1</a></li>
       <li><strong>Headings </strong>– any text that is large and bold at the  beginning of a section should be indicated as a "heading" of the appropriate  level, e.g., "heading level 1" for the main heading, "heading level 2" for  section headings, "heading level 3" for sub-section headings, etc. <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 1.3.1</a></li>
@@ -93,7 +91,6 @@ permalink: /how-to-test/screen-readers/
           <li><strong>Order </strong>– all content should be read in a logical  order, usually left to right, top to bottom, within any sections or columns of the page <a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">WCAG 1.3.2</a></li>
     </ul>
 <h2><step-number>3</step-number> Second pass – What to test for.</h2>
-	{: .divider }
 <p>After reading the page, return to the top and check all interactive  elements using the <strong>Tab</strong> key. Use <strong>Shift + Tab</strong> to go backward.  Answer these questions as you move back through the page.</p>
     <ul>
       <li>Can you  navigate to all interactive elements?</li>
