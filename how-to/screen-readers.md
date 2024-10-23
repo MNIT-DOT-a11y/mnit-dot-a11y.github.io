@@ -14,22 +14,21 @@ permalink: /how-to-test/screen-readers/
   </p>
 <h2><step-number>1</step-number> How to test
 </h2>
-  <p>Using a screen reader is very different than using a monitor  and mouse. While testing with a screen reader, <strong><em>never</em></strong> use a mouse,  and rely <strong><em>only</em></strong> on what you can hear (i.e., do not look at the  screen to fill in gaps in "what" you're hearing). Do not make custom  setting changes other than speech rate.</p>
-  <p>Before you start testing, review the following.</p>
-  <h3>NVDA Resources</h3>
-    <ul>
+  <p>Using a screen reader is very different than using a monitor  and mouse. While testing with a screen reader, <strong><em>never</em></strong> use a mouse,  and rely <strong><em>only</em></strong> on what you can hear (i.e., do not look at the  screen to fill in gaps in "what" you're hearing). Do not make custom  setting changes other than speech rate.
+  </p>
+<p>Before you start testing, review the following.</p>
+<h3>NVDA Resources</h3>
+  <ul>
       <li><a href="https://mnit-dot-a11y.github.io/testing-environment/#nvda-non-visual-desktop-access">Installing  and setting up NVDA</a></li>
       <li><a href="https://webaim.org/articles/nvda/">Using  NVDA to Evaluate Web Accessibility</a> - WebAIM.</li>
       <li><a href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts">Keyboard  Shortcut</a> - Deque</li>
       <li><a href="https://www.nvaccess.org/files/nvda/documentation/userGuide.html">NVDA  User Guide</a> – NV Access</li>
-    </ul>
+  </ul>
   <h3>NVDA - Browse and Focus Modes</h3>
   <p>NVDA has two primary modes for interacting with content: <strong>Browse Mode</strong> and <strong>Focus Mode</strong>:</p>
     <ul>
-      <ul>
-        <li><strong>Browse Mode</strong>: This mode is used for reading documents or  webpages. In Browse Mode, NVDA reads content sequentially, element by element,  allowing you to navigate through headings, links, and other elements using specific  keys. It's ideal for quickly scanning through content.</li>
-        <li><strong>Focus mode</strong>: This mode is used when you need to interact  with elements on the page, such as entering text into a form field or selecting  options from a dropdown menu. In Focus Mode, NVDA passes keystrokes directly to  the application, allowing you to input data and interact with controls.</li>
-      </ul>
+      <li><strong>Browse Mode</strong>: This mode is used for reading documents or  webpages. In Browse Mode, NVDA reads content sequentially, element by element,  allowing you to navigate through headings, links, and other elements using specific  keys. It's ideal for quickly scanning through content.</li>
+      <li><strong>Focus mode</strong>: This mode is used when you need to interact  with elements on the page, such as entering text into a form field or selecting  options from a dropdown menu. In Focus Mode, NVDA passes keystrokes directly to  the application, allowing you to input data and interact with controls.</li>
     </ul>
     <p>NVDA automatically switches between Browse and  Focus modes, but you can toggle  them using the CAPSLOCK + Space Bar.</p>
     <h3>JAWS Resources</h3>
@@ -50,8 +49,8 @@ permalink: /how-to-test/screen-readers/
       <li>Open the  screen reader application.</li>
       <li>Click in  the browser <strong>address bar and press Enter</strong> to reload the page</li>
       <li>Press <strong>Esc </strong>to  ensure you're not in Forms/Focus Mode.</li>
-      <li>Press <strong>Ctrl  + Home</strong> to read the first line (NVDA) or page title (JAWS).</li>
-      <li>Press the <strong>Down  Arrow</strong> to read through all content.</li>
+      <li>Press <strong>Ctrl + Home</strong> to read the first line (NVDA) or page title (JAWS).</li>
+      <li>Press the <strong>Down Arrow</strong> to read through all content.</li>
       <ul>
         <li>Is any  content being skipped that should be read?</li>
         <li>Is any  content being read that's not visible?</li>
@@ -89,6 +88,7 @@ permalink: /how-to-test/screen-readers/
           <li>Verify  that the navigation order of the table makes sense.</li>
           <li>Ensure  that interactive items within the table, such as links and buttons, are read  out.</li></ul>
           <li><strong>Order </strong>– all content should be read in a logical  order, usually left to right, top to bottom, within any sections or columns of the page <a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">WCAG 1.3.2</a></li>
+      </ul>
     </ul>
 <h2><step-number>3</step-number> Second pass – What to test for.</h2>
 <p>After reading the page, return to the top and check all interactive  elements using the <strong>Tab</strong> key. Use <strong>Shift + Tab</strong> to go backward.  Answer these questions as you move back through the page.</p>
@@ -101,43 +101,43 @@ permalink: /how-to-test/screen-readers/
       <li>Press  the <strong>Tab </strong>key to move to and read the next interactive element.</li>
       <li>If you  don't hear something clearly, press <strong>CAPS LOCK + Tab</strong> to re-read  it.</li>
       <li>Use the  arrow keys to navigate options or maneuver content.
-        <ol>
+        <ul>
           <li>Can you go  backward and forward through radio buttons?</li>
           <li>Can you  select and then navigate down through drop-down menus?</li>
           <li>Can you  navigate between tab panels or tree menus?</li>
           <li>Can you  maneuver sliders or select options for auto-complete?</li>
-        </ol>
+        </ul>
       </li>
       <li>For each  interactive element, check: 
         <ol>
           <li><strong>Links </strong>– links should be indicated as "link" (or "visited  link" or "same page link") with text that clearly and uniquely indicates the  destination or purpose of the link <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html">WCAG 2.4.3</a>
-            <ol>
+            <ul>
               <li>Can you  access and activate elements using the <strong>Tab and Enter</strong> keys?</li>
               <li>Does the  visible name on the button match the name that you hear? </li>
               <li>Is the  link text descriptive instead of vague, like &quot;click here&quot; or  &quot;read more&quot;?</li>
-            </ol>
+            </ul>
           </li>
           <li><strong>Dynamic  Content</strong> – content changes in  response to user interactions or other variables should be announced and  visually indicated to the reader. WCAG <a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">1.3.2</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html">4.1.3</a>
-            <ol>
+            <ul>
               <li>Use  various keyboard keys.</li>
               <li>Test  elements like pop-up dialog boxes and modal windows.</li>
               <li>Can you  tab to controls within the pop-up window?</li>
               <li>Can you  close the window using the ESC key?</li>
               <li>When you  close the window and navigate away, does the focus move to a logical place?</li>
-              <li>Are status  and alert messages announced, including making users aware of the important  change in content by the screen reader?</li>
-            </ol>
+              <li>Are status  and alert messages announced, including making users aware of the important change in content by the screen reader?</li>
+            </ul>
           </li>
         </ol>
       </li>
       <li><strong>Form  Fields</strong> – name, role  value, and state should be indicated. Use standard keyboard commands to ensure  all elements, such as radio buttons, drop-downs, checkboxes, etc., are  identified and operable. <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">WCAG 4.1.2</a>
-        <ol>
+        <ul>
           <li>Make sure <a href="https://mnit-dot-a11y.github.io/testing-environment/#visual-highlight">Visual  Highlight</a> is enabled. A red outline indicates browse mode and a blue  outline indicates focus mode.</li>
           <li>Make sure  the <a href="https://mnit-dot-a11y.github.io/testing-environment/#speech-viewer">Speech  Viewer</a> is enabled and visible.</li>
           <li><strong>Tab  down</strong> to the first form input  field.</li>
           <li>NVDA will  make a clicking sound, and the focus highlight outline will turn blue. <strong><em>Note  that</em></strong> NVDA automatically changes to focus mode when it enters a form. To  move in and out of focus mode, press <strong>CAPS LOCK + Spacebar</strong>.</li>
           <li>Use <strong>Tab</strong> and <strong>Shift + Tab</strong> to move through the form fields.</li>
           <li>Check that  everything on the screen is read to the screen reader.</li>
-        </ol>
+        </ul>
       </li>
     </ol>
     <h2>Mobile Screen Reader Testing</h2>
