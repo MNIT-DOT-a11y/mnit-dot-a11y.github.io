@@ -112,7 +112,9 @@ permalink: /how-to-test/screen-readers/
       </li>
       <li>For each  interactive element, check: 
         <ul>
-          <li><strong>Links </strong>– links should be indicated as "link" (or "visited  link" or "same page link") with text that clearly and uniquely indicates the  destination or purpose of the link <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html">WCAG 2.4.3</a>
+        <ul>
+        <ul>
+          <li><strong>Links </strong>– links should be indicated as "link" (or "visited  link" or "same page link") with text that clearly and uniquely indicates the  destination or purpose of the link <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html">WCAG 2.4.3</a>          
             <ul>
               <li>Can you  access and activate elements using the <strong>Tab and Enter</strong> keys?</li>
               <li>Does the  visible name on the button match the name that you hear? </li>
@@ -128,20 +130,20 @@ permalink: /how-to-test/screen-readers/
               <li>When you  close the window and navigate away, does the focus move to a logical place?</li>
               <li>Are status  and alert messages announced, including making users aware of the important change in content by the screen reader?</li>
             </ul>
-        </li>
-      <li><strong>Form Fields</strong> – name, role  value, and state should be indicated. Use standard keyboard commands to ensure  all elements, such as radio buttons, drop-downs, checkboxes, etc., are  identified and operable. <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">(WCAG 4.1.2)</a>
-        <ul>
-          <li>Make sure <a href="https://mnit-dot-a11y.github.io/testing-environment/#visual-highlight">Visual  Highlight</a> is enabled. A red outline indicates browse mode and a blue  outline indicates focus mode.</li>
-          <li>Make sure  the <a href="https://mnit-dot-a11y.github.io/testing-environment/#speech-viewer">Speech  Viewer</a> is enabled and visible.</li>
-          <li><strong>Tab  down</strong> to the first form input  field.</li>
-          <li>NVDA will  make a clicking sound, and the focus highlight outline will turn blue. <strong><em>Note  that</em></strong> NVDA automatically changes to focus mode when it enters a form. To  move in and out of focus mode, press <strong>CAPS LOCK + Spacebar</strong>.</li>
-          <li>Use <strong>Tab</strong> and <strong>Shift + Tab</strong> to move through the form fields.</li>
-          <li>Check that  everything on the screen is read to the screen reader.</li>
+          </li>
+          <li><strong>Form Fields</strong> – name, role  value, and state should be indicated. Use standard keyboard commands to ensure  all elements, such as radio buttons, drop-downs, checkboxes, etc., are  identified and operable. <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">(WCAG 4.1.2)</a>          </li>
+          <ul>
+            <li>Make sure <a href="https://mnit-dot-a11y.github.io/testing-environment/#visual-highlight">Visual  Highlight</a> is enabled. A red outline indicates browse mode and a blue  outline indicates focus mode.</li>
+            <li>Make sure  the <a href="https://mnit-dot-a11y.github.io/testing-environment/#speech-viewer">Speech  Viewer</a> is enabled and visible.</li>
+            <li><strong>Tab  down</strong> to the first form input  field.</li>
+            <li>NVDA will  make a clicking sound, and the focus highlight outline will turn blue. <strong><em>Note  that</em></strong> NVDA automatically changes to focus mode when it enters a form. To  move in and out of focus mode, press <strong>CAPS LOCK + Spacebar</strong>.</li>
+            <li>Use <strong>Tab</strong> and <strong>Shift + Tab</strong> to move through the form fields.</li>
+            <li>Check that  everything on the screen is read to the screen reader.</li>
+          </ul>
         </ul>
-      </li>
     </ol>
     <hr/>
-    <h2>Mobile Screen Reader Testing</h2>
+<h2>Mobile Screen Reader Testing</h2>
     <p>Testing websites and  native apps on mobile devices is as important as testing on a desktop. It is perhaps  even more critical now since so many people access the web only via handheld  devices.</p>
     <h3>Before you start</h3>
     <p>It's important to understand  the basics of using a mobile screen reader before you enable one for the first  time. Otherwise, you may get stuck and not know how to return.<br>
