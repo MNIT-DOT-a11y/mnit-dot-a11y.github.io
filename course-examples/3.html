@@ -24,9 +24,13 @@ permalink: /course-examples/3
     </button>
 
     <script>
-        function redirectToURL() {
-            window.location.assign("https://mnit-dot-a11y.github.io/");
-        }
+	let redirected = false;
+	function redirectToURL() {
+		if (!redirected) {
+			redirected = true;
+			window.location.assign("https://mnit-dot-a11y.github.io/");
+			
+	}
     </script>
 	<hr>
 	<br>
