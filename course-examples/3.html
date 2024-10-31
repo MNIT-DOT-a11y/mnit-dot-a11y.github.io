@@ -24,12 +24,12 @@ permalink: /course-examples/3
     </button>
 
     <script>
-	let redirected = false;
 	function redirectToURL() {
-		if (!redirected) {
-			redirected = true;
-			window.location.assign("https://mnit-dot-a11y.github.io/");
-		}
+		const anchor = document.createElement('a');
+		anchor.href = "https://mnit-dot-a11y.github.io/";
+		document.body.appendChild(anchor);
+		anchor.click();
+		document.body.removeChild(anchor);
 	}
     </script>
 	<hr>
