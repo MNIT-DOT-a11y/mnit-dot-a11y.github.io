@@ -1,0 +1,201 @@
+---
+layout: page
+title: Testing Routine
+permalink: /testing-routine/
+---
+
+<ol>
+    <li><strong>Determine  the Scope for Testing</strong><br>
+      Work with the Project Team to complete the accessibility scoping template to  determine what will be tested.
+        <ul>
+            <li>Determine  how many pages will be tested by selecting representative pages with  application-wide elements and critical workflows.</li>
+        </ul>
+    </li>
+    <li><strong>Plan  for Testing </strong><br>
+       Prioritizes critical user journeys, core functionality, and high-risk areas.<br>
+        <strong>Note:</strong> Regularly review and update the testing plan to accommodate changes and insights as you progress through the testing process.
+    </li>
+    <li><strong>Conduct Testing</strong>
+      <p><strong>Automated  Tests: </strong>Use Axe DevTools to  find issues that can be found automatically. Record the findings in the report  in the Accessibility Test Report spreadsheet.</p>
+      <ul>
+        <ul>
+          <li>Test  the identify application-wide elements and critical workflows.</li>
+          <li>Identify  common accessibility issues such as missing alt text, contrast problems, and  other programmatically detectable defects.</li>
+        </ul>
+      </ul>
+      <p><strong>Manual Tests: </strong>Manual testing finds issues that automated testing can not. Record the findings in the report in the Accessibility Test Report spreadsheet.</p>
+      <ul>
+        <li><strong>Keyboard  and focus</strong>
+            <ul>
+            <li>Test  all functionality using one keyboard input.</li>
+            <li>Ensure  proper focus management and logical tab order.</li>
+            <li>Verify  there are no keyboard traps.</li>
+            </ul>
+        </li> 
+        <li><strong>Touch</strong> (<em>if  applicable</em>)</li>
+        <li><strong>Visual Inspection for:</strong>
+            <ul>
+            <li>Color Contrast</li>
+            <ul>
+                <li>Visual inspect proper color contrast using the  CCA tool.</li>
+            </ul>
+            <li>Verify text resizing and reflow.</li>
+            <li>Access the clarity of form labels and  instructions.</li>
+            </ul>
+        </li>
+        <li><strong>Visual and  Zoom</strong>
+            <ul>
+            <li>Browser  Zoom Test</li>
+                <ul>
+                    <li>Zoom  the browser to 200%</li>
+                    <li>Review  the screen being tested, looking for elements not initially displayed (e.g.,  collapsed sections, pop-up dialogs), display as many as possible</li>
+                </ul>
+            <li>Visual  Inspection at 200% Zoom</li>
+                <ul>
+                    <li>Check  for text that did not increase in size by 200%.</li>
+                    <li>Verify  that text does not get cut off, overlap, or become unreadable.<u> </u></li>
+                    <li>Ensure  all content is still present and in a logical order.<u> </u></li>
+                    <li>Check  if page navigation adapts appropriately (e.g., mobile-style menus)</li>
+                    <li>Verify  that the layout adapts to the new viewing dimensions.<u> </u></li>
+                    <li>Check  if reflow caused horizontal scrolling.</li>
+            </ul>
+        </li>
+          <li>Functionality  at 200% Zoom
+                <ul>
+                    <li>Verify  that all interactive elements (links, buttons, forms, menus) still function  correctly.</li>
+                    <li>Ensure  that visible focus indication remains for all active elements.</li>
+                    <li>Test  keyboard navigation to confirm it still works as expected.</li>
+                </ul>
+            </li>
+          <li>High  Contrast Mode
+                <ul>
+                    <li>Activate  Windows High Contrast theme (left Alt + left Shift + PrtSc)<u> </u></li>
+                    <li>Verify  that text takes on high-contrast colors<u> </u></li>
+                    <li>Check  that information conveyed by color is still distinguishable.</li>
+                </ul>
+            </li>
+          <li>Magnification</li>
+                <ul>
+                    <li>Test  with screen magnification software set to 400%.</li>
+                    <li>Confirm  that screen readers can still navigate and read content correctly.</li>
+                    <li>Verify  functionality that all interactive elements (buttons, links, forms) remain  functional when scaled.</li>
+                </ul>
+            </li>
+        <li><strong>Alternative  Text</strong>
+            <ul>
+                <li>Verify the alt text provided for the images is  appropriate alt text.</li>
+            </ul>
+        </li>
+        <li><strong>Text  Spacing</strong>
+            <ul>
+                <li>Ensure content remains readable and accessible  with adjusted spacing.</li>
+            </ul>
+        </li>
+        <li><strong>Semantics  and Document Structure</strong>
+            <ul>
+            <li>Heading  Structure</li>
+            <ul>
+                <li>Verify  logical and hierarchical heading structure (H1-H6)</li>
+                <li>Test  navigation of headings using screen readers</li>
+            </ul>
+            <li>Landmark  Regions</li>
+            <ul>
+                <li>Ensure  proper use of HTML5 semantic elements or ARIA landmarks.</li>
+                <li>Test  navigation between landmark regions using screen readers.</li>
+            </ul>
+            <li>Reading  Order</li>
+            <ul>
+                <li>Verify  that the reading order in the DOM matches the visual layout.</li>
+                <li>Test  the logical flow of information for screen reader users.</li>
+            </ul>
+            </ul>
+        </li>
+        <li><strong>Forms </strong>
+            <ul>
+                <li>Functionality</li>
+                <ul>
+                    <li>Verify all form controls are operable with  keyboard and assistive technologies.</li>
+                    <li>Test error handling and validation messages.</li>
+                    <li>Ensure form labels are appropriately associated  with inputs.</li>
+                </ul>
+                <li>Dynamic Behavior</li>
+                <ul>
+                    <li>Test any dynamically appearing forms fields or  sections.</li>
+                    <li>Verify that screen readers announce error messages.</li>
+                </ul>
+            </ul>
+        </li>
+        <li><strong>Custom  Widgets</strong>
+            <ul>
+            <li>ARIA  Implementation</li>
+            <ul>
+                <li>Verify  the&nbsp;correct use of ARIA roles, states, and properties.</li>
+                <li>Test  custom widgets with various assistive technologies.</li>
+            </ul>
+            <li>Keyboard  Interaction</li>
+            <ul>
+                <li>Ensure  custom widgets follow expected keyboard interaction patterns.</li>
+                <li>Test for  proper focus management within complex widgets.</li>
+                <li>Verify  there are no keyboard traps.</li>
+            </ul>
+            </ul>
+        </li>
+        <li><strong>Audio and  Video</strong>
+            <li>Captions  and Transcripts</li>
+            <ul>
+                <li>Verify  the presence and accuracy of captions for video content.</li>
+                <li>Ensure  audio-only content has accurate transcripts.</li>
+            </ul>
+            <li>Media  Player Accessibility</li>
+            <ul>
+                <li>Test  media player controls for keyboard and screen reader accessibility.</li>
+                <li>Verify  the presence of audio descriptions for visual information in videos.</li>
+            </ul>
+            </ul>
+        </li>
+        <li><strong>Dynamic Content</strong>
+            <ul>
+                <li>Instant  Page Updates (maps, PowerBI charts).</li>
+                    <ul>
+                        <li>Test  dynamic content updates for proper screen reader announcements.</li>
+                        <li>Verify  that focus is managed correctly after content changes.</li>
+                    </ul>
+                <li>Infinite  Scrolling</li>
+                    <ul>
+                        <li>Ensure  keyboard users can access all dynamically loaded content.</li>
+                        <li>Test  screen reader announcement of newly loaded items.</li>
+                    </ul>
+            </ul>
+        </li>
+    <p><strong>Assistive Technology Testing:</strong> </strong>Testing  with Assistive Technology. Record the  findings in the report in the Accessibility Test Report spreadsheet.</p>
+        <ul>
+            <li><strong>NVDA Screen Reader Testing</strong>
+                <ul>
+                    <li>Test  with Chrome or Edge and Firefox.</li>
+                    <li>Verify  proper heading structure, landmark regions, and ARIA attributes.</li>
+                </ul>
+            </li>
+            <li><strong>Magnification</strong>
+                <ul>
+                    <li>Test  with Windows Magnification </li>
+                    <li>Ensure  content remains readable and functional when magnified.</li>
+                </ul>
+            </li>
+        </ul>
+    <li><strong>Review all findings and complete the Accessibility Test Report spreadsheet along with any supporting materials.<br>
+      </strong>Review all reported accessibility  findings, ensuring each issue is accurately identified and documented, along  with recommended remediations. After review, package the reports and supporting  materials to share with project teams and stakeholders, facilitating accurate  communication.<br>
+      The package should include:
+        <ul>
+            <li>Accessibility Scoping document.</li>
+            <li>Accessibility Test Report Spreadsheet.</li>
+            <li>Supporting materials such as screenshots, code  snippets, reference guidelines.</li>
+            <li>Test reports from Axe DevTools and Acrobat PDF  checker.</li>
+            <li>Executive Summary (<em>if requested</em>)</li>
+        </ul>
+    </li>
+    <li><strong>Plan for Remediatio</strong><br>
+       Discuss the testing results  with the project team and prioritize remediation issues based on risk, severity,  business value, etc.</li>
+    <li><strong>Conduct Regression Testing</strong><br>
+        Re-run previously run tests to  check remediation and identify new issues that may arise.
+    </li>
+</ol>
