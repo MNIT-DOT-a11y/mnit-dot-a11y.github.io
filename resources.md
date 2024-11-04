@@ -4,8 +4,48 @@ title: Learning Resources
 permalink: /resources/
 ---
 
-**TBD. These sections will change.**
+## Educational Resources
 
-## Accessibility Articles
+- [Deque University](https://www.dequeuniversity.com)
+- [Web Accessibility Initiative](https://www.w3.org/WAI/fundamentals/)
+- [W3Schools - Learn HTML, CSS, and JS](https://www.w3schools.com/html/)
+- [HTML Courses and Reference - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
-## Accessibility Videos
+## Video Material
+
+- [Accessibility at a Glance Video Series](https://www.youtube.com/playlist?list=PLtSVUgxIo6KqBBGqNdPQG64f-hTs1YxFM)
+
+## Web Content Accessibility Guidelines (WCAG) Resources
+
+- [WCAG Intro from Web Accessibility Initiative](https://www.w3.org/WAI/standards-guidelines/wcag/)
+- [WCAG at a Glance, W3.org](https://www.w3.org/WAI/standards-guidelines/wcag/glance/)
+- [WCAG of the Day - Digestible WCAG, daily email education](https://dwcag.org/#sign-up-section)
+
+## Accessibility Editorials
+
+- [Smashing Magazine - A11y Articles](https://www.smashingmagazine.com/category/accessibility/)
+
+## Web Accessibility and Coding Resources
+
+- [Accessible Rich Internet Applications (ARIA) Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
+- [WebAIM Screen Reader User Survey #10](https://webaim.org/projects/screenreadersurvey10/)
+- [WebAccessibilitySurvey.com - Survey Data from Assistive Technology Users](https://webaccessibilitysurvey.com/)
+- [HTML 5 Accessibility - State of browser support](https://html5accessibility.com)
+- [Aria Support in current browsers](https://www.powermapper.com/tests/screen-readers/aria/)
+- [Accessibility Support - Will your code work with assistive technologies?](https://a11ysupport.io)
+
+## Native Mobile Resources
+
+- [Apple's Human Interface Guidelines on Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility)
+- [Android Developer Principles for Improving App Accessibility](https://developer.android.com/guide/topics/ui/accessibility/principles)
+
+## Accessibility Testing Tools & Assistive Technologies
+
+- [Axe DevTools Chrome and Firefox Browser Extension](https://www.deque.com/get-started-axe-devtools-browser-extension/)
+- [TPGi Color Contrast Analyzer \(CCA\)](https://www.tpgi.com/color-contrast-checker/)
+
+## Organizations
+
+- [International Association of Accessibility Professionals \(IAAP\)](https://www.accessibilityassociation.org/s/)
+- [The World-wide Web Consortium \(W3C\)](https://www.w3.org/)
+- [Web Accessibility In Mind - WebAIM.org](https://webaim.org)
