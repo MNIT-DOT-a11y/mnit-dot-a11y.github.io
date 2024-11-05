@@ -1,0 +1,54 @@
+---
+layout: page
+title: Keyboard Accessibility Testing 
+permalink: /course-examples/2
+---
+
+<script>
+            document.addEventListener('DOMContentLoaded', function() {
+            var modalExample = document.getElementById('modal-example');
+            var openModalBtn = modalExample.querySelector('#openModal');
+            var closeModalBtn = modalExample.querySelector('#closeModal');
+            var modal = modalExample.querySelector('#modal');
+
+            openModalBtn.addEventListener('click', function() {
+                modal.classList.add('active');
+            });
+
+            closeModalBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+            });
+
+            document.getElementById('trappedArea').addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+    
+    <h2>Example 1: Poor Focus Indicators</h2>
+    <div id="poor-focus">
+    <a href="#">Link One</a><br><br>
+    <a href="#">Link Two</a><br><br>
+    <button>Button One</button><br><br>
+    <button>Button Two</button><br><br>
+    <input type="text" placeholder="Type here...">
+</div>
+
+<h2>Example 2: Modal Without Focus Management</h2>
+<p>Activating this button will cause a modal to appear. Keyboard focus should <b>normally</b> be moved to the first button in the modal.</p>
+<div id="modal-example">
+    <button id="openModal">Open Modal</button>
+    <div id="modal" class="modal" role="dialog">
+        <button id="closeModal">Close Modal</button>
+        <p>This is a modal window. Try to shift focus away from the modal or to close it while only using the keyboard. The keyboard will cause focus to move outside of the modal. Normally, a modal should trap keyboard focus until it is closed.</p>
+    </div>
+</div>
+
+<h2>Example 3: Keyboard Trap</h2>
+<p>Try to tab out of the below text area, only using the keyboard.</p>
+<label for="trappedArea">Sample Text Area</label>
+<textarea id="trappedArea"></textarea>
+<h2>Example 4: Good Keyboard Accessibility</h2>
+<p>For a sample application that illustrates <b>good</b> keyboard accessibility, try the <a href="/no-mouse">No-mouse Challenge</a>.</p>
