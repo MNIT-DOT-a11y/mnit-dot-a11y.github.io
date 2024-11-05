@@ -4,7 +4,9 @@ title: Resources
 permalink: /resources/
 ---
 
-This page serves as a resource for learning, reference, and video materials that are essential for enhancing your understanding of accessibility and the people it affects. It should be considered a living document and will be updated periodically to add or remove relevant links. Additionally, it includes links to tools and accessibility organizations recognized as key contributors to the accessibility community.
+This page serves as a resource for learning, reference, and video materials that can help you enhance your understanding of accessibility and its impact on individuals. Additionally, it also includes links to valuable tools, and prominent accessibility organizations that play a crucial role in advancing the accessibility community.
+ 
+Please note that this page is a living document and will be updated regularly to include new resources and remove outdated links to ensure that you have access to the most relevant information.
 
 ## Education
 
@@ -21,6 +23,7 @@ This page serves as a resource for learning, reference, and video materials that
 
 - [WCAG Intro from Web Accessibility Initiative](https://www.w3.org/WAI/standards-guidelines/wcag/)
 - [WCAG at a Glance, W3.org](https://www.w3.org/WAI/standards-guidelines/wcag/glance/)
+- [How to Meet WCAG \(Quick Reference\)]( Link https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1)
 - [WCAG of the Day - Digestible WCAG, daily email education](https://dwcag.org/#sign-up-section)
 
 ## Editorials & Blogs
