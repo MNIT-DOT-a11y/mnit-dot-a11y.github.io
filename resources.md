@@ -27,7 +27,7 @@ This page serves as a resource for learning, reference, and video materials that
 
 - [Smashing Magazine - A11y Articles](https://www.smashingmagazine.com/category/accessibility/)
 
-## Web Accessibility Knowledge and Coding
+## Web Accessibility Knowledge & Code
 
 - [Accessible Rich Internet Applications (ARIA) Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
 - [WebAIM Screen Reader User Survey #10](https://webaim.org/projects/screenreadersurvey10/)
