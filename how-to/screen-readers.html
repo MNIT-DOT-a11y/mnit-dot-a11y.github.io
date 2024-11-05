@@ -3,25 +3,32 @@ layout: how-to-test
 title: Screen Readers
 permalink: /how-to-test/screen-readers/
 ---
+<style>
+	.hr-line {
+    border: none;
+    border-top: 2px solid black;
+    width: 100%; 
+    margin: 2px 0;
+}
+</style>
 
 <div class="how-to-test-checklist-item">
-	<p><strong>Attention!</strong> NVDA is the preferred screen reader for accessibility testing at MNIT DOT. You are welcome to use JAWS if you have access to it.</p>
+	<p><strong>Attention!</strong> NVDA is the preferred screen reader for accessibility testing at MNIT DOT.</p>
 </div>
 <h2>Getting Started with Screen Readers</h2>
 <p>The voice output can  be a bit overwhelming when using a screen reader for the first time. If you are  new to screen reader testing, plan on spending some time to become comfortable.  Practice exploring the <a href="https://mnit-dot-a11y.github.io/demos/basic-accessible-webpage/">Basic</a>or <a href="https://mnit-dot-a11y.github.io/demos/basic-inaccessible-webpage/">Inaccessible</a> webpage demos. Don't get discouraged if things still seem confusing.  Slow down the reading speed and take your time. Good news: NVDA has a useful  Speech Viewer that allows you to view the screen reader output as text.
 </p>
   <p>While testing, pay  close attention to image alt texts and form controls. Ask yourself whether the  content is understandable and operable without visual cues. Avoid drawing broad  conclusions. Regular screen reader users may have a different experience when  navigating the content. Remember that many screen reader users do not use a  mouse, so try using only the keyboard as you become more comfortable with a  screen reader.
   </p>
-<hr>
-<h2><step-number>1</step-number> How to test
-</h2>
+	<h2><step-number>1</step-number> How to test</h2>
+		<hr class="hr-line">
 <p>Using a screen reader is very different than using a monitor  and mouse. While testing with a screen reader, <strong><em>never</em></strong> use a mouse,  and rely <strong><em>only</em></strong> on what you can hear (i.e., do not look at the  screen to fill in gaps in "what" you're hearing). Do not make custom  setting changes other than speech rate.
 </p>
 <p>Before you start testing, review the following.</p>
 <h3>NVDA Resources</h3>
 <ul>
       <li><a href="https://mnit-dot-a11y.github.io/testing-environment/#nvda-non-visual-desktop-access">Installing  and setting up NVDA</a></li>
-      <li><a href="https://webaim.org/articles/nvda/">Using  NVDA to Evaluate Web Accessibility</a> - WebAIM.</li>
+      <li><a href="https://webaim.org/articles/nvda/">Using  NVDA to Evaluate Web Accessibility</a> - WebAIM</li>
       <li><a href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts">Keyboard  Shortcut</a> - Deque</li>
       <li><a href="https://www.nvaccess.org/files/nvda/documentation/userGuide.html">NVDA  User Guide</a> – NV Access</li>
 </ul>
@@ -31,26 +38,20 @@ permalink: /how-to-test/screen-readers/
       <li><strong>Browse Mode</strong>: This mode is used for reading documents or  webpages. In Browse Mode, NVDA reads content sequentially, element by element,  allowing you to navigate through headings, links, and other elements using specific  keys. It's ideal for quickly scanning through content.</li>
       <li><strong>Focus mode</strong>: This mode is used when you need to interact  with elements on the page, such as entering text into a form field or selecting  options from a dropdown menu. In Focus Mode, NVDA passes keystrokes directly to  the application, allowing you to input data and interact with controls.</li>
     </ul>
-    <p>NVDA automatically switches between Browse and  Focus modes, but you can toggle  them using the CAPSLOCK + Space Bar.</p>
-    <h3>JAWS Resources</h3>
-    <ul>
-      <li><a href="https://webaim.org/articles/jaws/">Using  JAWS to Evaluate Web Accessibility</a> - WebAIM.</li>
-      <li><a href="https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts">Keyboard  Shortcut</a> - Deque</li>
-      <li><a href="https://support.freedomscientific.com/products/blindness/jawsdocumentation">JAWS  User Guide</a> – Freedom Scientific</li>
-    </ul>
-    <p><strong>Screen reader testing  should be done in two passes:</strong></p>
+    <p>NVDA automatically switches between Browse and  Focus modes, but you can toggle  them using the CAPSLOCK + Space Bar.    </p>
+    <h3><strong>Screen reader testing  should be done in two passes</strong></h3>
     <ul>
       <li><strong>First  pass</strong> - Read through all  content using the <strong>Down Arrow key </strong>and keyboard commands.</li>
       <li><strong>Second  pass</strong> - Read and operate all  interactive elements using the <strong>Tab </strong>key and keyboard  commands.</li>
     </ul>
-    <p><strong>Getting familiar:</strong></p>
+    <h3><strong>Getting familiar with the page you're testing:</strong></h3>
     <ul>
       <li>Browse to  the screen to be tested using only a keyboard. </li>
       <li>Explore  the screen to identify all content and functions of interactive elements.</li>
       <li>Open the  screen reader application.</li>
       <li>Click in  the browser <strong>address bar and press Enter</strong> to reload the page</li>
       <li>Press <strong>Esc </strong>to  ensure you're not in Forms/Focus Mode.</li>
-      <li>Press <strong>Ctrl + Home</strong> to read the first line (NVDA) or page title (JAWS).</li>
+      <li>Press <strong>Ctrl + Home</strong> to read the first line (NVDA).</li>
       <li>Press the <strong>Down Arrow</strong> to read through all content.
       <ul>
         <li>Is any  content being skipped that should be read?</li>
@@ -61,9 +62,10 @@ permalink: /how-to-test/screen-readers/
       <li>To quickly  jump directly to headings, links, and other landmarks. Press <strong>Caps Lock + F7</strong>.</li>
       <li>If  Forms/Focus Mode turns on (with a pop or chime), press <strong>Esc </strong>(once  or twice) and then continue pressing Down Arrow until you rest the bottom.</li>
     </ul>
-    <hr>
+	
 <h2><step-number>2</step-number> First pass – What to test for.
 </h2>
+	<hr class="hr-line">
 <p>For each document or  webpage, check:</p>
 	<ul> 
       <li><strong>Text </strong>– any text displayed on the screen should be  read <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">(WCAG 1.1.1)</a></li>
@@ -82,17 +84,21 @@ permalink: /how-to-test/screen-readers/
         <ul>
           <li>Make sure  the Focus Highlight add-on is enabled. A red outline indicates browse mode; a  blue outline indicates focus mode.</li>
           <li>Make sure  the Speech Viewer is visible.</li>
-          <li>Press <strong>T</strong> to move to the next table. NVDA will read out the number of rows and columns in  the table.</li>
-          <li>Press <strong>Ctrl  + Alt + Right Arrow</strong> – cell content and column number should be read.  Repeat until the end of the row/edge of the table.</li>
-          <li>Press the<strong> Down Arrow </strong>– the content of the first cell in the<strong> </strong>next row  should be read. Repeat until in the first cell in the body of the table.</li>
-          <li>Press <strong>Ctrl  + Alt + Right Arrow</strong> – column header(s), column number, and the cell content  should be read. Repeat until the end of the row/edge of the table.</li>
-          <li>Press <strong>Ctrl  + Alt + Down Arrow</strong> – row header (optionally), row number, and the cell  content should be read. Repeat until the bottom of the column/edge of the table.</li>
+          <li>Press <strong>T</strong> to move to the next table. NVDA will read out the number of rows and columns in  the table.
+            <ul>
+              <li>Press <strong>Ctrl  + Alt + Right Arrow</strong> – cell content and column number should be read.  Repeat until the end of the row/edge of the table.</li>
+              <li>Press the<strong> Down Arrow </strong>– the content of the first cell in the<strong> </strong>next row  should be read. Repeat until in the first cell in the body of the table.</li>
+              <li>Press <strong>Ctrl  + Alt + Right Arrow</strong> – column header(s), column number, and the cell content  should be read. Repeat until the end of the row/edge of the table.</li>
+              <li>Press <strong>Ctrl  + Alt + Down Arrow</strong> – row header (optionally), row number, and the cell  content should be read. Repeat until the bottom of the column/edge of the table.</li>
+            </ul>
+          </li>
           <li>Verify  that the navigation order of the table makes sense.</li>
           <li>Ensure  that interactive items within the table, such as links and buttons, are read  out.</li></ul>
           <li><strong>Order </strong>– all content should be read in a logical  order, usually left to right, top to bottom, within any sections or columns of the page <a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">(WCAG 1.3.2)</a></li>
 	</ul></li>
-  <hr>
+
 <h2><step-number>3</step-number> Second pass – What to test for.</h2>
+		<hr class="hr-line">
 <p>After reading the page, return to the top and check all interactive  elements using the <strong>Tab</strong> key. Use <strong>Shift + Tab</strong> to go backward.  Answer these questions as you move back through the page.</p>
     <ul>
       <li>Can you  navigate to all interactive elements?</li>
@@ -121,15 +127,15 @@ permalink: /how-to-test/screen-readers/
           </li>
           <li><strong>Dynamic  Content</strong> – content changes in  response to user interactions or other variables should be announced and  visually indicated to the reader. WCAG <a href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">1.3.2</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html">4.1.3</a>
             <ul>
-              <li>Use various keyboard keys.</li>
-              <li>Test elements like pop-up dialog boxes and modal windows.</li>
-              <li>Can you tab to controls within the pop-up window?</li>
-              <li>Can you close the window using the ESC key?</li>
-              <li>When you close the window and navigate away, does the focus move to a logical place?</li>
-              <li>Are status and alert messages announced, including making users aware of the important change in content by the screen reader?</li>
+              <li>Use  various keyboard keys.</li>
+              <li>Test  elements like pop-up dialog boxes and modal windows.</li>
+              <li>Can you  tab to controls within the pop-up window?</li>
+              <li>Can you  close the window using the ESC key?</li>
+              <li>When you  close the window and navigate away, does the focus move to a logical place?</li>
+              <li>Are status  and alert messages announced, including making users aware of the important change in content by the screen reader?</li>
             </ul>
           </li>
-          <li><strong>Form Fields</strong> – name, role  value, and state should be indicated. Use standard keyboard commands to ensure  all elements, such as radio buttons, drop-downs, checkboxes, etc., are  identified and operable. <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">(WCAG 4.1.2)</a>
+          <li><strong>Form Fields</strong> – name, role  value, and state should be indicated. Use standard keyboard commands to ensure  all elements, such as radio buttons, drop-downs, checkboxes, etc., are  identified and operable. <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">(WCAG 4.1.2)</a>    
           <ul>
             <li>Make sure <a href="https://mnit-dot-a11y.github.io/testing-environment/#visual-highlight">Visual  Highlight</a> is enabled. A red outline indicates browse mode and a blue  outline indicates focus mode.</li>
             <li>Make sure  the <a href="https://mnit-dot-a11y.github.io/testing-environment/#speech-viewer">Speech  Viewer</a> is enabled and visible.</li>
@@ -140,7 +146,7 @@ permalink: /how-to-test/screen-readers/
           </ul></li>
         </ul>
     </ol>
-    <hr/>
+   	<hr class="hr-line">
 <h2>Mobile Screen Reader Testing</h2>
     <p>Testing websites and  native apps on mobile devices is as important as testing on a desktop. It is perhaps  even more critical now since so many people access the web only via handheld  devices.</p>
     <h3>Before you start</h3>
