@@ -1,5 +1,4 @@
 <div class="criteria-container">
-  <div class="sticky-group">
     {% if page.url != "/native/" and page.url != "/desktop/" %}
       {% include criteria-tabs.html %}
     {% else %}
@@ -7,7 +6,7 @@
         Acceptance criteria list
       </label>
     {% endif %}
-</div>
+
 
     {% if page.url != "/native/" and page.url != "/desktop/" %}
     <div class="textarea-container gherkin-criteria tab-panel" id="gherkin-panel">
