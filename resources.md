@@ -23,7 +23,7 @@ Please note that this page is a living document and will be updated regularly to
 
 - [WCAG Intro from Web Accessibility Initiative](https://www.w3.org/WAI/standards-guidelines/wcag/)
 - [WCAG at a Glance, W3.org](https://www.w3.org/WAI/standards-guidelines/wcag/glance/)
-- [How to Meet WCAG \(Quick Reference\)]( Link https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1)
+- [How to Meet WCAG \(Quick Reference\)](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1)
 - [WCAG of the Day - Digestible WCAG, daily email education](https://dwcag.org/#sign-up-section)
 
 ## Editorials & Blogs
