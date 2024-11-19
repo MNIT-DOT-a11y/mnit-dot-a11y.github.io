@@ -21,6 +21,8 @@ permalink: /testing-routine/
 <p><strong>Note:</strong> Regularly review and update the Accessibility Testing Scope to incorporate changes and insights as you progress through the testing process.</p>
     <h2><step-number>3</step-number> Conduct Testing</h2>
 	<hr class="hr-line">
+  <h3>Visually  Inspect</h3>
+  <p>Before you begin  testing, it's helpful to inspect the page visually before diving into automated  or manual testing. When inspecting the page visually, focus on mouse and  keyboard functionality and inspect the color contrast of the graphics, links, buttons, etc. This preliminary review lets you quickly identify obvious visual barriers, interactive elements and potential user experience issues that automated tools might not immediately detect.</p>
       <h3>Automated Tests</h3>
       <p>Utilize Axe DevTools for automated testing to identify issues that can be detected automatically. Record the findings in the report in the Accessibility Test Report spreadsheet.</p>
       
@@ -42,18 +44,14 @@ permalink: /testing-routine/
 	
 	<div class="expander-group">
   <button class="expander-toggle" aria-expanded="false">
-    Visual Inspection for:
+    Color Contrast
   </button>
   <div class="expander-content">
-   <ul>
-            <li><strong>Color Contrast</strong>
-            <ul>
-             	<li>Visual inspect proper color contrast using the  CCA tool.</li>
-            </ul></li>
-            <li>Verify text resizing and reflow.</li>
-            <li>Access the clarity of form labels and  instructions.</li>
+    <ul>
+      <li>Visual inspect color contrast using the  CCA tool.</li>
+      <li>Verfiy that color alone is not use to convey meaning or information.</li>
     </ul>
-  </div>
+    </div>
 </div>
     <div class="expander-group">
 	  	<button class="expander-toggle" aria-expanded="false">
@@ -61,7 +59,7 @@ permalink: /testing-routine/
 		</button>
 	  <div class="expander-content">
 	   <ul>
-				<li><strong>Browser  Zoom Test</strong>
+				<li><strong>Browser Zoom Test</strong>
 <ul>
 			  <li>Zoom  the browser to 200%</li>
 						<li>Review  the screen being tested, looking for elements not initially displayed (e.g.,  collapsed sections, pop-up dialogs), display as many as possible</li>
@@ -154,8 +152,11 @@ permalink: /testing-routine/
   <ul>
                 <li><strong>Functionality</strong>
                 <ul>
-                    <li>Verify all form controls are operable with  keyboard and assistive technologies.</li>
+                    <li>Verify all form controls are operable with  keyboard and assistive technologies</li>
+                    <li>Verif tab order follows a logical flow from top to bottom and left to right.</li>
                     <li>Test error handling and validation messages.</li>
+                    <li>Verfiy instructional  text is clearly visible and accessible.</li>
+                    <li>Verify images or graphic have appropriate alt text.</li>
                     <li>Ensure form labels are appropriately associated  with inputs.</li>
                 </ul></li>
                 <li><strong>Dynamic Behavior</strong>
