@@ -5,4 +5,4 @@ permalink: /desktop/
 entrytype: checklist-desktop
 ---
 
-## Choose components to generate accessibility test cases
+## Choose components to generate keyboard and screen reader test cases

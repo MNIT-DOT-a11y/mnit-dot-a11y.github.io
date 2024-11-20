@@ -4,4 +4,4 @@ title: Native app accessibility checklist
 permalink: /native/
 ---
 
-## Choose components to generate accessibility test cases
+## Choose components to generate keyboard and screen reader test cases
