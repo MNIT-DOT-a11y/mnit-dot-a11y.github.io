@@ -13,15 +13,12 @@ There are two main accessibility considerations when using color in your web-bas
 ## Color Contrast
 When working with color, it is essential to remember that only brightness is visible to all users. Red text on a green background may disappear entirely for people who are color blind, have low vision, or view the site from outside.
 
-The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color contrast requirements with one exception: logos, incidental or decorative text and graphics, and disabled controls do not need to meet color contrast requirements.
+The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color contrast requirements with **one exception:** logos, incidental or decorative text and graphics, and disabled controls do not need to meet color contrast requirements.
 
 - **Regular text and images of text** (including images of text) must have a contrast ratio of at least 4.5:1 between text and its background.
 - **Large text and images of text** must have a contrast ratio of at least 3:1 between the text color and background color.
 - **Meaningful graphics**, user interface components and their various states, and focus indicators must have a contrast ratio of at least 3:1 with the background color.
 
-**Exceptions:**
-1. Logos text that is part of a logo or brand name has no contrast requirements.
-2. Text or images that are part of an inactive user interface, purely decorative, not visible to anyone, or part of a detailed picture, do not need to meet contrast requirements.
 
 **Attention!:** The combination of Minnesota green (#78BE21) and white **will not be accessible at any point size or non-text contrast**.
 <example>
