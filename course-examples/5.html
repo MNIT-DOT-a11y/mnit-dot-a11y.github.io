@@ -6,7 +6,7 @@ permalink: /course-examples/5
 
 <style>
         /* Insufficient color contrast */
-        body {
+        #bad-styles {
             background-color: #ffffff;
             color: #d3d3d3;
             font-family: Arial, sans-serif;
@@ -40,7 +40,7 @@ permalink: /course-examples/5
     </style>
 </head>
 <body>
-
+<div id="bad-styles">
     <!-- Header Section -->
     <div id="main-header">
         <h1>Discover Minnesota's Natural Beauty</h1>
@@ -163,9 +163,8 @@ permalink: /course-examples/5
         var header = document.getElementById('main-header');
         header.style.borderTop = "5px solid #ffa600";
     </script>
-
-    <!-- Accessibility Issues Detected by Axe -->
-
+</div>
+    
     <h2>Accessibility Issues Detected by Axe</h2>
     <ul>
         <li><strong>Missing Language Attribute</strong>: The <code>&lt;html&gt;</code> tag is missing the <code>lang</code> attribute.</li>
