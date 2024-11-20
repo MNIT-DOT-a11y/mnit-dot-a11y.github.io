@@ -19,7 +19,7 @@ The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color c
 - **Large text and images of text** must have a contrast ratio of at least 3:1 between the text color and background color.
 - **Meaningful graphics**, user interface components and their various states, and focus indicators must have a contrast ratio of at least 3:1 with the background color.
 
-**Expections:**
+**Exceptions:**
 1. Logos text that is part of a logo or brand name has no contrast requirements.
 2. Text or images that are part of an inactive user interface, purely decorative, not visible to anyone, or part of a detailed picture, do not need to meet contrast requirements.
 
