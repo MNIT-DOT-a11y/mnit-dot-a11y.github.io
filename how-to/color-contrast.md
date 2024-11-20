@@ -15,11 +15,15 @@ When working with color, it is essential to remember that only brightness is vis
 
 The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color contrast requirements with one exception: logos, incidental or decorative text and graphics, and disabled controls do not need to meet color contrast requirements.
 
-- **Normal text** (up to 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 4.5:1 between the text color and background color.**
-- **Large text** (at least 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 3:1 between the text color and background color.**
-- **Meaningful graphics**, user interface components and their various states, and focus indicators must have a **contrast ratio of at least 3:1 with the background color.**
+- **Regular text and images of text** (including images of text) must have a contrast ratio of at least 4.5:1 between text and its background.
+- **Large text and images of text** must have a contrast ratio of at least 3:1 between the text color and background color.
+- **Meaningful graphics**, user interface components and their various states, and focus indicators must have a contrast ratio of at least 3:1 with the background color.
 
-**Note:** The combination of Minnesota green (#78BE21) and white **will not be accessible at any point size or non-text contrast**.
+**Expections:**
+1. Logos text that is part of a logo or brand name has no contrast requirements.
+2. Text or images that are part of an inactive user interface, purely decorative, not visible to anyone, or part of a detailed picture, do not need to meet contrast requirements.
+
+**Attention!:** The combination of Minnesota green (#78BE21) and white **will not be accessible at any point size or non-text contrast**.
 <example>
     <img
     src="/assets/images/examples/how-to-text-color-minnesota-green.png"
