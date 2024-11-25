@@ -70,15 +70,17 @@ layout: base
                 Zoom and magnification
               </a>
             </li>
-            <li>
-              <a
-                {% if page.url== "/how-to-test/test-pdf/" %} aria-current="page" {% endif %}
-                {% if page.url == "/how-to-test/test-pdf/" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/how-to-test/test-pdf/">
-                PDF
+            <li class="card">
+              <a href="/how-to-test/zoom-magnification/" class="icon-zoom">
+                <span class="title">Zoom &amp; magnification</span>
               </a>
             </li>
-      </ul>
+            <li class="card">
+              <a href="/how-to-test/axe/" class="icon-axe">
+                <span class="title">Using axe DevTools</span>
+              </a>
+            </li>  
+  </ul>
     </nav>
 
     <div class="post-content">
