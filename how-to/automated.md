@@ -1,6 +1,6 @@
 ---
 layout: how-to-test
-title: Automated Testing
-permalink: /how-to-test/automated/
+title: Using axe
+permalink: /how-to-test/axe
 ---
 
