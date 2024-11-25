@@ -46,12 +46,15 @@ layout: base
                 Screen readers
               </a>
             </li>
-            <li class="card">
-              <a href="/how-to-test/axe/" class="icon-axe">
-                <span class="title">Using axe DevTools</span>
-              </a>
-            </li>  
             <li>
+              <a
+                {% if page.url== "/how-to-test/axe/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/axe/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/axe/">
+                Using axe DevTools
+              </a>
+            </li>
+                        <li>
               <a
                 {% if page.url== "/how-to-test/color-contrast/" %} aria-current="page" {% endif %}
                 {% if page.url == "/how-to-test/color-contrast/" %} class="current" {% endif %}
@@ -73,11 +76,6 @@ layout: base
                 {% if page.url == "/how-to-test/zoom-magnification/" %} class="current" {% endif %}
                 href="{{ site.baseurl }}/how-to-test/zoom-magnification/">
                 Zoom and magnification
-              </a>
-            </li>
-            <li class="card">
-              <a href="/how-to-test/zoom-magnification/" class="icon-zoom">
-                <span class="title">Zoom &amp; magnification</span>
               </a>
             </li>
             </ul>
