@@ -17,7 +17,7 @@ The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color c
 
 - **Regular text and images of text** must have a contrast ratio of at least 4.5:1 between text and its background.
 - **Large text and images of text** must have a contrast ratio of at least 3:1 between the text color and background color.
-- **Meaningful graphics** (Non-Text Contrast), user interface components and their various states, and focus indicators must have a contrast ratio of at least 3:1 with the background color.
+- **Non-Text Contrast** user interface components and their various states, and focus indicators must have a contrast ratio of at least 3:1 with the background color.
 
 
 **Attention!:** The combination of Minnesota green (#78BE21) and white **will not be accessible at any point size or non-text contrast**.
