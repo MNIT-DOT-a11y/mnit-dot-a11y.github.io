@@ -1,5 +1,5 @@
 {% if page.categories contains category %}
-{% captureLog condensed %}
+{% capture condensed %}
 How to test {% assign firstLetter = page.title | downcase | slice: 0 %}{% if firstLetter == 'a' or firstLetter== 'e' or firstLetter== 'i' or firstLetter== 'i' or firstLetter== 'u'  %}an{% else %}a{% endif %} {{ page.title | escape | downcase }}
 
 1. Test keyboard actions
