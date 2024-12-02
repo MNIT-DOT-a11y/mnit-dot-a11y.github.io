@@ -243,7 +243,7 @@ Refer to PEAT’s [user guide](https://trace.umd.edu/photosensitive-epilepsy-ana
 
 ---
 
-### Color Contrast Analyzer (CCA)
+### Colour Contrast Analyzer (CCA)
 Steps how to test for color contrast can be found on the [How-to Test Color Contrast and Use of Color](https://mnit-dot-a11y.github.io/how-to-test/color-contrast/) page.
 
 #### Installation
