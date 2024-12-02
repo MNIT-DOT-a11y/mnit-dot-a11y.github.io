@@ -5,5 +5,7 @@ permalink: /how-to-test/axe
 ---
 
 {: .divider }
-{% include axe-default.html %}
+{% comment %}
+    {% include axe-default.html %}
+{% endcomment %}
     {%
