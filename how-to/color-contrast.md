@@ -78,7 +78,7 @@ When conducting a manual color contrast check, it's important to identify and te
 
 {: .divider }
 
-## Use of Color
+## Use of Color {#color}
 Some users cannot perceive color differences or may not perceive color the same way you do. Therefore, it is essential to avoid using color alone to communicate information. For example, “required fields are in red”. It is okay to communicate “required” using red text, but to communicate this information to people who cannot perceive color, there must be one or more ways to convey the same idea. For example, required fields could include “required” as part of the label.
 
 Another example includes identifying different groups of data in a graph. If different colors represent different groups, they should also be distinguishable via other means. For instance, in a bar chart, the bars could differ by color but have different fill patterns; in a line chart, the lines could vary by color and have different shapes at each data point. Always include labels to identify each reported element.
