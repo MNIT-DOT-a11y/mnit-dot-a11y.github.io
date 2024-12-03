@@ -48,6 +48,14 @@ layout: base
             </li>
             <li>
               <a
+                {% if page.url== "/how-to-test/axe/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/axe/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/axe/">
+                Using axe DevTools
+              </a>
+            </li>
+                                  <li>
+              <a
                 {% if page.url== "/how-to-test/color-contrast/" %} aria-current="page" {% endif %}
                 {% if page.url == "/how-to-test/color-contrast/" %} class="current" {% endif %}
                 href="{{ site.baseurl }}/how-to-test/color-contrast/">
@@ -70,15 +78,7 @@ layout: base
                 Zoom and magnification
               </a>
             </li>
-            <li>
-              <a
-                {% if page.url== "/how-to-test/test-pdf/" %} aria-current="page" {% endif %}
-                {% if page.url == "/how-to-test/test-pdf/" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/how-to-test/test-pdf/">
-                PDF
-              </a>
-            </li>
-      </ul>
+            </ul>
     </nav>
 
     <div class="post-content">

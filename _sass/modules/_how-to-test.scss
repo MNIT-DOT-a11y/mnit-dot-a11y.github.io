@@ -72,7 +72,12 @@
           background-image: var(--icon-document-dark);
         }
       }
-          &.icon-form {
+      &.icon-axe {
+        &:before {
+          background-image: var(--icon-axe-dark);
+        }
+      }
+            &.icon-form {
         &:before {
           background-image: var(--icon-form-dark);
         }

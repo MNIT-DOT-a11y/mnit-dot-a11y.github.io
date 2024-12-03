@@ -13,13 +13,14 @@ There are two main accessibility considerations when using color in your web-bas
 ## Color Contrast
 When working with color, it is essential to remember that only brightness is visible to all users. Red text on a green background may disappear entirely for people who are color blind, have low vision, or view the site from outside.
 
-The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color contrast requirements with one exception: logos, incidental or decorative text and graphics, and disabled controls do not need to meet color contrast requirements.
+The W3C Web Content Accessibility Guidelines (WCAG) 2.1 provide specific color contrast requirements with **one exception:** logos, incidental or decorative text and graphics, and disabled controls do not need to meet color contrast requirements.
 
-- **Normal text** (up to 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 4.5:1 between the text color and background color.**
-- **Large text** (at least 18pt/24px or 14pt/18.5px if bold) must have a **contrast ratio of at least 3:1 between the text color and background color.**
-- **Meaningful graphics**, user interface components and their various states, and focus indicators must have a **contrast ratio of at least 3:1 with the background color.**
+- **Regular text and images of text** must have a contrast ratio of at least 4.5:1 between text and its background.
+- **Large text and images of text** must have a contrast ratio of at least 3:1 between the text color and background color.
+- **Non-Text Contrast** user interface components and their various states, and focus indicators must have a contrast ratio of at least 3:1 with the background color.
 
-**Note:** The combination of Minnesota green (#78BE21) and white **will not be accessible at any point size or non-text contrast**.
+
+**Attention!:** The combination of Minnesota green (#78BE21) and white **will not be accessible at any point size or non-text contrast**.
 <example>
     <img
     src="/assets/images/examples/how-to-text-color-minnesota-green.png"
@@ -77,7 +78,7 @@ When conducting a manual color contrast check, it's important to identify and te
 
 {: .divider }
 
-## Use of Color
+## Use of Color {#color}
 Some users cannot perceive color differences or may not perceive color the same way you do. Therefore, it is essential to avoid using color alone to communicate information. For example, “required fields are in red”. It is okay to communicate “required” using red text, but to communicate this information to people who cannot perceive color, there must be one or more ways to convey the same idea. For example, required fields could include “required” as part of the label.
 
 Another example includes identifying different groups of data in a graph. If different colors represent different groups, they should also be distinguishable via other means. For instance, in a bar chart, the bars could differ by color but have different fill patterns; in a line chart, the lines could vary by color and have different shapes at each data point. Always include labels to identify each reported element.
