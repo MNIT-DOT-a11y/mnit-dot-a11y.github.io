@@ -171,29 +171,7 @@ You will only need to do this once.
 
 #### **Using axe DevTools**
 
-1. _Open_ the browser’s Developer Tools by pressing **_Ctrl + Shift + I_** on a keyboard or **_right-click on the page_** and _select_ **_Inspect_** in the pop-up window.
-2. _Select_ the **_Axe DevTools_** tab in the developer tools menu.
-    <example>
-        <img src="/assets/images/testing-tools/axe-tool-tab.jpg" alt="Screenshot showing step 2">
-    </example>
-3. _Select_ the **_Full Page Scan_** at the bottom.
-    <example>
-    <img src="/assets/images/testing-tools/ax-page-scan.jpg" alt="Screenshot showing step 3">
-    </example>
-4. Make sure Best Practices is on. If it is not, select Best Practices and Re-run the scan.
-5. When the scan is complete, you will see the total number of issues on the page and the number of issues grouped by severity.
-- On the left-hand side of the Axe DevTools, you’ll see an overview of the results.
-- On the left-hand pane, you have a total of the issues found, categorized by type. When you select an issue, the accordion will open, showing:
-    - The “Highlight” button will highlight the locale on the web page where the issue is.
-    - A description of the issue with a link ("more information") to additional info available for free on Deque University.
-    - A snippet of the code that has caused the issue.
-- The "&lt;/&gt;" button next to the snippet will bring you to the problem code in your browser’s page inspector.
-- Guidelines for fixing the issue.
-- Information about the severity of the issue and which accessibility guidelines are being violated (e.g., WCAG 2.1, Section 508, etc.).
-    <example>
-        <img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Screenshot showing step 4 through 4 v">
-    </example>
-- Record the results in the Accessibility testing report spreadsheet.
+To learn more about how to use axe DevTools, visit the [How-to use axe DevTools](/how-to-test/axe) page.
 ---
 
 ### Browser Developer tools
