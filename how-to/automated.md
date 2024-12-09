@@ -10,7 +10,7 @@ Note that the Axe Pro subscription is **available only in Chrome and Edge**, not
 
 For more information on how to install axe DevTools, please review the [Setting Up Your Testing Environment](https://mnit-dot-a11y.github.io/testing-environment/#axe-browser-extension) page.
 
-While using axe DevTools, focus on issues found in the WCAG 2.1 A and WCAG 2.1 AA categories. These are the guidelines that the Minnesota State Accessibility Standard requires.
+While using axe DevTools, focus on issues found in the WCAG 2.1 A and WCAG 2.1 AA categories. These are the guidelines that the Minnesota State Accessibility Standard requires we meet.
 
 ## <step-number>1</step-number> Accessing Axe DevTools
 {: .divider }
