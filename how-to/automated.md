@@ -55,7 +55,7 @@ After the scan, issues appear by severity and category. Selecting an issue provi
 ## Understanding HTML & ARIA
 {: .divider }
 
-Understanding why certain issues appear can help you confirm their validity. If axe reports issues related to ARIA or semantics, consider using NVDA to verify the specific element highlighted. You should also utilize the web, native mobile, and desktop checklists, which have the exact text that should be announced by NVDA when validating that an issue exists.
+Understanding why certain issues appear can help you confirm their validity. If axe reports issues related to ARIA or semantics, consider using NVDA to verify the specific element highlighted. You should also consult the web, native mobile, and desktop checklists, which have the exact text that should be announced by NVDA when validating that an issue exists.
 
 The following are common ARIA-related issue names you may encounter, along with methods to confirm their validity:
 
