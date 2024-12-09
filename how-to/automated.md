@@ -10,7 +10,7 @@ Note that the axe Pro subscription is **available only in Chrome and Edge**, not
 
 For more information on how to install axe DevTools, please review the [Setting Up Your Testing Environment](https://mnit-dot-a11y.github.io/testing-environment/#axe-browser-extension) page.
 
-While using axe DevTools, you should only focus on issues found in the WCAG 2.1 A and WCAG 2.1 AA categories. These are the guideliens that the Minnesota State Accessibility Standard requires we follow.
+While using axe DevTools, you should only focus on issues found in the WCAG 2.1 A and WCAG 2.1 AA categories. These are the guidelines that the Minnesota State Accessibility Standard requires we follow.
 
 ## <step-number>1</step-number> Accessing Axe DevTools
 {: .divider }
@@ -43,13 +43,13 @@ While using axe DevTools, you should only focus on issues found in the WCAG 2.1 
 
 When the scan finishes, you’ll see a list of issues organized by severity and category. Clicking on an individual issue reveals additional details:
 
-- **Highlight Element:** Pinpoints the affected element in the rendered page.
-- **Description & Guidance:** Explains the issue and typically includes a link to further documentation or best practices.
-- **Code Snippet & Inspector:** Shows the relevant code snippet. Using the “</>” button takes you directly to the Element Inspector to view the underlying HTML.
-- **Relevant Guidelines:** References applicable WCAG criteria or other standards to contextualize what impact the issue may have on those with disabilities.
+1. **Highlight Element:** Pinpoints the affected element in the rendered page.
+2. **Description & Guidance:** Explains the issue and typically includes a link to further documentation or best practices.
+3. **Code Snippet & Inspector:** Shows the relevant code snippet. Using the “</>” button takes you directly to the Element Inspector to view the underlying HTML.
+4. **Relevant Guidelines:** References applicable WCAG criteria or other standards to contextualize what impact the issue may have on those with disabilities.
 
 <example>
-    <img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Axe DevTools results panel showing identified issues after a scan">
+<img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Axe DevTools results panel showing identified issues after a scan">
 </example>
 
 ## Additional Considerations & Common Gotchas
