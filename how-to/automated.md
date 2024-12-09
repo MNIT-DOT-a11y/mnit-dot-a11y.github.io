@@ -47,8 +47,7 @@ After the scan, issues appear by severity and category. Selecting an issue provi
 - **Description & Guidance:** Explains the issue and often links to documentation.
 - **Code Snippet & Inspector:** Shows underlying code and a quick way to view it in the Element Inspector.
 - **Relevant Guidelines:** References applicable WCAG criteria or related standards.
-- 
-<example>
+- <example>
 <img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Axe DevTools results panel showing identified issues after a scan">
 </example>
 
