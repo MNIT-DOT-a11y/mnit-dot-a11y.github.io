@@ -172,6 +172,7 @@ You will only need to do this once.
 #### **Using axe DevTools**
 
 To learn more about how to use axe DevTools, visit the [How-to use axe DevTools](/how-to-test/axe) page.
+
 ---
 
 ### Browser Developer tools

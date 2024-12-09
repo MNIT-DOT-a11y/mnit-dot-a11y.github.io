@@ -72,3 +72,5 @@ Some flagged issues may be false positives due to unusual code structures or dyn
 ### Color Contrast
   
   While axe provides automated contrast checks, ensure that you verify if results are unclear, especially for gradients, background images, or partially transparent overlays. To verify color contrast issues, follow the steps found on the [Color Contrast Testing](https://mnit-dot-a11y.github.io/how-to-test/color-contrast) how-to page.
+
+### Resources
