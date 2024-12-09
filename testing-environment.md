@@ -150,7 +150,8 @@ axe DevTools browser extension automates accessibility testing for web-based app
     </example>
 **Notes:**
 - The usage and installation are identical for axe DevTools and axe DevPro tools.
-- If you have installed the Axe extension and upgraded to Axe Pro, you only need to sign in using the account with the Axe Pro subscription. No further installation is required. The features will be unlocked automatically.
+- If you have installed the Axe extension and upgraded to Axe Pro, you only need to sign in using the account with the Axe Pro subscription. No further installation is required. The features will be unlocked automatically. Axe Pro features are only available in Google Chrome and Microsoft Edge.
+- In Firefox, if you have just installed the extension for the first time, you may need to restart the browser for it to appear. You will only need to do this once.
 
 #### **Setting up axe DevTools**
 
