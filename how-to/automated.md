@@ -49,7 +49,7 @@ After the scan, issues appear by severity and category. Selecting an issue provi
 4. **Relevant Guidelines:** References applicable WCAG criteria or related standards.
 
 <example>
-<img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Axe DevTools results panel showing identified issues after a scan">
+  <img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Axe DevTools results panel showing identified issues after a scan">
 </example>
 
 ## Understanding HTML & ARIA
