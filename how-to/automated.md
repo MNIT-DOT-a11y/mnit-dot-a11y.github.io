@@ -43,11 +43,12 @@ While using axe DevTools, focus on issues found in the WCAG 2.1 A and WCAG 2.1 A
 
 After the scan, issues appear by severity and category. Selecting an issue provides details:
 
-- **Highlight Element:** Points out the affected element on the page.
-- **Description & Guidance:** Explains the issue and often links to documentation.
-- **Code Snippet & Inspector:** Shows underlying code and a quick way to view it in the Element Inspector.
-- **Relevant Guidelines:** References applicable WCAG criteria or related standards.
-- <example>
+1. **Highlight Element:** Points out the affected element on the page.
+2. **Description & Guidance:** Explains the issue and often links to documentation.
+3. **Code Snippet & Inspector:** Shows underlying code and a quick way to view it in the Element Inspector.
+4. **Relevant Guidelines:** References applicable WCAG criteria or related standards.
+
+<example>
 <img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Axe DevTools results panel showing identified issues after a scan">
 </example>
 
