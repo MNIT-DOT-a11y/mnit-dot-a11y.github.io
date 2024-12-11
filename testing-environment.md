@@ -13,7 +13,7 @@ MNIT DOT recommends that anyone testing applications use the following tools for
 - **NVDA screen reader** - A free screen reader to test for barriers that affect people with vision disabilities. It is available in the Software Center.
 - **Windows Magnifier** - The Magnifier lets you zoom in on parts of the page to verify that they do not cause functional errors, such as blocking essential on-screen elements and content. It is available within the Windows OS.
 - **PEAT** (Photosensitive Epilepsy Analysis Tool) - This free tool helps determine whether animations or videos are likely to cause seizures.
-- **Adobe Acrobat Pro** -  Acrobat Pro offers a built-in Accessibility Checker to performs a comprehensive accessibility checke and report export.
+- **Adobe Acrobat Pro** -  Acrobat Pro offers a built-in PDF Accessibility Checker to performs a comprehensive accessibility checks and reports.
 
 Before you start testing, you must install and set up the accessibility testing tools to ensure accurate results. Follow the setup outline here to get started.
 
