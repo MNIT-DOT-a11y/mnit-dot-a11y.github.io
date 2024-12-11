@@ -68,7 +68,7 @@ Observing these alignments—or lack thereof—between what axe reports and what
 ### Common Issues
 The following are some commonly encountered issue names you may encounter, along with methods to confirm their validity:
 
-#### Missing or Incomplete Names/Labelsstates
+#### Missing or Incomplete Names/Labels
 - **Common Axe Issue Names:**  
   - "Buttons must have an accessible name" (**button-name**)  
   - "Form elements must have labels" (e.g., **input-image-alt**, **label** issues)
