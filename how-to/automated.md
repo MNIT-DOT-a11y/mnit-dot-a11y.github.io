@@ -31,7 +31,8 @@ While using axe DevTools, focus on issues found in the WCAG 2.1 A and WCAG 2.1 A
 
 1. In the **Axe DevTools** tab, scroll down to find the **Full Page Scan** button.
 2. Click **Full Page Scan** to run an automated audit of the webpage.
-3. Enable **Best Practices** if not already on, and re-run the scan for broader checks.
+3. **Note:** The scan will capture the page in the state that it's in prior to you accessing axe DevTools. Be sure to expand any accordions, dropdowns, or modal dialogs if you wish them to be included in the scan.
+4. Enable **Best Practices** if not already on, and re-run the scan for broader checks.
 
 <example>
     <img src="/assets/images/testing-tools/ax-page-scan.jpg" alt="Full Page Scan button in Axe DevTools interface">
