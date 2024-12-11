@@ -68,7 +68,7 @@ In general, as you perform an automated test, ask these questions when axe highl
 ### Common Issues
 The following are some commonly encountered issue names you may encounter, along with methods to confirm their validity:
 
-#### Missing or Incomplete Names/Labels
+#### Missing or Incomplete Names/Labelsstates
 - **Common Axe Issue Names:**  
   - "Buttons must have an accessible name" (**button-name**)  
   - "Form elements must have labels" (e.g., **input-image-alt**, **label** issues)
