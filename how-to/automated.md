@@ -17,7 +17,6 @@ While using axe DevTools, focus on issues found in the WCAG 2.1 A and WCAG 2.1 A
 
 1. **Open Developer Tools:**  
    On Windows, press <kbd>Ctrl + Shift + I</kbd>, or right-click the page and select **Inspect**.
-   
 2. **Select the Axe DevTools Tab:**  
    In Developer Tools, locate and select the **Axe DevTools** tab. If not visible, it may be in a secondary menu.  
    
@@ -124,6 +123,7 @@ If reported contrast issues seem unclear, especially with complex backgrounds, i
 {: .divider }
 
 - [axe DevTools](https://www.deque.com/axe/devtools/)  
+- [Chrome DevTools Accessibility Features Reference](https://developer.chrome.com/docs/devtools/accessibility/reference)
 axe DevTools homepage
 - [axe DevTools Rules and Remediation Advice from Deque University](https://dequeuniversity.com/rules/axe/)
 - [W3C WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/)  
