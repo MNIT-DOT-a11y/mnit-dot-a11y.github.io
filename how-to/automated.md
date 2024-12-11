@@ -52,8 +52,6 @@ After the scan, issues appear by severity and category. Selecting an issue provi
   <img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Axe DevTools results panel showing identified issues after a scan">
 </example>
 
-Observing these alignments—or lack thereof—between what axe reports and what you see helps you confirm that the issues are meaningful and not false alarms.
-
 ## Understanding HTML & ARIA (Accessible Rich Internet Applications)
 {: .divider }
 
@@ -64,6 +62,8 @@ In general, as you perform an automated test, ask these questions when axe highl
 - Is the element’s purpose clear when you look at it or use it (e.g., can you tell it’s a button that should open something)?  
 - Does the state of that element (expanded, collapsed, selected, pressed) visually match what is expected? If something is flagged as having incorrect ARIA but it clearly behaves differently on screen, that supports the idea that the code might not be communicating correctly to assistive technologies.
 - Is the use of ARIA really necessary and can the same thing be accomplished with standard HTML elements? Remember, the first rule of ARIA is to **not use ARIA**. If the application can use a native HTML element or attribute with the semantics and behavior you require already built in, instead of repurposing an element and adding an ARIA role, state or property to make it accessible, then do so.
+
+Observing these alignments—or lack thereof—between what axe reports and what you see helps you confirm that the issues are meaningful and not false alarms.
 
 ### Common Issues
 The following are some commonly encountered issue names you may encounter, along with methods to confirm their validity:
