@@ -29,10 +29,10 @@ permalink: /how-to-test/test-pdf/
   </li>
   <li>Return to the PDF you opened by selecting the  file's name in the tab at the top.</li>
   <li>From the right Tools panel, select  Accessibility. This will open the Accessibility Checker, then select  Accessibility Check. In the dialog box that appears
-    <ul>
+    <ol>
       <li>Change <strong>Report Options</strong> to where you store accessibility test findings for the  project.</li>
       <li>In  the <strong><em>Checking Options</em></strong> section, ensure all the check options are selected.</li>
-    </ul>
+    </ol>
   </li>
   <li><em>Select</em><strong> Start Checking</strong>
     <ul>
