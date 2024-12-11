@@ -124,8 +124,8 @@ If reported contrast issues seem unclear, especially with complex backgrounds, i
 {: .divider }
 
 - [axe DevTools](https://www.deque.com/axe/devtools/)  
-- [Chrome DevTools Accessibility Features Reference](https://developer.chrome.com/docs/devtools/accessibility/reference)
 axe DevTools homepage
+- [Chrome DevTools Accessibility Features Reference](https://developer.chrome.com/docs/devtools/accessibility/reference)
 - [axe DevTools Rules and Remediation Advice from Deque University](https://dequeuniversity.com/rules/axe/)
 - [W3C WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/)  
   Useful for understanding common patterns and how ARIA attributes are intended to work.
