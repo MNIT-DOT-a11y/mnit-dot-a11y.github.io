@@ -1,0 +1,36 @@
+---
+layout: base
+---
+<div class="container">
+  <div class="how-to-test-wrapper">
+    <nav aria-label="Secondary Navigation" class="toc-nav">
+      <ul>
+        <li><a href="/identifying-components">Identifying Components</a></li>
+        
+        {% assign current_page_url = page.url %}
+        {% for page in site.identifying-components %}
+          
+          <li><a href="{{ page.url }}">{{ page.title }}</a>
+          {% if page.needs_toc != false %}
+            {% capture page_content %}
+              {{ page.content | markdownify }}
+            {% endcapture %}
+            {% assign base_url = '' %}
+            {% if page.url != current_page_url %}
+              {% assign base_url = page.url %}
+            {% endif %}
+                        {% include toc.html html=page_content skip_no_ids=true sanitize=true base_url=base_url no_enclosing_list=true %}
+          {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    
+    <div class="post-content">
+  <h1 class="h-alpha">
+    {{ page.title | escape }}
+  </h1>
+  {{ content}}
+</div>
+</div>
+</div>

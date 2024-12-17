@@ -1,0 +1,33 @@
+<button id="showModal">
+  Select to view dialog box
+</button>
+
+<dialog role="dialog"
+        id="modal"
+        tabindex="-1"
+        aria-modal="true"
+        aria-labelledby="dialog-title">
+  <button type="button"
+          id="closeModal"
+          class="close">
+    <span class="hidden">Close</span>
+  </button>
+  <div class="dialog-content">
+    <h2 class="no_toc h-bravo" id="dialog-title">
+      Things you should check for are:
+    </h2>
+    <h3>Keyboard</h3>
+    <ul>
+      <li>Focus must not enter the rest of the page.</li>
+      <li>The escape key must close the modal.</li>
+    </ul>
+    <h3>Screenreader</h3>
+    <ul>
+      <li>The modal's title is announced on launch.</li>
+      <li>The screen reader cannot read content behind the dialog.</li>
+    </ul>
+    <button type="submit">
+      Continue
+    </button>
+  </section>
+</dialog>

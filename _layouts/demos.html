@@ -1,0 +1,22 @@
+---
+layout: base
+---
+
+<div class="container">
+  <h1 class="h-alpha">
+    {{ page.title | escape }}
+  </h1>
+  <div class="post-content narrow">
+
+    {{ content }}
+
+    <ul>
+    {% assign demos = site.demos | sort: 'order' %}
+    {% for page in demos %}
+      <li><a href="{{ site.baseurl }}{{ page.url }}"> {{ page.title}}</a> </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+

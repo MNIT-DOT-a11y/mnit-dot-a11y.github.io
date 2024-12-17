@@ -1,0 +1,18 @@
+---
+layout: base
+---
+  <div class="container">
+    <div class="how-to-test-wrapper">  
+      <nav aria-label="Table of Contents" class="toc-nav">
+        {% include toc.html html=content %}
+        </nav>
+      <div class="post-content">
+        <h1 class="h-alpha">
+          <article></article>
+          {{ page.title | escape }}
+        </article>
+        </h1>        
+      {{ content }}
+    </div>
+  </div>
+</div>

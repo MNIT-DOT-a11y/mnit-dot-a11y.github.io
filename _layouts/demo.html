@@ -1,0 +1,31 @@
+---
+layout: base
+---
+
+<div class="container">
+  <h1 class="h-alpha">{{ page.title | escape }}</h1>
+  <div id="content" class="post-content narrow">
+    {{ content }}
+
+    {% assign has_links = false %}
+{% assign checklist_page_web = site.checklist-web | where: "slug", page.slug | first %}
+{% if checklist_page_web %}
+  {% assign has_links = true %}
+{% endif %}
+{% assign checklist_page_native = site.checklist-native | where: "slug", page.slug | first %}
+{% if checklist_page_native %}
+  {% assign has_links = true %}
+{% endif %}
+{% if has_links %}
+  <h2 class="h-bravo">How to test</h2>
+    <ul>
+    {% if checklist_page_web %}
+      <li><a class="" href="/checklist-web/{{ page.slug }}">How to test {{ page.title | downcase | escape }} on the web</a></li>
+    {% endif %}
+    {% if checklist_page_native %}
+      <li><a class="" href="/checklist-native/{{ page.slug }}">How to test {{ page.title | downcase | escape }} on native mobile</a></li>
+    {% endif %}
+  </ul>
+    {% endif %}
+  </div>
+  </div>

@@ -1,0 +1,111 @@
+---
+layout: entry
+title:  "Basic Web Page"
+description: "How to code and test accessible HTML"
+categories: html
+order: 0
+
+keyboard:
+  tab: |
+    Enters the page and visibly focuses only interactive elements
+  zoom: |
+    Content zooms up to 400%
+
+mobile:
+  swipe: |
+    Focus moves within page
+  pinch/stretch: |
+    Content zooms up to 400%
+  orientation: |
+    Content is accessible in landscape or portrait orientation
+
+screenreader:
+  name:  |
+    The page has a unique logical title in the browser tab
+  role:  |
+    Major landmarks are discoverable with screen reader shortcuts: header/banner, navigation, main and footer/content info landmarks
+
+gherkin-keyboard: 
+  - when:  |
+      the keyboard to open a new web page
+    result: |
+      the page has a unique logical title in the browser tab
+
+gherkin-mobile:
+  - when:  |
+      swipe to enter from the web browser tabs
+  - then: |
+      change orientations
+    result: |
+      content is accessible in landscape or portrait orientation
+
+settings:
+  zoom/pinch: |
+    text can resize up to 400% without losing information
+---
+## Developer notes
+
+### Validate your code
+
+Use [HTML validation](https://validator.w3.org/nu/) as the foundation for ensuring your page works for everyone.
+
+## Code examples
+
+### Declare a language
+
+This affects the screen reader pronunciation.
+
+{% highlight html %}
+<html lang="en">
+</html>
+{% endhighlight %}
+
+### Give your page a unique title
+
+- Each page must have unique `<title>` in the `<head>`
+  - This includes single page dynamic apps _if_ the URI changes during the user journey
+- Do not use the `|` pipe character as a divider (it is read by screen readers)
+
+{% highlight html %}
+<head>
+  <title>Page title - Website title</title>
+</head>
+{% endhighlight %}
+
+### Ensure users can zoom in
+
+People with low vision need the ability to enlarge the page on mobile and desktop.
+
+{% highlight html %}
+<head>
+  <meta name="viewport" 
+        content="width=device-width, 
+        initial-scale=1">
+</head>
+{% endhighlight %}
+
+### Structure your page with landmarks
+
+Landmarks give structure to the page for the screen reader user to be able to navigate the page by major sections.
+
+Each page must include:
+
+- [Header](/checklist-web/header/)
+- [Nav](/checklist-web/nav/)
+- [Main](/checklist-web/main/)
+- [Footer](/checklist-web/footer/)
+
+{% highlight html %}
+<header>
+  <!-- Contains the site title -->
+</header>
+<nav>
+  <!-- Primary navigation menu-->
+</nav>
+<main> 
+  <!-- Main content -->
+</main>
+<footer>
+  <!--  Site map and legal info -->
+</footer>
+{% endhighlight %}

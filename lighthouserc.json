@@ -1,0 +1,27 @@
+{
+  "ci": {
+    "collect": {
+      "url": [
+        "https://mnit-dot-a11y.github.io/",
+        "https://mnit-dot-a11y.github.io/web/",
+        "https://mnit-dot-a11y.github.io/native/",
+        "https://mnit-dot-a11y.github.io/checklist-web/button/",
+        "https://mnit-dot-a11y.github.io/demos/button/",
+        "https://mnit-dot-a11y.github.io/checklist-web/radio/",
+        "https://mnit-dot-a11y.github.io/demos/radio/",
+        "https://mnit-dot-a11y.github.io/checklist-native/button/",
+        "https://mnit-dot-a11y.github.io/demos/nav/",
+        "https://mnit-dot-a11y.github.io/how-to-test/",
+        "https://mnit-dot-a11y.github.io/demos/basic-accessible-webpage/"
+      ],
+      "numberOfRuns": 1
+    },
+    "assert": {
+      "assertions": {
+        "categories:seo": ["warn", {"minScore": 0.9}],
+        "categories:performance": ["warn", {"minScore": 0.8}],
+        "categories:accessibility": ["error", {"minScore": 1}]
+      }
+    }
+  }
+}

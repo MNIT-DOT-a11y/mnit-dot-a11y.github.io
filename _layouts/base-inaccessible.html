@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>
+      {% assign page_title = page.seoTitle %}
+      {{ page_title | default: page.title }}
+    </title>  
+  </head>
+  
+  <body onload="setModifiedDate();" class="preload">
+      {{ content }}
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/scripts/index.js?{{site.time | date: '%s'}}"></script>
+    <script>
+      $("body").removeClass("preload"); // Prevents animations on pageload
+    </script>
+    </body>
+</html>

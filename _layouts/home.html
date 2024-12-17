@@ -1,0 +1,106 @@
+---
+layout: base
+---
+
+<div class="container">
+  <h1 class="h-alpha">
+    {{ page_title | default: page.title }}
+  </h1>
+</div>
+<div class="container post-content">
+  {{ content }}
+</div>
+
+<div class="container">
+  <ul class="cards home">
+    <li class="card">
+      <a class="display" href="{{ site.baseurl }}/web/">
+
+        <svg aria-hidden="true" height='100px' width='100px' fill="#000000" xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
+             xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+             xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px"
+             viewBox="0 0 100 100">
+          <g transform="translate(0,-952.36218)"><title>Web browser</title>
+            <path
+                style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;"
+                d="m 10,968.36219 c -3.28936,0 -6,2.71056 -6,6 l 0,60.00001 a 2.0002,2.0002 0 0 0 2,2 l 88,0 a 2.0002,2.0002 0 0 0 2,-2 l 0,-60.00002 c 0,-3.28944 -2.71064,-6 -6,-6 l -80,0 z m 0,4 80,0 c 1.1427,0 2,0.85724 2,2 l 0,10 -84,0 0,-10 c 0,-1.14276 0.8573,-2 2,-2 z m 4,3 c -1.65686,0 -3,1.3431 -3,3 0,1.6568 1.34314,3 3,3 1.65685,0 3,-1.3432 3,-3 0,-1.6569 -1.34315,-3 -3,-3 z m 10,0 c -1.65686,0 -3,1.3431 -3,3 0,1.6568 1.34314,3 3,3 1.65685,0 3,-1.3432 3,-3 0,-1.6569 -1.34315,-3 -3,-3 z m 10,0 c -1.65686,0 -3,1.3431 -3,3 0,1.6568 1.34314,3 3,3 1.65685,0 3,-1.3432 3,-3 0,-1.6569 -1.34315,-3 -3,-3 z m -26,13 84,0 0,44.00001 -84,0 0,-44.00002 z"
+                fill="#000000" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline"
+                overflow="visible"></path>
+          </g>
+        </svg>
+
+        Web
+        <span class="secondary-text">Accessibility Checklist</span>
+      </a>
+    </li>
+    
+    <li class="card">
+      <a class="display" href="{{ site.baseurl }}/desktop/">        
+        <svg aria-hidden="true" fill="#000000" height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<path d="M462.367,86.204H49.633c-15.845,0-28.735,12.89-28.735,28.735v250.776h15.674V114.939c0-7.202,5.859-13.061,13.061-13.061
+			h412.735c7.202,0,13.061,5.859,13.061,13.061v250.776h15.673V114.939C491.102,99.094,478.212,86.204,462.367,86.204z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<path d="M441.469,122.776H70.531c-10.082,0-18.286,8.203-18.286,18.286v216.816h407.51V141.061
+			C459.755,130.979,451.552,122.776,441.469,122.776z M444.082,342.204H67.918V141.061c0-1.44,1.172-2.612,2.612-2.612h370.939
+			c1.44,0,2.612,1.172,2.612,2.612V342.204z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<path d="M0,378.776v47.02h512v-47.02H0z M496.327,410.122H15.673v-15.673H197.66l6.617,9.927h103.445l6.617-9.927h181.987V410.122
+			z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<circle cx="256" cy="112.327" r="5.224"/>
+	</g>
+</g>
+</svg>
+        Desktop Apps
+        <span class="secondary-text">Accessibility Checklist</span>
+      </a>
+    </li>
+    
+    <li class="card">
+      <a class="display" href="{{ site.baseurl }}/native/">
+        <svg aria-hidden="true" height='100px' width='100px' fill="#000000" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 32 32" x="0px" y="0px"><title>smartphone</title>
+          <g data-name="6">
+            <path
+                d="M19.89,2.53v0H12.11v0A3.68,3.68,0,0,0,8.75,6.18V25.82a3.69,3.69,0,0,0,3.69,3.68h7.12a3.69,3.69,0,0,0,3.69-3.68V6.18A3.68,3.68,0,0,0,19.89,2.53Zm-1.2,1a.87.87,0,0,1-.69.32H14a.85.85,0,0,1-.68-.32Zm3.56,22.32a2.69,2.69,0,0,1-2.69,2.68H12.44a2.69,2.69,0,0,1-2.69-2.68V6.18a2.69,2.69,0,0,1,2.47-2.66A1.83,1.83,0,0,0,14,4.82h4a1.85,1.85,0,0,0,1.78-1.3,2.69,2.69,0,0,1,2.47,2.66ZM16,24.5a1.66,1.66,0,1,0,1.66,1.66A1.66,1.66,0,0,0,16,24.5Zm0,2.32a.66.66,0,1,1,.66-.66A.67.67,0,0,1,16,26.82Z"></path>
+          </g>
+        </svg>
+
+        Native Apps
+        <span class="secondary-text">Accessibility Checklist</span>
+      </a>
+    </li>
+
+    <li class="card card-how-to">
+      <a class="display" href="{{ site.baseurl }}/how-to-test/">
+        
+        How-to       
+        <span class="secondary-text">Test Components</span>
+      </a>
+    </li>
+
+    <li class="card card-demo">
+      <a class="display" href="{{ site.baseurl }}/demos/">
+        Demo
+        <span class="secondary-text">Working Components</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+</div>
+

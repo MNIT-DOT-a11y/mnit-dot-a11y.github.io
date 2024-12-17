@@ -1,0 +1,60 @@
+.print-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.print-button {
+  all: unset; /* Remove all inherited styles */
+  text-align: center;
+  display: inline-flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  background-color: lightgray !important;
+  color: black !important;
+  border-radius: 5px; /* Slightly rounded corners */
+  padding: 10px 20px; /* Padding for spacing */
+  font-size: 16px; /* Font size for text */
+  cursor: pointer; /* Pointer cursor on hover */
+  border: none;
+  vertical-align: middle; /* Align with text */
+  }
+
+.print-button i {
+  color: black !important;
+  margin-right: 8px; /* Space between icon and text */
+  display: inline-flex;
+  align-items: center; /* Center icon vertically */
+}
+
+.print-button:hover {
+  background-color: #d3d3d3; /* Darker gray on hover */
+}
+
+.print-button:focus {
+  all: unset;
+  outline: 2px solid #000; /* Outline for accessibility */
+  outline-offset: 2px; /* Space between outline and button */
+}
+
+@media print {
+  .print-button {
+      display: none;
+  }
+  #video-container {
+    display: none;
+  }
+  .entry-video-section {
+    display: none;
+  }
+  .toc-nav {
+    display: none;
+  }
+  #footer {
+    display: none;
+  }
+  #nav {
+    display: none;
+  }
+}

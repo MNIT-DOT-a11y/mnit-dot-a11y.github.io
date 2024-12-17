@@ -1,0 +1,37 @@
+<div class="criteria-container">
+    {% if page.url != "/native/" and page.url != "/desktop/" %}
+      {% include criteria-tabs.html %}
+    {% else %}
+      <label for="condensed-textarea" class="h-charlie">
+        Acceptance criteria list
+      </label>
+    {% endif %}
+
+
+    {% if page.url != "/native/" and page.url != "/desktop/" %}
+    <div class="textarea-container gherkin-criteria tab-panel" id="gherkin-panel">
+      <div aria-label="Gherkin acceptance criteria" id="gherkin-textarea" class="contenteditable-textarea">
+        When components are selected, corresponding test cases will appear here.
+      </div>
+      <div class="textarea-controls">
+        <div>
+          <button id="copy-gherkin" aria-label="Copy gherkin acceptance criteria" class="button-alpha" type="button">
+            Copy
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="textarea-container condensed-criteria tab-panel" {% if page.url == "/native/" or page.url == "/desktop/" %}style="display:block;"{% endif %} id="condensed-panel">
+      <div aria-label="Condensed acceptance criteria" id="condensed-textarea" class="contenteditable-textarea">
+        When components are selected, corresponding test cases will appear here.
+      </div>
+      <div class="textarea-controls">
+        <button id="copy-condensed" aria-label="Copy condensed test instructions" class="button-alpha" type="button">
+          Copy
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

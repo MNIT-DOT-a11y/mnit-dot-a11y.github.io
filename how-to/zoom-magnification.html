@@ -1,0 +1,258 @@
+---
+layout: how-to-test
+title: Zoom and magnification
+permalink: /how-to-test/zoom-magnification/
+---
+
+<p>It's important to understand that individuals with low  vision have various methods to enlarge content. They may use the zoom feature  in a browser to make text larger or a screen magnifier like Windows Magnifier  to adjust the default font size, modify text spacing on a website, or increase  the entire screen. Each method behaves differently, so it's crucial to ensure  that important content remains accessible no matter which method is used.</p>
+<p>Three different WCAG Success Criteria&mdash;resize text, reflow,  and text spacing&mdash;collectively ensure that enlarging content does not compromise accessibility, maintaining usability for individuals with visual impairments.</p>
+  <p>These tests should be performed using Chrome, Edge, or  Firefox browsers.</p>
+	<hr>
+  <h2>Browser Zoom vs. Windows Magnifier</h2>
+  <p><strong>Browser Zoom:</strong></p>
+  <ul>
+    <li><strong>Purpose</strong>: Simulates how low-vision or mild visual impairments  users might adjust the zoom level within a browser to read content more easily. The tests allow the tester to "see" how scaling  fonts impacts readability and content flow as a browser zoom scales the entire  page.</li>
+    <li><strong>Use Cases</strong>: 
+    <ul>
+      <li><strong>Responsive  Design</strong>: Ensures the layout  adapts correctly at different zoom levels.</li>
+      <li><strong>Text  Readability</strong>: Checks if the text  remains legible and doesn't overlap or get cut off.</li>
+      <li><strong>Interactive  Elements</strong>: Verifies that  buttons, links, and forms are accessible and functional when zoomed in.</li>
+    </ul></li>
+  </ul>
+  <p><strong>Windows Magnifier:</strong></p>
+  <ul>
+    <li><strong>Purpose</strong>: Provides a system-wide magnification, useful  for users who need to zoom into specific screen parts. The test simulates the  experience for someone severely visually impaired by using extreme  magnification, often only showing a small part of the screen at a time.</li>
+    <li><strong>Use  Cases</strong>: 
+    <ul>
+      <li><strong>Accessibility  Testing</strong>: Ensures that all application  parts are accessible when magnified.</li>
+      <li><strong>Pixel-Level  Inspection</strong>: Useful for  checking the clarity of images and icons at high magnification levels.</li>
+      <li><strong>Navigation:</strong> Tests how easily users can navigate the  application using the magnifier.</li>
+      <li><strong>Cursor  magnification:</strong> Evaluate webpages  for issues that may only arise when magnified to 400% zoom or higher.</li>
+    </ul></li>
+  </ul>
+  <p><strong>Key Differences:</strong></p>
+  <ul>
+    <li><strong>Scope</strong>: Browser zoom affects only the content within  the browser, while Windows Magnifier affects the entire screen. This makes  Windows Magnifier the sole tool for evaluating the low-vision accessibility of desktop  applications where Browser Zooming is unavailable.</li>
+    <li><strong>User  Experience: </strong>Browser Zoom is  more about adjusting the view within a single application, whereas Windows  Magnifier enhances visibility across all applications.</li>
+    <li><strong>Differing  visual impairments:</strong> Browser  Zoom is typically used by those with less severe visual impairments. At the  same time, Windows Magnifier magnifies certain parts of the screen, commonly  required by those with more severe vision loss.</li>
+  </ul>
+  <p>Testing with both  tools ensures comprehensive accessibility and usability for users with varying  needs.</p>
+	<hr>
+	<h2>Windows Magnifier</h2>
+<img src="/assets/images/examples/how-to-magnifier-on-off.jpg" alt="two screen shows showing MnDOT's website in normal veiw and another with magnifier on."/>
+
+<h3>How to test using Windows Magnifier.</h3>
+	
+<ol>
+  <li><strong>Launch Windows Magnifier</strong>
+    <ul>
+      <li>Press the <strong>Windows logo key + Plus sign (+)</strong> to  open Magnifier.</li>
+      <li>Alternatively, open Magnifier from Settings &gt;  Ease of Access &gt; Magnifier</li>
+    </ul>
+  </li>
+  <li><strong>Navigate  to the page your testing.</strong>
+    <ul>
+      <li>Open the page you are testing</li>
+      <li>Verify you view the page using Full-screen mode.</li>
+      <li>Increase the zoom level to a minimal 400% by  using the <strong>Plus sign (+)</strong>.</li>
+      <li>Use the mouse or keyboard to navigate through  the content. </li>
+    </ul>
+  </li>
+  <li><strong>Check  Readability and Layout</strong>
+    <ul>
+      <li><strong>Text Readability:</strong> Ensure all text,  including headings and body text, is readable and images are clear at different  zoom levels.</li>
+      <li><strong>Layout integrity:</strong> Verify that the layout  does not break or overlap when magnified.</li>
+    </ul>
+  </li>
+  <li><strong>Test  Interactive Elements</strong>
+    <ul>
+      <li><strong>Forms and Buttons:</strong> Ensure that all  interactive elements like buttons, forms, and links are functional. Mouse hover  does not trigger an event, and tooltips do not block important information and  can be dismissed. </li>
+      <li><strong>Navigation:</strong>Use arrow keys to move around the screen.</li>
+      <ul>
+        <li>Press <strong>Crtl + Alt + arrow</strong> keys to move by screen edges.</li>
+        <li>Ensure  the navigation menu fully functions at higher magnification levels.</li>
+      </ul>
+    </ul>
+  </li>
+  <li><strong>Simulate  User Scenarios</strong>
+    <ul>
+      <li>Perform common tasks such as reading an article,  filling out a form, or navigating a menu. Note any issues with usability or  accessibility that arise at various zoom levels.
+        <ul>
+          <li>Advanced  Testing Scenarios
+            <ul>
+              <li><strong>Color Inversion:</strong> Press <strong>Ctrl + Alt + I</strong> to  invert colors. Verify that your webpage is still usable with inverted colors.</li>
+              <li><strong>Smooth Edges: </strong>In Magnifier settings,  toggle <strong><em>Smooth edges of images and text</em></strong>. Test readability in both  modes.</li>
+              <li><strong>Focus Tracking:</strong> Ensure the&nbsp;Magnifier  follows your keyboard focus and text cursor&nbsp;as you navigate the page.</li>
+              <li><strong>Zoom Increments:</strong> Test with different zoom  increments (Settings &gt; Ease of Access &gt; Magnifier &gt; Change zoom  increments). Verify smooth transitions between zoom levels.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Document Findings</strong>
+    <ul>
+      <li>Record any issues you encounter, including  descriptions and screenshots if possible. Highlight problems with readability,  layout, or navigation that must be addressed.
+        <ul>
+          <li>Possible  issues to look for include:</li>
+          <ul>
+            <li>Text  becoming unreadable at certain zoom levels.</li>
+            <li>Images&nbsp;are  pixelating or losing clarity when magnified.</li>
+            <li>Interactive  elements&nbsp;were becoming difficult to use or access.</li>
+            <li>Inconsistent  behavior across different Magnifier views.</li>
+          </ul>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Provide Feedback and Suggestions</strong>
+      <ul>
+        <li>Share your findings and suggestions for  improvement with the development team. Ensure that the solution aligns with  accessibility best practices.</li>
+      </ul>
+  </li>
+</ol>
+ <h3>Windows Magnifier Resources</h3>
+ <ul>
+  <li><a href="https://mnit-dot-a11y.github.io/testing-environment/#windows-magnifier-on-windows-11">Windows  Magnifier</a> - Setting up your testing environment</li>
+  <li><a href="https://support.microsoft.com/en-us/windows/use-magnifier-to-make-things-on-the-screen-easier-to-see-414948ba-8b1c-d3bd-8615-0e5e32204198">Using Magnifier on Windows 11</a> - Microsoft</li>
+</ul>
+<hr>
+	<h2>Browser Zoom</h2>
+	<img src="/assets/images/examples/how-to-browser-zoom-400.jpg" alt="screen shot showing MnDOT website with browser zoomed to 400%"/>
+<h3>How to test</h3>
+<ol>
+  <li><strong>Launch either Chrome or Firefox</strong></li>
+  <li><strong>Navigate the Page</strong></li>
+  <li><strong>Adjust Zoom Levels</strong>
+      <ul>
+        <li>Start at 100% zoom (default)</li>
+        <li>Gradually increase to 125%m 150%, 200% up to  400%.
+          <ul>
+            <li>Keyboard  Shortcuts:
+              <ul>
+                <li>Zoom  in: <strong>Press Ctrl + Plus sign (+)</strong>.</li>
+                <li>Zoom  out: <strong>Press Ctril + Minus sign(-)</strong></li>
+                <li>Reset  Zoom: <strong>Press Ctrl + 0</strong></li>
+              </ul>
+            </li>
+            <li>Browser  Menu:
+              <ul>
+                <li>Chrome/Firefox/Edge: Click the three-dots menu  (top right corner), then use the zoom options.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Reviewing the page at each increase. Check that  content remains readable without horizontal scrolling.
+        </li>
+      </ul>
+  </li>
+  <li><strong>Verify that all text remains clear, sharp, and legible.</strong>
+    <ul>
+      <li>Ensure that headings, body text, and labels  scale appropriately without distortion.</li>
+    </ul>
+  </li>
+  <li><strong>Verify Layout Integrity</strong>:
+    <ul>
+      <li>Ensure the layout remains consistent and  logical.</li>
+      <li>Check for any overlapping elements or content  that gets cut off.</li>
+    </ul>
+  </li>
+  <li><strong>Test Interactive Elements</strong>:
+    <ul>
+      <li><strong>Forms and Buttons</strong>: Ensure all interactive  elements are accessible and properly labeled.</li>
+      <li><strong>Navigation</strong>: Verify that menus, links, and  buttons are fully functional and navigable at various zoom levels.</li>
+    </ul>
+  </li>
+  <li><strong>Simulate  User Scenarios</strong>:
+    <ul>
+      <li>Perform typical user tasks (e.g., reading an  article&nbsp;or&nbsp;filling out a form).</li>
+      <li>Note any accessibility barriers or usability  issues at different zoom levels.</li>
+    </ul>
+  </li>
+  <li><strong>Document Findings</strong>:
+    <ul>
+      <li>Record any issues discovered during testing,  including screenshots if possible.</li>
+      <li>Describe problems with readability, layout, or  navigation and suggest potential fixes.</li>
+      <ul>
+        <li>Possible  issues to look for include:</li>
+        <ul>
+          <li>All  content visible at 100% zoom is still available, readable, and without horizontal  scrolling.</li>
+          <li>No  content overlaps or becomes obscured.</li>
+          <li>Text  increases in size appropriately.</li>
+          <li>All  functionality remains usable.</li>
+          <li>If  new tools appear (e.g., hamburger menu for mobile users), ensure they work  accessibly.</li>
+        </ul>
+      </ul>
+    </ul>
+  </li>
+  <li><strong>Provide Feedback</strong>:
+    <ul>
+      <li>Share your findings and recommendations with the  development team to ensure necessary adjustments are made.</li>
+    </ul>
+  </li>
+</ol>
+<hr>
+<h2>Text spacing</h2>
+  <img src="/assets/images/examples/how-to-line-spacing.jpg" alt="two screen shows showing MnDOT's webiste in normal view and another with test spacing bookmarklet."/>Text spacing can be  tested using the <a href="http://html5accessibility.com/tests/tsbookmarklet.html">text spacing bookmarklet</a> in any browser. This bookmarklet helps users  and testers verify or achieve text spacing on a website. It is recommended that you bookmark the bookmarklet for quick access.Text spacing testing includes line height, letter, word, and paragraph spacing..
+<h3>How to test</h3>
+<ol>
+  <li><strong>Set  Up the Text Spacing Bookmarklet:</strong>
+    <ul>
+      <li>Install the <a href="https://html5accessibility.com/tests/tsbookmarklet.html">Test Spacing Bookmarklet</a></li>
+      <li>Drag the Text Spacing Bookmarklet to your  browser&rsquo;s bookmark bar. Ensure it is easily accessible for testing purposes.</li>
+      <li>If you can't drag the link, right-click it and  select &quot;Add to bookmarks&quot; or &quot;Bookmark this link.&quot;</li>
+    </ul>
+  </li>
+  <li><strong>Testing  with Text Spacing Bookmarklet:</strong>
+    <ul>
+      <li>Navigate to the webpage you want to test.</li>
+      <li>In your bookmarks bar, select the Text Spacing  Bookmarklet. This will apply the predefined text spacing to the page. The  page should immediately be updated with modified text spacing.</li>
+    </ul>
+  </li>
+</ol>
+If the bookmarklet doesn't seem to work:
+<ol>
+  <ul>
+    <li>Try refreshing the page and applying the  bookmarklet again.</li>
+    <li>Check if the page uses iframes, which the  bookmarklet may not affect.</li>
+  </ul>
+</ol>
+<ol start="3">
+  <li><strong>Observe  Changes:</strong>
+    <ul>
+      <li>The bookmarklet typically adjusts line height,  letter, and paragraph spacing. Carefully observe how the text spacing changes  on the page.</li>
+    </ul>
+  </li>
+  <li><strong>Identify  and Document Issues:</strong>
+    <ul>
+      <li>Content Visibility: All content should remain visible  and not be cut off.</li>
+      <li>Functionality: All interactive elements  (buttons, links, forms) should remain functional.</li>
+      <li>Layout Integrity: Page layout should not break  or overlap significantly.</li>
+      <li>Readability: Text should be readable and not  overly distorted.</li>
+    </ul>
+  </li>
+  <li><strong>Provide  Feedback:</strong>
+    <ul>
+      <li>Record Findings: Document any issues identified  during testing, including screenshots and descriptions.</li>
+      <li>Suggestions for Improvements: Recommend  adjusting text spacing to meet accessibility standards and enhance readability.</li>
+      <li>Collaborate: Share your findings and  recommendations with the development team to ensure text spacing meets  accessibility standards and enhances readability, and necessary adjustments are  made.</li>
+    </ul>
+  </li>
+</ol>
+<hr>
+  <h2>Scoring Guide</h2>
+  <p>Use this guide to evaluate the web page's performance:</p>
+  <ul>
+    <ul>
+      <li><strong>Pass</strong>: All functionality is usable at 200%  and 400% zoom, text increases in size appropriately, and text spacing is  readable.</li>
+      <li><strong>Partial Fail</strong>: Minor overlapping occurs,  but the&nbsp;content is mostly readable and functional.</li>
+      <li><strong>Fail:</strong> Text doesn't increase in size, or  content overlaps significantly, is cut off, or obscured.</li>
+    </ul>
+  </ul>
+<hr>
+<h2>Related WCAG</h2>
+<ul>
+  <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">1.4.4 Resize  Test</a></li>
+  <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">1.4.10 Reflow</a></li>
+  <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html">1.4.12 Text Spacing</a></li>
+</ul>

@@ -1,0 +1,82 @@
+---
+layout: page
+title: Training: Examples-Magnification and Zoom Accessibility Testing
+permalink: /course-examples/3
+---
+<h2>The Benefits of Zoom and Magnification for Users.</h2>
+	<ol>
+	  <li>Enhanced Readability</li>
+	  <li>Increased Independence</li>
+	  <li>Improved Quality of Life</li>
+	  <li>Support for Age-Related Vision Changes</li>
+	  <li>Flexible Viewing Options</li>
+	  <li>Accessibility Across Devices</li>
+	  <li>Context Preservation</li>
+	  <li>Reduced Eye Strain</li>
+	  <li>Customizable Settings</li>
+	  <li>Increased Engagement</li>
+	</ol>
+	<hr>
+	<br>
+	<br>
+<h2>Comparsion between Windows Magnifier on and off</h2>
+	<p><img src="/assets/images/examples/how-to-magnifier-on-off.jpg" alt="two screen shows showing MnDOT's website in normal view and another with magnifier on."/></p>
+	<hr>
+	<br>
+	<br>
+	<h2>Difference between San Serif and Serif Fonts</h2>
+<p><img src="/assets/images/course-examples/serif-vs-sans-serif-font-example.png" alt="showing the difference between San Serif and Serif fonts"/></p>
+	<hr>
+	<br>
+	<br>
+	<h2>Example of image text</h2>
+	<p><img src="/assets/images/course-examples/text-as-image.jpg" alt="descriptive text: creates an impression in the reader's mind of an event, a place, a person, or a thing."/></p>
+	<hr>
+	<br>
+	<br>
+    <h2>Button Mouse Hover Event</h2>
+    <button class="hover-button" onmouseover="redirectToURL()">
+        Mouse Hover Event
+    </button>
+
+    <script>
+	function redirectToURL() {
+		const anchor = document.createElement('a');
+		anchor.href = "https://mnit-dot-a11y.github.io/";
+		document.body.appendChild(anchor);
+		anchor.click();
+		document.body.removeChild(anchor);
+	}
+    </script>
+	<hr>
+	<br>
+	<br>
+<h2>Form fields </h2>
+<img src="/assets/images/course-examples/form-fields.png" alt="example of a form showing form label next and away from the form field"/>
+<hr>
+	<br>
+	<br>
+	<p>When performing magnification and zoom testing,  accessibility testers should focus on these key WCAG 2.1 Level AA success  criteria when testing zoom and magnification.</p>
+	<p><strong>1.4.4 Text  Resizing
+	</strong></p>
+	<ul>
+	  <li>Ensure that text  can be resized up to 200% without assistive technology and&nbsp;without losing  content or functionality.</li>
+	  <li>Verify that  text-based controls also scale correctly.</li>
+	  <li>Confirm that text  containers resize when text resizes.</li>
+	  <li>Assess the  overall readability of the content at different zoom levels.</li>
+	</ul>
+	<p><strong>1.4.10 Reflow
+	</strong></p>
+	<ul>
+	  <li>Content can  reflow when zoomed to 400% without requiring horizontal scrolling.</li>
+	  <li>Ensure that the  layout adjusts appropriately when zoomed.</li>
+	  <li>Verify that all content remains visible and is not cut off when scaled. </li>
+	  <li>Check that the  page layout does not break or overlap significantly when scaled up.</li>
+	  <li>Test that all  interactive elements (buttons, links, forms) remain functional when scaled.</li>
+	  <li>If provided, test  any on-page controls that allow users to increase text size</li>
+	</ul>
+	<p><strong>1.4.12 Text  Spacing
+	</strong></p>
+	<ul>
+	  <li>Verify that no loss of content or functionality occurs when users adjust  text spacing properties. </li>
+	</ul>

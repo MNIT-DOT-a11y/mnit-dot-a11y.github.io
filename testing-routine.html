@@ -1,0 +1,270 @@
+---
+layout: page
+title: Testing Routine
+permalink: /testing-routine/
+---
+<style>
+	.hr-line {
+    border: none;
+    border-top: 2px solid black;
+    width: 100%; 
+    margin: 2px 0;
+}
+</style>
+
+<h2><step-number>1</step-number> Determine  the Scope for Testing</h2>
+<hr class="hr-line">
+     <p>Collaborate with the Project Team to complete the Accessibility Scoping Template and determine what will be tested.</p>
+     <h2><step-number>2</step-number> Plan  for Testing</h2>
+	<hr class="hr-line">
+ 		<p>Prioritizes the most important user journeys, essential  features, and areas with high risk.</p>
+<p><strong>Note:</strong> Regularly review and update the Accessibility Testing Scope to incorporate changes and insights as you progress through the testing process.</p>
+    <h2><step-number>3</step-number> Conduct Testing</h2>
+	<hr class="hr-line">
+  <h3>Visually  Inspect</h3>
+  <p>Before you begin  testing, it's helpful to inspect the page visually before diving into automated  or manual testing. When inspecting the page visually, focus on mouse and  keyboard functionality and inspect the color contrast of the graphics, links, buttons, etc. This preliminary review lets you quickly identify obvious visual barriers, interactive elements and potential user experience issues that automated tools might not immediately detect.</p>
+      <h3>Automated Tests</h3>
+      <p>Utilize Axe DevTools for automated testing to identify issues that can be detected automatically. Record the findings in the report in the Accessibility Test Report spreadsheet.</p>
+      
+     <h3>Manual Tests</h3>
+      <p>Conduct the following manual tests to identify issues that automated testing may not be able to detect. Record the findings in the report in the Accessibility Test Report spreadsheet.</p>
+      
+		<div class="expander-group">
+		  <button class="expander-toggle" aria-expanded="false">
+				Keyboard  and focus
+		  </button>
+			<div class="expander-content">
+				<ul>
+					<li>Test  all functionality using one keyboard input.</li>
+					<li>Ensure  proper focus management and logical tab order.</li>
+					<li>Verify  there are no keyboard traps.</li>
+				</ul>
+			</div>
+</div>
+	
+	<div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+    Color Contrast
+  </button>
+  <div class="expander-content">
+    <ul>
+      <li>Visual inspect color contrast using the  CCA tool.</li>
+      <li>Verfiy that color alone is not use to convey meaning or information.</li>
+    </ul>
+    </div>
+</div>
+    <div class="expander-group">
+	  	<button class="expander-toggle" aria-expanded="false">
+			Visual and  Zoom
+		</button>
+	  <div class="expander-content">
+	   <ul>
+				<li><strong>Browser Zoom Test</strong>
+<ul>
+			  <li>Zoom  the browser to 200%</li>
+						<li>Review  the screen being tested, looking for elements not initially displayed (e.g.,  collapsed sections, pop-up dialogs), display as many as possible</li>
+				  </ul>
+   		  </li>
+			  <li><strong>Visual Inspection at 200% Zoom</strong>
+<ul>
+			  <li>Check for text that did not increase in size by 200%.</li>
+						<li>Verify that text does not get cut off, overlap, or become unreadable</li>
+						<li>Ensure all content is still present and in a logical order.</li>
+						<li>Check if page navigation adapts appropriately (e.g., mobile-style menus)</li>
+						<li>Verify  that the layout adapts to the new viewing dimensions.</li>
+						<li>Check  if reflow caused horizontal scrolling.</li>
+				</ul>
+	      </li>
+		     <li><strong>Functionality at 200% Zoom</strong>
+<ul>
+			  <li>Verify  that all interactive elements (links, buttons, forms, menus) still function  correctly.</li>
+						<li>Ensure  that visible focus indication remains for all active elements.</li>
+						<li>Test  keyboard navigation to confirm it still works as expected.</li>
+			   </ul>
+	   	  </li>
+		   <li><strong>High  Contrast Mode</strong>
+<ul>
+              <li>Activate  Windows High Contrast theme (left Alt + left Shift + PrtSc)<u> </u></li>
+                    <li>Verify  that text takes on high-contrast colors<u> </u></li>
+                    <li>Check  that information conveyed by color is still distinguishable.</li>
+             </ul>
+	      </li>
+		   <li><strong>Magnification</strong>
+<ul>
+			  <li>Test  with screen magnification software set to 400%.</li>
+					<li>Confirm  that screen readers can still navigate and read content correctly.</li>
+					 <li>Verify  functionality that all interactive elements (buttons, links, forms) remain  functional when scaled.</li>
+			 </ul>
+	      </li>
+	    </ul>
+	  </div>
+	</div>  
+<div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+    Alternative  Text
+  </button>
+  <div class="expander-content">
+	  <ul>
+ 		<li>Verify the alt text provided for the images is  appropriate alt text.</li>
+	  </ul>
+  </div>
+</div>
+       
+		<div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+    Text  Spacing
+  </button>
+  <div class="expander-content">
+	  <ul>
+ <li>Ensure content remains readable and accessible  with adjusted spacing.</li></ul>
+  </div>
+</div>
+ 
+   <div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+   Semantics  and Document Structure
+  </button>
+  <div class="expander-content">
+   <ul>
+            <li><strong>Heading Structure</strong>
+            <ul>
+                <li>Verify  logical and hierarchical heading structure (H1-H6)</li>
+                <li>Test  navigation of headings using screen readers</li>
+            </ul></li>
+            <li><strong>Landmark Regions</strong>
+            <ul>
+                <li>Ensure  proper use of HTML5 semantic elements or ARIA landmarks.</li>
+                <li>Test  navigation between landmark regions using screen readers.</li>
+            </ul></li>
+            <li><strong>Reading Order</strong>
+            <ul>
+                <li>Verify  that the reading order in the DOM matches the visual layout.</li>
+                <li>Test  the logical flow of information for screen reader users.</li>
+            </ul></li>
+    </ul>
+  </div>
+</div> 
+		<div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+   Forms
+  </button>
+  <div class="expander-content">
+  <ul>
+                <li><strong>Functionality</strong>
+                <ul>
+                    <li>Verify all form controls are operable with  keyboard and assistive technologies</li>
+                    <li>Verif tab order follows a logical flow from top to bottom and left to right.</li>
+                    <li>Test error handling and validation messages.</li>
+                    <li>Verfiy instructional  text is clearly visible and accessible.</li>
+                    <li>Verify images or graphic have appropriate alt text.</li>
+                    <li>Ensure form labels are appropriately associated  with inputs.</li>
+                </ul></li>
+                <li><strong>Dynamic Behavior</strong>
+                <ul>
+                    <li>Test any dynamically appearing forms fields or  sections.</li>
+                    <li>Verify that screen readers announce error messages.</li>
+                </ul></li>
+    </ul>
+  </div>
+</div>
+
+      <div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+   Custom  Widgets
+  </button>
+  <div class="expander-content">
+   <ul>
+            <li><strong>ARIA  Implementation</strong>
+<ul>
+          <li>Verify  the correct use of ARIA roles, states, and properties.</li>
+                <li>Test  custom widgets with various assistive technologies.</li>
+            </ul></li>
+            <li><strong>Keyboard  Interaction</strong>
+<ul>
+          <li>Ensure  custom widgets follow expected keyboard interaction patterns.</li>
+                <li>Test for  proper focus management within complex widgets.</li>
+                <li>Verify  there are no keyboard traps.</li>
+            </ul></li>
+    </ul>
+  </div>
+</div> 
+      
+       <div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+    Audio and  Video
+  </button>
+  <div class="expander-content">
+   <ul>
+	   <li><strong>Captions  and Transcripts</strong>
+<ul>
+          <li>Verify  the presence and accuracy of captions for video content.</li>
+                <li>Ensure  audio-only content has accurate transcripts.</li>
+      </ul></li>
+            <li><strong>Media  Player Accessibility</strong>
+<ul>
+          <li>Test  media player controls for keyboard and screen reader accessibility.</li>
+                <li>Verify  the presence of audio descriptions for visual information in videos.</li>
+      </ul></li>
+    </ul>   
+  </div>
+</div>
+         <div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+   Dynamic Content
+  </button>
+  <div class="expander-content">
+   <ul>
+                <li><strong>Instant  Page Updates</strong> (maps, PowerBI charts).
+<ul>
+          <li>Test  dynamic content updates for proper screen reader announcements.</li>
+                        <li>Verify  that focus is managed correctly after content changes.</li>
+      </ul></li>
+                <li><strong>Infinite  Scrolling</strong>
+<ul>
+          <li>Ensure  keyboard users can access all dynamically loaded content.</li>
+                        <li>Test  screen reader announcement of newly loaded items.</li>
+      </ul></li>
+    </ul>
+  </div>
+</div> 		
+    <h3>Assistive Technology Testing</h3>
+	<p>Testing  with Assistive Technology. Record the  findings in the report in the Accessibility Test Report spreadsheet.</p>
+	<div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+   NVDA Screen Reader Testing
+  </button>
+  <div class="expander-content">
+  				<ul>
+                    <li>Test  with Chrome or Edge and Firefox.</li>
+                    <li>Verify  proper heading structure, landmark regions, and ARIA attributes.</li>
+                </ul>
+  </div>
+</div>
+	<div class="expander-group">
+  <button class="expander-toggle" aria-expanded="false">
+    Magnification
+  </button>
+  <div class="expander-content">
+  <ul>
+                    <li>Test  with Windows Magnification </li>
+                    <li>Ensure  content remains readable and functional when magnified.</li>
+    </ul>
+  </div>
+</div>
+     <h2><step-number>4</step-number> Complete Accessibility Report</h2>
+<hr class="hr-line">
+     <p>Thoroughly review all documented accessibility findings, ensuring each issue is accurately identified and recorded with recommended remediations. After completing the review, compile the reports and supporting materials to share with project teams and stakeholders, facilitating clear and effective communication.</p>
+      <p><strong>The package should include:</strong></p>
+        <ul>
+            <li>Accessibility Scoping document.</li>
+            <li>Accessibility Test Report Spreadsheet.</li>
+            <li>Supporting materials such as screenshots, code  snippets, reference guidelines.</li>
+            <li>Test reports from Axe DevTools and Acrobat PDF  checker.</li>
+            <li>Executive Summary (<em>if requested</em>)</li>
+        </ul>
+    <h2><step-number>5</step-number> Plan for Remediation</h2>
+<hr class="hr-line">
+       <p>Review the testing results with the project team and prioritize remediation issues based on risk, severity, and business value.</p>
+    <h2><step-number>6</step-number> Conduct Regression Testing</h2>
+<hr class="hr-line">
+       <p>Re-run tests that were conducted previously to verify the effectiveness of remediation efforts and to identify any new issues that may arise.</p>

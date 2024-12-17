@@ -1,0 +1,14 @@
+---
+layout: base-inaccessible
+---
+
+<article>
+  <div class="container">
+    {% if page.url != '/about/' and page.url != '/code-of-conduct/' %}
+      <h1 class="h-alpha">{{ page.title | escape }}</h1>
+    {% endif %}
+    <div class="post-content narrow">
+      {{ content }}
+    </div>
+  </div>
+</article>

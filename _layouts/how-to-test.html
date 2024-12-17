@@ -1,0 +1,92 @@
+---
+layout: base
+---
+<div class="container">
+  <div class="how-to-test-wrapper">
+    <nav aria-label="How to test" class="toc-nav">
+      <ul>
+        <li>
+          <a
+            {% if page.url== "/how-to-test/" %} aria-current="page" {% endif %}
+            {% if page.url == "/how-to-test/" %} class="current" {% endif %}
+            href="{{ site.baseurl }}/how-to-test/">
+            How to test
+          </a>
+          
+          <ul>
+            <li>
+              <a
+                {% if page.url== "/how-to-test/keyboard-focus/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/keyboard-focus/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/keyboard-focus/">
+                Keyboard & focus
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url== "/how-to-test/form/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/form/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/form/">
+                Forms
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url== "/how-to-test/images/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/images/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/images/">
+                Images
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url== "/how-to-test/screen-readers/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/screen-readers/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/screen-readers/">
+                Screen readers
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url== "/how-to-test/axe/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/axe/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/axe/">
+                Using axe DevTools
+              </a>
+            </li>
+                                  <li>
+              <a
+                {% if page.url== "/how-to-test/color-contrast/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/color-contrast/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/color-contrast/">
+                Color & contrast
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url== "/how-to-test/link-button/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/link-button/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/link-button/">
+                Links & buttons
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url== "/how-to-test/zoom-magnification/" %} aria-current="page" {% endif %}
+                {% if page.url == "/how-to-test/zoom-magnification/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/how-to-test/zoom-magnification/">
+                Zoom and magnification
+              </a>
+            </li>
+            </ul>
+    </nav>
+
+    <div class="post-content">
+      <h1 class="h-alpha">
+        <span class="h-delta">How-to Test</span><br/>
+        {{ page.title | escape }}
+      </h1>
+      {{ content }}
+    </div>
+  </div>
+</div>
