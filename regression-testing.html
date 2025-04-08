@@ -169,62 +169,112 @@
   <h1 class="h-alpha">
     Identifying Components
   </h1>
-  Ensuring accessibility is an integral part of modern web development. By including accessibility testing in your regression testing process, you can maintain and improve the inclusivity of your application over time. Here’s how you can integrate accessibility testing into your regression testing workflow:
+ <body>
 
-1. Automated Accessibility Testing
-Automate accessibility testing to quickly identify common accessibility issues. This can be done through various tools and frameworks:
+    <h1>Ensuring Accessibility in Regression Testing</h1>
 
-Axe-core: Integrate axe-core into your testing framework (like Selenium, Cypress, or Puppeteer) to automate accessibility checks. Axe-core is a powerful library that can be used to scan for violations and is easy to integrate into your existing test suites.
+    <p>Ensuring accessibility is an integral part of modern web development. By including accessibility testing in your regression testing process, you can maintain and improve the inclusivity of your application over time. Here’s how you can integrate accessibility testing into your regression testing workflow:</p>
 
-Pa11y: Pa11y is another command-line tool that runs automated accessibility tests on your web pages. It's highly configurable and can be integrated with CI/CD pipelines.
+    <ol>
+        <li>
+            <h2>Automated Accessibility Testing</h2>
+            <p>Automate accessibility testing to quickly identify common accessibility issues. This can be done through various tools and frameworks:</p>
+            <ul>
+                <li>
+                    <h3>Axe-core</h3>
+                    <p>Integrate axe-core into your testing framework (like Selenium, Cypress, or Puppeteer) to automate accessibility checks. Axe-core is a powerful library that can be used to scan for violations and is easy to integrate into your existing test suites.</p>
+                </li>
+                <li>
+                    <h3>Pa11y</h3>
+                    <p>Pa11y is another command-line tool that runs automated accessibility tests on your web pages. It's highly configurable and can be integrated with CI/CD pipelines.</p>
+                </li>
+            </ul>
+            <p class="benefits"><strong>Benefits:</strong><br>
+                Quickly identify and fix common accessibility issues.<br>
+                Can be run on every code change, ensuring continuous accessibility compliance.
+            </p>
+        </li>
 
-Benefits:
-Quickly identify and fix common accessibility issues.
-Can be run on every code change, ensuring continuous accessibility compliance.
-2. Manual Accessibility Testing
-While automation is essential, manual testing is crucial for catching issues that automated tools may miss:
+        <li>
+            <h2>Manual Accessibility Testing</h2>
+            <p>While automation is essential, manual testing is crucial for catching issues that automated tools may miss:</p>
+            <ul>
+                <li>
+                    <h3>Screen Reader Testing</h3>
+                    <p>Use screen readers like NVDA or VoiceOver to manually check how your webpage interacts with assistive technologies.</p>
+                </li>
+                <li>
+                    <h3>Keyboard Navigation Testing</h3>
+                    <p>Ensure that all elements can be accessed and used with a keyboard. This includes checking that users can navigate through content using the Tab key, and that focus indicators are visible.</p>
+                </li>
+            </ul>
+            <p class="benefits"><strong>Benefits:</strong><br>
+                Identifies complex or context-specific accessibility issues.<br>
+                Ensures a human-centered perspective on usability.
+            </p>
+        </li>
 
-Screen Reader Testing: Use screen readers like NVDA or VoiceOver to manually check how your webpage interacts with assistive technologies.
+        <li>
+            <h2>Integration in CI/CD Pipelines</h2>
+            <p>Integrate accessibility testing into your CI/CD pipelines to ensure that every build is checked for accessibility issues before it reaches production:</p>
+            <ul>
+                <li>
+                    <h3>Automated Testing in CI/CD</h3>
+                    <p>Use tools like Jenkins, Travis CI, or GitHub Actions to run your automated accessibility tests as part of the build process.</p>
+                </li>
+                <li>
+                    <h3>Fail the Build on Violations</h3>
+                    <p>Configure your pipeline to fail builds if accessibility violations exceed a certain threshold, ensuring developers address issues promptly.</p>
+                </li>
+            </ul>
+            <p class="benefits"><strong>Benefits:</strong><br>
+                Ensures continuous compliance with accessibility standards.<br>
+                Provides immediate feedback to developers.
+            </p>
+        </li>
 
-Keyboard Navigation Testing: Ensure that all elements can be accessed and used with a keyboard. This includes checking that users can navigate through content using the Tab key, and that focus indicators are visible.
+        <li>
+            <h2>Using Browser Extensions and Developer Tools</h2>
+            <p>There are several browser extensions and developer tools available for quick accessibility testing during development:</p>
+            <ul>
+                <li>
+                    <h3>WAVE</h3>
+                    <p>Use the WAVE browser extension to get a visual representation of issues on your page.</p>
+                </li>
+                <li>
+                    <h3>Lighthouse</h3>
+                    <p>Google Chrome’s Lighthouse tool offers accessibility audit capabilities directly from the browser's developer tools.</p>
+                </li>
+            </ul>
+            <p class="benefits"><strong>Benefits:</strong><br>
+                Provides quick feedback without leaving the development environment.<br>
+                Useful for ad-hoc testing and exploration.
+            </p>
+        </li>
 
-Benefits:
-Identifies complex or context-specific accessibility issues.
-Ensures a human-centered perspective on usability.
-3. Integration in CI/CD Pipelines
-Integrate accessibility testing into your CI/CD pipelines to ensure that every build is checked for accessibility issues before it reaches production:
+        <li>
+            <h2>Accessibility Testing Workshops and Training</h2>
+            <p>Educate your team on the importance of accessibility and how to test for it effectively:</p>
+            <ul>
+                <li>
+                    <h3>Workshops and Training Sessions</h3>
+                    <p>Conduct regular training sessions to familiarize your developers and testers with accessibility best practices and tools.</p>
+                </li>
+                <li>
+                    <h3>Accessibility Champions</h3>
+                    <p>Appoint accessibility champions within your team who can provide guidance and support for accessibility testing.</p>
+                </li>
+            </ul>
+            <p class="benefits"><strong>Benefits:</strong><br>
+                Builds a culture of accessibility within your organization.<br>
+                Empowers the team to proactively identify and fix accessibility issues.
+            </p>
+        </li>
+    </ol>
 
-Automated Testing in CI/CD: Use tools like Jenkins, Travis CI, or GitHub Actions to run your automated accessibility tests as part of the build process.
+    <p>By incorporating these strategies into your regression testing process, you can ensure that your web applications remain accessible to all users, enhancing both usability and compliance with accessibility standards.</p>
 
-Fail the Build on Violations: Configure your pipeline to fail builds if accessibility violations exceed a certain threshold, ensuring developers address issues promptly.
-
-Benefits:
-Ensures continuous compliance with accessibility standards.
-Provides immediate feedback to developers.
-4. Using Browser Extensions and Developer Tools
-There are several browser extensions and developer tools available for quick accessibility testing during development:
-
-WAVE: Use the WAVE browser extension to get a visual representation of issues on your page.
-
-Lighthouse: Google Chrome’s Lighthouse tool offers accessibility audit capabilities directly from the browser's developer tools.
-
-Benefits:
-Provides quick feedback without leaving the development environment.
-Useful for ad-hoc testing and exploration.
-5. Accessibility Testing Workshops and Training
-Educate your team on the importance of accessibility and how to test for it effectively:
-
-Workshops and Training Sessions: Conduct regular training sessions to familiarize your developers and testers with accessibility best practices and tools.
-
-Accessibility Champions: Appoint accessibility champions within your team who can provide guidance and support for accessibility testing.
-
-Benefits:
-Builds a culture of accessibility within your organization.
-Empowers the team to proactively identify and fix accessibility issues.
-By incorporating these strategies into your regression testing process, you can ensure that your web applications remain accessible to all users, enhancing both usability and compliance with accessibility standards.
-
-
-
+</body>
 </div>
 </div>
 </div>
