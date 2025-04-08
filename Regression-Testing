@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut  icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+  <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png"/>
+  <meta name="theme-color" content="#003865">
+  <meta name="robots" content="noindex">
+  <title>
+    
+    Regression Testing
+    
+    - MNIT DOT A11y
+  </title>
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Identifying Components" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center" />
+<meta property="og:description" content="MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center" />
+<link rel="canonical" href="https://mnit-dot-a11y.github.io/identifying-components/" />
+<meta property="og:url" content="https://mnit-dot-a11y.github.io/identifying-components/" />
+<meta property="og:site_name" content="MNIT DOT A11y" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Identifying Components" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center","headline":"Identifying Components","url":"https://mnit-dot-a11y.github.io/identifying-components/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body onload="setModifiedDate();" class="preload">
+    <div class="page-wrapper"><div class="skip-links container">
+  <a href="#content">Skip to main content</a>
+  <a href="#footer">Skip to site Map</a>
+</div>
+
+<header class="container"><nav id="nav" class="menu" aria-label="Site menu">
+  <ul>
+    <li class="home">
+      <a aria-label="MNIT DOT Accessibility"
+        
+        href="/">MNIT DOT A11y
+      </a>
+    </li>
+      <li class="web alpha">
+      <a
+        
+        
+        href="/web/">Web
+      </a>
+    </li>
+    <li class="web alpha">
+      <a
+        
+        
+        href="/desktop/">Desktop Apps
+      </a>
+    </li>
+    <li class="native alpha">
+      <a
+        
+        
+        href="/native/">Native Apps
+      </a>
+    </li>
+        <li class="web alpha">
+      <a
+         aria-current="page" 
+         class="current" 
+        href="/identifying-components/">Identifying Components
+      </a>
+    </li>
+    <li class="native bravo">
+      <a
+        
+        
+        href="/how-to-test/">How-to Test
+      </a>
+    </li>
+    <li class="native bravo">
+          <a
+        
+        
+        href="/demos/">Demos
+      </a>
+    </li>
+    <li class="expander-group site-sub-group">
+      <button
+        class="expander-toggle" aria-expanded="false">
+        More
+      </button>
+      <ul class="expander-content">
+        <li>
+          <a href="/how-to-test/">How-to Test</a>
+        </li>
+        <li>
+          <a href="/demos/">Demos</a>
+        </li>
+        <li>
+          <a href="/about/">About</a>
+        </li>
+        <li>
+          <a href="/code-of-conduct/">Code of Conduct</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+<main id="content">
+      <div class="container">
+  <div class="how-to-test-wrapper">
+    <nav aria-label="Secondary Navigation" class="toc-nav">
+      <ul>
+        <li><a href="/identifying-components">Regression Testing</a></li>
+        
+        
+        
+          
+          <li><a href="/identifying-components/information-status/">Information and Status</a>
+          
+            
+            
+            
+                        <ul><li><a href="/identifying-components/information-status/#alerts">Alerts and Notifications</a></li><li><a href="/identifying-components/information-status/#modals">Dialog (Modals)</a></li><li><a href="/identifying-components/information-status/#progressbars">Progress Bars</a></li><li><a href="/identifying-components/information-status/#textinputs">Text Inputs</a></li><li><a href="/identifying-components/information-status/#tooltips">Tooltips</a></li></ul>
+          
+          </li>
+        
+          
+          <li><a href="/identifying-components/interactive-content/">Interactive Content</a>
+          
+            
+            
+            
+                        <ul><li><a href="/identifying-components/interactive-content/#accordions">Accordions</a></li><li><a href="/identifying-components/interactive-content/#animation">Animation</a></li><li><a href="/identifying-components/interactive-content/#audio">Audio and Video</a></li><li><a href="/identifying-components/interactive-content/#buttons">Buttons</a></li><li><a href="/identifying-components/interactive-content/#carousels">Carousels or Slideshows</a></li><li><a href="/identifying-components/interactive-content/#datepicker">Date Picker Dialog</a></li><li><a href="/identifying-components/interactive-content/#tabs">Tabs</a></li><li><a href="/identifying-components/interactive-content/#toggles">Toggle Switches (on/off button)</a></li></ul>
+          
+          </li>
+        
+          
+          <li><a href="/identifying-components/page-structure">Page Structure</a>
+          
+            
+            
+            
+                        <ul><li><a href="/identifying-components/page-structure#forms">Forms</a></li><li><a href="/identifying-components/page-structure#headings">Headings</a></li><li><a href="/identifying-components/page-structure#images">Images</a></li><li><a href="/identifying-components/page-structure#landmarks">Landmarks</a></li><li><a href="/identifying-components/page-structure#links">Links</a></li><li><a href="/identifying-components/page-structure#navigation">Navigation</a></li><li><a href="/identifying-components/page-structure#pagetitle">Page Title</a></li><li><a href="/identifying-components/page-structure#pagination">Pagination</a></li><li><a href="/identifying-components/page-structure#tables">Tables</a></li></ul>
+          
+          </li>
+        
+          
+          <li><a href="/identifying-components/webviews/">Embedded Web Views</a>
+          
+            
+            
+            
+                        <ul><li><a href="/identifying-components/webviews/#iframes">iframe</a></li><li><a href="/identifying-components/webviews/#webviews">WebViews</a></li></ul>
+          
+          </li>
+        
+      </ul>
+    </nav>
+    
+    <div class="post-content">
+  <h1 class="h-alpha">
+    Identifying Components
+  </h1>
+  Ensuring accessibility is an integral part of modern web development. By including accessibility testing in your regression testing process, you can maintain and improve the inclusivity of your application over time. Here’s how you can integrate accessibility testing into your regression testing workflow:
+
+1. Automated Accessibility Testing
+Automate accessibility testing to quickly identify common accessibility issues. This can be done through various tools and frameworks:
+
+Axe-core: Integrate axe-core into your testing framework (like Selenium, Cypress, or Puppeteer) to automate accessibility checks. Axe-core is a powerful library that can be used to scan for violations and is easy to integrate into your existing test suites.
+
+Pa11y: Pa11y is another command-line tool that runs automated accessibility tests on your web pages. It's highly configurable and can be integrated with CI/CD pipelines.
+
+Benefits:
+Quickly identify and fix common accessibility issues.
+Can be run on every code change, ensuring continuous accessibility compliance.
+2. Manual Accessibility Testing
+While automation is essential, manual testing is crucial for catching issues that automated tools may miss:
+
+Screen Reader Testing: Use screen readers like NVDA or VoiceOver to manually check how your webpage interacts with assistive technologies.
+
+Keyboard Navigation Testing: Ensure that all elements can be accessed and used with a keyboard. This includes checking that users can navigate through content using the Tab key, and that focus indicators are visible.
+
+Benefits:
+Identifies complex or context-specific accessibility issues.
+Ensures a human-centered perspective on usability.
+3. Integration in CI/CD Pipelines
+Integrate accessibility testing into your CI/CD pipelines to ensure that every build is checked for accessibility issues before it reaches production:
+
+Automated Testing in CI/CD: Use tools like Jenkins, Travis CI, or GitHub Actions to run your automated accessibility tests as part of the build process.
+
+Fail the Build on Violations: Configure your pipeline to fail builds if accessibility violations exceed a certain threshold, ensuring developers address issues promptly.
+
+Benefits:
+Ensures continuous compliance with accessibility standards.
+Provides immediate feedback to developers.
+4. Using Browser Extensions and Developer Tools
+There are several browser extensions and developer tools available for quick accessibility testing during development:
+
+WAVE: Use the WAVE browser extension to get a visual representation of issues on your page.
+
+Lighthouse: Google Chrome’s Lighthouse tool offers accessibility audit capabilities directly from the browser's developer tools.
+
+Benefits:
+Provides quick feedback without leaving the development environment.
+Useful for ad-hoc testing and exploration.
+5. Accessibility Testing Workshops and Training
+Educate your team on the importance of accessibility and how to test for it effectively:
+
+Workshops and Training Sessions: Conduct regular training sessions to familiarize your developers and testers with accessibility best practices and tools.
+
+Accessibility Champions: Appoint accessibility champions within your team who can provide guidance and support for accessibility testing.
+
+Benefits:
+Builds a culture of accessibility within your organization.
+Empowers the team to proactively identify and fix accessibility issues.
+By incorporating these strategies into your regression testing process, you can ensure that your web applications remain accessible to all users, enhancing both usability and compliance with accessibility standards.
+
+
+
+</div>
+</div>
+</div>
+
+      <div class="print-container">
+      <button type="button" class="print-button">
+        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i>
+        Print this Page
+      </button>
+    </div>
+                     </main><footer class="container" id="footer">
+  <nav aria-label="Site map">
+    <ul>
+      <li>
+        <a href="/about/">
+          About
+        </a>
+      </li>
+      <li>
+        <a href="/resources/">Resources
+        </a>
+      </li>
+      <li>
+        <a href="/testing-environment/">
+          Set Up Your Testing Environment
+        </a>
+      </li>
+      <li>
+        <a href="/testing-routine/">
+          
+          Testing Routine
+        </a>
+      </li>
+      <li>
+        <a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">
+          Send Feedback
+        </a>
+      </li>
+      <li>
+        <a href="/site-map/">
+          Site map
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+  <p class="last-modified" id='last-modified'></p>
+</footer>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+      $("body").removeClass("preload"); // Prevents animations on pageload
+    </script>
+    <script>
+      function convertLinksToAnchors(text) {
+  const urlPattern = /(https?:\/\/[^\s]+)/g;
+  text = text.replace(urlPattern, '<a href="$1">$1</a>');
+
+  return text.replace(/\n/g, '<br>');
+}
+
+$(".criteria-checkbox").change(function() {
+    var condensedArr = [];
+    var gherkinArr = [];
+    condensedArr.push([ '#a11y - Identifying-components Accessibility Acceptance Criteria' ]);
+    gherkinArr.push([ '#a11y - Identifying-components Accessibility Acceptance Criteria' ]);
+
+    // Iterate over checked checkboxes and populate arrays
+    $(".criteria-checkbox:checked").each(function(){
+        var $this = $(this);
+        condensedArr.push([ $this.data('condensed-criteria') ]);
+        gherkinArr.push([ $this.data('gherkin-criteria') ]);
+    });
+    var condensedEditable = document.getElementById("condensed-textarea");
+    condensedEditable.innerHTML = convertLinksToAnchors(condensedArr.join("\n"));
+    var gherkinEditable = document.getElementById("gherkin-textarea");
+    gherkinEditable.innerHTML = convertLinksToAnchors(gherkinArr.join("\n"));
+});
+
+      $("#copy-gherkin").click(function(){
+        var gherkinTextarea = document.getElementById("gherkin-textarea");
+    var range = document.createRange();
+    range.selectNodeContents(gherkinTextarea);
+
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+      });
+      $("#copy-condensed").click(function(){
+          $("#condensed-textarea").select();
+          document.execCommand('copy');
+      });
+    </script>
+    <script>
+      function setModifiedDate() {
+        if (document.getElementById('last-modified')) {
+          fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=IDENTIFYING-COMPONENTS.md")
+            .then((response) => {
+              return response.json();
+            })
+            .then((commits) => {
+              var modified = commits[0]['commit']['committer']['date'].slice(0,10);
+              if(modified != "") {
+                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+              }
+            });
+          }
+        }
+    </script>
+    <script>
+      $("input").on('change', function() {
+        $cowbellValue = $("#cowbell").val();
+        $abbreviation = $("#best-letter").val();
+    
+        if( 
+          $('#alphaCheckbox').is(":checked") &&
+          $('#bravoCheckbox').is(":checked") &&
+          $('#charlieCheckbox').is(":checked") &&
+          $('#bravoRadio').is(":checked") &&
+          $cowbellValue == 11 &&
+          $('#alphaSwitch').is(":not(:checked)") && 
+          $('#bravoSwitch').is(":checked") && 
+          $('#charlieSwitch').is(":not(:checked)") && 
+          $abbreviation == "a11y" || $abbreviation == "A11y" || $abbreviation == "A11Y" || $abbreviation == "a11Y"         
+          ) {
+          $("#showModal").removeAttr('disabled');
+        }
+      });
+    </script>
+</body>
+</html>
