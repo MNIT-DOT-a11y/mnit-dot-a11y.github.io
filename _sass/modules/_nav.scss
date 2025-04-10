@@ -220,10 +220,11 @@ nav.menu {
     margin: 0 auto;   /* Center align it if needed */
 }
 
-.search-container {
-    position: relative; /* Allows for absolute positioning of results if needed */
-    margin-bottom: 10px;
-}
+.search-container  {
+            margin-left: 20px; /* Adds space to the left of the search box */
+            max-width: 400px; /* Sets a maximum width for the search box container */
+            margin-bottom: 10px;
+        }
 
 .search-box {
     width: 100%;  /* Make the input take the full width of its container */
