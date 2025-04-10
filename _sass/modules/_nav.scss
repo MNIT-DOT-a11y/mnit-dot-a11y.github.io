@@ -214,6 +214,39 @@ nav.menu {
               margin: 1rem 1.5rem;
 
             }
+            .search-widget {
+    width: 100%;
+    max-width: 400px; /* Limit the width of the search widget */
+    margin: 0 auto;   /* Center align it if needed */
+}
+
+.search-container {
+    position: relative; /* Allows for absolute positioning of results if needed */
+    margin-bottom: 10px;
+}
+
+.search-box {
+    width: 100%;  /* Make the input take the full width of its container */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width/height */
+}
+
+.search-results {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.search-results li {
+    background: #f9f9f9;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
           }
         }
       }
