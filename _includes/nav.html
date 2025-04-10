@@ -6,11 +6,6 @@
         href="{{ site.baseurl }}/">{{ site.title }}
       </a>
      </li>
-<div class="search-container">
-    <input type="text" id="searchBox" class="search-box" placeholder="Search...">
-</div>
-<ul id="searchResults" class="search-results"></ul>
-<script src="search.js"></script>
       <li class="web alpha">
       <a
         {% if page.url== "/web/" %} aria-current="page" {% endif %}
@@ -71,12 +66,14 @@
         <li>
           <a href="{{ site.baseurl }}/code-of-conduct/">Code of Conduct</a>
         </li>
-
-    <div class="search-container">
-        <input type="text" id="searchBox" class="search-box" placeholder="Search...">
     </div>
       </li>
       </ul>
     </li>
   </ul>
+  <div class="search-container">
+    <input type="text" id="searchBox" class="search-box" placeholder="Search...">
+</div>
+<ul id="searchResults" class="search-results"></ul>
+<script src="search.js"></script>
 </nav>
