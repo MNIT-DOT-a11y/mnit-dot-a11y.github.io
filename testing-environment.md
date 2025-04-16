@@ -141,58 +141,57 @@ There are two different ways you can turn Windows Magnifier on.
 
 axe DevTools browser extension automates accessibility testing for web-based applications to help identify common accessibility issues.
 
-####  **Pro Verions Setup**
+####  **Pro Version Setup**
 **Pro Features**
 - Export/Share Reports: Click Export to generate CSV files or shareable URLs for collaboration.  
 - Component-Level Testing: Focus scans on specific page sections to streamline debugging.  
 - Intelligent Guided Testing (IGT): Follow steps to test complex issues (e.g., modals, focus traps).  
 
-**1. License notification**  
-- You will receive an email notification from **no-reply@deque.com** stating you now have a license for axe DevTools Pro.
-- Accept the invitation by selecting the invitation link.
-- Set up a username using your state email and a unique password.
-**2.  Install the Extension** 
-- Chrome/Edge: Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) or [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/axe-devtools-web-access/kcenlimkmjjkdfcaleembgmldmnnlfkn) and select Add to Chrome/Edge.
-- **Attention!** Pro features like IGT, exporting, and usage reporting are only available in Chrome/Edge. Firefox’s extension version lacks these capabilities.
-**3. Open the Extension** 
-- Right-click on any webpage and select Inspect, or use shortcut:  
-	- Ctrl + Shift + I  
-	- Navigate to the axe DevTools tab in the developer tools panel (may require selecting >> to reveal hidden tabs).
-	<example>
-        <img src="/assets/images/testing-tools/axe-dev-browser-developer-tab.png" alt="Screenshot showing location of the reveal tab">
-    </example>
- 
-**4. Sign in to access the Pro Features**
-- Select Sign in at the top-right corner of the Axe DevTool.
+1. License notification 
+   - _You will receive an email notification from **no-reply@deque.com** stating you now have a license for axe DevTools Pro.
+   - _Accept the invitation by selecting the invitation link.
+   - _Set up a username using your state email and a unique password.
+2.  Install the Extension 
+   - _Chrome/Edge: Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) or [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/axe-devtools-web-access/kcenlimkmjjkdfcaleembgmldmnnlfkn) and select Add to Chrome/Edge.
+   - _**Attention!** Pro features like IGT, exporting, and usage reporting are only available in Chrome/Edge. Firefox’s extension version lacks these capabilities.
+3. Open the Extension
+   - _Right-click on any webpage and select Inspect, or use shortcut:  
+	    - Ctrl + Shift + I  
+	    - Navigate to the axe DevTools tab in the developer tools panel (may require selecting >> to reveal hidden tabs).
+	        <example>
+                <img src="/assets/images/testing-tools/axe-dev-browser-developer-tab.png" alt="Screenshot showing location of the reveal tab">
+            </example>
+4. Sign in to access the Pro Features
+   - _Select Sign in at the top-right corner of the Axe DevTool.
     <example>
         <img src="/assets/images/testing-tools/axe-sign-in.png" alt="Screenshot showing location of sign in link in the top-right corner">
     </example>
-- Enter the username and password that you created in step 1.
-**5. Run a Scan**
-- Visit the [How-to Test Using axe DevTools](/how-to-test/axe) to learn more about using axe DevTools for automated accessibility testing.
+   - _Enter the username and password that you created in step 1.
+5. Run a Scan
+   - _Visit the [How-to Test Using axe DevTools](/how-to-test/axe) to learn more about using axe DevTools for automated accessibility testing.
 ####  **Free Verions Setup**
 1. Install the Extension 
-- Chrome/Edge: Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) or [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/axe-devtools-web-access/kcenlimkmjjkdfcaleembgmldmnnlfkn) and select Add to Chrome/Edge.  
-- Firefox: Install from [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/).
+   - _Chrome/Edge: Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) or [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/axe-devtools-web-access/kcenlimkmjjkdfcaleembgmldmnnlfkn) and select Add to Chrome/Edge.  
+   - _Firefox: Install from [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/).
 2. Access the Extension 
-- Right-click on any webpage and select Inspect, or use shortcuts:  
-	- Windows: Ctrl + Shift + I
-- Navigate to the axe DevTools tab in the developer tools panel (may require selecting >> to reveal hidden tabs).  
+   - _Right-click on any webpage and select Inspect, or use shortcuts:  
+	    - Windows: Ctrl + Shift + I
+   - _Navigate to the axe DevTools tab in the developer tools panel (may require selecting >> to reveal hidden tabs).  
     <example>
         <img src="/assets/images/testing-tools/axe-dev-browser-developer-tab.png" alt="Screenshot showing location of the reveal tab">
     </example>
 3. Configure Settings  
-- Select the ⋮ (Options) button in the left panel and select Settings.  
+   - _Select the ⋮ (Options) button in the left panel and select Settings.  
     <example>
         <img src="/assets/images/testing-tools/axe-option.png" alt="Screenshot showing location of options button">
     </example>
-- Set Best Practices to Enable.
+   - _Set Best Practices to Enable.
     <example>
         <img src="/assets/images/testing-tools/axe-best-practice.png" alt="Screenshot showing best practices enabled.">
     </example>
-- Select Save.
+   - _Select Save.
 4. Run a Scan
-- Visit the [How-to Test Using axe DevTools](/how-to-test/axe) to learn more about using axe DevTools for automated accessibility testing.
+   - _Visit the [How-to Test Using axe DevTools](/how-to-test/axe) to learn more about using axe DevTools for automated accessibility testing.
 
 ---
 
