@@ -145,8 +145,11 @@ axe DevTools browser extension automates accessibility testing for web-based app
 
 1. License notification 
    - You will receive an email notification from **no-reply@deque.com** stating you now have a license for axe DevTools Pro.
-   - Accept the invitation by selecting the invitation link.
-   - Set up a username using your state email and a unique password.
+        <example>
+                <img src="/assets/images/testing-tools/deque-invite-screenshot.png" alt="Screenshot showing location of the reveal tab">
+        </example>
+   - Complete steps 1 to 6 in the email notification. 
+   - **Attention!** Use your official state email address to verify your email address during activation (step 3—Verify email address). This is required to ensure proper license assignment and access.
 2.  Install the Extension 
    - Chrome/Edge: Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) or [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/axe-devtools-web-access/kcenlimkmjjkdfcaleembgmldmnnlfkn) and select Add to Chrome/Edge.
    - **Attention!** Pro features like IGT, exporting, and usage reporting are only available in Chrome/Edge. Firefox’s extension version lacks these capabilities.
@@ -162,7 +165,7 @@ axe DevTools browser extension automates accessibility testing for web-based app
     <example>
         <img src="/assets/images/testing-tools/axe-sign-in.png" alt="Screenshot showing location of sign in link in the top-right corner">
     </example>
-   - Enter the username and password that you created in step 1.
+   - Enter the username and password that you created during step 1 - License notification process.
 5. Run a Scan
    - Visit the [How-to Test Using axe DevTools](/how-to-test/axe) to learn more about using axe DevTools for automated accessibility testing.
 
