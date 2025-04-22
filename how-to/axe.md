@@ -16,66 +16,69 @@ For detailed instructions on installing Axe DevTools, please visit our [Setting 
 1. Open Developer Tools 
    - On Windows, press <kbd>Ctrl + Shift + I</kbd>, or right-click the page and select **Inspect**.
 2. Select the Axe DevTools Tab:
-   - Navigate to the axe DevTools tab in the developer tools panel (may require selecting » to reveal hidden tabs).
+   - Navigate to the axe DevTools tab in the developer tools panel (may require selecting **»** to reveal hidden tabs).
     <example>
       <img src="/assets/images/testing-tools/axe-tool-tab.jpg" alt="Axe DevTools tab highlighted within Developer Tools">
     </example>
 
 ## <step-number>2</step-number> Running a Scan
 {: .divider }
-There are two versions of Axe DevTools: a Pro and a [Free](free) version. Follow the instructions for the version you have. 
+There are two versions of Axe DevTools: a Pro and a [Free](#free) version. Follow the instructions for the version you have. 
 ### Using axe DevTools Pro Version (Chrome and Edge Only)
 If you have an axe DevTools Pro license, you must log in to your Deque account within the Axe DevTools panel. This will unlock the Pro license features.
-#### Signing In
-1.	Look for a Sign In link within the axe DevTools panel in Chrome or Edge.
+#### **Signing In**
+1.	Look for a **Sign In** link within the axe DevTools panel in Chrome or Edge.
     <example>
       <img src="/assets/images/testing-tools/axe-sign-in.png" alt="screenshot showing sign in link">
     </example>
-2.	Select the Sign In link and follow the prompts to log into your Deque account. Once you’re signed in, the axe DevTools interface will update to reflect your Pro status.
+2.	Select the **Sign In link** and follow the prompts to log into your Deque account. Once you’re signed in, the axe DevTools interface will update to reflect your Pro status.
 3.	In the Axe DevTools tab, select the Full Page Scan button.
     <example>
-      <img src="/assets/images/testing-tools/ax-page-scan.png" alt="screenshot showing full page scan buttom">
+      <img src="/assets/images/testing-tools/ax-page-scan.jpg" alt="screenshot showing full page scan buttom">
     </example>
 **Attention!** The scan will capture the page in its current state. If there are any interactive elements, such as accordions, dropdowns, or modal dialogs, you will need to “activate and freeze” them and then rescan to test for accessibility. You can also utilize the Interactive Elements that IGT supports to test multiple states without rerunning a scan. Here's a [video showing how to run](https://www.youtube.com/watch?v=AkkiV2o75EU) an interactive elements test. 
-4.	 Save the scan by selecting the Save Test button.
+4.	 Save the scan by selecting the **Save Test** button.
     <example>
       <img src="/assets/images/testing-tools/axe-save-scan.png" alt="screenshot showing save test button">
     </example>
-
-#### Sharing Saved Test Record
+#### **Sharing Saved Test Record**
 The full saved test report is a live representation of a saved test within a dedicated URL. The report contains a breakdown of all issues and the total number of accessibility issues identified and impact level (critical, serious, moderate, and minor). 
-1.	Navigate to a shared scan or select the "Share Test Record" button on your current saved scan. **Attention!** If the button is not active, you have not saved the scan.
+ - Navigate to a shared scan or select the "Share Test Record" button on your current saved scan. The link can be share with your team or vendor.
+**Attention!** If the button is not active, you have not saved the scan.
     <example>
       <img src="/assets/images/testing-tools/axe-link-saved-report-button.png" alt="screenshot showing saved report button">
     </example>
-2.	The link can be share with your team or vendor.
-<a id="free"></a>
-### Using axe DevTools Free Version 
+   
+### Using axe DevTools Free Version <a id="free"></a>
 1.	Follow the steps outlined in [Accessing axe DevTools](#accessing).
-2.	Verify that Enable Best Practices is selected.
+2.	Verify that **Enable Best Practices** is selected.
      <example>
       <img src="/assets/images/testing-tools/axe-best-practice.png" alt="screenshot showing best practice selected">
     </example>
 3.	In the Axe DevTools tab, select the Full Page Scan button to run a scan.
     <example>
-      <img src="/assets/images/testing-tools/ax-page-scan.png" alt="Full Page Scan button in Axe DevTools interface">
+      <img src="/assets/images/testing-tools/ax-page-scan.jpg" alt="Full Page Scan button in Axe DevTools interface">
     </example>
 **Attention!** The scan will capture the page in its current state. If there are any interactive elements, such as accordions, dropdowns, or modal dialogs, you will need to “activate and freeze” them and then rescan to test for accessibility. 
 
 ## <step-number>3</step-number> Reviewing the Results (Same for both versions)
 {: .divider }
 
-After the scan, issues appear by severity and category. Selecting an issue provides details:
-
+The results **Overview** tab summarizes accessibility issues on a webpage, including a breakdown by type and severity. 
+ <example>
+      <img src="/assets/images/testing-tools/axe-overview-tab.png" alt="screenshot showing the overview tab">
+    </example>
+When you select an error, it reveals detailed information about the issue, such as the following:
 1. **Highlight Element:** Points out the affected element on the page.
 2. **Description & Guidance:** Explains the issue and often links to documentation.
 3. **Code Snippet & Inspector:** Shows underlying code and a quick way to view it in the Element Inspector.
 4. **Relevant Guidelines:** References applicable WCAG criteria or related standards.
-
 <example>
   <img src="/assets/images/testing-tools/axe-scan-results.jpg" alt="Axe DevTools results panel showing identified issues after a scan">
 </example>
-{: .divider }
+
+More information about the Overview tab and how to understand the results can be found on the [Scan overview](https://docs.deque.com/monitor/8.0/en/scan-overview) page at Deque.
+
 ## Additional Considerations & Common Gotchas
 {: .divider }
 
@@ -108,7 +111,6 @@ Tests may vary by browser due to differences in how each handles certain page el
 
 ### Color Contrast
 If reported contrast issues seem unclear, especially with complex backgrounds, it may help to reference additional testing steps noted in the [Color Contrast Testing](https://mnit-dot-a11y.github.io/how-to-test/color-contrast) page.
-{: .divider }
 
 ## Understanding HTML & ARIA (Accessible Rich Internet Applications)
 {: .divider }
