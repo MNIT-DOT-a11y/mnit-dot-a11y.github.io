@@ -27,6 +27,13 @@
         href="{{ site.baseurl }}/native/">Native Apps
       </a>
     </li>
+    <li class="native bravo">
+          <a
+        {% if page.url== "/developer-components/" %} aria-current="page" {% endif %}
+        {% if page.url contains "developer-components" %} class="current" {% endif %}
+        href="{{ site.baseurl }}/developer-components/">developer-components
+      </a>
+    </li>
         <li class="web alpha">
       <a
         {% if page.url== "/identifying-components/" %} aria-current="page" {% endif %}
