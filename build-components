@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Accessibility Component Guide</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+    <header>
+        <h1>Developer Accessibility Component Guide</h1>
+        <nav>
+            <ul>
+                <li><a href="#components">Components Library</a></li>
+                <li><a href="#guides">Guides & Tutorials</a></li>
+                <li><a href="#testing">Testing Tools & Strategies</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Introduction Section -->
+        <section id="introduction">
+            <h2>Introduction to Accessibility Development</h2>
+            <p>Welcome to the Developer Accessibility Component Guide. Here, you will find resources and instructions on creating accessible web components.</p>
+        </section>
+        
+        <!-- Components Library Section -->
+        <section id="components">
+            <h2>Components Library</h2>
+            <div class="component">
+                <h3>Alert Component</h3>
+                <p>Learn how to create accessible alert notifications.</p>
+                <pre>
+&lt;div role="alert" aria-live="assertive"&gt;
+    &lt;p&gt;Your changes have been saved successfully.&lt;/p&gt;
+&lt;/div&gt;
+                </pre>
+                <p>Ensure the alert is visible and screen-reader accessible. Use <code>aria-live</code> regions to convey urgency appropriately.</p>
+            </div>
+            <!-- Add more components as needed -->
+        </section>
+
+        <!-- Guides & Tutorials Section -->
+        <section id="guides">
+            <h2>Guides & Tutorials</h2>
+            <article>
+                <h3>Getting Started with Accessible Web Development</h3>
+                <p>Introductory guides on web accessibility principles and best practices.</p>
+            </article>
+        </section>
+
+        <!-- Testing Tools & Strategies Section -->
+        <section id="testing">
+            <h2>Testing Tools & Strategies</h2>
+            <p>Explore tools and best practices for testing accessibility in your web applications.</p>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources">
+            <h2>Resources</h2>
+            <ul>
+                <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG Guidelines</a></li>
+                <li><a href="https://www.w3.org/WAI/ARIA/apg/">WAI-ARIA Authoring Practices</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Developer Accessibility Guide</p>
+    </footer>
+
+</body>
+</html>
