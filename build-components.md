@@ -3,7 +3,42 @@ layout: demos
 title: "Build Components"
 permalink: /build-components/
 ---
-  <header class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+  <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png"/>
+  <meta name="theme-color" content="#003865">
+  <meta name="robots" content="noindex">
+  <title>Components Overview - MNIT DOT A11y</title>
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+  <meta name="generator" content="Jekyll v3.10.0" />
+  <meta property="og:title" content="Components Overview" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center" />
+  <meta property="og:description" content="MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center" />
+  <link rel="canonical" href="https://mnit-dot-a11y.github.io/components-overview/" />
+  <meta property="og:url" content="https://mnit-dot-a11y.github.io/components-overview/" />
+  <meta property="og:site_name" content="MNIT DOT A11y" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="Components Overview" />
+  <!-- End Jekyll SEO tag -->
+  <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+  <div class="page-wrapper">
+    <div class="skip-links container">
+      <a href="#main-content">Skip to main content</a>
+      <a href="#footer">Skip to site Map</a>
+    </div>
+
+    <header class="container">
       <nav id="nav" class="menu" aria-label="Site menu">
         <ul>
           <li class="home">
@@ -83,3 +118,24 @@ permalink: /build-components/
       <p class="last-modified" id='last-modified'></p>
     </footer>
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/assets/scripts/index.js?1736284235"></script>
+  <script>
+    $("body").removeClass("preload"); // Prevents animations on pageload
+
+    function setModifiedDate() {
+      if (document.getElementById('last-modified')) {
+        fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=IDENTIFYING-COMPONENTS.md")
+          .then(response => response.json())
+          .then(commits => {
+            var modified = commits[0]['commit']['committer']['date'].slice(0,10);
+            if(modified != "") {
+              document.getElementById('last-modified').textContent = "Last modified: " + modified;
+            }
+          });
+      }
+    }
+  </script>
+</body>
+</html>
