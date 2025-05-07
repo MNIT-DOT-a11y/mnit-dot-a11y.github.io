@@ -1,5 +1,5 @@
 ---
-layout: build-components
+layout: demos
 title: "Build Components"
 permalink: /build-components/
 ---
