@@ -6,112 +6,122 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
-  <meta property="og:image" content="https://designsystem.digital.gov/img/gsa-logo.svg" />
+  <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
   <meta name="theme-color" content="#003865">
   <meta name="robots" content="noindex">
-  <title>Breadcrumb | U.S. Web Design System (USWDS)</title>
+  <title>Accordion Component - MNIT DOT A11y</title>
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
   <meta name="generator" content="Jekyll v3.10.0" />
-  <meta property="og:title" content="Breadcrumb | U.S. Web Design System (USWDS)" />
+  <meta property="og:title" content="Accordion Component" />
   <meta property="og:locale" content="en_US" />
-  <meta name="description" content="Breadcrumb component for U.S. Web Design System. Provides secondary navigation to help users understand where they are in a website." />
-  <meta property="og:description" content="Breadcrumb component for U.S. Web Design System. Provides secondary navigation to help users understand where they are in a website." />
-  <link rel="canonical" href="https://designsystem.digital.gov/components/breadcrumb/" />
-  <meta property="og:url" content="https://designsystem.digital.gov/components/breadcrumb/" />
-  <meta property="og:site_name" content="USWDS" />
+  <meta name="description" content="Guide to creating an accessible accordion component. Includes source code and interactive example." />
+  <meta property="og:description" content="Guide to creating an accessible accordion component. Includes source code and interactive example." />
+  <link rel="canonical" href="https://mnit-dot-a11y.github.io/accordion-component/" />
+  <meta property="og:url" content="https://mnit-dot-a11y.github.io/accordion-component/" />
+  <meta property="og:site_name" content="MNIT DOT A11y" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Breadcrumb | U.S. Web Design System (USWDS)" />
+  <meta property="twitter:title" content="Accordion Component" />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","description":"Guide to creating an accessible accordion component. Includes source code and interactive example.","headline":"Accordion Component","url":"https://mnit-dot-a11y.github.io/accordion-component/"}
+  </script>
   <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <style>
+    .accordion {
+      cursor: pointer;
+      background-color: #f1f1f1;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+    }
+
+    .accordion.active,
+    .accordion:hover {
+      background-color: #ccc;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+    }
+  </style>
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
   <div class="page-wrapper">
-
     <div class="skip-links container">
-      <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+      <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
       <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
     </div>
 
     <header class="container">
-      <nav id="nav" class="menu" aria-label="Primary">
+      <nav id="nav" class="menu" aria-label="Site menu">
         <ul>
-          <li class="home"><a aria-label="USWDS Home" href="/">USWDS</a></li>
-          <li><a href="https://www.usa.gov/">Visit USA.gov</a></li>
+          <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+          <li class="web alpha"><a href="/web/">Web</a></li>
+          <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+          <li class="native alpha"><a href="/native/">Native Apps</a></li>
+          <li class="web-alpha"><a aria-current="page" class="current" href="/accordion-component/">Accordion Component</a></li>
+          <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+          <li class="native bravo"><a href="/demos/">Demos</a></li>
+          <li class="expander-group site-sub-group">
+            <button class="expander-toggle" aria-expanded="false">More</button>
+            <ul class="expander-content">
+              <li><a href="/how-to-test/">How-to Test</a></li>
+              <li><a href="/demos/">Demos</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </header>
 
-    <main id="main-content">
+    <main id="content">
       <div class="container">
         <div class="post-content">
-          <h1>Breadcrumb</h1>
-          <p>Breadcrumbs provide secondary navigation to help users understand where they are in a website.</p>
-          
-          <h2>Component preview</h2>
-          <h3>Default breadcrumb</h3>
-          <nav class="usa-breadcrumb" aria-label="Breadcrumbs">
-            <ol class="usa-breadcrumb__list">
-              <li class="usa-breadcrumb__list-item">
-                <a href="#" class="usa-breadcrumb__link"><span>Home</span></a>
-              </li>
-              <li class="usa-breadcrumb__list-item">
-                <a href="#" class="usa-breadcrumb__link"><span>Federal Contracting</span></a>
-              </li>
-              <li class="usa-breadcrumb__list-item">
-                <a href="#" class="usa-breadcrumb__link"><span>Contracting assistance programs</span></a>
-              </li>
-              <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
-                <span>Economically disadvantaged women-owned small business federal contracting program</span>
-              </li>
-            </ol>
-          </nav>
+          <h1>Developing an Accessible Accordion Component</h1>
+          <p>This guide provides instructions for creating an accordion component that meets accessibility standards.</p>
 
-          <h3>Breadcrumb with RDFa metadata</h3>
-          <nav class="usa-breadcrumb" aria-label="Breadcrumbs">
-            <ol vocab="http://schema.org/" typeof="BreadcrumbList" class="usa-breadcrumb__list">
-              <li property="itemListElement" typeof="ListItem" class="usa-breadcrumb__list-item">
-                <a property="item" typeof="WebPage" href="#" class="usa-breadcrumb__link"><span property="name">Home</span></a>
-                <meta property="position" content="1" />
-              </li>
-              <li property="itemListElement" typeof="ListItem" class="usa-breadcrumb__list-item">
-                <a property="item" typeof="WebPage" href="#" class="usa-breadcrumb__link"><span property="name">Federal Contracting</span></a>
-                <meta property="position" content="2" />
-              </li>
-              <li property="itemListElement" typeof="ListItem" class="usa-breadcrumb__list-item">
-                <a property="item" typeof="WebPage" href="#" class="usa-breadcrumb__link"><span property="name">Contracting assistance programs</span></a>
-                <meta property="position" content="3" />
-              </li>
-              <li property="itemListElement" typeof="ListItem" class="usa-breadcrumb__list-item usa-current" aria-current="page">
-                <span property="name">Women-owned small business federal contracting program</span>
-                <meta property="position" content="4" />
-              </li>
-            </ol>
-          </nav>
+          <h2>Interactive Example</h2>
+          <button class="accordion" aria-expanded="false" aria-controls="panel1">Section 1</button>
+          <div class="panel" id="panel1">
+            <p>This is the content of section 1.</p>
+          </div>
+          <button class="accordion" aria-expanded="false" aria-controls="panel2">Section 2</button>
+          <div class="panel" id="panel2">
+            <p>This is the content of section 2.</p>
+          </div>
+          <button class="accordion" aria-expanded="false" aria-controls="panel3">Section 3</button>
+          <div class="panel" id="panel3">
+            <p>This is the content of section 3.</p>
+          </div>
 
-          <h3>Wrapping breadcrumb</h3>
-          <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs">
-            <ol class="usa-breadcrumb__list">
-              <li class="usa-breadcrumb__list-item">
-                <a href="#" class="usa-breadcrumb__link"><span>Home</span></a>
-              </li>
-              <li class="usa-breadcrumb__list-item">
-                <a href="#" class="usa-breadcrumb__link"><span>Federal Contracting</span></a>
-              </li>
-              <li class="usa-breadcrumb__list-item">
-                <a href="#" class="usa-breadcrumb__link"><span>Contracting assistance programs</span></a>
-              </li>
-              <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
-                <span>Economically disadvantaged women-owned small business federal contracting program</span>
-              </li>
-            </ol>
-          </nav>
+          <h2>Source Code</h2>
+          <pre><code>&lt;button class="accordion" aria-expanded="false" aria-controls="panel1"&gt;Section 1&lt;/button&gt;
+&lt;div class="panel" id="panel1"&gt;
+  &lt;p&gt;This is the content of section 1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- Continue for additional sections --&gt;</code></pre>
+
+          <h2>Accessibility Features</h2>
+          <ul>
+            <li>Buttons have <code>aria-expanded</code> attributes to indicate their state (expanded or collapsed).</li>
+            <li>Each panel has an <code>aria-controls</code> attribute to associate it with its trigger button.</li>
+            <li>Ensure the panels are focusable and operable using keyboard.</li>
+          </ul>
         </div>
       </div>
 
@@ -125,12 +135,15 @@
     <footer class="container" id="footer">
       <nav aria-label="Site map">
         <ul>
-          <li><a href="https://designsystem.digital.gov/components/breadcrumb/accessibility-tests">Use breadcrumb accessibility tests</a></li>
-          <li><a href="mailto:feedback@example.com?subject=USWDS%20Breadcrumb%20comment">Send Feedback</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/resources/">Resources</a></li>
+          <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+          <li><a href="/testing-routine/">Testing Routine</a></li>
+          <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
           <li><a href="/site-map/">Site map</a></li>
         </ul>
       </nav>
-      <p>An official website of the General Services Administration</p>
+      <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
       <p class="last-modified" id='last-modified'></p>
     </footer>
   </div>
@@ -139,10 +152,26 @@
   <script src="/assets/scripts/index.js?1736284235"></script>
   <script>
     $("body").removeClass("preload"); // Prevents animations on page load
+
+    document.querySelectorAll('.accordion').forEach(button => {
+      button.addEventListener('click', function () {
+        const panel = document.getElementById(this.getAttribute('aria-controls'));
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!isExpanded));
+        panel.style.display = isExpanded ? 'none' : 'block';
+      });
+    });
+
     function setModifiedDate() {
       if (document.getElementById('last-modified')) {
-        // This function would retrieve and display the last modified date
-        document.getElementById('last-modified').textContent = "Last modified: 2025-05-11";
+        fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=accordion-component.md")
+          .then(response => response.json())
+          .then(commits => {
+            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+            if (modified != "") {
+              document.getElementById('last-modified').textContent = "Last modified: " + modified;
+            }
+          });
       }
     }
   </script>
