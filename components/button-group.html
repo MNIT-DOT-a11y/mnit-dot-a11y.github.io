@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Alert Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Alert Component" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/alert-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/alert-component/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Alert Component" />
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible alert component. Includes source code, interactive example, and guidance.",
+            "headline": "Alert Component",
+            "url": "https://mnit-dot-a11y.github.io/alert-component/"
+        }
+    </script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .alert {
+            border: 1px solid #004085;
+            border-left-width: 4px;
+            padding: 16px;
+            margin: 16px 0;
+            color: #004085;
+            background-color: #d1e7dd;
+        }
+
+        .alert-heading {
+            font-weight: bold;
+        }
+
+        .alert-interactive {
+            cursor: pointer;
+            transition: background-color 0.4s;
+        }
+
+        .alert-interactive:hover {
+            background-color: #bbe5b3;
+        }
+    </style>
+
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/alert-component/">Alert Component</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <div class="container">
+                <div class="post-content">
+                    <h1>Alert Component</h1>
+                    <p>This guide provides instructions for creating an alert component that meets accessibility standards.</p>
+
+                    <h2>Interactive Example</h2>
+                    <div class="alert alert-interactive" role="alert" aria-live="assertive">
+                        <strong class="alert-heading">Notice:</strong> This is an important alert message.
+                    </div>
+
+                    <h2>Source Code</h2>
+                    <pre><code>&lt;div class="alert" role="alert" aria-live="assertive"&gt;
+    &lt;strong class="alert-heading"&gt;Notice:&lt;/strong&gt; This is an important alert message.
+&lt;/div&gt;
+</code></pre>
+
+                    <h2>Guidance</h2>
+                    <h3>When to use the alert component</h3>
+                    <ul>
+                        <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
+                        <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
+                    </ul>
+
+                    <h3>When to consider something else</h3>
+                    <ul>
+                        <li><strong>Long forms.</strong> On long forms, always include in-line validation in addition to any error messages that appear at the top of the form.</li>
+                        <li><strong>Destructive actions.</strong> If an action will result in destroying a user’s work (for example, deleting an application) use a more intrusive pattern, such as a confirmation modal dialogue, to allow the user to confirm that this action is what they want.</li>
+                    </ul>
+
+                    <h3>Usability guidance</h3>
+                    <ul>
+                        <li><strong>Consider next steps.</strong> When the user is required to do something in response to an alert, let them know what they need to do, and make that task as easy as possible. Think about how much context to provide with your message. For example, a notification of a system change may require more contextual information than a validation message. Write the message in concise, human-readable language; avoid jargon and computer code.</li>
+                        <li><strong>Be polite.</strong> Be polite in error messages — don’t blame the user.</li>
+                        <li><strong>Alerts are an opportunity.</strong> Users will read a message that helps them resolve an error even if they generally won’t read documentation; include some educational material in your error message.</li>
+                        <li><strong>Don’t overdo it.</strong> Too many notifications will either overwhelm or annoy the user and are likely to be ignored.</li>
+                        <li><strong>Allow a user to dismiss a notification whenever appropriate.</strong> USWDS is working on a way to help developers implement a dismissible alert. You can follow their progress on GitHub.</li>
+                        <li><strong>Understand the user’s context.</strong> Don’t include notifications that aren’t related to the user’s current goal.</li>
+                    </ul>
+
+                    <h3>Accessibility guidance</h3>
+                    <p>Test the alert component in your own project.</p>
+                    <ul>
+                        <li>USWDS tested the alert component for accessibility. You should test your implementation, too.</li>
+                        <li><strong>Alert accessibility tests:</strong> Don’t visually hide alert messages and then make them visible when they are needed. Users of older assistive technologies may still be able to perceive the alert messages even if they are not currently applicable.</li>
+                        <li><strong>Use the proper ARIA role.</strong> The ARIA <code>role</code> attribute can notify assistive technologies of time-sensitive and important messages. To elevate the importance of the alert, choose the appropriate <code>role</code> from the ARIA roles table and add it to the <code>.alert</code> element.</li>
+                    </ul>
+
+                    <h2>Accessibility Features</h2>
+                    <ul>
+                        <li>The alert uses the <code>role="alert"</code> to ensure it is announced by screen readers.</li>
+                        <li>The <code>aria-live="assertive"</code> attribute ensures the alert content is immediately announced.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=alert-component.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
+            }
+        }
+    </script>
+</body>
+
+</html>
