@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
     <meta charset="utf-8">
@@ -75,7 +75,42 @@
         .card-footer button:hover {
             background-color: #003366;
         }
+
+        .usa-card-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .usa-card {
+            margin: 15px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 320px;
+            background-color: #fff;
+        }
+
+        .usa-card__heading {
+            font-size: 1.25em;
+            color: #004085;
+        }
+
+        .usa-button {
+            background-color: #004085;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .usa-button:hover {
+            background-color: #003366;
+        }
     </style>
+
 </head>
 
 <body onload="setModifiedDate();" class="preload">
@@ -111,33 +146,338 @@
         <main id="content">
             <div class="container">
                 <div class="post-content">
+
                     <h1>Card Component</h1>
-                    <p>This guide provides instructions for creating a card component that meets accessibility standards.</p>
+                    <p>Cards contain content and actions about a single subject.</p>
+                    <p>Passed WCAG 2.1 AA</p>
 
-                    <h2>Interactive Example</h2>
-                    <div class="card">
-                        <div class="card-header">Card Title</div>
-                        <div class="card-content">This is the content of the card. It provides a brief overview or summary of the card's purpose.</div>
-                        <div class="card-footer">
-                            <button aria-label="Read more about Card Title">Learn More</button>
-                        </div>
-                    </div>
+                    <h2>About the Card Component</h2>
+                    <p>A <strong>card</strong> is often a subset or summary of a larger idea. It acts as an entry point to more detailed information. This summary can contain a variety of content types, such as text, images and multimedia, or buttons and links.</p>
+                    <p>An individual card is typically <strong>a member of a collection</strong> of similar cards, not a single card in isolation. A card is distinguished from others in its collection by its content, and cards are distinguished from the broader page context in form — usually with a border or a shadow.</p>
+                    <p>Finally, a card is <strong>modular</strong>, which means you can vary the order of cards in a collection without destroying any individual card’s meaning.</p>
 
-                    <h2>Source Code</h2>
-                    <pre><code>&lt;div class="card"&gt;
-    &lt;div class="card-header"&gt;Card Title&lt;/div&gt;
-    &lt;div class="card-content"&gt;This is the content of the card. It provides a brief overview or summary of the card's purpose.&lt;/div&gt;
-    &lt;div class="card-footer"&gt;
-        &lt;button aria-label="Read more about Card Title"&gt;Learn More&lt;/button&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-                    <h2>Accessibility Features</h2>
-                    <ul>
-                        <li>The card component has semantic HTML structure, using <code>&lt;div&gt;</code> elements with descriptive classes.</li>
-                        <li>Buttons include <code>aria-label</code> attributes to provide clear descriptions of their actions, enhancing screen reader accessibility.</li>
-                        <li>Ensure focus states are visually distinct and keyboard accessible.</li>
+                    <h2>Component Preview</h2>
+                    <h3>Default Card</h3>
+                    <ul class="usa-card-group">
+                        <li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h4 class="usa-card__heading">Card</h4>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="#" class="usa-button">Visit Minnesota Keys</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h4 class="usa-card__heading">Card with Media</h4>
+                                </div>
+                                <div class="usa-card__media">
+                                    <div class="usa-card__img">
+                                        <img src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="A placeholder image" />
+                                    </div>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="#" class="usa-button">Visit Minnesota Keys</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4 usa-card--header-first">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h4 class="usa-card__heading">Media with Header First</h4>
+                                </div>
+                                <div class="usa-card__media usa-card__media--exdent">
+                                    <div class="usa-card__img">
+                                        <img src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="A placeholder image" />
+                                    </div>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus similique nemo odit doloremque laudantium?</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="#" class="usa-button">Visit Minnesota Keys</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h4 class="usa-card__heading">Inset Media</h4>
+                                </div>
+                                <div class="usa-card__media usa-card__media--inset">
+                                    <div class="usa-card__img">
+                                        <img src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="A placeholder image" />
+                                    </div>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus eget, tempus odio. Donec lectus ante, auctor eget cursus sed, convallis quis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris mattis tellus bibendum aliquet malesuada.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="#" class="usa-button">Visit Minnesota Keys</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h4 class="usa-card__heading">Exdent Media</h4>
+                                </div>
+                                <div class="usa-card__media usa-card__media--exdent">
+                                    <div class="usa-card__img">
+                                        <img src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="A placeholder image" />
+                                    </div>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus similique nemo odit doloremque laudantium?</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="#" class="usa-button">Visit Minnesota Keys</a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
+
+                    <h3>Flag Layout Card</h3>
+                    <ul class="usa-card-group">
+                        <li class="usa-card usa-card--flag flex-1">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h4 class="usa-card__heading">Default Flag</h4>
+                                </div>
+                                <div class="usa-card__media">
+                                    <div class="usa-card__img">
+                                        <img src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="A placeholder image" />
+                                    </div>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="#" class="usa-button">Visit Minnesota Keys</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="usa-card usa-card--flag flex-1 usa-card--media-right">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h4 class="usa-card__heading">Flag Media Right Inset</h4>
+                                </div>
+                                <div class="usa-card__media usa-card__media--inset">
+                                    <div class="usa-card__img">
+                                        <img src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="A placeholder image" />
+                                    </div>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="#" class="usa-button">Visit Minnesota Keys</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h2>Component Code</h2>
+
+<pre><code>&lt;h3 class="site-preview-heading"&gt;Default card&lt;/h3&gt;
+&lt;ul class="usa-card-group"&gt;
+  &lt;li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4"&gt;
+    &lt;div class="usa-card__container"&gt;
+      &lt;div class="usa-card__header"&gt;
+        &lt;h4 class="usa-card__heading"&gt;Card&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__body"&gt;
+        &lt;p&gt;
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+          tenetur quo cupiditate, eaque qui officia recusandae.
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__footer"&gt;
+        &lt;a href="#" class="usa-button"&gt;Visit Minnesota Keys&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4"&gt;
+    &lt;div class="usa-card__container"&gt;
+      &lt;div class="usa-card__header"&gt;
+        &lt;h4 class="usa-card__heading"&gt;Card with Media&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__media"&gt;
+        &lt;div class="usa-card__img"&gt;
+          &lt;img
+            src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
+            alt="A placeholder image"
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__body"&gt;
+        &lt;p&gt;
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+          tenetur quo cupiditate, eaque qui officia recusandae.
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__footer"&gt;
+        &lt;a href="#" class="usa-button"&gt;Visit Minnesota Keys&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4 usa-card--header-first"&gt;
+    &lt;div class="usa-card__container"&gt;
+      &lt;div class="usa-card__header"&gt;
+        &lt;h4 class="usa-card__heading"&gt;Media with Header First&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__media usa-card__media--exdent"&gt;
+        &lt;div class="usa-card__img"&gt;
+          &lt;img
+            src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
+            alt="A placeholder image"
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__body"&gt;
+        &lt;p&gt;
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+          possimus similique nemo odit doloremque laudantium?
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__footer"&gt;
+        &lt;a href="#" class="usa-button"&gt;Visit Minnesota Keys&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4"&gt;
+    &lt;div class="usa-card__container"&gt;
+      &lt;div class="usa-card__header"&gt;
+        &lt;h4 class="usa-card__heading"&gt;Inset Media&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__media usa-card__media--inset"&gt;
+        &lt;div class="usa-card__img"&gt;
+          &lt;img
+            src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
+            alt="A placeholder image"
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__body"&gt;
+        &lt;p&gt;
+          Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus
+          eget, tempus odio. Donec lectus ante, auctor eget cursus sed,
+          convallis quis magna. Orci varius natoque penatibus et magnis dis
+          parturient montes, nascetur ridiculus mus. Mauris mattis tellus
+          bibendum aliquet malesuada.
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__footer"&gt;
+        &lt;a href="#" class="usa-button"&gt;Visit Minnesota Keys&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class="usa-card tablet-lg:grid-col-6 widescreen:grid-col-4"&gt;
+    &lt;div class="usa-card__container"&gt;
+      &lt;div class="usa-card__header"&gt;
+        &lt;h4 class="usa-card__heading"&gt;Exdent Media&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__media usa-card__media--exdent"&gt;
+        &lt;div class="usa-card__img"&gt;
+          &lt;img
+            src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
+            alt="A placeholder image"
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__body"&gt;
+        &lt;p&gt;
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+          possimus similique nemo odit doloremque laudantium?
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__footer"&gt;
+        &lt;a href="#" class="usa-button"&gt;Visit Minnesota Keys&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Flag layout card&lt;/h3&gt;
+&lt;ul class="usa-card-group"&gt;
+  &lt;li class="usa-card usa-card--flag flex-1"&gt;
+    &lt;div class="usa-card__container"&gt;
+      &lt;div class="usa-card__header"&gt;
+        &lt;h4 class="usa-card__heading"&gt;Default Flag&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__media"&gt;
+        &lt;div class="usa-card__img"&gt;
+          &lt;img
+            src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
+            alt="A placeholder image"
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__body"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__footer"&gt;
+        &lt;a href="#" class="usa-button"&gt;Visit Minnesota Keys&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class="usa-card usa-card--flag flex-1 usa-card--media-right"&gt;
+    &lt;div class="usa-card__container"&gt;
+      &lt;div class="usa-card__header"&gt;
+        &lt;h4 class="usa-card__heading"&gt;Flag Media Right Inset&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__media usa-card__media--inset"&gt;
+        &lt;div class="usa-card__img"&gt;
+          &lt;img
+            src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
+            alt="A placeholder image"
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__body"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="usa-card__footer"&gt;
+        &lt;a href="#" class="usa-button"&gt;Visit Minnesota Keys&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Card Component</h3>
+                    <ul>
+                        <li><strong>Collections of related content.</strong> Cards help present a collection of related groups of content, like articles or sections of a website.</li>
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+                    <ul>
+                        <li><strong>Tabular data.</strong> Don’t use a card as a substitute for a table row.</li>
+                        <li><strong>Simple calls to action.</strong> Use a button instead.</li>
+                        <li><strong>Standalone content.</strong> Consider an <code>aside</code> or another standalone element.</li>
+                        <li><strong>Sequential, continuous text.</strong> Cards should be self-contained and modular. If the reader is meant to read from card to card, consider a list or simple body text and headings.</li>
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+                    <ul>
+                        <li><strong>Make cards actionable.</strong> Since cards are used as a summary of more detailed information, any individual card should link out to that information.</li>
+                        <li><strong>Don’t use the card component only for decoration.</strong> Use the card component for cards, not for any type of content that’s designed to have a border around it.</li>
+                        <li><strong>Include non-redundant content.</strong> Don’t repeat images or content common to all or most cards in a collection. Repeated information (like using the same image for each card in a collection) makes it more difficult to distinguish cards from one another.</li>
+                        <li><strong>Make sure images are properly sized.</strong> Cards often change size depending on the device. Make sure you use an image that works well on any device at any size.</li>
+                        <li><strong>Use simple styling.</strong> Avoid distracting skeumorphism. Don’t include any card styling that calls too much attention to the metaphor of a paper card, like folds, bent edges, or paper texture.</li>
+                    </ul>
+
                 </div>
             </div>
 
