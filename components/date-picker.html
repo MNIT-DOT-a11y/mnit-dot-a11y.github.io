@@ -15,8 +15,8 @@
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Date Picker Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible date picker component. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating an accessible date picker component. Includes source code and interactive example." />
+    <meta name="description" content="Guide to creating an accessible date picker component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible date picker component. Includes source code, interactive example, and guidance." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/date-picker-component/" />
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/date-picker-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
@@ -27,7 +27,7 @@
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "description": "Guide to creating an accessible date picker component. Includes source code and interactive example.",
+        "description": "Guide to creating an accessible date picker component. Includes source code, interactive example, and guidance.",
         "headline": "Date Picker Component",
         "url": "https://mnit-dot-a11y.github.io/date-picker-component/"
     }
@@ -36,28 +36,25 @@
 
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css">
 
     <style>
-        .date-picker-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
+        .usa-date-picker {
+            margin: 16px 0;
         }
 
-        .date-picker-input {
+        .usa-input {
             width: 100%;
-            padding: 10px;
-            font-size: 1em;
+            padding: 8px;
+            font-size: 1rem;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
+        .usa-hint {
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+        }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js"></script>
 </head>
 
 <body onload="setModifiedDate();" class="preload">
@@ -93,37 +90,88 @@
         <main id="content">
             <div class="container">
                 <div class="post-content">
-                    <h1>Date Picker Component</h1>
-                    <p>This guide provides instructions for creating a date picker component that meets accessibility standards.</p>
+                    <h1>Date Picker</h1>
+                    <p>A date picker helps users select a single date.</p>
+                    <p>Passed WCAG 2.1 AA</p>
+                    <p><strong>Testing has revealed some issues with this component.</strong> Learn more in the known issues section on this page.</p>
 
-                    <h2>Interactive Example</h2>
-                    <div class="date-picker-container">
-                        <label for="date-picker" class="sr-only">Select a date</label>
-                        <input type="text" id="date-picker" class="date-picker-input" placeholder="Select a date" aria-label="Date picker" />
-                    </div>
+                    <h2>Component Preview</h2>
+                    <p>Appointment date</p>
+                    <p>mm/dd/yyyy</p>
 
-                    <h2>Source Code</h2>
-                    <pre><code>&lt;div class="date-picker-container"&gt;
-    &lt;label for="date-picker" class="sr-only"&gt;Select a date&lt;/label&gt;
-    &lt;input type="text" id="date-picker" class="date-picker-input" placeholder="Select a date" aria-label="Date picker" /&gt;
+                    <h2>Component Code</h2>
+
+                    <pre><code>&lt;div class="usa-form-group"&gt;
+  &lt;label class="usa-label" id="appointment-date-label" for="appointment-date"&gt;Appointment date&lt;/label&gt;
+  &lt;div class="usa-hint" id="appointment-date-hint"&gt;mm/dd/yyyy&lt;/div&gt;
+  &lt;div class="usa-date-picker"&gt;
+    &lt;input class="usa-input" id="appointment-date" name="appointment-date" aria-labelledby="appointment-date-label" aria-describedby="appointment-date-hint"/&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+</code></pre>
 
-&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css"&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-    const dateInput = document.getElementById('date-picker');
-    const datepicker = new Datepicker(dateInput, {
-        autohide: true,
-        format: 'mm/dd/yyyy'
-    });
-&lt;/script&gt;</code></pre>
+                    <h2>Guidance</h2>
 
-                    <h2>Accessibility Features</h2>
+                    <h3>When to use the date picker component</h3>
                     <ul>
-                        <li>Uses a visually hidden label for screen readers to describe the date input field.</li>
-                        <li>Includes an <code>aria-label</code> on the input for assistive technology support.</li>
-                        <li>The date picker is accessible via the keyboard, allowing users to navigate through dates using arrow keys.</li>
+                        <li><strong>Scheduling.</strong> When users need to schedule or record an event and benefit from the context of a calendar.</li>
+                        <li><strong>When the day of the week is important.</strong> When knowing the day of the week helps users choose a specific date.</li>
                     </ul>
+
+                    <h3>When to consider something else</h3>
+                    <ul>
+                        <li><strong>Familiar dates.</strong> When asking users for a date they know well, or can look up without using a calendar (like a birthday), use memorable date fields.</li>
+                        <li><strong>When the day of the week is irrelevant.</strong> If there’s no benefit to knowing the day of the week for a particular date, consider memorable date fields.</li>
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+                    <ul>
+                        <li><strong>Describe the date format.</strong> Provide a hint of <code>mm/dd/yyyy</code> to help users enter the proper date format if they opt not to use the date picker.</li>
+                        <li><strong>Always allow a user to type in the date manually.</strong> Usability testing suggests some people prefer manually typing the date rather than using the calendar picker. Keep the keyboard active so people can enter the date information without using the picker.</li>
+                    </ul>
+
+                    <h3>Accessibility Guidance</h3>
+
+                    <p>Test the date picker component in your own project.</p>
+
+                    <ul>
+                        <li><strong>Customize form controls accessibly.</strong> If you customize this component, ensure that it continues to meet the accessibility requirements that apply to all form controls.</li>
+                        <li><strong>Avoid auto-submission.</strong> Don’t use JavaScript to automatically submit the form when an option is selected. Auto-submission disrupts screen readers because they select each option as they read them.</li>
+                        <li><strong>Instructions for keyboard navigation:</strong>
+                            <ul>
+                                <li>Days use left and right arrows</li>
+                                <li>Weeks use up and down arrows</li>
+                                <li>Months by using <code>page up</code> (fn + up arrow) and <code>page down</code> (fn + down arrow)</li>
+                                <li>Years by using <code>shift + page up</code> (shift + fn + up arrow) and <code>shift + page down</code> (shift + fn + down arrow)</li>
+                                <li><code>Home</code> (fn + left arrow) and <code>End</code> (fn + right arrow) keys navigate to the beginning and end of a week</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Using the Date Picker Component</h3>
+                    <ul>
+                        <li><strong>Properties:</strong>
+                            <ul>
+                                <li><code>data-min-date</code>: The date picker will not allow a date selection before this date (format: YYYY-MM-DD).</li>
+                                <li><code>data-max-date</code>: The date picker will not allow a date selection after this date (format: YYYY-MM-DD).</li>
+                                <li><code>data-range-date</code>: The date picker will show a range selection from the range date (format: YYYY-MM-DD).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Initialization properties:</strong> These properties must be set before the component is initialized.
+                            <ul>
+                                <li><code>required</code>: The date picker component will be required in terms of native form validation.</li>
+                                <li><code>disabled</code>: The date picker component will be disabled/readonly. Re-enable by executing the enable procedure on the component.</li>
+                                <li><code>data-default-value</code>: The date picker input will set this value if it is a valid date (format: YYYY-MM-DD).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Procedures:</strong> Static procedures update the component after initialization.
+                            <ul>
+                                <li><code>enable</code>: The date picker component will be enabled.</li>
+                                <li><code>disable</code>: The date picker component will be disabled/read-only.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
 
@@ -153,27 +201,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
-        $("body").removeClass("preload"); // Prevents animations on page load
+        $("body").removeClass("preload");
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=date-picker-component.md")
-                .then(response => response.json())
-                .then(commits => {
-                    var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                    if (modified != "") {
-                        document.getElementById('last-modified').textContent = "Last modified: " + modified;
-                    }
-                });
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
             }
         }
-
-        // Initialize Datepicker example
-        const dateInput = document.getElementById('date-picker');
-        const datepicker = new Datepicker(dateInput, {
-            autohide: true,
-            format: 'mm/dd/yyyy'
-        });
     </script>
 </body>
 
