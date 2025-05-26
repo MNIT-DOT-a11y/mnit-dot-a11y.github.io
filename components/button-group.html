@@ -9,29 +9,28 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Alert Component - MNIT DOT A11y</title>
+    <title>Button Group Component - MNIT DOT A11y</title>
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Alert Component" />
+    <meta property="og:title" content="Button Group Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
-    <meta property="og:description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/alert-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/alert-component/" />
+    <meta name="description" content="Guide to creating an accessible button group component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible button group component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/button-group-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/button-group-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Alert Component" />
-
+    <meta property="twitter:title" content="Button Group Component" />
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "description": "Guide to creating an accessible alert component. Includes source code, interactive example, and guidance.",
-            "headline": "Alert Component",
-            "url": "https://mnit-dot-a11y.github.io/alert-component/"
-        }
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "description": "Guide to creating an accessible button group component. Includes source code, interactive example, and guidance.",
+        "headline": "Button Group Component",
+        "url": "https://mnit-dot-a11y.github.io/button-group-component/"
+    }
     </script>
     <!-- End Jekyll SEO tag -->
 
@@ -39,29 +38,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .alert {
-            border: 1px solid #004085;
-            border-left-width: 4px;
-            padding: 16px;
+        .usa-button-group {
+            display: flex;
+            gap: 0.5rem;
             margin: 16px 0;
-            color: #004085;
-            background-color: #d1e7dd;
         }
 
-        .alert-heading {
-            font-weight: bold;
+        .usa-button-group__item {
+            list-style: none;
         }
 
-        .alert-interactive {
-            cursor: pointer;
-            transition: background-color 0.4s;
+        .usa-button {
+            padding: 10px 16px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
         }
 
-        .alert-interactive:hover {
-            background-color: #bbe5b3;
+        .usa-button--outline {
+            border: 1px solid #ccc;
+            background-color: transparent;
+        }
+
+        .usa-button--big {
+            padding: 12px 18px;
+            font-size: 1.25rem;
+        }
+
+        .bg-base-darkest {
+            background-color: #212529;
+        }
+
+        .padding-1 {
+            padding: 1rem;
         }
     </style>
-
 </head>
 
 <body onload="setModifiedDate();" class="preload">
@@ -78,7 +89,7 @@
                     <li class="web alpha"><a href="/web/">Web</a></li>
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a aria-current="page" class="current" href="/alert-component/">Alert Component</a></li>
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/button-group-component/">Button Group Component</a></li>
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
                     <li class="expander-group site-sub-group">
@@ -97,55 +108,142 @@
         <main id="content">
             <div class="container">
                 <div class="post-content">
-                    <h1>Alert Component</h1>
-                    <p>This guide provides instructions for creating an alert component that meets accessibility standards.</p>
+                    <h1>Button Group</h1>
+                    <p>A button group collects similar or related actions.</p>
+                    <p>Passed WCAG 2.1 AA</p>
 
-                    <h2>Interactive Example</h2>
-                    <div class="alert alert-interactive" role="alert" aria-live="assertive">
-                        <strong class="alert-heading">Notice:</strong> This is an important alert message.
-                    </div>
+                    <h2>Default Button Group</h2>
+                    <p>The default button group arranges each button as a separate element with a gap between them. On mobile devices, the buttons are arranged vertically.</p>
 
-                    <h2>Source Code</h2>
-                    <pre><code>&lt;div class="alert" role="alert" aria-live="assertive"&gt;
-    &lt;strong class="alert-heading"&gt;Notice:&lt;/strong&gt; This is an important alert message.
-&lt;/div&gt;
+                    <h3>Component Preview</h3>
+                    <ul class="usa-button-group">
+                        <li class="usa-button-group__item">
+                            <a href="#" class="usa-button usa-button--outline">Back</a>
+                        </li>
+                        <li class="usa-button-group__item">
+                            <button type="button" class="usa-button">Continue</button>
+                        </li>
+                    </ul>
+
+                    <h3>Component Code</h3>
+
+                    <pre><code>&lt;ul class="usa-button-group"&gt;
+  &lt;li class="usa-button-group__item"&gt;
+    &lt;a href="#" class="usa-button usa-button--outline"&gt;Back&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="usa-button-group__item"&gt;
+    &lt;button type="button" class="usa-button"&gt;Continue&lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 </code></pre>
 
                     <h2>Guidance</h2>
-                    <h3>When to use the alert component</h3>
+
+                    <h3>When to Use the Default Button Group</h3>
                     <ul>
-                        <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
-                        <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
+                        <li><strong>Actions have a contextual relationship.</strong> For example, the default button group can be used when a form has both a primary and alternative action.</li>
+                        <li><strong>Stepping through linear content.</strong> Buttons in a button group can be used for directional navigation and actions (e.g., “Back,” “Next,” “Continue,” “Skip,” “Cancel.”).</li>
                     </ul>
 
-                    <h3>When to consider something else</h3>
+                    <h3>When to Consider Something Else</h3>
                     <ul>
-                        <li><strong>Long forms.</strong> On long forms, always include in-line validation in addition to any error messages that appear at the top of the form.</li>
-                        <li><strong>Destructive actions.</strong> If an action will result in destroying a user’s work (for example, deleting an application) use a more intrusive pattern, such as a confirmation modal dialogue, to allow the user to confirm that this action is what they want.</li>
+                        <li><strong>If actions are not related.</strong> Consider how placement and alternative structure of unrelated actions can improve usability over placing all actions in a group.</li>
+                        <li><strong>When mixing destructive and non-destructive actions.</strong> This can lead to input mistakes.</li>
+                        <li><strong>Linking to content.</strong> Buttons in button groups should not be used when text links would be simpler and more contextually appropriate. Grouped buttons such as “Next” and “Previous” are acceptable when content is organized sequentially.</li>
                     </ul>
 
-                    <h3>Usability guidance</h3>
+                    <h3>Usability Guidance</h3>
                     <ul>
-                        <li><strong>Consider next steps.</strong> When the user is required to do something in response to an alert, let them know what they need to do, and make that task as easy as possible. Think about how much context to provide with your message. For example, a notification of a system change may require more contextual information than a validation message. Write the message in concise, human-readable language; avoid jargon and computer code.</li>
-                        <li><strong>Be polite.</strong> Be polite in error messages — don’t blame the user.</li>
-                        <li><strong>Alerts are an opportunity.</strong> Users will read a message that helps them resolve an error even if they generally won’t read documentation; include some educational material in your error message.</li>
-                        <li><strong>Don’t overdo it.</strong> Too many notifications will either overwhelm or annoy the user and are likely to be ignored.</li>
-                        <li><strong>Allow a user to dismiss a notification whenever appropriate.</strong> USWDS is working on a way to help developers implement a dismissible alert. You can follow their progress on GitHub.</li>
-                        <li><strong>Understand the user’s context.</strong> Don’t include notifications that aren’t related to the user’s current goal.</li>
+                        <li><strong>Avoid burden of choice.</strong> Try not to present the user with too many options.</li>
                     </ul>
 
-                    <h3>Accessibility guidance</h3>
-                    <p>Test the alert component in your own project.</p>
+                    <h3>Accessibility Guidance</h3>
+
+                    <p>Test the button group component in your own project.</p>
+
                     <ul>
-                        <li>USWDS tested the alert component for accessibility. You should test your implementation, too.</li>
-                        <li><strong>Alert accessibility tests:</strong> Don’t visually hide alert messages and then make them visible when they are needed. Users of older assistive technologies may still be able to perceive the alert messages even if they are not currently applicable.</li>
-                        <li><strong>Use the proper ARIA role.</strong> The ARIA <code>role</code> attribute can notify assistive technologies of time-sensitive and important messages. To elevate the importance of the alert, choose the appropriate <code>role</code> from the ARIA roles table and add it to the <code>.alert</code> element.</li>
+                        <li><strong>Convey relationship.</strong> If not using a list element, give the parent element <code>role="group"</code> in order to convey to screen readers that actions are part of a group. If using as part of a toolbar, use <code>role="toolbar"</code>.</li>
                     </ul>
 
-                    <h2>Accessibility Features</h2>
+                    <h3>Using the Default Button Group</h3>
                     <ul>
-                        <li>The alert uses the <code>role="alert"</code> to ensure it is announced by screen readers.</li>
-                        <li>The <code>aria-live="assertive"</code> attribute ensures the alert content is immediately announced.</li>
+                        <li>Buttons inside of a button group follow the same guidelines as the button component.</li>
+                        <li>Button groups support any style and size.</li>
+                        <li>Because the button group uses <code>flexbox</code>, there are several ways to modify how the default button group is displayed.
+                            <ul>
+                                <li>The default button group will display as a column on smaller screen sizes. To override this behavior and display buttons in a row for all screen sizes, use the <code>flex-row</code> utility.</li>
+                                <li>On smaller screens, the first button in the source order will appear at the top of column. You can change this behavior using the order utility. The <code>order</code> utility includes responsive advanced settings that allow it to target specific screen sizes.</li>
+                                <li>Instead of each button appearing on the left-hand side on larger screens (or if you used flex-row), you can use <code>flex-justify</code> to justify the buttons.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h2>Segmented Button Group</h2>
+                    <p>Segmented button groups display a set of discrete buttons in a row as a single element.</p>
+
+                    <h3>Component Preview</h3>
+                    <ul class="usa-button-group usa-button-group--segmented">
+                        <li class="usa-button-group__item">
+                            <button type="button" class="usa-button">Map</button>
+                        </li>
+                        <li class="usa-button-group__item">
+                            <button type="button" class="usa-button usa-button--outline">Hybrid</button>
+                        </li>
+                        <li class="usa-button-group__item">
+                            <button type="button" class="usa-button usa-button--outline">Satellite</button>
+                        </li>
+                    </ul>
+
+                    <h3>Component Code</h3>
+
+                    <pre><code>&lt;ul class="usa-button-group usa-button-group--segmented"&gt;
+  &lt;li class="usa-button-group__item"&gt;
+    &lt;button type="button" class="usa-button"&gt;Map&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li class="usa-button-group__item"&gt;
+    &lt;button type="button" class="usa-button usa-button--outline"&gt;Hybrid&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li class="usa-button-group__item"&gt;
+    &lt;button type="button" class="usa-button usa-button--outline"&gt;Satellite&lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+                    <h3>Guidance</h3>
+
+                    <h4>When to Use the Segmented Button Group</h4>
+                    <ul>
+                        <li><strong>Categorically related controls.</strong> For example, segmented buttons can be used as a switch between different views.</li>
+                    </ul>
+
+                    <h4>When to Consider Something Else</h4>
+                    <ul>
+                        <li><strong>No clear relationship.</strong> Consider how placement and alternative structure of unrelated controls can improve usability over placing all actions in a group.</li>
+                        <li><strong>If there are more than three buttons.</strong> Be mindful of how a long list of buttons might appear on small screens. An alternative type of control might be more suitable.</li>
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+                    <ul>
+                        <li><strong>Avoid ambiguity of current state.</strong> Make sure current states are clearly communicated and understood.</li>
+                    </ul>
+
+                    <h3>Accessibility Guidance</h3>
+
+                    <p>Test the button group component in your own project.</p>
+
+                    <ul>
+                        <li><strong>Convey relationship.</strong> If not using a list element, give the parent element <code>role="group"</code> in order to convey to screen readers that actions are part of a group. If using as part of a toolbar, use <code>role="toolbar"</code>.</li>
+                        <li><strong>Use <code>aria-label</code> to give the buttons a useful name.</strong> Some contexts may require additional context provided to screen readers.</li>
+                        <li><strong>Use the <code>&lt;button type="button"&gt;</code> element.</strong> Don’t use <code>&lt;a&gt;</code> because it’s a link. Don’t use <code>&lt;span&gt;</code> because screen readers won’t know it’s a usable button.</li>
+                    </ul>
+
+                    <h3>Using the Segmented Button Group</h3>
+                    <ul>
+                        <li>Buttons inside of a button group follow the same guidelines as the button component.</li>
+                        <li>Button groups support any style and size.</li>
+                        <li>Don’t mix differently-sized buttons (like a default button and a big button) in the same group.</li>
+                        <li>Use short, descriptive button labels to describe controls.</li>
+                        <li>Use default buttons as a current state and outline buttons as a non-current state. The segmented button group works with all button variants. However, you may need to create custom styles to distinguish state for some button variants.</li>
                     </ul>
                 </div>
             </div>
@@ -180,7 +278,7 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=alert-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=button-group-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
