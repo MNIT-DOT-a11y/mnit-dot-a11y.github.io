@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+
+    <meta name="theme-color" content="#003865">
+
+    <meta name="robots" content="noindex">
+
+    <title>Step Indicator Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+
+    <meta name="generator" content="Jekyll v3.10.0" />
+
+    <meta property="og:title" content="Step Indicator Component" />
+
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="description" content="Guide to creating a step indicator component that updates users on their progress through a multi-step process." />
+
+    <meta property="og:description" content="Guide to creating a step indicator component that updates users on their progress through a multi-step process." />
+
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/step-indicator-component/" />
+
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/step-indicator-component/" />
+
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="twitter:title" content="Step Indicator Component" />
+
+    <script type="application/ld+json">
+
+    {
+
+        "@context": "https://schema.org",
+
+        "@type": "WebPage",
+
+        "description": "Guide to creating a step indicator component that updates users on their progress through a multi-step process.",
+
+        "headline": "Step Indicator Component",
+
+        "url": "https://mnit-dot-a11y.github.io/step-indicator-component/"
+
+    }
+
+    </script>
+
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        .usa-step-indicator {
+
+            margin: 0 auto;
+
+            max-width: 600px;
+
+            padding: 20px;
+
+        }
+
+        .usa-step-indicator__segments {
+
+            display: flex;
+
+            list-style: none;
+
+            padding: 0;
+
+            margin-bottom: 20px;
+
+        }
+
+        .usa-step-indicator__segment {
+
+            flex-grow: 1;
+
+            text-align: center;
+
+            padding: 10px;
+
+            border: 1px solid #bbb;
+
+        }
+
+        .usa-step-indicator__segment--complete {
+
+            background-color: #d6e9c6;
+
+            border-color: #c3e6cb;
+
+        }
+
+        .usa-step-indicator__segment--current {
+
+            background-color: #fff3cd;
+
+            border-color: #ffeeba;
+
+            font-weight: bold;
+
+        }
+
+        .usa-step-indicator__header {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+        }
+
+    </style>
+
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+
+    <div class="page-wrapper">
+
+        <div class="skip-links container">
+
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+
+        </div>
+
+        <header class="container">
+
+            <nav id="nav" class="menu" aria-label="Site menu">
+
+                <ul>
+
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/step-indicator-component/">Step Indicator Component</a></li>
+
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+
+                    <li class="expander-group site-sub-group">
+
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+
+                        <ul class="expander-content">
+
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+
+                            <li><a href="/demos/">Demos</a></li>
+
+                            <li><a href="/about/">About</a></li>
+
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </header>
+
+        <main id="content">
+
+            <div class="container">
+
+                <div class="post-content">
+
+                    <h1>Step Indicator</h1>
+
+                    <p>A step indicator updates users on their progress through a multi-step process.</p>
+
+                    <p>Passed WCAG 2.1 AA</p>
+
+                    <h2>Component Preview</h2>
+
+                    <h3 class="site-preview-heading">Default</h3>
+
+                    <div class="usa-step-indicator">
+
+                        <ol class="usa-step-indicator__segments">
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label">Personal information <span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label">Household status <span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true">
+
+                                <span class="usa-step-indicator__segment-label">Supporting documents</span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label">Signature <span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label">Review and submit <span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                        </ol>
+
+                        <div class="usa-step-indicator__header">
+
+                            <h4 class="usa-step-indicator__heading">
+
+                                <span class="usa-step-indicator__heading-counter"><span class="usa-sr-only">Step</span> <span class="usa-step-indicator__current-step">3</span> <span class="usa-step-indicator__total-steps">of 5</span> </span>
+
+                                <span class="usa-step-indicator__heading-text">Supporting documents</span>
+
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                    <h3 class="site-preview-heading">No labels</h3>
+
+                    <div class="usa-step-indicator usa-step-indicator--no-labels">
+
+                        <ol class="usa-step-indicator__segments">
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label"><span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label"><span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true">
+
+                                <span class="usa-step-indicator__segment-label"></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label"><span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label"><span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                        </ol>
+
+                        <div class="usa-step-indicator__header">
+
+                            <h4 class="usa-step-indicator__heading">
+
+                                <span class="usa-step-indicator__heading-counter"><span class="usa-sr-only">Step</span> <span class="usa-step-indicator__current-step">3</span> <span class="usa-step-indicator__total-steps">of 5</span> </span>
+
+                                <span class="usa-step-indicator__heading-text">Supporting documents</span>
+
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                    <h3 class="site-preview-heading">Centered</h3>
+
+                    <div class="usa-step-indicator usa-step-indicator--center">
+
+                        <ol class="usa-step-indicator__segments">
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label">Personal information <span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label">Household status <span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true">
+
+                                <span class="usa-step-indicator__segment-label">Supporting documents</span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label">Signature <span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label">Review and submit <span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                        </ol>
+
+                        <div class="usa-step-indicator__header">
+
+                            <h4 class="usa-step-indicator__heading">
+
+                                <span class="usa-step-indicator__heading-counter"><span class="usa-sr-only">Step</span> <span class="usa-step-indicator__current-step">3</span> <span class="usa-step-indicator__total-steps">of 5</span> </span>
+
+                                <span class="usa-step-indicator__heading-text">Supporting documents</span>
+
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                    <h3 class="site-preview-heading">Counters</h3>
+
+                    <div class="usa-step-indicator usa-step-indicator--counters">
+
+                        <ol class="usa-step-indicator__segments">
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label">Personal information <span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label">Household status <span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true">
+
+                                <span class="usa-step-indicator__segment-label">Supporting documents</span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label">Signature <span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label">Review and submit <span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                        </ol>
+
+                        <div class="usa-step-indicator__header">
+
+                            <h4 class="usa-step-indicator__heading">
+
+                                <span class="usa-step-indicator__heading-counter"><span class="usa-sr-only">Step</span> <span class="usa-step-indicator__current-step">3</span> <span class="usa-step-indicator__total-steps">of 5</span> </span>
+
+                                <span class="usa-step-indicator__heading-text">Supporting documents</span>
+
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                    <h3 class="site-preview-heading">Small Counters</h3>
+
+                    <div class="usa-step-indicator usa-step-indicator--counters-sm">
+
+                        <ol class="usa-step-indicator__segments">
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label">Personal information <span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+
+                                <span class="usa-step-indicator__segment-label">Household status <span class="usa-sr-only">completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment usa-step-indicator__segment--current" aria-current="true">
+
+                                <span class="usa-step-indicator__segment-label">Supporting documents</span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label">Signature <span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                            <li class="usa-step-indicator__segment">
+
+                                <span class="usa-step-indicator__segment-label">Review and submit <span class="usa-sr-only">not completed</span></span>
+
+                            </li>
+
+                        </ol>
+
+                        <div class="usa-step-indicator__header">
+
+                            <h4 class="usa-step-indicator__heading">
+
+                                <span class="usa-step-indicator__heading-counter"><span class="usa-sr-only">Step</span> <span class="usa-step-indicator__current-step">3</span> <span class="usa-step-indicator__total-steps">of 5</span> </span>
+
+                                <span class="usa-step-indicator__heading-text">Supporting documents</span>
+
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Step Indicator Component</h3>
+
+                    <ul>
+
+                        <li><strong>Multiple steps and screens.</strong> Use the step indicator when the user is working through a form or process that will span several different pages that can be organized into three or more high-level steps or chapters. This helps users understand the progression of long forms and reduces uncertainty as they complete each screen.</li>
+
+                        <li><strong>Linear progression.</strong> The step indicator is designed to complement standard back/next navigation in a linear sequence, not to be navigation of its own.</li>
+
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+
+                    <ul>
+
+                        <li><strong>Long forms with conditional logic.</strong> Consider another approach if the number of steps might change due to user input.</li>
+
+                        <li><strong>Nonlinear progression.</strong> The step indicator isn’t appropriate for nonlinear forms or interactions that might be completed in any order.</li>
+
+                        <li><strong>Very short forms.</strong> Don’t use a step indicator for short forms without chapters or sections. If a form or process has fewer than three sections, don’t use a step indicator.</li>
+
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+
+                    <ul>
+
+                        <li><strong>Indicate where a user is in the process.</strong> Use a color and text treatment for the current step segment that is distinct from both the completed and pending step segments. The current segment should be the most visually prominent segment in the step indicator. Pending segments should be the least visually prominent of the segments, but should still maintain accessible contrast and not appear disabled.</li>
+
+                        <li><strong>Use short or single-word labels.</strong> If labeling the step indicators, stick to very short words.</li>
+
+                        <li><strong>Provide navigation separately.</strong> Use navigation like a button group to step forward and backward through a form.</li>
+
+                        <li><strong>Place a heading directly below the step indicator.</strong> Each step needs an explicit heading. The step indicator segments (even with labels and counters) are not sufficient as a heading for a page or screen.</li>
+
+                        <li><strong>Display step and total left of the heading.</strong> Using text like “[step] of [total]” next to the heading reinforces the number of total steps and helps users keep track of their location in the overall process.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="container" id="footer">
+
+            <nav aria-label="Site map">
+
+                <ul>
+
+                    <li><a href="/about/">About</a></li>
+
+                    <li><a href="/resources/">Resources</a></li>
+
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+
+                    <li><a href="/site-map/">Site map</a></li>
+
+                </ul>
+
+            </nav>
+
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+
+            <p class="last-modified" id='last-modified'></p>
+
+        </footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="/assets/scripts/index.js?1736284235"></script>
+
+    <script>
+
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+
+            if (document.getElementById('last-modified')) {
+
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=step-indicator-component.md")
+
+                    .then(response => response.json())
+
+                    .then(commits => {
+
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+
+                        if (modified != "") {
+
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+
+                        }
+
+                    });
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
