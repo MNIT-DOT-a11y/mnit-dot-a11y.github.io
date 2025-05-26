@@ -39,9 +39,10 @@
 
     <style>
         .usa-banner {
-            background-color: #f0f0f0;
+            background-color: #004080; /* Dark blue for accessible contrast */
             padding: 16px;
             border-bottom: 1px solid #ccc;
+            color: white;
         }
 
         .usa-banner__header {
@@ -62,7 +63,7 @@
 
         .usa-banner__header-action {
             font-size: 0.875rem;
-            color: #0056b3;
+            color: #ffd700; /* Gold color for accessible contrast */
             text-decoration: underline;
             cursor: pointer;
         }
@@ -91,9 +92,14 @@
             background: none;
             border: none;
             font-size: 0.875rem;
-            color: #0056b3;
+            color: #ffd700;
             text-decoration: underline;
             cursor: pointer;
+        }
+
+        .usa-banner__lock-image {
+            width: 26px; /* Reduced size for better fit */
+            height: 32px;
         }
     </style>
 </head>
@@ -131,6 +137,7 @@
         <main id="content">
             <div class="container">
                 <div class="post-content">
+
                     <h1>Banner</h1>
                     <p>Banners identify official websites of government organizations in the United States. They also help visitors understand whether a website is official and secure.</p>
                     <p>Passed WCAG 2.1 AA</p>
@@ -179,7 +186,7 @@
                                             <p>
                                                 <strong>Secure .gov websites use HTTPS</strong><br />A <strong>lock</strong> (
                                                 <span class="icon-lock">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-default" focusable="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="32" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-default" focusable="false">
                                                         <title id="banner-lock-title-default">Lock</title>
                                                         <desc id="banner-lock-description-default">Locked padlock icon</desc>
                                                         <path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
@@ -227,7 +234,7 @@
             &lt;p&gt;
               &lt;strong&gt;Secure .gov websites use HTTPS&lt;/strong&gt;&lt;br /&gt;A &lt;strong&gt;lock&lt;/strong&gt; (
               &lt;span class="icon-lock"&gt;
-                &lt;svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-default" focusable="false"&gt;
+                &lt;svg xmlns="http://www.w3.org/2000/svg" width="26" height="32" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-default" focusable="false"&gt;
                   &lt;title id="banner-lock-title-default"&gt;Lock&lt;/title&gt;
                   &lt;desc id="banner-lock-description-default"&gt;Locked padlock icon&lt;/desc&gt;
                   &lt;path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" /&gt;
@@ -289,6 +296,7 @@
                         <li><strong>Package usage:</strong> <code>@forward "usa-banner";</code></li>
                         <li><strong>Dependencies:</strong> <code>uswds-fonts</code>, <code>usa-media-block</code></li>
                     </ul>
+
                 </div>
             </div>
 
