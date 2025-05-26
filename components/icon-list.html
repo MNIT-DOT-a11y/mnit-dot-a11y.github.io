@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Icon List Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Icon List Component" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Guide to creating an accessible icon list component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible icon list component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/icon-list-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/icon-list-component/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Icon List Component" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "description": "Guide to creating an accessible icon list component. Includes source code, interactive example, and guidance.",
+        "headline": "Icon List Component",
+        "url": "https://mnit-dot-a11y.github.io/icon-list-component/"
+    }
+    </script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .icon-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .icon-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .icon {
+            color: #0056b3;
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .icon-text {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/icon-list-component/">Icon List Component</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <div class="container">
+                <div class="post-content">
+
+                    <h1>Icon List</h1>
+                    <p>An icon list reinforces the meaning and visibility of individual list items with a leading icon.</p>
+                    <p>Passed WCAG 2.1 AA</p>
+
+                    <h2>Component Preview</h2>
+
+                    <h3>Default</h3>
+                    <ul class="icon-list">
+                        <li><span class="icon"><i class="fas fa-hand-sparkles"></i></span><span class="icon-text">Wash your hands for 20 seconds with soap</span></li>
+                        <li><span class="icon"><i class="fas fa-arrows-alt-h"></i></span><span class="icon-text">Stay six feet away from others</span></li>
+                        <li><span class="icon"><i class="fas fa-users"></i></span><span class="icon-text">Avoid large gatherings</span></li>
+                    </ul>
+
+                    <h3>Simple Content</h3>
+                    <p>Benefits of joining Global Entry program:</p>
+                    <ul class="icon-list">
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><span class="icon-text">No processing lines</span></li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><span class="icon-text">Access to expedited entry benefits in other countries</span></li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><span class="icon-text">Available at major U.S. airports</span></li>
+                        <li><span class="icon"><i class="fas fa-check-circle"></i></span><span class="icon-text">Reduced wait times</span></li>
+                    </ul>
+
+                    <h3>Rich Content</h3>
+                    <ul class="icon-list">
+                        <li><span class="icon"><i class="fas fa-donate"></i></span><span class="icon-text">Donate cash when possible. Financial contributions to recognized disaster relief organizations are the fastest, most flexible and most effective method of donating...</span></li>
+                        <li><span class="icon"><i class="fas fa-question-circle"></i></span><span class="icon-text">Confirm what donations are needed. Unneeded and unsolicited goods burden local organizations’ ability to meet survivors’ confirmed...</span></li>
+                        <li><span class="icon"><i class="fas fa-hands-helping"></i></span><span class="icon-text">Talk to trusted organizations about volunteering. Financial contributions to recognized disaster relief organizations are the fastest, most flexible...</span></li>
+                    </ul>
+
+                    <h3>Custom Size with Rich Content</h3>
+                    <p>Here are a few easy ways you can help reduce energy use and costs while spending more time at home.</p>
+                    <ul class="icon-list">
+                        <li><span class="icon"><i class="fas fa-sun"></i></span><span class="icon-text">Let the sun shine. On sunny days, open your curtains to allow the sun to naturally warm the rooms of your home without using electricity...</span></li>
+                        <li><span class="icon"><i class="fas fa-clock"></i></span><span class="icon-text">Adjust your schedule. Instead of running high-energy-use appliances such as dishwashers and clothes dryers during mid-afternoon or early evening...</span></li>
+                        <li><span class="icon"><i class="fas fa-tint"></i></span><span class="icon-text">Fill it up. Wash full loads, whether it’s clothes or dishes. Washing multiple small loads means you’re using and heating more water...</span></li>
+                    </ul>
+
+                    <h3>Custom Size</h3>
+                    <ul class="icon-list">
+                        <li><span class="icon"><i class="fas fa-business-time"></i></span><span class="icon-text"><strong>Timing.</strong> Is now the right time to start a business?</span></li>
+                        <li><span class="icon"><i class="fas fa-hand-holding-usd"></i></span><span class="icon-text"><strong>Funding.</strong> Do I have enough money to launch a business?</span></li>
+                        <li><span class="icon"><i class="fas fa-lightbulb"></i></span><span class="icon-text"><strong>Need.</strong> Will this business fill a real need for my customers?</span></li>
+                    </ul>
+
+                    <h2>Component Code</h2>
+                    <pre><code>&lt;ul class="icon-list"&gt;
+  &lt;li&gt;&lt;span class="icon"&gt;&lt;i class="fas fa-hand-sparkles"&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class="icon-text"&gt;Wash your hands for 20 seconds with soap&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class="icon"&gt;&lt;i class="fas fa-arrows-alt-h"&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class="icon-text"&gt;Stay six feet away from others&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span class="icon"&gt;&lt;i class="fas fa-users"&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class="icon-text"&gt;Avoid large gatherings&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Icon List Component</h3>
+                    <ul>
+                        <li><strong>Do-and-don’t lists.</strong> Icon lists help reinforce the message of a list item using a visual cue as a progressive enhancement...</li>
+                        <li><strong>Features and metadata.</strong> Use an icon list to enhance a list of features, like a campsite’s amenities or other lists...</li>
+                        <li><strong>Important tasks or requirements.</strong> Use an icon list to help users find, distinguish, and verify related steps or tasks...</li>
+                        <li><strong>Printable checklists.</strong> Users may wish to print a page and use it as a physical checklist...</li>
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+                    <ul>
+                        <li><strong>Multi-step forms or wizards.</strong> The step indicator is best for communicating progress through a form or process...</li>
+                        <li><strong>Sequential steps.</strong> Use a standard ordered list or process list if the items must be completed sequentially...</li>
+                        <li><strong>Using complex iconography or graphics.</strong> Use the graphic list if you plan on using different large, complex, or multicolored images...</li>
+                        <li><strong>Improving readability of running text.</strong> The standard unordered list is best for displaying simple lists that are part of running text...</li>
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+                    <ul>
+                        <li><strong>Use consistent headings.</strong> Headings should be written with parallel structure. For example, start each with an action verb...</li>
+                        <li><strong>Add rich content sparingly.</strong> Each list item can display rich text content like HTML, images, and even other components...</li>
+                        <li><strong>Use similar icons.</strong> Use the same icon for each list item unless variation is meaningful...</li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=icon-list-component.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
+            }
+        }
+    </script>
+</body>
+
+</html>
