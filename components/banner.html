@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Banner Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Banner Component" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Guide to creating an accessible banner component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible banner component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/banner-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/banner-component/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Banner Component" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "description": "Guide to creating an accessible banner component. Includes source code, interactive example, and guidance.",
+        "headline": "Banner Component",
+        "url": "https://mnit-dot-a11y.github.io/banner-component/"
+    }
+    </script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .usa-banner {
+            background-color: #f0f0f0;
+            padding: 16px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .usa-banner__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .usa-banner__header-flag {
+            height: 32px;
+            margin-right: 16px;
+        }
+
+        .usa-banner__header-text {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .usa-banner__header-action {
+            font-size: 0.875rem;
+            color: #0056b3;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .usa-banner__content {
+            display: none;
+            padding-top: 16px;
+        }
+
+        .usa-banner__guidance {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .usa-banner__icon {
+            height: 40px;
+            margin-right: 16px;
+        }
+
+        .usa-media-block__body {
+            font-size: 0.875rem;
+        }
+
+        .usa-accordion__button {
+            background: none;
+            border: none;
+            font-size: 0.875rem;
+            color: #0056b3;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/banner-component/">Banner Component</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <div class="container">
+                <div class="post-content">
+                    <h1>Banner</h1>
+                    <p>Banners identify official websites of government organizations in the United States. They also help visitors understand whether a website is official and secure.</p>
+                    <p>Passed WCAG 2.1 AA</p>
+
+                    <h2>About the Banner Component</h2>
+                    <p><strong>Note:</strong> Banners and identifiers are core components. We recommend using both core components on most sites. Together, they are the most recognizable and standardized design elements of a government site.</p>
+                    <p>You should use the banner to identify your site as an official government site.</p>
+                    <p>The banner explains how to identify an official <code>.gov</code> or <code>.mil</code> domain and that these sites have secure HTTPS connections. Using the banner component is the best way to assure visitors that they’re connected to an official site.</p>
+                    <p>Most government sites should use the banner, but some should not use the banner. Do NOT use the banner on non-government domains such as a .com or .org.</p>
+                    <p>If you are unable to update to USWDS 2.8.0 (described on GitHub) or higher but still want to include the new language in your banner, we recommend editing your content to the language outlined in the component preview.</p>
+
+                    <h2>Default Banner</h2>
+                    <p>This is the default banner. USWDS 3.0.0 through 3.12.0 only provide this version.</p>
+
+                    <h3>Component Preview</h3>
+                    <h4>.gov domains</h4>
+                    <section class="usa-banner" aria-label="Official website of the United States government">
+                        <div class="usa-accordion">
+                            <header class="usa-banner__header">
+                                <div class="usa-banner__inner">
+                                    <div class="grid-col-auto">
+                                        <img aria-hidden="true" class="usa-banner__header-flag" src="/assets/img/us_flag_small.png" alt="" />
+                                    </div>
+                                    <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                                        <p class="usa-banner__header-text">An official website of the United States government</p>
+                                        <p class="usa-banner__header-action">Here’s how you know</p>
+                                    </div>
+                                    <button type="button" class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner-default">
+                                        <span class="usa-banner__button-text">Here’s how you know</span>
+                                    </button>
+                                </div>
+                            </header>
+                            <div class="usa-banner__content usa-accordion__content" id="gov-banner-default">
+                                <div class="grid-row grid-gap-lg">
+                                    <div class="usa-banner__guidance tablet:grid-col-6">
+                                        <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true" />
+                                        <div class="usa-media-block__body">
+                                            <p>
+                                                <strong>Official websites use .gov</strong><br />A <strong>.gov</strong> website belongs to an official government organization in the United States.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="usa-banner__guidance tablet:grid-col-6">
+                                        <img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-https.svg" role="img" alt="" aria-hidden="true" />
+                                        <div class="usa-media-block__body">
+                                            <p>
+                                                <strong>Secure .gov websites use HTTPS</strong><br />A <strong>lock</strong> (
+                                                <span class="icon-lock">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-default" focusable="false">
+                                                        <title id="banner-lock-title-default">Lock</title>
+                                                        <desc id="banner-lock-description-default">Locked padlock icon</desc>
+                                                        <path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                                    </svg> </span
+                                                >) or <strong>https://</strong> means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <h3>Component Code</h3>
+
+                    <pre><code>&lt;section class="usa-banner" aria-label="Official website of the United States government"&gt;
+  &lt;div class="usa-accordion"&gt;
+    &lt;header class="usa-banner__header"&gt;
+      &lt;div class="usa-banner__inner"&gt;
+        &lt;div class="grid-col-auto"&gt;
+          &lt;img aria-hidden="true" class="usa-banner__header-flag" src="/assets/img/us_flag_small.png" alt="" /&gt;
+        &lt;/div&gt;
+        &lt;div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true"&gt;
+          &lt;p class="usa-banner__header-text"&gt;An official website of the United States government&lt;/p&gt;
+          &lt;p class="usa-banner__header-action"&gt;Here’s how you know&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;button type="button" class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner-default"&gt;
+          &lt;span class="usa-banner__button-text"&gt;Here’s how you know&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;div class="usa-banner__content usa-accordion__content" id="gov-banner-default"&gt;
+      &lt;div class="grid-row grid-gap-lg"&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-dot-gov.svg" role="img" alt="" aria-hidden="true" /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Official websites use .gov&lt;/strong&gt;&lt;br /&gt;A &lt;strong&gt;.gov&lt;/strong&gt; website belongs to an official government organization in the United States.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="usa-banner__guidance tablet:grid-col-6"&gt;
+          &lt;img class="usa-banner__icon usa-media-block__img" src="/assets/img/icon-https.svg" role="img" alt="" aria-hidden="true" /&gt;
+          &lt;div class="usa-media-block__body"&gt;
+            &lt;p&gt;
+              &lt;strong&gt;Secure .gov websites use HTTPS&lt;/strong&gt;&lt;br /&gt;A &lt;strong&gt;lock&lt;/strong&gt; (
+              &lt;span class="icon-lock"&gt;
+                &lt;svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" class="usa-banner__lock-image" role="img" aria-labelledby="banner-lock-description-default" focusable="false"&gt;
+                  &lt;title id="banner-lock-title-default"&gt;Lock&lt;/title&gt;
+                  &lt;desc id="banner-lock-description-default"&gt;Locked padlock icon&lt;/desc&gt;
+                  &lt;path fill="#000000" fill-rule="evenodd" d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" /&gt;
+                &lt;/svg&gt; &lt;/span&gt;) or &lt;strong&gt;https://&lt;/strong&gt; means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+                    <h2>Guidance</h2>
+
+                    <h3>About</h3>
+                    <p>This default banner was the only variant available until USWDS 13.3.0. The primary difference is that the default is more customizable but can add steps when updating USWDS versions.</p>
+
+                    <h3>When to Use the Default Banner</h3>
+                    <ul>
+                        <li><strong>To identify as an official government site.</strong> Most government sites should use the banner, though non-federal government sites will need to change the text to be more accurate.</li>
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+                    <ul>
+                        <li><strong>If you don’t use a .gov/.mil domain and HTTPS.</strong> The Design System’s banner text identifies <code>.gov</code> and <code>.mil</code> domains and HTTPS as indicators that a website is an official government website. Use this banner only if your site uses both the proper top-level domain (TLD) and HTTPS.</li>
+                        <li><strong>Any time it would be misleading.</strong> The banner should be used to reduce confusion. Avoid using the banner on any site meant only for testing or otherwise not meant to be identified as an official government website.</li>
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+                    <ul>
+                        <li><strong>Use the provided text without customization.</strong> The banner is most effective as an identifier and a learning tool when its message is consistent across government sites. With only a few exceptions (described in our Implementation guidance), sites should use the top-level domain (TLD)-appropriate text provided, unaltered. Use the Spanish version of the banner for Spanish-language websites.</li>
+                        <li><strong>Use the version appropriate to your website’s top-level domain (TLD).</strong> If your project uses a <code>.mil</code> top-level domain, use the <code>.mil</code> banner text.</li>
+                        <li><strong>Show the banner on every page.</strong> Use the banner at the top of every page of a site. It can be confusing or misleading if it appears on some pages and not others.</li>
+                        <li><strong>Avoid distraction.</strong> The banner should appear on every page of your site. Choose background colors that fit with your site theme, and avoid color combinations that draw excessive attention to the banner.</li>
+                        <li><strong>Keep the text up to date.</strong> Use the most current version of the banner.</li>
+                    </ul>
+
+                    <h3>Accessibility Guidance</h3>
+                    <ul>
+                        <li><strong>Use <code>aria-label</code> to give the banner a useful name.</strong> Our default markup uses <code>aria-label="Official website of the United States government"</code> or <code>aria-label="Un sitio oficial del Gobierno de Estados Unidos"</code> to distinguish the banner <code>header</code> from the main <code>header</code>.</li>
+                        <li><strong>The banner’s accordion uses JavaScript to set the <code>aria-hidden</code> value of its content area.</strong> To ensure your content remains accessible in the event the JavaScript does not load or is disabled, you should not set <code>aria-hidden="true"</code> on <code>usa-banner__content</code>.</li>
+                    </ul>
+
+                    <h3>Using the Default Banner</h3>
+                    <ul>
+                        <li>Some <code>.gov</code> websites don’t represent the federal level of the U.S. government. These sites should adapt the <strong>An official website of the United States government</strong> and <strong>Official websites use .gov</strong> sections to use more accurate language specific to the site.</li>
+                        <li>Some <code>.mil</code> websites don’t belong to an official U.S. Department of Defense organization. These sites should adapt the <strong>Official websites use .mil</strong> section to use more technically accurate language: “A <strong>.mil</strong> website operates under the approval of the U.S. Department of Defense.”</li>
+                        <li>The banner should directly follow the <code>skipnav</code> component.</li>
+                        <li>Set the banner background color with <code>$theme-banner-background-color</code>. Banner text color will update automatically.</li>
+                    </ul>
+
+                    <p><strong>Note:</strong> We recommend loading <code>uswds-init.js</code> when using banner, header, or modal components to assist in preventing flashes of unstyled content (FOUC) as well as cumulative layout shift (CLS). This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly.</p>
+
+                    <p>To add <code>uswds-init</code> to your site, simply copy <code>uswds-init.js</code> into your site assets from either the <code>uswds-core/src/js</code> package or the <code>dist/js</code> directory in the downloadable package. Then, reference the file in the <code>&lt;head&gt;</code> of your HTML files. Alternatively, you can inline its contents directly into a <code>&lt;script&gt;</code> tag in your HTML files.</p>
+
+                    <h2>Package</h2>
+                    <ul>
+                        <li><strong>Package usage:</strong> <code>@forward "usa-banner";</code></li>
+                        <li><strong>Dependencies:</strong> <code>uswds-fonts</code>, <code>usa-media-block</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=banner-component.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
+            }
+        }
+
+        // Function to toggle banner content
+        $(document).on('click', '.usa-banner__button', function() {
+            var $content = $(this).closest('.usa-banner').find('.usa-banner__content');
+            var isHidden = $content.is(':hidden');
+
+            $content.slideToggle();
+            $(this).attr('aria-expanded', isHidden.toString());
+        });
+    </script>
+</body>
+
+</html>
