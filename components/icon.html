@@ -25,11 +25,11 @@
     <meta property="twitter:title" content="Icon Component" />
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible icon component. Includes source code, interactive example, and guidance.",
-        "headline": "Icon Component",
-        "url": "https://mnit-dot-a11y.github.io/icon-component/"
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "description": "Guide to creating an accessible icon component. Includes source code, interactive example, and guidance.",
+      "headline": "Icon Component",
+      "url": "https://mnit-dot-a11y.github.io/icon-component/"
     }
     </script>
     <!-- End Jekyll SEO tag -->
@@ -64,9 +64,8 @@
             background-color: #e0e0e0;
         }
 
-        .icon-item svg {
-            width: 36px;
-            height: 36px;
+        .icon-item i {
+            font-size: 36px;
             color: #333;
         }
 
@@ -126,13 +125,11 @@
                     <p>Type to filter icons</p>
                     <p>48 icons. Click an icon to copy its code snippet.</p>
                     <div class="icon-preview">
-                        <!-- Generate 48 icons for demonstration -->
-                        ${[...Array(48)].map((_, i) => `
-                        <div class="icon-item" onclick="copyToClipboard('icon_${i + 1}')">
-                            <svg class="usa-icon" aria-hidden="true" role="img">
-                                <use href="/assets/img/sprite.svg#icon_${i + 1}"></use>
-                            </svg>
-                            <span class="icon-text">icon_${i + 1}</span>
+                        <!-- Generate 48 icons for demonstration using Font Awesome -->
+                        ${Array.from({ length: 48 }, (_, i) => `
+                        <div class="icon-item" onclick="copyToClipboard('fa-icon-${i + 1}')">
+                            <i class="fas fa-icons"></i>
+                            <span class="icon-text">fa-icon-${i + 1}</span>
                         </div>`).join('')}
                     </div>
 
