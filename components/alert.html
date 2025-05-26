@@ -23,15 +23,14 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Alert Component" />
-
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "description": "Guide to creating an accessible alert component. Includes source code, interactive example, and guidance.",
-            "headline": "Alert Component",
-            "url": "https://mnit-dot-a11y.github.io/alert-component/"
-        }
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "description": "Guide to creating an accessible alert component. Includes source code, interactive example, and guidance.",
+        "headline": "Alert Component",
+        "url": "https://mnit-dot-a11y.github.io/alert-component/"
+    }
     </script>
     <!-- End Jekyll SEO tag -->
 
@@ -39,29 +38,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .alert {
-            border: 1px solid #004085;
-            border-left-width: 4px;
-            padding: 16px;
+        .usa-alert {
             margin: 16px 0;
-            color: #004085;
-            background-color: #d1e7dd;
+            padding: 16px;
+            border-left-width: 4px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            position: relative;
         }
 
-        .alert-heading {
+        .usa-alert--info {
+            border-color: #17a2b8;
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .usa-alert--warning {
+            border-color: #ffc107;
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .usa-alert--success {
+            border-color: #28a745;
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .usa-alert--error {
+            border-color: #dc3545;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .usa-alert--emergency {
+            border-color: #dc3545;
+            background-color: #f5c6cb;
+            color: #721c24;
             font-weight: bold;
         }
 
-        .alert-interactive {
-            cursor: pointer;
-            transition: background-color 0.4s;
+        .usa-alert--slim {
+            padding: 8px;
         }
 
-        .alert-interactive:hover {
-            background-color: #bbe5b3;
+        .usa-alert--no-icon .usa-alert__body {
+            padding-left: 0;
+        }
+
+        .usa-alert__heading {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .usa-alert__text {
+            margin-bottom: 0;
+        }
+
+        .usa-link {
+            color: #0056b3;
+            text-decoration: underline;
         }
     </style>
-
 </head>
 
 <body onload="setModifiedDate();" class="preload">
@@ -98,20 +137,172 @@
             <div class="container">
                 <div class="post-content">
                     <h1>Alert Component</h1>
-                    <p>This guide provides instructions for creating an alert component that meets accessibility standards.</p>
+                    <p>An alert keeps users informed of important and sometimes time-sensitive changes.</p>
+                    <p>Passed WCAG 2.1 AA</p>
 
-                    <h2>Interactive Example</h2>
-                    <div class="alert alert-interactive" role="alert" aria-live="assertive">
-                        <strong class="alert-heading">Notice:</strong> This is an important alert message.
+                    <h2>Component Preview</h2>
+                    <h3>Standard Alerts</h3>
+
+                    <div class="usa-alert usa-alert--info">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Informative status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
                     </div>
 
-                    <h2>Source Code</h2>
-                    <pre><code>&lt;div class="alert" role="alert" aria-live="assertive"&gt;
-    &lt;strong class="alert-heading"&gt;Notice:&lt;/strong&gt; This is an important alert message.
+                    <div class="usa-alert usa-alert--warning">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Warning status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="usa-alert usa-alert--success">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Success status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="usa-alert usa-alert--error" role="alert">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Error status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="usa-alert usa-alert--emergency" role="alert">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Emergency status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3>Slim Alert</h3>
+                    <div class="usa-alert usa-alert--info usa-alert--slim">
+                        <div class="usa-alert__body">
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3>Alert with No Icon</h3>
+                    <div class="usa-alert usa-alert--info usa-alert--no-icon">
+                        <div class="usa-alert__body">
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h2>Component Code</h2>
+
+                    <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard alerts&lt;/h3&gt;
+&lt;div class="usa-alert usa-alert--info"&gt;
+  &lt;div class="usa-alert__body"&gt;
+    &lt;h4 class="usa-alert__heading"&gt;Informative status&lt;/h4&gt;
+    &lt;p class="usa-alert__text"&gt;
+      Lorem ipsum dolor sit amet,
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+      elit, sed do eiusmod.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--warning"&gt;
+  &lt;div class="usa-alert__body"&gt;
+    &lt;h4 class="usa-alert__heading"&gt;Warning status&lt;/h4&gt;
+    &lt;p class="usa-alert__text"&gt;
+      Lorem ipsum dolor sit amet,
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+      elit, sed do eiusmod.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--success"&gt;
+  &lt;div class="usa-alert__body"&gt;
+    &lt;h4 class="usa-alert__heading"&gt;Success status&lt;/h4&gt;
+    &lt;p class="usa-alert__text"&gt;
+      Lorem ipsum dolor sit amet,
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+      elit, sed do eiusmod.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--error" role="alert"&gt;
+  &lt;div class="usa-alert__body"&gt;
+    &lt;h4 class="usa-alert__heading"&gt;Error status&lt;/h4&gt;
+    &lt;p class="usa-alert__text"&gt;
+      Lorem ipsum dolor sit amet,
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+      elit, sed do eiusmod.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--emergency" role="alert"&gt;
+  &lt;div class="usa-alert__body"&gt;
+    &lt;h4 class="usa-alert__heading"&gt;Emergency status&lt;/h4&gt;
+    &lt;p class="usa-alert__text"&gt;
+      Lorem ipsum dolor sit amet,
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+      elit, sed do eiusmod.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Slim alert&lt;/h3&gt;
+&lt;div class="usa-alert usa-alert--info usa-alert--slim"&gt;
+  &lt;div class="usa-alert__body"&gt;
+    &lt;p class="usa-alert__text"&gt;
+      Lorem ipsum dolor sit amet,
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+      elit, sed do eiusmod.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Alert with no icon&lt;/h3&gt;
+&lt;div class="usa-alert usa-alert--info usa-alert--no-icon"&gt;
+  &lt;div class="usa-alert__body"&gt;
+    &lt;p class="usa-alert__text"&gt;
+      Lorem ipsum dolor sit amet,
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+      elit, sed do eiusmod.
+    &lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
                     <h2>Guidance</h2>
+
                     <h3>When to use the alert component</h3>
                     <ul>
                         <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
@@ -126,27 +317,31 @@
 
                     <h3>Usability guidance</h3>
                     <ul>
-                        <li><strong>Consider next steps.</strong> When the user is required to do something in response to an alert, let them know what they need to do, and make that task as easy as possible. Think about how much context to provide with your message. For example, a notification of a system change may require more contextual information than a validation message. Write the message in concise, human-readable language; avoid jargon and computer code.</li>
+                        <li><strong>Consider next steps.</strong> When the user is required to do something in response to an alert, let them know what they need to do, and make that task as easy as possible. Provide concise, human-readable language and avoid jargon.</li>
                         <li><strong>Be polite.</strong> Be polite in error messages — don’t blame the user.</li>
-                        <li><strong>Alerts are an opportunity.</strong> Users will read a message that helps them resolve an error even if they generally won’t read documentation; include some educational material in your error message.</li>
-                        <li><strong>Don’t overdo it.</strong> Too many notifications will either overwhelm or annoy the user and are likely to be ignored.</li>
-                        <li><strong>Allow a user to dismiss a notification whenever appropriate.</strong> USWDS is working on a way to help developers implement a dismissible alert. You can follow our progress on GitHub.</li>
-                        <li><strong>Understand the user’s context.</strong> Don’t include notifications that aren’t related to the user’s current goal.</li>
+                        <li><strong>Alerts are an opportunity.</strong> Users will read a message that helps them resolve an error even if they generally won’t read documentation.</li>
+                        <li><strong>Don’t overdo it.</strong> Too many notifications can overwhelm or annoy the user.</li>
+                        <li><strong>Allow dismissals.</strong> Allow users to dismiss notifications when appropriate.</li>
+                        <li><strong>Understand user context.</strong> Only show notifications relevant to the user’s current goal.</li>
                     </ul>
 
                     <h3>Accessibility guidance</h3>
-                    <p>Test the alert component in your own project.</p>
+
+                    <p>Test the alert component in your own project. Use proper ARIA roles to ensure alerts are accessible.</p>
+
                     <ul>
-                        <li>USWDS tested the alert component for accessibility. You should test your implementation, too.</li>
-                        <li><strong>Alert accessibility tests:</strong> Don’t visually hide alert messages and then make them visible when they are needed. Users of older assistive technologies may still be able to perceive the alert messages even if they are not currently applicable.</li>
-                        <li><strong>Use the proper ARIA role.</strong> The ARIA <code>role</code> attribute can notify assistive technologies of time-sensitive and important messages. To elevate the importance of the alert, choose the appropriate <code>role</code> from the ARIA roles table and add it to the <code>.usa-alert</code> element.</li>
+                        <li>Do not visually hide alerts until they are needed; users with older assistive technologies might still perceive them.</li>
+                        <li>Choose the appropriate ARIA <code>role</code> for alerts:
+                            <ul>
+                                <li><code>role="alert"</code> for important, immediate messages.</li>
+                                <li><code>role="status"</code> for advisory messages that are less urgent.</li>
+                                <li><code>role="region"</code> for informational alerts; use with <code>aria-label</code> or <code>aria-labelledby</code>.</li>
+                            </ul>
+                        </li>
                     </ul>
 
-                    <h2>Accessibility Features</h2>
-                    <ul>
-                        <li>The alert uses the <code>role="alert"</code> to ensure it is announced by screen readers.</li>
-                        <li>The <code>aria-live="assertive"</code> attribute ensures the alert content is immediately announced.</li>
-                    </ul>
+                    <p>Reference: <a href="https://www.w3.org/TR/wai-aria-practices/" target="_blank">WAI-ARIA</a></p>
+
                 </div>
             </div>
 
