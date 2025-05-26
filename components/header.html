@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
   <meta charset="utf-8">
@@ -9,26 +9,26 @@
   <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
   <meta name="theme-color" content="#003865">
   <meta name="robots" content="noindex">
-  <title>Accessible Header - MNIT DOT A11y</title>
+  <title>Header Component - MNIT DOT A11y</title>
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
   <meta name="generator" content="Jekyll v3.10.0" />
-  <meta property="og:title" content="Accessible Header" />
+  <meta property="og:title" content="Header Component" />
   <meta property="og:locale" content="en_US" />
-  <meta name="description" content="Guide to creating an accessible header component. Includes source code and interactive example." />
-  <meta property="og:description" content="Guide to creating an accessible header component. Includes source code and interactive example." />
+  <meta name="description" content="Guide to creating an accessible header component. Includes source code and guidance." />
+  <meta property="og:description" content="Guide to creating an accessible header component. Includes source code and guidance." />
   <link rel="canonical" href="https://mnit-dot-a11y.github.io/header-component/" />
   <meta property="og:url" content="https://mnit-dot-a11y.github.io/header-component/" />
   <meta property="og:site_name" content="MNIT DOT A11y" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Accessible Header" />
+  <meta property="twitter:title" content="Header Component" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "description": "Guide to creating an accessible header component. Includes source code and interactive example.",
-      "headline": "Accessible Header",
+      "description": "Guide to creating an accessible header component. Includes source code and guidance.",
+      "headline": "Header Component",
       "url": "https://mnit-dot-a11y.github.io/header-component/"
     }
   </script>
@@ -98,7 +98,6 @@
 </head>
 
 <body onload="setModifiedDate();" class="preload">
-
   <div class="page-wrapper">
     <div class="skip-links container">
       <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -117,7 +116,7 @@
             <li class="usa-nav__item"><a href="#section3" class="usa-nav__link">Section 3</a></li>
           </ul>
           <div class="usa-search">
-            <input type="search" class="usa-search__input" placeholder="Search">
+            <input type="search" class="usa-search__input" placeholder="Search" aria-label="Search input">
             <button class="usa-search__button" type="submit">Search</button>
           </div>
         </nav>
@@ -127,10 +126,111 @@
     <main id="content">
       <div class="container">
         <div class="post-content">
-          <h1>Accessible Header</h1>
-          <p>This guide provides instructions for creating a header component that meets accessibility standards.</p>
 
-          <h2>Interactive Example</h2>
+          <h1>Header</h1>
+          <p>A header helps users identify where they are and provides a quick, organized way to reach the main sections of a website.</p>
+          <p>Passed WCAG 2.1 AA</p>
+
+          <h2>When to Use a Header Component</h2>
+          <ul>
+            <li><strong>Most websites require header navigation.</strong> Most websites require some form of navigation to help users find the information they need. While a horizontal navigation bar is just one option for navigation design, it is one of the most visible and familiar ways of helping users navigate a site.</li>
+          </ul>
+
+          <h2>Header Usability</h2>
+          <ul>
+            <li><strong>List all important website sections as links in the horizontal navigation.</strong></li>
+            <li><strong>Dropdown menus help preview lower-level content.</strong> For large websites, use dropdown menus to help users preview lower-level content. If lower-level sections are closely related and users will need to quickly jump between them, consider using a side navigation instead of — or in addition to — a dropdown.</li>
+            <li><strong>Use short, clear link labels.</strong> Don’t use jargon or unfamiliar terms.</li>
+            <li><strong>Left-justify.</strong> Left-justified link labels are more easily scannable.</li>
+            <li><strong>Present links in priority order.</strong> Higher-demand links should appear farther to the left, and lower-demand links should appear farther to the right.</li>
+            <li><strong>Avoid org-structure navigation.</strong> Don’t model your navigation after your agency’s org structure. Instead, structure it according to the tasks and information your users most frequently need to access.</li>
+            <li><strong>Highlight the current section.</strong> Show users where they are within the site by highlighting the current section.</li>
+            <li><strong>Always research your navigation.</strong> Conduct research with your users, and base decisions about your site’s information architecture and navigation structure on your findings. Continue researching to confirm that updates meet your users’ needs.</li>
+          </ul>
+
+          <h2>Header Accessibility</h2>
+          <p>Test the header component in your own project.</p>
+          <ul>
+            <li><strong>Add a skip navigation link before the header.</strong> Include skip navigation links to allow those using screen readers to bypass long navigation lists. Make sure you include an <code>id</code> at the beginning of your main content and that it matches the skip navigation link. Find more information on skip navigation links at WebAIM.</li>
+            <li><strong>Ensure your horizontal navigation is keyboard compatible.</strong> Test to make sure users can use <code>Tab</code> to navigate and <code>Space</code> (or <code>Enter</code>) to open pages.</li>
+            <li><strong>Include tab focus for all top-level navigation items.</strong> This feature will allow keyboard-reliant users to easily navigate interactive items.</li>
+            <li><strong>Avoid using hover to expand dropdown lists.</strong> Hover is difficult for some users and won't work on touch screens. Dropdowns should expand on click or with keyboard navigation.</li>
+            <li><strong>Add context by labelling your nav element.</strong> If your page has more than one <code>nav</code> element, use the <code>aria-label</code> attribute to help assistive technology users understand the purpose of the navigation.</li>
+            <li><strong>Use list elements for your navigation links.</strong> This helps screen reader users navigate header content.</li>
+            <li><strong>Add alt text to your logo image.</strong> If you’re using a logo that’s an image rather than text, make sure you include alternative text for screen readers.</li>
+            <li><strong>Don't use an H1 for your logo.</strong> If you’re using a logo that’s text, use an <code>em</code>, not an <code>h1</code>, unless it’s the homepage. Find more information here: <a href="http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/">csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/</a></li>
+          </ul>
+
+          <h2>Further Reading</h2>
+          <ul>
+            <li>Menu design resource from Nielsen Norman</li>
+            <li>Tree Testing resource from UserTesting.com</li>
+          </ul>
+
+          <h2>Implementation</h2>
+
+          <h3>Header Settings</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Variable</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>$theme-header-font-family</code></td>
+                <td>Font family of the header.</td>
+              </tr>
+              <tr>
+                <td><code>$theme-header-logo-text-width</code></td>
+                <td>Width of the logo text area at desktop width as a percentage of the total header width.</td>
+              </tr>
+              <tr>
+                <td><code>$theme-header-max-width</code></td>
+                <td>Maximum width of the header.</td>
+              </tr>
+              <tr>
+                <td><code>$theme-header-min-width</code></td>
+                <td>Breakpoint at which the non-mobile header is shown.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Header Variants</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Variant</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>.usa-header--basic</code></td>
+                <td>Display a simple header.</td>
+              </tr>
+              <tr>
+                <td><code>.usa-header--megamenu</code></td>
+                <td>Display a megamenu.</td>
+              </tr>
+              <tr>
+                <td><code>.usa-header--extended</code></td>
+                <td>Display an extended header.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><strong>Note:</strong> We recommend loading <code>uswds-init.js</code> when using banner, header, or modal components to assist in preventing flashes of unstyled content (FOUC) as well as cumulative layout shift (CLS). This small JavaScript file (less than 1 KB minified) helps the browser know if the USWDS JavaScript library is loading properly.</p>
+
+          <p>To add <code>uswds-init</code> to your site, simply copy <code>uswds-init.js</code> into your site assets from either the <code>uswds-core/src/js</code> package or the <code>dist/js</code> directory in the downloadable package. Then, reference the file in the <code>&lt;head&gt;</code> of your HTML files. Alternatively, you can inline its contents directly into a <code>&lt;script&gt;</code> tag in your HTML files.</p>
+
+          <h2>Basic Header</h2>
+          <p>Orient users to a simple site.</p>
+
+          <h3>Component Preview</h3>
+          <p>Demo Basic header</p>
+
+          <h3>Component Code</h3>
           <pre><code>&lt;header class="usa-header"&gt;
   &lt;div class="usa-nav-container"&gt;
     &lt;div class="usa-logo"&gt;
@@ -143,27 +243,35 @@
         &lt;li class="usa-nav__item"&gt;&lt;a href="#section3" class="usa-nav__link"&gt;Section 3&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
       &lt;div class="usa-search"&gt;
-        &lt;input type="search" class="usa-search__input" placeholder="Search"&gt;
+        &lt;input type="search" class="usa-search__input" placeholder="Search" aria-label="Search input"&gt;
         &lt;button class="usa-search__button" type="submit"&gt;Search&lt;/button&gt;
       &lt;/div&gt;
     &lt;/nav&gt;
   &lt;/div&gt;
 &lt;/header&gt;</code></pre>
 
-          <h2>Guidance</h2>
+          <h3>Guidance</h3>
+
+          <h4>About</h4>
+          <p>Use the basic header if you have few enough sections in your main navigation to fit comfortably next to your logo; this decision will depend on the length of your text and whether you include a search bar. You can customize the header (depending on your site structure) and use it with:</p>
           <ul>
-            <li>Include skip navigation links to allow users with screen readers to bypass long navigation lists.</li>
-            <li>Ensure that navigation is keyboard compatible, allowing users to use <code>Tab</code> to navigate.</li>
-            <li>Use list elements for navigation links to enhance screen reader navigation.</li>
-            <li>Add alt text to logo images if they are not text.</li>
+            <li>A text or image logo</li>
+            <li>With or without dropdown menus</li>
+            <li>With or without a search bar</li>
+            <li>With or without call-to-action buttons in place of the search bar</li>
           </ul>
 
-          <h2>Accessibility Features</h2>
+          <h4>When to Use the Basic Header</h4>
           <ul>
-            <li>Headers are designed to be keyboard-accessible with clear focus indicators.</li>
-            <li>Color contrast meets WCAG 2.1 AA standards for visibility.</li>
-            <li>Structured menu navigation with clear labeling for screen readers.</li>
+            <li><strong>Limited sections.</strong> The basic header is great if you have a modest number of sections in your main navigation.</li>
+            <li><strong>Shallow hierarchy.</strong> You may also use it if each main section listed in the horizontal navigation has six or fewer subsections that you’d like to include in a dropdown menu.</li>
           </ul>
+
+          <h4>When to Consider Something Else</h4>
+          <ul>
+            <li><strong>Many sections or deep hierarchy.</strong> Consider using the extended header if you have more sections in your horizontal navigation than will fit comfortably next to your logo or if you have complex sections that require the use of a megamenu.</li>
+          </ul>
+
         </div>
       </div>
 
@@ -208,7 +316,6 @@
       }
     }
   </script>
-
 </body>
 
 </html>
