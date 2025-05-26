@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+
+    <meta name="theme-color" content="#003865">
+
+    <meta name="robots" content="noindex">
+
+    <title>Input Prefix/Suffix - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+
+    <meta name="generator" content="Jekyll v3.10.0" />
+
+    <meta property="og:title" content="Input Prefix/Suffix" />
+
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="description" content="Guide to using input prefixes and suffixes to assist in form input." />
+
+    <meta property="og:description" content="Guide to using input prefixes and suffixes to assist in form input." />
+
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/input-prefix-suffix/" />
+
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/input-prefix-suffix/" />
+
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="twitter:title" content="Input Prefix/Suffix" />
+
+    <script type="application/ld+json">
+
+    {
+
+        "@context": "https://schema.org",
+
+        "@type": "WebPage",
+
+        "description": "Guide to using input prefixes and suffixes to assist in form input.",
+
+        "headline": "Input Prefix/Suffix",
+
+        "url": "https://mnit-dot-a11y.github.io/input-prefix-suffix/"
+
+    }
+
+    </script>
+
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        .usa-input-group {
+
+            display: flex;
+
+            align-items: center;
+
+            border: 1px solid #ccc;
+
+            border-radius: 4px;
+
+            margin-bottom: 16px;
+
+            padding: 8px;
+
+        }
+
+        .usa-input-prefix, .usa-input-suffix {
+
+            margin-right: 8px;
+
+            font-size: 1rem;
+
+        }
+
+        .usa-input {
+
+            border: none;
+
+            flex: 1;
+
+            padding: 4px 8px;
+
+            font-size: 1rem;
+
+        }
+
+        .usa-input-group--error {
+
+            border-color: #d9534f;
+
+        }
+
+    </style>
+
+</head>
+
+<body class="preload">
+
+    <div class="page-wrapper">
+
+        <div class="skip-links container">
+
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+
+        </div>
+
+        <header class="container">
+
+            <nav id="nav" class="menu" aria-label="Site menu">
+
+                <ul>
+
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/input-prefix-suffix/">Input Prefix/Suffix</a></li>
+
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+
+                    <li class="expander-group site-sub-group">
+
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+
+                        <ul class="expander-content">
+
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+
+                            <li><a href="/demos/">Demos</a></li>
+
+                            <li><a href="/about/">About</a></li>
+
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </header>
+
+        <main id="content">
+
+            <div class="container">
+
+                <div class="post-content">
+
+                    <h1>Input Prefix/Suffix</h1>
+
+                    <p>Use input prefixes and suffixes to show symbols or abbreviations that help users enter the right type of information in a form’s text input.</p>
+
+                    <p>Passed WCAG 2.1 AA</p>
+
+                    <h2>Component Preview</h2>
+
+                    <p>Credit card number</p>
+                    <p>Credit card number (Error)</p>
+                    <p>Weight, in pounds</p>
+                    <p>lbs.</p>
+
+                    <h2>Component Code</h2>
+
+                    <pre><code>&lt;form class="usa-form"&gt;
+  &lt;label class="usa-label" for="example-input-prefix"&gt;Credit card number&lt;/label&gt;
+  &lt;div class="usa-input-group"&gt;
+    &lt;div class="usa-input-prefix" aria-hidden="true"&gt;
+      &lt;svg aria-hidden="true" role="img" focusable="false" class="usa-icon"&gt;
+        &lt;use href="/assets/img/sprite.svg#credit_card"&gt;&lt;/use&gt;
+      &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;input
+      id="example-input-prefix"
+      class="usa-input"
+      pattern="[0-9]*"
+      inputmode="numeric"
+    /&gt;
+  &lt;/div&gt;
+  &lt;label class="usa-label" for="example-input-prefix-error"&gt;
+    Credit card number (Error)
+  &lt;/label&gt;
+  &lt;div class="usa-input-group usa-input-group--error"&gt;
+    &lt;div class="usa-input-prefix" aria-hidden="true"&gt;
+      &lt;svg aria-hidden="true" role="img" focusable="false" class="usa-icon"&gt;
+        &lt;use href="/assets/img/sprite.svg#credit_card"&gt;&lt;/use&gt;
+      &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;input
+      id="example-input-prefix-error"
+      class="usa-input"
+      pattern="[0-9]*"
+      inputmode="numeric"
+    /&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+&lt;form class="usa-form"&gt;
+  &lt;label class="usa-label" for="example-input-suffix"&gt;Weight, in pounds&lt;/label&gt;
+  &lt;div class="usa-input-group usa-input-group--sm"&gt;
+    &lt;input
+      id="example-input-suffix"
+      class="usa-input"
+      pattern="[0-9]*"
+      inputmode="numeric"
+    /&gt;
+    &lt;div class="usa-input-suffix" aria-hidden="true"&gt;lbs.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Input Prefix/Suffix Component</h3>
+
+                    <ul>
+
+                        <li><strong>Highlight the type of information.</strong> Prefixes and suffixes are useful when there’s a commonly understood symbol or abbreviation for the type of information the user needs to enter. Some common examples include units of measurement (like lbs or ft), symbols (like $ or %), or even icons (like showing an eye for password visibility).</li>
+
+                        <li><strong>Input cannot include units.</strong> Use prefixes and suffixes if the input refers to a unit or currency amount (like a length or dollar amount), but the user’s input must include digits only, not units or a currency symbol.</li>
+
+                        <li><strong>Reduce mental load.</strong> Adding a prefix or suffix can help the user more quickly understand what kind of information is requested.</li>
+
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+
+                    <ul>
+
+                        <li><strong>Open-ended form fields.</strong> If there aren’t specific parameters around the information the user needs to enter, a prefix or suffix may be incorrect. For example, don’t use a $ prefix for a form field asking “What’s a fair resolution?” if the user could enter either “$1,000” or “a full refund” as the answer.</li>
+
+                        <li><strong>Explanation requires additional words.</strong> Don’t use prefixes or suffixes if a symbol or abbreviation is insufficient to convey the meaning. There shouldn’t be any confusion between what type of information a prefix or suffix represents. This is especially true when using icons that could have multiple meanings.</li>
+
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+
+                    <ul>
+
+                        <li><strong>Follow best practices when using an icon.</strong> If you include an icon as a prefix or suffix, follow the design system’s icon guidance.</li>
+
+                        <li><strong>Use common abbreviations.</strong> Only use commonly understood abbreviations when indicating a text prefix or suffix. Don’t use the full word.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="container" id="footer">
+
+            <nav aria-label="Site map">
+
+                <ul>
+
+                    <li><a href="/about/">About</a></li>
+
+                    <li><a href="/resources/">Resources</a></li>
+
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+
+                    <li><a href="/site-map/">Site map</a></li>
+
+                </ul>
+
+            </nav>
+
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+
+            <p class="last-modified" id='last-modified'></p>
+
+        </footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="/assets/scripts/index.js?1736284235"></script>
+
+    <script>
+
+        $("body").removeClass("preload");
+
+    </script>
+
+</body>
+
+</html>
