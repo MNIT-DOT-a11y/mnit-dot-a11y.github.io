@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Icon Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Icon Component" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Guide to creating an accessible icon component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible icon component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/icon-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/icon-component/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Icon Component" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "description": "Guide to creating an accessible icon component. Includes source code, interactive example, and guidance.",
+        "headline": "Icon Component",
+        "url": "https://mnit-dot-a11y.github.io/icon-component/"
+    }
+    </script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .icon-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .icon-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .icon-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        .icon-item svg {
+            width: 24px;
+            height: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/icon-component/">Icon Component</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <div class="container">
+                <div class="post-content">
+
+                    <h1>Icon</h1>
+                    <p>Icons help communicate meaning, actions, status, or feedback.</p>
+                    <p>Passed WCAG 2.1 AA</p>
+
+                    <h2>About the Icon Component</h2>
+                    <p>Icons are simple symbols that attract attention, aid navigation, signal an action, add emphasis, or provide feedback. Icons serve as recognizable cues that users can understand easily — typically without thinking too hard.</p>
+                    <p>Icons must be used consistently across a site or service in order to accomplish their purpose well. For example, using an envelope icon for both email and a mailing address would likely confuse people. Viewers should be able to trust that a certain icon always means the same thing, no matter where it’s used.</p>
+
+                    <h2>Component Preview</h2>
+                    <p>Type to filter icons</p>
+                    <p>243 icons. Click an icon to copy its code snippet.</p>
+                    <div class="icon-preview">
+                        <div class="icon-item" onclick="copyToClipboard('accessibility_new')">
+                            <svg class="usa-icon" aria-hidden="true" role="img">
+                                <use href="/assets/img/sprite.svg#accessibility_new"></use>
+                            </svg>
+                            <span>accessibility_new</span>
+                        </div>
+                        <div class="icon-item" onclick="copyToClipboard('accessible_forward')">
+                            <svg class="usa-icon" aria-hidden="true" role="img">
+                                <use href="/assets/img/sprite.svg#accessible_forward"></use>
+                            </svg>
+                            <span>accessible_forward</span>
+                        </div>
+                        <!-- More icons... -->
+                    </div>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Icon Component</h3>
+                    <ul>
+                        <li><strong>Draw attention to actions.</strong> Icons, when paired with text, grab attention and show actions to take. Make sure each icon directly relates to any text it accompanies.</li>
+                        <li><strong>Help readers find key information.</strong> Use icons as scannable, easy-to-understand visual cues for key information, like a phone number or email address.</li>
+                        <li><strong>Enhance an actionable target.</strong> Icons make great touch or click targets. Use an icon for common actions, like opening a menu or sharing an article.</li>
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+                    <ul>
+                        <li><strong>Meaning is ambiguous.</strong> Use icons only in a common or conventional way. Icon utility hinges on people quickly recognizing what each icon means. If you suspect that an icon’s intent isn’t perfectly clear, consider removing it or adding accompanying text.</li>
+                        <li><strong>Compensating for page structure.</strong> Don’t rely on an icon to help draw attention to something important that’s otherwise hard to find. Icons don’t fix unclear page hierarchy or confusing content organization.</li>
+                        <li><strong>You need illustrative artwork.</strong> Icons have a specific, functional meaning. Avoid using icons for illustrative purposes. For example, don’t use the “visibility” eye icon to illustrate an actual eye. If you want to enhance the appearance of your content or visually explain a concept, use an illustration instead of an icon.</li>
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+                    <ul>
+                        <li><strong>Combine icons with text.</strong> Only a few icons are consistently understood across the digital-using public of the world, among them home, print, and search. Combine icons with text to improve clarity, and test your icons for recognition and memorability with your particular audience.</li>
+                        <li><strong>Be consistent with icon meaning.</strong> Icons used more than once in an application or site must be used to represent the same thing, and have the same text description in every instance. Consistency helps people with some cognitive disabilities, helps people who might be distracted or scanning, and creates a better user experience for all.</li>
+                        <li><strong>Combine interactive icons with other components.</strong> If the icon is part of an interactive element, it should be implemented within another functional component. For example, make an icon part of a button or list.</li>
+                    </ul>
+
+                    <h3>Accessibility Guidance</h3>
+
+                    <p>Test the icon component in your own project.</p>
+
+                    <ul>
+                        <li><strong>Hide decorative icons from screen readers.</strong> Icons are decorative if they don’t provide meaningful information to the user. Usually, decorative icons are accompanied by text. Announcing a decorative icon is redundant and can be annoying. Use the <code>aria-hidden="true"</code> and <code>role="img"</code>, as in the following code:
+                            <pre><code>&lt;a href="https://twitter.com/uswds"&gt;
+  &lt;svg class="usa-icon" aria-hidden="true" role="img"&gt;
+    &lt;use href="/assets/img/sprite.svg#arrow_forward"&gt;&lt;/use&gt;
+  &lt;/svg&gt;
+  USWDS' Twitter account
+&lt;/a&gt;
+</code></pre>
+                        </li>
+                        <li><strong>Provide descriptive text if a standalone icon has meaning or provides functionality.</strong> If an icon provides information or functionality that people cannot understand from accompanying text, you need to make the icon perceivable to people who use screen readers. Remove the <code>aria-hidden="true"</code> attribute and add an <code>aria-labelledby</code> attribute with a value that matches the <code>id</code> of a <code>&lt;title&gt;</code> element added inside the SVG, as in the following code:
+                            <pre><code>&lt;a href="https://twitter.com/uswds"&gt;
+  &lt;svg aria-labelledby="twitter-title" role="img"&gt;
+    &lt;title id="twitter-title"&gt;USWDS' Twitter account&lt;/title&gt;
+    &lt;use href="/path/to/sprite.svg#twitter"&gt;&lt;/use&gt;
+  &lt;/svg&gt;
+&lt;/a&gt;
+</code></pre>
+                        </li>
+                        <li><strong>Check for good color contrast.</strong> Make sure that the icon has a minimum contrast ratio of 3:1 against its background. See the USWDS color and accessibility page as well as WCAG 2.1 Techniques: Ensuring that a contrast ratio of 3:1 is provided for icons for more information.</li>
+                        <li><strong>Place icons inside links.</strong> If icons accompany a text link, place the icon inside the link to prevent screen readers from announcing the link twice.</li>
+                    </ul>
+
+                    <h3>Using the Icon Component</h3>
+                    <ul>
+                        <li><strong>Don’t alter icons.</strong> You shouldn’t customize, combine, or change USWDS icons (other than updating the color) due to their license.</li>
+                        <li><strong>Active icons are found in <code>dist/img/usa-icons</code>.</strong> The icons in this directory will be packaged into an SVG sprite. The complete set of available icons are located in two directories: <code>dist/img/material-icons</code> and <code>dist/img/uswds-icons</code>. Copy icons into a <code>usa-icons</code> directory within your project images directory, and rebuild the SVG sprite using uswds-compile.</li>
+                        <li><strong>Using color in icons.</strong> Icons use <code>currentColor</code>, so the color of the icon will be the text color of its parent element. Change colors with the color utility.</li>
+                        <li><strong>Relative to font size.</strong> By default, icons will scale with font size. If you want to specify an icon size, use one of the component’s size variants.</li>
+                        <li><strong>Icon names are identifiers.</strong> To use an icon, simply change the identifier after the pound sign in the sprite path to that icon’s name. For example, to use the <code>accessibility_new</code> icon, the path will be <code>&lt;use href="/path/to/sprite.svg#accessibility_new"&gt;</code>, or to use the <code>info</code> icon, the path will be <code>&lt;use href="/path/to/sprite.svg#info"&gt;</code>.</li>
+                    </ul>
+
+                    <h4>Icon Settings</h4>
+                    <p><em>This component has no settings.</em></p>
+
+                    <h4>Icon Variants</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Variant</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.usa-icon--size-3</code></td>
+                                <td><code>3 unit</code> x <code>3 unit</code> icon.</td>
+                            </tr>
+                            <tr>
+                                <td><code>.usa-icon--size-4</code></td>
+                                <td><code>4 unit</code> x <code>4 unit</code> icon.</td>
+                            </tr>
+                            <tr>
+                                <td><code>.usa-icon--size-5</code></td>
+                                <td><code>5 unit</code> x <code>5 unit</code> icon.</td>
+                            </tr>
+                            <tr>
+                                <td><code>.usa-icon--size-6</code></td>
+                                <td><code>6 unit</code> x <code>6 unit</code> icon.</td>
+                            </tr>
+                            <tr>
+                                <td><code>.usa-icon--size-7</code></td>
+                                <td><code>7 unit</code> x <code>7 unit</code> icon.</td>
+                            </tr>
+                            <tr>
+                                <td><code>.usa-icon--size-8</code></td>
+                                <td><code>8 unit</code> x <code>8 unit</code> icon.</td>
+                            </tr>
+                            <tr>
+                                <td><code>.usa-icon--size-9</code></td>
+                                <td><code>9 unit</code> x <code>9 unit</code> icon.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=icon-component.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
+            }
+        }
+
+        // Function to copy icon identifier to clipboard
+        function copyToClipboard(iconName) {
+            navigator.clipboard.writeText(iconName).then(function() {
+                alert('Icon identifier "' + iconName + '" copied to clipboard.');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>
