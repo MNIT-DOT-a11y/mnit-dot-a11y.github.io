@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+
+    <meta name="theme-color" content="#003865">
+
+    <meta name="robots" content="noindex">
+
+    <title>Search Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+
+    <meta name="generator" content="Jekyll v3.10.0" />
+
+    <meta property="og:title" content="Search Component" />
+
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="description" content="Guide to creating a search component with different size variants that help users navigate content easily." />
+
+    <meta property="og:description" content="Guide to creating a search component with different size variants that help users navigate content easily." />
+
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/search-component/" />
+
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/search-component/" />
+
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="twitter:title" content="Search Component" />
+
+    <script type="application/ld+json">
+
+    {
+
+        "@context": "https://schema.org",
+
+        "@type": "WebPage",
+
+        "description": "Guide to creating a search component with different size variants that help users navigate content easily.",
+
+        "headline": "Search Component",
+
+        "url": "https://mnit-dot-a11y.github.io/search-component/"
+
+    }
+
+    </script>
+
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        .usa-search {
+
+            display: flex;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+
+            max-width: 400px;
+
+        }
+
+        .usa-search--big {
+
+            max-width: 600px;
+
+        }
+
+        .usa-search--small {
+
+            max-width: 200px;
+
+        }
+
+        .usa-input {
+
+            flex-grow: 1;
+
+            padding: 10px;
+
+            margin-right: 5px;
+
+        }
+
+        .usa-button {
+
+            background-color: #0056b3;
+
+            color: white;
+
+            border: none;
+
+            padding: 10px 20px;
+
+            cursor: pointer;
+
+        }
+
+        .usa-search__submit-icon {
+
+            width: 16px;
+
+            height: 16px;
+
+        }
+
+    </style>
+
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+
+    <div class="page-wrapper">
+
+        <div class="skip-links container">
+
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+
+        </div>
+
+        <header class="container">
+
+            <nav id="nav" class="menu" aria-label="Site menu">
+
+                <ul>
+
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/search-component/">Search Component</a></li>
+
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+
+                    <li class="expander-group site-sub-group">
+
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+
+                        <ul class="expander-content">
+
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+
+                            <li><a href="/demos/">Demos</a></li>
+
+                            <li><a href="/about/">About</a></li>
+
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </header>
+
+        <main id="content">
+
+            <div class="container">
+
+                <div class="post-content">
+
+                    <h1>Search</h1>
+
+                    <p>Search allows users to search for specific content if they know what search terms to use or can’t find desired content in the main navigation.</p>
+
+                    <p>Passed WCAG 2.1 AA</p>
+
+                    <h2>Component Preview</h2>
+
+                    <h3 class="site-preview-heading">Default</h3>
+
+                    <section aria-label="Search component">
+
+                        <form class="usa-search" role="search">
+
+                            <label class="usa-sr-only" for="search-field">Search</label>
+
+                            <input class="usa-input" id="search-field" type="search" name="search" placeholder="Search..." />
+
+                            <button class="usa-button" type="submit">
+
+                                <span class="usa-search__submit-text">Search </span>
+
+                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search" />
+
+                            </button>
+
+                        </form>
+
+                    </section>
+
+                    <h3 class="site-preview-heading">Big variant</h3>
+
+                    <section aria-label="Big search component">
+
+                        <form class="usa-search usa-search--big" role="search">
+
+                            <label class="usa-sr-only" for="search-field-en-big">Search</label>
+
+                            <input class="usa-input" id="search-field-en-big" type="search" name="search" placeholder="Search..." />
+
+                            <button class="usa-button" type="submit">
+
+                                <span class="usa-search__submit-text">Search </span>
+
+                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search" />
+
+                            </button>
+
+                        </form>
+
+                    </section>
+
+                    <h3 class="site-preview-heading">Small variant</h3>
+
+                    <section aria-label="Small search component">
+
+                        <form class="usa-search usa-search--small" role="search">
+
+                            <label class="usa-sr-only" for="search-field-en-small">Search</label>
+
+                            <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search..." />
+
+                            <button class="usa-button" type="submit">
+
+                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search" />
+
+                            </button>
+
+                        </form>
+
+                    </section>
+
+                    <h3 class="site-preview-heading">Spanish default variant</h3>
+
+                    <section aria-label="Default (Spanish) search component">
+
+                        <form class="usa-search" role="search">
+
+                            <label class="usa-sr-only" for="search-field-es">Buscar</label>
+
+                            <input class="usa-input" id="search-field-es" type="search" name="search" placeholder="Buscar..." />
+
+                            <button class="usa-button" type="submit">
+
+                                <span class="usa-search__submit-text">Buscar </span>
+
+                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Buscar" />
+
+                            </button>
+
+                        </form>
+
+                    </section>
+
+                    <h3 class="site-preview-heading">Spanish big variant</h3>
+
+                    <section aria-label="Big (Spanish) search component">
+
+                        <form class="usa-search usa-search--big" role="search">
+
+                            <label class="usa-sr-only" for="search-field-es-big">Buscar</label>
+
+                            <input class="usa-input" id="search-field-es-big" type="search" name="search" placeholder="Buscar..." />
+
+                            <button class="usa-button" type="submit">
+
+                                <span class="usa-search__submit-text">Buscar </span>
+
+                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Buscar" />
+
+                            </button>
+
+                        </form>
+
+                    </section>
+
+                    <h3 class="site-preview-heading">Spanish small variant</h3>
+
+                    <section aria-label="Small (Spanish) search component">
+
+                        <form class="usa-search usa-search--small" role="search">
+
+                            <label class="usa-sr-only" for="search-field-es-small">Buscar</label>
+
+                            <input class="usa-input" id="search-field-es-small" type="search" name="search" placeholder="Buscar..." />
+
+                            <button class="usa-button" type="submit">
+
+                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Buscar" />
+
+                            </button>
+
+                        </form>
+
+                    </section>
+
+                    <h2>Component Code</h2>
+
+                    <pre><code>&lt;form class="usa-search" role="search"&gt;
+  &lt;label class="usa-sr-only" for="search-field"&gt;Search&lt;/label&gt;
+  &lt;input class="usa-input" id="search-field" type="search" name="search" placeholder="Search..."&gt;
+  &lt;button class="usa-button" type="submit"&gt;
+    &lt;span class="usa-search__submit-text"&gt;Search &lt;/span&gt;
+    &lt;img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search"&gt;
+  &lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Search Component</h3>
+
+                    <ul>
+
+                        <li><strong>Use site search.</strong> There will always be users who would benefit from being able to search your site.</li>
+
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+
+                    <ul>
+
+                        <li><strong>Very small sites.</strong> On single-page or very small sites, you may be able to get away without a search bar.</li>
+
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+
+                    <ul>
+
+                        <li><strong>Make the input at least 27 characters wide.</strong> Allow the search component to be as wide as possible, but a minimum of 27 characters wide. This allows users to enter multiple search terms and still be able to see all of them. The more users can see their search terms, the easier it is to review, verify, and submit their search query. Romance languages are about 20% longer than English, so account for text swell on multilingual websites.</li>
+
+                        <li><strong>The magnifying glass icon is effective.</strong> The magnifying glass has been shown to be almost universally recognized by users as an indicator of search, and doesn’t need to be visually paired with the word “Search” as long as it remains for screen readers.</li>
+
+                        <li><strong>Search terms should persist into search results.</strong> When displaying the search results, preload the search bar content with the original search terms.</li>
+
+                        <li><strong>Use a full search box on the home page.</strong> On a site’s home page, the search function should appear as a search box instead of a link so users can locate it easily.</li>
+
+                        <li><strong>Don’t offer advanced search as the default.</strong> The majority of people will do a simple search with one or two search terms. If advanced search is offered, it increases the likelihood of mistakes.</li>
+
+                        <li><strong>Use a label even if it’s visually hidden.</strong> The form field should include a label for screen reader users.</li>
+
+                        <li><strong>The search button should be a submit button.</strong> This reduces the number of keystrokes required to use the form.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="container" id="footer">
+
+            <nav aria-label="Site map">
+
+                <ul>
+
+                    <li><a href="/about/">About</a></li>
+
+                    <li><a href="/resources/">Resources</a></li>
+
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+
+                    <li><a href="/site-map/">Site map</a></li>
+
+                </ul>
+
+            </nav>
+
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+
+            <p class="last-modified" id='last-modified'></p>
+
+        </footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="/assets/scripts/index.js?1736284235"></script>
+
+    <script>
+
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+
+            if (document.getElementById('last-modified')) {
+
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=search-component.md")
+
+                    .then(response => response.json())
+
+                    .then(commits => {
+
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+
+                        if (modified != "") {
+
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+
+                        }
+
+                    });
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
