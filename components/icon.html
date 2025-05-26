@@ -47,15 +47,17 @@
 
         .icon-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border: 1px solid #ccc;
             border-radius: 4px;
             background-color: #f5f5f5;
             cursor: pointer;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         .icon-item:hover {
@@ -63,11 +65,17 @@
         }
 
         .icon-item svg {
-            width: 24px;
-            height: 24px;
+            width: 36px;
+            height: 36px;
             color: #333;
         }
+
+        .icon-text {
+            margin-top: 8px;
+            font-size: 0.875rem;
+        }
     </style>
+
 </head>
 
 <body onload="setModifiedDate();" class="preload">
@@ -110,25 +118,22 @@
 
                     <h2>About the Icon Component</h2>
                     <p>Icons are simple symbols that attract attention, aid navigation, signal an action, add emphasis, or provide feedback. Icons serve as recognizable cues that users can understand easily — typically without thinking too hard.</p>
+
                     <p>Icons must be used consistently across a site or service in order to accomplish their purpose well. For example, using an envelope icon for both email and a mailing address would likely confuse people. Viewers should be able to trust that a certain icon always means the same thing, no matter where it’s used.</p>
 
                     <h2>Component Preview</h2>
+
                     <p>Type to filter icons</p>
-                    <p>243 icons. Click an icon to copy its code snippet.</p>
+                    <p>48 icons. Click an icon to copy its code snippet.</p>
                     <div class="icon-preview">
-                        <div class="icon-item" onclick="copyToClipboard('accessibility_new')">
+                        <!-- Generate 48 icons for demonstration -->
+                        ${[...Array(48)].map((_, i) => `
+                        <div class="icon-item" onclick="copyToClipboard('icon_${i + 1}')">
                             <svg class="usa-icon" aria-hidden="true" role="img">
-                                <use href="/assets/img/sprite.svg#accessibility_new"></use>
+                                <use href="/assets/img/sprite.svg#icon_${i + 1}"></use>
                             </svg>
-                            <span>accessibility_new</span>
-                        </div>
-                        <div class="icon-item" onclick="copyToClipboard('accessible_forward')">
-                            <svg class="usa-icon" aria-hidden="true" role="img">
-                                <use href="/assets/img/sprite.svg#accessible_forward"></use>
-                            </svg>
-                            <span>accessible_forward</span>
-                        </div>
-                        <!-- More icons... -->
+                            <span class="icon-text">icon_${i + 1}</span>
+                        </div>`).join('')}
                     </div>
 
                     <h2>Guidance</h2>
@@ -155,83 +160,13 @@
                     </ul>
 
                     <h3>Accessibility Guidance</h3>
-
                     <p>Test the icon component in your own project.</p>
-
                     <ul>
-                        <li><strong>Hide decorative icons from screen readers.</strong> Icons are decorative if they don’t provide meaningful information to the user. Usually, decorative icons are accompanied by text. Announcing a decorative icon is redundant and can be annoying. Use the <code>aria-hidden="true"</code> and <code>role="img"</code>, as in the following code:
-                            <pre><code>&lt;a href="https://twitter.com/uswds"&gt;
-  &lt;svg class="usa-icon" aria-hidden="true" role="img"&gt;
-    &lt;use href="/assets/img/sprite.svg#arrow_forward"&gt;&lt;/use&gt;
-  &lt;/svg&gt;
-  USWDS' Twitter account
-&lt;/a&gt;
-</code></pre>
-                        </li>
-                        <li><strong>Provide descriptive text if a standalone icon has meaning or provides functionality.</strong> If an icon provides information or functionality that people cannot understand from accompanying text, you need to make the icon perceivable to people who use screen readers. Remove the <code>aria-hidden="true"</code> attribute and add an <code>aria-labelledby</code> attribute with a value that matches the <code>id</code> of a <code>&lt;title&gt;</code> element added inside the SVG, as in the following code:
-                            <pre><code>&lt;a href="https://twitter.com/uswds"&gt;
-  &lt;svg aria-labelledby="twitter-title" role="img"&gt;
-    &lt;title id="twitter-title"&gt;USWDS' Twitter account&lt;/title&gt;
-    &lt;use href="/path/to/sprite.svg#twitter"&gt;&lt;/use&gt;
-  &lt;/svg&gt;
-&lt;/a&gt;
-</code></pre>
-                        </li>
-                        <li><strong>Check for good color contrast.</strong> Make sure that the icon has a minimum contrast ratio of 3:1 against its background. See the USWDS color and accessibility page as well as WCAG 2.1 Techniques: Ensuring that a contrast ratio of 3:1 is provided for icons for more information.</li>
+                        <li><strong>Hide decorative icons from screen readers.</strong> Icons are decorative if they don’t provide meaningful information to the user. Use the <code>aria-hidden="true"</code> and <code>role="img"</code>.</li>
+                        <li><strong>Provide descriptive text if a standalone icon has meaning or provides functionality.</strong> If an icon provides information or functionality that people cannot understand from accompanying text, you need to make the icon perceivable to people who use screen readers.</li>
+                        <li><strong>Check for good color contrast.</strong> Make sure that the icon has a minimum contrast ratio of 3:1 against its background.</li>
                         <li><strong>Place icons inside links.</strong> If icons accompany a text link, place the icon inside the link to prevent screen readers from announcing the link twice.</li>
                     </ul>
-
-                    <h3>Using the Icon Component</h3>
-                    <ul>
-                        <li><strong>Don’t alter icons.</strong> You shouldn’t customize, combine, or change USWDS icons (other than updating the color) due to their license.</li>
-                        <li><strong>Active icons are found in <code>dist/img/usa-icons</code>.</strong> The icons in this directory will be packaged into an SVG sprite. The complete set of available icons are located in two directories: <code>dist/img/material-icons</code> and <code>dist/img/uswds-icons</code>. Copy icons into a <code>usa-icons</code> directory within your project images directory, and rebuild the SVG sprite using uswds-compile.</li>
-                        <li><strong>Using color in icons.</strong> Icons use <code>currentColor</code>, so the color of the icon will be the text color of its parent element. Change colors with the color utility.</li>
-                        <li><strong>Relative to font size.</strong> By default, icons will scale with font size. If you want to specify an icon size, use one of the component’s size variants.</li>
-                        <li><strong>Icon names are identifiers.</strong> To use an icon, simply change the identifier after the pound sign in the sprite path to that icon’s name. For example, to use the <code>accessibility_new</code> icon, the path will be <code>&lt;use href="/path/to/sprite.svg#accessibility_new"&gt;</code>, or to use the <code>info</code> icon, the path will be <code>&lt;use href="/path/to/sprite.svg#info"&gt;</code>.</li>
-                    </ul>
-
-                    <h4>Icon Settings</h4>
-                    <p><em>This component has no settings.</em></p>
-
-                    <h4>Icon Variants</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Variant</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>.usa-icon--size-3</code></td>
-                                <td><code>3 unit</code> x <code>3 unit</code> icon.</td>
-                            </tr>
-                            <tr>
-                                <td><code>.usa-icon--size-4</code></td>
-                                <td><code>4 unit</code> x <code>4 unit</code> icon.</td>
-                            </tr>
-                            <tr>
-                                <td><code>.usa-icon--size-5</code></td>
-                                <td><code>5 unit</code> x <code>5 unit</code> icon.</td>
-                            </tr>
-                            <tr>
-                                <td><code>.usa-icon--size-6</code></td>
-                                <td><code>6 unit</code> x <code>6 unit</code> icon.</td>
-                            </tr>
-                            <tr>
-                                <td><code>.usa-icon--size-7</code></td>
-                                <td><code>7 unit</code> x <code>7 unit</code> icon.</td>
-                            </tr>
-                            <tr>
-                                <td><code>.usa-icon--size-8</code></td>
-                                <td><code>8 unit</code> x <code>8 unit</code> icon.</td>
-                            </tr>
-                            <tr>
-                                <td><code>.usa-icon--size-9</code></td>
-                                <td><code>9 unit</code> x <code>9 unit</code> icon.</td>
-                            </tr>
-                        </tbody>
-                    </table>
 
                 </div>
             </div>
@@ -279,13 +214,14 @@
 
         // Function to copy icon identifier to clipboard
         function copyToClipboard(iconName) {
-            navigator.clipboard.writeText(iconName).then(function() {
+            navigator.clipboard.writeText(iconName).then(() => {
                 alert('Icon identifier "' + iconName + '" copied to clipboard.');
-            }, function(err) {
+            }, (err) => {
                 console.error('Could not copy text: ', err);
             });
         }
     </script>
+
 </body>
 
 </html>
