@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Character Count Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Character Count Component" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Guide to creating an accessible character count component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible character count component. Includes source code and interactive example." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/character-count-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/character-count-component/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Character Count Component" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "description": "Guide to creating an accessible character count component. Includes source code and interactive example.",
+        "headline": "Character Count Component",
+        "url": "https://mnit-dot-a11y.github.io/character-count-component/"
+    }
+    </script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .character-count-container {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .character-count-container textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .character-count {
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .character-count.alert {
+            color: red;
+        }
+    </style>
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/character-count-component/">Character Count Component</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <div class="container">
+                <div class="post-content">
+                    <h1>Character Count Component</h1>
+                    <p>This guide provides instructions for creating a character count component that meets accessibility standards.</p>
+
+                    <h2>Interactive Example</h2>
+                    <div class="character-count-container">
+                        <label for="input-textarea">Your Message:</label>
+                        <textarea id="input-textarea" aria-describedby="charCount" maxlength="200"></textarea>
+                        <div id="charCount" class="character-count" aria-live="polite">200 characters remaining</div>
+                    </div>
+
+                    <h2>Source Code</h2>
+                    <pre><code>&lt;div class="character-count-container"&gt;
+    &lt;label for="input-textarea"&gt;Your Message:&lt;/label&gt;
+    &lt;textarea id="input-textarea" aria-describedby="charCount" maxlength="200"&gt;&lt;/textarea&gt;
+    &lt;div id="charCount" class="character-count" aria-live="polite"&gt;200 characters remaining&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                    <h2>Accessibility Features</h2>
+                    <ul>
+                        <li>The textarea includes a <code>maxlength</code> attribute to prevent input beyond a specified limit.</li>
+                        <li>The character count feedback uses <code>aria-live="polite"</code> to update screen readers without interrupting.</li>
+                        <li>A descriptive label is associated with the textarea for better accessibility.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload"); // Prevents animations on page load
+
+        document.getElementById('input-textarea').addEventListener('input', function () {
+            const maxLength = this.getAttribute('maxlength');
+            const currentLength = this.value.length;
+            const remaining = maxLength - currentLength;
+            const charCountElem = document.getElementById('charCount');
+            charCountElem.textContent = `${remaining} characters remaining`;
+            charCountElem.classList.toggle('alert', remaining < 10);
+        });
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=character-count-component.md")
+                .then(response => response.json())
+                .then(commits => {
+                    var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                    if (modified != "") {
+                        document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
