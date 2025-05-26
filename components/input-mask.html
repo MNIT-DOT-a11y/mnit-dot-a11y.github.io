@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Input Mask Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Input Mask Component" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Guide to creating an accessible input mask component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible input mask component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/input-mask-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/input-mask-component/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Input Mask Component" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "description": "Guide to creating an accessible input mask component. Includes source code, interactive example, and guidance.",
+      "headline": "Input Mask Component",
+      "url": "https://mnit-dot-a11y.github.io/input-mask-component/"
+    }
+    </script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .input-mask-preview {
+            margin: 16px 0;
+        }
+
+        .input-mask-item {
+            margin-bottom: 20px;
+        }
+
+        .input-mask-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .input-mask-hint {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .input-mask-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/input-mask-component/">Input Mask Component</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <div class="container">
+                <div class="post-content">
+
+                    <h1>Input Mask</h1>
+                    <p>An input mask is a string expression that constrains input to support valid input values.</p>
+
+                    <h2>Component Preview</h2>
+
+                    <div class="input-mask-preview">
+                        <div class="input-mask-item">
+                            <label class="input-mask-label" for="ssn-input">Social Security Number</label>
+                            <span class="input-mask-hint">For example, 123 45 6789</span>
+                            <input id="ssn-input" class="input-mask-input" type="text" placeholder="___ __ ____" pattern="\d{3} \d{2} \d{4}" inputmode="numeric">
+                        </div>
+
+                        <div class="input-mask-item">
+                            <label class="input-mask-label" for="tel-input">US Telephone Number</label>
+                            <span class="input-mask-hint">For example, 123-456-7890</span>
+                            <input id="tel-input" class="input-mask-input" type="text" placeholder="___-___-____" pattern="\d{3}-\d{3}-\d{4}" inputmode="numeric">
+                        </div>
+
+                        <div class="input-mask-item">
+                            <label class="input-mask-label" for="zip-input">ZIP Code</label>
+                            <span class="input-mask-hint">For example, 12345-6789</span>
+                            <input id="zip-input" class="input-mask-input" type="text" placeholder="_____-____" pattern="\d{5}-\d{4}" inputmode="numeric">
+                        </div>
+
+                        <div class="input-mask-item">
+                            <label class="input-mask-label" for="alphanumeric-input">Alphanumeric</label>
+                            <span class="input-mask-hint">For example, A1B 2C3</span>
+                            <input id="alphanumeric-input" class="input-mask-input" type="text" placeholder="___ ___" pattern="\w\d\w \d\w\d" data-charset="A#A #A#" inputmode="text">
+                        </div>
+                    </div>
+
+                    <h2>Component Code</h2>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Input Mask Component</h3>
+                    <ul>
+                        <li><strong>Common input patterns.</strong> In fields with a specific expected format like Social Security Number or ZIP code, an input mask allows you to constrain and shape the information being entered into that format, without impairing the user’s ability to copy/paste or correct mistyping.</li>
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+                    <ul>
+                        <li><strong>When the input requires a free-form field.</strong> When there isn’t a common input pattern to use, input masking is not appropriate.</li>
+                        <li><strong>When the pattern is too complicated to allow for a valid input mask.</strong> A pattern like email, with many possible scenarios for input, is not a good candidate for masking. Allow the user to enter their email address (or other complicated data) and have your validation library confirm before form submission.</li>
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+                    <ul>
+                        <li><strong>Wait to validate.</strong> Only show error validation messages or stylings after a user has interacted with a particular field.</li>
+                    </ul>
+
+                    <h3>Accessibility Guidance</h3>
+
+                    <p>Test the input mask component in your own project.</p>
+
+                    <ul>
+                        <li><strong>Include a label.</strong> Make sure each form control includes a <code>label</code> with a <code>for</code> attribute related to the <code>id</code> of the <code>input</code> element it labels.</li>
+                        <li><strong>Use helpful hint text.</strong> Make sure any hint text helps users understand what they need to input.</li>
+                        <li><strong>Customization.</strong> As you customize, make sure you follow accessibility guidelines for form templates and the accessibility guidelines for form controls.</li>
+                    </ul>
+
+                    <h3>Using the Input Mask Component</h3>
+
+                    <p>The examples in the Preview section, above, are common input masks, but you can adapt the code to meet the needs of your project. In order to extend the functionality of the input mask, you must include a <code>placeholder</code> attribute as the visible input mask, using the underscore <code>_</code> to represent a character the user should enter. You may use punctuation literals like <code>[space]</code>, <code>-</code>, <code>/</code>, or <code>(</code> to help format your mask, but these literals will not be included in the final submitted value. You also need a related <code>pattern</code> attribute on the <code>input</code> element, its value expressed as a regular expression that describes the intended format of the input data. Additionally, if the expected input is numeric, make sure to add the <code>inputmode="numeric"</code> attribute and setting so the numeric keypad is displayed. For example, an <code>input</code> with an input mask of three groups of three numerals, separated with spaces might have the following properties:</p>
+
+                    <pre><code>placeholder="___ ___ ___"
+pattern="\d\d\d \d\d\d \d\d\d"
+inputmode="numeric"
+</code></pre>
+
+                    <h3>The Input Mask and Alphanumeric Characters</h3>
+
+                    <p>Input mask examples include an alphanumeric version which can be customized to meet your needs. To implement an alphanumeric input mask, you will need to add the attribute <code>data-charset</code> to the input tag. Similar to the <code>pattern</code> attribute, include a number sign <code>#</code> for each number and an <code>A</code> for each required letter. We recommend changing <code>inputmode</code> to <code>text</code> so the full keyboard is available to your user.</p>
+
+                    <p>If your input mask calls for a pattern such as <em>1A2 B3C</em>, you would implement that by adding the following attributes and character formatting to your input element:</p>
+
+                    <pre><code>placeholder="___ ___"
+pattern="\w\d\w \d\w\d"
+data-charset="A#A #A#"
+</code></pre>
+
+                </div>
+            </div>
+
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=input-mask-component.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
+            }
+        }
+    </script>
+
+</body>
+
+</html>
