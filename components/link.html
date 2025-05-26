@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+
+    <meta name="theme-color" content="#003865">
+
+    <meta name="robots" content="noindex">
+
+    <title>Link Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+
+    <meta name="generator" content="Jekyll v3.10.0" />
+
+    <meta property="og:title" content="Link Component" />
+
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="description" content="Guide to creating an accessible link component. Includes source code, interactive example, and guidance." />
+
+    <meta property="og:description" content="Guide to creating an accessible link component. Includes source code, interactive example, and guidance." />
+
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/link-component/" />
+
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/link-component/" />
+
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="twitter:title" content="Link Component" />
+
+    <script type="application/ld+json">
+
+    {
+
+        "@context": "https://schema.org",
+
+        "@type": "WebPage",
+
+        "description": "Guide to creating an accessible link component. Includes source code, interactive example, and guidance.",
+
+        "headline": "Link Component",
+
+        "url": "https://mnit-dot-a11y.github.io/link-component/"
+
+    }
+
+    </script>
+
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .usa-input-group {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            padding: 8px;
+        }
+    </style>
+
+</head>
+
+<body class="preload">
+
+    <div class="page-wrapper">
+
+        <div class="skip-links container">
+
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+
+        </div>
+
+        <header class="container">
+
+            <nav id="nav" class="menu" aria-label="Site menu">
+
+                <ul>
+
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/link-component/">Link Component</a></li>
+
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+
+                    <li class="expander-group site-sub-group">
+
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+
+                        <ul class="expander-content">
+
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+
+                            <li><a href="/demos/">Demos</a></li>
+
+                            <li><a href="/about/">About</a></li>
+
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </header>
+
+        <main id="content">
+
+            <div class="container">
+
+                <div class="post-content">
+
+                    <h1>Link</h1>
+
+                    <p>A link connects users to a different page or further information.</p>
+
+                    <p>Passed WCAG 2.1 AA</p>
+
+                    <h2>About the Link Component</h2>
+
+                    <p>Links are navigational elements that direct visitors to other locations, either on the same page or to a different page or site. They can be inline or separate from the text flow. Since every link is a potential user interaction, too many links can be overwhelming. Be judicious with links to better identify necessary calls to action.</p>
+
+                    <h2>Component Preview</h2>
+
+                    <p>This is <a href="#" class="text-link">a text link</a> on a light background.</p>
+                    <p>This is <a href="#" class="visited-link">a visited link</a>.</p>
+                    <p>This is a link that opens in the <em>current</em> tab and goes to an <a href="#" class="external-link">external website</a>.</p>
+                    <p>This is a link that opens in a <em>new</em> tab and goes to an <a href="#" target="_blank" class="external-link">external website</a>.</p>
+                    <p>This is <a href="#" class="text-link-dark">a text link on a dark background</a>.</p>
+                    <p>This is <a href="#" class="alternate-link-dark">an alternate external text link on a dark background</a>.</p>
+
+                    <h2>Guidance</h2>
+
+                    <h3>Overview</h3>
+
+                    <p>Each item below is explained in the guidance sections that follow.</p>
+
+                    <h4>What you should do</h4>
+                    <ul>
+                        <li>Clearly identify external links</li>
+                        <li>Notify users about non-federal external links</li>
+                        <li>Use unique, meaningful link text</li>
+                        <li>Simplify link placement in body text</li>
+                        <li>Link directly to the most relevant page</li>
+                        <li>Indicate nonpublic links that require authentication</li>
+                        <li>If you use an external link indicator, use it consistently for all text links</li>
+                        <li>Add <code>rel="noreferrer"</code> to external links</li>
+                        <li>Provide text context for external links</li>
+                        <li>Add a non-endorsement statement</li>
+                        <li>Indicate file type and size for links to non-HTML content</li>
+                        <li>Identify jump links in body text</li>
+                        <li>Write out email and phone links</li>
+                        <li>Encode email and phone links</li>
+                        <li>Check with your IT security department regarding email link best practices</li>
+                    </ul>
+
+                    <h4>What you shouldn't do</h4>
+                    <ul>
+                        <li>Don’t rely only on color to distinguish links</li>
+                        <li>Don’t block external links with disruptive notifications</li>
+                        <li>Don’t use generic link text like “read more” or “link”</li>
+                        <li>Don’t use the same link text for different URLs on the same page</li>
+                    </ul>
+
+                    <h3>What You Should Do</h3>
+
+                    <ul>
+                        <li><strong>Clearly identify external links.</strong> The external link icon () is a good way to communicate that a link is external.</li>
+                        <li><strong>Notify users about non-federal links.</strong> Review this resource on Digital.gov for guidance on non-federal link requirements.</li>
+                        <li><strong>Use unique, meaningful link text.</strong> Link text should explain the link’s purpose and help the user understand the link’s destination.</li>
+                        <li><strong>Simplify link placement in body text.</strong> Reduce the number of links in a single sentence to simplify its message.</li>
+                        <li><strong>Link directly to the most relevant page.</strong> Avoid links to pages that require further user action to locate the intended information.</li>
+                        <li><strong>Indicate nonpublic links that require authentication.</strong> Use text or an indicator to signal any link that is not publicly available.</li>
+                        <li><strong>If you use an external link indicator, use it consistently for all text links.</strong></li>
+                        <li><strong>Use <code>rel="noreferrer"</code> property on external links.</strong></li>
+                        <li><strong>Provide text context for external links.</strong> Use plain text to indicate where a link goes.</li>
+                        <li><strong>Add a non-endorsement statement to your site.</strong></li>
+                        <li><strong>Indicate file type and size for links to non-HTML content.</strong></li>
+                        <li><strong>Identify jump links in body text.</strong> Use link text like “jump to”, “above” or “below”.</li>
+                        <li><strong>Write out email and phone links.</strong> For `mailto:` and `tel:` links, write out email addresses and phone numbers.</li>
+                        <li><strong>Encode email and phone links.</strong> Use `mailto:` and `tel:` for email addresses and phone numbers.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="container" id="footer">
+
+            <nav aria-label="Site map">
+
+                <ul>
+
+                    <li><a href="/about/">About</a></li>
+
+                    <li><a href="/resources/">Resources</a></li>
+
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+
+                    <li><a href="/site-map/">Site map</a></li>
+
+                </ul>
+
+            </nav>
+
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+
+            <p class="last-modified" id='last-modified'></p>
+
+        </footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="/assets/scripts/index.js?1736284235"></script>
+
+    <script>
+
+        $("body").removeClass("preload");
+
+    </script>
+
+</body>
+
+</html>
