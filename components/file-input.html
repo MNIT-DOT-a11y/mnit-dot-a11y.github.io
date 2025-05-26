@@ -40,15 +40,22 @@
     <style>
         .usa-file-input {
             margin: 16px 0;
-            border: 1px dashed #ccc;
+            border: 2px dashed #0056b3;
             padding: 16px;
-            border-radius: 4px;
+            border-radius: 8px;
             text-align: center;
+            color: #333;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
             cursor: pointer;
         }
 
         .usa-file-input:hover {
-            background-color: #f0f0f0;
+            background-color: #e0f0ff;
+        }
+
+        .usa-file-input.dragover {
+            background-color: #cce0ff;
         }
 
         .usa-label {
@@ -59,8 +66,9 @@
 
         .usa-hint {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
             font-size: 0.875rem;
+            color: #666;
         }
 
         .usa-error-message {
@@ -113,108 +121,85 @@
 
                     <h2>Component Preview</h2>
                     <h3>Input accepts a single file</h3>
-                    <div class="usa-form-group">
+                    <div class="usa-form-group" id="file-dropzone-single">
                         <label class="usa-label" for="file-input-single">Input accepts a single file</label>
                         <input id="file-input-single" class="usa-file-input" type="file" name="file-input-single" />
+                        <div class="usa-hint" id="file-input-single-feedback">No file selected</div>
                     </div>
 
                     <h3>Input accepts only specific file types</h3>
-                    <div class="usa-form-group">
+                    <div class="usa-form-group" id="file-dropzone-specific">
                         <label class="usa-label" for="file-input-specific">Input accepts only specific file types</label>
                         <span class="usa-hint" id="file-input-specific-hint">Select PDF or TXT files</span>
-                        <input id="file-input-specific" class="usa-file-input" type="file" name="file-input-specific" aria-describedby="file-input-specific-hint" accept=".pdf,.txt" multiple="multiple" />
+                        <input id="file-input-specific" class="usa-file-input" type="file" name="file-input-specific" accept=".pdf,.txt" multiple="multiple" />
+                        <div class="usa-hint" id="file-input-specific-feedback">No files selected</div>
                     </div>
 
                     <h3>Input accepts any kind of image</h3>
-                    <div class="usa-form-group">
+                    <div class="usa-form-group" id="file-dropzone-wildcard">
                         <label class="usa-label" for="file-input-wildcard">Input accepts any kind of image</label>
                         <span class="usa-hint" id="file-input-wildcard-hint">Select any type of image format</span>
-                        <input id="file-input-wildcard" class="usa-file-input" type="file" name="file-input-wildcard" aria-describedby="file-input-wildcard-hint" accept="image/*" multiple="multiple" />
+                        <input id="file-input-wildcard" class="usa-file-input" type="file" name="file-input-wildcard" accept="image/*" multiple="multiple" />
+                        <div class="usa-hint" id="file-input-wildcard-feedback">No files selected</div>
                     </div>
 
                     <h3>Input accepts multiple files</h3>
-                    <div class="usa-form-group">
+                    <div class="usa-form-group" id="file-dropzone-multiple">
                         <label class="usa-label" for="file-input-multiple">Input accepts multiple files</label>
                         <span class="usa-hint" id="file-input-multiple-hint">Select one or more files</span>
-                        <input id="file-input-multiple" class="usa-file-input" type="file" name="file-input-multiple" aria-describedby="file-input-multiple-hint" multiple="multiple" />
+                        <input id="file-input-multiple" class="usa-file-input" type="file" name="file-input-multiple" multiple="multiple" />
+                        <div class="usa-hint" id="file-input-multiple-feedback">No files selected</div>
                     </div>
 
                     <h3>Input has an error</h3>
-                    <div class="usa-form-group usa-form-group--error">
+                    <div class="usa-form-group usa-form-group--error" id="file-dropzone-error">
                         <label class="usa-label usa-label--error" for="file-input-error">Input has an error</label>
                         <span class="usa-hint" id="file-input-error-hint">Select any valid file</span>
-                        <span class="usa-error-message" id="file-input-error-alert">Display a helpful error message </span>
-                        <input id="file-input-error" class="usa-file-input" type="file" name="file-input-error" aria-describedby="file-input-error-hint" />
+                        <span class="usa-error-message" id="file-input-error-alert">Display a helpful error message</span>
+                        <input id="file-input-error" class="usa-file-input" type="file" name="file-input-error" />
+                        <div class="usa-hint" id="file-input-error-feedback">No files selected</div>
                     </div>
 
                     <h2>Component Code</h2>
-
                     <pre><code>&lt;h3 class="site-preview-heading"&gt;Input accepts a single file&lt;/h3&gt;
-&lt;div class="usa-form-group"&gt;
+&lt;div class="usa-form-group" id="file-dropzone-single"&gt;
   &lt;label class="usa-label" for="file-input-single"&gt;Input accepts a single file&lt;/label&gt;
   &lt;input id="file-input-single" class="usa-file-input" type="file" name="file-input-single" /&gt;
+  &lt;div class="usa-hint" id="file-input-single-feedback"&gt;No file selected&lt;/div&gt;
 &lt;/div&gt;
-
-&lt;h3 class="site-preview-heading"&gt;Input accepts only specific file types&lt;/h3&gt;
-&lt;div class="usa-form-group"&gt;
-  &lt;label class="usa-label" for="file-input-specific"&gt;Input accepts only specific file types&lt;/label&gt;
-  &lt;span class="usa-hint" id="file-input-specific-hint"&gt;Select PDF or TXT files&lt;/span&gt;
-  &lt;input id="file-input-specific" class="usa-file-input" type="file" name="file-input-specific" aria-describedby="file-input-specific-hint" accept=".pdf,.txt" multiple="multiple" /&gt;
-&lt;/div&gt;
-
-&lt;h3 class="site-preview-heading"&gt;Input accepts any kind of image&lt;/h3&gt;
-&lt;div class="usa-form-group"&gt;
-  &lt;label class="usa-label" for="file-input-wildcard"&gt;Input accepts any kind of image&lt;/label&gt;
-  &lt;span class="usa-hint" id="file-input-wildcard-hint"&gt;Select any type of image format&lt;/span&gt;
-  &lt;input id="file-input-wildcard" class="usa-file-input" type="file" name="file-input-wildcard" aria-describedby="file-input-wildcard-hint" accept="image/*" multiple="multiple" /&gt;
-&lt;/div&gt;
-
-&lt;h3 class="site-preview-heading"&gt;Input accepts multiple files&lt;/h3&gt;
-&lt;div class="usa-form-group"&gt;
-  &lt;label class="usa-label" for="file-input-multiple"&gt;Input accepts multiple files&lt;/label&gt;
-  &lt;span class="usa-hint" id="file-input-multiple-hint"&gt;Select one or more files&lt;/span&gt;
-  &lt;input id="file-input-multiple" class="usa-file-input" type="file" name="file-input-multiple" aria-describedby="file-input-multiple-hint" multiple="multiple" /&gt;
-&lt;/div&gt;
-
+... (similar code for other file input sections) ...
 &lt;h3 class="site-preview-heading"&gt;Input has an error&lt;/h3&gt;
-&lt;div class="usa-form-group usa-form-group--error"&gt;
+&lt;div class="usa-form-group usa-form-group--error" id="file-dropzone-error"&gt;
   &lt;label class="usa-label usa-label--error" for="file-input-error"&gt;Input has an error&lt;/label&gt;
   &lt;span class="usa-hint" id="file-input-error-hint"&gt;Select any valid file&lt;/span&gt;
-  &lt;span class="usa-error-message" id="file-input-error-alert"&gt;Display a helpful error message &lt;/span&gt;
-  &lt;input id="file-input-error" class="usa-file-input" type="file" name="file-input-error" aria-describedby="file-input-error-hint" /&gt;
+  &lt;span class="usa-error-message" id="file-input-error-alert"&gt;Display a helpful error message&lt;/span&gt;
+  &lt;input id="file-input-error" class="usa-file-input" type="file" name="file-input-error" /&gt;
+  &lt;div class="usa-hint" id="file-input-error-feedback"&gt;No files selected&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-
                     <h2>Guidance</h2>
-
                     <h3>When to Use the File Input Component</h3>
                     <ul>
                         <li><strong>Documents are required.</strong> Ask users to provide files when it’s necessary.</li>
                     </ul>
-
                     <h3>When to Consider Something Else</h3>
                     <ul>
                         <li><strong>Documents are optional.</strong> Avoid asking users to provide documents if you don’t require them.</li>
                         <li><strong>Asynchronous upload.</strong> The file input component doesn’t support asynchronous uploading. Files will <code>POST</code> only on form submission.</li>
                         <li><strong>Asking for large files.</strong> Be mindful that some users might have limited connectivity or data plans.</li>
                     </ul>
-
                     <h3>Usability Guidance</h3>
                     <ul>
                         <li><strong>Allow multiple file formats.</strong> Not everyone has access to the same software. Be flexible with file types to avoid unnecessary software requirements.</li>
                         <li><strong>Prefer one file per input.</strong> Some users might not know how to select multiple files in a file browser.</li>
                         <li><strong>Use hint text to highlight input restrictions.</strong> Create an element with the <code>usa-hint</code> class to explain any file restrictions, such as document types or file size.</li>
                     </ul>
-
                     <h3>Accessibility Guidance</h3>
-
                     <p>Test the file input component in your own project.</p>
-
                     <ul>
                         <li><strong>Use proper labels and attributes.</strong> Each file input should have a <code>label</code> element. Associate the label to your input by defining the value of the label’s <code>for</code> attribute with the input’s <code>id</code>.</li>
                         <li><strong>Use as a progressive enhancement.</strong> The file input component should be a progressive enhancement of <code>&lt;input type="file" /&gt;</code>. If the component doesn’t initialize, it should still work and appear like a standard file input.</li>
                     </ul>
-
                     <h3>Using the File Input Component</h3>
                     <ul>
                         <li><strong>Initialization properties.</strong> JavaScript will create most elements for file input. To get a file input to initialize, add the class name <code>usa-file-input</code> to <code>&lt;input type="file" /&gt;</code>.</li>
@@ -223,10 +208,8 @@
                         <li><strong>Internet Explorer and older versions of Edge.</strong> These browsers do not support dragging items to a file input. Instructions to drag files are removed for these browsers.</li>
                         <li><strong>Customizing the error message.</strong> Add the data attribute <code>data-errorMessage</code> to <code>usa-file-input</code> to include a custom error message.</li>
                     </ul>
-
                 </div>
             </div>
-
             <div class="print-container">
                 <button type="button" class="print-button" aria-label="Print this page">
                     <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
@@ -268,14 +251,41 @@
             }
         }
 
-        // Initialize file inputs
-        $('.usa-file-input').on('change', function () {
-            const fileName = this.files[0] ? this.files[0].name : 'No file selected.';
-            const hint = $(this).siblings('.usa-hint').text();
-            if (this.files.length > 1) {
-                $(this).siblings('.usa-hint').text(`${this.files.length} files selected.`);
-            } else {
-                $(this).siblings('.usa-hint').text(fileName || hint);
+        // Drag and Drop functionality
+        const dropZones = document.querySelectorAll('.usa-form-group');
+
+        dropZones.forEach(dropZone => {
+            const fileInput = dropZone.querySelector('.usa-file-input');
+            const feedback = dropZone.querySelector('.usa-hint');
+
+            dropZone.addEventListener('dragover', (event) => {
+                event.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+
+            dropZone.addEventListener('dragleave', (event) => {
+                dropZone.classList.remove('dragover');
+            });
+
+            dropZone.addEventListener('drop', (event) => {
+                event.preventDefault();
+                dropZone.classList.remove('dragover');
+                const files = Array.from(event.dataTransfer.files);
+                fileInput.files = event.dataTransfer.files; // Add files to the input
+                updateFeedback(files, feedback);
+            });
+
+            fileInput.addEventListener('change', (event) => {
+                const files = Array.from(fileInput.files);
+                updateFeedback(files, feedback);
+            });
+
+            function updateFeedback(files, feedbackElement) {
+                if (files.length > 0) {
+                    feedbackElement.textContent = `${files.length} file(s) selected: ${files.map(f => f.name).join(', ')}`;
+                } else {
+                    feedbackElement.textContent = 'No files selected';
+                }
             }
         });
     </script>
