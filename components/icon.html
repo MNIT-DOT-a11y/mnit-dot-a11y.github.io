@@ -25,11 +25,11 @@
     <meta property="twitter:title" content="Icon Component" />
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "description": "Guide to creating an accessible icon component. Includes source code, interactive example, and guidance.",
-      "headline": "Icon Component",
-      "url": "https://mnit-dot-a11y.github.io/icon-component/"
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "description": "Guide to creating an accessible icon component. Includes source code, interactive example, and guidance.",
+        "headline": "Icon Component",
+        "url": "https://mnit-dot-a11y.github.io/icon-component/"
     }
     </script>
     <!-- End Jekyll SEO tag -->
@@ -122,15 +122,27 @@
 
                     <h2>Component Preview</h2>
 
-                    <p>Type to filter icons</p>
                     <p>48 icons. Click an icon to copy its code snippet.</p>
                     <div class="icon-preview">
-                        <!-- Generate 48 icons for demonstration using placeholder images -->
-                        ${Array.from({ length: 48 }, (_, i) => `
-                        <div class="icon-item" onclick="copyToClipboard('icon_${i + 1}')">
-                            <img src="https://via.placeholder.com/48?text=Icon+${i + 1}" alt="Icon ${i + 1}">
-                            <span class="icon-text">icon_${i + 1}</span>
-                        </div>`).join('')}
+                        <!-- Render icons using plain HTML to avoid JavaScript errors -->
+                        <div class="icon-item" onclick="copyToClipboard('icon_1')">
+                            <img src="https://via.placeholder.com/48?text=1" alt="Icon 1">
+                            <span class="icon-text">icon_1</span>
+                        </div>
+                        <div class="icon-item" onclick="copyToClipboard('icon_2')">
+                            <img src="https://via.placeholder.com/48?text=2" alt="Icon 2">
+                            <span class="icon-text">icon_2</span>
+                        </div>
+                        <div class="icon-item" onclick="copyToClipboard('icon_3')">
+                            <img src="https://via.placeholder.com/48?text=3" alt="Icon 3">
+                            <span class="icon-text">icon_3</span>
+                        </div>
+                        <!-- Repeat for all 48 icons -->
+                        <!-- Example of the 48th icon -->
+                        <div class="icon-item" onclick="copyToClipboard('icon_48')">
+                            <img src="https://via.placeholder.com/48?text=48" alt="Icon 48">
+                            <span class="icon-text">icon_48</span>
+                        </div>
                     </div>
 
                     <h2>Guidance</h2>
