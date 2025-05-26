@@ -97,58 +97,264 @@
                         <canvas id="myChart" class="chart" aria-label="Sample data visualization" role="img"></canvas>
                     </div>
 
-                    <h2>Source Code</h2>
-                    <pre><code>&lt;div class="chart-container"&gt;
-    &lt;canvas id="myChart" class="chart" aria-label="Sample data visualization" role="img"&gt;&lt;/canvas&gt;
-&lt;/div&gt;
+                    <h2>General Guidance</h2>
+                    <p>Usability and accessibility are complementary goals for data visualizations.</p>
 
-&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: 'Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-&lt;/script&gt;</code></pre>
-
-                    <h2>Accessibility Features</h2>
+                    <h3>Simplicity</h3>
                     <ul>
-                        <li>The chart uses a <code>canvas</code> element with an <code>aria-label</code> for screen reader users.</li>
-                        <li>Ensure text alternatives are provided for visual data.</li>
-                        <li>Colors in the chart are chosen to be clearly distinguishable for colorblind users.</li>
+                        <li><strong>Prefer common visualization types.</strong> Use data visualization types that your target audience understands. When the level of the audience's data literacy is unknown, stick to well-used types (like line and bar charts) for explanatory visualizations.</li>
+                        <li><strong>Don't try to do too much.</strong> Limit the 'big idea' expressed in a visualization to a central theme. Use no more than two or three concepts to reduce the cognitive load placed on the audience.</li>
+                        <li><strong>Use color with care.</strong> Simplify color selection and don't reuse colors for different variables or within a particular variable. If you are finding this difficult, it may indicate too many concepts are present for a single visualization. When selecting colors, be sure to meet contrast requirements.</li>
+                    </ul>
+                    <h4>References</h4>
+                    <ul>
+                        <li><a href="https://nightingaledvs.com" target="_blank">Choosing Colors</a></li>
+                        <li><a href="https://venngage.com" target="_blank">Color Contrast and Color Blindness</a></li>
+                    </ul>
+
+                    <h3>Lossless Representation</h3>
+                    <ul>
+                        <li><strong>Avoid embedded information.</strong> Avoid embedding information as part of an image. Provide a textual representation of axis values and labels, and provide the ability to get a tabular representation of the underlying data.</li>
+                        <li><strong>Reduce interaction.</strong> Even simple interactions have a usability cost. Your audience shouldn't be required to interact with a visualization to understand its message. Presuming the ability to use a mouse to hover over page elements eliminates portions of the audience from the full experience.</li>
+                    </ul>
+
+                    <h3>Clarity of Intent</h3>
+                    <ul>
+                        <li><strong>Provide context-sensitive explanations.</strong> Data visualization authors should consider the audience's experience when providing the background for the information they're sharing. Provide explanations or summaries that make sense to the target audience not just the author.</li>
+                        <li><strong>Get to the point.</strong> If the visualization is intended to explain a specific point, don't leave the audience guessing as to the conclusion they're meant to draw.</li>
+                        <li><strong>Clearly state the author's intended message as text.</strong> This avoids unintended ambiguity and helps the audience understand the visualization's intention.</li>
+                    </ul>
+
+                    <h3>Accessibility</h3>
+                    <p>Solve for individual impacted groups, and be specific in your solutions.</p>
+                    <ul>
+                        <li><strong>Provide equivalent access.</strong>
+                            <ul>
+                                <li>Semantic headings and descriptions that provide the author's stated intent support assistive technologies and deliver a clear message across audiences.</li>
+                                <li>Screen readers might have difficulty reading content within an SVG. Provide a screen-reader accessible data table of the information represented in your visualization using the class <code>usa-sr-only</code>. When providing accessible equivalent, you can hide the visualization using the attribute <code>aria-hidden="true"</code>. The information in both of the example charts on this page is made accessible to screen readers with a visually-hidden table. <strong>Note:</strong> This is not always a sufficient alternative for complex data sets.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Provide equivalent facilitation.</strong>
+                            <ul>
+                                <li>Access to the underlying data provides an alternative affordance for consuming the same information, but a data table does not provide an equivalent narrative to a visualization.</li>
+                                <li>Increase accessibility by providing additional information that the visualization communicates (like trends or a statistical summary) in plain text, using a screen reader–only class like <code>.usa-sr-only</code>.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Focus on manual testing.</strong> Become familiar with testing tools and browser plugins. But only manual testing can check context and intent. The use of automated or mechanical checks can verify the presence of tags, not the proper content.</li>
+                        <li><strong>Choose an accessible charting tool.</strong> There are many charting tools available, but not many adequately support accessibility. When using a 3rd-party tool, look for features such as:
+                            <ul>
+                                <li>Support for accessible patterns and colors</li>
+                                <li>Sonification as an audio tool for visual impairment and analysis <a href="https://perkinselearning.org" target="_blank">[perkinselearning.org]</a></li>
+                                <li>Announcement handling</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h4>References</h4>
+                    <ul>
+                        <li><a href="https://digital.gov" target="_blank">Accessibility for Teams</a></li>
+                        <li><a href="https://section508.gov" target="_blank">508 testing</a></li>
+                        <li><a href="https://matuzo.at" target="_blank">Accessibility testing with tab key</a></li>
+                        <li><a href="https://access-board.gov" target="_blank">United States Access Board</a></li>
+                    </ul>
+
+                    <h2>Line Charts</h2>
+                    <p>Line charts are ideal for depicting trends in data over time using a continuous line.</p>
+
+                    <h3>Guidance</h3>
+                    <p>In addition to the general guidance above, the following line chart guidance applies:</p>
+                    <ul>
+                        <li>Line charts origin should start at zero, unless clearly noted.</li>
+                        <li>If high contrast color selection is not an option, the usage of discrete dash or datapoint styles distinguishes lines without relying upon color.</li>
+                    </ul>
+
+                    <h3>Example Line Chart</h3>
+                    <h4>Search interest in Franklin D. and Theodore Roosevelt for the first week of March, 2020</h4>
+                    <p>Search interest in Franklin D. Roosevelt has been consistently higher than Theodore Roosevelt. Numbers represent search interest relative to the highest point on the chart for the given region and time. A value of 100 is the peak popularity for the term. A value of 50 means that the term is half as popular. A score of 0 means there was not enough data for this term.</p>
+
+                    <p>Search interest in the Roosevelts first week of March, 2020</p>
+                    <table class="usa-sr-only">
+                        <tr>
+                            <th>March 1</th>
+                            <th>March 2</th>
+                            <th>March 3</th>
+                            <th>March 4</th>
+                            <th>March 5</th>
+                            <th>March 6</th>
+                            <th>March 7</th>
+                        </tr>
+                        <tr>
+                            <td>Franklin D. Roosevelt</td>
+                            <td>47</td>
+                            <td>87</td>
+                            <td>91</td>
+                            <td>86</td>
+                            <td>100</td>
+                            <td>78</td>
+                            <td>39</td>
+                        </tr>
+                        <tr>
+                            <td>Theodore Roosevelt</td>
+                            <td>30</td>
+                            <td>50</td>
+                            <td>46</td>
+                            <td>42</td>
+                            <td>46</td>
+                            <td>39</td>
+                            <td>22</td>
+                        </tr>
+                    </table>
+                    <p><strong>Source:</strong> Google Trends</p>
+
+                    <h3>What we did in our line chart example</h3>
+                    <ul>
+                        <li><strong>There is a clear summary.</strong> Users may not understand some narrative objectives from a graphic alone. The visualization also explains what the chart intends to communicate in plain language.</li>
+                        <li><strong>The lines are visually distinct from each other.</strong> One is a solid color, and the other uses both a dash pattern and a color contrast between the line and the indicators. The indicators can also be triangles, squares, or other simple shapes. Typically, multiple indicator shapes and textures are most useful when comparing more than three data sets.</li>
+                        <li><strong>The graphic is hidden from screen readers.</strong> Because the data set is fairly simple, non-visual users will be able to read the same data in the form of data table that's hidden from visual users but accessible to screen readers. If the data were more complex, we might consider using a 3rd party charting tool with support for accessibility as described above.</li>
+                        <li><strong>Original data linked.</strong> We linked back to the original source data for the line chart.</li>
+                    </ul>
+                    <h4>References</h4>
+                    <ul>
+                        <li><a href="https://psu.edu" target="_blank">Chart Accessibility guidance</a></li>
+                    </ul>
+
+                    <h2>Bar Charts</h2>
+                    <p>Bar charts are ideal for displaying categorical data.</p>
+
+                    <h3>Guidance</h3>
+                    <p>In addition to the general guidance above, the following bar chart guidance applies:</p>
+                    <ul>
+                        <li>When displaying multi-variant data:
+                            <ul>
+                                <li>It is important to use discrete, high contrast colors or textured fill. This accommodation differentiates variables for audiences with visual impairments like color blindness or low vision.</li>
+                                <li>The use of stacked bar charts for multi-variant data can be used if it is important to communicate the sum of the data set.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Example Bar Chart</h3>
+                    <h4>The five most-visited national parks of 2019</h4>
+                    <p>Of the 62 parks with the designation "national park" as part of their official title, these were the top five. The Great Smoky Mountains National Park was the most-visited park by more than a factor of two.</p>
+
+                    <table class="usa-sr-only">
+                        <tr>
+                            <th>Park</th>
+                            <th>Visits (in millions)</th>
+                        </tr>
+                        <tr>
+                            <td>Great Smoky Mountain National Park</td>
+                            <td>12.5</td>
+                        </tr>
+                        <tr>
+                            <td>Grand Canyon National Park</td>
+                            <td>5.87</td>
+                        </tr>
+                        <tr>
+                            <td>Rocky Mountain National Park</td>
+                            <td>4.7</td>
+                        </tr>
+                        <tr>
+                            <td>Zion National Park</td>
+                            <td>4.5</td>
+                        </tr>
+                        <tr>
+                            <td>Yosemite National Park</td>
+                            <td>4.5</td>
+                        </tr>
+                    </table>
+                    <p><strong>Source:</strong> National Park Service</p>
+
+                    <h3>What we did in our bar chart example</h3>
+                    <ul>
+                        <li><strong>There is a clear summary.</strong> Users may not understand some narrative objectives from a graphic alone. The visualization also explains what the chart intends to communicate in plain language.</li>
+                        <li><strong>Used a single color for the bars.</strong> The bars are the same color because the data is categorically the same (visits) for each national park.</li>
+                        <li><strong>The graphic is hidden from screen readers.</strong> Because the data set is fairly simple, non-visual users will be able to read the same data in the form of data table that's hidden from visual users but accessible to screen readers. If the data were more complex, we might consider using a 3rd party charting tool with support for accessibility as described above.</li>
+                        <li><strong>Original data linked.</strong> We linked back to the original source data for the line chart.</li>
+                    </ul>
+                    <h4>References</h4>
+                    <ul>
+                        <li><a href="https://highcharts.com" target="_blank">Bar chart accessibility practices</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="print-container">
-                <button type="button" class="print-button
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload"); // Prevents animations on page load
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=data-visualization-component.md")
+                .then(response => response.json())
+                .then(commits => {
+                    var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                    if (modified != "") {
+                        document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                    }
+                });
+            }
+        }
+
+        // Initialize Chart.js example
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: 'Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
