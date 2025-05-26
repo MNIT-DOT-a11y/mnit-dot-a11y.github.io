@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
     <meta charset="utf-8">
@@ -64,9 +64,9 @@
             background-color: #e0e0e0;
         }
 
-        .icon-item i {
-            font-size: 36px;
-            color: #333;
+        .icon-item img {
+            width: 48px;
+            height: 48px;
         }
 
         .icon-text {
@@ -125,11 +125,11 @@
                     <p>Type to filter icons</p>
                     <p>48 icons. Click an icon to copy its code snippet.</p>
                     <div class="icon-preview">
-                        <!-- Generate 48 icons for demonstration using Font Awesome -->
+                        <!-- Generate 48 icons for demonstration using placeholder images -->
                         ${Array.from({ length: 48 }, (_, i) => `
-                        <div class="icon-item" onclick="copyToClipboard('fa-icon-${i + 1}')">
-                            <i class="fas fa-icons"></i>
-                            <span class="icon-text">fa-icon-${i + 1}</span>
+                        <div class="icon-item" onclick="copyToClipboard('icon_${i + 1}')">
+                            <img src="https://via.placeholder.com/48?text=Icon+${i + 1}" alt="Icon ${i + 1}">
+                            <span class="icon-text">icon_${i + 1}</span>
                         </div>`).join('')}
                     </div>
 
