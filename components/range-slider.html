@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+
+    <meta name="theme-color" content="#003865">
+
+    <meta name="robots" content="noindex">
+
+    <title>Range Slider Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+
+    <meta name="generator" content="Jekyll v3.10.0" />
+
+    <meta property="og:title" content="Range Slider Component" />
+
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="description" content="Guide to creating an accessible range slider component with usage guidelines and examples." />
+
+    <meta property="og:description" content="Guide to creating an accessible range slider component with usage guidelines and examples." />
+
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/range-slider-component/" />
+
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/range-slider-component/" />
+
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="twitter:title" content="Range Slider Component" />
+
+    <script type="application/ld+json">
+
+    {
+
+        "@context": "https://schema.org",
+
+        "@type": "WebPage",
+
+        "description": "Guide to creating an accessible range slider component with usage guidelines and examples.",
+
+        "headline": "Range Slider Component",
+
+        "url": "https://mnit-dot-a11y.github.io/range-slider-component/"
+
+    }
+
+    </script>
+
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        .usa-form {
+
+            max-width: 400px;
+
+            margin: 0 auto;
+
+            padding: 20px;
+
+        }
+
+        .usa-range {
+
+            width: 100%;
+
+            margin-top: 10px;
+
+        }
+
+        .range-display {
+
+            margin-top: 10px;
+
+        }
+
+    </style>
+
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+
+    <div class="page-wrapper">
+
+        <div class="skip-links container">
+
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+
+        </div>
+
+        <header class="container">
+
+            <nav id="nav" class="menu" aria-label="Site menu">
+
+                <ul>
+
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/range-slider-component/">Range Slider Component</a></li>
+
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+
+                    <li class="expander-group site-sub-group">
+
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+
+                        <ul class="expander-content">
+
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+
+                            <li><a href="/demos/">Demos</a></li>
+
+                            <li><a href="/about/">About</a></li>
+
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </header>
+
+        <main id="content">
+
+            <div class="container">
+
+                <div class="post-content usa-form">
+
+                    <h1>Range Slider</h1>
+
+                    <p>A range slider allows users to choose an approximate number from a range.</p>
+
+                    <h2>Component Preview</h2>
+
+                    <form class="usa-form" aria-labelledby="range-slider-label">
+
+                        <label id="range-slider-label" class="usa-label" for="usa-range">Range slider</label>
+
+                        <input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-valuetext="20" />
+
+                        <div class="range-display" aria-live="polite">Current Value: <span id="range-value-display">20</span></div>
+
+                    </form>
+
+                    <h2>Component Code</h2>
+
+                    <pre><code>&lt;form class="usa-form" aria-labelledby="range-slider-label"&gt;
+  &lt;label id="range-slider-label" class="usa-label" for="usa-range"&gt;Range slider&lt;/label&gt;
+  &lt;input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-valuetext="20"&gt;
+  &lt;div class="range-display" aria-live="polite"&gt;Current Value: &lt;span id="range-value-display"&gt;20&lt;/span&gt;&lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Range Slider Component</h3>
+
+                    <ul>
+
+                        <li><strong>When the range is more important than precision.</strong> For instance, it could be more important for a target price selector to communicate where the target price falls within a certain range than the precise dollar amount selected.</li>
+
+                        <li><strong>When a relative value is more important than an exact value.</strong> For instance, a volume slider is typically more focussed on the relative loudness of the output rather than the specific decibel level.</li>
+
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+
+                    <ul>
+
+                        <li>Use a regular text input if a user needs to enter a precise number.</li>
+
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+
+                    <ul>
+
+                        <li><strong>Highlight the control when selected.</strong> The slider control should change color to indicate it is active when a user selects it.</li>
+
+                        <li><strong>The control must be draggable.</strong> Users should be able to drag the slider control or select somewhere along the slider itself to change the value.</li>
+
+                        <li><strong>Label the limits of the range.</strong> When appropriate, label the ends of the slider with the limits of the range (for example: “0/100”, “small/large” or “less expensive/more expensive”).</li>
+
+                        <li><strong>Don’t be too granular.</strong> In a range slider, the relative value is more important than the specific value, so set the step attribute so it’s not too granular. By setting the step to a value of 10-20% of the total range, you prevent unnecessary precision and cognitive strain in your users. For example, set <code>step="10"</code> in a total range of 100.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="container" id="footer">
+
+            <nav aria-label="Site map">
+
+                <ul>
+
+                    <li><a href="/about/">About</a></li>
+
+                    <li><a href="/resources/">Resources</a></li>
+
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+
+                    <li><a href="/site-map/">Site map</a></li>
+
+                </ul>
+
+            </nav>
+
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+
+            <p class="last-modified" id='last-modified'></p>
+
+        </footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="/assets/scripts/index.js?1736284235"></script>
+
+    <script>
+
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+
+            if (document.getElementById('last-modified')) {
+
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=range-slider-component.md")
+
+                    .then(response => response.json())
+
+                    .then(commits => {
+
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+
+                        if (modified != "") {
+
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+
+                        }
+
+                    });
+
+            }
+
+        }
+
+        // Update the output value when the slider changes
+        document.addEventListener('DOMContentLoaded', function() {
+            const rangeInput = document.getElementById('usa-range');
+            const rangeValueDisplay = document.getElementById('range-value-display');
+
+            rangeInput.addEventListener('input', function() {
+                rangeValueDisplay.textContent = this.value;
+                rangeInput.setAttribute('aria-valuenow', this.value);
+                rangeInput.setAttribute('aria-valuetext', this.value);
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
