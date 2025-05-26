@@ -1,234 +1,405 @@
 <!DOCTYPE html>
+
 <html lang="en-US">
 
 <head>
+
     <meta charset="utf-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+
     <meta name="theme-color" content="#003865">
+
     <meta name="robots" content="noindex">
+
     <title>Icon Component - MNIT DOT A11y</title>
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
+
     <meta name="generator" content="Jekyll v3.10.0" />
+
     <meta property="og:title" content="Icon Component" />
+
     <meta property="og:locale" content="en_US" />
+
     <meta name="description" content="Guide to creating an accessible icon component. Includes source code, interactive example, and guidance." />
+
     <meta property="og:description" content="Guide to creating an accessible icon component. Includes source code, interactive example, and guidance." />
+
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/icon-component/" />
+
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/icon-component/" />
+
     <meta property="og:site_name" content="MNIT DOT A11y" />
+
     <meta property="og:type" content="website" />
+
     <meta name="twitter:card" content="summary" />
+
     <meta property="twitter:title" content="Icon Component" />
+
     <script type="application/ld+json">
+
     {
+
         "@context": "https://schema.org",
+
         "@type": "WebPage",
+
         "description": "Guide to creating an accessible icon component. Includes source code, interactive example, and guidance.",
+
         "headline": "Icon Component",
+
         "url": "https://mnit-dot-a11y.github.io/icon-component/"
+
     }
+
     </script>
+
     <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+
         .icon-preview {
+
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 16px;
+
             margin: 16px 0;
+
         }
 
         .icon-item {
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             justify-content: center;
+
             width: 100px;
+
             height: 100px;
+
             border: 1px solid #ccc;
+
             border-radius: 4px;
+
             background-color: #f5f5f5;
+
             cursor: pointer;
+
             text-align: center;
+
             transition: background-color 0.3s ease;
+
         }
 
         .icon-item:hover {
+
             background-color: #e0e0e0;
+
         }
 
         .icon-item img {
+
             width: 48px;
+
             height: 48px;
+
         }
 
         .icon-text {
+
             margin-top: 8px;
+
             font-size: 0.875rem;
+
         }
+
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
+
     <div class="page-wrapper">
+
         <div class="skip-links container">
+
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+
         </div>
 
         <header class="container">
+
             <nav id="nav" class="menu" aria-label="Site menu">
+
                 <ul>
+
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+
                     <li class="web alpha"><a href="/web/">Web</a></li>
+
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
+
                     <li class="web-alpha"><a aria-current="page" class="current" href="/icon-component/">Icon Component</a></li>
+
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
+
                     <li class="expander-group site-sub-group">
+
                         <button class="expander-toggle" aria-expanded="false">More</button>
+
                         <ul class="expander-content">
+
                             <li><a href="/how-to-test/">How-to Test</a></li>
+
                             <li><a href="/demos/">Demos</a></li>
+
                             <li><a href="/about/">About</a></li>
+
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+
                         </ul>
+
                     </li>
+
                 </ul>
+
             </nav>
+
         </header>
 
         <main id="content">
+
             <div class="container">
+
                 <div class="post-content">
 
                     <h1>Icon</h1>
+
                     <p>Icons help communicate meaning, actions, status, or feedback.</p>
+
                     <p>Passed WCAG 2.1 AA</p>
 
                     <h2>About the Icon Component</h2>
+
                     <p>Icons are simple symbols that attract attention, aid navigation, signal an action, add emphasis, or provide feedback. Icons serve as recognizable cues that users can understand easily — typically without thinking too hard.</p>
 
                     <p>Icons must be used consistently across a site or service in order to accomplish their purpose well. For example, using an envelope icon for both email and a mailing address would likely confuse people. Viewers should be able to trust that a certain icon always means the same thing, no matter where it’s used.</p>
 
                     <h2>Component Preview</h2>
 
-                    <p>48 icons. Click an icon to copy its code snippet.</p>
+                    <p>4 icons. Click an icon to copy its code snippet.</p>
+
                     <div class="icon-preview">
-                        <!-- Render icons using plain HTML to avoid JavaScript errors -->
+
+                        <!-- Only 4 icons are displayed with stock images -->
+
                         <div class="icon-item" onclick="copyToClipboard('icon_1')">
-                            <img src="https://via.placeholder.com/48?text=1" alt="Icon 1">
+
+                            <img src="https://via.placeholder.com/48?text=Image1" alt="Icon 1">
+
                             <span class="icon-text">icon_1</span>
+
                         </div>
+
                         <div class="icon-item" onclick="copyToClipboard('icon_2')">
-                            <img src="https://via.placeholder.com/48?text=2" alt="Icon 2">
+
+                            <img src="https://via.placeholder.com/48?text=Image2" alt="Icon 2">
+
                             <span class="icon-text">icon_2</span>
+
                         </div>
+
                         <div class="icon-item" onclick="copyToClipboard('icon_3')">
-                            <img src="https://via.placeholder.com/48?text=3" alt="Icon 3">
+
+                            <img src="https://via.placeholder.com/48?text=Image3" alt="Icon 3">
+
                             <span class="icon-text">icon_3</span>
+
                         </div>
-                        <!-- Repeat for all 48 icons -->
-                        <!-- Example of the 48th icon -->
-                        <div class="icon-item" onclick="copyToClipboard('icon_48')">
-                            <img src="https://via.placeholder.com/48?text=48" alt="Icon 48">
-                            <span class="icon-text">icon_48</span>
+
+                        <div class="icon-item" onclick="copyToClipboard('icon_4')">
+
+                            <img src="https://via.placeholder.com/48?text=Image4" alt="Icon 4">
+
+                            <span class="icon-text">icon_4</span>
+
                         </div>
+
                     </div>
 
                     <h2>Guidance</h2>
 
                     <h3>When to Use the Icon Component</h3>
+
                     <ul>
+
                         <li><strong>Draw attention to actions.</strong> Icons, when paired with text, grab attention and show actions to take. Make sure each icon directly relates to any text it accompanies.</li>
+
                         <li><strong>Help readers find key information.</strong> Use icons as scannable, easy-to-understand visual cues for key information, like a phone number or email address.</li>
+
                         <li><strong>Enhance an actionable target.</strong> Icons make great touch or click targets. Use an icon for common actions, like opening a menu or sharing an article.</li>
+
                     </ul>
 
                     <h3>When to Consider Something Else</h3>
+
                     <ul>
+
                         <li><strong>Meaning is ambiguous.</strong> Use icons only in a common or conventional way. Icon utility hinges on people quickly recognizing what each icon means. If you suspect that an icon’s intent isn’t perfectly clear, consider removing it or adding accompanying text.</li>
+
                         <li><strong>Compensating for page structure.</strong> Don’t rely on an icon to help draw attention to something important that’s otherwise hard to find. Icons don’t fix unclear page hierarchy or confusing content organization.</li>
+
                         <li><strong>You need illustrative artwork.</strong> Icons have a specific, functional meaning. Avoid using icons for illustrative purposes. For example, don’t use the “visibility” eye icon to illustrate an actual eye. If you want to enhance the appearance of your content or visually explain a concept, use an illustration instead of an icon.</li>
+
                     </ul>
 
                     <h3>Usability Guidance</h3>
+
                     <ul>
+
                         <li><strong>Combine icons with text.</strong> Only a few icons are consistently understood across the digital-using public of the world, among them home, print, and search. Combine icons with text to improve clarity, and test your icons for recognition and memorability with your particular audience.</li>
+
                         <li><strong>Be consistent with icon meaning.</strong> Icons used more than once in an application or site must be used to represent the same thing, and have the same text description in every instance. Consistency helps people with some cognitive disabilities, helps people who might be distracted or scanning, and creates a better user experience for all.</li>
+
                         <li><strong>Combine interactive icons with other components.</strong> If the icon is part of an interactive element, it should be implemented within another functional component. For example, make an icon part of a button or list.</li>
+
                     </ul>
 
                     <h3>Accessibility Guidance</h3>
+
                     <p>Test the icon component in your own project.</p>
+
                     <ul>
+
                         <li><strong>Hide decorative icons from screen readers.</strong> Icons are decorative if they don’t provide meaningful information to the user. Use the <code>aria-hidden="true"</code> and <code>role="img"</code>.</li>
+
                         <li><strong>Provide descriptive text if a standalone icon has meaning or provides functionality.</strong> If an icon provides information or functionality that people cannot understand from accompanying text, you need to make the icon perceivable to people who use screen readers.</li>
+
                         <li><strong>Check for good color contrast.</strong> Make sure that the icon has a minimum contrast ratio of 3:1 against its background.</li>
+
                         <li><strong>Place icons inside links.</strong> If icons accompany a text link, place the icon inside the link to prevent screen readers from announcing the link twice.</li>
+
                     </ul>
 
                 </div>
+
             </div>
 
             <div class="print-container">
+
                 <button type="button" class="print-button" aria-label="Print this page">
+
                     <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+
                 </button>
+
             </div>
+
         </main>
 
         <footer class="container" id="footer">
+
             <nav aria-label="Site map">
+
                 <ul>
+
                     <li><a href="/about/">About</a></li>
+
                     <li><a href="/resources/">Resources</a></li>
+
                     <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+
                     <li><a href="/testing-routine/">Testing Routine</a></li>
+
                     <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+
                     <li><a href="/site-map/">Site map</a></li>
+
                 </ul>
+
             </nav>
+
             <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+
             <p class="last-modified" id='last-modified'></p>
+
         </footer>
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script src="/assets/scripts/index.js?1736284235"></script>
+
     <script>
+
         $("body").removeClass("preload");
 
         function setModifiedDate() {
+
             if (document.getElementById('last-modified')) {
+
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=icon-component.md")
+
                     .then(response => response.json())
+
                     .then(commits => {
+
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+
                         if (modified != "") {
+
                             document.getElementById('last-modified').textContent = "Last modified: " + modified;
+
                         }
+
                     });
+
             }
+
         }
 
         // Function to copy icon identifier to clipboard
+
         function copyToClipboard(iconName) {
+
             navigator.clipboard.writeText(iconName).then(() => {
+
                 alert('Icon identifier "' + iconName + '" copied to clipboard.');
+
             }, (err) => {
+
                 console.error('Could not copy text: ', err);
+
             });
+
         }
+
     </script>
 
 </body>
