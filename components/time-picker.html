@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+
+    <meta name="theme-color" content="#003865">
+
+    <meta name="robots" content="noindex">
+
+    <title>Time Picker Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+
+    <meta name="generator" content="Jekyll v3.10.0" />
+
+    <meta property="og:title" content="Time Picker Component" />
+
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="description" content="Guide to creating a time picker component that helps users select a specific time." />
+
+    <meta property="og:description" content="Guide to creating a time picker component that helps users select a specific time." />
+
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/time-picker-component/" />
+
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/time-picker-component/" />
+
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="twitter:title" content="Time Picker Component" />
+
+    <script type="application/ld+json">
+
+    {
+
+        "@context": "https://schema.org",
+
+        "@type": "WebPage",
+
+        "description": "Guide to creating a time picker component that helps users select a specific time.",
+
+        "headline": "Time Picker Component",
+
+        "url": "https://mnit-dot-a11y.github.io/time-picker-component/"
+
+    }
+
+    </script>
+
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        .usa-form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+        .usa-label {
+
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 5px;
+
+        }
+
+        .usa-hint {
+
+            font-size: 0.875rem;
+
+            margin-bottom: 5px;
+
+            color: #6c757d;
+
+        }
+
+        .usa-input {
+
+            width: 100%;
+
+            padding: 10px;
+
+            font-size: 1rem;
+
+            box-sizing: border-box;
+
+        }
+
+        .usa-time-picker {
+
+            position: relative;
+
+        }
+
+        .usa-time-picker input:focus + .time-picker-list,
+
+        .time-picker-list:hover {
+
+            display: block;
+
+        }
+
+        .time-picker-list {
+
+            display: none;
+
+            position: absolute;
+
+            background-color: #fff;
+
+            border: 1px solid #ccc;
+
+            width: 100%;
+
+            max-height: 150px;
+
+            overflow-y: auto;
+
+            z-index: 1000;
+
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        }
+
+        .time-picker-list ul {
+
+            margin: 0;
+
+            padding: 0;
+
+            list-style-type: none;
+
+        }
+
+        .time-picker-list li {
+
+            padding: 10px;
+
+            cursor: pointer;
+
+        }
+
+        .time-picker-list li:hover {
+
+            background-color: #f1f1f1;
+
+        }
+
+    </style>
+
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+
+    <div class="page-wrapper">
+
+        <div class="skip-links container">
+
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+
+        </div>
+
+        <header class="container">
+
+            <nav id="nav" class="menu" aria-label="Site menu">
+
+                <ul>
+
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/time-picker-component/">Time Picker Component</a></li>
+
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+
+                    <li class="expander-group site-sub-group">
+
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+
+                        <ul class="expander-content">
+
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+
+                            <li><a href="/demos/">Demos</a></li>
+
+                            <li><a href="/about/">About</a></li>
+
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </header>
+
+        <main id="content">
+
+            <div class="container">
+
+                <div class="post-content">
+
+                    <h1>Time Picker</h1>
+
+                    <p>A time picker helps users select a specific time.</p>
+
+                    <p>Passed WCAG 2.1 AA</p>
+
+                    <h2>Component Preview</h2>
+
+                    <div class="usa-form-group">
+
+                        <label class="usa-label" id="appointment-time-label" for="appointment-time">
+
+                            Appointment time
+
+                        </label>
+
+                        <div class="usa-hint" id="appointment-time-hint">
+
+                            Select a time from the dropdown. Type into the input to filter options.
+
+                        </div>
+
+                        <div class="usa-time-picker">
+
+                            <input class="usa-input" id="appointment-time" name="appointment-time" aria-describedby="appointment-time-label appointment-time-hint" />
+
+                            <div class="time-picker-list" aria-labelledby="appointment-time-label" role="listbox">
+
+                                <ul>
+
+                                    <li role="option" tabindex="-1">12:00am</li>
+
+                                    <li role="option" tabindex="-1">12:30am</li>
+
+                                    <li role="option" tabindex="-1">1:00am</li>
+
+                                    <li role="option" tabindex="-1">1:30am</li>
+
+                                    <li role="option" tabindex="-1">2:00am</li>
+
+                                    <li role="option" tabindex="-1">2:30am</li>
+
+                                    <li role="option" tabindex="-1">3:00am</li>
+
+                                    <li role="option" tabindex="-1">3:30am</li>
+
+                                    <li role="option" tabindex="-1">4:00am</li>
+
+                                    <li role="option" tabindex="-1">4:30am</li>
+
+                                    <li role="option" tabindex="-1">5:00am</li>
+
+                                    <li role="option" tabindex="-1">5:30am</li>
+
+                                    <li role="option" tabindex="-1">6:00am</li>
+
+                                    <li role="option" tabindex="-1">6:30am</li>
+
+                                    <li role="option" tabindex="-1">7:00am</li>
+
+                                    <li role="option" tabindex="-1">7:30am</li>
+
+                                    <li role="option" tabindex="-1">8:00am</li>
+
+                                    <li role="option" tabindex="-1">8:30am</li>
+
+                                    <li role="option" tabindex="-1">9:00am</li>
+
+                                    <li role="option" tabindex="-1">9:30am</li>
+
+                                    <li role="option" tabindex="-1">10:00am</li>
+
+                                    <li role="option" tabindex="-1">10:30am</li>
+
+                                    <li role="option" tabindex="-1">11:00am</li>
+
+                                    <li role="option" tabindex="-1">11:30am</li>
+
+                                    <li role="option" tabindex="-1">12:00pm</li>
+
+                                    <li role="option" tabindex="-1">12:30pm</li>
+
+                                    <li role="option" tabindex="-1">1:00pm</li>
+
+                                    <li role="option" tabindex="-1">1:30pm</li>
+
+                                    <li role="option" tabindex="-1">2:00pm</li>
+
+                                    <li role="option" tabindex="-1">2:30pm</li>
+
+                                    <li role="option" tabindex="-1">3:00pm</li>
+
+                                    <li role="option" tabindex="-1">3:30pm</li>
+
+                                    <li role="option" tabindex="-1">4:00pm</li>
+
+                                    <li role="option" tabindex="-1">4:30pm</li>
+
+                                    <li role="option" tabindex="-1">5:00pm</li>
+
+                                    <li role="option" tabindex="-1">5:30pm</li>
+
+                                    <li role="option" tabindex="-1">6:00pm</li>
+
+                                    <li role="option" tabindex="-1">6:30pm</li>
+
+                                    <li role="option" tabindex="-1">7:00pm</li>
+
+                                    <li role="option" tabindex="-1">7:30pm</li>
+
+                                    <li role="option" tabindex="-1">8:00pm</li>
+
+                                    <li role="option" tabindex="-1">8:30pm</li>
+
+                                    <li role="option" tabindex="-1">9:00pm</li>
+
+                                    <li role="option" tabindex="-1">9:30pm</li>
+
+                                    <li role="option" tabindex="-1">10:00pm</li>
+
+                                    <li role="option" tabindex="-1">10:30pm</li>
+
+                                    <li role="option" tabindex="-1">11:00pm</li>
+
+                                    <li role="option" tabindex="-1">11:30pm</li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Time Picker Component</h3>
+
+                    <ul>
+
+                        <li><strong>Scheduling.</strong> Use the time picker to schedule a time from common, consistent increments, such as planning a meeting time in 30-minute blocks.</li>
+
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+
+                    <ul>
+
+                        <li><strong>Exact time.</strong> Plain text input is more appropriate for historical exact times, like time of birth.</li>
+
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+
+                    <ul>
+
+                        <li><strong>Use option strings familiar to users.</strong> The combo box filters by matching strings. Include option text that includes familiar strings or spellings.</li>
+
+                        <li><strong>Make sure to test.</strong> Test select menus thoroughly with members of your target audience.</li>
+
+                        <li><strong>Avoid dependent options.</strong> Avoid making options in one select menu change based on the input to another.</li>
+
+                        <li><strong>Use a good default.</strong> When most users will (or should) pick a particular option, make it the default: <code>&lt;option selected="selected"&gt;Default&lt;/option&gt;</code>.</li>
+
+                        <li><strong>Avoid auto-submission.</strong> Don’t use JavaScript to automatically submit the form (or do anything else) when an option is selected. Offer a “submit” button at the end of the form instead.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer class="container" id="footer">
+
+            <nav aria-label="Site map">
+
+                <ul>
+
+                    <li><a href="/about/">About</a></li>
+
+                    <li><a href="/resources/">Resources</a></li>
+
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+
+                    <li><a href="/site-map/">Site map</a></li>
+
+                </ul>
+
+            </nav>
+
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+
+            <p class="last-modified" id='last-modified'></p>
+
+        </footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="/assets/scripts/index.js?1736284235"></script>
+
+    <script>
+
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+
+            if (document.getElementById('last-modified')) {
+
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=time-picker-component.md")
+
+                    .then(response => response.json())
+
+                    .then(commits => {
+
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+
+                        if (modified != "") {
+
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+
+                        }
+
+                    });
+
+            }
+
+        }
+
+        // Implement interactive time picker behavior
+        $(document).ready(function() {
+            var timePickerInput = $('#appointment-time');
+            var timePickerList = $('.time-picker-list');
+
+            timePickerInput.on('focus', function() {
+                timePickerList.show();
+            });
+
+            timePickerInput.on('blur', function() {
+                setTimeout(function() {
+                    timePickerList.hide();
+                }, 100);
+            });
+
+            timePickerInput.on('input', function() {
+                var filter = $(this).val().toLowerCase();
+                $('.time-picker-list li').each(function() {
+                    var text = $(this).text().toLowerCase();
+                    $(this).toggle(text.indexOf(filter) > -1);
+                });
+            });
+
+            $('.time-picker-list li').on('click', function() {
+                var selectedTime = $(this).text();
+                timePickerInput.val(selectedTime);
+                timePickerList.hide();
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
