@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Tooltip Component - MNIT DOT A11y</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Tooltip Component" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Guide to creating an accessible tooltip component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible tooltip component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/tooltip-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/tooltip-component/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Tooltip Component" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "description": "Guide to creating an accessible tooltip component. Includes source code, interactive example, and guidance.",
+      "headline": "Tooltip Component",
+      "url": "https://mnit-dot-a11y.github.io/tooltip-component/"
+    }
+    </script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .usa-button {
+            position: relative;
+            margin: 10px;
+        }
+
+        .usa-tooltip {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .usa-tooltip[data-position]:hover::after,
+        .usa-tooltip[data-position]:focus::after {
+            content: attr(title);
+            position: absolute;
+            width: auto;
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .usa-tooltip[data-position="top"]:hover::after,
+        .usa-tooltip[data-position="top"]:focus::after {
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .usa-tooltip[data-position="bottom"]:hover::after,
+        .usa-tooltip[data-position="bottom"]:focus::after {
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .usa-tooltip[data-position="left"]:hover::after,
+        .usa-tooltip[data-position="left"]:focus::after {
+            top: 50%;
+            right: 100%;
+            transform: translateY(-50%);
+        }
+
+        .usa-tooltip[data-position="right"]:hover::after,
+        .usa-tooltip[data-position="right"]:focus::after {
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a aria-current="page" class="current" href="/tooltip-component/">Tooltip Component</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <div class="container">
+                <div class="post-content">
+
+                    <h1>Tooltip</h1>
+                    <p>A tooltip is a short descriptive message that appears when a user hovers or focuses on an element.</p>
+                    <p>Passed WCAG 2.1 AA</p>
+
+                    <h2>Component Preview</h2>
+
+                    <h3 class="site-preview-heading">Standard tooltip</h3>
+                    <div class="padding-8">
+                        <div class="margin-4">
+                            <button type="button" class="usa-button usa-tooltip" data-position="top" title="Top">
+                                Show on top
+                            </button>
+                        </div>
+                        <div class="margin-4">
+                            <button type="button" class="usa-button usa-tooltip" data-position="right" title="Right">
+                                Show on right
+                            </button>
+                        </div>
+                        <div class="margin-4">
+                            <button type="button" class="usa-button usa-tooltip" data-position="left" title="Left">
+                                Show on left
+                            </button>
+                        </div>
+                        <div class="margin-4">
+                            <button type="button" class="usa-button usa-tooltip" data-position="bottom" title="Bottom">
+                                Show on bottom
+                            </button>
+                        </div>
+                    </div>
+
+                    <h3 class="site-preview-heading">Tooltip with utility classes</h3>
+                    <div class="grid-row padding-8">
+                        <div class="tablet:grid-col-3 margin-top-2 text-center">
+                            <button type="button" class="usa-button usa-tooltip" data-position="top" data-classes="width-full tablet:width-auto" title="Top">
+                                Show on top
+                            </button>
+                        </div>
+                        <div class="tablet:grid-col-3 margin-top-2 text-center">
+                            <button type="button" class="usa-button usa-tooltip" data-position="bottom" data-classes="width-full tablet:width-auto" title="Bottom">
+                                Show on bottom
+                            </button>
+                        </div>
+                        <div class="tablet:grid-col-3 margin-top-2 text-center">
+                            <button type="button" class="usa-button usa-tooltip" data-position="right" data-classes="width-full tablet:width-auto" title="Right">
+                                Show on right
+                            </button>
+                        </div>
+                        <div class="tablet:grid-col-3 margin-top-2 text-center">
+                            <button type="button" class="usa-button usa-tooltip" data-position="left" data-classes="width-full tablet:width-auto" title="Left">
+                                Show on left
+                            </button>
+                        </div>
+                    </div>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to Use the Tooltip Component</h3>
+                    <ul>
+                        <li><strong>Helpful, non-critical information.</strong> Use tooltips to strengthen an existing message.</li>
+                        <li><strong>Enhance confidence.</strong> Use tooltips to increase certainty about an interaction.</li>
+                        <li><strong>Brief descriptions.</strong> Tooltips perform best with succinct helper text.</li>
+                        <li><strong>Lack of space.</strong> Tooltips are useful as a last resort for space-constrained UI. Explore other options for keeping content visible without a tooltip.</li>
+                    </ul>
+
+                    <h3>When to Consider Something Else</h3>
+                    <ul>
+                        <li><strong>Critical information.</strong> Don’t hide information necessary for completing a task behind a tooltip interaction.</li>
+                        <li><strong>Lengthy descriptions.</strong> Tooltips are microcopy, and should be brief. Don’t use a tooltip if you need a lot of text.</li>
+                        <li><strong>Redundant content.</strong> Don’t use a tooltip when its content is repetitive or if usability is obvious.</li>
+                        <li><strong>Sufficient space.</strong> If content can fit outside a tooltip, don’t use a tooltip.</li>
+                    </ul>
+
+                    <h3>Usability Guidance</h3>
+                    <ul>
+                        <li><strong>Make tooltips discoverable.</strong> A hidden tooltip is unusable. Use tooltips only on elements that appear interactive, like buttons or links.</li>
+                        <li><strong>Avoid collisions.</strong> Be careful not to introduce conflicting hover or focus events.</li>
+                        <li><strong>Use consistently.</strong> If using tooltips in one context, use in all similar contexts.</li>
+                        <li><strong>Don’t block content.</strong> Use the <code>data-position</code> attribute to prevent the tooltip from covering other page elements.</li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload");
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=tooltip-component.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
+            }
+        }
+    </script>
+
+</body>
+
+</html>
