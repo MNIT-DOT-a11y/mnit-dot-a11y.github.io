@@ -44,6 +44,10 @@
             position: relative;
             cursor: pointer;
         }
+        /* Ensure tooltips appear above other elements */
+        .tippy-box {
+            z-index: 9999 !important;
+        }
     </style>
 </head>
 <body onload="setModifiedDate();" class="preload">
