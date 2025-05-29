@@ -10,7 +10,6 @@
   <meta name="theme-color" content="#003865">
   <meta name="robots" content="noindex">
   <title>Accessible Text Input - MNIT DOT A11y</title>
-
   <!-- Begin Jekyll SEO tag v2.8.0 -->
   <meta name="generator" content="Jekyll v3.10.0" />
   <meta property="og:title" content="Accessible Text Input" />
@@ -33,10 +32,8 @@
     }
   </script>
   <!-- End Jekyll SEO tag -->
-
   <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
     .usa-input,
     .usa-textarea {
@@ -58,17 +55,21 @@
       margin-bottom: 0.5rem;
       font-weight: bold;
     }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 0.25rem;
+    }
   </style>
 </head>
 
 <body onload="setModifiedDate();" class="preload">
-
   <div class="page-wrapper">
     <div class="skip-links container">
       <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
       <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
     </div>
-
     <header class="container">
       <nav id="nav" class="menu" aria-label="Site menu">
         <ul>
@@ -91,43 +92,39 @@
         </ul>
       </nav>
     </header>
-
     <main id="content">
       <div class="container">
         <div class="post-content">
           <h1>Accessible Text Input</h1>
           <p>This guide provides instructions for creating a text input component that meets accessibility standards.</p>
-
           <h2>Interactive Example</h2>
-          <form>
-            <label class="usa-label" for="textInput">Text input label</label>
-            <input class="usa-input" id="textInput" name="textInput" type="text" />
+          <form id="example-form">
+            <div>
+              <label class="usa-label" for="textInput">Text input label (Free Text)</label>
+              <input class="usa-input" id="textInput" name="textInput" type="text" aria-describedby="textInputError" />
+              <p id="textInputError" class="error" style="display:none;">Please enter a valid text input.</p>
+            </div>
 
-            <label class="usa-label" for="textArea">Text area label</label>
-            <textarea class="usa-textarea" id="textArea" name="textArea"></textarea>
+            <div>
+              <label class="usa-label" for="ssnInput">Social Security Number</label>
+              <input class="usa-input" id="ssnInput" name="ssnInput" type="text" pattern="\d{3}-\d{2}-\d{4}" aria-describedby="ssnError" placeholder="XXX-XX-XXXX" />
+              <p id="ssnError" class="error" style="display:none;">Please enter a valid SSN in the format XXX-XX-XXXX.</p>
+            </div>
+
+            <div>
+              <label class="usa-label" for="emailInput">Email</label>
+              <input class="usa-input" id="emailInput" name="emailInput" type="email" aria-describedby="emailError" />
+              <p id="emailError" class="error" style="display:none;">Please enter a valid email address.</p>
+            </div>
+
+            <div>
+              <label class="usa-label" for="textArea">Text area label</label>
+              <textarea class="usa-textarea" id="textArea" name="textArea" aria-describedby="textAreaError"></textarea>
+              <p id="textAreaError" class="error" style="display:none;">Please enter text in the text area.</p>
+            </div>
+
+            <button type="submit">Submit</button>
           </form>
-
-          <h2>Source Code</h2>
-          <pre><code>&lt;label class="usa-label" for="textInput"&gt;Text input label&lt;/label&gt;
-&lt;input class="usa-input" id="textInput" name="textInput" type="text" /&gt;
-
-&lt;label class="usa-label" for="textArea"&gt;Text area label&lt;/label&gt;
-&lt;textarea class="usa-textarea" id="textArea" name="textArea"&gt;&lt;/textarea&gt;</code></pre>
-
-          <h2>Guidance</h2>
-          <ul>
-            <li>Use text inputs for unpredictable or freeform responses where user input can vary significantly.</li>
-            <li>Avoid placeholder text as it can disappear when a user starts typing, which may be problematic for some users.</li>
-            <li>Ensure text input fields are appropriately sized to match the expected input length.</li>
-            <li>Consider mobile users and test the usability of text inputs on smaller screens.</li>
-          </ul>
-
-          <h2>Accessibility Features</h2>
-          <ul>
-            <li>Text inputs are designed to be keyboard-accessible and include clear focus indicators.</li>
-            <li>All form controls are appropriately labeled for screen readers with <code>label</code> elements.</li>
-            <li>Color contrast meets WCAG 2.1 AA standards for all input fields and labels.</li>
-          </ul>
         </div>
       </div>
 
@@ -171,8 +168,56 @@
           });
       }
     }
-  </script>
 
+    // Form validation on submit
+    document.getElementById('example-form').addEventListener('submit', function (event) {
+      let isValid = true;
+
+      // Validate text input
+      const textInput = document.getElementById('textInput');
+      const textInputError = document.getElementById('textInputError');
+      if (!textInput.value.trim()) {
+        textInputError.style.display = 'block';
+        isValid = false;
+      } else {
+        textInputError.style.display = 'none';
+      }
+
+      // Validate SSN input
+      const ssnInput = document.getElementById('ssnInput');
+      const ssnError = document.getElementById('ssnError');
+      if (!ssnInput.value.match(/^\d{3}-\d{2}-\d{4}$/)) {
+        ssnError.style.display = 'block';
+        isValid = false;
+      } else {
+        ssnError.style.display = 'none';
+      }
+
+      // Validate email input
+      const emailInput = document.getElementById('emailInput');
+      const emailError = document.getElementById('emailError');
+      if (!emailInput.value || !emailInput.checkValidity()) {
+        emailError.style.display = 'block';
+        isValid = false;
+      } else {
+        emailError.style.display = 'none';
+      }
+
+      // Validate text area
+      const textArea = document.getElementById('textArea');
+      const textAreaError = document.getElementById('textAreaError');
+      if (!textArea.value.trim()) {
+        textAreaError.style.display = 'block';
+        isValid = false;
+      } else {
+        textAreaError.style.display = 'none';
+      }
+
+      if (!isValid) {
+        event.preventDefault(); // Prevent form submission if validation fails
+      }
+    });
+  </script>
 </body>
 
 </html>
