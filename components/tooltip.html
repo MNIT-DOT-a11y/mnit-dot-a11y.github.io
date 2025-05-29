@@ -171,10 +171,17 @@
         }
 
         // Initialize Tippy.js for all tooltip elements
-        tippy('.usa-tooltip', {
-            placement: 'auto',
-            arrow: true,
-            theme: 'light',
+        document.addEventListener('DOMContentLoaded', function () {
+            const tooltipElements = document.querySelectorAll('.usa-tooltip');
+            tooltipElements.forEach((el) => {
+                const position = el.getAttribute('data-position') || 'top'; // Default to 'top' if no position is specified
+                tippy(el, {
+                    content: el.getAttribute('data-tippy-content'),
+                    placement: position,
+                    arrow: true,
+                    theme: 'light',
+                });
+            });
         });
     </script>
 </body>
