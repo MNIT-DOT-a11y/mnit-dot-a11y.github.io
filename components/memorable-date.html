@@ -50,24 +50,26 @@
             background-color: #ffffff;
             border-radius: 4px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap; /* Ensure elements wrap instead of overlap */
         }
 
         .usa-form-group {
             display: flex;
             flex-direction: column;
             font-size: 1em;
+            flex-grow: 1; /* Allow fields to grow and shrink */
+            min-width: 100px; /* Minimum width to ensure readability */
         }
 
-        .usa-select, .usa-input {
+        .usa-select,
+        .usa-input {
             font-family: inherit;
             padding: 6px;
             font-size: 1em;
             border: 1px solid #ccc;
             border-radius: 3px;
-        }
-
-        .usa-select {
-            width: 120px; /* Smaller width for the month select */
+            box-sizing: border-box;
+            width: 100%; /* Full width to prevent cut off */
         }
 
         .usa-label {
@@ -128,7 +130,6 @@
                 </ul>
             </nav>
         </header>
-
         <main id="content">
             <div class="container">
                 <div class="post-content">
@@ -136,7 +137,7 @@
                     <p>A select for month followed by two text fields is the easiest way for users to enter most dates.</p>
                     <p>Passed WCAG 2.1 AA</p>
                     <p><strong>Testing has revealed some issues with this component.</strong> Learn more in the known issues section on this page.</p>
-                    
+
                     <h2>Component Preview</h2>
                     <fieldset class="usa-fieldset">
                         <legend class="usa-legend">Date of Birth</legend>
@@ -163,33 +164,33 @@
 
                             <div class="usa-form-group usa-form-group--day">
                                 <label class="usa-label" for="date_of_birth_day">Day</label>
-                                <input class="usa-input" aria-describedby="mdHint" id="date_of_birth_day" name="date_of_birth_day" maxlength="2" pattern="[0-9]*" inputmode="numeric" value="" type="text"/>
+                                <input class="usa-input" aria-describedby="mdHint" id="date_of_birth_day" name="date_of_birth_day" maxlength="2" pattern="[0-9]*" inputmode="numeric" value="" type="text" />
                             </div>
 
                             <div class="usa-form-group usa-form-group--year">
                                 <label class="usa-label" for="date_of_birth_year">Year</label>
-                                <input class="usa-input" aria-describedby="mdHint" id="date_of_birth_year" name="date_of_birth_year" minlength="4" maxlength="4" pattern="[0-9]*" inputmode="numeric" value="" type="text"/>
+                                <input class="usa-input" aria-describedby="mdHint" id="date_of_birth_year" name="date_of_birth_year" minlength="4" maxlength="4" pattern="[0-9]*" inputmode="numeric" value="" type="text" />
                             </div>
                         </div>
                     </fieldset>
-    
+
                     <h2>Guidance</h2>
                     <h3>When to Use the Memorable Date Component</h3>
                     <ul>
                         <li><strong>Appropriate for most dates.</strong> This component is appropriate for most dates.</li>
                     </ul>
-    
+
                     <h3>When to Consider Something Else</h3>
                     <ul>
                         <li><strong>Consider a date picker for scheduling.</strong> If users are trying to schedule something, the date picker might make more sense. Be sure to also provide an option for text entry as well.</li>
                     </ul>
-    
+
                     <h3>Usability Guidance</h3>
                     <ul>
                         <li><strong>Label each field.</strong> Be sure each field is properly labeled — some countries enter dates in day, month, year order.</li>
                         <li><strong>Avoid select elements for day or year.</strong> It may be tempting to switch all or some of these text fields to select elements, but these tend to be more difficult to use than text inputs.</li>
                     </ul>
-    
+
                     <h3>Accessibility Guidance</h3>
                     <p>Test the memorable date component in your own project.</p>
                     <p>USWDS tested the memorable date component for accessibility. You should test your implementation, too.</p>
@@ -199,14 +200,14 @@
                         <li><strong>Don’t auto-advance focus.</strong> Do not use JavaScript to auto advance the focus from one field to the next. This makes it difficult for keyboard-only users to navigate and correct mistakes.</li>
                         <li><strong>Use “text” instead of “number” inputs.</strong> Research indicates that numeric inputs still carry many usability problems, according to the gov.uk Technology in Government blog.</li>
                     </ul>
-    
+
                     <h3>Related</h3>
                     <ul>
                         <li>Date of Birth pattern</li>
                         <li>Phone Number pattern</li>
                         <li>Social Security Number pattern</li>
                     </ul>
-    
+
                     <h3>Using the Memorable Date Component</h3>
                     <ul>
                         <li>The year input is set to accept only a four-digit number while the month and day inputs can accept up to a two-digit number.</li>
@@ -215,7 +216,6 @@
                 </div>
             </div>
         </main>
-
         <footer class="container" id="footer">
             <nav aria-label="Site map">
                 <ul>
