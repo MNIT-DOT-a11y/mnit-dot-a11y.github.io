@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,10 +101,82 @@
             color: #0056b3;
             text-decoration: underline;
         }
+
+        .sidenav {
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 100px; /* Start level with component header */
+            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
+            overflow-y: auto;
+        }
+
+        .main-content {
+            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
+            padding: 20px;
+        }
     </style>
+
 </head>
 
 <body onload="setModifiedDate();" class="preload">
+
+    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+        <ul class="site-sidenav usa-sidenav">
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html" class="usa-current">Alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/identifier.html">Identifier</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/prose.html">Prose</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+        </ul>
+    </aside>
+
     <div class="page-wrapper">
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -133,7 +206,7 @@
             </nav>
         </header>
 
-        <main id="content">
+        <main id="content" class="main-content">
             <div class="container">
                 <div class="post-content">
                     <h1>Alert Component</h1>
@@ -142,7 +215,6 @@
 
                     <h2>Component Preview</h2>
                     <h3>Standard Alerts</h3>
-
                     <div class="usa-alert usa-alert--info">
                         <div class="usa-alert__body">
                             <h4 class="usa-alert__heading">Informative status</h4>
@@ -221,84 +293,148 @@
                     </div>
 
                     <h2>Component Code</h2>
-
                     <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard alerts&lt;/h3&gt;
+
 &lt;div class="usa-alert usa-alert--info"&gt;
+
   &lt;div class="usa-alert__body"&gt;
+
     &lt;h4 class="usa-alert__heading"&gt;Informative status&lt;/h4&gt;
+
     &lt;p class="usa-alert__text"&gt;
+
       Lorem ipsum dolor sit amet,
+
       &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
       elit, sed do eiusmod.
+
     &lt;/p&gt;
+
   &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;div class="usa-alert usa-alert--warning"&gt;
+
   &lt;div class="usa-alert__body"&gt;
+
     &lt;h4 class="usa-alert__heading"&gt;Warning status&lt;/h4&gt;
+
     &lt;p class="usa-alert__text"&gt;
+
       Lorem ipsum dolor sit amet,
+
       &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
       elit, sed do eiusmod.
+
     &lt;/p&gt;
+
   &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;div class="usa-alert usa-alert--success"&gt;
+
   &lt;div class="usa-alert__body"&gt;
+
     &lt;h4 class="usa-alert__heading"&gt;Success status&lt;/h4&gt;
+
     &lt;p class="usa-alert__text"&gt;
+
       Lorem ipsum dolor sit amet,
+
       &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
       elit, sed do eiusmod.
+
     &lt;/p&gt;
+
   &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;div class="usa-alert usa-alert--error" role="alert"&gt;
+
   &lt;div class="usa-alert__body"&gt;
+
     &lt;h4 class="usa-alert__heading"&gt;Error status&lt;/h4&gt;
+
     &lt;p class="usa-alert__text"&gt;
+
       Lorem ipsum dolor sit amet,
+
       &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
       elit, sed do eiusmod.
+
     &lt;/p&gt;
+
   &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;div class="usa-alert usa-alert--emergency" role="alert"&gt;
+
   &lt;div class="usa-alert__body"&gt;
+
     &lt;h4 class="usa-alert__heading"&gt;Emergency status&lt;/h4&gt;
+
     &lt;p class="usa-alert__text"&gt;
+
       Lorem ipsum dolor sit amet,
+
       &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
       elit, sed do eiusmod.
+
     &lt;/p&gt;
+
   &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;h3 class="site-preview-heading"&gt;Slim alert&lt;/h3&gt;
+
 &lt;div class="usa-alert usa-alert--info usa-alert--slim"&gt;
+
   &lt;div class="usa-alert__body"&gt;
+
     &lt;p class="usa-alert__text"&gt;
+
       Lorem ipsum dolor sit amet,
+
       &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
       elit, sed do eiusmod.
+
     &lt;/p&gt;
+
   &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;h3 class="site-preview-heading"&gt;Alert with no icon&lt;/h3&gt;
+
 &lt;div class="usa-alert usa-alert--info usa-alert--no-icon"&gt;
+
   &lt;div class="usa-alert__body"&gt;
+
     &lt;p class="usa-alert__text"&gt;
+
       Lorem ipsum dolor sit amet,
+
       &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
       elit, sed do eiusmod.
+
     &lt;/p&gt;
+
   &lt;/div&gt;
+
 &lt;/div&gt;
+
 </code></pre>
 
                     <h2>Guidance</h2>
@@ -326,9 +462,7 @@
                     </ul>
 
                     <h3>Accessibility guidance</h3>
-
                     <p>Test the alert component in your own project. Use proper ARIA roles to ensure alerts are accessible.</p>
-
                     <ul>
                         <li>Do not visually hide alerts until they are needed; users with older assistive technologies might still perceive them.</li>
                         <li>Choose the appropriate ARIA <code>role</code> for alerts:
@@ -339,7 +473,6 @@
                             </ul>
                         </li>
                     </ul>
-
                     <p>Reference: <a href="https://www.w3.org/TR/wai-aria-practices/" target="_blank">WAI-ARIA</a></p>
 
                 </div>
@@ -386,6 +519,7 @@
             }
         }
     </script>
+
 </body>
 
 </html>
