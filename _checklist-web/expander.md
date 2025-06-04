@@ -1,22 +1,22 @@
 ---
 layout: entry
-title:  "Expanders and Accordion"
-description: "How to code and test accessible expander buttons"
+title:  "Accordion"
+description: "How to code and test accessible accordions"
 categories: main
 
 keyboard:
   tab: |
-    Focus visibly moves to the expander.
+    Focus visibly moves to the accordion.
   space bar: |
-    Toggles the expander.
+    Toggles the accordion.
   enter: |
-    Toggles the expander.
+    Toggles the accordion.
 
 mobile:
   swipe: |
     Focus moves to the element, expresses its state (expanded/collapsed)
   double tap: |
-    Toggles the expander
+    Toggles the accordion
 
 screenreader:
   name:  |
@@ -28,11 +28,11 @@ screenreader:
 
 gherkin-keyboard: 
   - when:  |
-      the tab key to move focus to an expander
+      the tab key to move focus to an accordion
     result: |
       focus is strongly visually indicated
   - then:  |
-      the space bar and/or enter key to activate the expander
+      the space bar and/or enter key to activate the accordion
     result: |
       the hidden content is revealed
 
