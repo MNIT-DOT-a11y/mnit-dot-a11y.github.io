@@ -1,71 +1,41 @@
 <!DOCTYPE html>
-
 <html lang="en-US">
 
 <head>
 
     <meta charset="utf-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
-
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
-
     <meta name="theme-color" content="#003865">
-
     <meta name="robots" content="noindex">
-
     <title>Link Component - MNIT DOT A11y</title>
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-
     <meta name="generator" content="Jekyll v3.10.0" />
-
     <meta property="og:title" content="Link Component" />
-
     <meta property="og:locale" content="en_US" />
-
     <meta name="description" content="Guide to creating an accessible link component. Includes source code, interactive example, and guidance." />
-
     <meta property="og:description" content="Guide to creating an accessible link component. Includes source code, interactive example, and guidance." />
-
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/link-component/" />
-
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/link-component/" />
-
     <meta property="og:site_name" content="MNIT DOT A11y" />
-
     <meta property="og:type" content="website" />
-
     <meta name="twitter:card" content="summary" />
-
     <meta property="twitter:title" content="Link Component" />
-
     <script type="application/ld+json">
-
     {
-
         "@context": "https://schema.org",
-
         "@type": "WebPage",
-
         "description": "Guide to creating an accessible link component. Includes source code, interactive example, and guidance.",
-
         "headline": "Link Component",
-
         "url": "https://mnit-dot-a11y.github.io/link-component/"
-
     }
-
     </script>
-
     <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -77,20 +47,84 @@
             margin-bottom: 16px;
             padding: 8px;
         }
+
+        .sidenav {
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 100px; /* Start level with component header */
+            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
+            overflow-y: auto;
+        }
+
+        .main-content {
+            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
+            padding: 20px;
+        }
     </style>
 
 </head>
 
 <body class="preload">
 
+    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+        <ul class="site-sidenav usa-sidenav">
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+        </ul>
+    </aside>
+
     <div class="page-wrapper">
 
         <div class="skip-links container">
-
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
-
         </div>
 
         <header class="container">
@@ -137,7 +171,7 @@
 
         </header>
 
-        <main id="content">
+        <main id="content" class="main-content">
 
             <div class="container">
 
@@ -156,10 +190,15 @@
                     <h2>Component Preview</h2>
 
                     <p>This is <a href="#" class="text-link">a text link</a> on a light background.</p>
+
                     <p>This is <a href="#" class="visited-link">a visited link</a>.</p>
+
                     <p>This is a link that opens in the <em>current</em> tab and goes to an <a href="#" class="external-link">external website</a>.</p>
+
                     <p>This is a link that opens in a <em>new</em> tab and goes to an <a href="#" target="_blank" class="external-link">external website</a>.</p>
+
                     <p>This is <a href="#" class="text-link-dark">a text link on a dark background</a>.</p>
+
                     <p>This is <a href="#" class="alternate-link-dark">an alternate external text link on a dark background</a>.</p>
 
                     <h2>Guidance</h2>
@@ -169,51 +208,91 @@
                     <p>Each item below is explained in the guidance sections that follow.</p>
 
                     <h4>What you should do</h4>
+
                     <ul>
+
                         <li>Clearly identify external links</li>
+
                         <li>Notify users about non-federal external links</li>
+
                         <li>Use unique, meaningful link text</li>
+
                         <li>Simplify link placement in body text</li>
+
                         <li>Link directly to the most relevant page</li>
+
                         <li>Indicate nonpublic links that require authentication</li>
+
                         <li>If you use an external link indicator, use it consistently for all text links</li>
+
                         <li>Add <code>rel="noreferrer"</code> to external links</li>
+
                         <li>Provide text context for external links</li>
+
                         <li>Add a non-endorsement statement</li>
+
                         <li>Indicate file type and size for links to non-HTML content</li>
+
                         <li>Identify jump links in body text</li>
+
                         <li>Write out email and phone links</li>
+
                         <li>Encode email and phone links</li>
+
                         <li>Check with your IT security department regarding email link best practices</li>
+
                     </ul>
 
                     <h4>What you shouldn't do</h4>
+
                     <ul>
+
                         <li>Don’t rely only on color to distinguish links</li>
+
                         <li>Don’t block external links with disruptive notifications</li>
+
                         <li>Don’t use generic link text like “read more” or “link”</li>
+
                         <li>Don’t use the same link text for different URLs on the same page</li>
+
                     </ul>
 
                     <h3>What You Should Do</h3>
 
                     <ul>
+
                         <li><strong>Clearly identify external links.</strong> The external link icon () is a good way to communicate that a link is external.</li>
+
                         <li><strong>Notify users about non-federal links.</strong> Review this resource on Digital.gov for guidance on non-federal link requirements.</li>
+
                         <li><strong>Use unique, meaningful link text.</strong> Link text should explain the link’s purpose and help the user understand the link’s destination.</li>
+
                         <li><strong>Simplify link placement in body text.</strong> Reduce the number of links in a single sentence to simplify its message.</li>
+
                         <li><strong>Link directly to the most relevant page.</strong> Avoid links to pages that require further user action to locate the intended information.</li>
+
                         <li><strong>Indicate nonpublic links that require authentication.</strong> Use text or an indicator to signal any link that is not publicly available.</li>
+
                         <li><strong>If you use an external link indicator, use it consistently for all text links.</strong></li>
+
                         <li><strong>Use <code>rel="noreferrer"</code> property on external links.</strong></li>
+
                         <li><strong>Provide text context for external links.</strong> Use plain text to indicate where a link goes.</li>
+
                         <li><strong>Add a non-endorsement statement to your site.</strong></li>
+
                         <li><strong>Indicate file type and size for links to non-HTML content.</strong></li>
+
                         <li><strong>Identify jump links in body text.</strong> Use link text like “jump to”, “above” or “below”.</li>
+
                         <li><strong>Write out email and phone links.</strong> For `mailto:` and `tel:` links, write out email addresses and phone numbers.</li>
+
                         <li><strong>Encode email and phone links.</strong> Use `mailto:` and `tel:` for email addresses and phone numbers.</li>
+
                     </ul>
 
+                    <h2>Testing</h2>
+                    <p>To ensure the link component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/link/" target="_blank">Link Component Testing Checklist</a>.</p>
                 </div>
 
             </div>
@@ -257,6 +336,30 @@
     <script>
 
         $("body").removeClass("preload");
+
+        function setModifiedDate() {
+
+            if (document.getElementById('last-modified')) {
+
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=link-component.md")
+
+                    .then(response => response.json())
+
+                    .then(commits => {
+
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+
+                        if (modified != "") {
+
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+
+                        }
+
+                    });
+
+            }
+
+        }
 
     </script>
 
