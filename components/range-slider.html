@@ -39,9 +39,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+
         .usa-form {
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: none; /* Remove the fixed max-width */
             padding: 20px;
         }
 
@@ -66,9 +66,16 @@
         }
 
         .main-content {
-            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
+            margin-left: 270px;
             padding: 20px;
         }
+
+        .container {
+            width: 100%; /* Ensure container uses full width */
+            max-width: 1200px; /* Optional: Control maximum content width */
+            margin: 0 auto; /* Center the content */
+        }
+
     </style>
 
 </head>
@@ -248,7 +255,9 @@
                     </ul>
 
                     <h2>Testing</h2>
+
                     <p>To ensure the range slider component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/range-slider/" target="_blank">Range Slider Component Testing Checklist</a>.</p>
+
                 </div>
 
             </div>
