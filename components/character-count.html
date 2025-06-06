@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,11 +65,81 @@
         .character-count.alert {
             color: red;
         }
+
+        .sidenav {
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 100px; /* Start level with component header */
+            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
+            overflow-y: auto;
+        }
+
+        .main-content {
+            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
+            padding: 20px;
+        }
     </style>
+
 </head>
 
 <body onload="setModifiedDate();" class="preload">
+
+    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+        <ul class="site-sidenav usa-sidenav">
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+        </ul>
+    </aside>
+
     <div class="page-wrapper">
+
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
@@ -97,32 +168,51 @@
             </nav>
         </header>
 
-        <main id="content">
+        <main id="content" class="main-content">
             <div class="container">
                 <div class="post-content">
                     <h1>Character Count Component</h1>
+
                     <p>This guide provides instructions for creating a character count component that meets accessibility standards.</p>
 
                     <h2>Interactive Example</h2>
+
                     <div class="character-count-container">
+
                         <label for="input-textarea">Your Message:</label>
+
                         <textarea id="input-textarea" aria-describedby="charCount" maxlength="200"></textarea>
+
                         <div id="charCount" class="character-count" aria-live="polite">200 characters remaining</div>
+
                     </div>
 
                     <h2>Source Code</h2>
+
                     <pre><code>&lt;div class="character-count-container"&gt;
+
     &lt;label for="input-textarea"&gt;Your Message:&lt;/label&gt;
+
     &lt;textarea id="input-textarea" aria-describedby="charCount" maxlength="200"&gt;&lt;/textarea&gt;
+
     &lt;div id="charCount" class="character-count" aria-live="polite"&gt;200 characters remaining&lt;/div&gt;
+
 &lt;/div&gt;</code></pre>
 
                     <h2>Accessibility Features</h2>
+
                     <ul>
+
                         <li>The textarea includes a <code>maxlength</code> attribute to prevent input beyond a specified limit.</li>
+
                         <li>The character count feedback uses <code>aria-live="polite"</code> to update screen readers without interrupting.</li>
+
                         <li>A descriptive label is associated with the textarea for better accessibility.</li>
+
                     </ul>
+
+                    <h2>Testing</h2>
+                    <p>To ensure the character count component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/character-count/" target="_blank">Character Count Component Testing Checklist</a>.</p>
                 </div>
             </div>
 
@@ -131,6 +221,7 @@
                     <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
                 </button>
             </div>
+
         </main>
 
         <footer class="container" id="footer">
@@ -147,35 +238,59 @@
             <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
             <p class="last-modified" id='last-modified'></p>
         </footer>
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script src="/assets/scripts/index.js?1736284235"></script>
+
     <script>
+
         $("body").removeClass("preload"); // Prevents animations on page load
 
         document.getElementById('input-textarea').addEventListener('input', function () {
+
             const maxLength = this.getAttribute('maxlength');
+
             const currentLength = this.value.length;
+
             const remaining = maxLength - currentLength;
+
             const charCountElem = document.getElementById('charCount');
+
             charCountElem.textContent = `${remaining} characters remaining`;
+
             charCountElem.classList.toggle('alert', remaining < 10);
+
         });
 
         function setModifiedDate() {
+
             if (document.getElementById('last-modified')) {
+
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=character-count-component.md")
+
                 .then(response => response.json())
+
                 .then(commits => {
+
                     var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+
                     if (modified != "") {
+
                         document.getElementById('last-modified').textContent = "Last modified: " + modified;
+
                     }
+
                 });
+
             }
+
         }
+
     </script>
+
 </body>
 
 </html>
