@@ -69,10 +69,11 @@
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: sticky;
-            top: 0;
-            height: 100vh;
+            position: fixed;
+            top: 50px; /* Adjusted to be under the home button */
+            height: calc(100vh - 50px); /* Adjust height to fit within the viewport below the header */
             overflow-y: auto;
+            z-index: 1; /* Ensures the sidebar stays above other content */
         }
 
         .main-content {
@@ -84,6 +85,29 @@
 </head>
 
 <body onload="setModifiedDate();" class="preload">
+
+    <header class="container">
+        <nav id="nav" class="menu" aria-label="Site menu">
+            <ul>
+                <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                <li class="web alpha"><a href="/web/">Web</a></li>
+                <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                <li class="web-alpha"><a aria-current="page" class="current" href="/breadcrumb-component/">Breadcrumb Component</a></li>
+                <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                <li class="native bravo"><a href="/demos/">Demos</a></li>
+                <li class="expander-group site-sub-group">
+                    <button class="expander-toggle" aria-expanded="false">More</button>
+                    <ul class="expander-content">
+                        <li><a href="/how-to-test/">How-to Test</a></li>
+                        <li><a href="/demos/">Demos</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
         <ul class="site-sidenav usa-sidenav">
@@ -142,29 +166,6 @@
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
-
-        <header class="container">
-            <nav id="nav" class="menu" aria-label="Site menu">
-                <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a aria-current="page" class="current" href="/breadcrumb-component/">Breadcrumb Component</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
-                    <li class="expander-group site-sub-group">
-                        <button class="expander-toggle" aria-expanded="false">More</button>
-                        <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </header>
 
         <main id="content" class="main-content">
 
