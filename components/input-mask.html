@@ -2,6 +2,7 @@
 <html lang="en-US">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,73 +67,184 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
+        .sidenav {
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 100px; /* Start level with component header */
+            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
+            overflow-y: auto;
+        }
+
+        .main-content {
+            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
+            padding: 20px;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
+
+    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+        <ul class="site-sidenav usa-sidenav">
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+        </ul>
+    </aside>
+
     <div class="page-wrapper">
+
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
+
             <nav id="nav" class="menu" aria-label="Site menu">
+
                 <ul>
+
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+
                     <li class="web alpha"><a href="/web/">Web</a></li>
+
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
+
                     <li class="web-alpha"><a aria-current="page" class="current" href="/input-mask-component/">Input Mask Component</a></li>
+
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
+
                     <li class="expander-group site-sub-group">
+
                         <button class="expander-toggle" aria-expanded="false">More</button>
+
                         <ul class="expander-content">
+
                             <li><a href="/how-to-test/">How-to Test</a></li>
+
                             <li><a href="/demos/">Demos</a></li>
+
                             <li><a href="/about/">About</a></li>
+
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+
                         </ul>
+
                     </li>
+
                 </ul>
+
             </nav>
+
         </header>
 
-        <main id="content">
+        <main id="content" class="main-content">
+
             <div class="container">
+
                 <div class="post-content">
 
                     <h1>Input Mask</h1>
+
                     <p>An input mask is a string expression that constrains input to support valid input values.</p>
 
                     <h2>Component Preview</h2>
 
                     <div class="input-mask-preview">
+
                         <div class="input-mask-item">
+
                             <label class="input-mask-label" for="ssn-input">Social Security Number</label>
+
                             <span class="input-mask-hint">For example, 123 45 6789</span>
+
                             <input id="ssn-input" class="input-mask-input" type="text" placeholder="___ __ ____" pattern="\d{3} \d{2} \d{4}" inputmode="numeric">
+
                         </div>
 
                         <div class="input-mask-item">
+
                             <label class="input-mask-label" for="tel-input">US Telephone Number</label>
+
                             <span class="input-mask-hint">For example, 123-456-7890</span>
+
                             <input id="tel-input" class="input-mask-input" type="text" placeholder="___-___-____" pattern="\d{3}-\d{3}-\d{4}" inputmode="numeric">
+
                         </div>
 
                         <div class="input-mask-item">
+
                             <label class="input-mask-label" for="zip-input">ZIP Code</label>
+
                             <span class="input-mask-hint">For example, 12345-6789</span>
+
                             <input id="zip-input" class="input-mask-input" type="text" placeholder="_____-____" pattern="\d{5}-\d{4}" inputmode="numeric">
+
                         </div>
 
                         <div class="input-mask-item">
+
                             <label class="input-mask-label" for="alphanumeric-input">Alphanumeric</label>
+
                             <span class="input-mask-hint">For example, A1B 2C3</span>
+
                             <input id="alphanumeric-input" class="input-mask-input" type="text" placeholder="___ ___" pattern="\w\d\w \d\w\d" data-charset="A#A #A#" inputmode="text">
+
                         </div>
+
                     </div>
 
                     <h2>Component Code</h2>
@@ -140,19 +252,29 @@
                     <h2>Guidance</h2>
 
                     <h3>When to Use the Input Mask Component</h3>
+
                     <ul>
+
                         <li><strong>Common input patterns.</strong> In fields with a specific expected format like Social Security Number or ZIP code, an input mask allows you to constrain and shape the information being entered into that format, without impairing the user’s ability to copy/paste or correct mistyping.</li>
+
                     </ul>
 
                     <h3>When to Consider Something Else</h3>
+
                     <ul>
+
                         <li><strong>When the input requires a free-form field.</strong> When there isn’t a common input pattern to use, input masking is not appropriate.</li>
+
                         <li><strong>When the pattern is too complicated to allow for a valid input mask.</strong> A pattern like email, with many possible scenarios for input, is not a good candidate for masking. Allow the user to enter their email address (or other complicated data) and have your validation library confirm before form submission.</li>
+
                     </ul>
 
                     <h3>Usability Guidance</h3>
+
                     <ul>
+
                         <li><strong>Wait to validate.</strong> Only show error validation messages or stylings after a user has interacted with a particular field.</li>
+
                     </ul>
 
                     <h3>Accessibility Guidance</h3>
@@ -160,9 +282,13 @@
                     <p>Test the input mask component in your own project.</p>
 
                     <ul>
+
                         <li><strong>Include a label.</strong> Make sure each form control includes a <code>label</code> with a <code>for</code> attribute related to the <code>id</code> of the <code>input</code> element it labels.</li>
+
                         <li><strong>Use helpful hint text.</strong> Make sure any hint text helps users understand what they need to input.</li>
+
                         <li><strong>Customization.</strong> As you customize, make sure you follow accessibility guidelines for form templates and the accessibility guidelines for form controls.</li>
+
                     </ul>
 
                     <h3>Using the Input Mask Component</h3>
@@ -172,6 +298,7 @@
                     <pre><code>placeholder="___ ___ ___"
 pattern="\d\d\d \d\d\d \d\d\d"
 inputmode="numeric"
+
 </code></pre>
 
                     <h3>The Input Mask and Alphanumeric Characters</h3>
@@ -183,51 +310,89 @@ inputmode="numeric"
                     <pre><code>placeholder="___ ___"
 pattern="\w\d\w \d\w\d"
 data-charset="A#A #A#"
+
 </code></pre>
 
+                    <h2>Testing</h2>
+                    <p>To ensure the input mask component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/input-mask/" target="_blank">Input Mask Component Testing Checklist</a>.</p>
                 </div>
+
             </div>
 
             <div class="print-container">
+
                 <button type="button" class="print-button" aria-label="Print this page">
+
                     <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+
                 </button>
+
             </div>
+
         </main>
 
         <footer class="container" id="footer">
+
             <nav aria-label="Site map">
+
                 <ul>
+
                     <li><a href="/about/">About</a></li>
+
                     <li><a href="/resources/">Resources</a></li>
+
                     <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+
                     <li><a href="/testing-routine/">Testing Routine</a></li>
+
                     <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+
                     <li><a href="/site-map/">Site map</a></li>
+
                 </ul>
+
             </nav>
+
             <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+
             <p class="last-modified" id='last-modified'></p>
+
         </footer>
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script src="/assets/scripts/index.js?1736284235"></script>
+
     <script>
+
         $("body").removeClass("preload");
 
         function setModifiedDate() {
+
             if (document.getElementById('last-modified')) {
+
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=input-mask-component.md")
+
                     .then(response => response.json())
+
                     .then(commits => {
+
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+
                         if (modified != "") {
+
                             document.getElementById('last-modified').textContent = "Last modified: " + modified;
+
                         }
+
                     });
+
             }
+
         }
+
     </script>
 
 </body>
