@@ -12,7 +12,6 @@
     <meta name="robots" content="noindex">
     <title>Card Component - MNIT DOT A11y</title>
 
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Card Component" />
     <meta property="og:locale" content="en_US" />
@@ -33,8 +32,6 @@
         "url": "https://mnit-dot-a11y.github.io/card-component/"
     }
     </script>
-    <!-- End Jekyll SEO tag -->
-
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -204,7 +201,7 @@
 
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
 
-                    <li class="web-alpha"><a aria-current="page" class="current" href="/card-component/">Card Component</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
 
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
 
@@ -529,11 +526,8 @@
       &lt;div class="usa-card__body"&gt;
 
         &lt;p&gt;
-
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
-
           tenetur quo cupiditate, eaque qui officia recusandae.
-
         &lt;/p&gt;
 
       &lt;/div&gt;
@@ -563,11 +557,8 @@
         &lt;div class="usa-card__img"&gt;
 
           &lt;img
-
             src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
-
             alt="A placeholder image"
-
           /&gt;
 
         &lt;/div&gt;
@@ -577,11 +568,8 @@
       &lt;div class="usa-card__body"&gt;
 
         &lt;p&gt;
-
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
-
           tenetur quo cupiditate, eaque qui officia recusandae.
-
         &lt;/p&gt;
 
       &lt;/div&gt;
@@ -611,11 +599,8 @@
         &lt;div class="usa-card__img"&gt;
 
           &lt;img
-
             src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
-
             alt="A placeholder image"
-
           /&gt;
 
         &lt;/div&gt;
@@ -625,11 +610,8 @@
       &lt;div class="usa-card__body"&gt;
 
         &lt;p&gt;
-
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-
           possimus similique nemo odit doloremque laudantium?
-
         &lt;/p&gt;
 
       &lt;/div&gt;
@@ -659,11 +641,8 @@
         &lt;div class="usa-card__img"&gt;
 
           &lt;img
-
             src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
-
             alt="A placeholder image"
-
           /&gt;
 
         &lt;/div&gt;
@@ -673,17 +652,11 @@
       &lt;div class="usa-card__body"&gt;
 
         &lt;p&gt;
-
           Etiam vitae sodales metus. Fusce id orci dignissim, efficitur risus
-
           eget, tempus odio. Donec lectus ante, auctor eget cursus sed,
-
           convallis quis magna. Orci varius natoque penatibus et magnis dis
-
           parturient montes, nascetur ridiculus mus. Mauris mattis tellus
-
           bibendum aliquet malesuada.
-
         &lt;/p&gt;
 
       &lt;/div&gt;
@@ -713,11 +686,8 @@
         &lt;div class="usa-card__img"&gt;
 
           &lt;img
-
             src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
-
             alt="A placeholder image"
-
           /&gt;
 
         &lt;/div&gt;
@@ -727,11 +697,8 @@
       &lt;div class="usa-card__body"&gt;
 
         &lt;p&gt;
-
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-
           possimus similique nemo odit doloremque laudantium?
-
         &lt;/p&gt;
 
       &lt;/div&gt;
@@ -767,11 +734,8 @@
         &lt;div class="usa-card__img"&gt;
 
           &lt;img
-
             src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
-
             alt="A placeholder image"
-
           /&gt;
 
         &lt;/div&gt;
@@ -809,11 +773,8 @@
         &lt;div class="usa-card__img"&gt;
 
           &lt;img
-
             src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
-
             alt="A placeholder image"
-
           /&gt;
 
         &lt;/div&gt;
@@ -943,19 +904,19 @@
 
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=card-component.md")
 
-                .then(response => response.json())
+                    .then(response => response.json())
 
-                .then(commits => {
+                    .then(commits => {
 
-                    var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
 
-                    if (modified != "") {
+                        if (modified != "") {
 
-                        document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
 
-                    }
+                        }
 
-                });
+                    });
 
             }
 
