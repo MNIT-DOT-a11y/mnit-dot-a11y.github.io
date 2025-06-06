@@ -70,14 +70,13 @@
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
-            top: 50px; /* Adjusted to be under the home button */
-            height: calc(100vh - 50px); /* Adjust height to fit within the viewport below the header */
+            top: 100px; /* Start level with component header */
+            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
             overflow-y: auto;
-            z-index: 1; /* Ensures the sidebar stays above other content */
         }
 
         .main-content {
-            margin-left: 270px;
+            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
             padding: 20px;
         }
     </style>
@@ -129,7 +128,7 @@
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/grid.html">Grid</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
@@ -324,4 +323,3 @@
 </body>
 
 </html>
- 
