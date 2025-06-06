@@ -12,7 +12,6 @@
     <meta name="robots" content="noindex">
     <title>Alert Component - MNIT DOT A11y</title>
 
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Alert Component" />
     <meta property="og:locale" content="en_US" />
@@ -33,8 +32,6 @@
         "url": "https://mnit-dot-a11y.github.io/alert-component/"
     }
     </script>
-    <!-- End Jekyll SEO tag -->
-
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -190,7 +187,7 @@
                     <li class="web alpha"><a href="/web/">Web</a></li>
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a aria-current="page" class="current" href="/alert-component/">Alert Component</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
                     <li class="expander-group site-sub-group">
@@ -445,84 +442,4 @@
                         <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
                     </ul>
 
-                    <h3>When to consider something else</h3>
-                    <ul>
-                        <li><strong>Long forms.</strong> On long forms, always include in-line validation in addition to any error messages that appear at the top of the form.</li>
-                        <li><strong>Destructive actions.</strong> If an action will result in destroying a user’s work (for example, deleting an application) use a more intrusive pattern, such as a confirmation modal dialogue, to allow the user to confirm that this action is what they want.</li>
-                    </ul>
-
-                    <h3>Usability guidance</h3>
-                    <ul>
-                        <li><strong>Consider next steps.</strong> When the user is required to do something in response to an alert, let them know what they need to do, and make that task as easy as possible. Provide concise, human-readable language and avoid jargon.</li>
-                        <li><strong>Be polite.</strong> Be polite in error messages — don’t blame the user.</li>
-                        <li><strong>Alerts are an opportunity.</strong> Users will read a message that helps them resolve an error even if they generally won’t read documentation.</li>
-                        <li><strong>Don’t overdo it.</strong> Too many notifications can overwhelm or annoy the user.</li>
-                        <li><strong>Allow dismissals.</strong> Allow users to dismiss notifications when appropriate.</li>
-                        <li><strong>Understand user context.</strong> Only show notifications relevant to the user’s current goal.</li>
-                    </ul>
-
-                    <h3>Accessibility guidance</h3>
-                    <p>Test the alert component in your own project. Use proper ARIA roles to ensure alerts are accessible.</p>
-                    <ul>
-                        <li>Do not visually hide alerts until they are needed; users with older assistive technologies might still perceive them.</li>
-                        <li>Choose the appropriate ARIA <code>role</code> for alerts:
-                            <ul>
-                                <li><code>role="alert"</code> for important, immediate messages.</li>
-                                <li><code>role="status"</code> for advisory messages that are less urgent.</li>
-                                <li><code>role="region"</code> for informational alerts; use with <code>aria-label</code> or <code>aria-labelledby</code>.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p>Reference: <a href="https://www.w3.org/TR/wai-aria-practices/" target="_blank">WAI-ARIA</a></p>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the alert component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/alert/" target="_blank">Alert Component Testing Checklist</a>.</p>
-
-                </div>
-            </div>
-
-            <div class="print-container">
-                <button type="button" class="print-button" aria-label="Print this page">
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                </button>
-            </div>
-        </main>
-
-        <footer class="container" id="footer">
-            <nav aria-label="Site map">
-                <ul>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/resources/">Resources</a></li>
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                    <li><a href="/site-map/">Site map</a></li>
-                </ul>
-            </nav>
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-            <p class="last-modified" id='last-modified'></p>
-        </footer>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/assets/scripts/index.js?1736284235"></script>
-    <script>
-        $("body").removeClass("preload");
-
-        function setModifiedDate() {
-            if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=alert-component.md")
-                    .then(response => response.json())
-                    .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                        if (modified != "") {
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-                        }
-                    });
-            }
-        }
-    </script>
-
-</body>
-
-</html>
+                    <h3>When to consider something
