@@ -10,68 +10,55 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Button Group Component - MNIT DOT A11y</title>
+    <title>Breadcrumb Component - MNIT DOT A11y</title>
 
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Button Group Component" />
+    <meta property="og:title" content="Breadcrumb Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible button group component. Includes source code, interactive example, and guidance." />
-    <meta property="og:description" content="Guide to creating an accessible button group component. Includes source code, interactive example, and guidance." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/button-group-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/button-group-component/" />
+    <meta name="description" content="Guide to creating an accessible breadcrumb component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible breadcrumb component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/breadcrumb-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/breadcrumb-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Button Group Component" />
+    <meta property="twitter:title" content="Breadcrumb Component" />
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "description": "Guide to creating an accessible button group component. Includes source code, interactive example, and guidance.",
-        "headline": "Button Group Component",
-        "url": "https://mnit-dot-a11y.github.io/button-group-component/"
+        "description": "Guide to creating an accessible breadcrumb component. Includes source code, interactive example, and guidance.",
+        "headline": "Breadcrumb Component",
+        "url": "https://mnit-dot-a11y.github.io/breadcrumb-component/"
     }
     </script>
-    <!-- End Jekyll SEO tag -->
-
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-button-group {
-            display: flex;
-            gap: 0.5rem;
-            margin: 16px 0;
-        }
-
-        .usa-button-group__item {
+        .breadcrumb {
             list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #f8f9fa;
+            border-radius: 0.25rem;
         }
 
-        .usa-button {
-            padding: 10px 16px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 4px;
+        .breadcrumb-item {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #007bff;
         }
 
-        .usa-button--outline {
-            border: 1px solid #ccc;
-            background-color: transparent;
+        .breadcrumb-item + .breadcrumb-item::before {
+            padding: 0 5px;
+            color: #6c757d;
+            content: "/";
         }
 
-        .usa-button--big {
-            padding: 12px 18px;
-            font-size: 1.25rem;
-        }
-
-        .bg-base-darkest {
-            background-color: #212529;
-        }
-
-        .padding-1 {
-            padding: 1rem;
+        .breadcrumb-item.active {
+            color: #6c757d;
         }
 
         .sidenav {
@@ -95,6 +82,29 @@
 
 <body onload="setModifiedDate();" class="preload">
 
+    <header class="container">
+        <nav id="nav" class="menu" aria-label="Site menu">
+            <ul>
+                <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                <li class="web alpha"><a href="/web/">Web</a></li>
+                <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
+                <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                <li class="native bravo"><a href="/demos/">Demos</a></li>
+                <li class="expander-group site-sub-group">
+                    <button class="expander-toggle" aria-expanded="false">More</button>
+                    <ul class="expander-content">
+                        <li><a href="/how-to-test/">How-to Test</a></li>
+                        <li><a href="/demos/">Demos</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
         <ul class="site-sidenav usa-sidenav">
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
@@ -115,7 +125,7 @@
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/grid.html">Grid</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
@@ -149,56 +159,9 @@
     <div class="page-wrapper">
 
         <div class="skip-links container">
-
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
-
         </div>
-
-        <header class="container">
-
-            <nav id="nav" class="menu" aria-label="Site menu">
-
-                <ul>
-
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
-                    <li class="web-alpha"><a aria-current="page" class="current" href="/button-group-component/">Button Group Component</a></li>
-
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
-
-                    <li class="expander-group site-sub-group">
-
-                        <button class="expander-toggle" aria-expanded="false">More</button>
-
-                        <ul class="expander-content">
-
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-
-                            <li><a href="/demos/">Demos</a></li>
-
-                            <li><a href="/about/">About</a></li>
-
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
-                        </ul>
-
-                    </li>
-
-                </ul>
-
-            </nav>
-
-        </header>
 
         <main id="content" class="main-content">
 
@@ -206,234 +169,73 @@
 
                 <div class="post-content">
 
-                    <h1>Button Group</h1>
+                    <h1>Breadcrumb Component</h1>
 
-                    <p>A button group collects similar or related actions.</p>
+                    <p>This guide provides instructions for creating a breadcrumb component that meets accessibility standards.</p>
 
-                    <p>Passed WCAG 2.1 AA</p>
+                    <h2>Interactive Example</h2>
 
-                    <h2>Default Button Group</h2>
+                    <nav aria-label="breadcrumb">
 
-                    <p>The default button group arranges each button as a separate element with a gap between them. On mobile devices, the buttons are arranged vertically.</p>
+                        <ol class="breadcrumb">
 
-                    <h3>Component Preview</h3>
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
 
-                    <ul class="usa-button-group">
+                            <li class="breadcrumb-item"><a href="#">Library</a></li>
 
-                        <li class="usa-button-group__item">
+                            <li class="breadcrumb-item active" aria-current="page">Data</li>
 
-                            <a href="#" class="usa-button usa-button--outline">Back</a>
+                        </ol>
 
-                        </li>
+                    </nav>
 
-                        <li class="usa-button-group__item">
+                    <h2>Source Code</h2>
 
-                            <button type="button" class="usa-button">Continue</button>
+                    <pre><code>&lt;nav aria-label="breadcrumb"&gt;
 
-                        </li>
+    &lt;ol class="breadcrumb"&gt;
 
-                    </ul>
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
 
-                    <h3>Component Code</h3>
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
 
-                    <pre><code>&lt;ul class="usa-button-group"&gt;
+        &lt;li class="breadcrumb-item active" aria-current="page"&gt;Data&lt;/li&gt;
 
-  &lt;li class="usa-button-group__item"&gt;
+    &lt;/ol&gt;
 
-    &lt;a href="#" class="usa-button usa-button--outline"&gt;Back&lt;/a&gt;
-
-  &lt;/li&gt;
-
-  &lt;li class="usa-button-group__item"&gt;
-
-    &lt;button type="button" class="usa-button"&gt;Continue&lt;/button&gt;
-
-  &lt;/li&gt;
-
-&lt;/ul&gt;
+&lt;/nav&gt;
 
 </code></pre>
 
                     <h2>Guidance</h2>
 
-                    <h3>When to Use the Default Button Group</h3>
+                    <p>When using breadcrumb components, it is important to provide users with a clear and easy way to navigate back to previous sections of the site.</p>
 
                     <ul>
 
-                        <li><strong>Actions have a contextual relationship.</strong> For example, the default button group can be used when a form has both a primary and alternative action.</li>
+                        <li>Use breadcrumbs for hierarchical navigation.</li>
 
-                        <li><strong>Stepping through linear content.</strong> Buttons in a button group can be used for directional navigation and actions (e.g., “Back,” “Next,” “Continue,” “Skip,” “Cancel.”).</li>
+                        <li>Ensure links are distinct and clearly formatted.</li>
+
+                        <li>Use <code>aria-current="page"</code> to indicate the current page for accessibility.</li>
+
+                        <li>Keep the breadcrumb path consistent with the site structure.</li>
 
                     </ul>
 
-                    <h3>When to Consider Something Else</h3>
+                    <h2>Accessibility Features</h2>
 
                     <ul>
 
-                        <li><strong>If actions are not related.</strong> Consider how placement and alternative structure of unrelated actions can improve usability over placing all actions in a group.</li>
+                        <li>The breadcrumb uses <code>aria-label="breadcrumb"</code> to provide a label for assistive technologies.</li>
 
-                        <li><strong>When mixing destructive and non-destructive actions.</strong> This can lead to input mistakes.</li>
-
-                        <li><strong>Linking to content.</strong> Buttons in button groups should not be used when text links would be simpler and more contextually appropriate. Grouped buttons such as “Next” and “Previous” are acceptable when content is organized sequentially.</li>
-
-                    </ul>
-
-                    <h3>Usability Guidance</h3>
-
-                    <ul>
-
-                        <li><strong>Avoid burden of choice.</strong> Try not to present the user with too many options.</li>
-
-                    </ul>
-
-                    <h3>Accessibility Guidance</h3>
-
-                    <p>Test the button group component in your own project.</p>
-
-                    <ul>
-
-                        <li><strong>Convey relationship.</strong> If not using a list element, give the parent element <code>role="group"</code> in order to convey to screen readers that actions are part of a group. If using as part of a toolbar, use <code>role="toolbar"</code>.</li>
-
-                    </ul>
-
-                    <h3>Using the Default Button Group</h3>
-
-                    <ul>
-
-                        <li>Buttons inside of a button group follow the same guidelines as the button component.</li>
-
-                        <li>Button groups support any style and size.</li>
-
-                        <li>Because the button group uses <code>flexbox</code>, there are several ways to modify how the default button group is displayed.
-
-                            <ul>
-
-                                <li>The default button group will display as a column on smaller screen sizes. To override this behavior and display buttons in a row for all screen sizes, use the <code>flex-row</code> utility.</li>
-
-                                <li>On smaller screens, the first button in the source order will appear at the top of column. You can change this behavior using the order utility. The <code>order</code> utility includes responsive advanced settings that allow it to target specific screen sizes.</li>
-
-                                <li>Instead of each button appearing on the left-hand side on larger screens (or if you used flex-row), you can use <code>flex-justify</code> to justify the buttons.</li>
-
-                            </ul>
-
-                        </li>
-
-                    </ul>
-
-                    <h2>Segmented Button Group</h2>
-
-                    <p>Segmented button groups display a set of discrete buttons in a row as a single element.</p>
-
-                    <h3>Component Preview</h3>
-
-                    <ul class="usa-button-group usa-button-group--segmented">
-
-                        <li class="usa-button-group__item">
-
-                            <button type="button" class="usa-button">Map</button>
-
-                        </li>
-
-                        <li class="usa-button-group__item">
-
-                            <button type="button" class="usa-button usa-button--outline">Hybrid</button>
-
-                        </li>
-
-                        <li class="usa-button-group__item">
-
-                            <button type="button" class="usa-button usa-button--outline">Satellite</button>
-
-                        </li>
-
-                    </ul>
-
-                    <h3>Component Code</h3>
-
-                    <pre><code>&lt;ul class="usa-button-group usa-button-group--segmented"&gt;
-
-  &lt;li class="usa-button-group__item"&gt;
-
-    &lt;button type="button" class="usa-button"&gt;Map&lt;/button&gt;
-
-  &lt;/li&gt;
-
-  &lt;li class="usa-button-group__item"&gt;
-
-    &lt;button type="button" class="usa-button usa-button--outline"&gt;Hybrid&lt;/button&gt;
-
-  &lt;/li&gt;
-
-  &lt;li class="usa-button-group__item"&gt;
-
-    &lt;button type="button" class="usa-button usa-button--outline"&gt;Satellite&lt;/button&gt;
-
-  &lt;/li&gt;
-
-&lt;/ul&gt;
-
-</code></pre>
-
-                    <h3>Guidance</h3>
-
-                    <h4>When to Use the Segmented Button Group</h4>
-
-                    <ul>
-
-                        <li><strong>Categorically related controls.</strong> For example, segmented buttons can be used as a switch between different views.</li>
-
-                    </ul>
-
-                    <h4>When to Consider Something Else</h4>
-
-                    <ul>
-
-                        <li><strong>No clear relationship.</strong> Consider how placement and alternative structure of unrelated controls can improve usability over placing all actions in a group.</li>
-
-                        <li><strong>If there are more than three buttons.</strong> Be mindful of how a long list of buttons might appear on small screens. An alternative type of control might be more suitable.</li>
-
-                    </ul>
-
-                    <h3>Usability Guidance</h3>
-
-                    <ul>
-
-                        <li><strong>Avoid ambiguity of current state.</strong> Make sure current states are clearly communicated and understood.</li>
-
-                    </ul>
-
-                    <h3>Accessibility Guidance</h3>
-
-                    <p>Test the button group component in your own project.</p>
-
-                    <ul>
-
-                        <li><strong>Convey relationship.</strong> If not using a list element, give the parent element <code>role="group"</code> in order to convey to screen readers that actions are part of a group. If using as part of a toolbar, use <code>role="toolbar"</code>.</li>
-
-                        <li><strong>Use <code>aria-label</code> to give the buttons a useful name.</strong> Some contexts may require additional context provided to screen readers.</li>
-
-                        <li><strong>Use the <code>&lt;button type="button"&gt;</code> element.</strong> Don’t use <code>&lt;a&gt;</code> because it’s a link. Don’t use <code>&lt;span&gt;</code> because screen readers won’t know it’s a usable button.</li>
-
-                    </ul>
-
-                    <h3>Using the Segmented Button Group</h3>
-
-                    <ul>
-
-                        <li>Buttons inside of a button group follow the same guidelines as the button component.</li>
-
-                        <li>Button groups support any style and size.</li>
-
-                        <li>Don’t mix differently-sized buttons (like a default button and a big button) in the same group.</li>
-
-                        <li>Use short, descriptive button labels to describe controls.</li>
-
-                        <li>Use default buttons as a current state and outline buttons as a non-current state. The segmented button group works with all button variants. However, you may need to create custom styles to distinguish state for some button variants.</li>
+                        <li>Each item is clearly defined, and the current page is marked with <code>aria-current="page"</code> to indicate the user's position.</li>
 
                     </ul>
 
                     <h2>Testing</h2>
-                    <p>To ensure the button group component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/button-group/" target="_blank">Button Group Component Testing Checklist</a>.</p>
+
+                    <p>To ensure the breadcrumb component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/breadcrumbs/" target="_blank">Breadcrumb Component Testing Checklist</a>.</p>
 
                 </div>
 
@@ -493,7 +295,7 @@
 
             if (document.getElementById('last-modified')) {
 
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=button-group-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=breadcrumb-component.md")
 
                     .then(response => response.json())
 
