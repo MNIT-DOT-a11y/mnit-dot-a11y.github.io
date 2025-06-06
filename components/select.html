@@ -40,8 +40,7 @@
 
     <style>
         .usa-form {
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: none; /* Remove the fixed max-width */
             padding: 20px;
         }
 
@@ -57,15 +56,22 @@
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
-            top: 100px; /* Start level with component header */
-            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
+            top: 100px;
+            height: calc(100% - 100px);
             overflow-y: auto;
         }
 
         .main-content {
-            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
+            margin-left: 270px;
             padding: 20px;
         }
+
+        .container {
+            width: 100%; /* Ensure container uses full width */
+            max-width: 1200px; /* Optional: Control maximum content width */
+            margin: 0 auto; /* Center the content */
+        }
+
     </style>
 
 </head>
@@ -267,7 +273,9 @@
                     </ul>
 
                     <h2>Testing</h2>
+
                     <p>To ensure the select component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/select/" target="_blank">Select Component Testing Checklist</a>.</p>
+
                 </div>
 
             </div>
