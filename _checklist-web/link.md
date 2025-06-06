@@ -63,6 +63,16 @@ wcag:
       - criteria: Meets criteria across platforms, devices and viewports
 ---
 
+## Verify Meaningful and Unique Link Text
+When performing accessibility testing, it's crucial to verify that the text of each link is both meaningful and unique. This ensures that users, especially those using screen readers, can understand the purpose of the link without needing additional context. Here are some key points to consider:
+
+1.	Meaningful Text: The link text should clearly describe the destination or action. Avoid using generic phrases like "click here" or "read more." Instead, use descriptive text that provides context, such as "Download the accessibility testing checklist" or "Learn more about our services."
+2.	Unique Text: Each link on a page should have unique text to avoid confusion. If multiple links lead to different destinations, their text should reflect those differences. For example, instead of having multiple "Learn more" links, specify "Learn more about accessibility testing" and "Learn more about our services."
+3.	Links without Content: Navigate the page using only the links (for example, by tabbing through them) to confirm that each link’s purpose is clear from its text alone. This mimics how screen reader users may interact with the page.
+
+By ensuring that link text is meaningful and unique, you enhance the overall accessibility of your content, making it easier for all users to navigate and understand your website
+
+
 ## Links vs buttons
 
 ### If it goes somewhere, it's `<a>` link.
@@ -80,143 +90,5 @@ wcag:
   - Expand details
 - A button can look like a link, but it must be coded as a `<button>`
 
-## Code examples
+[Link Developer Code Examples and Guidance](/components/link.html)
 
-### Use semantic HTML with common sense names
-
-This semantic HTML contains all accessibility features by default. 
-
-{% highlight html %}
-<a href="/about/">
-  About
-</a>
-{% endhighlight %}
-
-{% raw %}
-<example>
-<a href="/about/">
-  About
-</a>
-</example>
-{% endraw %}
-
-### Name links logically
-
-- **Do not** use a heading with a generic link below. 
-- Instead, make the heading a link or programmatically associate the link with the heading using <code>aria-describedby</code>.
-
-{% highlight html %}
-<h3>About our coffee subscriptions</h3>
-<p>Get the best coffee delivered to your door</p>
-<a href="/about/">
-   Learn more
-</div>
-{% endhighlight %}{: .bad-example}
-
-{% highlight html %}
-<h3><a href="/about/">About our coffee subscriptions</a></h3>
-<p>Get the best coffee delivered to your door</p>
-{% endhighlight %}{: .good-example}
-
-{% highlight html %}
-<h3 id="unique-id">About our coffee subscriptions</h3>
-<p>Get the best coffee delivered to your door</p>
-<a href="/about/" aria-describedby="unique-id">
-   Learn more
-</div>
-{% endhighlight %}{: .good-example}
-
-### Making a link with no `href` focusable
-
-- **Do not** put anything but a URI in the `href`
-- A link with no `href` will not be focusable with the keyboard without `tabindex="0"`.
-- Add `role="link"` to ensure screen reader reads the role
-
-{% highlight html %}
-<a tabindex="0" role="link">
-  About
-</a>
-{% endhighlight %}
-
-{% raw %}
-<example>
-<a tabindex="0" role="link">
-  About
-</a>
-</example>
-{% endraw %}
-
-### Avoid custom elements
-
-This custom button requires extra attributes and keyboard event listeners.
-
-{% highlight html %}
-<custom-element role="link" tabindex="0">
-  About
-</custom-element>
-{% endhighlight %}
-
-### Repeating text links
-
-Sometimes the design will call for multiple links with the same text label. In a case like this, `aria-label` can be used to name each link's purpose.
-
-{% highlight html %}
-<button>Get free coffee</button>
-<a href="/free-coffee-tc/" aria-label="Free coffee terms and conditions">
-  Terms &amp; Conditions
-</a>
-<button>Get free donuts</button>
-<a href="/free-donuts-tc/" aria-label="Free donuts terms and conditions">
-  Terms &amp; Conditions
-</a>
-{% endhighlight %}
-
-### Don't duplicate the visible text name in the aria-label
-
-**Do not** repeat the inner text content of a link in the `aria-label`.
-
-{% highlight html %}
-<a href="/do-NOT-repeat-yourself/" 
-   aria-label="Do NOT repeat yourself">
-   Do not repeat yourself
-</div>
-{% endhighlight %}{: .bad-example}
-
-### Don't use javascript in href
-
-- **Do not** use `"href="javascript:void(0)"`. 
-- When screen readers read the href, it becomes confusing and nonsensical 
-
-{% highlight html %}
-<a href="javascript:void(0)">
-   Do not use javascript in href
-</div>
-{% endhighlight %}{: .bad-example}
-
-### Don't use "#" in href
-
-{% highlight html %}
-<a href="#">
-   Do not use # to populate the href
-</div>
-{% endhighlight %}{: .bad-example}
-
-## Disabled links
-
-- If it's unavoidable to have a disabled link present you'll need these attributes for the screen reader.
-
-{% highlight html %}
-<a tabindex="0" role="link" aria-disabled="true">
-  Continue
-</a>
-{% endhighlight %}
-
-### Complex examples
-
-<example>
-{% include /examples/product.html %}
-</example>
-
-{% highlight html %}
-{% include /examples/product.html %}
-{% endhighlight %}

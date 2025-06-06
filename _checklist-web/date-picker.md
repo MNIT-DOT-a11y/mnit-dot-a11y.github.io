@@ -89,25 +89,4 @@ gherkin-mobile:
       the intended action occurs
 
 ---
-
-## Developer notes
-
-[Full WAI-ARIA requirements](https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/datepicker-dialog.html)
-
-An accessible date picker will have the following components:
-### Launch button
-- Opens the date picker
-- Focus returns to this button on closing the popup dialog
-
-### Date picker popup dialog
-- The dialog itself should be labelled by the month and year with `aria-labelledby="month-year-heading-id"`
-- Use `aria-live="polite"` for the dialog, `aria-live="polite"` for month/year heading
-
-### Calendar navigation buttons
-- Use `aria-label="Previous"` and `aria-label="Next"` to name the buttons.
-
-### Date grid table
-- Use `aria-labelledby="month-year-heading-id"` to label the table
-
-### Date picker buttons
-  - Use `aria-selected="true"` to indicate state
+[Date Picker Developer Code Examples and Guidance](/components/date-picker.html)

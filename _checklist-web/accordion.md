@@ -65,4 +65,4 @@ wcag:
 
 ---
 
-[Accordion Code Examples and Guidance](/components/accordion.html)
+[Accordion Developer Code Examples and Guidance](/components/accordion.html)
