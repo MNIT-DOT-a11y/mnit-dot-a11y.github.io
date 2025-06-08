@@ -12,7 +12,6 @@
     <meta name="robots" content="noindex">
     <title>Validation Component - MNIT DOT A11y</title>
 
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Validation Component" />
     <meta property="og:locale" content="en_US" />
@@ -26,15 +25,13 @@
     <meta property="twitter:title" content="Validation Component" />
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "description": "Guide to using the validation component to provide live feedback and ensure usability.",
-      "headline": "Validation Component",
-      "url": "https://mnit-dot-a11y.github.io/validation-component/"
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "description": "Guide to using the validation component to provide live feedback and ensure usability.",
+        "headline": "Validation Component",
+        "url": "https://mnit-dot-a11y.github.io/validation-component/"
     }
     </script>
-    <!-- End Jekyll SEO tag -->
-
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -186,7 +183,7 @@
 
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
 
-                    <li class="web-alpha"><a aria-current="page" class="current" href="/validation-component/">Validation Component</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
 
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
 
@@ -224,8 +221,6 @@
 
                 <p>Stating validation requirements up front, with live feedback, means users won’t be left guessing.</p>
 
-                
-
                 <h2>About the validation component</h2>
 
                 <p><strong>Note:</strong> USWDS testing and research recently uncovered major usability and accessibility issues with this component. Due to these issues, we’re slating it for removal from future versions, and won’t be supporting it after USWDS v3.12.0. To learn more about how we made this decision, you can <a href="#">read more about this testing and research</a> and <a href="#">follow the steps we took</a>.</p>
@@ -251,15 +246,11 @@
                                 <ul class="usa-checklist" id="validate-code">
 
                                     <li class="usa-checklist__item" data-validator="uppercase">
-
                                         Use at least one uppercase character
-
                                     </li>
 
                                     <li class="usa-checklist__item" data-validator="numerical">
-
                                         Use at least one number
-
                                     </li>
 
                                 </ul>
@@ -271,19 +262,12 @@
                         <label class="usa-label" for="code">Code</label>
 
                         <input
-
                             class="usa-input"
-
                             id="code"
-
                             name="code"
-
                             data-validate-uppercase="[A-Z]"
-
                             data-validate-numerical="\d"
-
                             data-validation-element="validate-code"
-
                         />
 
                         <input class="usa-button" type="submit" value="Submit code" />
@@ -392,41 +376,23 @@
         }
 
         // Validate input on keyup
-
         $(document).ready(function() {
-
             $('#code').on('keyup', function() {
-
                 const value = $(this).val();
-
                 const uppercaseRegex = new RegExp($(this).data('validate-uppercase'));
-
                 const numericalRegex = new RegExp($(this).data('validate-numerical'));
-
                 
-
                 $('.usa-checklist__item').each(function() {
-
                     const validator = $(this).data('validator');
-
                     if (validator === 'uppercase' && uppercaseRegex.test(value)) {
-
                         $(this).addClass('checked');
-
                     } else if (validator === 'numerical' && numericalRegex.test(value)) {
-
                         $(this).addClass('checked');
-
                     } else {
-
                         $(this).removeClass('checked');
-
                     }
-
                 });
-
             });
-
         });
 
     </script>
