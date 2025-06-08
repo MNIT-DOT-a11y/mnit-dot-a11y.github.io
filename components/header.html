@@ -12,7 +12,6 @@
     <meta name="robots" content="noindex">
     <title>Header Component - MNIT DOT A11y</title>
 
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Header Component" />
     <meta property="og:locale" content="en_US" />
@@ -33,8 +32,6 @@
         "url": "https://mnit-dot-a11y.github.io/header-component/"
     }
     </script>
-    <!-- End Jekyll SEO tag -->
-
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -175,40 +172,27 @@
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
-        <header class="usa-header">
-
-            <div class="usa-nav-container">
-
-                <div class="usa-logo">
-
-                    <em class="usa-logo__text"><a href="/" title="Project title">Project Title</a></em>
-
-                </div>
-
-                <nav class="usa-nav" aria-label="Primary navigation">
-
-                    <ul class="usa-nav__primary">
-
-                        <li class="usa-nav__item"><a href="#section1" class="usa-nav__link">Section 1</a></li>
-
-                        <li class="usa-nav__item"><a href="#section2" class="usa-nav__link">Section 2</a></li>
-
-                        <li class="usa-nav__item"><a href="#section3" class="usa-nav__link">Section 3</a></li>
-
-                    </ul>
-
-                    <div class="usa-search">
-
-                        <input type="search" class="usa-search__input" placeholder="Search" aria-label="Search input">
-
-                        <button class="usa-search__button" type="submit">Search</button>
-
-                    </div>
-
-                </nav>
-
-            </div>
-
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </header>
 
         <main id="content" class="main-content">
@@ -222,6 +206,44 @@
                     <p>A header helps users identify where they are and provides a quick, organized way to reach the main sections of a website.</p>
 
                     <p>Passed WCAG 2.1 AA</p>
+                    
+                    <h2>Interactive Example</h2>
+
+                    <header class="usa-header">
+
+                        <div class="usa-nav-container">
+    
+                            <div class="usa-logo">
+    
+                                <em class="usa-logo__text"><a href="/" title="Project title">Project Title</a></em>
+    
+                            </div>
+    
+                            <nav class="usa-nav" aria-label="Primary navigation">
+    
+                                <ul class="usa-nav__primary">
+    
+                                    <li class="usa-nav__item"><a href="#section1" class="usa-nav__link">Section 1</a></li>
+    
+                                    <li class="usa-nav__item"><a href="#section2" class="usa-nav__link">Section 2</a></li>
+    
+                                    <li class="usa-nav__item"><a href="#section3" class="usa-nav__link">Section 3</a></li>
+    
+                                </ul>
+    
+                                <div class="usa-search">
+    
+                                    <input type="search" class="usa-search__input" placeholder="Search" aria-label="Search input">
+    
+                                    <button class="usa-search__button" type="submit">Search</button>
+    
+                                </div>
+    
+                            </nav>
+    
+                        </div>
+    
+                    </header>
 
                     <h2>When to Use a Header Component</h2>
 
@@ -295,49 +317,49 @@
 
                         <thead>
 
-                        <tr>
+                            <tr>
 
-                            <th>Variable</th>
+                                <th>Variable</th>
 
-                            <th>Description</th>
+                                <th>Description</th>
 
-                        </tr>
+                            </tr>
 
                         </thead>
 
                         <tbody>
 
-                        <tr>
+                            <tr>
 
-                            <td><code>$theme-header-font-family</code></td>
+                                <td><code>$theme-header-font-family</code></td>
 
-                            <td>Font family of the header.</td>
+                                <td>Font family of the header.</td>
 
-                        </tr>
+                            </tr>
 
-                        <tr>
+                            <tr>
 
-                            <td><code>$theme-header-logo-text-width</code></td>
+                                <td><code>$theme-header-logo-text-width</code></td>
 
-                            <td>Width of the logo text area at desktop width as a percentage of the total header width.</td>
+                                <td>Width of the logo text area at desktop width as a percentage of the total header width.</td>
 
-                        </tr>
+                            </tr>
 
-                        <tr>
+                            <tr>
 
-                            <td><code>$theme-header-max-width</code></td>
+                                <td><code>$theme-header-max-width</code></td>
 
-                            <td>Maximum width of the header.</td>
+                                <td>Maximum width of the header.</td>
 
-                        </tr>
+                            </tr>
 
-                        <tr>
+                            <tr>
 
-                            <td><code>$theme-header-min-width</code></td>
+                                <td><code>$theme-header-min-width</code></td>
 
-                            <td>Breakpoint at which the non-mobile header is shown.</td>
+                                <td>Breakpoint at which the non-mobile header is shown.</td>
 
-                        </tr>
+                            </tr>
 
                         </tbody>
 
@@ -349,41 +371,41 @@
 
                         <thead>
 
-                        <tr>
+                            <tr>
 
-                            <th>Variant</th>
+                                <th>Variant</th>
 
-                            <th>Description</th>
+                                <th>Description</th>
 
-                        </tr>
+                            </tr>
 
                         </thead>
 
                         <tbody>
 
-                        <tr>
+                            <tr>
 
-                            <td><code>.usa-header--basic</code></td>
+                                <td><code>.usa-header--basic</code></td>
 
-                            <td>Display a simple header.</td>
+                                <td>Display a simple header.</td>
 
-                        </tr>
+                            </tr>
 
-                        <tr>
+                            <tr>
 
-                            <td><code>.usa-header--megamenu</code></td>
+                                <td><code>.usa-header--megamenu</code></td>
 
-                            <td>Display a megamenu.</td>
+                                <td>Display a megamenu.</td>
 
-                        </tr>
+                            </tr>
 
-                        <tr>
+                            <tr>
 
-                            <td><code>.usa-header--extended</code></td>
+                                <td><code>.usa-header--extended</code></td>
 
-                            <td>Display an extended header.</td>
+                                <td>Display an extended header.</td>
 
-                        </tr>
+                            </tr>
 
                         </tbody>
 
