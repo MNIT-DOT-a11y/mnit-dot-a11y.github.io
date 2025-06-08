@@ -10,67 +10,45 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Search Component - MNIT DOT A11y</title>
+    <title>Range Slider Component - MNIT DOT A11y</title>
 
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Search Component" />
+    <meta property="og:title" content="Range Slider Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating a search component with different size variants that help users navigate content easily." />
-    <meta property="og:description" content="Guide to creating a search component with different size variants that help users navigate content easily." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/search-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/search-component/" />
+    <meta name="description" content="Guide to creating an accessible range slider component with usage guidelines and examples." />
+    <meta property="og:description" content="Guide to creating an accessible range slider component with usage guidelines and examples." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/range-slider-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/range-slider-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Search Component" />
+    <meta property="twitter:title" content="Range Slider Component" />
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "description": "Guide to creating a search component with different size variants that help users navigate content easily.",
-        "headline": "Search Component",
-        "url": "https://mnit-dot-a11y.github.io/search-component/"
+        "description": "Guide to creating an accessible range slider component with usage guidelines and examples.",
+        "headline": "Range Slider Component",
+        "url": "https://mnit-dot-a11y.github.io/range-slider-component/"
     }
     </script>
-    <!-- End Jekyll SEO tag -->
-
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-search {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            max-width: 400px;
+
+        .usa-form {
+            max-width: none; /* Remove the fixed max-width */
+            padding: 20px;
         }
 
-        .usa-search--big {
-            max-width: 600px;
+        .usa-range {
+            width: 100%;
+            margin-top: 10px;
         }
 
-        .usa-search--small {
-            max-width: 200px;
-        }
-
-        .usa-input {
-            flex-grow: 1;
-            padding: 10px;
-            margin-right: 5px;
-        }
-
-        .usa-button {
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        .usa-search__submit-icon {
-            width: 16px;
-            height: 16px;
+        .range-display {
+            margin-top: 10px;
         }
 
         .sidenav {
@@ -85,9 +63,16 @@
         }
 
         .main-content {
-            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
+            margin-left: 270px;
             padding: 20px;
         }
+
+        .container {
+            width: 100%; /* Ensure container uses full width */
+            max-width: 1200px; /* Optional: Control maximum content width */
+            margin: 0 auto; /* Center the content */
+        }
+
     </style>
 
 </head>
@@ -166,7 +151,7 @@
 
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
 
-                    <li class="web-alpha"><a aria-current="page" class="current" href="/search-component/">Search Component</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
 
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
 
@@ -200,159 +185,33 @@
 
             <div class="container">
 
-                <div class="post-content">
+                <div class="post-content usa-form">
 
-                    <h1>Search</h1>
+                    <h1>Range Slider</h1>
 
-                    <p>Search allows users to search for specific content if they know what search terms to use or can’t find desired content in the main navigation.</p>
-
-                    <p>Passed WCAG 2.1 AA</p>
+                    <p>A range slider allows users to choose an approximate number from a range.</p>
 
                     <h2>Component Preview</h2>
 
-                    <h3 class="site-preview-heading">Default</h3>
+                    <form class="usa-form" aria-labelledby="range-slider-label">
 
-                    <section aria-label="Search component">
+                        <label id="range-slider-label" class="usa-label" for="usa-range">Range slider</label>
 
-                        <form class="usa-search" role="search">
+                        <input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-valuetext="20" />
 
-                            <label class="usa-sr-only" for="search-field">Search</label>
+                        <div class="range-display" aria-live="polite">Current Value: <span id="range-value-display">20</span></div>
 
-                            <input class="usa-input" id="search-field" type="search" name="search" placeholder="Search..." />
-
-                            <button class="usa-button" type="submit">
-
-                                <span class="usa-search__submit-text">Search </span>
-
-                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search" />
-
-                            </button>
-
-                        </form>
-
-                    </section>
-
-                    <h3 class="site-preview-heading">Big variant</h3>
-
-                    <section aria-label="Big search component">
-
-                        <form class="usa-search usa-search--big" role="search">
-
-                            <label class="usa-sr-only" for="search-field-en-big">Search</label>
-
-                            <input class="usa-input" id="search-field-en-big" type="search" name="search" placeholder="Search..." />
-
-                            <button class="usa-button" type="submit">
-
-                                <span class="usa-search__submit-text">Search </span>
-
-                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search" />
-
-                            </button>
-
-                        </form>
-
-                    </section>
-
-                    <h3 class="site-preview-heading">Small variant</h3>
-
-                    <section aria-label="Small search component">
-
-                        <form class="usa-search usa-search--small" role="search">
-
-                            <label class="usa-sr-only" for="search-field-en-small">Search</label>
-
-                            <input class="usa-input" id="search-field-en-small" type="search" name="search" placeholder="Search..." />
-
-                            <button class="usa-button" type="submit">
-
-                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search" />
-
-                            </button>
-
-                        </form>
-
-                    </section>
-
-                    <h3 class="site-preview-heading">Spanish default variant</h3>
-
-                    <section aria-label="Default (Spanish) search component">
-
-                        <form class="usa-search" role="search">
-
-                            <label class="usa-sr-only" for="search-field-es">Buscar</label>
-
-                            <input class="usa-input" id="search-field-es" type="search" name="search" placeholder="Buscar..." />
-
-                            <button class="usa-button" type="submit">
-
-                                <span class="usa-search__submit-text">Buscar </span>
-
-                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Buscar" />
-
-                            </button>
-
-                        </form>
-
-                    </section>
-
-                    <h3 class="site-preview-heading">Spanish big variant</h3>
-
-                    <section aria-label="Big (Spanish) search component">
-
-                        <form class="usa-search usa-search--big" role="search">
-
-                            <label class="usa-sr-only" for="search-field-es-big">Buscar</label>
-
-                            <input class="usa-input" id="search-field-es-big" type="search" name="search" placeholder="Buscar..." />
-
-                            <button class="usa-button" type="submit">
-
-                                <span class="usa-search__submit-text">Buscar </span>
-
-                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Buscar" />
-
-                            </button>
-
-                        </form>
-
-                    </section>
-
-                    <h3 class="site-preview-heading">Spanish small variant</h3>
-
-                    <section aria-label="Small (Spanish) search component">
-
-                        <form class="usa-search usa-search--small" role="search">
-
-                            <label class="usa-sr-only" for="search-field-es-small">Buscar</label>
-
-                            <input class="usa-input" id="search-field-es-small" type="search" name="search" placeholder="Buscar..." />
-
-                            <button class="usa-button" type="submit">
-
-                                <img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Buscar" />
-
-                            </button>
-
-                        </form>
-
-                    </section>
+                    </form>
 
                     <h2>Component Code</h2>
 
-                    <pre><code>&lt;form class="usa-search" role="search"&gt;
+                    <pre><code>&lt;form class="usa-form" aria-labelledby="range-slider-label"&gt;
 
-  &lt;label class="usa-sr-only" for="search-field"&gt;Search&lt;/label&gt;
+  &lt;label id="range-slider-label" class="usa-label" for="usa-range"&gt;Range slider&lt;/label&gt;
 
-  &lt;input class="usa-input" id="search-field" type="search" name="search" placeholder="Search..."&gt;
+  &lt;input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-valuetext="20"&gt;
 
-  &lt;button class="usa-button" type="submit"&gt;
-
-    &lt;span class="usa-search__submit-text"&gt;Search &lt;/span&gt;
-
-    &lt;img src="/assets/img/usa-icons-bg/search--white.svg" class="usa-search__submit-icon" alt="Search"&gt;
-
-  &lt;/button&gt;
+  &lt;div class="range-display" aria-live="polite"&gt;Current Value: &lt;span id="range-value-display"&gt;20&lt;/span&gt;&lt;/div&gt;
 
 &lt;/form&gt;
 
@@ -360,11 +219,13 @@
 
                     <h2>Guidance</h2>
 
-                    <h3>When to Use the Search Component</h3>
+                    <h3>When to Use the Range Slider Component</h3>
 
                     <ul>
 
-                        <li><strong>Use site search.</strong> There will always be users who would benefit from being able to search your site.</li>
+                        <li><strong>When the range is more important than precision.</strong> For instance, it could be more important for a target price selector to communicate where the target price falls within a certain range than the precise dollar amount selected.</li>
+
+                        <li><strong>When a relative value is more important than an exact value.</strong> For instance, a volume slider is typically more focussed on the relative loudness of the output rather than the specific decibel level.</li>
 
                     </ul>
 
@@ -372,7 +233,7 @@
 
                     <ul>
 
-                        <li><strong>Very small sites.</strong> On single-page or very small sites, you may be able to get away without a search bar.</li>
+                        <li>Use a regular text input if a user needs to enter a precise number.</li>
 
                     </ul>
 
@@ -380,24 +241,20 @@
 
                     <ul>
 
-                        <li><strong>Make the input at least 27 characters wide.</strong> Allow the search component to be as wide as possible, but a minimum of 27 characters wide. This allows users to enter multiple search terms and still be able to see all of them. The more users can see their search terms, the easier it is to review, verify, and submit their search query. Romance languages are about 20% longer than English, so account for text swell on multilingual websites.</li>
+                        <li><strong>Highlight the control when selected.</strong> The slider control should change color to indicate it is active when a user selects it.</li>
 
-                        <li><strong>The magnifying glass icon is effective.</strong> The magnifying glass has been shown to be almost universally recognized by users as an indicator of search, and doesn’t need to be visually paired with the word “Search” as long as it remains for screen readers.</li>
+                        <li><strong>The control must be draggable.</strong> Users should be able to drag the slider control or select somewhere along the slider itself to change the value.</li>
 
-                        <li><strong>Search terms should persist into search results.</strong> When displaying the search results, preload the search bar content with the original search terms.</li>
+                        <li><strong>Label the limits of the range.</strong> When appropriate, label the ends of the slider with the limits of the range (for example: “0/100”, “small/large” or “less expensive/more expensive”).</li>
 
-                        <li><strong>Use a full search box on the home page.</strong> On a site’s home page, the search function should appear as a search box instead of a link so users can locate it easily.</li>
-
-                        <li><strong>Don’t offer advanced search as the default.</strong> The majority of people will do a simple search with one or two search terms. If advanced search is offered, it increases the likelihood of mistakes.</li>
-
-                        <li><strong>Use a label even if it’s visually hidden.</strong> The form field should include a label for screen reader users.</li>
-
-                        <li><strong>The search button should be a submit button.</strong> This reduces the number of keystrokes required to use the form.</li>
+                        <li><strong>Don’t be too granular.</strong> In a range slider, the relative value is more important than the specific value, so set the step attribute so it’s not too granular. By setting the step to a value of 10-20% of the total range, you prevent unnecessary precision and cognitive strain in your users. For example, set <code>step="10"</code> in a total range of 100.</li>
 
                     </ul>
 
                     <h2>Testing</h2>
-                    <p>To ensure the search component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/search/" target="_blank">Search Component Testing Checklist</a>.</p>
+
+                    <p>To ensure the range slider component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/range-slider/" target="_blank">Range Slider Component Testing Checklist</a>.</p>
+
                 </div>
 
             </div>
@@ -446,7 +303,7 @@
 
             if (document.getElementById('last-modified')) {
 
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=search-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=range-slider-component.md")
 
                     .then(response => response.json())
 
@@ -465,6 +322,18 @@
             }
 
         }
+
+        // Update the output value when the slider changes
+        document.addEventListener('DOMContentLoaded', function() {
+            const rangeInput = document.getElementById('usa-range');
+            const rangeValueDisplay = document.getElementById('range-value-display');
+
+            rangeInput.addEventListener('input', function() {
+                rangeValueDisplay.textContent = this.value;
+                rangeInput.setAttribute('aria-valuenow', this.value);
+                rangeInput.setAttribute('aria-valuetext', this.value);
+            });
+        });
 
     </script>
 
