@@ -12,7 +12,6 @@
     <meta name="robots" content="noindex">
     <title>Tooltip Component - MNIT DOT A11y</title>
 
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Tooltip Component" />
     <meta property="og:locale" content="en_US" />
@@ -26,15 +25,13 @@
     <meta property="twitter:title" content="Tooltip Component" />
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "description": "Guide to creating an accessible tooltip component. Includes source code, interactive example, and guidance.",
-      "headline": "Tooltip Component",
-      "url": "https://mnit-dot-a11y.github.io/tooltip-component/"
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "description": "Guide to creating an accessible tooltip component. Includes source code, interactive example, and guidance.",
+        "headline": "Tooltip Component",
+        "url": "https://mnit-dot-a11y.github.io/tooltip-component/"
     }
     </script>
-    <!-- End Jekyll SEO tag -->
-
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
@@ -150,7 +147,7 @@
 
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
 
-                    <li class="web-alpha"><a aria-current="page" class="current" href="/tooltip-component/">Tooltip Component</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
 
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
 
@@ -201,9 +198,7 @@
                         <div class="margin-4">
 
                             <button type="button" class="usa-button usa-tooltip" data-tippy-content="Top" data-position="top">
-
                                 Show on top
-
                             </button>
 
                         </div>
@@ -211,9 +206,7 @@
                         <div class="margin-4">
 
                             <button type="button" class="usa-button usa-tooltip" data-tippy-content="Right" data-position="right">
-
                                 Show on right
-
                             </button>
 
                         </div>
@@ -221,9 +214,7 @@
                         <div class="margin-4">
 
                             <button type="button" class="usa-button usa-tooltip" data-tippy-content="Left" data-position="left">
-
                                 Show on left
-
                             </button>
 
                         </div>
@@ -231,9 +222,7 @@
                         <div class="margin-4">
 
                             <button type="button" class="usa-button usa-tooltip" data-tippy-content="Bottom" data-position="bottom">
-
                                 Show on bottom
-
                             </button>
 
                         </div>
@@ -247,9 +236,7 @@
                         <div class="tablet:grid-col-3 margin-top-2 text-center">
 
                             <button type="button" class="usa-button usa-tooltip" data-tippy-content="Top" data-position="top">
-
                                 Show on top
-
                             </button>
 
                         </div>
@@ -257,9 +244,7 @@
                         <div class="tablet:grid-col-3 margin-top-2 text-center">
 
                             <button type="button" class="usa-button usa-tooltip" data-tippy-content="Bottom" data-position="bottom">
-
                                 Show on bottom
-
                             </button>
 
                         </div>
@@ -267,9 +252,7 @@
                         <div class="tablet:grid-col-3 margin-top-2 text-center">
 
                             <button type="button" class="usa-button usa-tooltip" data-tippy-content="Right" data-position="right">
-
                                 Show on right
-
                             </button>
 
                         </div>
@@ -277,9 +260,7 @@
                         <div class="tablet:grid-col-3 margin-top-2 text-center">
 
                             <button type="button" class="usa-button usa-tooltip" data-tippy-content="Left" data-position="left">
-
                                 Show on left
-
                             </button>
 
                         </div>
@@ -372,29 +353,17 @@
         }
 
         // Initialize Tippy.js for all tooltip elements
-
         document.addEventListener('DOMContentLoaded', function () {
-
             const tooltipElements = document.querySelectorAll('.usa-tooltip');
-
             tooltipElements.forEach((el) => {
-
                 const position = el.getAttribute('data-position') || 'top'; // Default to 'top' if no position is specified
-
                 tippy(el, {
-
                     content: el.getAttribute('data-tippy-content'),
-
                     placement: position,
-
                     arrow: true,
-
                     theme: 'light',
-
                 });
-
             });
-
         });
 
     </script>
