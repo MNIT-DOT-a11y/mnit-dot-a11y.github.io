@@ -1,6 +1,6 @@
 ---
 layout: entry
-title:  "Range Slider Input"
+title:  "Range Slider"
 description: "How to code and test an accessible range slider input for Web"
 categories: form
 
@@ -67,44 +67,5 @@ wcag:
       - criteria: Expresses its state
       - criteria: Meets criteria across platforms, devices and viewports
 ---
-
-## Code examples
-
-This is one of the exceedingly rare instances where a custom element makes a lot of sense.
-
-### Use a custom element
-
-- Custom elements are **easier to style reliably** across browsers.
-- [Working slider pattern examples](https://www.w3.org/WAI/ARIA/apg/patterns/slider/)
-
-
-{% highlight html %}
-<div id="range-label">
-  How much cowbell?
-</div>
-<div class="track">
-  <div id="thumb"
-       role="slider"
-       tabindex="0"
-       aria-valuemin="0"
-       aria-valuenow="10"
-       aria-valuemax="11"
-       aria-labelledby="range-label">
-  </div>
-</div>
-{% endhighlight %}
-
-
-### Semantic HTML
-
-While there is a native range input, it is **difficult to style reliably** across browsers.
-
-{% highlight html %}
-{% include /examples/input-range.html %}
-{% endhighlight %}
-
-{::nomarkdown}
-<example>
-{% include /examples/input-range.html %}
-</example>
-{:/}
+## Developer Notes
+For developer information, refer to [Range Slider Developer Code Examples and Guidance](/components/range-slider.html)
