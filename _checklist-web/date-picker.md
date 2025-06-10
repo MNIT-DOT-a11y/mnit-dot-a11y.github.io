@@ -89,4 +89,5 @@ gherkin-mobile:
       the intended action occurs
 
 ---
+{: .divider }
 [Date Picker Developer Code Examples and Guidance](/components/date-picker.html)

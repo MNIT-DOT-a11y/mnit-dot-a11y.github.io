@@ -67,5 +67,6 @@ wcag:
       - criteria: Conveys the correct semantic role 
       - criteria: Expresses its state (and group name if applicable)
 ---
-
+---
+{: .divider }
 [Checkbox Developer Code Examples and Guidance](/components/checkbox.html)

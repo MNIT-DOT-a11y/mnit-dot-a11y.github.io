@@ -86,4 +86,6 @@ wcag:
   - Expand details
 - A button can look like a link, but it must be coded as a `<button>`
 
+---
+{: .divider }
 [Button Developer Code Examples and Guidance](/components/button.html)
