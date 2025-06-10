@@ -30,4 +30,5 @@ gherkin-mobile:
   - when:  |
       use features that trigger the alert
 ---
-[Alert Notification Developer Code Examples and Guidance](/components/alert.html)
+## Developer Notes
+For developer information, refer to [Alert Notification Developer Code Examples and Guidance](/components/alert.html)

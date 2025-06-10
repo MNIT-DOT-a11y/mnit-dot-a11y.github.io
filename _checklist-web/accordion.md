@@ -64,5 +64,5 @@ wcag:
       - criteria: Meets criteria across platforms, devices and viewports
 
 ---
-
-[Accordion Developer Code Examples and Guidance](/components/accordion.html)
+## Developer Notes
+For developer information, refer to [Accordion Developer Code Examples and Guidance](/components/accordion.html)

@@ -65,5 +65,5 @@ wcag:
       - criteria: Meets criteria across platforms, devices and viewports
       - criteria: Conveys the correct semantic role
 ---
-
-[Breadcrumbs Developer Code Examples and Guidance](/components/breadcrumb.html)
+## Developer Notes
+For developer information, refer to [Breadcrumbs Developer Code Examples and Guidance](/components/breadcrumb.html)
