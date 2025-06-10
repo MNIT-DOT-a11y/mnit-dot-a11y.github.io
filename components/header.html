@@ -37,8 +37,8 @@
 
     <style>
         .usa-header {
-            background-color: #333;
-            color: white;
+            background-color: #f0f0f0;
+            color: #333;
             padding: 1rem;
         }
 
@@ -47,10 +47,16 @@
             margin-right: 1rem;
         }
 
+        .usa-logo__text a {
+            color: #333;
+            text-decoration: none;
+        }
+
         .usa-nav {
             display: flex;
             list-style-type: none;
             padding: 0;
+            align-items: center;
         }
 
         .usa-nav__item {
@@ -58,7 +64,7 @@
         }
 
         .usa-nav__link {
-            color: white;
+            color: #333;
             text-decoration: none;
             font-weight: bold;
         }
@@ -87,10 +93,6 @@
             border: none;
             border-radius: 0.25rem;
             cursor: pointer;
-        }
-
-        .usa-search__button:hover {
-            background-color: #005a97;
         }
 
         .sidenav {
@@ -212,37 +214,37 @@
                     <header class="usa-header">
 
                         <div class="usa-nav-container">
-    
+                
                             <div class="usa-logo">
-    
+                
                                 <em class="usa-logo__text"><a href="/" title="Project title">Project Title</a></em>
-    
+                
                             </div>
-    
+                
                             <nav class="usa-nav" aria-label="Primary navigation">
-    
+                
                                 <ul class="usa-nav__primary">
-    
+                
                                     <li class="usa-nav__item"><a href="#section1" class="usa-nav__link">Section 1</a></li>
-    
+                
                                     <li class="usa-nav__item"><a href="#section2" class="usa-nav__link">Section 2</a></li>
-    
+                
                                     <li class="usa-nav__item"><a href="#section3" class="usa-nav__link">Section 3</a></li>
-    
+                
                                 </ul>
-    
+                
                                 <div class="usa-search">
-    
+                
                                     <input type="search" class="usa-search__input" placeholder="Search" aria-label="Search input">
-    
+                
                                     <button class="usa-search__button" type="submit">Search</button>
-    
+                
                                 </div>
-    
+                
                             </nav>
-    
+                
                         </div>
-    
+                
                     </header>
 
                     <h2>When to Use a Header Component</h2>
