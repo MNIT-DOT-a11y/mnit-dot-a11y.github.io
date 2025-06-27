@@ -169,7 +169,7 @@ axe DevTools browser extension automates accessibility testing for web-based app
 5. Run a Scan
    - Visit the [How-to Test Using axe DevTools](/how-to-test/axe) to learn more about using axe DevTools for automated accessibility testing.
 
-####  **Free Verions Setup**
+####  **Free Version Setup**
 1. Install the Extension
    - Chrome/Edge: Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) or [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/axe-devtools-web-access/kcenlimkmjjkdfcaleembgmldmnnlfkn) and select Add to Chrome/Edge.  
    - Firefox: Install from [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/).
