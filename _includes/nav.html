@@ -78,9 +78,14 @@
         </li>
       </ul>
     </li>
-    </ul>
+  </ul>
   <style>
     /* CSS for horizontal alignment */
+    .menu {
+      padding: 20px; /* Ample padding around the entire navigation */
+      background-color: #f8f8f8; /* Optional: add a background to see the padding */
+    }
+
     .menu ul {
       list-style: none; /* Remove bullet points */
       padding: 0;
@@ -88,26 +93,32 @@
       display: flex; /* Use flexbox for horizontal alignment */
       flex-wrap: wrap; /* Allow items to wrap to the next line if space is limited */
       align-items: center; /* Vertically align items in the center */
-      gap: 15px; /* Add space between menu items */
+      gap: 25px; /* Increased space between menu items */
     }
 
     .menu ul li {
       margin: 0; /* Remove default list item margin */
-      padding: 5px 0; /* Add some vertical padding for better spacing */
+      /* Padding applied directly to the anchor tags for better clickable area */
       white-space: nowrap; /* Prevent menu items from wrapping within themselves */
     }
 
-    .menu ul li a {
+    .menu ul li a,
+    .menu .expander-toggle {
       text-decoration: none; /* Remove underline from links */
-      color: #333; /* Example color, adjust as needed */
-      padding: 5px 10px; /* Padding inside the link hit area */
+      color: #003865; /* A slightly darker color for better contrast */
+      padding: 10px 15px; /* Increased padding inside the link hit area */
       display: block; /* Make the entire padding area clickable */
+      font-size: 1.1em; /* Make the font bigger (adjust as needed, e.g., 1.2rem, 18px) */
+      font-weight: bold; /* Optional: make font bold for more prominence */
+      border-radius: 5px; /* Slightly rounded corners for links */
+      transition: background-color 0.3s ease; /* Smooth transition for hover effects */
     }
 
     .menu ul li a:hover,
-    .menu ul li a.current {
-      background-color: #eee; /* Example hover/current background */
-      border-radius: 4px;
+    .menu ul li a.current,
+    .menu .expander-toggle:hover {
+      background-color: #e0e0e0; /* Example hover/current background */
+      color: #00284f; /* Darker text on hover */
     }
 
     /* Styles for the expander-group (More menu) */
@@ -115,17 +126,27 @@
       position: relative; /* For positioning the dropdown content */
     }
 
+    .expander-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit; /* Inherit font from parent */
+    }
+
     .expander-content {
       display: none; /* Hidden by default */
       position: absolute;
       background-color: #f9f9f9;
-      min-width: 160px;
+      min-width: 180px; /* Slightly wider dropdown */
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
+      z-index: 10; /* Ensure dropdown appears above other content */
       list-style: none;
-      padding: 0;
+      padding: 10px 0; /* Padding inside the dropdown container */
       margin: 0;
       flex-direction: column; /* Stack dropdown items vertically */
+      border-radius: 5px;
+      top: 100%; /* Position below the "More" button */
+      left: 0;
     }
 
     .expander-group.open .expander-content {
@@ -133,48 +154,69 @@
     }
 
     .expander-content li a {
-      padding: 12px 16px;
+      padding: 12px 20px; /* More padding for dropdown items */
       text-decoration: none;
       display: block;
-      color: black;
+      color: #333; /* Color for dropdown links */
+      font-size: 1em; /* Keep dropdown font size consistent or slightly smaller */
     }
 
     .expander-content li a:hover {
       background-color: #f1f1f1;
+      color: #000;
     }
 
     /* Existing Search Box Styles */
     .search-container {
-      margin-left: 50px; /* Adds space to the left of the search box */
-      max-width: 400px; /* Sets a maximum width for the search box container */
-      margin-bottom: 10px;
+      margin-left: auto; /* Pushes the search box to the far right */
+      margin-right: 20px; /* Space on the right */
+      max-width: 300px; /* Slightly reduced max-width for search */
+      margin-top: 5px; /* Align with menu vertically if needed */
     }
 
     .search-box {
       width: 100%; /* Allows the input to fill the container */
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 12px; /* Slightly more padding for search box */
+      font-size: 1.05em; /* Slightly larger font for search box */
+      border: 1px solid #bbb; /* Slightly darker border */
+      border-radius: 6px;
       box-sizing: border-box; /* Includes padding in the element's total width */
     }
 
     .search-results {
       list-style-type: none; /* Removes bullet points from search results list */
       padding: 0;
-      margin: 0 20px; /* Matches the left margin of the search container */
+      margin: 0; /* Reset margin */
+      position: absolute; /* Position results relative to the nav */
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 300px; /* Match search container width */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      top: calc(100% + 5px); /* Position below search box */
+      left: auto; /* Reset left positioning */
+      right: 20px; /* Align to the right of the nav */
     }
 
     .search-results li {
       background: #f9f9f9;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
       padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+      border-bottom: 1px solid #eee;
+      border-radius: 0; /* Remove individual item border-radius */
+    }
+    .search-results li:last-child {
+      border-bottom: none; /* No border on the last item */
     }
   </style>
   <div class="search-container">
-    <input type="text" id="searchBox" class="search-box" placeholder="Search..." />
+    <input
+      type="text"
+      id="searchBox"
+      class="search-box"
+      placeholder="Search..."
+    />
   </div>
   <ul id="searchResults" class="search-results"></ul>
   <script src="search.js"></script>
