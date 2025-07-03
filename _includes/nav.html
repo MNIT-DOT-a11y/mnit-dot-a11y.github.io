@@ -1,58 +1,63 @@
 <nav id="nav" class="menu" aria-label="Site menu">
   <ul>
     <li class="home">
-      <a aria-label="{{ site.title-aria-label }}"
+      <a
+        aria-label="{{ site.title-aria-label }}"
         {% if page.url== "/" %} aria-current="page" {% endif %}
-        href="{{ site.baseurl }}/">{{ site.title }}
+        href="{{ site.baseurl }}/"
+        >{{ site.title }}
       </a>
-     </li>
-      <li class="web alpha">
+    </li>
+    <li class="web alpha">
       <a
         {% if page.url== "/web/" %} aria-current="page" {% endif %}
         {% if page.url contains "web/" %} class="current" {% endif %}
-        href="{{ site.baseurl }}/web/">Web
+        href="{{ site.baseurl }}/web/"
+        >Web
       </a>
     </li>
     <li class="web alpha">
       <a
         {% if page.url== "/desktop/" %} aria-current="page" {% endif %}
         {% if page.url contains "desktop/" %} class="current" {% endif %}
-        href="{{ site.baseurl }}/desktop/">Desktop Apps
+        href="{{ site.baseurl }}/desktop/"
+        >Desktop Apps
       </a>
     </li>
     <li class="native alpha">
       <a
         {% if page.url== "/native/" %} aria-current="page" {% endif %}
         {% if page.url contains "native/" %} class="current" {% endif %}
-        href="{{ site.baseurl }}/native/">Native Apps
+        href="{{ site.baseurl }}/native/"
+        >Native Apps
       </a>
     </li>
-        <li class="web alpha">
+    <li class="web alpha">
       <a
         {% if page.url== "/identifying-components/" %} aria-current="page" {% endif %}
         {% if page.url contains "identifying-components/" %} class="current" {% endif %}
-        href="{{ site.baseurl }}/identifying-components/">Identifying Components
+        href="{{ site.baseurl }}/identifying-components/"
+        >Identifying Components
       </a>
     </li>
     <li class="native bravo">
       <a
         {% if page.url== "/how-to-test/" %} aria-current="page" {% endif %}
         {% if page.url contains "how-to-test" %} class="current" {% endif %}
-        href="{{ site.baseurl }}/how-to-test/">How-to Test
+        href="{{ site.baseurl }}/how-to-test/"
+        >How-to Test
       </a>
     </li>
     <li class="native bravo">
-          <a
+      <a
         {% if page.url== "/demos/" %} aria-current="page" {% endif %}
         {% if page.url contains "demos" %} class="current" {% endif %}
-        href="{{ site.baseurl }}/demos/">Demos
+        href="{{ site.baseurl }}/demos/"
+        >Demos
       </a>
     </li>
     <li class="expander-group site-sub-group">
-      <button
-        class="expander-toggle" aria-expanded="false">
-        More
-      </button>
+      <button class="expander-toggle" aria-expanded="false">More</button>
       <ul class="expander-content">
         <li>
           <a href="{{ site.baseurl }}/how-to-test/">How-to Test</a>
@@ -61,8 +66,9 @@
           <a href="{{ site.baseurl }}/demos/">Demos</a>
         </li>
         <li>
-          <li>
-          <a href="{{ site.baseurl }}/developing-components/">Developing Components</a>
+          <a href="{{ site.baseurl }}/developing-components/"
+            >Developing Components</a
+          >
         </li>
         <li>
           <a href="{{ site.baseurl }}/about/">About</a>
@@ -70,44 +76,106 @@
         <li>
           <a href="{{ site.baseurl }}/code-of-conduct/">Code of Conduct</a>
         </li>
-    </div>
-      </li>
       </ul>
     </li>
-     <style>
-        .search-container {
-            margin-left: 50px; /* Adds space to the left of the search box */
-            max-width: 400px; /* Sets a maximum width for the search box container */
-            margin-bottom: 10px;
-        }
+    </ul>
+  <style>
+    /* CSS for horizontal alignment */
+    .menu ul {
+      list-style: none; /* Remove bullet points */
+      padding: 0;
+      margin: 0;
+      display: flex; /* Use flexbox for horizontal alignment */
+      flex-wrap: wrap; /* Allow items to wrap to the next line if space is limited */
+      align-items: center; /* Vertically align items in the center */
+      gap: 15px; /* Add space between menu items */
+    }
 
-        .search-box {
-            width: 100%;  /* Allows the input to fill the container */
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box; /* Includes padding in the element's total width */
-        }
+    .menu ul li {
+      margin: 0; /* Remove default list item margin */
+      padding: 5px 0; /* Add some vertical padding for better spacing */
+      white-space: nowrap; /* Prevent menu items from wrapping within themselves */
+    }
 
-        .search-results {
-            list-style-type: none; /* Removes bullet points from search results list */
-            padding: 0;
-            margin: 0 20px; /* Matches the left margin of the search container */
-        }
+    .menu ul li a {
+      text-decoration: none; /* Remove underline from links */
+      color: #333; /* Example color, adjust as needed */
+      padding: 5px 10px; /* Padding inside the link hit area */
+      display: block; /* Make the entire padding area clickable */
+    }
 
-        .search-results li {
-            background: #f9f9f9;
-            margin-bottom: 5px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-    </style>
-      <div class="search-container">
-    <input type="text" id="searchBox" class="search-box" placeholder="Search...">
-</div>
-<ul id="searchResults" class="search-results"></ul>
-<script src="search.js"></script>
-  </ul>
+    .menu ul li a:hover,
+    .menu ul li a.current {
+      background-color: #eee; /* Example hover/current background */
+      border-radius: 4px;
+    }
+
+    /* Styles for the expander-group (More menu) */
+    .expander-group {
+      position: relative; /* For positioning the dropdown content */
+    }
+
+    .expander-content {
+      display: none; /* Hidden by default */
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-direction: column; /* Stack dropdown items vertically */
+    }
+
+    .expander-group.open .expander-content {
+      display: flex; /* Show when 'open' class is added (via JavaScript) */
+    }
+
+    .expander-content li a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: black;
+    }
+
+    .expander-content li a:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Existing Search Box Styles */
+    .search-container {
+      margin-left: 50px; /* Adds space to the left of the search box */
+      max-width: 400px; /* Sets a maximum width for the search box container */
+      margin-bottom: 10px;
+    }
+
+    .search-box {
+      width: 100%; /* Allows the input to fill the container */
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; /* Includes padding in the element's total width */
+    }
+
+    .search-results {
+      list-style-type: none; /* Removes bullet points from search results list */
+      padding: 0;
+      margin: 0 20px; /* Matches the left margin of the search container */
+    }
+
+    .search-results li {
+      background: #f9f9f9;
+      margin-bottom: 5px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  </style>
+  <div class="search-container">
+    <input type="text" id="searchBox" class="search-box" placeholder="Search..." />
+  </div>
+  <ul id="searchResults" class="search-results"></ul>
+  <script src="search.js"></script>
 </nav>
