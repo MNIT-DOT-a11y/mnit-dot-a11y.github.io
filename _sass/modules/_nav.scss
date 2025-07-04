@@ -1,294 +1,511 @@
 nav.menu {
-  display: flex; /* Changed from grid to flex for better horizontal alignment of main menu and search */
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-  justify-content: space-between; /* Pushes main menu to left, search to right */
-  align-items: center; /* Vertically centers menu items and search bar */
-  margin: 0 auto 2rem auto; /* Adjusted 0rem to 0 */
-  position: relative;
-  border-radius: 2px;
-  padding: 20px; /* Ample padding around the entire navigation */
-  background-color: #f8f8f8; /* Optional: add a background to see the padding */
-  z-index: 999;
 
-  a,
-  .expander-toggle {
-    display: block;
-    text-align: center;
-    padding: 1.5rem 0.5rem; /* Combined padding values */
-    margin-bottom: -1px;
-    text-decoration: none;
-    position: relative;
-    font-size: 1.2em; /* Increased font size */
-    line-height: 1rem;
-    border: none;
-    font-weight: bold; /* Added font-weight */
-    border-radius: 5px; /* Added border-radius */
-    transition: background-color 0.3s ease; /* Added transition */
-    color: #003865; /* Set a default text color for consistency */
+  display: grid;
 
-    @include break($break-mid) {
-      font-size: 1.125rem;
-      padding: 1.5rem 1rem; /* Combined padding values */
-    }
+  margin: 0rem auto 2rem auto;
 
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: auto;
-      right: 0;
-      bottom: 0rem;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      transition: 0.2s;
-      background: $color-brand-primary;
-      opacity: 1;
-      transform: rotate(0deg);
-    }
-    &[aria-current="page"],
-    &.current {
-      /* Removed comma after &.current for cleaner syntax */
-      @include headline;
-      &:after {
-        content: "";
-        height: 0.5rem;
-      }
-    }
-    &:hover,
-    &:focus {
-      text-decoration: none;
-      background-color: #e0e0e0; /* Example hover background */
-      color: #00284f; /* Example hover text color */
-      &:after {
-        content: "";
-        height: 0.75rem;
-      }
-    }
-  }
+  position: relative;
 
-  ul {
-    /* Main navigation ul - now a flex item within nav.menu */
-    display: flex; /* Changed to flex to arrange inner li items consistently */
-    flex-wrap: wrap; /* Allow li items to wrap */
-    gap: 25px; /* Space between main menu items */
-    position: relative;
-    padding: 0;
-    margin: 0; /* Reset margin; parent nav.menu padding handles overall spacing */
-    width: auto; /* Allow content to dictate width, or 100% if needed for small screens */
+  border-radius: 2px;
 
-    @include break($break-mid) {
-      /* Keep display: flex; as default for larger screens */
-    }
+  padding-bottom: 0;
 
-    li {
-      list-style: none;
-      display: block;
-      margin: 0;
-      padding: 0;
-      white-space: nowrap; /* Prevent menu items from wrapping */
-      @include regular;
+  z-index: 999;
 
-      &.home a {
-        display: inline-block;
-        background-color: $color-brand-primary;
-        color: #fff;
-        @include regular;
-        margin-right: 0.25rem;
-        margin-left: -0.125rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        transition: 0.2s;
-        border-radius: 3rem;
-        box-shadow: 0 0 0 0 $color-brand-primary;
-        font-size: 1.2em; /* Ensure home link also gets bigger font */
 
-        &:after {
-          display: none;
-        }
-        @include break(500px) {
-          font-size: 1.5rem;
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-          margin-right: 1rem;
-          @include regular;
-        }
-        &:hover {
-          box-shadow: 0 0 0 0.25rem $color-brand-primary;
-        }
-      }
-      &.bravo {
-        display: none;
-        @include break($break-small) {
-          display: block;
-        }
-      }
-      &.expander-group.site-sub-group {
-        @include break($break-small) {
-          display: none;
-        }
-      }
-    }
-  }
 
-  .expander-group {
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin-bottom: 0;
-    button.expander-toggle {
-      font-family: $sans, sans-serif;
-      font-size: 1.2em; /* Ensure expander button also gets bigger font */
-      line-height: 1rem;
-      background: transparent;
-      padding: 1.5rem 0.5rem; /* Consistent padding */
+  a,
 
-      &[aria-expanded="true"] {
-        border-bottom: none;
-      }
-      &:before {
-        display: none;
-      }
-      @include break(400px) {
-        padding-right: 2.125rem;
-        &:before {
-          display: block;
-          right: 0;
-        }
-      }
-      @include break($break-mid) {
-        font-size: 1.125rem;
-        padding: 1.5rem 2.125rem 1.5rem 1rem;
-      }
-    }
+  .expander-toggle {
 
-    ul.expander-content {
-      position: absolute;
-      width: 100%; /* Or set a fixed width: min-width: 180px; */
-      left: 0;
-      top: calc(100% + 5px); /* Position dropdown below the button, accounting for parent padding */
-      margin: 0;
-      padding: 10px 0 !important; /* Adjusted padding */
-      border: none;
-      border-radius: 5px; /* Added border-radius for consistency */
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Simplified box-shadow */
-      display: none; /* Hide by default */
-      flex-direction: column; /* Stack dropdown items vertically */
-      z-index: 10; /* Ensure dropdown appears above other content */
+    display: block;
 
-      li {
-        display: block !important; /* Ensure these are block elements in dropdown */
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        border-top: 1px solid $color-border-gray;
-        &:first-child {
-          border-top: none; /* No top border for the first item */
-        }
-        a {
-          text-align: left;
-          padding: 12px 20px; /* Adjusted padding for dropdown items */
-          display: block;
-          margin: 0;
-          font-size: 1em; /* Keep dropdown font size relative */
-          color: #333; /* Default text color for dropdown links */
+    text-align: center;
 
-          &:after {
-            display: none;
-          }
-          &:hover,
-          &:focus {
-            background-color: #f1f1f1; /* Hover background for dropdown items */
-            color: #000; /* Hover text color */
-            &:after {
-              content: "";
-              display: block;
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 0.5rem !important;
-              height: 100%;
-              background: $color-focus;
-            }
-          }
-        }
-        button.subnav {
-          margin: 0;
-          width: 4rem;
-          padding: 1rem;
-          top: 0;
-          line-height: 1rem;
-          right: 0;
-          border: 1px solid $color-border-gray;
-          border-right: none;
-          max-height: 4.125rem;
-          border-radius: 0;
-          &:before {
-            right: 1rem;
-          }
+    padding: 1.5rem .5rem 1.5rem .5rem;
 
-          &:after {
-            display: none;
-          }
-        }
-        ul.expander-content {
-          position: relative;
-          z-index: 99;
-          top: 0;
-          li {
-            display: flex !important;
-            z-index: 99;
+    margin-bottom: -1px;
 
-            button {
-              margin: 1rem 1.5rem;
-            }
-          }
-        }
-      }
-    }
-  }
+    text-decoration: none;
 
-  /* Search bar styles moved here and updated for flex context */
-  .search-container {
-    margin-left: auto; /* Pushes the search box to the far right within the flex container */
-    margin-right: 0; /* Ensure no extra right margin */
-    max-width: 300px; /* Consistent max-width */
-    position: relative; /* Crucial for absolute positioning of search results */
-    flex-shrink: 0; /* Prevent the search container from shrinking if space is tight */
-  }
+    position: relative;
 
-  .search-box {
-    width: 100%;
-    padding: 12px; /* Increased padding */
-    font-size: 1.05em; /* Slightly larger font */
-    border: 1px solid #bbb;
-    border-radius: 6px;
-    box-sizing: border-box;
-  }
+    font-size: 1rem;
 
-  .search-results {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    position: absolute; /* Position results absolutely */
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100%; /* Match search container width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    top: calc(100% + 5px); /* Position below the search box, with a small gap */
-    left: 0; /* Align with the left edge of the search box */
-    display: none; /* Hidden by default, show with JavaScript */
-  }
+    line-height: 1rem;
 
-  .search-results li {
-    background: #f9f9f9;
-    margin-bottom: 2px;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    border-radius: 0;
-  }
-  .search-results li:last-child {
-    border-bottom: none;
-  }
+    border: none;
+
+    @include break($break-mid) {
+
+      font-size: 1.125rem;
+
+      padding: 1.5rem 1rem 1.5rem 1rem;
+
+    }
+
+
+
+    &:after {
+
+      content: '';
+
+      display: block;
+
+      position: absolute;
+
+      top: auto;
+
+      right: 0;
+
+      bottom: 0rem;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 1px;
+
+      transition: .2s;
+
+      background: $color-brand-primary;
+
+      opacity: 1;
+
+      transform: rotate(0deg);
+
+    }
+
+    &[aria-current="page"],
+
+    &.current, {
+
+      @include headline;
+
+      &:after {
+
+        content: '';
+
+        height: .5rem;
+
+      }
+
+    }
+
+    &:hover,
+
+    &:focus {
+
+      text-decoration: none;
+
+      &:after {
+
+        content: '';
+
+        height: .75rem;
+
+      }
+
+    }
+
+  }
+
+
+
+  ul {
+
+    display: grid;
+
+    grid-template-columns: 1fr max-content max-content max-content max-content;
+
+    //justify-content: center;
+
+    position: relative;
+
+    padding: 0;
+
+    margin: 1em auto 0 auto;
+
+    width: 100%;
+
+    @include break($break-mid) {
+
+      display: flex;
+
+    }
+
+
+
+    li {
+
+      list-style: none;
+
+      display: block;
+
+      margin: 0;
+
+      padding: 0;
+
+      @include regular;
+
+
+
+      &.home a {
+
+        display: inline-block;
+
+        background-color: $color-brand-primary;
+
+        color: #fff;
+
+        @include regular;
+
+        margin-right: .25rem;
+
+        margin-left: -.125rem;
+
+        padding-left: 1rem;
+
+        padding-right: 1rem;
+
+        transition: .2s;
+
+        border-radius: 3rem;
+
+        box-shadow: 0 0 0 0 $color-brand-primary;
+
+
+
+        &:after {
+
+          display: none;
+
+        }
+
+        @include break(500px) {
+
+          font-size: 1.5rem;
+
+          padding-left: 1.5rem;
+
+          padding-right: 1.5rem;
+
+          margin-right: 1rem;
+
+          @include regular;
+
+        }
+
+        &:hover {
+
+          box-shadow: 0 0 0 .25rem $color-brand-primary;
+
+        }
+
+      }
+
+      &.bravo {
+
+        display: none;
+
+        @include break($break-small) {
+
+          display: block;
+
+        }
+
+      }
+
+      &.expander-group.site-sub-group {
+
+        @include break($break-small) {
+
+          display: none;
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+
+  .expander-group {
+
+    box-shadow: none !important;
+
+    padding: 0 !important;
+
+    margin-bottom: 0;
+
+    button.expander-toggle {
+
+      font-family: $sans, sans-serif;
+
+      font-size: 1rem;
+
+      line-height: 1rem;
+
+      background: transparent;
+
+      padding: 1.5rem .5rem 1.5rem .5rem;
+
+
+
+      &[aria-expanded="true"] {
+
+        border-bottom: none;
+
+      }
+
+      &:before {
+
+        display: none;
+
+      }       
+
+      @include break(400px) {
+
+        padding-right: 2.125rem;
+
+        &:before {
+
+          display: block;
+
+          right: 0;
+
+        }
+
+      }
+
+      @include break($break-mid) {
+
+        font-size: 1.125rem;
+
+        padding: 1.5rem 2.125rem 1.5rem 1rem;
+
+      }
+
+    }
+
+  
+
+    ul.expander-content {
+
+      position: absolute;
+
+      width: 100%;
+
+      left: 0;
+
+      top: 4rem;
+
+      margin: 0;
+
+      padding: 0 !important;
+
+      border: none;
+
+      box-shadow: 0 1px 2px 1px rgba(#000,.2), 0 30px 18px -18px rgba(#000,0);
+
+
+
+      li {
+
+        display: block;
+
+        margin: 0;
+
+        padding: 0;
+
+        overflow: hidden;
+
+        border-top: 1px solid $color-border-gray;
+
+        a {
+
+          text-align: left;
+
+          padding: 1.5rem;
+
+          display: block;
+
+          margin: 0;
+
+          &:after {
+
+            display: none;
+
+          }
+
+          &:hover,
+
+          &:focus {
+
+            &:after {
+
+              content: '';
+
+              display: block;
+
+              position: absolute;
+
+              top: 0;
+
+              left: 0;
+
+              width: .5rem !important;
+
+              height: 100%;
+
+              background: $color-focus;
+
+            }
+
+          }
+
+        }
+
+        button.subnav {
+
+          margin: 0;
+
+          width: 4rem ;
+
+          padding: 1rem ;
+
+          top: 0 ;
+
+          line-height: 1rem;
+
+          right: 0 ;
+
+          border: 1px solid $color-border-gray;
+
+          border-right: none;
+
+          max-height: 4.125rem;
+
+          border-radius: 0;
+
+          &:before {
+
+            right: 1rem;
+
+          }
+
+
+
+          &:after {
+
+            display: none;
+
+          }
+
+        }
+
+        ul.expander-content {
+
+          position: relative;
+
+          z-index: 99;
+
+          top: 0;
+
+          li {
+
+            display: flex !important;
+
+            z-index: 99;
+
+
+
+            button {
+
+              margin: 1rem 1.5rem;
+
+
+
+            }
+
+            .search-widget {
+
+    width: 100%;
+
+    max-width: 400px; /* Limit the width of the search widget */
+
+    margin: 0 auto;   /* Center align it if needed */
+
+}
+
+
+
+.search-container  {
+
+            margin-left: 20px; /* Adds space to the left of the search box */
+
+            max-width: 400px; /* Sets a maximum width for the search box container */
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+.search-box {
+
+    width: 100%;  /* Make the input take the full width of its container */
+
+    padding: 10px;
+
+    font-size: 16px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 4px;
+
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width/height */
+
+}
+
+
+
+.search-results {
+
+    list-style-type: none; /* Remove bullet points */
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+
+
+.search-results li {
+
+    background: #f9f9f9;
+
+    margin-bottom: 5px;
+
+    padding: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 4px;
+
+}
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
 }
