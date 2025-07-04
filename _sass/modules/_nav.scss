@@ -1,25 +1,36 @@
 nav.menu {
-  display: grid;
-  margin: 0rem auto 2rem auto;
+  // Key change: Use flexbox for the main navigation container
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line if space is limited */
+  justify-content: space-between; /* Distributes space: main menu to left, search to right */
+  align-items: center; /* Vertically aligns items in the center */
+
+  margin: 0 auto 2rem auto; // Adjusted margin for overall nav
   position: relative;
   border-radius: 2px;
-  padding-bottom: 0;
+  padding: 20px; // Ample padding around the entire navigation
+  background-color: #f8f8f8; // Optional background for visual clarity of padding
   z-index: 999;
 
   a,
   .expander-toggle {
     display: block;
     text-align: center;
-    padding: 1.5rem .5rem 1.5rem .5rem;
+    padding: 1.5rem 0.5rem; // Combined padding values
     margin-bottom: -1px;
     text-decoration: none;
     position: relative;
-    font-size: 1rem;
+    font-size: 1.2em; // Increased font size for clarity
     line-height: 1rem;
     border: none;
+    font-weight: bold; // Added font-weight for prominence
+    border-radius: 5px; // Added border-radius for modern look
+    transition: background-color 0.3s ease; // Smooth transition for hover effects
+    color: #003865; // Consistent default text color
+
     @include break($break-mid) {
       font-size: 1.125rem;
-      padding: 1.5rem 1rem 1.5rem 1rem;
+      padding: 1.5rem 1rem; // Combined padding values
     }
 
     &:after {
@@ -38,7 +49,7 @@ nav.menu {
       transform: rotate(0deg);
     }
     &[aria-current="page"],
-    &.current, {
+    &.current {
       @include headline;
       &:after {
         content: '';
@@ -48,6 +59,8 @@ nav.menu {
     &:hover,
     &:focus {
       text-decoration: none;
+      background-color: #e0e0e0; // Example hover background
+      color: #00284f; // Example hover text color
       &:after {
         content: '';
         height: .75rem;
@@ -56,22 +69,21 @@ nav.menu {
   }
 
   ul {
-    display: grid;
-    grid-template-columns: 1fr max-content max-content max-content max-content;
-    //justify-content: center;
+    // This is the main navigation UL, a flex item within nav.menu
+    display: flex; // Keeps menu items horizontal
+    flex-wrap: wrap; // Allows items to wrap within the menu
+    gap: 25px; // Space between main menu items
     position: relative;
     padding: 0;
-    margin: 1em auto 0 auto;
-    width: 100%;
-    @include break($break-mid) {
-      display: flex;
-    }
+    margin: 0; // Reset margin; parent nav.menu padding handles overall spacing
+    width: auto; // Allow content to dictate width
 
     li {
       list-style: none;
       display: block;
       margin: 0;
       padding: 0;
+      white-space: nowrap; // Prevents menu items from wrapping
       @include regular;
 
       &.home a {
@@ -86,6 +98,7 @@ nav.menu {
         transition: .2s;
         border-radius: 3rem;
         box-shadow: 0 0 0 0 $color-brand-primary;
+        font-size: 1.2em; // Ensure home link also gets bigger font
 
         &:after {
           display: none;
@@ -121,17 +134,17 @@ nav.menu {
     margin-bottom: 0;
     button.expander-toggle {
       font-family: $sans, sans-serif;
-      font-size: 1rem;
+      font-size: 1.2em; // Ensure expander button also gets bigger font
       line-height: 1rem;
       background: transparent;
-      padding: 1.5rem .5rem 1.5rem .5rem;
+      padding: 1.5rem 0.5rem; // Consistent padding
 
       &[aria-expanded="true"] {
         border-bottom: none;
       }
       &:before {
         display: none;
-      }       
+      }
       @include break(400px) {
         padding-right: 2.125rem;
         &:before {
@@ -144,33 +157,45 @@ nav.menu {
         padding: 1.5rem 2.125rem 1.5rem 1rem;
       }
     }
-  
+
     ul.expander-content {
       position: absolute;
       width: 100%;
       left: 0;
-      top: 4rem;
+      top: calc(100% + 5px); // Position dropdown below the button, accounting for parent padding
       margin: 0;
-      padding: 0 !important;
+      padding: 10px 0 !important; // Adjusted padding
       border: none;
-      box-shadow: 0 1px 2px 1px rgba(#000,.2), 0 30px 18px -18px rgba(#000,0);
+      border-radius: 5px; // Added border-radius for consistency
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); // Simplified box-shadow
+      display: none; // Hide by default
+      flex-direction: column; // Stack dropdown items vertically
+      z-index: 10; // Ensure dropdown appears above other content
 
       li {
-        display: block;
+        display: block !important;
         margin: 0;
         padding: 0;
         overflow: hidden;
         border-top: 1px solid $color-border-gray;
+        &:first-child {
+          border-top: none;
+        }
         a {
           text-align: left;
-          padding: 1.5rem;
+          padding: 12px 20px; // Adjusted padding for dropdown items
           display: block;
           margin: 0;
+          font-size: 1em; // Keep dropdown font size relative
+          color: #333; // Default text color for dropdown links
+
           &:after {
             display: none;
           }
           &:hover,
           &:focus {
+            background-color: #f1f1f1;
+            color: #000;
             &:after {
               content: '';
               display: block;
@@ -185,11 +210,11 @@ nav.menu {
         }
         button.subnav {
           margin: 0;
-          width: 4rem ;
-          padding: 1rem ;
-          top: 0 ;
+          width: 4rem;
+          padding: 1rem;
+          top: 0;
           line-height: 1rem;
-          right: 0 ;
+          right: 0;
           border: 1px solid $color-border-gray;
           border-right: none;
           max-height: 4.125rem;
@@ -212,45 +237,57 @@ nav.menu {
 
             button {
               margin: 1rem 1.5rem;
-
             }
-            .search-widget {
-    width: 100%;
-    max-width: 400px; /* Limit the width of the search widget */
-    margin: 0 auto;   /* Center align it if needed */
-}
-
-.search-container  {
-            margin-left: 20px; /* Adds space to the left of the search box */
-            max-width: 400px; /* Sets a maximum width for the search box container */
-            margin-bottom: 10px;
-        }
-
-.search-box {
-    width: 100%;  /* Make the input take the full width of its container */
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width/height */
-}
-
-.search-results {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0;
-    margin: 0;
-}
-
-.search-results li {
-    background: #f9f9f9;
-    margin-bottom: 5px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
           }
         }
       }
     }
+  }
+
+  /* Search bar styles moved here and updated for flex context */
+  .search-container {
+    margin-left: auto; /* Pushes the search box to the far right within the flex container */
+    margin-right: 0; /* Ensure no extra right margin */
+    max-width: 300px; /* Consistent max-width */
+    position: relative; /* Crucial for absolute positioning of search results */
+    flex-shrink: 0; /* Prevent the search container from shrinking if space is tight */
+    padding-top: 15px; /* Added padding above the search bar */
+    padding-bottom: 5px; /* Added a little padding below for visual balance */
+  }
+
+  .search-box {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.05em;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  .search-results {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute; /* Position results absolutely */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%; /* Match search container width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    top: calc(100% + 5px); /* Position below the search box, with a small gap */
+    left: 0; /* Align with the left edge of the search box */
+    display: none; /* Hidden by default, show with JavaScript */
+  }
+
+  .search-results li {
+    background: #f9f9f9;
+    margin-bottom: 2px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    border-radius: 0;
+  }
+  .search-results li:last-child {
+    border-bottom: none;
   }
 }
