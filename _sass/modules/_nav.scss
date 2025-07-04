@@ -83,7 +83,7 @@ nav.menu {
         margin-left: -.125rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        padding-bottom: 5rem;
+        padding-bottom: 1rem;
         transition: .2s;
         border-radius: 3rem;
         box-shadow: 0 0 0 0 $color-brand-primary;
@@ -219,6 +219,7 @@ nav.menu {
     width: 100%;
     max-width: 400px; /* Limit the width of the search widget */
     margin: 0 auto;   /* Center align it if needed */
+    margin-top: 20px; /* Adds space to the top of the search box */
 }
 
 .search-container  {
