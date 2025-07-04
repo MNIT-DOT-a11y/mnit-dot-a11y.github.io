@@ -1,13 +1,61 @@
-<div class="skip-links container">
-  <a href="#content">Skip to main content</a>
-  <a href="#footer">Skip to site Map</a>
-</div>
-
 <header class="container">
-  {%- assign default_paths = site.pages | map: "path" -%}
-  {%- assign page_paths = site.header_pages | default: default_paths -%}
+  <nav id="nav" class="menu" aria-label="Site menu">
+    <ul>
+      <li class="home">
+        <a aria-label="MNIT DOT Accessibility" aria-current="page" href="/"
+          >MNIT DOT A11y
+        </a>
+      </li>
+      <li class="web alpha">
+        <a href="/web/">Web </a>
+      </li>
+      <li class="web alpha">
+        <a href="/desktop/">Desktop Apps </a>
+      </li>
+      <li class="native alpha">
+        <a href="/native/">Native Apps </a>
+      </li>
+      <li class="web alpha">
+        <a href="/identifying-components/">Identifying Components </a>
+      </li>
+      <li class="native bravo">
+        <a href="/how-to-test/">How-to Test </a>
+      </li>
+      <li class="native bravo">
+        <a href="/demos/">Demos </a>
+      </li>
+      <li class="expander-group site-sub-group">
+        <button class="expander-toggle" aria-expanded="false">More</button>
+        <ul class="expander-content">
+          <li>
+            <a href="/how-to-test/">How-to Test</a>
+          </li>
+          <li>
+            <a href="/demos/">Demos</a>
+          </li>
+          <li>
+            <a href="/developing-components/">Developing Components</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/code-of-conduct/">Code of Conduct</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
 
-  {%- if page_paths -%}
-    {%- include nav.html -%}
-  {%- endif -%}
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchBox"
+        class="search-box"
+        placeholder="Search..."
+      />
+      <ul id="searchResults" class="search-results"></ul>
+    </div>
+  </nav>
 </header>
+
+<script src="search.js"></script>
