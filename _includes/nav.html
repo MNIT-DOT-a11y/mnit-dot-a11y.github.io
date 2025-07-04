@@ -75,39 +75,13 @@
       </li>
       </ul>
     </li>
-     <style>
-        .search-container {
-            margin-left: 50px; /* Adds space to the left of the search box */
-            max-width: 400px; /* Sets a maximum width for the search box container */
-            margin-bottom: 10px;
-        }
-
-        .search-box {
-            width: 100%;  /* Allows the input to fill the container */
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box; /* Includes padding in the element's total width */
-        }
-
-        .search-results {
-            list-style-type: none; /* Removes bullet points from search results list */
-            padding: 0;
-            margin: 0 20px; /* Matches the left margin of the search container */
-        }
-
-        .search-results li {
-            background: #f9f9f9;
-            margin-bottom: 5px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-    </style>
-      <div class="search-container">
-    <input type="text" id="searchBox" class="search-box" placeholder="Search...">
-</div>
+  <ul>
+    </ul>
+  <div class="search-container">
+    <input type="text" id="searchBox" class="search-box" placeholder="Search..." />
+    <ul id="searchResults" class="search-results"></ul>
+  </div>
+</nav>
 <ul id="searchResults" class="search-results"></ul>
 <script src="search.js"></script>
   </ul>
