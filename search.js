@@ -1,4 +1,17 @@
+// search.js
+
+const items = [
+    "Introduction to HTML",
+    "Getting Started with CSS",
+    "Understanding the DOM",
+    "Advanced JavaScript Techniques",
+    "Responsive Web Design",
+    "CSS Flexbox and Grid",
+    "JavaScript Promises and Async/Await"
+];
+
 // Function to perform search and update the search results
+
 function performSearch(query) {
     const resultsContainer = document.getElementById('searchResults');
     resultsContainer.innerHTML = ''; // Clear previous results
