@@ -3,7 +3,7 @@ layout: page
 title: Training: Examples-Magnification and Zoom Accessibility Testing
 permalink: /course-examples/3
 ---
-<h2>The Benefits of Zoom and Magnification for Users.</h2>
+<!--<h2>The Benefits of Zoom and Magnification for Users.</h2>
 	<ol>
 	  <li>Enhanced Readability</li>
 	  <li>Increased Independence</li>
@@ -18,7 +18,7 @@ permalink: /course-examples/3
 	</ol>
 	<hr>
 	<br>
-	<br>
+	<br>-->
 <h2>Comparsion between Windows Magnifier on and off</h2>
 	<p><img src="/assets/images/examples/how-to-magnifier-on-off.jpg" alt="two screen shows showing MnDOT's website in normal view and another with magnifier on."/></p>
 	<hr>
@@ -56,27 +56,24 @@ permalink: /course-examples/3
 <hr>
 	<br>
 	<br>
-	<p>When performing magnification and zoom testing,  accessibility testers should focus on these key WCAG 2.1 Level AA success  criteria when testing zoom and magnification.</p>
-	<p><strong>1.4.4 Text  Resizing
-	</strong></p>
-	<ul>
-	  <li>Ensure that text  can be resized up to 200% without assistive technology and&nbsp;without losing  content or functionality.</li>
-	  <li>Verify that  text-based controls also scale correctly.</li>
-	  <li>Confirm that text  containers resize when text resizes.</li>
-	  <li>Assess the  overall readability of the content at different zoom levels.</li>
-	</ul>
-	<p><strong>1.4.10 Reflow
-	</strong></p>
-	<ul>
-	  <li>Content can  reflow when zoomed to 400% without requiring horizontal scrolling.</li>
-	  <li>Ensure that the  layout adjusts appropriately when zoomed.</li>
-	  <li>Verify that all content remains visible and is not cut off when scaled. </li>
-	  <li>Check that the  page layout does not break or overlap significantly when scaled up.</li>
-	  <li>Test that all  interactive elements (buttons, links, forms) remain functional when scaled.</li>
-	  <li>If provided, test  any on-page controls that allow users to increase text size</li>
-	</ul>
-	<p><strong>1.4.12 Text  Spacing
-	</strong></p>
-	<ul>
-	  <li>Verify that no loss of content or functionality occurs when users adjust  text spacing properties. </li>
-	</ul>
+<h2>Zoom Recap</h2>
+    <h3>1.4.4 Resize Text (Level AA)</h3>
+    <ul>
+      <li><strong>Requirement:</strong> Text must be resizable  up to 200% without loss of content or functionality, and without the need for  assistive technology such as screen magnifiers.</li>
+      <li><strong>Scope:</strong> Applies to all text,  including controls and labels, except captions and images of text.</li>
+      <li><strong>Intent:</strong> Ensures that users with mild  visual impairments can enlarge text for readability without breaking the layout  or losing access to features.</li>
+      <li><strong>Implementation:</strong> The content should  not prevent browsers or user agents from scaling text. Responsive design and  flexible layouts are recommended.</li>
+      <li><strong>Note:</strong> Above 200% magnification,  users typically rely on assistive technology for zooming, but up to 200% must  be supported natively by the website.</li>
+    </ul>
+<h3>1.4.10 Reflow (Level AA)</h3>
+<ul>
+  <li><strong>Requirement:</strong> Content must be presented without loss of information or functionality, and without requiring  scrolling in two dimensions (both horizontally and vertically) at:
+    <ul>
+      <li>A width equivalent to 320 CSS pixels (for vertical scrolling content)</li>
+      <li>A height equivalent to 256 CSS pixels (for horizontal scrolling content)</li>
+    </ul>
+  </li>
+  <li><strong>Intent:</strong> Users should be able to zoom  up to 400% (which typically reduces the viewport to 320px wide) and still read  and interact with content by scrolling in only one direction (usually  vertically), not both.</li>
+  <li><strong>Exceptions:</strong> Some content that  inherently requires two-dimensional layout (e.g., maps, complex tables,  diagrams, games) is exempt.</li>
+  <li><strong>Implementation:</strong> Responsive design  techniques, such as CSS media queries, ensure content reflows appropriately as  the viewport size changes.</li>
+</ul>
