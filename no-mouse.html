@@ -11,32 +11,32 @@ layout: default
 
     <fieldset>
       <legend>To be accessible, a checkbox must have:</legend>
-    
+
       <input type="checkbox" id="alphaCheckbox" correct>
       <label for="alphaCheckbox">Label that names the input's purpose</label>
-    
+
       <input type="checkbox" id="bravoCheckbox" correct>
       <label for="bravoCheckbox">Role of checkbox</label>
-    
+
       <input type="checkbox" id="charlieCheckbox" correct>
       <label for="charlieCheckbox">State of checked or unchecked</label>
     </fieldset>
-  
+
     <fieldset>
       <legend>
         To navigate between radio inputs, use the keyboard:
       </legend>
-    
+
       <input type="radio" name="nato" id="alphaRadio">
       <label for="alphaRadio">Tab key</label>
-    
+
       <input type="radio" name="nato" id="bravoRadio" correct>
       <label for="bravoRadio">Arrow key</label>
-    
+
       <input type="radio" name="nato" id="charlieRadio">
       <label for="charlieRadio">Spacebar</label>
     </fieldset>
-  
+
     <div class="range-group">
       <input readonly tabindex="-1" class="range-value" id="cowbellValue" value="5" aria-hidden="true">
       <div>
@@ -52,19 +52,19 @@ layout: default
                step="1">
       </div>
     </div>
-    
+
     <fieldset>
       <legend>Which screenreader is available for free on Apple iOS and MacOS?</legend>
       <input type="checkbox" role="switch" id="alphaSwitch">
       <label for="alphaSwitch">NVDA</label>
-  
+
       <input type="checkbox" role="switch" id="bravoSwitch" correct>
       <label for="bravoSwitch">VoiceOver</label>
-  
+
       <input type="checkbox" role="switch" id="charlieSwitch">
       <label for="charlieSwitch">JAWS</label>
     </fieldset>
-    
+
     <fieldset>
       <legend>
         Pop quiz:
@@ -72,17 +72,28 @@ layout: default
       <label for="best-letter">
         A common abbreviation for accessibility is:
       </label>
-      <input type="text" 
+      <input type="text"
              id="best-letter"
              maxlength="4"
              aria-describedby="best-letter-hint">
-      
+
       <div class="hint" id="best-letter-hint">
         Hint: It uses the number of letters between the a and y.
       </div>
-    
+
     </fieldset>
-  
 
   </div>
 </div>
+
+<script>
+  // Get references to the range input and the display input
+  const cowbellSlider = document.getElementById('cowbell');
+  const cowbellValueDisplay = document.getElementById('cowbellValue');
+
+  // Add an event listener to the range slider
+  cowbellSlider.addEventListener('input', function() {
+    // Update the display input's value with the current slider value
+    cowbellValueDisplay.value = this.value;
+  });
+</script>
