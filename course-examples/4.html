@@ -23,3 +23,16 @@ permalink: /course-examples/4
 <h2>Example 5: Div styled as heading</h2>
 <div style="font-size:24px;">Section Title</div>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum, urna eu faucibus tincidunt.</p>
+
+<h2>Example 6: Image submit button without a visible label</h2>
+<form action="/submit-form-endpoint" method="post">
+  <input type="image" src="/assets/favicon/favicon.png" alt="Submit Form" style="width: 50px; height: 50px;">
+</form>
+
+<script>
+  // You might want a submitForm() function if the other example is still active,
+  // but for the input type="image", the form submission is handled by default.
+  function submitForm() {
+    alert('Form submitted (via clickable div)!');
+  }
+</script>
