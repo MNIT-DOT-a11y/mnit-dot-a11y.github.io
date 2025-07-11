@@ -8,8 +8,8 @@ permalink: /course-examples/4
 <h2>Example 1: Image without alt text</h2>
 <img src="/assets/favicon/favicon.png" style="width: 200px; height: 200px;" alt="/assets/favicon/favicon.png">
 
-<h2>Example 2: Clickable div without semantic button</h2>
-<div onclick="submitForm()">Submit</div>
+<h2>Example 2: Clickable button with semantic HTML</h2>
+<button onclick="submitForm()">Submit</button>
 
 <h2>Example 3: Input field without a label</h2>
 <div>
@@ -32,12 +32,11 @@ permalink: /course-examples/4
 </form>
 
 <script>
-  // This function is for "Example 2" and is separate from the image button.
+  // This function is now directly tied to the semantic button.
   function submitForm() {
-    alert('Form submitted (via clickable div)!');
+    alert('Form submitted (via semantic button)!');
     // For a real scenario, you'd typically handle form submission here,
     // e.g., using fetch() to send data to a server.
-    // return false; // Uncomment if you want to prevent the default form submission for the div
   }
 
   // The input type="image" automatically submits its parent form when clicked.
