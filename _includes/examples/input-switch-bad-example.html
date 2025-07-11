@@ -14,7 +14,6 @@
   <label for="disableCallBlockingSwitch">Call blocking disabled</label>
 </fieldset>
 
-
 <fieldset>
   <legend>Better examples</legend>
 
@@ -32,3 +31,15 @@
          checked>
   <label for="callBlockingSwitch">Call blocking</label>
 </fieldset>
+
+<button id="myButton">Click Me!</button>
+
+<script>
+  // Get a reference to the button by its ID
+  const myButton = document.getElementById('myButton');
+
+  // Add an event listener to the button
+  myButton.addEventListener('click', function() {
+    alert('Button was clicked!');
+  });
+</script>
