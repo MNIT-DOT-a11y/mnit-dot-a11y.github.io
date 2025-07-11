@@ -24,15 +24,22 @@ permalink: /course-examples/4
 <div style="font-size:24px;">Section Title</div>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum, urna eu faucibus tincidunt.</p>
 
+<hr/>
+
 <h2>Example 6: Image submit button without a visible label</h2>
 <form action="/submit-form-endpoint" method="post">
   <input type="image" src="/assets/favicon/favicon.png" alt="Submit Form" style="width: 50px; height: 50px;">
 </form>
 
 <script>
-  // You might want a submitForm() function if the other example is still active,
-  // but for the input type="image", the form submission is handled by default.
+  // This function is for "Example 2" and is separate from the image button.
   function submitForm() {
     alert('Form submitted (via clickable div)!');
+    // For a real scenario, you'd typically handle form submission here,
+    // e.g., using fetch() to send data to a server.
+    // return false; // Uncomment if you want to prevent the default form submission for the div
   }
+
+  // The input type="image" automatically submits its parent form when clicked.
+  // No additional JavaScript is needed for its basic "clickable" functionality as a submit button.
 </script>
