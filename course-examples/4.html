@@ -9,7 +9,7 @@ permalink: /course-examples/4
 <img src="/assets/favicon/favicon.png" style="width: 200px; height: 200px;" alt="/assets/favicon/favicon.png">
 
 <h2>Example 2: Clickable button with semantic HTML</h2>
-<button onclick="submitForm()">Submit</button>
+<div role="button" tabindex="0" aria-label="submit" onclick="submitForm()" onkeydown="if (event.key === 'Enter' || event.key === ' ') { submitForm(); }">Submit</div>
 
 <h2>Example 3: Input field without a label</h2>
 <div>
