@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Modal Demonstration (Broken)</title>
+    <style>
+        /* General Accessibility & Reset */
+        :root {
+            /* Define some color variables for easier theme changes */
+            --primary-color: #0056b3;
+            --primary-hover-color: #004085;
+            --border-color: #ccc;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 20px;
+            background-color: #fff; /* Ensure a clean background */
+        }
+
+        /* Focus styles for keyboard navigation */
+        *:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+            border-radius: 2px; /* Slight rounding for better aesthetics */
+        }
+
+        /* Container for accessible demonstrations */
+        .accessible-demo-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--background-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .accessible-demo-container h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Styles for the "Show More/Show Less" button */
+        .accordion-button {
+            display: inline-flex; /* Allows icon/arrow if added later */
+            align-items: center;
+            padding: 10px 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            margin-bottom: 10px; /* Space between button and content */
+        }
+
+        .accordion-button:hover,
+        .accordion-button:focus {
+            background-color: var(--primary-hover-color);
+            transform: translateY(-1px); /* Subtle lift on hover/focus */
+        }
+
+        .accordion-button[aria-expanded="true"] {
+            background-color: var(--primary-hover-color); /* Maintain active state */
+        }
+
+        /* Visually hidden content */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Styles for the expandable content area */
+        .accordion-content {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            margin-top: 5px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            /* Transition for smooth show/hide effect if JS handles display property */
+            /* If using height/opacity for transition, these would be adjusted */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0; /* Default hidden state for CSS transition */
+            visibility: hidden;
+        }
+
+        .accordion-content[style*="display: block"] {
+            /* When JavaScript sets display to block, ensure it becomes visible */
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Adjustments for content within the accordion */
+        .accordion-content p {
+            margin-top: 0;
+            margin-bottom: 1em;
+        }
+
+        .accordion-content a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .accordion-content a:hover,
+        .accordion-content a:focus {
+            color: var(--primary-hover-color);
+            text-decoration: none;
+        }
+
+        /* Styles for when content is visible (controlled by JS) */
+        /* The JS toggles display: none/block, so we don't need a specific class here for that.
+           The [style*="display: block"] selector handles it.
+        */
+
+        /* Example for future similar components: a skip link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            text-decoration: none;
+            transition: top 0.3s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Small screen adjustments */
+        @media (max-width: 768px) {
+            .accessible-demo-container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+        }
+        /* General page styling to contain the modal trigger */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container for the main page content */
+        .main-content-wrapper {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--background-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .main-content-wrapper h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        /* Style the modal open button */
+        #openMyModalBtn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            margin-top: 20px;
+        }
+
+        #openMyModalBtn:hover,
+        #openMyModalBtn:focus {
+            background-color: var(--primary-hover-color);
+            transform: translateY(-1px);
+        }
+
+        /* Modal specific styling */
+        #myModalContainer {
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,0.6);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #myModal {
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            background: var(--background-color);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 10000;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        #myModalTitle {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        #myModal p {
+            margin-bottom: 15px;
+        }
+
+        #myModal label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        #modalInput {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        #modalInput:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        #modalSubmitBtn,
+        #closeMyModalBtn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 15px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        #modalSubmitBtn:hover, #modalSubmitBtn:focus,
+        #closeMyModalBtn:hover, #closeMyModalBtn:focus {
+            background-color: var(--primary-hover-color);
+            transform: translateY(-1px);
+        }
+
+        #closeMyModalBtn {
+            background-color: #6c757d;
+            margin-left: 10px;
+        }
+
+        #closeMyModalBtn:hover, #closeMyModalBtn:focus {
+            background-color: #5a6268;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Visually hidden for screen readers only */
+        .sr-only {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div id="main-content" class="main-content-wrapper">
+        <h1>Welcome to the Modal Demo</h1>
+        <p>This page demonstrates a modal dialog. Click the button below to open the modal.</p>
+        <p>
+            When the modal opens, it will trap keyboard focus inside, and pressing the Escape key will close it.
+            Focus will also return to the button that opened the modal.
+        </p>
+
+        <button id="openMyModalBtn">Open My Modal</button>
+    </div>
+
+    <div id="myModalContainer" role="dialog" aria-modal="true" aria-labelledby="myModalTitle">
+        <div id="myModal">
+            <h3 id="myModalTitle">My Simple Modal</h3>
+            <p>This is some content in the modal. Users should not be able to tab out of this modal. This modal demonstrates proper focus management and keyboard accessibility.</p>
+            <label for="modalInput">Enter data:</label>
+            <input type="text" id="modalInput">
+            <div class="modal-buttons">
+                <button id="modalSubmitBtn">Submit</button>
+                <button id="closeMyModalBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-announcer" class="sr-only"></div>
+
+    <script>
+        const modalContainer = document.getElementById('myModalContainer');
+        const modalDialog = document.getElementById('myModal');
+        const openMyModalBtn = document.getElementById('openMyModalBtn');
+        const closeMyModalBtn = document.getElementById('closeMyModalBtn');
+        const modalInput = document.getElementById('modalInput');
+        const modalSubmitBtn = document.getElementById('modalSubmitBtn');
+        const liveRegion = document.getElementById('modal-announcer'); // Reference to the ARIA live region
+
+        let previouslyFocusedElementBeforeModal;
+
+        let focusableElements = [];
+
+        function updateFocusableElements() {
+            const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+            focusableElements = Array.from(modalDialog.querySelectorAll(focusableSelectors))
+                                        .filter(el => !el.disabled && el.offsetParent !== null);
+            
+            if (!focusableElements.includes(closeMyModalBtn)) {
+                focusableElements.push(closeMyModalBtn);
+            }
+            if (!focusableElements.includes(modalSubmitBtn)) {
+                focusableElements.push(modalSubmitBtn);
+            }
+
+            focusableElements.sort((a, b) => {
+                const tabIndexA = a.tabIndex || 0;
+                const tabIndexB = b.tabIndex || 0;
+
+                if (tabIndexA > 0 && tabIndexB > 0) {
+                    return tabIndexA - tabIndexB;
+                }
+                if (tabIndexA > 0) return -1;
+                if (tabIndexB > 0) return 1;
+                
+                const positionA = a.compareDocumentPosition(b);
+                if (positionA & Node.DOCUMENT_POSITION_FOLLOWING) return -1;
+                if (positionA & Node.DOCUMENT_POSITION_PRECEDING) return 1;
+                return 0;
+            });
+        }
+
+
+        function openModal() {
+            previouslyFocusedElementBeforeModal = document.activeElement;
+            modalContainer.style.display = 'flex';
+            modalDialog.setAttribute('aria-hidden', 'false');
+            
+            updateFocusableElements(); 
+            if (modalInput) {
+                modalInput.focus();
+            } else if (focusableElements.length > 0) {
+                focusableElements[0].focus();
+            }
+
+            // ARIA Live Region issue: No announcement here
+            // liveRegion.textContent = `Modal opened: ${modalDialog.querySelector('#myModalTitle').textContent}.`;
+
+            document.addEventListener('keydown', trapFocus);
+            document.addEventListener('keydown', handleEscapeKey);
+        }
+
+        function closeModal() {
+            modalContainer.style.display = 'none';
+            modalDialog.setAttribute('aria-hidden', 'true');
+            
+            // ARIA Live Region issue: No announcement here
+            // liveRegion.textContent = 'Modal closed.';
+
+            if (previouslyFocusedElementBeforeModal) {
+                previouslyFocusedElementBeforeModal.focus();
+            }
+            document.removeEventListener('keydown', trapFocus);
+            document.removeEventListener('keydown', handleEscapeKey);
+        }
+
+        function trapFocus(e) {
+            if (e.key === 'Tab' || e.keyCode === 9) {
+                e.stopPropagation();
+
+                if (focusableElements.length === 0) {
+                    return;
+                }
+
+                const firstFocusable = focusableElements[0];
+                const lastFocusable = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusable) {
+                        lastFocusable.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusable) {
+                        firstFocusable.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        }
+
+        function handleEscapeKey(e) {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                closeModal();
+            }
+        }
+
+        openMyModalBtn.addEventListener('click', openModal);
+        closeMyModalBtn.addEventListener('click', closeModal);
+
+        modalSubmitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Modal data submitted (simulated)!');
+            // ARIA Live Region issue: No announcement here
+            // liveRegion.textContent = 'Modal data submitted successfully.';
+            closeModal();
+        });
+
+        modalContainer.addEventListener('click', (e) => {
+            if (e.target === modalContainer) {
+                closeModal();
+            }
+        });
+
+        modalDialog.setAttribute('aria-hidden', 'true');
+    </script>
+</body>
+</html>
