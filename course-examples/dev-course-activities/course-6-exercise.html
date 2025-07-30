@@ -3,9 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessible Modal Demonstration (Broken)</title>
+    <title>Advanced Web Accessibility Techniques</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <style>
-        /* General Accessibility & Reset */
+        /* Custom styles for 'Inter' font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Specific H2 styling from the reference page for consistency */
+        .section-heading {
+            border-bottom: 2px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        /* Ensures navigation links have no default underline and get one on hover */
+        .nav-item-link {
+            text-decoration: none;
+        }
+        .nav-item-link:hover {
+            text-decoration: underline;
+        }
+        /* Custom styling for the code block container */
+        .code-container {
+            position: relative;
+            background-color: #1a202c; /* dark gray background for code */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+            max-height: 500px; /* Limit height and add scroll */
+        }
+        .code-container pre {
+            margin: 0;
+            padding: 0;
+        }
+        .code-container code {
+            font-size: 0.9rem;
+        }
+        .copy-button {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background-color: #2d3748; /* darker blue-gray */
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            z-index: 10;
+        }
+        .copy-button:hover {
+            background-color: #4a5568; /* slightly lighter on hover */
+        }
+        .copy-message {
+            position: absolute;
+            top: 0.75rem;
+            right: 4rem; /* Adjust based on button size */
+            background-color: #48bb78; /* green */
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 10;
+        }
+        .copy-message.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased leading-relaxed">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Advanced Web Accessibility Techniques</h1>
+        </header>
+
+        <main class="bg-white rounded-lg shadow-xl p-4 md:p-6 my-8">
+            <section class="mt-8 pt-8 border-t-2 border-gray-200">
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-4 section-heading">Hands-on Activity: Accessible Modal</h2>
+                <p class="text-lg mb-4">
+                    For this hands-on activity, your task is to make an interactive modal dialog fully accessible. Start with the provided HTML and JavaScript template below, and apply advanced accessible AJAX and ARIA techniques. Focus on ensuring proper keyboard navigation, focus management, and screen reader announcements for the modal's lifecycle (opening, closing, and content updates).
+                </p>
+                <h3 class="text-xl md:text-2xl font-medium text-gray-700 mb-3">HTML & JavaScript Template:</h3>
+                <div class="code-container">
+                    <button id="copyCodeButton" class="copy-button" aria-label="Copy HTML and JavaScript code to clipboard">Copy Code</button>
+                    <span id="copyMessage" class="copy-message" aria-live="polite">Copied!</span>
+                    <pre><code id="htmlTemplateCode" class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Accessible Modal Demonstration (Broken)&lt;/title&gt;
+    &lt;style&gt;
+        /* General Accessibility &amp; Reset */
         :root {
             /* Define some color variables for easier theme changes */
             --primary-color: #0056b3;
@@ -127,7 +224,7 @@
 
         /* Styles for when content is visible (controlled by JS) */
         /* The JS toggles display: none/block, so we don't need a specific class here for that.
-           The [style*="display: block"] selector handles it.
+            The [style*="display: block"] selector handles it.
         */
 
         /* Example for future similar components: a skip link */
@@ -323,39 +420,39 @@
             white-space: nowrap;
         }
 
-    </style>
-</head>
-<body>
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    &lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
 
-    <div id="main-content" class="main-content-wrapper">
-        <h1>Welcome to the Modal Demo</h1>
-        <p>This page demonstrates a modal dialog. Click the button below to open the modal.</p>
-        <p>
+    &lt;div id="main-content" class="main-content-wrapper"&gt;
+        &lt;h1&gt;Welcome to the Modal Demo&lt;/h1&gt;
+        &lt;p&gt;This page demonstrates a modal dialog. Click the button below to open the modal.&lt;/p&gt;
+        &lt;p&gt;
             When the modal opens, it will trap keyboard focus inside, and pressing the Escape key will close it.
             Focus will also return to the button that opened the modal.
-        </p>
+        &lt;/p&gt;
 
-        <button id="openMyModalBtn">Open My Modal</button>
-    </div>
+        &lt;button id="openMyModalBtn"&gt;Open My Modal&lt;/button&gt;
+    &lt;/div&gt;
 
-    <div id="myModalContainer" role="dialog" aria-modal="true" aria-labelledby="myModalTitle">
-        <div id="myModal">
-            <h3 id="myModalTitle">My Simple Modal</h3>
-            <p>This is some content in the modal. Users should not be able to tab out of this modal. This modal demonstrates proper focus management and keyboard accessibility.</p>
-            <label for="modalInput">Enter data:</label>
-            <input type="text" id="modalInput">
-            <div class="modal-buttons">
-                <button id="modalSubmitBtn">Submit</button>
-                <button id="closeMyModalBtn">Close</button>
-            </div>
-        </div>
-    </div>
+    &lt;div id="myModalContainer" role="dialog" aria-modal="true" aria-labelledby="myModalTitle"&gt;
+        &lt;div id="myModal"&gt;
+            &lt;h3 id="myModalTitle"&gt;My Simple Modal&lt;/h3&gt;
+            &lt;p&gt;This is some content in the modal. Users should not be able to tab out of this modal. This modal demonstrates proper focus management and keyboard accessibility.&lt;/p&gt;
+            &lt;label for="modalInput"&gt;Enter data:&lt;/label&gt;
+            &lt;input type="text" id="modalInput"&gt;
+            &lt;div class="modal-buttons"&gt;
+                &lt;button id="modalSubmitBtn"&gt;Submit&lt;/button&gt;
+                &lt;button id="closeMyModalBtn"&gt;Close&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div id="modal-announcer" class="sr-only"></div>
+    &lt;div id="modal-announcer" class="sr-only"&gt;&lt;/div&gt;
 
-    <script>
+    &lt;script&gt;
         const modalContainer = document.getElementById('myModalContainer');
         const modalDialog = document.getElementById('myModal');
         const openMyModalBtn = document.getElementById('openMyModalBtn');
@@ -371,7 +468,7 @@
         function updateFocusableElements() {
             const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
             focusableElements = Array.from(modalDialog.querySelectorAll(focusableSelectors))
-                                        .filter(el => !el.disabled && el.offsetParent !== null);
+                                    .filter(el => !el.disabled && el.offsetParent !== null);
             
             if (!focusableElements.includes(closeMyModalBtn)) {
                 focusableElements.push(closeMyModalBtn);
@@ -391,8 +488,8 @@
                 if (tabIndexB > 0) return 1;
                 
                 const positionA = a.compareDocumentPosition(b);
-                if (positionA & Node.DOCUMENT_POSITION_FOLLOWING) return -1;
-                if (positionA & Node.DOCUMENT_POSITION_PRECEDING) return 1;
+                if (positionA &amp; Node.DOCUMENT_POSITION_FOLLOWING) return -1;
+                if (positionA &amp; Node.DOCUMENT_POSITION_PRECEDING) return 1;
                 return 0;
             });
         }
@@ -480,6 +577,94 @@
         });
 
         modalDialog.setAttribute('aria-hidden', 'true');
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-gray-500">
+            <p class="text-sm">&copy; 2025 Accessibility Training</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const htmlTemplateCodeElement = document.getElementById('htmlTemplateCode');
+            const copyCodeButton = document.getElementById('copyCodeButton');
+            const copyMessage = document.getElementById('copyMessage');
+
+            /**
+             * Displays a temporary message box at the bottom center of the screen.
+             * @param {string} message The message to display.
+             * @param {string} type 'success' or 'error' to determine background color.
+             */
+            function showMessageBox(message, type = 'success') {
+                const messageBox = document.createElement('div');
+                messageBox.textContent = message;
+                messageBox.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: ${type === 'success' ? '#48bb78' : '#dc2626'}; /* green-500 or red-600 */
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.5s ease-in-out;
+                `;
+                document.body.appendChild(messageBox);
+
+                setTimeout(() => {
+                    messageBox.style.opacity = '1';
+                }, 10); // Small delay to trigger transition
+
+                setTimeout(() => {
+                    messageBox.style.opacity = '0';
+                    messageBox.addEventListener('transitionend', () => messageBox.remove(), { once: true });
+                }, 3000); // Hide after 3 seconds
+            }
+
+            // Apply Prism.js highlighting to the pre-loaded content when the page loads
+            Prism.highlightElement(htmlTemplateCodeElement);
+
+            /**
+             * Copies the content of the HTML template code block to the clipboard.
+             * Provides visual feedback to the user.
+             */
+            copyCodeButton.addEventListener('click', () => {
+                const codeToCopy = htmlTemplateCodeElement.textContent;
+                // Use document.execCommand('copy') for better iframe compatibility
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = codeToCopy;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        copyMessage.classList.add('show');
+                        setTimeout(() => {
+                            copyMessage.classList.remove('show');
+                        }, 2000); // Hide message after 2 seconds
+                    } else {
+                        console.error('Fallback: Could not copy text');
+                        showMessageBox('Could not copy code. Please select and copy manually.', 'error');
+                    }
+                } catch (err) {
+                    console.error('Error copying text: ', err);
+                    showMessageBox('Error copying code. Please select and copy manually.', 'error');
+                } finally {
+                    document.body.removeChild(tempTextArea);
+                }
+            });
+        });
     </script>
 </body>
 </html>

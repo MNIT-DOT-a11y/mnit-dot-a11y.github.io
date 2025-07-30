@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundations of Web Accessibility</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        /* Custom styles for 'Inter' font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Specific H2 styling from the reference page for consistency */
+        .section-heading {
+            border-bottom: 2px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        /* Ensures navigation links have no default underline and get one on hover */
+        .nav-item-link {
+            text-decoration: none;
+        }
+        .nav-item-link:hover {
+            text-decoration: underline;
+        }
+        /* Custom styling for the code block container */
+        .code-container {
+            position: relative;
+            background-color: #1a202c; /* dark gray background for code */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+            max-height: 500px; /* Limit height and add scroll */
+        }
+        .code-container pre {
+            margin: 0;
+            padding: 0;
+        }
+        .code-container code {
+            font-size: 0.9rem;
+        }
+        .copy-button {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background-color: #2d3748; /* darker blue-gray */
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            z-index: 10;
+        }
+        .copy-button:hover {
+            background-color: #4a5568; /* slightly lighter on hover */
+        }
+        .copy-message {
+            position: absolute;
+            top: 0.75rem;
+            right: 4rem; /* Adjust based on button size */
+            background-color: #48bb78; /* green */
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 10;
+        }
+        .copy-message.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased leading-relaxed">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Foundations of Web Accessibility</h1>
+        </header>
+
+        <main class="bg-white rounded-lg shadow-xl p-4 md:p-6 my-8">
+            <section class="mt-8 pt-8 border-t-2 border-gray-200">
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-4 section-heading">Hands-on Activity: Accessible Semantic HTML</h2>
+                <p class="text-lg mb-4">
+                    For this hands-on activity, your task is to build an accessible HTML page from the ground up. Start with the provided HTML Template below, and apply the principles of semantic HTML, proper heading structure, and ARIA landmarks. Focus on creating a robust and meaningful document outline that is easily understood by assistive technologies.
+                </p>
+                <h3 class="text-xl md:text-2xl font-medium text-gray-700 mb-3">HTML Template:</h3>
+                <div class="code-container">
+                    <button id="copyCodeButton" class="copy-button" aria-label="Copy HTML code to clipboard">Copy Code</button>
+                    <span id="copyMessage" class="copy-message" aria-live="polite">Copied!</span>
+                    <pre><code id="htmlTemplateCode" class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Accessible AJAX and ARIA Exercise&lt;/title&gt;
+    &lt;style&gt;
+        /* Accessible CSS Best Practices */
+
+        /* 1. Define accessible color palette with good contrast */
+        :root {
+            --primary-color: #0056b3; /* Dark blue for main elements */
+            --primary-hover-color: #004085; /* Slightly darker blue for hover/focus */
+            --background-color: #f4f4f4; /* Light background */
+            --surface-color: #ffffff; /* White for main content areas */
+            --text-color: #333333; /* Dark grey for body text */
+            --link-color: #007bff; /* Standard blue for links */
+            --link-hover-color: #0056b3; /* Darker blue for link hover/focus */
+            --border-color: #cccccc; /* Light grey for borders */
+            --focus-outline-color: #ffbf00; /* High-contrast color for focus outlines */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6; /* Good line height for readability */
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            /* Ensure text color contrasts well with background */
+            /* WCAG AA requires 4.5:1 for small text, 3:1 for large text */
+        }
+
+        /* 2. Skip Link for Keyboard Navigation */
+        /* Visually hide the skip link by default, but make it visible on focus */
+       .skip-link {
+            position: absolute;
+            left: -9999px; /* Move off-screen */
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            z-index: 9999; /* Ensure it's on top when visible */
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            clip: auto; /* Reset clip on focus */
+        }
+
+       .skip-link:focus {
+            left: 0;
+            top: 0;
+            width: auto;
+            height: auto;
+            outline: 3px solid var(--focus-outline-color); /* Clear focus indicator */
+            outline-offset: -1px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em; /* Ensure headings stand out */
+        }
+        nav {
+            background-color: var(--primary-hover-color);
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+            /* Ensure links are clearly distinguishable and have hover/focus states */
+            outline: none; /* Remove default outline to replace with custom */
+        }
+        nav ul li a:hover {
+            background-color: var(--link-hover-color);
+            border-radius: 4px;
+        }
+        /* 3. Accessible Focus Indicators */
+        /* Use :focus-visible for a more intelligent focus outline, primarily for keyboard users */
+        nav ul li a:focus-visible {
+            background-color: var(--link-hover-color);
+            border-radius: 4px;
+            outline: 3px solid var(--focus-outline-color); /* Strong, visible outline */
+            outline-offset: 2px; /* Offset to prevent overlap with element */
+        }
+
+        main {
+            padding: 20px;
+            max-width: 960px;
+            margin: 20px auto;
+            background-color: var(--surface-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: var(--text-color); /* Dark background for footer */
+            color: white; /* White text for contrast */
+            font-size: 0.9em;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Welcome to My Awesome Blog&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;main id="main-content"&gt; &lt;p&gt;This is the main content area where your blog posts or other primary information will reside. You will be adding more dynamic elements here as part of the exercise.&lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2025 Your Name's Blog&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-gray-500">
+            <p class="text-sm">&copy; 2025 Accessibility Training</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const htmlTemplateCodeElement = document.getElementById('htmlTemplateCode');
+            const copyCodeButton = document.getElementById('copyCodeButton');
+            const copyMessage = document.getElementById('copyMessage');
+
+            /**
+             * Displays a temporary message box at the bottom center of the screen.
+             * @param {string} message The message to display.
+             * @param {string} type 'success' or 'error' to determine background color.
+             */
+            function showMessageBox(message, type = 'success') {
+                const messageBox = document.createElement('div');
+                messageBox.textContent = message;
+                messageBox.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: ${type === 'success' ? '#48bb78' : '#dc2626'}; /* green-500 or red-600 */
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.5s ease-in-out;
+                `;
+                document.body.appendChild(messageBox);
+
+                setTimeout(() => {
+                    messageBox.style.opacity = '1';
+                }, 10); // Small delay to trigger transition
+
+                setTimeout(() => {
+                    messageBox.style.opacity = '0';
+                    messageBox.addEventListener('transitionend', () => messageBox.remove(), { once: true });
+                }, 3000); // Hide after 3 seconds
+            }
+
+            // Apply Prism.js highlighting to the pre-loaded content when the page loads
+            Prism.highlightElement(htmlTemplateCodeElement);
+
+            /**
+             * Copies the content of the HTML template code block to the clipboard.
+             * Provides visual feedback to the user.
+             */
+            copyCodeButton.addEventListener('click', () => {
+                const codeToCopy = htmlTemplateCodeElement.textContent;
+                // Use document.execCommand('copy') for better iframe compatibility
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = codeToCopy;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        copyMessage.classList.add('show');
+                        setTimeout(() => {
+                            copyMessage.classList.remove('show');
+                        }, 2000); // Hide message after 2 seconds
+                    } else {
+                        console.error('Fallback: Could not copy text');
+                        showMessageBox('Could not copy code. Please select and copy manually.', 'error');
+                    }
+                } catch (err) {
+                    console.error('Error copying text: ', err);
+                    showMessageBox('Error copying code. Please select and copy manually.', 'error');
+                } finally {
+                    document.body.removeChild(tempTextArea);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
