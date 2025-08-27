@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Instructions to Install and Run Axe-Core Selenium scripts with Python - MNIT DOT A11y</title>
+
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Instructions to Install and Run Axe-Core Selenium scripts with Python" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="A guide to setting up and running a Python-based project with Axe-Core and Selenium for accessibility testing." />
+    <meta property="og:description" content="A guide to setting up and running a Python-based project with Axe-Core and Selenium for accessibility testing." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/axe-core-python-instructions/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/axe-core-python-instructions/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Instructions to Install and Run Axe-Core Selenium scripts with Python" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "A guide to setting up and running a Python-based project with Axe-Core and Selenium for accessibility testing.",
+            "headline": "Instructions to Install and Run Axe-Core Selenium scripts with Python",
+            "url": "https://mnit-dot-a11y.github.io/axe-core-python-instructions/"
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .character-count-container {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .character-count-container textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .character-count {
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .character-count.alert {
+            color: red;
+        }
+
+        .sidenav {
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 100px;
+            /* Start level with component header */
+            height: calc(100% - 100px);
+            /* Adjust height to fit within the viewport */
+            overflow-y: auto;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            /* Adjusts the main content to not overlap with the sidenav */
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+
+    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+        <ul class="site-sidenav usa-sidenav">
+            <li class="usa-sidenav__item"><a href="#install-python-and-vs-code">1. Install Python and Visual Studio Code</a></li>
+            <li class="usa-sidenav__item"><a href="#set-up-a-python-project">2. Set up a Python Project in VS Code</a></li>
+            <li class="usa-sidenav__item"><a href="#install-required-libraries">3. Install Required Libraries</a></li>
+            <li class="usa-sidenav__item"><a href="#download-and-install-cffi-wheel">4. Download and Install the cffi Wheel File</a></li>
+            <li class="usa-sidenav__item"><a href="#create-the-python-test-file">5. Create the Python Test File</a></li>
+            <li class="usa-sidenav__item"><a href="#run-the-tests">6. Run the Tests and View Results</a></li>
+        </ul>
+    </aside>
+
+    <div class="page-wrapper">
+
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content" class="main-content">
+            <div class="container">
+                <div class="post-content">
+                    <h1>Instructions to Install and Run Axe-Core Selenium scripts with Python</h1>
+
+                    <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using **Python**, **Axe-core**, and **Selenium**.</p>
+                    <hr>
+
+                    <h2 id="install-python-and-vs-code">1. Install Python and Visual Studio Code</h2>
+                    <ul>
+                        <li>
+                            **Install Python:** Download the **latest stable build** from the official Python website[cite: 3]. When running the installer, be sure to **check the box to "Add python.exe to PATH"** to ensure you can run Python and pip commands from any terminal[cite: 5].
+                        </li>
+                        <li>
+                            **Install VS Code:** Visual Studio Code should already be installed[cite: 6].
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <h2 id="set-up-a-python-project">2. Set up a Python Project in VS Code</h2>
+                    <ul>
+                        <li>
+                            **Create Project Folder:** Open your terminal (e.g., PowerShell) and run the following commands to create and enter a project directory[cite: 8]:
+                            <pre><code class="language-bash">mkdir python-axe-selenium
+cd python-axe-selenium</code></pre>
+                        </li>
+                        <li>
+                            **Open the Project in VS Code:** Open the new folder in Visual Studio Code by running the following command[cite: 12]:
+                            <pre><code class="language-bash">code .</code></pre>
+                        </li>
+                        <li>
+                            **Create a Virtual Environment:** In VS Code, open the integrated terminal (Ctrl+`). Create a virtual environment using the command below[cite: 15, 16].
+                            <pre><code class="language-bash">python -m venv .venv</code></pre>
+                            <p>VS Code will likely prompt you to select this new environment. If not, use the Command Palette (Ctrl+Shift+P) and type "Python: Select Interpreter" to choose the `.venv` interpreter[cite: 19, 20].</p>
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <h2 id="install-required-libraries">3. Install Required Libraries</h2>
+                    <ul>
+                        <li>
+                            **Activate Virtual Environment:** In the VS Code terminal, activate your environment by running this command[cite: 22]:
+                            <pre><code class="language-bash">.venv\Scripts\activate</code></pre>
+                        </li>
+                        <li>
+                            **Install Packages:** Use `pip` to install the necessary libraries for your tests[cite: 25]:
+                            <pre><code class="language-bash">pip install selenium pytest axe-selenium-python webdriver-manager pytest-html</code></pre>
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <h2 id="download-and-install-cffi-wheel">4. Download and Install the cffi Wheel File</h2>
+                    <p>For certain dependencies, it may be necessary to install a specific wheel file manually[cite: 29]. The filename `cffi-1.17.1-cp313-cp313-win_amd64.whl` indicates it's built for **Python 3.13** on a **64-bit Windows** system[cite: 30].</p>
+                    <ul>
+                        <li>
+                            **Download the Wheel File:** You will need to download this file from a trusted source, such as the cffi project page on PyPI[cite: 31]:
+                            <pre><code>https://files.pythonhosted.org/packages/b9/7d/13e9a98e826b6f793f6d3d0e34fb8/cffi-1.17.1-cp313-cp313-win_amd64.whl</code></pre>
+                        </li>
+                        <li>
+                            **Install the `.whl` file:** Once the file is downloaded, navigate to its directory in your terminal and run the following command. Be sure to replace the filename if you have a different version[cite: 33, 34].
+                            <pre><code class="language-bash">pip install cffi-1.17.1-cp313-cp313-win_amd64.whl</code></pre>
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <h2 id="create-the-python-test-file">5. Create the Python Test File</h2>
+                    <ul>
+                        <li>
+                            **Create the File:** In VS Code's File Explorer, create a new file named `test_accessibility.py` in the root of your project folder[cite: 38].
+                        </li>
+                        <li>
+                            **Add the Code:** Copy and paste the corrected Python code into this new file[cite: 39]. The code uses the `parametrize` marker to test multiple sites and generates a JSON report for any violations[cite: 48, 78, 91].
+                            <pre><code class="language-python">import pytest
+import os
+import json
+from selenium import webdriver
+from axe_selenium_python import Axe
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+
+# The list of sites to test for accessibility.
+SITES_TO_TEST = [
+    "https://mn.gov/mnit/about-mnit/accessibility/office-of-inaccessibility.jsp",
+    "https://www.google.com",
+    "https://www.bing.com",
+    "https://www.yahoo.com"
+]
+
+@pytest.fixture(scope="function")
+def driver():
+    """Sets up a fresh WebDriver instance for each test function."""
+    service = Service(ChromeDriverManager().install())
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized")
+    web_driver = webdriver.Chrome(service=service, options=options)
+    yield web_driver
+    web_driver.quit()
+
+def create_report_directories():
+    """Ensures the directory for storing reports exists."""
+    os.makedirs("target/a11y-json-reports", exist_ok=True)
+
+def generate_json_report(url: str, results: dict):
+    """
+    Generates a JSON report from the axe-core scan results.
+    The filename is based on the URL to ensure it's unique.
+    """
+    create_report_directories()
+    filename = url.replace("https://", "").replace("http://", "").replace("/", "_").replace(".", "_") + "_axe_results.json"
+    filepath = os.path.join("target/a11y-json-reports", filename)
+    with open(filepath, "w") as f:
+        json.dump(results, f, indent=4)
+    print(f"Axe-core JSON results saved to: {os.path.abspath(filepath)}")
+
+@pytest.mark.parametrize("site_url", SITES_TO_TEST)
+def test_accessibility_on_sites(driver, site_url):
+    """
+    This test runs an axe-core accessibility scan on each URL in SITES_TO_TEST.
+    It generates a JSON report and fails the test if any violations are found.
+    """
+    print(f"\nNavigating to page: {site_url}")
+    driver.get(site_url)
+    print(f"Executing axe-core accessibility scan on {site_url}...")
+
+    # Run the axe-core analysis.
+    axe = Axe(driver)
+    results = axe.run()
+
+    # Generate a JSON report from the results.
+    generate_json_report(site_url, results)
+
+    # Check for violations and handle them.
+    violations = results.get('violations', [])
+    if violations:
+        print(f"--- Accessibility Violations Found on {site_url} ---")
+        for violation in violations:
+            print(f"Rule ID: {violation['id']}")
+            print(f"Description: {violation['description']}")
+            print(f"Help URL: {violation['helpUrl']}")
+            print(f"Impact: {violation['impact']}")
+            print("Nodes:")
+            for node in violation.get('nodes', []):
+                print(f"    HTML: {node['html']}")
+                print(f"    Target: {node['target']}")
+                print(f"    Failure Summary: {node['failureSummary']}")
+                print("-----")
+
+        # If violations exist, fail the test and provide a message.
+        pytest.fail(f"Accessibility violations found on {site_url}. Check the generated JSON report for details.")
+    else:
+        # If no violations, print a success message.
+        print(f"No accessibility violations found on {site_url}!")</code></pre>
+                        </li>
+                    </ul>
+                    <hr>
+
+                    <h2 id="run-the-tests">6. Run the Tests and View Results</h2>
+                    <p>
+                        **Run the Tests:** In the VS Code terminal, run the following command to execute your tests and generate a detailed HTML report[cite: 113]:
+                        <pre><code class="language-bash">pytest --html=test_report.html</code></pre>
+                    </p>
+                    <p>
+                        **Check Test Results:**
+                    </p>
+                    <ul>
+                        <li>**Terminal Output:** Test results will be displayed directly in the VS Code terminal[cite: 117].</li>
+                        <li>**JSON Reports:** Detailed accessibility results for each site are saved as separate JSON files in the `target/a11y-json-reports` folder[cite: 118].</li>
+                        <li>**HTML Report:** The overall test summary is saved in `test_report.html` in your project's root directory[cite: 119]. You can open this file in any web browser to view a comprehensive report of the test run[cite: 120].</li>
+                    </ul>
+                                    </div>
+            </div>
+
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="/assets/scripts/index.js?1736284235"></script>
+
+    <script>
+        $("body").removeClass("preload"); // Prevents animations on page load
+
+        document.getElementById('input-textarea').addEventListener('input', function() {
+            const maxLength = this.getAttribute('maxlength');
+            const currentLength = this.value.length;
+            const remaining = maxLength - currentLength;
+            const charCountElem = document.getElementById('charCount');
+
+            charCountElem.textContent = `${remaining} characters remaining`;
+            charCountElem.classList.toggle('alert', remaining < 10);
+        });
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=character-count-component.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
+            }
+        }
+    </script>
+
+</body>
+
+</html>
