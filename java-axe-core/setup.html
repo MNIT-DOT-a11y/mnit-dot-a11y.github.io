@@ -137,89 +137,89 @@
                     <hr>
 
                     <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
-                    [cite_start]<p>You need the JDK to compile and run Java applications[cite: 3].</p>
+                    <p>You need the JDK to compile and run Java applications.</p>
                     <p>
-                        [cite_start]**Download JDK:** Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin)[cite: 4]. [cite_start]Choose the Windows installer (.exe) that matches your system (usually x64)[cite: 5].
+                        **Download JDK:** Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).
                     </p>
                     <p>
-                        [cite_start]**Run the Installer:** Double-click the downloaded `.exe` file and follow the on-screen instructions[cite: 6]. [cite_start]The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine[cite: 7].
+                        **Run the Installer:** Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.
                     </p>
                     <p>
                         **Set `JAVA_HOME` Environment Variable:**
                     </p>
                     <ol>
-                        [cite_start]<li>Right-click the **Start** button and select **System**[cite: 9].</li>
-                        [cite_start]<li>Click **Advanced system settings**[cite: 10].</li>
-                        [cite_start]<li>In the **System Properties** window, click **Edit the System Environment Variables for your account**[cite: 11].</li>
-                        [cite_start]<li>Under **System variables**, click **New...**[cite: 12].</li>
-                        [cite_start]<li>For **Variable name**, enter `JAVA_HOME`[cite: 13].</li>
-                        [cite_start]<li>For **Variable value**, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`)[cite: 14].</li>
-                        [cite_start]<li>Click **OK**[cite: 15].</li>
+                        <li>Right-click the **Start** button and select **System**.</li>
+                        <li>Click **Advanced system settings**.</li>
+                        <li>In the **System Properties** window, click **Edit the System Environment Variables for your account**.</li>
+                        <li>Under **System variables**, click **New...**.</li>
+                        <li>For **Variable name**, enter `JAVA_HOME`.</li>
+                        <li>For **Variable value**, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
+                        <li>Click **OK**.</li>
                     </ol>
                     <p>
                         **Update the Path Variable:**
                     </p>
                     <ol>
-                        [cite_start]<li>In the **System variables** section, find the `Path` variable and click **Edit...**[cite: 17].</li>
-                        [cite_start]<li>Click **New** and add `%JAVA_HOME%\bin`[cite: 18].</li>
-                        [cite_start]<li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used[cite: 19].</li>
-                        [cite_start]<li>Click **OK** on all open windows[cite: 20].</li>
+                        <li>In the **System variables** section, find the `Path` variable and click **Edit...**.</li>
+                        <li>Click **New** and add `%JAVA_HOME%\bin`.</li>
+                        <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
+                        <li>Click **OK** on all open windows.</li>
                     </ol>
                     <p>
-                        [cite_start]**Verify Installation:** Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`[cite: 21, 23, 24]. [cite_start]You should see the installed JDK version information[cite: 25].
+                        **Verify Installation:** Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.
                     </p>
                     <hr>
 
                     <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
-                    [cite_start]<p>Maven is a build automation tool used for Java projects[cite: 27].</p>
+                    <p>Maven is a build automation tool used for Java projects.</p>
                     <p>
-                        [cite_start]**Download Maven:** Go to the Apache Maven download page[cite: 28]. [cite_start]Download the **Binary zip archive** (e.g., `apache-maven-3.9.6-bin.zip`)[cite: 29].
+                        **Download Maven:** Go to the Apache Maven download page. Download the **Binary zip archive** (e.g., `apache-maven-3.9.6-bin.zip`).
                     </p>
                     <p>
-                        [cite_start]**Extract Maven:** Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`[cite: 30].
+                        **Extract Maven:** Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.
                     </p>
                     <p>
-                        [cite_start]**Set `MAVEN_HOME` (or `M2_HOME`) Environment Variable:** Follow the same steps as for `JAVA_HOME`[cite: 32].
+                        **Set `MAVEN_HOME` (or `M2_HOME`) Environment Variable:** Follow the same steps as for `JAVA_HOME`.
                     </p>
                     <ol>
-                        [cite_start]<li>For **Variable name**, enter `MAVEN_HOME` (or `M2_HOME`)[cite: 33].</li>
-                        [cite_start]<li>For **Variable value**, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`)[cite: 34].</li>
-                        [cite_start]<li>Click **OK**[cite: 35].</li>
+                        <li>For **Variable name**, enter `MAVEN_HOME` (or `M2_HOME`).</li>
+                        <li>For **Variable value**, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
+                        <li>Click **OK**.</li>
                     </ol>
                     <p>
                         **Update the Path Variable:**
                     </p>
                     <ol>
-                        [cite_start]<li>In the **System variables** section, find the `Path` variable and click **Edit...**[cite: 37].</li>
-                        [cite_start]<li>Click **New** and add `%MAVEN_HOME%\bin` (or `%M2_HOME%\bin`)[cite: 38].</li>
-                        [cite_start]<li>Click **OK** on all open windows[cite: 39].</li>
+                        <li>In the **System variables** section, find the `Path` variable and click **Edit...**.</li>
+                        <li>Click **New** and add `%MAVEN_HOME%\bin` (or `%M2_HOME%\bin`).</li>
+                        <li>Click **OK** on all open windows.</li>
                     </ol>
                     <p>
-                        [cite_start]**Verify Installation:** Open a new Command Prompt or PowerShell window and type `mvn -version`[cite: 40, 42]. [cite_start]You should see the Maven version information[cite: 43].
+                        **Verify Installation:** Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.
                     </p>
                     <hr>
 
                     <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
-                    [cite_start]<p>You'll download the **axe-core-maven-html** repository using Git[cite: 45].</p>
+                    <p>You'll download the **axe-core-maven-html** repository using Git.</p>
                     <p>
-                        [cite_start]**Install Git:** If you don't have Git installed, download it from git-scm.com and follow the installation instructions[cite: 46].
+                        **Install Git:** If you don't have Git installed, download it from git-scm.com and follow the installation instructions.
                     </p>
                     <p>
-                        [cite_start]**Clone the Repository:** Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`)[cite: 47, 49].
+                        **Clone the Repository:** Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).
                     </p>
                     <p>Run the `git clone` command:
                         <pre><code>git clone https://github.com/dequelabs/axe-core-maven-html.git</code></pre>
-                        [cite_start]This will create a new folder named `axe-core-maven-html` containing the repository's contents[cite: 53].
+                        This will create a new folder named `axe-core-maven-html` containing the repository's contents.
                     </p>
                     <hr>
 
                     <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
-                    [cite_start]<p>This is the test file where you will write the accessibility scan logic[cite: 55].</p>
+                    <p>This is the test file where you will write the accessibility scan logic.</p>
                     <p>
-                        [cite_start]**Create the file:** Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`[cite: 56]. [cite_start]Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them)[cite: 57].
+                        **Create the file:** Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).
                     </p>
                     <p>
-                        [cite_start]**Add the code:** Copy and paste the provided JUnit 4 code into the new file[cite: 58]. [cite_start]This code uses the `Parameterized` runner to test multiple sites[cite: 59].
+                        **Add the code:** Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.
                     </p>
                     <pre><code class="language-java">package com.yourcompany.axtest;
 
@@ -309,9 +309,9 @@ public class LiveAxeCoreTest {
                     System.out.println("Impact: " + violation.getImpact());
                     System.out.println("Nodes:");
                     violation.getNodes().forEach(node -> {
-                        System.out.println("   HTML: " + node.getHtml());
-                        System.out.println("   Target: " + node.getTarget());
-                        System.out.println("   Failure Summary: " + node.getHtml());
+                        System.out.println("    HTML: " + node.getHtml());
+                        System.out.println("    Target: " + node.getTarget());
+                        System.out.println("    Failure Summary: " + node.getHtml());
                         System.out.println("-----");
                     });
                     System.out.println("------------------------------------");
@@ -360,40 +360,40 @@ public class LiveAxeCoreTest {
         htmlContent.append("    if (!htmlReportDir.exists()) {\\n");
         htmlContent.append("        htmlReportDir.mkdirs();\\n");
         htmlContent.append("    }\\n");
-        htmlContent.append("    String htmlFileName = url.replaceAll(&quot;[^a-zA-Z0-9.-]&quot;, &quot;_&quot;) + &quot;_accessibility_report.html&quot;;\\n");
-        htmlContent.append("    File htmlFile = new File(htmlReportDir, htmlFileName);\\n");
-        htmlContent.append("    try (FileWriter writer = new FileWriter(htmlFile)) {\\n");
-        htmlContent.append("        writer.write(htmlContent.toString());\\n");
-        htmlContent.append("    }\\n");
-        htmlContent.append("    System.out.println(&quot;HTML accessibility report generated at: &quot; + htmlFile.getAbsolutePath());\\n");
-        htmlContent.append("}\\n");
-        htmlContent.append("private static String escapeHtml(String text) {\\n");
-        htmlContent.append("    if (text == null) {\\n");
-        htmlContent.append("        return &quot;&quot;;\\n");
-        htmlContent.append("    }\\n");
-        htmlContent.append("    return text.replace(&quot;&amp;&quot;, &quot;&amp;amp;&quot;)\\n");
-        htmlContent.append("        .replace(&quot;&lt;&quot;, &quot;&amp;lt;&quot;)\\n");
-        htmlContent.append("        .replace(&quot;&gt;&quot;, &quot;&amp;gt;&quot;)\\n");
-        htmlContent.append("        .replace(&quot;\&quot;&quot;, &quot;&amp;quot;&quot;)\\n");
-        htmlContent.append("        .replace(&quot;'&quot;, &quot;&#x27;&quot;);\\n");
-        htmlContent.append("}\\n");
-        htmlContent.append("@After\\n");
-        htmlContent.append("public void tearDown() {\\n");
-        htmlContent.append("    if (driver != null) {\\n");
-        htmlContent.append("        System.out.println(&quot;Closing browser after testing &quot; + siteUrl + &quot;.&quot;);\\n");
-        htmlContent.append("        driver.quit();\\n");
-        htmlContent.append("    }\\n");
-        htmlContent.append("}\\n");
-        htmlContent.append("}\n");
-        htmlContent.append("</code></pre>
+        htmlContent.append("    String htmlFileName = url.replaceAll("[^a-zA-Z0-9.-]", "_") + "_accessibility_report.html";
+        htmlContent.append("    File htmlFile = new File(htmlReportDir, htmlFileName);
+        htmlContent.append("    try (FileWriter writer = new FileWriter(htmlFile)) {
+        htmlContent.append("        writer.write(htmlContent.toString());
+        htmlContent.append("    }
+        htmlContent.append("    System.out.println("HTML accessibility report generated at: " + htmlFile.getAbsolutePath());
+        htmlContent.append("}
+        htmlContent.append("private static String escapeHtml(String text) {
+        htmlContent.append("    if (text == null) {
+        htmlContent.append("        return "";
+        htmlContent.append("    }
+        htmlContent.append("    return text.replace("&", "&amp;")
+        htmlContent.append("        .replace("<", "&lt;")
+        htmlContent.append("        .replace(">", "&gt;")
+        htmlContent.append("        .replace(""", "&quot;")
+        htmlContent.append("        .replace(""", "&#x27;");
+        htmlContent.append("}
+        htmlContent.append("@After
+        htmlContent.append("public void tearDown() {
+        htmlContent.append("    if (driver != null) {
+        htmlContent.append("        System.out.println("Closing browser after testing " + siteUrl + ".");
+        htmlContent.append("        driver.quit();
+        htmlContent.append("    }
+        htmlContent.append("}
+        htmlContent.append("}
+</code></pre>
 
                     <h2 id="update-pom-file">5. Update the `pom.xml` file</h2>
-                    [cite_start]<p>You need to update the `pom.xml` file to ensure all dependencies are correct and to handle the JUnit 4 `Parameterized` runner[cite: 215].</p>
+                    <p>You need to update the `pom.xml` file to ensure all dependencies are correct and to handle the JUnit 4 `Parameterized` runner.</p>
                     <p>
-                        [cite_start]**Open the `pom.xml` file:** Navigate to `axe-core-maven-html/selenium/pom.xml`[cite: 216].
+                        **Open the `pom.xml` file:** Navigate to `axe-core-maven-html/selenium/pom.xml`.
                     </p>
                     <p>
-                        [cite_start]**Replace the content** with the corrected and updated code provided in the document[cite: 217]. [cite_start]This file ensures the correct dependencies are used and removes the invalid `junit-platform-surefire-provider` entry[cite: 218].
+                        **Replace the content** with the corrected and updated code provided in the document. This file ensures the correct dependencies are used and removes the invalid `junit-platform-surefire-provider` entry.
                     </p>
                     <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?>
 &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -603,79 +603,79 @@ public class LiveAxeCoreTest {
 &lt;version>2.18.0&lt;/version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.seleniumhq.selenium&lt;/groupId>
-&lt;artifactId>selenium-java&lt;/artifactId>
-&lt;version>4.22.0&lt;/version>
+&lt;groupId>org.seleniumhq.selenium</groupId>
+&lt;artifactId>selenium-java</artifactId>
+&lt;version>4.22.0</version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>io.github.bonigarcia&lt;/groupId>
-&lt;artifactId>webdrivermanager&lt;/artifactId>
-&lt;version>5.9.1&lt;/version>
-&lt;scope>test&lt;/scope>
+&lt;groupId>io.github.bonigarcia</groupId>
+&lt;artifactId>webdrivermanager</artifactId>
+&lt;version>5.9.1</version>
+&lt;scope>test</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>junit&lt;/groupId>
-&lt;artifactId>junit&lt;/artifactId>
-&lt;version>4.13.2&lt;/version>
-&lt;scope>test&lt;/scope>
+&lt;groupId>junit</groupId>
+&lt;artifactId>junit</artifactId>
+&lt;version>4.13.2</version>
+&lt;scope>test</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.junit.jupiter&lt;/groupId>
-&lt;artifactId>junit-jupiter-api&lt;/artifactId>
-&lt;version>5.10.3&lt;/version>
-&lt;scope>test&lt;/scope>
+&lt;groupId>org.junit.jupiter</groupId>
+&lt;artifactId>junit-jupiter-api</artifactId>
+&lt;version>5.10.3</version>
+&lt;scope>test</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.junit.jupiter&lt;/groupId>
-&lt;artifactId>junit-jupiter-engine&lt;/artifactId>
-&lt;version>5.10.3&lt;/version>
-&lt;scope>test&lt;/scope>
+&lt;groupId>org.junit.jupiter</groupId>
+&lt;artifactId>junit-jupiter-engine</artifactId>
+&lt;version>5.10.3</version>
+&lt;scope>test</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.apache.commons&lt;/groupId>
-&lt;artifactId>commons-lang3&lt;/artifactId>
-&lt;version>3.17.0&lt;/version>
+&lt;groupId>org.apache.commons</groupId>
+&lt;artifactId>commons-lang3</artifactId>
+&lt;version>3.17.0</version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>com.fasterxml.jackson.core&lt;/groupId>
-&lt;artifactId>jackson-databind&lt;/artifactId>
-&lt;version>2.18.2&lt;/version>
+&lt;groupId>com.fasterxml.jackson.core</groupId>
+&lt;artifactId>jackson-databind</artifactId>
+&lt;version>2.18.2</version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.mockito&lt;/groupId>
-&lt;artifactId>mockito-core&lt;/artifactId>
-&lt;version>4.11.0&lt;/version>
-&lt;scope>test&lt;/scope>
+&lt;groupId>org.mockito</groupId>
+&lt;artifactId>mockito-core</artifactId>
+&lt;version>4.11.0</version>
+&lt;scope>test</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>com.deque.html.axe-core&lt;/groupId>
-&lt;artifactId>dequeutilites&lt;/artifactId>
-&lt;version>4.10.1&lt;/version>
-&lt;scope>compile&lt;/scope>
+&lt;groupId>com.deque.html.axe-core</groupId>
+&lt;artifactId>dequeutilites</artifactId>
+&lt;version>4.10.1</version>
+&lt;scope>compile</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.junit.vintage&lt;/groupId>
-&lt;artifactId>junit-vintage-engine&lt;/artifactId>
-&lt;version>5.10.3&lt;/version>
-&lt;scope>test&lt;/scope>
+&lt;groupId>org.junit.vintage</groupId>
+&lt;artifactId>junit-vintage-engine</artifactId>
+&lt;version>5.10.3</version>
+&lt;scope>test</scope>
 &lt;/dependency>
 &lt;/dependencies>
 &lt;/project></code></pre>
 
                     <h2 id="run-tests">6. Run the Tests</h2>
-                    [cite_start]<p>Now, you are ready to compile and run your new test file[cite: 487].</p>
+                    <p>Now, you are ready to compile and run your new test file.</p>
                     <p>
-                        [cite_start]**Navigate to the `selenium` module:** The tests for the axe-selenium integration are located within the `selenium` sub-directory of the cloned repository[cite: 488].
+                        **Navigate to the `selenium` module:** The tests for the axe-selenium integration are located within the `selenium` sub-directory of the cloned repository.
                     </p>
                     <pre><code>cd axe-core-maven-html/selenium</code></pre>
                     <p>
-                        [cite_start]**Run the tests:** Execute the Maven test goal with the following command[cite: 491, 493]:
+                        **Run the tests:** Execute the Maven test goal with the following command:
                     </p>
                     <pre><code>mvn test</code></pre>
                     <p>
-                        [cite_start]**Check Test Results:** After the command finishes, check the terminal output for **BUILD SUCCESS** or **BUILD FAILURE**[cite: 494]. [cite_start]Detailed test reports (including any accessibility violations found by Axe-core) will be generated[cite: 495].
+                        **Check Test Results:** After the command finishes, check the terminal output for **BUILD SUCCESS** or **BUILD FAILURE**. Detailed test reports (including any accessibility violations found by Axe-core) will be generated.
                     </p>
-                                    </div>
+                </div>
             </div>
 
             <div class="print-container">
