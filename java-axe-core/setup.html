@@ -790,6 +790,19 @@ public class LiveAxeCoreTest {
     </div>
 
     <script>
+        // Function to replace text wrapped in **...** with <strong>...</strong>
+        function formatBoldText() {
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(p => {
+                let htmlContent = p.innerHTML;
+                // Regular expression to find text wrapped in **
+                const boldRegex = /\*\*(.*?)\*\*/g;
+                htmlContent = htmlContent.replace(boldRegex, '<strong>$1</strong>');
+                p.innerHTML = htmlContent;
+            });
+        }
+    </script>
+    <script>
         function copyCode(button) {
             const pre = button.parentElement.querySelector('pre');
             const code = pre.querySelector('code');
@@ -833,7 +846,12 @@ public class LiveAxeCoreTest {
             }
         }
     </script>
-
+    <script>
+        // Call the function on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            formatBoldText();
+        });
+    </script>
 </body>
 
 </html>
