@@ -63,23 +63,67 @@
             color: red;
         }
 
-        .sidenav {
-            width: 250px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            /* Start level with component header */
-            height: calc(100% - 100px);
-            /* Adjust height to fit within the viewport */
-            overflow-y: auto;
+        .centered-container {
+            max-width: 900px;
+            /* Adjust this value as needed */
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .main-content {
-            margin-left: 270px;
-            /* Adjusts the main content to not overlap with the sidenav */
-            padding: 20px;
+        .code-container {
+            position: relative;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .code-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #003865;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+        .copy-button:hover {
+            background-color: #005f9e;
+        }
+
+        .section-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-links li a {
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid #003865;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .section-links li a:hover {
+            background-color: #003865;
+            color: white;
         }
     </style>
 
@@ -145,144 +189,113 @@
         </header>
 
         <main id="content" class="main-content">
-            <div class="container">
-                <div class="how-to-test-wrapper">
-                    <nav aria-label="Secondary Navigation" class="toc-nav">
-                        <ul>
-                            <li><a href="/identifying-components">Identifying Components</a></li>
-                            <li><a href="/identifying-components/information-status/">Information and Status</a>
-                                <ul>
-                                    <li><a href="/identifying-components/information-status/#alerts">Alerts and Notifications</a></li>
-                                    <li><a href="/identifying-components/information-status/#modals">Dialog (Modals)</a></li>
-                                    <li><a href="/identifying-components/information-status/#progressbars">Progress Bars</a></li>
-                                    <li><a href="/identifying-components/information-status/#textinputs">Text Inputs</a></li>
-                                    <li><a href="/identifying-components/information-status/#tooltips">Tooltips</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="/identifying-components/interactive-content/">Interactive Content</a>
-                                <ul>
-                                    <li><a href="/identifying-components/interactive-content/#accordions">Accordions</a></li>
-                                    <li><a href="/identifying-components/interactive-content/#animation">Animation</a></li>
-                                    <li><a href="/identifying-components/interactive-content/#audio">Audio and Video</a></li>
-                                    <li><a href="/identifying-components/interactive-content/#buttons">Buttons</a></li>
-                                    <li><a href="/identifying-components/interactive-content/#carousels">Carousels or Slideshows</a></li>
-                                    <li><a href="/identifying-components/interactive-content/#datepicker">Date Picker Dialog</a></li>
-                                    <li><a href="/identifying-components/interactive-content/#tabs">Tabs</a></li>
-                                    <li><a href="/identifying-components/interactive-content/#toggles">Toggle Switches (on/off button)</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="/identifying-components/page-structure">Page Structure</a>
-                                <ul>
-                                    <li><a href="/identifying-components/page-structure#forms">Forms</a></li>
-                                    <li><a href="/identifying-components/page-structure#headings">Headings</a></li>
-                                    <li><a href="/identifying-components/page-structure#images">Images</a></li>
-                                    <li><a href="/identifying-components/page-structure#landmarks">Landmarks</a></li>
-                                    <li><a href="/identifying-components/page-structure#links">Links</a></li>
-                                    <li><a href="/identifying-components/page-structure#navigation">Navigation</a></li>
-                                    <li><a href="/identifying-components/page-structure#pagetitle">Page Title</a></li>
-                                    <li><a href="/identifying-components/page-structure#pagination">Pagination</a></li>
-                                    <li><a href="/identifying-components/page-structure#tables">Tables</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="/identifying-components/webviews/">Embedded Web Views</a>
-                                <ul>
-                                    <li><a href="/identifying-components/webviews/#iframes">iframe</a></li>
-                                    <li><a href="/identifying-components/webviews/#webviews">WebViews</a></li>
-                                </ul>
-                            </li>
+            <div class="centered-container">
+                <div class="post-content">
+                    <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
+                    <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using Java, Axe-core, and Selenium.</p>
+                    <hr>
+
+                    <nav aria-label="On-page links">
+                        <ul class="section-links">
+                            <li><a href="#download-and-install-jdk">1. Download and Install JDK</a></li>
+                            <li><a href="#download-and-install-maven">2. Download and Install Maven</a></li>
+                            <li><a href="#clone-repository">3. Clone Repository</a></li>
+                            <li><a href="#create-and-configure-java-file">4. Create and Configure Java File</a></li>
+                            <li><a href="#update-pom-file">5. Update pom.xml File</a></li>
+                            <li><a href="#run-tests">6. Run the Tests</a></li>
                         </ul>
                     </nav>
-                    <div class="post-content">
-                        <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
-                        <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using **Java**, **Axe-core**, and **Selenium**.</p>
-                        <hr>
-                        <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
-                        <p>You need the JDK to compile and run Java applications.</p>
-                        <p>
-                            Download JDK: Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).
-                        </p>
-                        <p>
-                            Run the Installer: Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.
-                        </p>
-                        <p>
-                            Set `JAVA_HOME` Environment Variable:
-                        </p>
-                        <ol>
-                            <li>Right-click the **Start** button and select **System**.</li>
-                            <li>Click **Advanced system settings**.</li>
-                            <li>In the **System Properties** window, click **Edit the System Environment Variables for your account**.</li>
-                            <li>Under **System variables**, click **New...**.</li>
-                            <li>For **Variable name**, enter `JAVA_HOME`.</li>
-                            <li>For **Variable value**, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
-                            <li>Click **OK**.</li>
-                        </ol>
-                        <p>
-                            Update the Path Variable:
-                        </p>
-                        <ol>
-                            <li>In the **System variables** section, find the `Path` variable and click **Edit...**.</li>
-                            <li>Click **New** and add `%JAVA_HOME%\bin`.</li>
-                            <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
-                            <li>Click **OK** on all open windows.</li>
-                        </ol>
-                        <p>
-                            Verify Installation: Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.
-                        </p>
-                        <hr>
-                        <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
-                        <p>Maven is a build automation tool used for Java projects.</p>
-                        <p>
-                            Download Maven: Go to the Apache Maven download page. Download the **Binary zip archive** (e.g., `apache-maven-3.9.6-bin.zip`).
-                        </p>
-                        <p>
-                            Extract Maven: Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.
-                        </p>
-                        <p>
-                            Set `MAVEN_HOME` (or `M2_HOME`) Environment Variable: Follow the same steps as for `JAVA_HOME`.
-                        </p>
-                        <ol>
-                            <li>For **Variable name**, enter `MAVEN_HOME` (or `M2_HOME`).</li>
-                            <li>For **Variable value**, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
-                            <li>Click **OK**.</li>
-                        </ol>
-                        <p>
-                            Update the Path Variable:
-                        </p>
-                        <ol>
-                            <li>In the **System variables** section, find the `Path` variable and click **Edit...**.</li>
-                            <li>Click **New** and add `%MAVEN_HOME%\bin` (or `%M2_HOME%\bin`).</li>
-                            <li>Click **OK** on all open windows.</li>
-                        </ol>
-                        <p>
-                            Verify Installation: Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.
-                        </p>
-                        <hr>
-                        <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
-                        <p>You'll download the **axe-core-maven-html** repository using Git.</p>
-                        <p>
-                            Install Git: If you don't have Git installed, download it from git-scm.com and follow the installation instructions.
-                        </p>
-                        <p>
-                            Clone the Repository: Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).
-                        </p>
-                        <div class="code-container">
-                            <pre><code class="language-bash">git clone https://github.com/dequelabs/axe-core-maven-html.git</code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <p>
-                            This will create a new folder named `axe-core-maven-html` containing the repository's contents.
-                        </p>
-                        <hr>
-                        <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
-                        <p>This is the test file where you will write the accessibility scan logic.</p>
-                        <p>
-                            Create the file: Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).
-                        </p>
-                        <p>
-                            Add the code: Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.
-                        </p>
-                        <div class="code-container">
-                            <pre><code class="language-java">package com.yourcompany.axtest;
+
+                    <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
+                    <p>You need the JDK to compile and run Java applications.</p>
+                    <p>
+                        Download JDK: Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).
+                    </p>
+                    <p>
+                        Run the Installer: Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.
+                    </p>
+                    <p>
+                        Set `JAVA_HOME` Environment Variable:
+                    </p>
+                    <ol>
+                        <li>Right-click the **Start** button and select **System**.</li>
+                        <li>Click **Advanced system settings**.</li>
+                        <li>In the **System Properties** window, click **Edit the System Environment Variables for your account**.</li>
+                        <li>Under **System variables**, click **New...**.</li>
+                        <li>For **Variable name**, enter `JAVA_HOME`.</li>
+                        <li>For **Variable value**, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
+                        <li>Click **OK**.</li>
+                    </ol>
+                    <p>
+                        Update the Path Variable:
+                    </p>
+                    <ol>
+                        <li>In the **System variables** section, find the `Path` variable and click **Edit...**.</li>
+                        <li>Click **New** and add `%JAVA_HOME%\bin`.</li>
+                        <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
+                        <li>Click **OK** on all open windows.</li>
+                    </ol>
+                    <p>
+                        Verify Installation: Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.
+                    </p>
+                    <hr>
+
+                    <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
+                    <p>Maven is a build automation tool used for Java projects.</p>
+                    <p>
+                        Download Maven: Go to the Apache Maven download page. Download the **Binary zip archive** (e.g., `apache-maven-3.9.6-bin.zip`).
+                    </p>
+                    <p>
+                        Extract Maven: Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.
+                    </p>
+                    <p>
+                        Set `MAVEN_HOME` (or `M2_HOME`) Environment Variable: Follow the same steps as for `JAVA_HOME`.
+                    </p>
+                    <ol>
+                        <li>For **Variable name**, enter `MAVEN_HOME` (or `M2_HOME`).</li>
+                        <li>For **Variable value**, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
+                        <li>Click **OK**.</li>
+                    </ol>
+                    <p>
+                        Update the Path Variable:
+                    </p>
+                    <ol>
+                        <li>In the **System variables** section, find the `Path` variable and click **Edit...**.</li>
+                        <li>Click **New** and add `%MAVEN_HOME%\bin` (or `%M2_HOME%\bin`).</li>
+                        <li>Click **OK** on all open windows.</li>
+                    </ol>
+                    <p>
+                        Verify Installation: Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.
+                    </p>
+                    <hr>
+
+                    <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
+                    <p>You'll download the **axe-core-maven-html** repository using Git.</p>
+                    <p>
+                        Install Git: If you don't have Git installed, download it from git-scm.com and follow the installation instructions.
+                    </p>
+                    <p>
+                        Clone the Repository: Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).
+                    </p>
+                    <div class="code-container">
+                        <pre><code class="language-bash">git clone https://github.com/dequelabs/axe-core-maven-html.git</code></pre>
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <p>
+                        This will create a new folder named `axe-core-maven-html` containing the repository's contents.
+                    </p>
+                    <hr>
+
+                    <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
+                    <p>This is the test file where you will write the accessibility scan logic.</p>
+                    <p>
+                        Create the file: Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).
+                    </p>
+                    <p>
+                        Add the code: Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.
+                    </p>
+                    <div class="code-container">
+                        <pre><code class="language-java">package com.yourcompany.axtest;
 
 import com.deque.html.axecore.results.AxeRuntimeException;
 import com.deque.html.axecore.results.Results;
@@ -448,19 +461,19 @@ public class LiveAxeCoreTest {
         }
     }
 }</code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    </div>
 
-                        <h2 id="update-pom-file">5. Update the `pom.xml` file</h2>
-                        <p>You need to update the `pom.xml` file to ensure all dependencies are correct and to handle the JUnit 4 `Parameterized` runner.</p>
-                        <p>
-                            Open the `pom.xml` file: Navigate to `axe-core-maven-html/selenium/pom.xml`.
-                        </p>
-                        <p>
-                            Replace the content with the corrected and updated code provided in the document. This file ensures the correct dependencies are used and removes the invalid `junit-platform-surefire-provider` entry.
-                        </p>
-                        <div class="code-container">
-                            <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?>
+                    <h2 id="update-pom-file">5. Update the `pom.xml` file</h2>
+                    <p>You need to update the `pom.xml` file to ensure all dependencies are correct and to handle the JUnit 4 `Parameterized` runner.</p>
+                    <p>
+                        Open the `pom.xml` file: Navigate to `axe-core-maven-html/selenium/pom.xml`.
+                    </p>
+                    <p>
+                        Replace the content with the corrected and updated code provided in the document. This file ensures the correct dependencies are used and removes the invalid `junit-platform-surefire-provider` entry.
+                    </p>
+                    <div class="code-container">
+                        <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?>
 &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 &lt;modelVersion>4.0.0&lt;/modelVersion>
 &lt;artifactId>selenium&lt;/artifactId>
@@ -469,30 +482,30 @@ public class LiveAxeCoreTest {
 &lt;parent>
 &lt;groupId>com.deque.html.axe-core&lt;/groupId>
 &lt;artifactId>virtual-superpackage&lt;/artifactId>
-&lt;version>4.10.1&lt;/version>
-&lt;relativePath>../pom.xml&lt;/relativePath>
+&lt;version>4.10.1</version>
+&lt;relativePath>../pom.xml</relativePath>
 &lt;/parent>
 &lt;build>
 &lt;resources>
 &lt;resource>
-&lt;directory>selenium/src/main/resources&lt;/directory>
+&lt;directory>selenium/src/main/resources</directory>
 &lt;/resource>
 &lt;resource>
-&lt;filtering>false&lt;/filtering>
-&lt;directory>node_modules/axe-core&lt;/directory>
+&lt;filtering>false</filtering>
+&lt;directory>node_modules/axe-core</directory>
 &lt;includes>
-&lt;include>axe.min.js&lt;/include>
+&lt;include>axe.min.js</include>
 &lt;/includes>
 &lt;/resource>
 &lt;/resources>
 &lt;plugins>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins&lt;/groupId>
-&lt;artifactId>maven-compiler-plugin&lt;/artifactId>
-&lt;version>3.13.0&lt;/version>
+&lt;groupId>org.apache.maven.plugins</groupId>
+&lt;artifactId>maven-compiler-plugin</artifactId>
+&lt;version>3.13.0</version>
 &lt;configuration>
-&lt;source>21&lt;/source>
-&lt;target>21&lt;/target>
+&lt;source>21</source>
+&lt;target>21</target>
 &lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
@@ -534,7 +547,7 @@ public class LiveAxeCoreTest {
 &lt;/build>
 &lt;name>aXe Selenium Integration</name>
 &lt;description>
-&lt;p>Tools for using aXe for web accessibility testing with JUnit and Selenium.&lt;/p>
+&lt;p>Tools for using aXe for web accessibility testing with JUnit and Selenium.</p>
 &lt;/description>
 &lt;url>https://github.com/dequelabs/axe-core-maven-html</url>
 &lt;licenses>
@@ -726,29 +739,28 @@ public class LiveAxeCoreTest {
 &lt;/dependency>
 &lt;/dependencies>
 &lt;/project></code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
-
-                        <h2 id="run-tests">6. Run the Tests</h2>
-                        <p>Now, you are ready to compile and run your new test file.</p>
-                        <p>
-                            Navigate to the `selenium` module: The tests for the axe-selenium integration are located within the `selenium` sub-directory of the cloned repository.
-                        </p>
-                        <div class="code-container">
-                            <pre><code class="language-bash">cd axe-core-maven-html/selenium</code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <p>
-                            Run the tests: Execute the Maven test goal with the following command:
-                        </p>
-                        <div class="code-container">
-                            <pre><code class="language-bash">mvn test</code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <p>
-                            Check Test Results: After the command finishes, check the terminal output for **BUILD SUCCESS** or **BUILD FAILURE**. Detailed test reports (including any accessibility violations found by Axe-core) will be generated.
-                        </p>
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
                     </div>
+
+                    <h2 id="run-tests">6. Run the Tests</h2>
+                    <p>Now, you are ready to compile and run your new test file.</p>
+                    <p>
+                        Navigate to the `selenium` module: The tests for the axe-selenium integration are located within the `selenium` sub-directory of the cloned repository.
+                    </p>
+                    <div class="code-container">
+                        <pre><code class="language-bash">cd axe-core-maven-html/selenium</code></pre>
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <p>
+                        Run the tests: Execute the Maven test goal with the following command:
+                    </p>
+                    <div class="code-container">
+                        <pre><code class="language-bash">mvn test</code></pre>
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <p>
+                        Check Test Results: After the command finishes, check the terminal output for **BUILD SUCCESS** or **BUILD FAILURE**. Detailed test reports (including any accessibility violations found by Axe-core) will be generated.
+                    </p>
                 </div>
             </div>
 
@@ -776,33 +788,7 @@ public class LiveAxeCoreTest {
         </footer>
 
     </div>
-    
-    <style>
-        .code-container {
-            position: relative;
-            background: #f4f4f4;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-        .copy-button {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: #003865;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 3px;
-            font-size: 0.8em;
-        }
-        .copy-button:hover {
-            background-color: #005f9e;
-        }
-    </style>
-    
+
     <script>
         function copyCode(button) {
             const pre = button.parentElement.querySelector('pre');
@@ -849,4 +835,5 @@ public class LiveAxeCoreTest {
     </script>
 
 </body>
+
 </html>
