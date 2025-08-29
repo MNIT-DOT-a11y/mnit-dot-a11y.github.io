@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +10,6 @@
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
     <title>Instructions to Install and Run Axe-Core Selenium scripts with Java - MNIT DOT A11y</title>
-
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Instructions to Install and Run Axe-Core Selenium scripts with Java" />
     <meta property="og:locale" content="en_US" />
@@ -34,7 +32,6 @@
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         .character-count-container {
             margin: 20px;
@@ -65,7 +62,6 @@
 
         .centered-container {
             max-width: 900px;
-            /* Adjust this value as needed */
             margin: 0 auto;
             padding: 20px;
         }
@@ -126,18 +122,14 @@
             color: white;
         }
     </style>
-
 </head>
 
 <body onload="setModifiedDate();" class="preload">
-
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
-
         <header class="container">
             <nav id="nav" class="menu" aria-label="Site menu">
                 <ul>
@@ -187,14 +179,12 @@
                 <div class="search-container"></div>
             </nav>
         </header>
-
         <main id="content" class="main-content">
             <div class="centered-container">
                 <div class="post-content">
                     <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
                     <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using **Java**, **Axe-core**, and **Selenium**.</p>
                     <hr>
-
                     <nav aria-label="On-page links">
                         <ul class="section-links">
                             <li><a href="#download-and-install-jdk">1. Download and Install JDK</a></li>
@@ -205,7 +195,6 @@
                             <li><a href="#run-tests">6. Run the Tests</a></li>
                         </ul>
                     </nav>
-
                     <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
                     <p>You need the JDK to compile and run Java applications.</p>
                     <p>
@@ -239,7 +228,6 @@
                         Verify Installation: Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.
                     </p>
                     <hr>
-
                     <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
                     <p>Maven is a build automation tool used for Java projects.</p>
                     <p>
@@ -268,7 +256,6 @@
                         Verify Installation: Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.
                     </p>
                     <hr>
-
                     <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
                     <p>You'll download the **axe-core-maven-html** repository using Git.</p>
                     <p>
@@ -285,7 +272,6 @@
                         This will create a new folder named `axe-core-maven-html` containing the repository's contents.
                     </p>
                     <hr>
-
                     <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
                     <p>This is the test file where you will write the accessibility scan logic.</p>
                     <p>
@@ -480,8 +466,8 @@ public class LiveAxeCoreTest {
 &lt;version>4.10.1&lt;/version>
 &lt;packaging>jar&lt;/packaging>
 &lt;parent>
-&lt;groupId>com.deque.html.axe-core</groupId>
-&lt;artifactId>virtual-superpackage</artifactId>
+&lt;groupId>com.deque.html.axe-core&lt;/groupId>
+&lt;artifactId>virtual-superpackage&lt;/artifactId>
 &lt;version>4.10.1</version>
 &lt;relativePath>../pom.xml</relativePath>
 &lt;/parent>
@@ -660,7 +646,7 @@ public class LiveAxeCoreTest {
 &lt;arg>--pinentry-mode</arg>
 &lt;arg>loopback</arg>
 &lt;/gpgArguments>
-&lt;/configuration>
+&&lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
 &lt;groupId>org.sonatype.plugins</groupId>
@@ -772,9 +758,7 @@ public class LiveAxeCoreTest {
                     <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
                 </button>
             </div>
-
         </main>
-
         <footer class="container" id="footer">
             <nav aria-label="Site map">
                 <ul>
@@ -789,51 +773,44 @@ public class LiveAxeCoreTest {
             <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
             <p class="last-modified" id='last-modified'></p>
         </footer>
-
     </div>
-
     <script>
         // Function to replace text wrapped in **...** with <strong>...</strong>
         function formatBoldText() {
             const elementsToScan = document.querySelectorAll('p, li, h2, h3, h4, h5, h6');
             elementsToScan.forEach(el => {
-                let htmlContent = el.innerHTML;
-                // Regex to find text between two asterisks
-                const boldRegex = /\*\*(.*?)\*\*/g;
-                if (boldRegex.test(htmlContent)) {
-                    htmlContent = htmlContent.replace(boldRegex, '<strong>$1</strong>');
-                    el.innerHTML = htmlContent;
-                }
+                el.innerHTML = el.innerHTML.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
             });
         }
-    </script>
-    <script>
+
+        // Function to handle copying code
         function copyCode(button) {
-            const pre = button.parentElement.querySelector('pre');
-            const code = pre.querySelector('code');
-            navigator.clipboard.writeText(code.innerText).then(() => {
-                button.textContent = "Copied!";
-                setTimeout(() => {
-                    button.textContent = "Copy";
-                }, 2000);
-            }).catch(err => {
-                console.error("Failed to copy text: ", err);
-            });
+            const codeBlock = button.previousElementSibling.querySelector('code');
+            navigator.clipboard.writeText(codeBlock.innerText)
+                .then(() => {
+                    button.textContent = "Copied!";
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    button.textContent = "Error";
+                })
+                .finally(() => {
+                    // Revert button text after 2 seconds
+                    setTimeout(() => {
+                        button.textContent = "Copy";
+                    }, 2000);
+                });
         }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-        $("body").removeClass("preload"); // Prevents animations on page load
-
+        $("body").removeClass("preload");
         document.getElementById('input-textarea').addEventListener('input', function() {
             const maxLength = this.getAttribute('maxlength');
             const currentLength = this.value.length;
             const remaining = maxLength - currentLength;
             const charCountElem = document.getElementById('charCount');
-
             charCountElem.textContent = `${remaining} characters remaining`;
             charCountElem.classList.toggle('alert', remaining < 10);
         });
@@ -850,9 +827,7 @@ public class LiveAxeCoreTest {
                     });
             }
         }
-    </script>
-    <script>
-        // Call the function on page load
+        // Call the function on page load to format the bold text
         document.addEventListener("DOMContentLoaded", function() {
             formatBoldText();
         });
