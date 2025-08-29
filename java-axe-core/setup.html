@@ -96,27 +96,29 @@
         .copy-button:hover {
             background-color: #005f9e;
         }
-
+        
         .section-links {
             list-style: none;
             padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            margin: 0 0 20px 0; /* Ensures proper spacing */
         }
-
+        
+        .section-links li {
+            text-align: left;
+        }
+        
         .section-links li a {
+            display: block;
+            padding: 8px 15px;
             text-decoration: none;
             color: #003865;
             font-weight: bold;
             border: 1px solid #003865;
-            padding: 8px 15px;
             border-radius: 5px;
+            margin-bottom: 10px; /* Separates each link */
             transition: background-color 0.3s, color 0.3s;
         }
-
+        
         .section-links li a:hover {
             background-color: #003865;
             color: white;
@@ -183,7 +185,7 @@
             <div class="centered-container">
                 <div class="post-content">
                     <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
-                    <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using **Java**, **Axe-core**, and **Selenium**.</p>
+                    <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>Java</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong>.</p>
                     <hr>
                     <nav aria-label="On-page links">
                         <ul class="section-links">
@@ -204,25 +206,25 @@
                         Run the Installer: Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.
                     </p>
                     <p>
-                        Set **JAVA_HOME** Environment Variable:
+                        Set <strong>JAVA_HOME</strong> Environment Variable:
                     </p>
                     <ol>
-                        <li>Right-click the **Start** button and select **System**.</li>
-                        <li>Click **Advanced system settings**.</li>
-                        <li>In the **System Properties** window, click **Edit the System Environment Variables for your account**.</li>
-                        <li>Under **System variables**, click **New...**.</li>
-                        <li>For **Variable name**, enter `JAVA_HOME`.</li>
-                        <li>For **Variable value**, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
-                        <li>Click **OK**.</li>
+                        <li>Right-click the <strong>Start</strong> button and select <strong>System</strong>.</li>
+                        <li>Click <strong>Advanced system settings</strong>.</li>
+                        <li>In the <strong>System Properties</strong> window, click <strong>Edit the System Environment Variables for your account</strong>.</li>
+                        <li>Under <strong>System variables</strong>, click <strong>New...</strong>.</li>
+                        <li>For <strong>Variable name</strong>, enter `JAVA_HOME`.</li>
+                        <li>For <strong>Variable value</strong>, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
+                        <li>Click <strong>OK</strong>.</li>
                     </ol>
                     <p>
                         Update the Path Variable:
                     </p>
                     <ol>
-                        <li>In the **System variables** section, find the `Path` variable and click **Edit...**.</li>
-                        <li>Click **New** and add `%JAVA_HOME%\bin`.</li>
+                        <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
+                        <li>Click <strong>New</strong> and add `%JAVA_HOME%\bin`.</li>
                         <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
-                        <li>Click **OK** on all open windows.</li>
+                        <li>Click <strong>OK</strong> on all open windows.</li>
                     </ol>
                     <p>
                         Verify Installation: Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.
@@ -231,33 +233,33 @@
                     <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
                     <p>Maven is a build automation tool used for Java projects.</p>
                     <p>
-                        Download Maven: Go to the Apache Maven download page. Download the **Binary zip archive** (e.g., `apache-maven-3.9.6-bin.zip`).
+                        Download Maven: Go to the Apache Maven download page. Download the <strong>Binary zip archive</strong> (e.g., `apache-maven-3.9.6-bin.zip`).
                     </p>
                     <p>
                         Extract Maven: Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.
                     </p>
                     <p>
-                        Set **MAVEN_HOME** (or **M2_HOME**) Environment Variable: Follow the same steps as for **JAVA_HOME**.
+                        Set <strong>MAVEN_HOME</strong> (or <strong>M2_HOME</strong>) Environment Variable: Follow the same steps as for <strong>JAVA_HOME</strong>.
                     </p>
                     <ol>
-                        <li>For **Variable name**, enter `MAVEN_HOME` (or `M2_HOME`).</li>
-                        <li>For **Variable value**, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
-                        <li>Click **OK**.</li>
+                        <li>For <strong>Variable name</strong>, enter `MAVEN_HOME` (or `M2_HOME`).</li>
+                        <li>For <strong>Variable value</strong>, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
+                        <li>Click <strong>OK</strong>.</li>
                     </ol>
                     <p>
                         Update the Path Variable:
                     </p>
                     <ol>
-                        <li>In the **System variables** section, find the `Path` variable and click **Edit...**.</li>
-                        <li>Click **New** and add `%MAVEN_HOME%\bin` (or `%M2_HOME%\bin`).</li>
-                        <li>Click **OK** on all open windows.</li>
+                        <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
+                        <li>Click <strong>New</strong> and add `%MAVEN_HOME%\bin` (or `%M2_HOME%\bin`).</li>
+                        <li>Click <strong>OK</strong> on all open windows.</li>
                     </ol>
                     <p>
                         Verify Installation: Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.
                     </p>
                     <hr>
                     <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
-                    <p>You'll download the **axe-core-maven-html** repository using Git.</p>
+                    <p>You'll download the <strong>axe-core-maven-html</strong> repository using Git.</p>
                     <p>
                         Install Git: If you don't have Git installed, download it from git-scm.com and follow the installation instructions.
                     </p>
@@ -450,7 +452,7 @@ public class LiveAxeCoreTest {
                         <button class="copy-button" onclick="copyCode(this)">Copy</button>
                     </div>
 
-                    <h2 id="update-pom-file">5. Update the `pom.xml` file</h2>
+                    <h2 id="update-pom-file">5. Update the `pom.xml` file </h2>
                     <p>You need to update the `pom.xml` file to ensure all dependencies are correct and to handle the JUnit 4 `Parameterized` runner.</p>
                     <p>
                         Open the `pom.xml` file: Navigate to `axe-core-maven-html/selenium/pom.xml`.
@@ -596,12 +598,7 @@ public class LiveAxeCoreTest {
 &lt;id>attach-sources</id>
 &lt;goals>
 &lt;goal>jar-no-fork</goal>
-&lt;/goals>
-&lt;/execution>
 &lt;/executions>
-&lt;configuration>
-&lt;source>21</source>
-&lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
 &lt;groupId>org.apache.maven.plugins</groupId>
@@ -748,7 +745,7 @@ public class LiveAxeCoreTest {
                         <button class="copy-button" onclick="copyCode(this)">Copy</button>
                     </div>
                     <p>
-                        Check Test Results: After the command finishes, check the terminal output for **BUILD SUCCESS** or **BUILD FAILURE**. Detailed test reports (including any accessibility violations found by Axe-core) will be generated.
+                        Check Test Results: After the command finishes, check the terminal output for <strong>BUILD SUCCESS</strong> or <strong>BUILD FAILURE</strong>. Detailed test reports (including any accessibility violations found by Axe-core) will be generated.
                     </p>
                 </div>
             </div>
@@ -779,11 +776,16 @@ public class LiveAxeCoreTest {
         function formatBoldText() {
             const elementsToScan = document.querySelectorAll('p, li, h2, h3, h4, h5, h6');
             elementsToScan.forEach(el => {
-                el.innerHTML = el.innerHTML.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                let htmlContent = el.innerHTML;
+                const boldRegex = /\*\*(.*?)\*\*/g;
+                if (boldRegex.test(htmlContent)) {
+                    htmlContent = htmlContent.replace(boldRegex, '<strong>$1</strong>');
+                    el.innerHTML = htmlContent;
+                }
             });
         }
 
-        // Function to handle copying code
+        // Function to handle copying code without animation
         function copyCode(button) {
             const codeBlock = button.previousElementSibling.querySelector('code');
             navigator.clipboard.writeText(codeBlock.innerText)
