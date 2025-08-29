@@ -192,7 +192,7 @@
             <div class="centered-container">
                 <div class="post-content">
                     <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
-                    <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using Java, Axe-core, and Selenium.</p>
+                    <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using **Java**, **Axe-core**, and **Selenium**.</p>
                     <hr>
 
                     <nav aria-label="On-page links">
@@ -215,7 +215,7 @@
                         Run the Installer: Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.
                     </p>
                     <p>
-                        Set `JAVA_HOME` Environment Variable:
+                        Set **JAVA_HOME** Environment Variable:
                     </p>
                     <ol>
                         <li>Right-click the **Start** button and select **System**.</li>
@@ -249,7 +249,7 @@
                         Extract Maven: Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.
                     </p>
                     <p>
-                        Set `MAVEN_HOME` (or `M2_HOME`) Environment Variable: Follow the same steps as for `JAVA_HOME`.
+                        Set **MAVEN_HOME** (or **M2_HOME**) Environment Variable: Follow the same steps as for **JAVA_HOME**.
                     </p>
                     <ol>
                         <li>For **Variable name**, enter `MAVEN_HOME` (or `M2_HOME`).</li>
@@ -480,8 +480,8 @@ public class LiveAxeCoreTest {
 &lt;version>4.10.1&lt;/version>
 &lt;packaging>jar&lt;/packaging>
 &lt;parent>
-&lt;groupId>com.deque.html.axe-core&lt;/groupId>
-&lt;artifactId>virtual-superpackage&lt;/artifactId>
+&lt;groupId>com.deque.html.axe-core</groupId>
+&lt;artifactId>virtual-superpackage</artifactId>
 &lt;version>4.10.1</version>
 &lt;relativePath>../pom.xml</relativePath>
 &lt;/parent>
@@ -613,6 +613,9 @@ public class LiveAxeCoreTest {
 &lt;/goals>
 &lt;/execution>
 &lt;/executions>
+&lt;configuration>
+&lt;source>21</source>
+&lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
 &lt;groupId>org.apache.maven.plugins</groupId>
@@ -792,13 +795,15 @@ public class LiveAxeCoreTest {
     <script>
         // Function to replace text wrapped in **...** with <strong>...</strong>
         function formatBoldText() {
-            const paragraphs = document.querySelectorAll('p');
-            paragraphs.forEach(p => {
-                let htmlContent = p.innerHTML;
-                // Regular expression to find text wrapped in **
+            const elementsToScan = document.querySelectorAll('p, li, h2, h3, h4, h5, h6');
+            elementsToScan.forEach(el => {
+                let htmlContent = el.innerHTML;
+                // Regex to find text between two asterisks
                 const boldRegex = /\*\*(.*?)\*\*/g;
-                htmlContent = htmlContent.replace(boldRegex, '<strong>$1</strong>');
-                p.innerHTML = htmlContent;
+                if (boldRegex.test(htmlContent)) {
+                    htmlContent = htmlContent.replace(boldRegex, '<strong>$1</strong>');
+                    el.innerHTML = htmlContent;
+                }
             });
         }
     </script>
