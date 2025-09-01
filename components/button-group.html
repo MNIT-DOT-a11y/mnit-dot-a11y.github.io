@@ -19,24 +19,22 @@
         .padding-1 {
             padding: 1rem;
         }
-
-        .sidenav {
+        
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+        
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
             top: 100px;
-            /* Start level with component header */
             height: calc(100% - 100px);
-            /* Adjust height to fit within the viewport */
             overflow-y: auto;
-        }
-
-        .main-content {
-            margin-left: 270px;
-            /* Adjusts the main content to not overlap with the sidenav */
-            padding: 20px;
+            z-index: 100;
         }
     </style>
 
@@ -44,55 +42,8 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </aside>
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
 
@@ -286,7 +237,6 @@
                     <p>To ensure the button group component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/button-group/" target="_blank">Button Group Component Testing Checklist</a>.</p>
 
                 </div>
-
             </div>
 
             <div class="print-container">
@@ -294,11 +244,9 @@
                     <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
                 </button>
             </div>
-
         </main>
 
         <footer class="container" id="footer">
-
             <nav aria-label="Site map">
                 <ul>
                     <li><a href="/about/">About</a></li>
@@ -309,13 +257,9 @@
                     <li><a href="/site-map/">Site map</a></li>
                 </ul>
             </nav>
-
             <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
             <p class="last-modified" id='last-modified'></p>
-
         </footer>
-
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -324,30 +268,29 @@
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=button-group-component.md")
-
                     .then(response => response.json())
-
                     .then(commits => {
-
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
                         if (modified != "") {
-
                             document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
                         }
-
                     });
-
             }
-
         }
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
+                });
+        });
     </script>
-
 </body>
 
 </html>
