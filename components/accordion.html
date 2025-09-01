@@ -3,287 +3,272 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
-    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
-    <meta name="theme-color" content="#003865">
-    <meta name="robots" content="noindex">
-    <title>Accordion Component - MNIT DOT A11y</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+  <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+  <meta name="theme-color" content="#003865">
+  <meta name="robots" content="noindex">
+  <title>Accordion Component - MNIT DOT A11y</title>
 
-    <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Accordion Component" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible accordion component. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating an accessible accordion component. Includes source code and interactive example." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/accordion-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/accordion-component/" />
-    <meta property="og:site_name" content="MNIT DOT A11y" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Accordion Component" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "description": "Guide to creating an accessible accordion component. Includes source code and interactive example.",
-            "headline": "Accordion Component",
-            "url": "https://mnit-dot-a11y.github.io/accordion-component/"
-        }
-    </script>
-    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="generator" content="Jekyll v3.10.0" />
+  <meta property="og:title" content="Accordion Component" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="Guide to creating an accessible accordion component. Includes source code and interactive example." />
+  <meta property="og:description" content="Guide to creating an accessible accordion component. Includes source code and interactive example." />
+  <link rel="canonical" href="https://mnit-dot-a11y.github.io/accordion-component/" />
+  <meta property="og:url" content="https://mnit-dot-a11y.github.io/accordion-component/" />
+  <meta property="og:site_name" content="MNIT DOT A11y" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="Accordion Component" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "description": "Guide to creating an accessible accordion component. Includes source code and interactive example.",
+      "headline": "Accordion Component",
+      "url": "https://mnit-dot-a11y.github.io/accordion-component/"
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        .accordion {
-            cursor: pointer;
-            background-color: #d1e7dd;
-            padding: 18px;
-            width: 100%;
-            border: 1px solid #ccc;
-            text-align: left;
-            outline: none;
-            font-size: 15px;
-            transition: background-color 0.4s;
-            color: #004085;
-            box-sizing: border-box;
-        }
+  <style>
+    .accordion {
+      cursor: pointer;
+      background-color: #d1e7dd;
+      padding: 18px;
+      width: 100%;
+      border: 1px solid #ccc;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: background-color 0.4s;
+      color: #004085;
+      box-sizing: border-box;
+    }
 
-        .accordion.active,
-        .accordion:hover {
-            background-color: #bbe5b3;
-            color: #004085;
-        }
+    .accordion.active,
+    .accordion:hover {
+      background-color: #bbe5b3;
+      color: #004085;
+    }
 
-        .panel {
-            padding: 0 18px;
-            display: none;
-            background-color: white;
-            overflow: hidden;
-            border: 1px solid #ccc;
-        }
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+      border: 1px solid #ccc;
+    }
 
-        /* Adjustments for layout to prevent overlap */
-        .page-wrapper {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-        
-        .content-container {
-            display: flex;
-            flex: 1;
-        }
+    .main-content {
+      margin-left: 270px;
+      padding: 20px;
+    }
 
-        .main-content {
-            flex-grow: 1;
-            padding: 20px;
-        }
+    .sidebar-placeholder {
+      width: 250px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-right: 1px solid #ddd;
+      position: fixed;
+      top: 100px;
+      height: calc(100% - 100px);
+      overflow-y: auto;
+      z-index: 100;
+    }
 
-        .sidebar-placeholder {
-            width: 250px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-right: 1px solid #ddd;
-            overflow-y: auto;
-        }
-        
-        /* New styles for the copy button on the code block */
-        .code-container {
-            position: relative;
-            background: #f4f4f4;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
+    .code-container {
+        position: relative;
+        background: #f4f4f4;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
 
-        .code-container pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
+    .copy-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #003865;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 0.8em;
+    }
 
-        .copy-button {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: #003865;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 3px;
-            font-size: 0.8em;
-        }
-
-        .copy-button:hover {
-            background-color: #005f9e;
-        }
-    </style>
+    .copy-button:hover {
+        background-color: #005f9e;
+    }
+  </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <div class="page-wrapper">
-        <div class="skip-links container">
-            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
-        </div>
+  <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
-        <header class="container">
-            <nav id="nav" class="menu" aria-label="Site menu">
-                <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
-                    <li class="expander-group site-sub-group">
-                        <button class="expander-toggle" aria-expanded="false">More</button>
-                        <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
-                <div class="search-container"></div>
-            </nav>
-        </header>
-
-        <div class="content-container">
-            <!-- Placeholder for the dynamically loaded sidebar -->
-            <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
-
-            <main id="content" class="main-content">
-                <div class="container">
-                    <div class="post-content">
-                        <h1>Accordion Component</h1>
-                        <p>This guide provides instructions for creating an accordion component that meets accessibility standards.</p>
-
-                        <h2>Interactive Example</h2>
-                        <button class="accordion" aria-expanded="false" aria-controls="panel1">Section 1</button>
-                        <div class="panel" id="panel1">
-                            <p>This is the content of section 1.</p>
-                        </div>
-                        <button class="accordion" aria-expanded="false" aria-controls="panel2">Section 2</button>
-                        <div class="panel" id="panel2">
-                            <p>This is the content of section 2.</p>
-                        </div>
-                        <button class="accordion" aria-expanded="false" aria-controls="panel3">Section 3</button>
-                        <div class="panel" id="panel3">
-                            <p>This is the content of section 3.</p>
-                        </div>
-
-                        <h2>Source Code</h2>
-                        <div class="code-container">
-                            <pre><code>&lt;button class="accordion" aria-expanded="false" aria-controls="panel1"&gt;Section 1&lt;/button&gt;
-&lt;div class="panel" id="panel1"&gt;
-  &lt;p&gt;This is the content of section 1.&lt;/p&gt;
-&lt;/div&gt;
-&lt;!-- Continue for additional sections --&gt;</code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
-
-                        <h2>Accessibility Features</h2>
-                        <ul>
-                            <li>Buttons have <code>aria-expanded</code> attributes to indicate their state (expanded or collapsed).</li>
-                            <li>Each panel has an <code>aria-controls</code> attribute to associate it with its trigger button.</li>
-                            <li>Ensure the panels are focusable and operable using keyboard.</li>
-                        </ul>
-
-                        <h2>Testing</h2>
-                        <p>To ensure the accordion component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/accordion/" target="_blank">Accordion Component Testing Checklist</a>.</p>
-
-                    </div>
-                </div>
-
-                <div class="print-container">
-                    <button type="button" class="print-button" aria-label="Print this page">
-                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                    </button>
-                </div>
-            </main>
-        </div>
-
-        <footer class="container" id="footer">
-            <nav aria-label="Site map">
-                <ul>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/resources/">Resources</a></li>
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                    <li><a href="/site-map/">Site map</a></li>
-                </ul>
-            </nav>
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-            <p class="last-modified" id='last-modified'></p>
-        </footer>
+  <div class="page-wrapper">
+    <div class="skip-links container">
+      <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+      <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/assets/scripts/index.js?1736284235"></script>
-    <script>
-        $("body").removeClass("preload");
+    <header class="container">
+      <nav id="nav" class="menu" aria-label="Site menu">
+        <ul>
+          <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+          <li class="web alpha"><a href="/web/">Web</a></li>
+          <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+          <li class="native alpha"><a href="/native/">Native Apps</a></li>
+          <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
+          <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+          <li class="native bravo"><a href="/demos/">Demos</a></li>
+          <li class="expander-group site-sub-group">
+            <button class="expander-toggle" aria-expanded="false">More</button>
+            <ul class="expander-content">
+              <li><a href="/how-to-test/">How-to Test</a></li>
+              <li><a href="/demos/">Demos</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+            </ul>
+          </li>
+        </ul>
+        <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+        <div class="search-container"></div>
+      </nav>
+    </header>
 
-        function copyCode(button) {
-            const codeBlock = button.previousElementSibling.querySelector('code');
-            navigator.clipboard.writeText(codeBlock.innerText)
-                .then(() => {
-                    button.textContent = "Copied!";
-                })
-                .catch(err => {
-                    console.error('Failed to copy text: ', err);
-                    button.textContent = "Error";
-                })
-                .finally(() => {
-                    setTimeout(() => {
-                        button.textContent = "Copy";
-                    }, 2000);
-                });
-        }
+    <main id="content" class="main-content">
+      <div class="container">
+        <div class="post-content">
+          <h1>Accordion Component</h1>
+          <p>This guide provides instructions for creating an accordion component that meets accessibility standards.</p>
 
-        document.querySelectorAll('.accordion').forEach(button => {
-            button.addEventListener('click', function() {
-                const panel = document.getElementById(this.getAttribute('aria-controls'));
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', String(!isExpanded));
-                panel.style.display = isExpanded ? 'none' : 'block';
-            });
+          <h2>Interactive Example</h2>
+          <button class="accordion" aria-expanded="false" aria-controls="panel1">Section 1</button>
+          <div class="panel" id="panel1">
+            <p>This is the content of section 1.</p>
+          </div>
+          <button class="accordion" aria-expanded="false" aria-controls="panel2">Section 2</button>
+          <div class="panel" id="panel2">
+            <p>This is the content of section 2.</p>
+          </div>
+          <button class="accordion" aria-expanded="false" aria-controls="panel3">Section 3</button>
+          <div class="panel" id="panel3">
+            <p>This is the content of section 3.</p>
+          </div>
+
+          <h2>Source Code</h2>
+          <div class="code-container">
+            <pre><code>&lt;button class="accordion" aria-expanded="false" aria-controls="panel1"&gt;Section 1&lt;/button&gt;
+&lt;div class="panel" id="panel1"&gt;
+  &lt;p&gt;This is the content of section 1.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- Continue for additional sections --&gt;</code></pre>
+            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+          </div>
+
+          <h2>Accessibility Features</h2>
+          <ul>
+            <li>Buttons have <code>aria-expanded</code> attributes to indicate their state (expanded or collapsed).</li>
+            <li>Each panel has an <code>aria-controls</code> attribute to associate it with its trigger button.</li>
+            <li>Ensure the panels are focusable and operable using keyboard.</li>
+          </ul>
+
+          <h2>Testing</h2>
+          <p>To ensure the accordion component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/accordion/" target="_blank">Accordion Component Testing Checklist</a>.</p>
+
+        </div>
+      </div>
+
+      <div class="print-container">
+        <button type="button" class="print-button" aria-label="Print this page">
+          <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+        </button>
+      </div>
+    </main>
+
+    <footer class="container" id="footer">
+      <nav aria-label="Site map">
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/resources/">Resources</a></li>
+          <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+          <li><a href="/testing-routine/">Testing Routine</a></li>
+          <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+          <li><a href="/site-map/">Site map</a></li>
+        </ul>
+      </nav>
+      <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+      <p class="last-modified" id='last-modified'></p>
+    </footer>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/assets/scripts/index.js?1736284235"></script>
+  <script>
+    $("body").removeClass("preload"); // Prevents animations on page load
+
+    document.querySelectorAll('.accordion').forEach(button => {
+      button.addEventListener('click', function() {
+        const panel = document.getElementById(this.getAttribute('aria-controls'));
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!isExpanded));
+        panel.style.display = isExpanded ? 'none' : 'block';
+      });
+    });
+
+    // Function to handle copying code without animation
+    function copyCode(button) {
+      const codeBlock = button.previousElementSibling.querySelector('code');
+      navigator.clipboard.writeText(codeBlock.innerText)
+        .then(() => {
+          button.textContent = "Copied!";
+        })
+        .catch(err => {
+          console.error('Failed to copy text: ', err);
+          button.textContent = "Error";
+        })
+        .finally(() => {
+          setTimeout(() => {
+            button.textContent = "Copy";
+          }, 2000);
         });
+    }
 
-        function setModifiedDate() {
-            if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=accordion-component.md")
-                    .then(response => response.json())
-                    .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                        if (modified != "") {
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-                        }
-                    });
+    function setModifiedDate() {
+      if (document.getElementById('last-modified')) {
+        fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=accordion-component.md")
+          .then(response => response.json())
+          .then(commits => {
+            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+            if (modified != "") {
+              document.getElementById('last-modified').textContent = "Last modified: " + modified;
             }
-        }
+          });
+      }
+    }
 
-        // JavaScript to fetch and insert the sidebar
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('/assets/components-sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-placeholder').innerHTML = html;
-                })
-                .catch(err => {
-                    console.error("Failed to load sidebar: ", err);
-                });
+    // JavaScript to fetch and insert the sidebar
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('/assets/components-sidebar.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('sidebar-placeholder').innerHTML = html;
+        })
+        .catch(err => {
+          console.error("Failed to load sidebar: ", err);
         });
-    </script>
+    });
+  </script>
+
 </body>
 
 </html>
