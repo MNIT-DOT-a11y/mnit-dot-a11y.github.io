@@ -80,8 +80,7 @@
             flex-grow: 1;
             padding: 20px;
             max-width: 900px;
-            /* Removed margin: 0 auto; from here */
-            margin: 0;
+            margin: 0 auto;
         }
 
         .sidebar-placeholder {
@@ -100,9 +99,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            /* Changed margin-left to align the content right after the sidebar */
-            margin-left: 250px; 
-            padding-left: 20px;
+            /* Removed the margin-left and padding-left from this class to consolidate it in the main content. */
         }
         
         .container {
@@ -131,13 +128,11 @@
             cursor: pointer;
             border-radius: 3px;
             font-size: 0.8em;
-            /* New method: Setting transition to none */
             transition: none;
         }
 
         .copy-button:hover {
             background-color: #005f9e;
-            /* Ensure no transition on hover */
             transition: none;
         }
     </style>
