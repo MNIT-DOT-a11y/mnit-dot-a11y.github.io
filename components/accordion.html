@@ -63,25 +63,12 @@
             overflow: hidden;
             border: 1px solid #ccc;
         }
-
+        
         body {
             display: flex;
             min-height: 100vh;
-            flex-direction: row;
             margin: 0;
-        }
-
-        .page-wrapper {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .main-content {
-            flex-grow: 1;
-            padding: 20px;
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 0;
         }
 
         .sidebar-placeholder {
@@ -90,19 +77,25 @@
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
-            top: 100px;
+            top: 0;
             left: 0;
-            height: calc(100vh - 100px);
+            height: 100vh;
             overflow-y: auto;
             z-index: 100;
         }
-
-        .content-wrapper {
+        
+        .main-content-container {
             flex-grow: 1;
+            padding-left: 250px; /* Offset for the fixed sidebar */
             display: flex;
             flex-direction: column;
-            margin-left: 250px;
-            padding-left: 20px;
+        }
+        
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .container {
@@ -110,7 +103,7 @@
             margin: 0;
             padding: 0;
         }
-
+        
         .code-container {
             position: relative;
             background: #f4f4f4;
@@ -119,7 +112,7 @@
             padding: 10px;
             margin-bottom: 20px;
         }
-
+        
         .copy-button {
             position: absolute;
             top: 5px;
@@ -133,7 +126,7 @@
             font-size: 0.8em;
             transition: none;
         }
-
+        
         .copy-button:hover {
             background-color: #005f9e;
             transition: none;
@@ -142,9 +135,10 @@
 </head>
 
 <body onload="setModifiedDate();" class="preload">
+
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
-    <div class="content-wrapper">
+    <div class="main-content-container">
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
@@ -179,7 +173,7 @@
             <div class="container">
                 <div class="post-content">
                     <h1>Accordion Component</h1>
-                    <p>This guide provides instructions for creating an accordion component that meets accessibility standards.</p>
+                    <p>This guide provides instructions for creating an accessible accordion component that meets accessibility standards.</p>
 
                     <h2>Interactive Example</h2>
                     <button class="accordion" aria-expanded="false" aria-controls="panel1">Section 1</button>
@@ -296,4 +290,4 @@
     </script>
 </body>
 
-</html>
+</html>       
