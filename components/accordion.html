@@ -68,6 +68,7 @@
             min-height: 100vh;
             flex-direction: row;
             margin: 0;
+            padding-left: 250px; /* This is the key change to create space for the sidebar */
         }
 
         .page-wrapper {
@@ -88,8 +89,9 @@
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: sticky;
+            position: fixed; /* Changed to fixed to keep it in place */
             top: 100px;
+            left: 0;
             height: calc(100vh - 100px);
             overflow-y: auto;
             z-index: 100;
@@ -99,8 +101,9 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            margin-left: 250px; /* This is the correct space to prevent overlap */
-            padding-left: 20px; /* Use padding to create the space between the sidebar and content */
+            /* margin and padding are now handled by the body */
+            margin: 0;
+            padding: 0;
         }
         
         .container {
