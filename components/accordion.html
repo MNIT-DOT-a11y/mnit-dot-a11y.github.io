@@ -180,11 +180,9 @@
 
         nav.menu {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            width: 100%;
-            padding: 0 20px;
-            box-sizing: border-box;
+            justify-content: center;
+            position: relative;
         }
 
         nav.menu ul {
@@ -192,22 +190,18 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            flex-grow: 1;
             justify-content: center;
-            align-items: center;
-            position: relative;
         }
         
-        nav.menu ul li {
+        nav.menu li {
             margin: 0 10px;
         }
         
-        nav.menu ul li.home {
-            order: -1;
-            margin-left: 0;
-            margin-right: 20px;
+        nav.menu li.home {
+            position: absolute;
+            left: 0;
         }
-        
+
         footer.container {
             margin-left: 270px;
         }
@@ -253,50 +247,258 @@
         <main id="content" class="main-content">
             <div class="container">
                 <div class="post-content">
-                    <h1>Accordion Component</h1>
-                    <p>This guide provides instructions for creating an accessible accordion component that meets accessibility standards.</p>
+                    <h1>Alert Component</h1>
+                    <p>An alert keeps users informed of important and sometimes time-sensitive changes.</p>
+                    <p>Passed WCAG 2.1 AA</p>
 
-                    <h2>Interactive Example</h2>
-                    <button class="accordion" aria-expanded="false" aria-controls="panel1">Section 1</button>
-                    <div class="panel" id="panel1">
-                        <p>This is the content of section 1.</p>
-                    </div>
-                    <button class="accordion" aria-expanded="false" aria-controls="panel2">Section 2</button>
-                    <div class="panel" id="panel2">
-                        <p>This is the content of section 2.</p>
-                    </div>
-                    <button class="accordion" aria-expanded="false" aria-controls="panel3">Section 3</button>
-                    <div class="panel" id="panel3">
-                        <p>This is the content of section 3.</p>
+                    <h2>Component Preview</h2>
+                    <h3>Standard Alerts</h3>
+                    <div class="usa-alert usa-alert--info">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Informative status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
                     </div>
 
-                    <h2>Source Code</h2>
-                    <div class="code-container">
-                        <pre><code>&lt;button class="accordion" aria-expanded="false" aria-controls="panel1"&gt;Section 1&lt;/button&gt;
-&lt;div class="panel" id="panel1"&gt;
-  &lt;p&gt;This is the content of section 1.&lt;/p&gt;
+                    <div class="usa-alert usa-alert--warning">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Warning status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="usa-alert usa-alert--success">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Success status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="usa-alert usa-alert--error" role="alert">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Error status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="usa-alert usa-alert--emergency" role="alert">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Emergency status</h4>
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3>Slim Alert</h3>
+                    <div class="usa-alert usa-alert--info usa-alert--slim">
+                        <div class="usa-alert__body">
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3>Alert with No Icon</h3>
+                    <div class="usa-alert usa-alert--info usa-alert--no-icon">
+                        <div class="usa-alert__body">
+                            <p class="usa-alert__text">
+                                Lorem ipsum dolor sit amet,
+                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                elit, sed do eiusmod.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h2>Component Code</h2>
+                    <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard alerts&lt;/h3&gt;
+
+&lt;div class="usa-alert usa-alert--info"&gt;
+
+&lt;div class="usa-alert__body"&gt;
+
+&lt;h4 class="usa-alert__heading"&gt;Informative status&lt;/h4&gt;
+
+&lt;p class="usa-alert__text"&gt;
+
+  Lorem ipsum dolor sit amet,
+
+  &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+  elit, sed do eiusmod.
+
+&lt;/p&gt;
+
 &lt;/div&gt;
-&lt;!-- Continue for additional sections --&gt;</code></pre>
-                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                    </div>
 
-                    <h2>Accessibility Features</h2>
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--warning"&gt;
+
+&lt;div class="usa-alert__body"&gt;
+
+&lt;h4 class="usa-alert__heading"&gt;Warning status&lt;/h4&gt;
+
+&lt;p class="usa-alert__text"&gt;
+
+  Lorem ipsum dolor sit amet,
+
+  &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+  elit, sed do eiusmod.
+
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--success"&gt;
+
+&lt;div class="usa-alert__body"&gt;
+
+&lt;h4 class="usa-alert__heading"&gt;Success status&lt;/h4&gt;
+
+&lt;p class="usa-alert__text"&gt;
+
+  Lorem ipsum dolor sit amet,
+
+  &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+  elit, sed do eiusmod.
+
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--error" role="alert"&gt;
+
+&lt;div class="usa-alert__body"&gt;
+
+&lt;h4 class="usa-alert__heading"&gt;Error status&lt;/h4&gt;
+
+&lt;p class="usa-alert__text"&gt;
+
+  Lorem ipsum dolor sit amet,
+
+  &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+  elit, sed do eiusmod.
+
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--emergency" role="alert"&gt;
+
+&lt;div class="usa-alert__body"&gt;
+
+&lt;h4 class="usa-alert__heading"&gt;Emergency status&lt;/h4&gt;
+
+&lt;p class="usa-alert__text"&gt;
+
+  Lorem ipsum dolor sit amet,
+
+  &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+  elit, sed do eiusmod.
+
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Slim alert&lt;/h3&gt;
+
+&lt;div class="usa-alert usa-alert--info usa-alert--slim"&gt;
+
+&lt;div class="usa-alert__body"&gt;
+
+&lt;p class="usa-alert__text"&gt;
+
+  Lorem ipsum dolor sit amet,
+
+  &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+  elit, sed do eiusmod.
+
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Alert with no icon&lt;/h3&gt;
+
+&lt;div class="usa-alert usa-alert--info usa-alert--no-icon"&gt;
+
+&lt;div class="usa-alert__body"&gt;
+
+&lt;p class="usa-alert__text"&gt;
+
+  Lorem ipsum dolor sit amet,
+
+  &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+  elit, sed do eiusmod.
+
+&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+</code></pre>
+
+                    <h2>Guidance</h2>
+
+                    <h3>When to use the alert component</h3>
                     <ul>
-                        <li>Buttons have <code>aria-expanded</code> attributes to indicate their state (expanded or collapsed).</li>
-                        <li>Each panel has an <code>aria-controls</code> attribute to associate it with its trigger button.</li>
-                        <li>Ensure the panels are focusable and operable using keyboard.</li>
+                        <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
+                        <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
                     </ul>
 
-                    <h2>Testing</h2>
-                    <p>To ensure the accordion component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/accordion/" target="_blank">Accordion Component Testing Checklist</a>.</p>
+                    <h3>When to consider something else</h3>
+                    <ul>
+                      <li>**Small, temporary status messages.** For temporary status messages, consider using a different component, such as an inline banner.</li>
+                      <li>**In-page messages.** For a large amount of in-page information, consider using an inline text.</li>
+                    </ul>
+
                 </div>
             </div>
+
             <div class="print-container">
                 <button type="button" class="print-button" aria-label="Print this page">
                     <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
                 </button>
             </div>
         </main>
+
 
         <footer class="container" id="footer">
             <nav aria-label="Site map">
@@ -313,50 +515,26 @@
             <p class="last-modified" id='last-modified'></p>
         </footer>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
         $("body").removeClass("preload");
 
-        function copyCode(button) {
-            const codeBlock = button.previousElementSibling.querySelector('code');
-            navigator.clipboard.writeText(codeBlock.innerText)
-                .then(() => {
-                    button.textContent = "Copied!";
-                })
-                .catch(err => {
-                    console.error('Failed to copy text: ', err);
-                    button.textContent = "Error";
-                })
-                .finally(() => {
-                    setTimeout(() => {
-                        button.textContent = "Copy";
-                    }, 2000);
-                });
-        }
-
-        document.querySelectorAll('.accordion').forEach(button => {
-            button.addEventListener('click', function() {
-                const panel = document.getElementById(this.getAttribute('aria-controls'));
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', String(!isExpanded));
-                panel.style.display = isExpanded ? 'none' : 'block';
-            });
-        });
-
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=accordion-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=alert-component.md")
                     .then(response => response.json())
                     .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        var modified = cAommits[0]['commit']['committer']['date'].slice(0, 10);
                         if (modified != "") {
                             document.getElementById('last-modified').textContent = "Last modified: " + modified;
                         }
                     });
             }
         }
-
+        
+        // JavaScript to fetch and insert the sidebar
         document.addEventListener("DOMContentLoaded", function() {
             fetch('/assets/components-sidebar.html')
                 .then(response => response.text())
@@ -371,3 +549,4 @@
 </body>
 
 </html>
+
