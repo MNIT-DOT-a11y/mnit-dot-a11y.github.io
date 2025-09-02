@@ -71,26 +71,25 @@
             flex-direction: column;
             margin: 0;
         }
-        
+
         .page-wrapper {
             display: flex;
             flex-direction: column;
             flex: 1;
-            padding-left: 270px; /* Pushes content to the right of the sidebar */
         }
-        
+
         .content-container {
             display: flex;
             flex: 1;
         }
-        
+
         .main-content {
             flex-grow: 1;
             padding: 20px;
             max-width: 900px;
-            margin: 0 auto;
+            margin: 0; /* Align content to the left */
         }
-        
+
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
@@ -99,11 +98,11 @@
             position: fixed;
             top: 100px;
             left: 0;
-            height: calc(100vh - 100px); /* Fill the viewport height below the header */
+            height: calc(100vh - 100px);
             overflow-y: auto;
             z-index: 100;
         }
-        
+
         .container {
             width: 100%;
             margin: 0;
@@ -223,7 +222,7 @@
                 </button>
             </div>
         </main>
-        
+    
         <footer class="container" id="footer">
             <nav aria-label="Site map">
                 <ul>
@@ -239,7 +238,7 @@
             <p class="last-modified" id='last-modified'></p>
         </footer>
     </div>
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
