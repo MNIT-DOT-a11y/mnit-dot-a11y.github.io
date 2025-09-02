@@ -64,40 +64,45 @@
             border: 1px solid #ccc;
         }
 
-        /* Corrected layout to ensure proper spacing and sidebar positioning */
         body {
             display: flex;
+            flex-direction: row;
             min-height: 100vh;
-            flex-direction: row; /* Main container is now a row */
             margin: 0;
-            padding: 0;
         }
-        
+
         .page-wrapper {
             display: flex;
             flex-direction: column;
             flex: 1;
-            margin-left: 250px; /* Offset to push content right of fixed sidebar */
         }
-        
+
         .main-content {
             flex-grow: 1;
             padding: 20px;
             max-width: 900px;
             margin: 0 auto;
         }
-        
+
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: fixed; /* Fixed to keep it in place */
-            top: 0;
+            position: fixed;
+            top: 100px; /* Positioned below the header */
             left: 0;
-            height: 100vh;
+            height: calc(100vh - 100px); /* Fill the remaining viewport height */
             overflow-y: auto;
             z-index: 100;
+        }
+
+        .content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 250px; /* Offset for the fixed sidebar */
+            padding-left: 10px; /* Added spacing between sidebar and content */
         }
         
         .container {
@@ -105,7 +110,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .code-container {
             position: relative;
             background: #f4f4f4;
@@ -114,7 +119,7 @@
             padding: 10px;
             margin-bottom: 20px;
         }
-        
+
         .copy-button {
             position: absolute;
             top: 5px;
@@ -128,7 +133,7 @@
             font-size: 0.8em;
             transition: none;
         }
-        
+
         .copy-button:hover {
             background-color: #005f9e;
             transition: none;
@@ -140,7 +145,7 @@
 
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
-    <div class="page-wrapper">
+    <div class="content-wrapper">
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
