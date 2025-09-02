@@ -85,7 +85,7 @@
             max-width: 900px;
             margin: 0 auto;
         }
-
+        
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
@@ -145,18 +145,16 @@
 
         nav.menu {
             display: flex;
-            justify-content: space-between; /* Aligns logo to left and other nav items to the right */
             align-items: center;
-            padding: 0 20px;
+            justify-content: center;
+            position: relative;
         }
-        
+
         nav.menu ul {
             display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
-            flex-grow: 1;
-            justify-content: center; /* Centers the list of links */
         }
         
         nav.menu li {
@@ -164,7 +162,8 @@
         }
         
         nav.menu li.home {
-            margin-right: auto; /* Pushes the logo to the left */
+            position: absolute;
+            left: 0;
         }
     </style>
 </head>
