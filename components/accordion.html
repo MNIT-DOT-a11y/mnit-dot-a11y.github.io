@@ -17,7 +17,7 @@
     <meta name="description" content="Guide to creating an accessible accordion component. Includes source code and interactive example." />
     <meta property="og:description" content="Guide to creating an accessible accordion component. Includes source code and interactive example." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/accordion-component/" />
-    <meta property="og:url" content="https://mnit-dot-af65-034dd404ca6c11y.github.io/accordion-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/accordion-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
@@ -78,9 +78,9 @@
         .main-content {
             flex-grow: 1;
             padding: 20px;
-            margin-left: 50px; /* Adjusted to shift content slightly to the right of sidebar */
-            margin-right: auto;
             max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .sidebar-placeholder {
@@ -96,15 +96,15 @@
         }
 
         .content-wrapper {
-            margin-left: 250px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            margin-left: 250px; /* Account for the fixed sidebar width */
         }
-
+        
         .container {
             width: 100%;
-            margin: 0;
+            margin: 0 auto; /* Center the container content */
             padding: 0;
         }
 
@@ -128,10 +128,14 @@
             cursor: pointer;
             border-radius: 3px;
             font-size: 0.8em;
+            /* New method to completely remove animation */
+            transition: all 0s;
         }
 
         .copy-button:hover {
             background-color: #005f9e;
+            /* Ensure no transition on hover */
+            transition: all 0s;
         }
     </style>
 </head>
