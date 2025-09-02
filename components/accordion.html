@@ -70,7 +70,7 @@
             min-height: 100vh;
             margin: 0;
             padding: 0;
-            padding-top: 100px; /* New: Add padding to account for the fixed header */
+            padding-top: 100px;
         }
 
         .page-wrapper {
@@ -92,9 +92,9 @@
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
-            top: 100px; /* New: Positioned below the fixed header */
+            top: 100px;
             left: 0;
-            height: calc(100vh - 100px); /* New: Fill the remaining viewport height */
+            height: calc(100vh - 100px);
             overflow-y: auto;
             z-index: 100;
         }
@@ -133,15 +133,19 @@
             transition: none;
         }
 
-        /* New: Fixed header styling */
         header.container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: white; /* Or your header's background color */
+            background-color: white;
             z-index: 200;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Centered the header menu */
+        nav.menu ul {
+            text-align: center;
         }
     </style>
 </head>
