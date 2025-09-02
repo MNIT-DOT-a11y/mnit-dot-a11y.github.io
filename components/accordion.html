@@ -69,6 +69,8 @@
             flex-direction: row;
             min-height: 100vh;
             margin: 0;
+            padding: 0;
+            padding-top: 100px; /* New: Add padding to account for the fixed header */
         }
 
         .page-wrapper {
@@ -83,28 +85,20 @@
             max-width: 900px;
             margin: 0 auto;
         }
-
+        
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
-            top: 100px; /* Positioned below the header */
+            top: 100px; /* New: Positioned below the fixed header */
             left: 0;
-            height: calc(100vh - 100px); /* Fill the remaining viewport height */
+            height: calc(100vh - 100px); /* New: Fill the remaining viewport height */
             overflow-y: auto;
             z-index: 100;
         }
 
-        .content-wrapper {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            margin-left: 250px; /* Offset for the fixed sidebar */
-            padding-left: 10px; /* Added spacing between sidebar and content */
-        }
-        
         .container {
             width: 100%;
             margin: 0;
@@ -138,6 +132,17 @@
             background-color: #005f9e;
             transition: none;
         }
+
+        /* New: Fixed header styling */
+        header.container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white; /* Or your header's background color */
+            z-index: 200;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 
@@ -145,7 +150,7 @@
 
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
-    <div class="content-wrapper">
+    <div class="page-wrapper">
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
