@@ -85,7 +85,7 @@
             max-width: 900px;
             margin: 0 auto;
         }
-
+        
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
@@ -141,24 +141,25 @@
             background-color: white;
             z-index: 200;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Center the header content */
         }
-        
+
         nav.menu {
-            display: inline-block; /* Allows nav to be centered */
+            display: flex; /* Using flexbox for better control */
+            justify-content: center; /* Centers items horizontally */
+            align-items: center; /* Centers items vertically */
+            padding: 10px 0; /* Add some padding for spacing */
         }
         
         nav.menu ul {
-            text-align: center;
-            display: inline-block;
-            list-style: none; /* Removed list styles */
+            display: flex; /* Use flexbox for the list items */
+            list-style: none;
             padding: 0;
             margin: 0;
+            align-items: center;
         }
         
         nav.menu li {
-            display: inline-block; /* Align list items horizontally */
-            margin: 0 10px; /* Add spacing between items */
+            margin: 0 10px;
         }
     </style>
 </head>
