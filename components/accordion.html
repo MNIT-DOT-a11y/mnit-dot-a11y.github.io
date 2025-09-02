@@ -142,25 +142,29 @@
             z-index: 200;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* New CSS for centering the header content */
-        header.container .menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        nav.menu {
+            text-align: center; /* Center the navigation content */
         }
         
-        header.container .menu ul {
-            display: flex;
+        nav.menu ul {
+            display: inline-block; /* Allows the ul to be centered */
             list-style: none;
             margin: 0;
             padding: 0;
         }
         
-        header.container .menu li.home {
-            margin-right: auto;
+        nav.menu ul li {
+            display: inline-block;
+            margin: 0 10px;
         }
 
+        /* Float the home logo to the left, so it doesn't get centered */
+        nav.menu ul li.home {
+            float: left;
+            margin-left: 20px;
+        }
     </style>
 </head>
 
