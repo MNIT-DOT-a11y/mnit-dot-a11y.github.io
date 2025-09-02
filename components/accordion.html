@@ -141,13 +141,15 @@
             background-color: white;
             z-index: 200;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            box-sizing: border-box;
         }
 
         nav.menu {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            position: relative;
+            width: 100%;
         }
 
         nav.menu ul {
@@ -155,6 +157,8 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-grow: 1;
+            justify-content: center;
         }
         
         nav.menu li {
@@ -162,8 +166,9 @@
         }
         
         nav.menu li.home {
-            position: absolute;
-            left: 0;
+            order: -1; /* Place the logo at the start of the flex container */
+            margin-left: 0;
+            margin-right: 20px;
         }
     </style>
 </head>
