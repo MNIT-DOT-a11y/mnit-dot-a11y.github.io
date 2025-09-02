@@ -80,7 +80,8 @@
             flex-grow: 1;
             padding: 20px;
             max-width: 900px;
-            margin: 0 auto; /* This centers the content horizontally */
+            /* Removed margin: 0 auto; from here */
+            margin: 0;
         }
 
         .sidebar-placeholder {
@@ -99,7 +100,9 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            margin-left: 250px; /* Account for the sidebar's width */
+            /* Changed margin-left to align the content right after the sidebar */
+            margin-left: 250px; 
+            padding-left: 20px;
         }
         
         .container {
@@ -128,8 +131,8 @@
             cursor: pointer;
             border-radius: 3px;
             font-size: 0.8em;
-            /* New method: setting transition duration to 0s */
-            transition: all 0s;
+            /* New method: Setting transition to none */
+            transition: none;
         }
 
         .copy-button:hover {
