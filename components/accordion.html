@@ -85,7 +85,7 @@
             max-width: 900px;
             margin: 0 auto;
         }
-        
+
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
@@ -141,35 +141,41 @@
             background-color: white;
             z-index: 200;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 20px;
+        }
+
+        /* --- Header Fixes Start --- */
+        nav#nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
             box-sizing: border-box;
         }
 
-        nav.menu {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        nav.menu ul {
+        nav#nav ul {
             display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
             flex-grow: 1;
             justify-content: center;
+            align-items: center;
+            position: relative;
         }
         
-        nav.menu li {
+        nav#nav ul li.home {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+        }
+
+        nav#nav ul li {
             margin: 0 10px;
         }
-        
-        nav.menu li.home {
-            order: -1; /* Place the logo at the start of the flex container */
-            margin-left: 0;
-            margin-right: 20px;
-        }
+        /* --- Header Fixes End --- */
     </style>
 </head>
 
