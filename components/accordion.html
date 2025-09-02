@@ -99,9 +99,26 @@
             text-decoration: underline;
         }
 
+        body {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            padding-top: 100px;
+        }
+
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
         .main-content {
-            margin-left: 270px;
+            flex-grow: 1;
             padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .sidebar-placeholder {
@@ -111,9 +128,88 @@
             border-right: 1px solid #ddd;
             position: fixed;
             top: 100px;
-            height: calc(100% - 100px);
+            left: 0;
+            height: calc(100vh - 100px);
             overflow-y: auto;
             z-index: 100;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .code-container {
+            position: relative;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #003865;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.8em;
+            transition: none;
+        }
+
+        .copy-button:hover {
+            background-color: #005f9e;
+            transition: none;
+        }
+
+        header.container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 200;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        nav.menu ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        nav.menu ul li {
+            margin: 0 10px;
+        }
+        
+        nav.menu ul li.home {
+            order: -1;
+            margin-left: 0;
+            margin-right: 20px;
+        }
+        
+        footer.container {
+            margin-left: 270px;
         }
     </style>
 
@@ -121,7 +217,6 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
@@ -150,10 +245,12 @@
                         </ul>
                     </li>
                 </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
             </nav>
         </header>
 
-         <main id="content" class="main-content">
+        <main id="content" class="main-content">
             <div class="container">
                 <div class="post-content">
                     <h1>Accordion Component</h1>
@@ -201,7 +298,6 @@
             </div>
         </main>
 
-
         <footer class="container" id="footer">
             <nav aria-label="Site map">
                 <ul>
@@ -217,15 +313,40 @@
             <p class="last-modified" id='last-modified'></p>
         </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
         $("body").removeClass("preload");
 
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling.querySelector('code');
+            navigator.clipboard.writeText(codeBlock.innerText)
+                .then(() => {
+                    button.textContent = "Copied!";
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    button.textContent = "Error";
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        button.textContent = "Copy";
+                    }, 2000);
+                });
+        }
+
+        document.querySelectorAll('.accordion').forEach(button => {
+            button.addEventListener('click', function() {
+                const panel = document.getElementById(this.getAttribute('aria-controls'));
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', String(!isExpanded));
+                panel.style.display = isExpanded ? 'none' : 'block';
+            });
+        });
+
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=alert-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=accordion-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
@@ -235,8 +356,7 @@
                     });
             }
         }
-        
-        // JavaScript to fetch and insert the sidebar
+
         document.addEventListener("DOMContentLoaded", function() {
             fetch('/assets/components-sidebar.html')
                 .then(response => response.text())
