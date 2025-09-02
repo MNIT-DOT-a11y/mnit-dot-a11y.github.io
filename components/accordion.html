@@ -63,32 +63,19 @@
             overflow: hidden;
             border: 1px solid #ccc;
         }
-        
+
+        /* Corrected layout to ensure proper spacing and sidebar positioning */
         body {
             display: flex;
             min-height: 100vh;
+            flex-direction: column;
             margin: 0;
-            padding: 0;
         }
 
-        .sidebar-placeholder {
-            width: 250px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-right: 1px solid #ddd;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            overflow-y: auto;
-            z-index: 100;
-        }
-        
-        .main-content-container {
-            flex-grow: 1;
-            padding-left: 250px; /* Offset for the fixed sidebar */
+        .page-wrapper {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex: 1;
         }
         
         .main-content {
@@ -96,6 +83,25 @@
             padding: 20px;
             max-width: 900px;
             margin: 0 auto;
+        }
+
+        .sidebar-placeholder {
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+        
+        .content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            padding-left: 20px; /* Increased padding by 10px */
         }
         
         .container {
@@ -138,7 +144,7 @@
 
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
-    <div class="main-content-container">
+    <div class="page-wrapper">
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
@@ -290,4 +296,4 @@
     </script>
 </body>
 
-</html>       
+</html>
