@@ -46,6 +46,7 @@
             font-size: 15px;
             color: #004085;
             box-sizing: border-box;
+            transition: background-color 0.4s;
         }
 
         .accordion.active,
@@ -79,8 +80,7 @@
             flex-grow: 1;
             padding: 20px;
             max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto; /* This centers the content horizontally */
         }
 
         .sidebar-placeholder {
@@ -99,12 +99,12 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            margin-left: 250px; /* Account for the fixed sidebar width */
+            margin-left: 250px; /* Account for the sidebar's width */
         }
         
         .container {
             width: 100%;
-            margin: 0 auto; /* Center the container content */
+            margin: 0;
             padding: 0;
         }
 
@@ -128,14 +128,14 @@
             cursor: pointer;
             border-radius: 3px;
             font-size: 0.8em;
-            /* New method to completely remove animation */
+            /* New method: setting transition duration to 0s */
             transition: all 0s;
         }
 
         .copy-button:hover {
             background-color: #005f9e;
             /* Ensure no transition on hover */
-            transition: all 0s;
+            transition: none;
         }
     </style>
 </head>
