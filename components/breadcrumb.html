@@ -24,13 +24,13 @@
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Breadcrumb Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible breadcrumb component. Includes source code, interactive example, and guidance.",
-        "headline": "Breadcrumb Component",
-        "url": "https://mnit-dot-a11y.github.io/breadcrumb-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible breadcrumb component. Includes source code, interactive example, and guidance.",
+            "headline": "Breadcrumb Component",
+            "url": "https://mnit-dot-a11y.github.io/breadcrumb-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -43,6 +43,7 @@
             flex-wrap: wrap;
             background-color: #f8f9fa;
             border-radius: 0.25rem;
+            align-items: center;
         }
 
         .breadcrumb-item {
@@ -54,7 +55,9 @@
         .breadcrumb-item + .breadcrumb-item::before {
             padding: 0 5px;
             color: #6c757d;
-            content: "/";
+            content: "\00BB"; /* A more modern chevron symbol */
+            font-size: 1.25rem;
+            line-height: 1;
         }
 
         .breadcrumb-item.active {
@@ -62,8 +65,11 @@
         }
 
         .main-content {
-            margin-left: 270px;
             padding: 20px;
+        }
+
+        .content-container {
+            margin-left: 270px;
         }
 
         .sidebar-placeholder {
@@ -77,159 +83,163 @@
             overflow-y: auto;
             z-index: 100;
         }
+
+        /* New styles for copy button */
+        .code-container {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
-    <header class="container">
-        <nav id="nav" class="menu" aria-label="Site menu">
-            <ul>
-                <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                <li class="web alpha"><a href="/web/">Web</a></li>
-                <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                <li class="native bravo"><a href="/demos/">Demos</a></li>
-                <li class="expander-group site-sub-group">
-                    <button class="expander-toggle" aria-expanded="false">More</button>
-                    <ul class="expander-content">
-                        <li><a href="/how-to-test/">How-to Test</a></li>
-                        <li><a href="/demos/">Demos</a></li>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
 
-    <main id="content" class="main-content">
-        <div class="container">
-            <div class="post-content">
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-                <h1>Breadcrumb Component</h1>
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
 
-                <p>This guide provides instructions for creating a breadcrumb component that meets accessibility standards.</p>
+                        <h1>Breadcrumb Component</h1>
 
-                <h2>Interactive Example</h2>
+                        <p>This guide provides instructions for creating a breadcrumb component that meets accessibility standards.</p>
 
-                <nav aria-label="breadcrumb">
+                        <h2>Interactive Example</h2>
 
-                    <ol class="breadcrumb">
+                        <nav aria-label="breadcrumb">
 
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <ol class="breadcrumb">
 
-                        <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
 
-                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                                <li class="breadcrumb-item"><a href="#">Library</a></li>
 
-                    </ol>
+                                <li class="breadcrumb-item active" aria-current="page">Data</li>
 
-                </nav>
+                            </ol>
 
-                <h2>Source Code</h2>
+                        </nav>
 
-                <pre><code>&lt;nav aria-label="breadcrumb"&gt;
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;nav aria-label="breadcrumb"&gt;
 
-    &lt;ol class="breadcrumb"&gt;
+  &lt;ol class="breadcrumb"&gt;
 
-        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
 
-        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
 
-        &lt;li class="breadcrumb-item active" aria-current="page"&gt;Data&lt;/li&gt;
+    &lt;li class="breadcrumb-item active" aria-current="page"&gt;Data&lt;/li&gt;
 
-    &lt;/ol&gt;
+  &lt;/ol&gt;
 
 &lt;/nav&gt;
-
 </code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
 
-                <h2>Guidance</h2>
+                        <h2>Guidance</h2>
 
-                <p>When using breadcrumb components, it is important to provide users with a clear and easy way to navigate back to previous sections of the site.</p>
+                        <p>When using breadcrumb components, it is important to provide users with a clear and easy way to navigate back to previous sections of the site.</p>
 
-                <ul>
+                        <ul>
 
-                    <li>Use breadcrumbs for hierarchical navigation.</li>
+                            <li>Use breadcrumbs for hierarchical navigation.</li>
 
-                    <li>Ensure links are distinct and clearly formatted.</li>
+                            <li>Ensure links are distinct and clearly formatted.</li>
 
-                    <li>Use <code>aria-current="page"</code> to indicate the current page for accessibility.</li>
+                            <li>Use <code>aria-current="page"</code> to indicate the current page for accessibility.</li>
 
-                    <li>Keep the breadcrumb path consistent with the site structure.</li>
+                            <li>Keep the breadcrumb path consistent with the site structure.</li>
 
-                </ul>
+                        </ul>
 
-                <h2>Accessibility Features</h2>
+                        <h2>Accessibility Features</h2>
 
-                <ul>
+                        <ul>
 
-                    <li>The breadcrumb uses <code>aria-label="breadcrumb"</code> to provide a label for assistive technologies.</li>
+                            <li>The breadcrumb uses <code>aria-label="breadcrumb"</code> to provide a label for assistive technologies.</li>
 
-                    <li>Each item is clearly defined, and the current page is marked with <code>aria-current="page"</code> to indicate the user's position.</li>
+                            <li>Each item is clearly defined, and the current page is marked with <code>aria-current="page"</code> to indicate the user's position.</li>
 
-                </ul>
+                        </ul>
 
-                <h2>Testing</h2>
+                        <h2>Testing</h2>
 
-                <p>To ensure the breadcrumb component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/breadcrumbs/" target="_blank">Breadcrumb Component Testing Checklist</a>.</p>
+                        <p>To ensure the breadcrumb component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/breadcrumbs/" target="_blank">Breadcrumb Component Testing Checklist</a>.</p>
 
-            </div>
+                    </div>
+                </div>
 
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
+
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
         </div>
-
-        <div class="print-container">
-
-            <button type="button" class="print-button" aria-label="Print this page">
-
-                <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-
-            </button>
-
-        </div>
-    </main>
-
-    <footer class="container" id="footer">
-
-        <nav aria-label="Site map">
-
-            <ul>
-
-                <li><a href="/about/">About</a></li>
-
-                <li><a href="/resources/">Resources</a></li>
-
-                <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                <li><a href="/site-map/">Site map</a></li>
-
-            </ul>
-
-        </nav>
-
-        <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-        <p class="last-modified" id='last-modified'></p>
-
-    </footer>
-
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
         $("body").removeClass("preload");
 
@@ -245,6 +255,7 @@
                     });
             }
         }
+        
         // JavaScript to fetch and insert the sidebar
         document.addEventListener("DOMContentLoaded", function() {
             fetch('/assets/components-sidebar.html')
@@ -256,8 +267,28 @@
                     console.error("Failed to load sidebar: ", err);
                 });
         });
-    </script>
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
+    </script>
 </body>
 
 </html>
