@@ -100,10 +100,13 @@
         }
 
         .main-content {
-            margin-left: 270px;
             padding: 20px;
         }
 
+        .content-container {
+            margin-left: 270px;
+        }
+        
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
@@ -121,7 +124,6 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
@@ -153,94 +155,95 @@
             </nav>
         </header>
 
-        <main id="content" class="main-content">
-            <div class="container">
-                <div class="post-content">
-                    <h1>Alert Component</h1>
-                    <p>An alert keeps users informed of important and sometimes time-sensitive changes.</p>
-                    <p>Passed WCAG 2.1 AA</p>
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Alert Component</h1>
+                        <p>An alert keeps users informed of important and sometimes time-sensitive changes.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-                    <h2>Component Preview</h2>
-                    <h3>Standard Alerts</h3>
-                    <div class="usa-alert usa-alert--info">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Informative status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <h2>Component Preview</h2>
+                        <h3>Standard Alerts</h3>
+                        <div class="usa-alert usa-alert--info">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Informative status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="usa-alert usa-alert--warning">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Warning status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <div class="usa-alert usa-alert--warning">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Warning status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="usa-alert usa-alert--success">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Success status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <div class="usa-alert usa-alert--success">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Success status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="usa-alert usa-alert--error" role="alert">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Error status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <div class="usa-alert usa-alert--error" role="alert">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Error status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="usa-alert usa-alert--emergency" role="alert">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Emergency status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <div class="usa-alert usa-alert--emergency" role="alert">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Emergency status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <h3>Slim Alert</h3>
-                    <div class="usa-alert usa-alert--info usa-alert--slim">
-                        <div class="usa-alert__body">
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <h3>Slim Alert</h3>
+                        <div class="usa-alert usa-alert--info usa-alert--slim">
+                            <div class="usa-alert__body">
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <h3>Alert with No Icon</h3>
-                    <div class="usa-alert usa-alert--info usa-alert--no-icon">
-                        <div class="usa-alert__body">
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <h3>Alert with No Icon</h3>
+                        <div class="usa-alert usa-alert--info usa-alert--no-icon">
+                            <div class="usa-alert__body">
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <h2>Component Code</h2>
-                    <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard alerts&lt;/h3&gt;
+                        <h2>Component Code</h2>
+                        <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard alerts&lt;/h3&gt;
 
 &lt;div class="usa-alert usa-alert--info"&gt;
 
@@ -384,44 +387,45 @@
 
 </code></pre>
 
-                    <h2>Guidance</h2>
+                        <h2>Guidance</h2>
 
-                    <h3>When to use the alert component</h3>
-                    <ul>
-                        <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
-                        <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
-                    </ul>
+                        <h3>When to use the alert component</h3>
+                        <ul>
+                            <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
+                            <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
+                        </ul>
 
-                    <h3>When to consider something else</h3>
-                    <ul>
-                      <li>**Small, temporary status messages.** For temporary status messages, consider using a different component, such as an inline banner.</li>
-                      <li>**In-page messages.** For a large amount of in-page information, consider using an inline text.</li>
-                    </ul>
+                        <h3>When to consider something else</h3>
+                        <ul>
+                            <li><strong>Small, temporary status messages.</strong> For temporary status messages, consider using a different component, such as an inline banner.</li>
+                            <li><strong>In-page messages.</strong> For a large amount of in-page information, consider using an inline text.</li>
+                        </ul>
 
+                    </div>
                 </div>
-            </div>
 
-            <div class="print-container">
-                <button type="button" class="print-button" aria-label="Print this page">
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                </button>
-            </div>
-        </main>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-        <footer class="container" id="footer">
-            <nav aria-label="Site map">
-                <ul>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/resources/">Resources</a></li>
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                    <li><a href="/site-map/">Site map</a></li>
-                </ul>
-            </nav>
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-            <p class="last-modified" id='last-modified'></p>
-        </footer>
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
