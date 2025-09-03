@@ -100,10 +100,13 @@
         }
 
         .main-content {
-            margin-left: 270px;
             padding: 20px;
         }
 
+        .content-container {
+            margin-left: 270px;
+        }
+        
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
@@ -115,13 +118,28 @@
             overflow-y: auto;
             z-index: 100;
         }
+
+        .code-container {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
@@ -153,50 +171,52 @@
             </nav>
         </header>
 
-        <main id="content" class="main-content">
-            <div class="container">
-                <div class="post-content">
-                    <h1>Banner Component</h1>
-                    <p>A banner is used to display an important message to users on a webpage, often used for announcements or alerts.</p>
-                    <p>Passed WCAG 2.1 AA</p>
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Banner Component</h1>
+                        <p>A banner is used to display an important message to users on a webpage, often used for announcements or alerts.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-                    <h2>Component Preview</h2>
-                    <h3>Standard Banners</h3>
-                    <div class="usa-alert usa-alert--info">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Informative status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <h2>Component Preview</h2>
+                        <h3>Standard Banners</h3>
+                        <div class="usa-alert usa-alert--info">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Informative status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="usa-alert usa-alert--warning">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Warning status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <div class="usa-alert usa-alert--warning">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Warning status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="usa-alert usa-alert--success">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Success status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
+                        <div class="usa-alert usa-alert--success">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Success status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <h2>Component Code</h2>
-                    <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard banners&lt;/h3&gt;
+                        <h2>Component Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard banners&lt;/h3&gt;
 
 &lt;div class="usa-alert usa-alert--info"&gt;
 
@@ -259,54 +279,57 @@
 &lt;/div&gt;
 
 </code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
 
-                    <h2>Guidance</h2>
+                        <h2>Guidance</h2>
 
-                    <h3>When to use the banner component</h3>
-                    <ul>
-                        <li><strong>Announcements.</strong> Use banners to announce new features or important updates to users.</li>
-                        <li><strong>Critical messages.</strong> Deliver critical information that needs immediate attention.</li>
-                    </ul>
+                        <h3>When to use the banner component</h3>
+                        <ul>
+                            <li><strong>Announcements.</strong> Use banners to announce new features or important updates to users.</li>
+                            <li><strong>Critical messages.</strong> Deliver critical information that needs immediate attention.</li>
+                        </ul>
 
-                    <h3>Usability tips</h3>
-                    <ul>
-                        <li><strong>Clarity is key.</strong> Ensure the message is clear and concise to convey the main point quickly.</li>
-                        <li><strong>Effective design.</strong> Use contrasting colors to ensure the banner stands out on the page without being jarring.</li>
-                    </ul>
+                        <h3>Usability tips</h3>
+                        <ul>
+                            <li><strong>Clarity is key.</strong> Ensure the message is clear and concise to convey the main point quickly.</li>
+                            <li><strong>Effective design.</strong> Use contrasting colors to ensure the banner stands out on the page without being jarring.</li>
+                        </ul>
 
-                    <h3>Accessibility guidance</h3>
-                    <p>Ensure your banner component is accessible by providing text alternatives and using proper ARIA roles.</p>
-                    <ul>
-                        <li>Utilize <code>role="banner"</code> for defining the component and enhance discoverability for assistive technologies.</li>
-                    </ul>
+                        <h3>Accessibility guidance</h3>
+                        <p>Ensure your banner component is accessible by providing text alternatives and using proper ARIA roles.</p>
+                        <ul>
+                            <li>Utilize <code>role="banner"</code> for defining the component and enhance discoverability for assistive technologies.</li>
+                        </ul>
 
-                    <h2>Testing</h2>
-                    <p>To ensure the banner component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/banner/" target="_blank">Banner Component Testing Checklist</a>.</p>
+                        <h2>Testing</h2>
+                        <p>To ensure the banner component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/banner/" target="_blank">Banner Component Testing Checklist</a>.</p>
 
+                    </div>
                 </div>
-            </div>
 
-            <div class="print-container">
-                <button type="button" class="print-button" aria-label="Print this page">
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                </button>
-            </div>
-        </main>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-        <footer class="container" id="footer">
-            <nav aria-label="Site map">
-                <ul>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/resources/">Resources</a></li>
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                    <li><a href="/site-map/">Site map</a></li>
-                </ul>
-            </nav>
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-            <p class="last-modified" id='last-modified'></p>
-        </footer>
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -338,6 +361,27 @@
                     console.error("Failed to load sidebar: ", err);
                 });
         });
+
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
 </body>
 
