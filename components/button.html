@@ -46,6 +46,7 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
+            /* Removed transition for animation effects */
         }
 
         .usa-button--primary {
@@ -74,6 +75,32 @@
             padding: 0;
         }
 
+        /* Removed hover/focus styles that caused animation if they existed */
+        .usa-button--primary:hover,
+        .usa-button--primary:focus {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .usa-button--secondary:hover,
+        .usa-button--secondary:focus {
+            background-color: #545b62;
+            border-color: #545b62;
+        }
+
+        .usa-button--outline:hover,
+        .usa-button--outline:focus {
+            background-color: #e6f2ff;
+            color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .usa-button--link:hover,
+        .usa-button--link:focus {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
         .main-content {
             padding: 20px;
         }
@@ -94,7 +121,7 @@
             z-index: 100;
         }
 
-        /* New styles for copy button */
+        /* Styles for copy button */
         .code-container {
             position: relative;
         }
