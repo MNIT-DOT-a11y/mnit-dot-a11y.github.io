@@ -46,7 +46,7 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            /* Removed transition for animation effects */
+            transition: none; /* Explicitly remove transitions */
         }
 
         .usa-button--primary {
@@ -75,7 +75,6 @@
             padding: 0;
         }
 
-        /* Removed hover/focus styles that caused animation if they existed */
         .usa-button--primary:hover,
         .usa-button--primary:focus {
             background-color: #0056b3;
