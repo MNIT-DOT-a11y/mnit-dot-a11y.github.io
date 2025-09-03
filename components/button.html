@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .custom-button {
+        .usa-button {
             padding: 10px 20px;
             margin: 5px;
             border: 1px solid transparent;
@@ -48,45 +48,34 @@
             display: inline-block;
             transition: none !important;
         }
+        
+        /* New rules to remove pseudo-element content */
+        .usa-button::before, .usa-button::after {
+            content: none !important;
+        }
+        .copy-button::before, .copy-button::after {
+            content: none !important;
+        }
 
-        .custom-button--primary {
+        .usa-button--primary {
             background-color: #007bff;
             color: #fff;
             border-color: #007bff;
         }
 
-        .custom-button--primary:hover,
-        .custom-button--primary:focus {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-
-        .custom-button--secondary {
+        .usa-button--secondary {
             background-color: #6c757d;
             color: #fff;
             border-color: #6c757d;
         }
 
-        .custom-button--secondary:hover,
-        .custom-button--secondary:focus {
-            background-color: #545b62;
-            border-color: #545b62;
-        }
-
-        .custom-button--outline {
+        .usa-button--outline {
             background-color: #fff;
             color: #007bff;
             border-color: #007bff;
         }
 
-        .custom-button--outline:hover,
-        .custom-button--outline:focus {
-            background-color: #e6f2ff;
-            color: #0056b3;
-            border-color: #0056b3;
-        }
-
-        .custom-button--link {
+        .usa-button--link {
             background: none;
             border: none;
             color: #007bff;
@@ -94,8 +83,27 @@
             padding: 0;
         }
 
-        .custom-button--link:hover,
-        .custom-button--link:focus {
+        .usa-button--primary:hover,
+        .usa-button--primary:focus {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .usa-button--secondary:hover,
+        .usa-button--secondary:focus {
+            background-color: #545b62;
+            border-color: #545b62;
+        }
+
+        .usa-button--outline:hover,
+        .usa-button--outline:focus {
+            background-color: #e6f2ff;
+            color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .usa-button--link:hover,
+        .usa-button--link:focus {
             color: #0056b3;
             text-decoration: none;
         }
@@ -183,19 +191,19 @@
 
                         <h2>Component Preview</h2>
                         <h3>Standard Buttons</h3>
-                        <button class="custom-button custom-button--primary">Primary Button</button>
-                        <button class="custom-button custom-button--secondary">Secondary Button</button>
-                        <button class="custom-button custom-button--outline">Outline Button</button>
-                        <button class="custom-button custom-button--link">Link Button</button>
+                        <button class="usa-button usa-button--primary">Primary Button</button>
+                        <button class="usa-button usa-button--secondary">Secondary Button</button>
+                        <button class="usa-button usa-button--outline">Outline Button</button>
+                        <button class="usa-button usa-button--link">Link Button</button>
 
                         <h2>Component Code</h2>
                         <div class="code-container">
                             <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard buttons&lt;/h3&gt;
 
-&lt;button class="custom-button custom-button--primary"&gt;Primary Button&lt;/button&gt;
-&lt;button class="custom-button custom-button--secondary"&gt;Secondary Button&lt;/button&gt;
-&lt;button class="custom-button custom-button--outline"&gt;Outline Button&lt;/button&gt;
-&lt;button class="custom-button custom-button--link"&gt;Link Button&lt;/button&gt;
+&lt;button class="usa-button usa-button--primary"&gt;Primary Button&lt;/button&gt;
+&lt;button class="usa-button usa-button--secondary"&gt;Secondary Button&lt;/button&gt;
+&lt;button class="usa-button usa-button--outline"&gt;Outline Button&lt;/button&gt;
+&lt;button class="usa-button usa-button--link"&gt;Link Button&lt;/button&gt;
 </code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
