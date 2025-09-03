@@ -10,64 +10,76 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Accessible Button - MNIT DOT A11y</title>
+    <title>Button Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Accessible Button" />
+    <meta property="og:title" content="Button Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible button component. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating an accessible button component. Includes source code and interactive example." />
+    <meta name="description" content="Guide to creating an accessible button component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible button component. Includes source code, interactive example, and guidance." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/button-component/" />
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/button-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Accessible Button" />
+    <meta property="twitter:title" content="Button Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible button component. Includes source code and interactive example.",
-        "headline": "Accessible Button",
-        "url": "https://mnit-dot-a11y.github.io/button-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible button component. Includes source code, interactive example, and guidance.",
+            "headline": "Button Component",
+            "url": "https://mnit-dot-a11y.github.io/button-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         .usa-button {
-            display: inline-block;
-            padding: 0.5em 1em;
-            margin: 0.5em;
-            border-radius: 0.25em;
-            font-size: 1em;
+            padding: 10px 20px;
+            margin: 5px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
             text-align: center;
             text-decoration: none;
-            color: #ffffff;
-            background-color: #0071bc;
+            display: inline-block;
+        }
+
+        .usa-button--primary {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+        .usa-button--secondary {
+            background-color: #6c757d;
+            color: #fff;
+            border-color: #6c757d;
+        }
+
+        .usa-button--outline {
+            background-color: #fff;
+            color: #007bff;
+            border-color: #007bff;
+        }
+
+        .usa-button--link {
+            background: none;
             border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .usa-button:hover {
-            background-color: #005a97;
-        }
-
-        .usa-button:focus {
-            outline: 2px solid #ffcc33;
-            outline-offset: 2px;
-        }
-
-        .usa-button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
+            color: #007bff;
+            text-decoration: underline;
+            padding: 0;
         }
 
         .main-content {
-            margin-left: 270px;
             padding: 20px;
+        }
+
+        .content-container {
+            margin-left: 270px;
         }
 
         .sidebar-placeholder {
@@ -81,17 +93,32 @@
             overflow-y: auto;
             z-index: 100;
         }
+
+        /* New styles for copy button */
+        .code-container {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
@@ -120,91 +147,87 @@
             </nav>
         </header>
 
-        <main id="content" class="main-content">
-            <div class="container">
-                <div class="post-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Button Component</h1>
+                        <p>Buttons are used for user-initiated actions and should clearly indicate their purpose to the user.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-                    <h1>Accessible Button</h1>
+                        <h2>Component Preview</h2>
+                        <h3>Standard Buttons</h3>
+                        <button class="usa-button usa-button--primary">Primary Button</button>
+                        <button class="usa-button usa-button--secondary">Secondary Button</button>
+                        <button class="usa-button usa-button--outline">Outline Button</button>
+                        <button class="usa-button usa-button--link">Link Button</button>
 
-                    <p>This guide provides instructions for creating a button component that meets accessibility standards.</p>
+                        <h2>Component Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard buttons&lt;/h3&gt;
 
-                    <h2>Interactive Example</h2>
+&lt;button class="usa-button usa-button--primary"&gt;Primary Button&lt;/button&gt;
+&lt;button class="usa-button usa-button--secondary"&gt;Secondary Button&lt;/button&gt;
+&lt;button class="usa-button usa-button--outline"&gt;Outline Button&lt;/button&gt;
+&lt;button class="usa-button usa-button--link"&gt;Link Button&lt;/button&gt;
+</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
 
-                    <button class="usa-button" type="button">Default</button>
+                        <h2>Guidance</h2>
+                        <p>Use buttons to perform an action on the current page, such as submitting a form, toggling a section, or triggering a dialog. Avoid using buttons to navigate to a new page; use a link for that purpose.</p>
+                        
+                        <h3>When to use the button component</h3>
+                        <ul>
+                            <li><strong>Form submission.</strong> Buttons are the standard for submitting form data.</li>
+                            <li><strong>Interactive actions.</strong> Use buttons to show/hide content, open a modal dialog, or play/pause media.</li>
+                        </ul>
 
-                    <button class="usa-button" type="button" disabled>Disabled</button>
+                        <h3>Usability tips</h3>
+                        <ul>
+                            <li><strong>Clear labels.</strong> The text within the button should clearly describe the action that will occur, e.g., "Submit", "Save", "Cancel", "Send".</li>
+                            <li><strong>Visible focus.</strong> Ensure buttons have a clear, visible focus state for keyboard users.</li>
+                        </ul>
 
-                    <h2>Source Code</h2>
+                        <h2>Accessibility Features</h2>
+                        <ul>
+                            <li><strong>Semantic HTML.</strong> The `&lt;button&gt;` element is inherently accessible to assistive technologies.</li>
+                            <li><strong>Keyboard operable.</strong> Buttons are focusable and can be activated using the Enter or Space key.</li>
+                        </ul>
 
-                    <pre><code>&lt;button class="usa-button" type="button"&gt;Default&lt;/button&gt;
-
-&lt;button class="usa-button" type="button" disabled&gt;Disabled&lt;/button&gt;</code></pre>
-
-                    <h2>Guidance</h2>
-
-                    <ul>
-
-                        <li>Use buttons for the most important actions like <strong>Download</strong>, <strong>Sign up</strong>, or <strong>Log out</strong>.</li>
-
-                        <li>Ensure the button displays a visible focus state when users tab to them.</li>
-
-                        <li>Avoid using non-semantic tags like <code>&lt;div&gt;</code> or <code>&lt;img&gt;</code> for buttons.</li>
-
-                        <li>Use the <code>type</code> attribute to define the button's behavior.</li>
-
-                        <li>Use <code>disabled</code> or <code>aria-disabled</code> to signify disabled buttons.</li>
-
-                    </ul>
-
-                    <h2>Accessibility Features</h2>
-
-                    <ul>
-
-                        <li>Buttons are designed to be keyboard-accessible and have clear focus indicators.</li>
-
-                        <li>Color contrast meets WCAG 2.1 AA standards to ensure visibility for users with visual impairments.</li>
-
-                        <li>Disabled buttons are visually distinct to indicate they cannot be interacted with.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the button component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/button/" target="_blank">Button Component Testing Checklist</a>.</p>
+                        <h2>Testing</h2>
+                        <p>To ensure the button component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/button/" target="_blank">Button Component Testing Checklist</a>.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="print-container">
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-                <button type="button" class="print-button" aria-label="Print this page">
-
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-
-                </button>
-
-            </div>
-
-        </main>
-
-        <footer class="container" id="footer">
-            <nav aria-label="Site map">
-                <ul>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/resources/">Resources</a></li>
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                    <li><a href="/site-map/">Site map</a></li>
-                </ul>
-            </nav>
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-            <p class="last-modified" id='last-modified'></p>
-        </footer>
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
-        $("body").removeClass("preload"); // Prevents animations on page load
+        $("body").removeClass("preload");
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
@@ -218,6 +241,7 @@
                     });
             }
         }
+        
         // JavaScript to fetch and insert the sidebar
         document.addEventListener("DOMContentLoaded", function() {
             fetch('/assets/components-sidebar.html')
@@ -229,6 +253,27 @@
                     console.error("Failed to load sidebar: ", err);
                 });
         });
+
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
 </body>
 
