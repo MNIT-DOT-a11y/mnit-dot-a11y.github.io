@@ -97,7 +97,6 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
@@ -137,29 +136,29 @@
                         <p>Icons are a visual way to represent actions, concepts, or status. For accessibility, icons should always have a text-based alternative or be hidden from screen readers if they are purely decorative.</p>
 
                         <h2>Interactive Example</h2>
-                        <div class="icon-container">
-                            <div class="icon-item" aria-label="Success icon">
-                                <i class="fa-solid fa-circle-check" style="color: #28a745;"></i>
-                            </div>
-                            <div class="icon-item" aria-label="Warning icon">
-                                <i class="fa-solid fa-triangle-exclamation" style="color: #ffc107;"></i>
-                            </div>
-                            <div class="icon-item" aria-label="Error icon">
-                                <i class="fa-solid fa-circle-xmark" style="color: #dc3545;"></i>
-                            </div>
-                        </div>
+<div class="icon-container">
+    <div class="icon-item">
+        <i class="fa-solid fa-circle-check" style="color: #28a745;" role="img" aria-label="Success icon" aria-hidden="true"></i>
+    </div>
+    <div class="icon-item">
+        <i class="fa-solid fa-triangle-exclamation" style="color: #ffc107;" role="img" aria-label="Warning icon" aria-hidden="true"></i>
+    </div>
+    <div class="icon-item">
+        <i class="fa-solid fa-circle-xmark" style="color: #dc3545;" role="img" aria-label="Error icon" aria-hidden="true"></i>
+    </div>
+</div>
 
                         <h2>Source Code</h2>
                         <div class="code-container">
                             <pre><code>&lt;div class="icon-container"&gt;
-  &lt;div class="icon-item" aria-label="Success icon"&gt;
-    &lt;i class="fa-solid fa-circle-check" style="color: #28a745;"&gt;&lt;/i&gt;
+  &lt;div class="icon-item"&gt;
+    &lt;i class="fa-solid fa-circle-check" style="color: #28a745;" aria-label="Success icon"&gt;&lt;/i&gt;
   &lt;/div&gt;
-  &lt;div class="icon-item" aria-label="Warning icon"&gt;
-    &lt;i class="fa-solid fa-triangle-exclamation" style="color: #ffc107;"&gt;&lt;/i&gt;
+  &lt;div class="icon-item"&gt;
+    &lt;i class="fa-solid fa-triangle-exclamation" style="color: #ffc107;" aria-label="Warning icon"&gt;&lt;/i&gt;
   &lt;/div&gt;
-  &lt;div class="icon-item" aria-label="Error icon"&gt;
-    &lt;i class="fa-solid fa-circle-xmark" style="color: #dc3545;"&gt;&lt;/i&gt;
+  &lt;div class="icon-item"&gt;
+    &lt;i class="fa-solid fa-circle-xmark" style="color: #dc3545;" aria-label="Error icon"&gt;&lt;/i&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
