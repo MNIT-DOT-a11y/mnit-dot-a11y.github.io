@@ -3,294 +3,271 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
-    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
-    <meta name="theme-color" content="#003865">
-    <meta name="robots" content="noindex">
-    <title>Button Group - MNIT DOT A11y</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Button Group - MNIT DOT A11y</title>
 
-    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        .padding-1 {
-            padding: 1rem;
+    <style>
+        .padding-1 {
+            padding: 1rem;
+        }
+        
+        .main-content {
+            padding: 20px;
+        }
+
+        .content-container {
+            margin-left: 270px;
+        }
+        
+        .sidebar-placeholder {
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 100px;
+            height: calc(100% - 100px);
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
         }
-        
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
         }
-        
-        .sidebar-placeholder {
-            width: 250px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            height: calc(100% - 100px);
-            overflow-y: auto;
-            z-index: 100;
+
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
         }
-    </style>
+    </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
-    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
+        <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
-    <div class="page-wrapper">
+    <div class="page-wrapper">
 
-        <div class="skip-links container">
-            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
-        </div>
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
 
-        <header class="container">
-            <nav id="nav" class="menu" aria-label="Site menu">
-                <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
-                    <li class="expander-group site-sub-group">
-                        <button class="expander-toggle" aria-expanded="false">More</button>
-                        <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
 
-            <div class="container">
+                <div class="container">
 
-                <div class="post-content">
+                    <div class="post-content">
 
-                    <h1>Button Group</h1>
+                        <h1>Button Group</h1>
 
-                    <p>A button group collects similar or related actions.</p>
+                        <p>A button group collects similar or related actions.</p>
 
-                    <p>Passed WCAG 2.1 AA</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-                    <h2>Default Button Group</h2>
+                        <h2>Default Button Group</h2>
 
-                    <p>The default button group arranges each button as a separate element with a gap between them. On mobile devices, the buttons are arranged vertically.</p>
+                        <p>The default button group arranges each button as a separate element with a gap between them. On mobile devices, the buttons are arranged vertically.</p>
 
-                    <h3>Component Preview</h3>
+                        <h3>Component Preview</h3>
 
-                    <ul class="usa-button-group">
-                        <li class="usa-button-group__item">
-                            <a href="#" class="usa-button usa-button--outline">Back</a>
-                        </li>
-                        <li class="usa-button-group__item">
-                            <button type="button" class="usa-button">Continue</button>
-                        </li>
-                    </ul>
+                        <ul class="usa-button-group">
+                            <li class="usa-button-group__item">
+                                <a href="#" class="usa-button usa-button--outline">Back</a>
+                            </li>
+                            <li class="usa-button-group__item">
+                                <button type="button" class="usa-button">Continue</button>
+                            </li>
+                        </ul>
 
-                    <h3>Component Code</h3>
+                        <h3>Component Code</h3>
 
-                    <pre><code>&lt;ul class="usa-button-group"&gt;
-  &lt;li class="usa-button-group__item"&gt;
-    &lt;a href="#" class="usa-button usa-button--outline"&gt;Back&lt;/a&gt;
-  &lt;/li&gt;
-  &lt;li class="usa-button-group__item"&gt;
-    &lt;button type="button" class="usa-button"&gt;Continue&lt;/button&gt;
-  &lt;/li&gt;
+                        <div class="code-container">
+                            <pre><code>&lt;ul class="usa-button-group"&gt;
+  &lt;li class="usa-button-group__item"&gt;
+    &lt;a href="#" class="usa-button usa-button--outline"&gt;Back&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class="usa-button-group__item"&gt;
+    &lt;button type="button" class="usa-button"&gt;Continue&lt;/button&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
 
-                    <h2>Guidance</h2>
+                        <h2>Guidance</h2>
 
-                    <h3>When to Use the Default Button Group</h3>
+                        <h3>When to Use the Default Button Group</h3>
 
-                    <ul>
-                        <li><strong>Actions have a contextual relationship.</strong> For example, the default button group can be used when a form has both a primary and alternative action.</li>
-                        <li><strong>Stepping through linear content.</strong> Buttons in a button group can be used for directional navigation and actions (e.g., “Back,” “Next,” “Continue,” “Skip,” “Cancel.”).</li>
-                    </ul>
+                        <ul>
+                            <li><strong>Actions have a contextual relationship.</strong> For example, the default button group can be used when a form has both a primary and alternative action.</li>
+                            <li><strong>Stepping through linear content.</strong> Buttons in a button group can be used for directional navigation and actions (e.g., “Back,” “Next,” “Continue,” “Skip,” “Cancel.”).</li>
+                        </ul>
 
-                    <h3>When to Consider Something Else</h3>
+                        <h3>When to Consider Something Else</h3>
 
-                    <ul>
-                        <li><strong>If actions are not related.</strong> Consider how placement and alternative structure of unrelated actions can improve usability over placing all actions in a group.</li>
-                        <li><strong>When mixing destructive and non-destructive actions.</strong> This can lead to input mistakes.</li>
-                        <li><strong>Linking to content.</strong> Buttons in button groups should not be used when text links would be simpler and more contextually appropriate. Grouped buttons such as “Next” and “Previous” are acceptable when content is organized sequentially.</li>
-                    </ul>
+                        <ul>
+                            <li><strong>If actions are not related.</strong> Consider how placement and alternative structure of unrelated actions can improve usability over placing all actions in a group.</li>
+                            <li><strong>When mixing destructive and non-destructive actions.</strong> This can lead to input mistakes.</li>
+                            <li><strong>Linking to content.</strong> Buttons in button groups should not be used when text links would be simpler and more contextually appropriate. Grouped buttons such as “Next” and “Previous” are acceptable when content is organized sequentially.</li>
+                        </ul>
 
-                    <h3>Usability Guidance</h3>
+                        <h3>Usability Guidance</h3>
 
-                    <ul>
-                        <li><strong>Avoid burden of choice.</strong> Try not to present the user with too many options.</li>
-                    </ul>
+                        <ul>
+                            <li><strong>Avoid burden of choice.</strong> Try not to present the user with too many options.</li>
+                        </ul>
 
-                    <h3>Accessibility Guidance</h3>
+                        <h3>Accessibility Guidance</h3>
 
-                    <p>Test the button group component in your own project.</p>
+                        <p>Test the button group component in your own project.</p>
 
-                    <ul>
-                        <li><strong>Convey relationship.</strong> If not using a list element, give the parent element <code>role="group"</code> in order to convey to screen readers that actions are part of a group. If using as part of a toolbar, use <code>role="toolbar"</code>.</li>
-                    </ul>
+                        <ul>
+                            <li><strong>Convey relationship.</strong> If not using a list element, give the parent element <code>role="group"</code> in order to convey to screen readers that actions are part of a group. If using as part of a toolbar, use <code>role="toolbar"</code>.</li>
+                            <li><strong>Use <code>aria-label</code> to give the buttons a useful name.</strong> Some contexts may require additional context provided to screen readers.</li>
+                            <li><strong>Use the <code>&lt;button type="button"&gt;</code> element.</strong> Don’t use <code>&lt;a&gt;</code> because it’s a link. Don’t use <code>&lt;span&gt;</code> because screen readers won’t know it’s a usable button.</li>
+                        </ul>
 
-                    <h3>Using the Default Button Group</h3>
+                        <h3>Using the Segmented Button Group</h3>
 
-                    <ul>
-                        <li>Buttons inside of a button group follow the same guidelines as the button component.</li>
-                        <li>Button groups support any style and size.</li>
-                        <li>Because the button group uses <code>flexbox</code>, there are several ways to modify how the default button group is displayed.
-                            <ul>
-                                <li>The default button group will display as a column on smaller screen sizes. To override this behavior and display buttons in a row for all screen sizes, use the <code>flex-row</code> utility.</li>
-                                <li>On smaller screens, the first button in the source order will appear at the top of column. You can change this behavior using the order utility. The <code>order</code> utility includes responsive advanced settings that allow it to target specific screen sizes.</li>
-                                <li>Instead of each button appearing on the left-hand side on larger screens (or if you used flex-row), you can use <code>flex-justify</code> to justify the buttons.</li>
-                            </ul>
-                        </li>
-                    </ul>
+                        <ul>
+                            <li>Buttons inside of a button group follow the same guidelines as the button component.</li>
+                            <li>Button groups support any style and size.</li>
+                            <li>Don’t mix differently-sized buttons (like a default button and a big button) in the same group.</li>
+                            <li>Use short, descriptive button labels to describe controls.</li>
+                            <li>Use default buttons as a current state and outline buttons as a non-current state. The segmented button group works with all button variants. However, you may need to create custom styles to distinguish state for some button variants.</li>
+                        </ul>
 
-                    <h2>Segmented Button Group</h2>
+                        <h2>Testing</h2>
+                        <p>To ensure the button group component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/button-group/" target="_blank">Button Group Component Testing Checklist</a>.</p>
 
-                    <p>Segmented button groups display a set of discrete buttons in a row as a single element.</p>
+                    </div>
+                </div>
 
-                    <h3>Component Preview</h3>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-                    <ul class="usa-button-group usa-button-group--segmented">
-                        <li class="usa-button-group__item">
-                            <button type="button" class="usa-button">Map</button>
-                        </li>
-                        <li class="usa-button-group__item">
-                            <button type="button" class="usa-button usa-button--outline">Hybrid</button>
-                        </li>
-                        <li class="usa-button-group__item">
-                            <button type="button" class="usa-button usa-button--outline">Satellite</button>
-                        </li>
-                    </ul>
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
+    </div>
 
-                    <h3>Component Code</h3>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload");
 
-                    <pre><code>&lt;ul class="usa-button-group usa-button-group--segmented"&gt;
-  &lt;li class="usa-button-group__item"&gt;
-    &lt;button type="button" class="usa-button"&gt;Map&lt;/button&gt;
-  &lt;/li&gt;
-  &lt;li class="usa-button-group__item"&gt;
-    &lt;button type="button" class="usa-button usa-button--outline"&gt;Hybrid&lt;/button&gt;
-  &lt;/li&gt;
-  &lt;li class="usa-button-group__item"&gt;
-    &lt;button type="button" class="usa-button usa-button--outline"&gt;Satellite&lt;/button&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=button-group-component.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
+            }
+        }
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
+                });
+        });
 
-                    <h3>Guidance</h3>
-
-                    <h4>When to Use the Segmented Button Group</h4>
-
-                    <ul>
-                        <li><strong>Categorically related controls.</strong> For example, segmented buttons can be used as a switch between different views.</li>
-                    </ul>
-
-                    <h4>When to Consider Something Else</h4>
-
-                    <ul>
-                        <li><strong>No clear relationship.</strong> Consider how placement and alternative structure of unrelated controls can improve usability over placing all actions in a group.</li>
-                        <li><strong>If there are more than three buttons.</strong> Be mindful of how a long list of buttons might appear on small screens. An alternative type of control might be more suitable.</li>
-                    </ul>
-
-                    <h3>Usability Guidance</h3>
-
-                    <ul>
-                        <li><strong>Avoid ambiguity of current state.</strong> Make sure current states are clearly communicated and understood.</li>
-                    </ul>
-
-                    <h3>Accessibility Guidance</h3>
-
-                    <p>Test the button group component in your own project.</p>
-
-                    <ul>
-                        <li><strong>Convey relationship.</strong> If not using a list element, give the parent element <code>role="group"</code> in order to convey to screen readers that actions are part of a group. If using as part of a toolbar, use <code>role="toolbar"</code>.</li>
-                        <li><strong>Use <code>aria-label</code> to give the buttons a useful name.</strong> Some contexts may require additional context provided to screen readers.</li>
-                        <li><strong>Use the <code>&lt;button type="button"&gt;</code> element.</strong> Don’t use <code>&lt;a&gt;</code> because it’s a link. Don’t use <code>&lt;span&gt;</code> because screen readers won’t know it’s a usable button.</li>
-                    </ul>
-
-                    <h3>Using the Segmented Button Group</h3>
-
-                    <ul>
-                        <li>Buttons inside of a button group follow the same guidelines as the button component.</li>
-                        <li>Button groups support any style and size.</li>
-                        <li>Don’t mix differently-sized buttons (like a default button and a big button) in the same group.</li>
-                        <li>Use short, descriptive button labels to describe controls.</li>
-                        <li>Use default buttons as a current state and outline buttons as a non-current state. The segmented button group works with all button variants. However, you may need to create custom styles to distinguish state for some button variants.</li>
-                    </ul>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the button group component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/button-group/" target="_blank">Button Group Component Testing Checklist</a>.</p>
-
-                </div>
-            </div>
-
-            <div class="print-container">
-                <button type="button" class="print-button" aria-label="Print this page">
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                </button>
-            </div>
-        </main>
-
-        <footer class="container" id="footer">
-            <nav aria-label="Site map">
-                <ul>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/resources/">Resources</a></li>
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                    <li><a href="/site-map/">Site map</a></li>
-                </ul>
-            </nav>
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-            <p class="last-modified" id='last-modified'></p>
-        </footer>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/assets/scripts/index.js?1736284235"></script>
-    <script>
-        $("body").removeClass("preload");
-
-        function setModifiedDate() {
-            if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=button-group-component.md")
-                    .then(response => response.json())
-                    .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                        if (modified != "") {
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-                        }
-                    });
-            }
-        }
-        // JavaScript to fetch and insert the sidebar
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('/assets/components-sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-placeholder').innerHTML = html;
-                })
-                .catch(err => {
-                    console.error("Failed to load sidebar: ", err);
-                });
-        });
-    </script>
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
+    </script>
 </body>
 
 </html>
