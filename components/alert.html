@@ -3,210 +3,501 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
-    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
-    <meta name="theme-color" content="#003865">
-    <meta name="robots" content="noindex">
-    <title>Alert Component - MNIT DOT A11y</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Alert Component - MNIT DOT A11y</title>
 
-    <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Alert Component" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
-    <meta property="og:description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/alert-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/alert-component/" />
-    <meta property="og:site_name" content="MNIT DOT A11y" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Alert Component" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "description": "Guide to creating an accessible alert component. Includes source code, interactive example, and guidance.",
-            "headline": "Alert Component",
-            "url": "https://mnit-dot-a11y.github.io/alert-component/"
-        }
-    </script>
-    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Alert Component" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/alert-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/alert-component/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Alert Component" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible alert component. Includes source code, interactive example, and guidance.",
+            "headline": "Alert Component",
+            "url": "https://mnit-dot-a11y.github.io/alert-component/"
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        .usa-alert {
-            margin: 16px 0;
-            padding: 16px;
-            border-left-width: 4px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            position: relative;
-        }
+    <style>
+        .usa-alert {
+            margin: 16px 0;
+            padding: 16px;
+            border-left-width: 4px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            position: relative;
+        }
 
-        .usa-alert--info {
-            border-color: #17a2b8;
-            background-color: #d1ecf1;
-            color: #0c5460;
-        }
+        .usa-alert--info {
+            border-color: #17a2b8;
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
 
-        .usa-alert--warning {
-            border-color: #ffc107;
-            background-color: #fff3cd;
-            color: #856404;
-        }
+        .usa-alert--warning {
+            border-color: #ffc107;
+            background-color: #fff3cd;
+            color: #856404;
+        }
 
-        .usa-alert--success {
-            border-color: #28a745;
-            background-color: #d4edda;
-            color: #155724;
-        }
+        .usa-alert--success {
+            border-color: #28a745;
+            background-color: #d4edda;
+            color: #155724;
+        }
 
-        .usa-alert--error {
-            border-color: #dc3545;
-            background-color: #f8d7da;
-            color: #721c24;
-        }
+        .usa-alert--error {
+            border-color: #dc3545;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
 
-        .usa-alert--emergency {
-            border-color: #dc3545;
-            background-color: #f5c6cb;
-            color: #721c24;
-            font-weight: bold;
-        }
+        .usa-alert--emergency {
+            border-color: #dc3545;
+            background-color: #f5c6cb;
+            color: #721c24;
+            font-weight: bold;
+        }
 
-        .usa-alert--slim {
-            padding: 8px;
-        }
+        .usa-alert--slim {
+            padding: 8px;
+        }
 
-        .usa-alert--no-icon .usa-alert__body {
-            padding-left: 0;
-        }
+        .usa-alert--no-icon .usa-alert__body {
+            padding-left: 0;
+        }
 
-        .usa-alert__heading {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+        .usa-alert__heading {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
 
-        .usa-alert__text {
-            margin-bottom: 0;
-        }
+        .usa-alert__text {
+            margin-bottom: 0;
+        }
 
-        .usa-link {
-            color: #0056b3;
-            text-decoration: underline;
-        }
-        
-        /* New styles to remove pseudo-element content */
-        .expander-toggle::before, .expander-toggle::after {
-            content: none !important;
-        }
-        .copy-button::before, .copy-button::after {
-            content: none !important;
-        }
+        .usa-link {
+            color: #0056b3;
+            text-decoration: underline;
+        }
 
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
-        }
+        .main-content {
+            padding: 20px;
+        }
 
-        .sidebar-placeholder {
-            width: 250px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            height: calc(100% - 100px);
-            overflow-y: auto;
-            z-index: 100;
-        }
-        
-        /* New styles for copy button */
-        .code-container {
-            position: relative;
-        }
+        .content-container {
+            margin-left: 270px;
+        }
+        
+        .sidebar-placeholder {
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 100px;
+            height: calc(100% - 100px);
+            overflow-y: auto;
+            z-index: 100;
+        }
 
-        .copy-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-    </style>
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
+    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
-    <div class="page-wrapper">
-        <div class="skip-links container">
-            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
-        </div>
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
 
-        <header class="container">
-            <nav id="nav" class="menu" aria-label="Site menu">
-                <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
-                    <li class="expander-group site-sub-group">
-                        <button class="expander-toggle" aria-expanded="false">More</button>
-                        <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-        <main id="content" class="main-content">
-            <div class="container">
-                <div class="post-content">
-                    <h1>Alert Component</h1>
-                    <p>An alert keeps users informed of important and sometimes time-sensitive changes.</p>
-                    <p>Passed WCAG 2.1 AA</p>
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Alert Component</h1>
+                        <p>An alert keeps users informed of important and sometimes time-sensitive changes.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-                    <h2>Component Preview</h2>
-                    <h3>Standard Alerts</h3>
-                    <div class="usa-alert usa-alert--info">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Informative status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
-                        </div>
-                    </div>
+                        <h2>Component Preview</h2>
+                        <h3>Standard Alerts</h3>
+                        <div class="usa-alert usa-alert--info">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Informative status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
 
-                    <div class="usa-alert usa-alert--warning">
-                        <div class="usa-alert__body">
-                            <h4 class="usa-alert__heading">Warning status</h4>
-                            <p class="usa-alert__text">
-                                Lorem ipsum dolor sit amet,
-                                <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                elit, sed do eiusmod.
-                            </p>
-                        </div>
-                    </div>
+                        <div class="usa-alert usa-alert--warning">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Warning status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
 
-                    <div class="usa-alert usa-alert--success">
-                        <div class="usa-alert__body">
+                        <div class="usa-alert usa-alert--success">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Success status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="usa-alert usa-alert--error" role="alert">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Error status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="usa-alert usa-alert--emergency" role="alert">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Emergency status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3>Slim Alert</h3>
+                        <div class="usa-alert usa-alert--info usa-alert--slim">
+                            <div class="usa-alert__body">
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3>Alert with No Icon</h3>
+                        <div class="usa-alert usa-alert--info usa-alert--no-icon">
+                            <div class="usa-alert__body">
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2>Component Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard alerts&lt;/h3&gt;
+
+&lt;div class="usa-alert usa-alert--info"&gt;
+
+  &lt;div class="usa-alert__body"&gt;
+
+    &lt;h4 class="usa-alert__heading"&gt;Informative status&lt;/h4&gt;
+
+    &lt;p class="usa-alert__text"&gt;
+
+      Lorem ipsum dolor sit amet,
+
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+      elit, sed do eiusmod.
+
+    &lt;/p&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--warning"&gt;
+
+  &lt;div class="usa-alert__body"&gt;
+
+    &lt;h4 class="usa-alert__heading"&gt;Warning status&lt;/h4&gt;
+
+    &lt;p class="usa-alert__text"&gt;
+
+      Lorem ipsum dolor sit amet,
+
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+      elit, sed do eiusmod.
+
+    &lt;/p&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--success"&gt;
+
+  &lt;div class="usa-alert__body"&gt;
+
+    &lt;h4 class="usa-alert__heading"&gt;Success status&lt;/h4&gt;
+
+    &lt;p class="usa-alert__text"&gt;
+
+      Lorem ipsum dolor sit amet,
+
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+      elit, sed do eiusmod.
+
+    &lt;/p&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--error" role="alert"&gt;
+
+  &lt;div class="usa-alert__body"&gt;
+
+    &lt;h4 class="usa-alert__heading"&gt;Error status&lt;/h4&gt;
+
+    &lt;p class="usa-alert__text"&gt;
+
+      Lorem ipsum dolor sit amet,
+
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+      elit, sed do eiusmod.
+
+    &lt;/p&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--emergency" role="alert"&gt;
+
+  &lt;div class="usa-alert__body"&gt;
+
+    &lt;h4 class="usa-alert__heading"&gt;Emergency status&lt;/h4&gt;
+
+    &lt;p class="usa-alert__text"&gt;
+
+      Lorem ipsum dolor sit amet,
+
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+      elit, sed do eiusmod.
+
+    &lt;/p&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Slim alert&lt;/h3&gt;
+
+&lt;div class="usa-alert usa-alert--info usa-alert--slim"&gt;
+
+  &lt;div class="usa-alert__body"&gt;
+
+    &lt;p class="usa-alert__text"&gt;
+
+      Lorem ipsum dolor sit amet,
+
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+      elit, sed do eiusmod.
+
+    &lt;/p&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Alert with no icon&lt;/h3&gt;
+
+&lt;div class="usa-alert usa-alert--info usa-alert--no-icon"&gt;
+
+  &lt;div class="usa-alert__body"&gt;
+
+    &lt;p class="usa-alert__text"&gt;
+
+      Lorem ipsum dolor sit amet,
+
+      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+      elit, sed do eiusmod.
+
+    &lt;/p&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+</code></pre>
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                </div>
+
+                <h2>Guidance</h2>
+
+                <h3>When to use the alert component</h3>
+                <ul>
+                    <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
+                    <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
+                </ul>
+
+                <h3>When to consider something else</h3>
+                <ul>
+                    <li><strong>Small, temporary status messages.</strong> For temporary status messages, consider using a different component, such as an inline banner.</li>
+                    <li><strong>In-page messages.</strong> For a large amount of in-page information, consider using an inline text.</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="print-container">
+            <button type="button" class="print-button" aria-label="Print this page">
+                <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+            </button>
+        </div>
+    </main>
+
+    <footer class="container" id="footer">
+        <nav aria-label="Site map">
+            <ul>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                <li><a href="/testing-routine/">Testing Routine</a></li>
+                <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                <li><a href="/site-map/">Site map</a></li>
+            </ul>
+        </nav>
+        <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+        <p class="last-modified" id='last-modified'></p>
+    </footer>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/assets/scripts/index.js?1736284235"></script>
+<script>
+    $("body").removeClass("preload");
+
+    function setModifiedDate() {
+        if (document.getElementById('last-modified')) {
+            fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=alert-component.md")
+                .then(response => response.json())
+                .then(commits => {
+                    var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                    if (modified != "") {
+                        document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                    }
+                });
+        }
+    }
+    
+    // JavaScript to fetch and insert the sidebar
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('/assets/components-sidebar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('sidebar-placeholder').innerHTML = html;
+            })
+            .catch(err => {
+                console.error("Failed to load sidebar: ", err);
+            });
+    });
+
+    // Copy button functionality
+    function copyCode(button) {
+        const pre = button.previousElementSibling;
+        const code = pre.querySelector('code');
+        const range = document.createRange();
+        range.selectNode(code);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        try {
+            document.execCommand('copy');
+            button.textContent = 'Copied!';
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+            button.textContent = 'Copy failed';
+        }
+        setTimeout(() => {
+            button.textContent = 'Copy';
+        }, 2000);
+        window.getSelection().removeAllRanges();
+    }
+</script>
+</body>
+
+</html>
