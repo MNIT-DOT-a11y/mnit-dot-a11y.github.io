@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -10,80 +10,116 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Input Prefix/Suffix - MNIT DOT A11y</title>
+    <title>Input Prefix/Suffix Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Input Prefix/Suffix" />
+    <meta property="og:title" content="Input Prefix/Suffix Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to using input prefixes and suffixes to assist in form input." />
-    <meta property="og:description" content="Guide to using input prefixes and suffixes to assist in form input." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/input-prefix-suffix/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/input-prefix-suffix/" />
+    <meta name="description" content="Guide to creating an accessible input prefix/suffix component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible input prefix/suffix component. Includes source code and interactive example." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/input-prefix-suffix-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/input-prefix-suffix-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Input Prefix/Suffix" />
+    <meta property="twitter:title" content="Input Prefix/Suffix Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to using input prefixes and suffixes to assist in form input.",
-        "headline": "Input Prefix/Suffix",
-        "url": "https://mnit-dot-a11y.github.io/input-prefix-suffix/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible input prefix/suffix component. Includes source code and interactive example.",
+            "headline": "Input Prefix/Suffix Component",
+            "url": "https://mnit-dot-a11y.github.io/input-prefix-suffix-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-input-group {
+        .input-group-container {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .input-group {
             display: flex;
             align-items: center;
             border: 1px solid #ccc;
             border-radius: 4px;
-            margin-bottom: 16px;
-            padding: 8px;
+            margin-bottom: 10px;
         }
 
-        .usa-input-prefix,
-        .usa-input-suffix {
-            margin-right: 8px;
-            font-size: 1rem;
+        .input-group-prefix,
+        .input-group-suffix {
+            padding: 10px;
+            background-color: #eee;
+            border-right: 1px solid #ccc;
+            color: #555;
         }
 
-        .usa-input {
+        .input-group-suffix {
+            border-left: 1px solid #ccc;
+            border-right: none;
+        }
+
+        .input-group input {
             border: none;
+            padding: 10px;
+            font-size: 1em;
             flex: 1;
-            padding: 4px 8px;
-            font-size: 1rem;
         }
 
-        .usa-input-group--error {
-            border-color: #d9534f;
+        .main-content {
+            padding: 20px;
         }
-
-        .sidenav {
+        .content-container {
+            margin-left: 270px;
+        }
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
-            top: 100px; /* Start level with component header */
-            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
+            top: 100px;
+            height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
         }
     </style>
 
 </head>
 
-<body class="preload">
+<body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder">
         <ul class="site-sidenav usa-sidenav">
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
@@ -132,279 +168,139 @@
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
         </ul>
-    </aside>
+    </div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
                     <li class="web alpha"><a href="/web/">Web</a></li>
-
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
                     <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
-
                     <li class="expander-group site-sub-group">
-
                         <button class="expander-toggle" aria-expanded="false">More</button>
-
                         <ul class="expander-content">
-
                             <li><a href="/how-to-test/">How-to Test</a></li>
-
                             <li><a href="/demos/">Demos</a></li>
-
                             <li><a href="/about/">About</a></li>
-
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
                         </ul>
-
                     </li>
-
                 </ul>
-
             </nav>
-
         </header>
 
-        <main id="content" class="main-content">
-
-            <div class="container">
-
-                <div class="post-content">
-
-                    <h1>Input Prefix/Suffix</h1>
-
-                    <p>Use input prefixes and suffixes to show symbols or abbreviations that help users enter the right type of information in a form’s text input.</p>
-
-                    <p>Passed WCAG 2.1 AA</p>
-
-                    <h2>Component Preview</h2>
-
-                    <p>Credit card number</p>
-
-                    <p>Credit card number (Error)</p>
-
-                    <p>Weight, in pounds</p>
-
-                    <p>lbs.</p>
-
-                    <h2>Component Code</h2>
-
-                    <pre><code>&lt;form class="usa-form"&gt;
-
-  &lt;label class="usa-label" for="example-input-prefix"&gt;Credit card number&lt;/label&gt;
-
-  &lt;div class="usa-input-group"&gt;
-
-    &lt;div class="usa-input-prefix" aria-hidden="true"&gt;
-
-      &lt;svg aria-hidden="true" role="img" focusable="false" class="usa-icon"&gt;
-
-        &lt;use href="/assets/img/sprite.svg#credit_card"&gt;&lt;/use&gt;
-
-      &lt;/svg&gt;
-
-    &lt;/div&gt;
-
-    &lt;input
-
-      id="example-input-prefix"
-
-      class="usa-input"
-
-      pattern="[0-9]*"
-
-      inputmode="numeric"
-
-    /&gt;
-
-  &lt;/div&gt;
-
-  &lt;label class="usa-label" for="example-input-prefix-error"&gt;
-
-    Credit card number (Error)
-
-  &lt;/label&gt;
-
-  &lt;div class="usa-input-group usa-input-group--error"&gt;
-
-    &lt;div class="usa-input-prefix" aria-hidden="true"&gt;
-
-      &lt;svg aria-hidden="true" role="img" focusable="false" class="usa-icon"&gt;
-
-        &lt;use href="/assets/img/sprite.svg#credit_card"&gt;&lt;/use&gt;
-
-      &lt;/svg&gt;
-
-    &lt;/div&gt;
-
-    &lt;input
-
-      id="example-input-prefix-error"
-
-      class="usa-input"
-
-      pattern="[0-9]*"
-
-      inputmode="numeric"
-
-    /&gt;
-
-  &lt;/div&gt;
-
-&lt;/form&gt;
-
-&lt;form class="usa-form"&gt;
-
-  &lt;label class="usa-label" for="example-input-suffix"&gt;Weight, in pounds&lt;/label&gt;
-
-  &lt;div class="usa-input-group usa-input-group--sm"&gt;
-
-    &lt;input
-
-      id="example-input-suffix"
-
-      class="usa-input"
-
-      pattern="[0-9]*"
-
-      inputmode="numeric"
-
-    /&gt;
-
-    &lt;div class="usa-input-suffix" aria-hidden="true"&gt;lbs.&lt;/div&gt;
-
-  &lt;/div&gt;
-
-&lt;/form&gt;
-
-</code></pre>
-
-                    <h2>Guidance</h2>
-
-                    <h3>When to Use the Input Prefix/Suffix Component</h3>
-
-                    <ul>
-
-                        <li><strong>Highlight the type of information.</strong> Prefixes and suffixes are useful when there’s a commonly understood symbol or abbreviation for the type of information the user needs to enter. Some common examples include units of measurement (like lbs or ft), symbols (like $ or %), or even icons (like showing an eye for password visibility).</li>
-
-                        <li><strong>Input cannot include units.</strong> Use prefixes and suffixes if the input refers to a unit or currency amount (like a length or dollar amount), but the user’s input must include digits only, not units or a currency symbol.</li>
-
-                        <li><strong>Reduce mental load.</strong> Adding a prefix or suffix can help the user more quickly understand what kind of information is requested.</li>
-
-                    </ul>
-
-                    <h3>When to Consider Something Else</h3>
-
-                    <ul>
-
-                        <li><strong>Open-ended form fields.</strong> If there aren’t specific parameters around the information the user needs to enter, a prefix or suffix may be incorrect. For example, don’t use a $ prefix for a form field asking “What’s a fair resolution?” if the user could enter either “$1,000” or “a full refund” as the answer.</li>
-
-                        <li><strong>Explanation requires additional words.</strong> Don’t use prefixes or suffixes if a symbol or abbreviation is insufficient to convey the meaning. There shouldn’t be any confusion between what type of information a prefix or suffix represents. This is especially true when using icons that could have multiple meanings.</li>
-
-                    </ul>
-
-                    <h3>Usability Guidance</h3>
-
-                    <ul>
-
-                        <li><strong>Follow best practices when using an icon.</strong> If you include an icon as a prefix or suffix, follow the design system’s icon guidance.</li>
-
-                        <li><strong>Use common abbreviations.</strong> Only use commonly understood abbreviations when indicating a text prefix or suffix. Don’t use the full word.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the input prefix/suffix component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/input-prefix-suffix/" target="_blank">Input Prefix/Suffix Component Testing Checklist</a>.</p>
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Link Component</h1>
+                        <p>Links are fundamental to web navigation, connecting users to other pages or resources. An accessible link is easily understood, visually distinct, and works with assistive technologies.</p>
+
+                        <h2>Interactive Example</h2>
+                        <div class="link-container">
+                            <p>Here is a <a href="https://www.example.com" class="usa-link">standard link</a> to an external site.</p>
+                            <p>Here is a <a href="#" class="usa-link">link to this page</a>.</p>
+                        </div>
+
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;p&gt;Here is a &lt;a href="https://www.example.com" class="usa-link"&gt;standard link&lt;/a&gt; to an external site.&lt;/p&gt;
+&lt;p&gt;Here is a &lt;a href="#" class="usa-link"&gt;link to this page&lt;/a&gt;.&lt;/p&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>Ensure link text is meaningful and describes the destination or purpose of the link. Avoid "Click here" or "Read more".</li>
+                            <li>Provide clear visual cues, such as an underline, to distinguish links from surrounding text.</li>
+                            <li>Links that open a new tab or window should provide a clear warning to the user.</li>
+                        </ul>
+
+                        <h2>Testing</h2>
+                        <p>To ensure the link component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/link/" target="_blank">Link Component Testing Checklist</a>.</p>
+                    </div>
                 </div>
 
-            </div>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-        </main>
-
-        <footer class="container" id="footer">
-
-            <nav aria-label="Site map">
-
-                <ul>
-
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=input-prefix-suffix.md")
-
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=link-component.md")
                     .then(response => response.json())
-
                     .then(commits => {
-
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
-                        if (modified != "") {
-
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
-
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
-
             }
-
         }
+        
+        window.onload = setModifiedDate;
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>

@@ -10,26 +10,26 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Grid Component - MNIT DOT A11y</title>
+    <title>Layout Grid Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Grid Component" />
+    <meta property="og:title" content="Layout Grid Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible grid component. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating an accessible grid component. Includes source code and interactive example." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/grid-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/grid-component/" />
+    <meta name="description" content="Guide to creating an accessible layout grid component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible layout grid component. Includes source code and interactive example." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/layout-grid-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/layout-grid-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Grid Component" />
+    <meta property="twitter:title" content="Layout Grid Component" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "Guide to creating an accessible grid component. Includes source code and interactive example.",
-            "headline": "Grid Component",
-            "url": "https://mnit-dot-a11y.github.io/grid-component/"
+            "description": "Guide to creating an accessible layout grid component. Includes source code and interactive example.",
+            "headline": "Layout Grid Component",
+            "url": "https://mnit-dot-a11y.github.io/layout-grid-component/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
@@ -58,9 +58,11 @@
         .main-content {
             padding: 20px;
         }
+
         .content-container {
             margin-left: 270px;
         }
+        
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
@@ -77,6 +79,7 @@
         .code-container {
             position: relative;
         }
+
         .copy-button {
             position: absolute;
             top: 10px;
@@ -88,6 +91,7 @@
             cursor: pointer;
             border-radius: 4px;
         }
+
         /* Fix to remove pseudo-element content from all buttons */
         button::before,
         button::after,
@@ -102,7 +106,56 @@
 <body onload="setModifiedDate();" class="preload">
 
     <!-- Placeholder for the dynamically loaded sidebar -->
-    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
+    <div id="sidebar-placeholder" class="sidebar-placeholder">
+        <ul class="site-sidenav usa-sidenav">
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
+            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+        </ul>
+    </div>
 
     <div class="page-wrapper">
         <div class="skip-links container">
@@ -137,7 +190,7 @@
             <main id="content" class="main-content">
                 <div class="container">
                     <div class="post-content">
-                        <h1>Grid Component</h1>
+                        <h1>Layout Grid Component</h1>
                         <p>A grid layout is a powerful tool for organizing content in a two-dimensional format, ensuring a structured and responsive design for all screen sizes.</p>
 
                         <h2>Interactive Example</h2>
@@ -206,28 +259,23 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=grid-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=layout-grid-component.md")
                     .then(response => response.json())
                     .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                        if (modified != "") {
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
             }
         }
         
-        // JavaScript to fetch and insert the sidebar
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('/assets/components-sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-placeholder').innerHTML = html;
-                })
-                .catch(err => {
-                    console.error("Failed to load sidebar: ", err);
-                });
-        });
+        window.onload = setModifiedDate;
 
         // Copy button functionality
         function copyCode(button) {

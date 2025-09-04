@@ -10,67 +10,45 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Data Visualizations Component - MNIT DOT A11y</title>
+    <title>Date Picker Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Data Visualizations Component" />
+    <meta property="og:title" content="Date Picker Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating accessible data visualizations. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating an accessible data visualizations. Includes source code and interactive example." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/data-visualizations-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/data-visualizations-component/" />
+    <meta name="description" content="Guide to creating an accessible date picker component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible date picker component. Includes source code and interactive example." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/date-picker-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/date-picker-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Data Visualizations Component" />
+    <meta property="twitter:title" content="Date Picker Component" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "Guide to creating an accessible data visualizations. Includes source code and interactive example.",
-            "headline": "Data Visualizations Component",
-            "url": "https://mnit-dot-a11y.github.io/data-visualizations-component/"
+            "description": "Guide to creating an accessible date picker component. Includes source code and interactive example.",
+            "headline": "Date Picker Component",
+            "url": "https://mnit-dot-a11y.github.io/date-picker-component/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .chart-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            border: 1px solid #ccc;
+        .date-picker-container {
+            margin: 20px;
             padding: 15px;
+            border: 1px solid #ccc;
             border-radius: 4px;
             background-color: #f9f9f9;
         }
 
-        .bar-chart {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            height: 200px;
-            background-color: #eee;
-            border: 1px solid #ccc;
+        .date-picker-container input[type="date"] {
             padding: 10px;
-        }
-
-        .bar {
-            width: 40px;
-            background-color: #007bff;
-            margin: 0 5px;
-            transition: height 0.5s ease-in-out;
-            position: relative;
-        }
-
-        .bar-label {
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.8em;
-            color: #333;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         .main-content {
@@ -155,57 +133,33 @@
             <main id="content" class="main-content">
                 <div class="container">
                     <div class="post-content">
-                        <h1>Data Visualizations Component</h1>
-                        <p>This guide provides instructions for creating accessible data visualizations. Visualizations should not rely on color alone to convey meaning and should have alternative text or a table to make the data available to all users.</p>
+                        <h1>Date Picker Component</h1>
+                        <p>A date picker allows users to easily select a date from a calendar, providing a more intuitive and error-free way to input dates.</p>
 
                         <h2>Interactive Example</h2>
-                        <div class="chart-container">
-                            <div class="bar-chart" aria-label="Bar chart showing fictional data">
-                                <div class="bar" style="height: 50%;" role="img" aria-label="Category A, Value 50">
-                                    <span class="bar-label">A</span>
-                                </div>
-                                <div class="bar" style="height: 75%;" role="img" aria-label="Category B, Value 75">
-                                    <span class="bar-label">B</span>
-                                </div>
-                                <div class="bar" style="height: 30%;" role="img" aria-label="Category C, Value 30">
-                                    <span class="bar-label">C</span>
-                                </div>
-                                <div class="bar" style="height: 90%;" role="img" aria-label="Category D, Value 90">
-                                    <span class="bar-label">D</span>
-                                </div>
-                            </div>
+                        <div class="date-picker-container">
+                            <label for="start-date">Select a Date:</label>
+                            <input type="date" id="start-date" name="start-date">
                         </div>
 
                         <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;div class="chart-container"&gt;
-  &lt;div class="bar-chart" aria-label="Bar chart showing fictional data"&gt;
-    &lt;div class="bar" style="height: 50%;" role="img" aria-label="Category A, Value 50"&gt;
-      &lt;span class="bar-label"&gt;A&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div class="bar" style="height: 75%;" role="img" aria-label="Category B, Value 75"&gt;
-      &lt;span class="bar-label"&gt;B&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div class="bar" style="height: 30%;" role="img" aria-label="Category C, Value 30"&gt;
-      &lt;span class="bar-label"&gt;C&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div class="bar" style="height: 90%;" role="img" aria-label="Category D, Value 90"&gt;
-      &lt;span class="bar-label"&gt;D&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+                            <pre><code>&lt;div class="date-picker-container"&gt;
+  &lt;label for="start-date"&gt;Select a Date:&lt;/label&gt;
+  &lt;input type="date" id="start-date" name="start-date"&gt;
 &lt;/div&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
                         <h2>Accessibility Guidance</h2>
                         <ul>
-                            <li>Use `aria-label` on the chart container and individual bars to provide a description for screen readers.</li>
-                            <li>Ensure high contrast between the bars and the chart background.</li>
-                            <li>Provide a text-based alternative (like a data table) for complex visualizations.</li>
+                            <li>Use the native HTML `input type="date"` element for built-in accessibility and keyboard support.</li>
+                            <li>Ensure the `label` is correctly associated with the `input` using `for` and `id` attributes.</li>
+                            <li>Provide clear instructions or a descriptive label to help users understand the date format.</li>
                         </ul>
 
                         <h2>Testing</h2>
-                        <p>To ensure the data visualizations component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/data-visualizations/" target="_blank">Data Visualizations Component Testing Checklist</a>.</p>
+                        <p>To ensure the date picker component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/date-picker/" target="_blank">Date Picker Component Testing Checklist</a>.</p>
                     </div>
                 </div>
 
@@ -240,7 +194,7 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=data-visualizations-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=date-picker-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);

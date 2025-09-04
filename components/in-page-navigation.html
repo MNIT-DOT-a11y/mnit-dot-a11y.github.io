@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -10,10 +10,10 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Accessible In-Page Navigation - MNIT DOT A11y</title>
+    <title>In-page Navigation Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Accessible In-Page Navigation" />
+    <meta property="og:title" content="In-page Navigation Component" />
     <meta property="og:locale" content="en_US" />
     <meta name="description" content="Guide to creating an accessible in-page navigation component. Includes source code and interactive example." />
     <meta property="og:description" content="Guide to creating an accessible in-page navigation component. Includes source code and interactive example." />
@@ -22,77 +22,91 @@
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Accessible In-Page Navigation" />
+    <meta property="twitter:title" content="In-page Navigation Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible in-page navigation component. Includes source code and interactive example.",
-        "headline": "Accessible In-Page Navigation",
-        "url": "https://mnit-dot-a11y.github.io/in-page-navigation-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible in-page navigation component. Includes source code and interactive example.",
+            "headline": "In-page Navigation Component",
+            "url": "https://mnit-dot-a11y.github.io/in-page-navigation-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-in-page-nav-container {
-            display: flex;
-            max-width: 100%;
+        .in-page-nav-container {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
         }
 
-        .usa-in-page-nav {
-            position: sticky;
-            top: 0;
-            width: 250px;
-            margin-right: 20px;
-            border-right: 1px solid #ccc;
-            padding-right: 20px;
+        .in-page-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .usa-in-page-nav h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+        .in-page-nav li {
+            margin-bottom: 5px;
         }
 
-        .usa-in-page-nav a {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #0071bc;
+        .in-page-nav a {
             text-decoration: none;
+            color: #007bff;
         }
 
-        .usa-in-page-nav a:hover,
-        .usa-in-page-nav a:focus {
-            text-decoration: underline;
-            outline: 2px solid #ffcc33;
-            outline-offset: 2px;
+        .main-content {
+            padding: 20px;
         }
-
-        .sidenav {
+        .content-container {
+            margin-left: 270px;
+        }
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
-            top: 100px; /* Start level with component header */
-            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
+            top: 100px;
+            height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            flex-grow: 1;
-            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
         }
-
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder">
         <ul class="site-sidenav usa-sidenav">
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
@@ -141,245 +155,161 @@
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
         </ul>
-    </aside>
+    </div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
-            <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
                     <li class="web alpha"><a href="/web/">Web</a></li>
-
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
                     <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
-
                     <li class="expander-group site-sub-group">
-
                         <button class="expander-toggle" aria-expanded="false">More</button>
-
                         <ul class="expander-content">
-
                             <li><a href="/how-to-test/">How-to Test</a></li>
-
                             <li><a href="/demos/">Demos</a></li>
-
                             <li><a href="/about/">About</a></li>
-
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
                         </ul>
-
                     </li>
-
                 </ul>
-
             </nav>
-
         </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>In-page Navigation Component</h1>
+                        <p>In-page navigation provides a way for users to quickly jump to specific sections within a single web page, improving navigation and accessibility for long-form content.</p>
 
-            <div class="container">
+                        <h2>Interactive Example</h2>
+                        <div class="in-page-nav-container">
+                            <nav aria-label="In-page navigation">
+                                <ul class="in-page-nav">
+                                    <li><a href="#section1">Jump to Section 1</a></li>
+                                    <li><a href="#section2">Jump to Section 2</a></li>
+                                    <li><a href="#section3">Jump to Section 3</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <h2 id="section1">Section 1 Heading</h2>
+                        <p>This is the content for section 1. It is accessible via the in-page navigation link above.</p>
+                        <h2 id="section2">Section 2 Heading</h2>
+                        <p>This is the content for section 2. It is accessible via the in-page navigation link above.</p>
+                        <h2 id="section3">Section 3 Heading</h2>
+                        <p>This is the content for section 3. It is accessible via the in-page navigation link above.</p>
 
-                <div class="post-content">
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;nav aria-label="In-page navigation"&gt;
+  &lt;ul class="in-page-nav"&gt;
+    &lt;li&gt;&lt;a href="#section1"&gt;Jump to Section 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#section2"&gt;Jump to Section 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#section3"&gt;Jump to Section 3&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;h2 id="section1"&gt;Section 1 Heading&lt;/h2&gt;
+&lt;!-- More content for section 1 --&gt;
+&lt;h2 id="section2"&gt;Section 2 Heading&lt;/h2&gt;
+&lt;!-- More content for section 2 --&gt;
+&lt;h2 id="section3"&gt;Section 3 Heading&lt;/h2&gt;
+&lt;!-- More content for section 3 --&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
 
-                    <h1>Accessible In-Page Navigation</h1>
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>Use a `nav` element with a descriptive `aria-label`.</li>
+                            <li>Ensure that the `href` attribute on the links correctly points to the `id` of the target sections.</li>
+                            <li>Provide a clear visual indication of which link corresponds to the current section.</li>
+                        </ul>
 
-                    <p>This guide provides instructions for creating an in-page navigation component that meets accessibility standards.</p>
-
-                    <h2>Interactive Example</h2>
-
-                    <div class="usa-in-page-nav-container">
-
-                        <aside class="usa-in-page-nav" aria-labelledby="nav-title">
-
-                            <h4 id="nav-title">On this page</h4>
-
-                            <a href="#section1">Section 1</a>
-
-                            <a href="#section2">Section 2</a>
-
-                            <a href="#section3">Section 3</a>
-
-                        </aside>
-
-                        <main id="main-content" class="main-content usa-prose">
-
-                            <h2 id="section1">Section 1</h2>
-
-                            <p>Content for section 1...</p>
-
-                            <h2 id="section2">Section 2</h2>
-
-                            <p>Content for section 2...</p>
-
-                            <h2 id="section3">Section 3</h2>
-
-                            <p>Content for section 3...</p>
-
-                        </main>
-
+                        <h2>Testing</h2>
+                        <p>To ensure the in-page navigation component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/in-page-navigation/" target="_blank">In-page Navigation Component Testing Checklist</a>.</p>
                     </div>
-
-                    <h2>Source Code</h2>
-
-                    <pre><code>&lt;div class="usa-in-page-nav-container"&gt;
-
-  &lt;aside class="usa-in-page-nav" aria-labelledby="nav-title"&gt;
-
-    &lt;h4 id="nav-title"&gt;On this page&lt;/h4&gt;
-
-    &lt;a href="#section1"&gt;Section 1&lt;/a&gt;
-
-    &lt;a href="#section2"&gt;Section 2&lt;/a&gt;
-
-    &lt;a href="#section3"&gt;Section 3&lt;/a&gt;
-
-  &lt;/aside&gt;
-
-  &lt;main id="main-content" class="main-content usa-prose"&gt;
-
-    &lt;h2 id="section1"&gt;Section 1&lt;/h2&gt;
-
-    &lt;p&gt;Content for section 1...&lt;/p&gt;
-
-    &lt;h2 id="section2"&gt;Section 2&lt;/h2&gt;
-
-    &lt;p&gt;Content for section 2...&lt;/p&gt;
-
-    &lt;h2 id="section3"&gt;Section 3&lt;/h2&gt;
-
-    &lt;p&gt;Content for section 3...&lt;/p&gt;
-
-  &lt;/main&gt;
-
-&lt;/div&gt;</code></pre>
-
-                    <h2>Guidance</h2>
-
-                    <ul>
-
-                        <li>Use in-page navigation for long pages with multiple sections to improve the user experience.</li>
-
-                        <li>Ensure that the navigation links reflect the corresponding section headings on the page.</li>
-
-                        <li>Place the in-page navigation in a sticky position beside the main content for easy access.</li>
-
-                        <li>Ensure the in-page navigation is keyboard-accessible, allowing users to navigate using the <code>Tab</code> key.</li>
-
-                    </ul>
-
-                    <h2>Accessibility Features</h2>
-
-                    <ul>
-
-                        <li>Focus states are clearly defined for keyboard navigation.</li>
-
-                        <li>Link text is descriptive and matches the corresponding section headings.</li>
-
-                        <li>Color contrast in links meets WCAG 2.1 AA standards for visibility.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the in-page navigation component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/in-page-navigation/" target="_blank">In-Page Navigation Component Testing Checklist</a>.</p>
                 </div>
 
-            </div>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-            <div class="print-container">
-
-                <button type="button" class="print-button" aria-label="Print this page">
-
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-
-                </button>
-
-            </div>
-
-        </main>
-
-        <footer class="container" id="footer">
-
-            <nav aria-label="Site map">
-
-                <ul>
-
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
-        $("body").removeClass("preload"); // Prevents animations on page load
+        $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=in-page-navigation-component.md")
-
                     .then(response => response.json())
-
                     .then(commits => {
-
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
-                        if (modified != "") {
-
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
-
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
-
             }
-
         }
+        
+        window.onload = setModifiedDate;
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>
