@@ -135,6 +135,12 @@
             cursor: pointer;
             border-radius: 4px;
         }
+
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after {
+            content: none !important;
+        }
     </style>
 
 </head>
@@ -404,100 +410,101 @@
 &lt;/div&gt;
 
 </code></pre>
-                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+
+                        <h2>Guidance</h2>
+
+                        <h3>When to use the alert component</h3>
+                        <ul>
+                            <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
+                            <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
+                        </ul>
+
+                        <h3>When to consider something else</h3>
+                        <ul>
+                            <li><strong>Small, temporary status messages.</strong> For temporary status messages, consider using a different component, such as an inline banner.</li>
+                            <li><strong>In-page messages.</strong> For a large amount of in-page information, consider using an inline text.</li>
+                        </ul>
+
+                    </div>
                 </div>
 
-                <h2>Guidance</h2>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-                <h3>When to use the alert component</h3>
-                <ul>
-                    <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
-                    <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
-                </ul>
-
-                <h3>When to consider something else</h3>
-                <ul>
-                    <li><strong>Small, temporary status messages.</strong> For temporary status messages, consider using a different component, such as an inline banner.</li>
-                    <li><strong>In-page messages.</strong> For a large amount of in-page information, consider using an inline text.</li>
-                </ul>
-
-            </div>
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
         </div>
+    </div>
 
-        <div class="print-container">
-            <button type="button" class="print-button" aria-label="Print this page">
-                <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-            </button>
-        </div>
-    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+    <script>
+        $("body").removeClass("preload");
 
-    <footer class="container" id="footer">
-        <nav aria-label="Site map">
-            <ul>
-                <li><a href="/about/">About</a></li>
-                <li><a href="/resources/">Resources</a></li>
-                <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                <li><a href="/testing-routine/">Testing Routine</a></li>
-                <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                <li><a href="/site-map/">Site map</a></li>
-            </ul>
-        </nav>
-        <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-        <p class="last-modified" id='last-modified'></p>
-    </footer>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/assets/scripts/index.js?1736284235"></script>
-<script>
-    $("body").removeClass("preload");
-
-    function setModifiedDate() {
-        if (document.getElementById('last-modified')) {
-            fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=alert-component.md")
-                .then(response => response.json())
-                .then(commits => {
-                    var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                    if (modified != "") {
-                        document.getElementById('last-modified').textContent = "Last modified: " + modified;
-                    }
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=alert-component.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        }
+                    });
+            }
+        }
+        
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
                 });
-        }
-    }
-    
-    // JavaScript to fetch and insert the sidebar
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('/assets/components-sidebar.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('sidebar-placeholder').innerHTML = html;
-            })
-            .catch(err => {
-                console.error("Failed to load sidebar: ", err);
-            });
-    });
+        });
 
-    // Copy button functionality
-    function copyCode(button) {
-        const pre = button.previousElementSibling;
-        const code = pre.querySelector('code');
-        const range = document.createRange();
-        range.selectNode(code);
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        try {
-            document.execCommand('copy');
-            button.textContent = 'Copied!';
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
-            button.textContent = 'Copy failed';
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
         }
-        setTimeout(() => {
-            button.textContent = 'Copy';
-        }, 2000);
-        window.getSelection().removeAllRanges();
-    }
-</script>
+    </script>
 </body>
 
 </html>
