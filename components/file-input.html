@@ -15,8 +15,8 @@
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="File Input Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible file input component. Includes source code, interactive example, and guidance." />
-    <meta property="og:description" content="Guide to creating an accessible file input component. Includes source code, interactive example, and guidance." />
+    <meta name="description" content="Guide to creating an accessible file input component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible file input component. Includes source code and interactive example." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/file-input-component/" />
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/file-input-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
@@ -24,80 +24,65 @@
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="File Input Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible file input component. Includes source code, interactive example, and guidance.",
-        "headline": "File Input Component",
-        "url": "https://mnit-dot-a11y.github.io/file-input-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible file input component. Includes source code and interactive example.",
+            "headline": "File Input Component",
+            "url": "https://mnit-dot-a11y.github.io/file-input-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-file-input {
-            margin: 16px 0;
-            border: 2px dashed #0056b3;
-            padding: 16px;
-            border-radius: 8px;
-            text-align: center;
-            color: #333;
+        .file-input-container {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             background-color: #f9f9f9;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            position: relative;
         }
 
-        .usa-file-input:hover {
-            background-color: #e0f0ff;
+        .main-content {
+            padding: 20px;
         }
-
-        .usa-file-input.dragover {
-            background-color: #cce0ff;
+        .content-container {
+            margin-left: 270px;
         }
-
-        .usa-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #0056b3;
-        }
-
-        .usa-hint {
-            display: block;
-            margin-bottom: 16px;
-            font-size: 0.875rem;
-            color: #666;
-        }
-
-        .usa-error-message {
-            display: block;
-            margin-top: 8px;
-            color: #d9534f;
-            font-size: 0.875rem;
-        }
-
-        .icon {
-            font-size: 3rem;
-            color: #0056b3;
-            margin-bottom: 16px;
-        }
-
-        .sidenav {
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
-            top: 100px; /* Start level with component header */
-            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
+            top: 100px;
+            height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
         }
     </style>
 
@@ -105,59 +90,10 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </aside>
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
@@ -186,223 +122,115 @@
             </nav>
         </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>File Input Component</h1>
+                        <p>The file input component allows users to select and upload one or more files from their local device.</p>
 
-            <div class="container">
-
-                <div class="post-content">
-
-                    <h1>File Input</h1>
-
-                    <p>File input allows users to attach one or multiple files.</p>
-
-                    <h2>Component Preview</h2>
-
-                    <h3>Input with Drag and Drop</h3>
-
-                    <div class="usa-form-group" id="file-dropzone">
-
-                        <label class="usa-label" for="file-input">Drag and drop your files here or click to select</label>
-
-                        <div class="icon">
-
-                            <i class="fas fa-cloud-upload-alt"></i>
-
+                        <h2>Interactive Example</h2>
+                        <div class="file-input-container">
+                            <label for="file-upload">Upload your document:</label>
+                            <input type="file" id="file-upload" name="file-upload">
                         </div>
 
-                        <input id="file-input" class="usa-file-input" type="file" name="file-input" multiple style="display: none;" />
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;div class="file-input-container"&gt;
+  &lt;label for="file-upload"&gt;Upload your document:&lt;/label&gt;
+  &lt;input type="file" id="file-upload" name="file-upload"&gt;
+&lt;/div&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
 
-                        <div class="usa-hint" id="file-input-feedback">No files selected</div>
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>Ensure a `label` is explicitly associated with the `input` using `for` and `id` attributes.</li>
+                            <li>Provide clear instructions on the types of files that can be uploaded, especially if there are restrictions.</li>
+                            <li>Use the `accept` attribute to suggest file types, but do not rely on it for validation.</li>
+                        </ul>
 
+                        <h2>Testing</h2>
+                        <p>To ensure the file input component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/file-input/" target="_blank">File Input Component Testing Checklist</a>.</p>
                     </div>
-
-                    <h2>Component Code</h2>
-
-<pre><code>&lt;div class="usa-form-group" id="file-dropzone"&gt;
-
-  &lt;label class="usa-label" for="file-input"&gt;Drag and drop your files here or click to select&lt;/label&gt;
-
-  &lt;div class="icon"&gt;
-
-    &lt;i class="fas fa-cloud-upload-alt"&gt;&lt;/i&gt;
-
-  &lt;/div&gt;
-
-  &lt;input id="file-input" class="usa-file-input" type="file" name="file-input" multiple style="display: none;" /&gt;
-
-  &lt;div class="usa-hint" id="file-input-feedback"&gt;No files selected&lt;/div&gt;
-
-&lt;/div&gt;
-
-</code></pre>
-
-                    <h2>Guidance</h2>
-
-                    <h3>When to Use the File Input Component</h3>
-
-                    <ul>
-
-                        <li><strong>Documents are required.</strong> Ask users to provide files when it’s necessary.</li>
-
-                    </ul>
-
-                    <h3>When to Consider Something Else</h3>
-
-                    <ul>
-
-                        <li><strong>Documents are optional.</strong> Avoid asking users to provide documents if you don’t require them.</li>
-
-                        <li><strong>Asynchronous upload.</strong> The file input component doesn’t support asynchronous uploading. Files will <code>POST</code> only on form submission.</li>
-
-                        <li><strong>Asking for large files.</strong> Be mindful that some users might have limited connectivity or data plans.</li>
-
-                    </ul>
-
-                    <h3>Usability Guidance</h3>
-
-                    <ul>
-
-                        <li><strong>Allow multiple file formats.</strong> Not everyone has access to the same software. Be flexible with file types to avoid unnecessary software requirements.</li>
-
-                        <li><strong>Prefer one file per input.</strong> Some users might not know how to select multiple files in a file browser.</li>
-
-                        <li><strong>Use hint text to highlight input restrictions.</strong> Create an element with the <code>usa-hint</code> class to explain any file restrictions, such as document types or file size.</li>
-
-                    </ul>
-
-                    <h3>Accessibility Guidance</h3>
-
-                    <p>Test the file input component in your own project.</p>
-
-                    <ul>
-
-                        <li><strong>Use proper labels and attributes.</strong> Each file input should have a <code>label</code> element. Associate the label to your input by defining the value of the label’s <code>for</code> attribute with the input’s <code>id</code>.</li>
-
-                        <li><strong>Use as a progressive enhancement.</strong> The file input component should be a progressive enhancement of <code>&lt;input type="file" /&gt;</code>. If the component doesn’t initialize, it should still work and appear like a standard file input.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the file input component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/file-input/" target="_blank">File Input Component Testing Checklist</a>.</p>
                 </div>
 
-            </div>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-            <div class="print-container">
-
-                <button type="button" class="print-button" aria-label="Print this page">
-
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-
-                </button>
-
-            </div>
-
-        </main>
-
-        <footer class="container" id="footer">
-
-            <nav aria-label="Site map">
-
-                <ul>
-
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=file-input-component.md")
-
                     .then(response => response.json())
-
                     .then(commits => {
-
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
                         if (modified != "") {
-
                             document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
                         }
-
                     });
-
-            }
-
-        }
-
-        // Drag and Drop functionality
-        const dropZone = document.getElementById('file-dropzone');
-        const fileInput = document.getElementById('file-input');
-        const feedback = document.getElementById('file-input-feedback');
-
-        dropZone.addEventListener('dragover', (event) => {
-            event.preventDefault();
-            dropZone.classList.add('dragover');
-        });
-
-        dropZone.addEventListener('dragleave', (event) => {
-            dropZone.classList.remove('dragover');
-        });
-
-        dropZone.addEventListener('drop', (event) => {
-            event.preventDefault();
-            dropZone.classList.remove('dragover');
-            const files = Array.from(event.dataTransfer.files);
-            fileInput.files = event.dataTransfer.files; // Add files to the input
-            updateFeedback(files);
-        });
-
-        dropZone.addEventListener('click', () => {
-            fileInput.click();
-        });
-
-        fileInput.addEventListener('change', (event) => {
-            const files = Array.from(fileInput.files);
-            updateFeedback(files);
-        });
-
-        function updateFeedback(files) {
-            if (files.length > 0) {
-                feedback.textContent = `${files.length} file(s) selected: ${files.map(f => f.name).join(', ')}`;
-            } else {
-                feedback.textContent = 'No files selected';
             }
         }
+        
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
+                });
+        });
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>

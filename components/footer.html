@@ -10,10 +10,10 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Accessible Footer - MNIT DOT A11y</title>
+    <title>Footer Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Accessible Footer" />
+    <meta property="og:title" content="Footer Component" />
     <meta property="og:locale" content="en_US" />
     <meta name="description" content="Guide to creating an accessible footer component. Includes source code and interactive example." />
     <meta property="og:description" content="Guide to creating an accessible footer component. Includes source code and interactive example." />
@@ -22,69 +22,76 @@
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Accessible Footer" />
+    <meta property="twitter:title" content="Footer Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible footer component. Includes source code and interactive example.",
-        "headline": "Accessible Footer",
-        "url": "https://mnit-dot-a11y.github.io/footer-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible footer component. Includes source code and interactive example.",
+            "headline": "Footer Component",
+            "url": "https://mnit-dot-a11y.github.io/footer-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-footer {
-            background-color: #333;
-            color: #fff;
-            padding: 2rem;
+        .footer-example {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #f8f9fa;
         }
 
-        .usa-footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .usa-footer__nav ul {
+        .footer-example ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
-        .usa-footer__nav li {
-            margin-bottom: 0.5rem;
+        .footer-example li {
+            display: inline-block;
+            margin-right: 15px;
         }
-
-        .usa-footer__logo-heading {
-            font-size: 1.5rem;
-            margin: 0 0 1rem;
+        
+        .main-content {
+            padding: 20px;
         }
-
-        .usa-footer__social-links img {
-            width: 24px;
-            height: 24px;
-            margin-right: 0.5rem;
+        .content-container {
+            margin-left: 270px;
         }
-
-        .usa-footer__contact-info a {
-            color: #fff;
-        }
-
-        .sidenav {
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
             position: fixed;
-            top: 100px; /* Start level with component header */
-            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
+            top: 100px;
+            height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
         }
     </style>
 
@@ -92,59 +99,10 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </aside>
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
@@ -173,246 +131,127 @@
             </nav>
         </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Footer Component</h1>
+                        <p>A footer provides supplementary information about the website, such as site navigation, contact information, and copyright details. It should be consistent across all pages.</p>
 
-            <div class="container">
-
-                <div class="post-content">
-
-                    <h1>Footer Landmark</h1>
-
-                    <p>This guide provides instructions for creating a footer component that meets accessibility standards.</p>
-
-                    <h2>Interactive Example</h2>
-
-                    <footer class="usa-footer">
-
-                        <div class="usa-footer__primary-section">
-
-                            <nav class="usa-footer__nav" aria-label="Footer navigation">
-
+                        <h2>Interactive Example</h2>
+                        <div class="footer-example">
+                            <nav aria-label="Footer navigation">
                                 <ul>
-
-                                    <li><a href="#link1" class="usa-footer__primary-link">Link 1</a></li>
-
-                                    <li><a href="#link2" class="usa-footer__primary-link">Link 2</a></li>
-
-                                    <li><a href="#link3" class="usa-footer__primary-link">Link 3</a></li>
-
-                                    <li><a href="#link4" class="usa-footer__primary-link">Link 4</a></li>
-
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
                                 </ul>
-
                             </nav>
-
+                            <p>&copy; 2024 MNIT DOT A11y</p>
                         </div>
 
-                        <div class="usa-footer__secondary-section">
-
-                            <div class="usa-footer__logo grid-row">
-
-                                <div>
-
-                                    <img class="usa-footer__logo-img" src="/assets/img/logo-img.png" alt="Agency Logo" />
-
-                                    <p class="usa-footer__logo-heading">Agency Name</p>
-
-                                </div>
-
-                                <div class="usa-footer__contact-links">
-
-                                    <div class="usa-footer__social-links">
-
-                                        <a class="usa-social-link" href="javascript:void(0);"><img src="/assets/img/usa-icons/facebook.svg" alt="Facebook" /></a>
-
-                                        <a class="usa-social-link" href="javascript:void(0);"><img src="/assets/img/usa-icons/twitter.svg" alt="Twitter" /></a>
-
-                                        <a class="usa-social-link" href="javascript:void(0);"><img src="/assets/img/usa-icons/youtube.svg" alt="YouTube" /></a>
-
-                                    </div>
-
-                                    <address class="usa-footer__contact-info">
-
-                                        <div><a href="tel:651-296-3000">651-296-3000</a></div>
-
-                                    </address>
-
-                                </div>
-
-                            </div>
-
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;div class="footer-example"&gt;
+  &lt;nav aria-label="Footer navigation"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;p&gt;&amp;copy; 2024 MNIT DOT A11y&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
-                    </footer>
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>Use the `<footer>` semantic element for the main footer section.</li>
+                            <li>Ensure links are clear and have a consistent visual style.</li>
+                            <li>Provide a clear `aria-label` for the navigation within the footer.</li>
+                        </ul>
 
-                    <h2>Source Code</h2>
-
-                    <pre><code>&lt;footer class="usa-footer"&gt;
-
-  &lt;div class="usa-footer__primary-section"&gt;
-
-    &lt;nav class="usa-footer__nav" aria-label="Footer navigation"&gt;
-
-      &lt;ul&gt;
-
-        &lt;li&gt;&lt;a href="#link1" class="usa-footer__primary-link"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
-
-        &lt;li&gt;&lt;a href="#link2" class="usa-footer__primary-link"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
-
-        &lt;li&gt;&lt;a href="#link3" class="usa-footer__primary-link"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
-
-        &lt;li&gt;&lt;a href="#link4" class="usa-footer__primary-link"&gt;Link 4&lt;/a&gt;&lt;/li&gt;
-
-      &lt;/ul&gt;
-
-    &lt;/nav&gt;
-
-  &lt;/div&gt;
-
-  &lt;div class="usa-footer__secondary-section"&gt;
-
-    &lt;div class="usa-footer__logo"&gt;
-
-      &lt;img class="usa-footer__logo-img" src="/assets/img/logo-img.png" alt="Agency Logo" /&gt;
-
-      &lt;p class="usa-footer__logo-heading"&gt;Agency Name&lt;/p&gt;
-
-    &lt;/div&gt;
-
-    &lt;div class="usa-footer__contact-links"&gt;
-
-      &lt;div class="usa-footer__social-links"&gt;
-
-        &lt;a class="usa-social-link" href="javascript:void(0);"&gt;&lt;img src="/assets/img/usa-icons/facebook.svg" alt="Facebook" /&gt;&lt;/a&gt;
-
-        &lt;a class="usa-social-link" href="javascript:void(0);"&gt;&lt;img src="/assets/img/usa-icons/twitter.svg" alt="Twitter" /&gt;&lt;/a&gt;
-
-        &lt;a class="usa-social-link" href="javascript:void(0);"&gt;&lt;img src="/assets/img/usa-icons/youtube.svg" alt="YouTube" /&gt;&lt;/a&gt;
-
-      &lt;/div&gt;
-
-      &lt;address class="usa-footer__contact-info"&gt;
-
-        &lt;div&gt;&lt;a href="tel:1-800-555-5555"&gt;(800) 555-GOVT&lt;/a&gt;&lt;/div&gt;
-
-        &lt;div&gt;&lt;a href="mailto:info@agency.gov"&gt;info@agency.gov&lt;/a&gt;&lt;/div&gt;
-
-      &lt;/address&gt;
-
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-
-&lt;/footer&gt;</code></pre>
-
-                    <h2>Guidance</h2>
-
-                    <ul>
-
-                        <li>Include only frequently updated social media links and relevant contact information in the footer.</li>
-
-                        <li>Avoid duplicating the navigation structure of the header in the footer unless it's necessary.</li>
-
-                        <li>Ensure footer links are specific and meet user needs at the bottom of the page.</li>
-
-                        <li>Use clear and accessible labels for navigation and contact information.</li>
-
-                    </ul>
-
-                    <h2>Accessibility Features</h2>
-
-                    <ul>
-
-                        <li>The footer is keyboard-accessible and designed to meet WCAG 2.1 AA standards.</li>
-
-                        <li>Social links and contact details are organized for easy navigation and interaction.</li>
-
-                        <li>All interactive components have clear text labels or alternative text for screen readers.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the footer component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/footer/" target="_blank">Footer Component Testing Checklist</a>.</p>
+                        <h2>Testing</h2>
+                        <p>To ensure the footer component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/footer/" target="_blank">Footer Component Testing Checklist</a>.</p>
+                    </div>
                 </div>
 
-            </div>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-            <div class="print-container">
-
-                <button type="button" class="print-button" aria-label="Print this page">
-
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-
-                </button>
-
-            </div>
-
-        </main>
-
-        <footer class="container" id="footer">
-
-            <nav aria-label="Site map">
-
-                <ul>
-
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
-        $("body").removeClass("preload"); // Prevents animations on page load
+        $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=footer-component.md")
-
                     .then(response => response.json())
-
                     .then(commits => {
-
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
                         if (modified != "") {
-
                             document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
                         }
-
                     });
-
             }
-
         }
+        
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
+                });
+        });
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>
