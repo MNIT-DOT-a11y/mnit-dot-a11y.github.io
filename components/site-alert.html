@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -15,8 +15,8 @@
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Site Alert Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating a site alert component that communicates urgent sitewide information." />
-    <meta property="og:description" content="Guide to creating a site alert component that communicates urgent sitewide information." />
+    <meta name="description" content="Guide to creating an accessible site alert component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible site alert component. Includes source code and interactive example." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/site-alert-component/" />
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/site-alert-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
@@ -24,35 +24,58 @@
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Site Alert Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating a site alert component that communicates urgent sitewide information.",
-        "headline": "Site Alert Component",
-        "url": "https://mnit-dot-a11y.github.io/site-alert-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible site alert component. Includes source code and interactive example.",
+            "headline": "Site Alert Component",
+            "url": "https://mnit-dot-a11y.github.io/site-alert-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        .site-alert-container {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
         .usa-site-alert {
-            border: 1px solid #0071bc;
-            background-color: #f0f8ff;
             padding: 15px;
             margin-bottom: 20px;
+            color: #fff;
         }
 
-        .usa-alert__heading {
-            font-size: 1.25em;
-            margin-bottom: 5px;
+        .usa-site-alert--emergency {
+            background-color: #dc3545;
         }
 
-        .usa-alert__text {
-            margin: 0;
+        .usa-site-alert--info {
+            background-color: #007bff;
         }
 
-        .sidenav {
+        .usa-site-alert__body {
+            display: flex;
+            align-items: center;
+        }
+
+        .usa-site-alert__body .fa-solid {
+            margin-right: 10px;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .content-container {
+            margin-left: 270px;
+        }
+        
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
@@ -61,11 +84,32 @@
             top: 100px;
             height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
         }
     </style>
 
@@ -73,7 +117,8 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder">
         <ul class="site-sidenav usa-sidenav">
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
@@ -119,321 +164,161 @@
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
         </ul>
-    </aside>
+    </div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
                     <li class="web alpha"><a href="/web/">Web</a></li>
-
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
                     <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
-
                     <li class="expander-group site-sub-group">
-
                         <button class="expander-toggle" aria-expanded="false">More</button>
-
                         <ul class="expander-content">
-
                             <li><a href="/how-to-test/">How-to Test</a></li>
-
                             <li><a href="/demos/">Demos</a></li>
-
                             <li><a href="/about/">About</a></li>
-
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
                         </ul>
-
                     </li>
-
                 </ul>
-
             </nav>
-
         </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Site Alert Component</h1>
+                        <p>A site alert is a prominent, often dismissible, banner that displays important information to the user at the top of a webpage. It is used for time-sensitive, critical, or general announcements that apply to the entire site.</p>
 
-            <div class="container">
-
-                <div class="post-content">
-
-                    <h1>Site Alert</h1>
-
-                    <p>A site alert communicates urgent sitewide information.</p>
-
-                    <p>Passed WCAG 2.1 AA</p>
-
-                    <h2>About the Site Alert Component</h2>
-
-                    <p>When your agency has urgent information to share with the public, it’s essential that it stands out from other content on the site. A site alert prominently displays critical, time-sensitive warnings or directions across every page so that users see it whenever they visit the site. Using the same site alert treatment across agencies helps create a consistent and predictable way for users to find urgent information across all government websites.</p>
-
-                    <h2>Component Preview</h2>
-
-                    <h3 class="site-preview-heading">Standard Informational Site Alert</h3>
-
-                    <section class="usa-site-alert usa-site-alert--info" aria-label="Site alert">
-
-                        <div class="usa-alert">
-
-                            <div class="usa-alert__body">
-
-                                <h4 class="usa-alert__heading">Short alert message</h4>
-
-                                <p class="usa-alert__text">
-                                    Additional context and followup information including
-                                    <a class="usa-link" href="javascript:void(0);">a link</a>.
-                                </p>
-
+                        <h2>Interactive Example</h2>
+                        <div class="site-alert-container">
+                            <div class="usa-site-alert usa-site-alert--emergency" role="alert">
+                                <div class="usa-site-alert__body">
+                                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                                    <p class="usa-alert__text">
+                                        <strong>Emergency Alert:</strong> All roads are closed due to severe weather. Please stay home.
+                                    </p>
+                                </div>
                             </div>
-
+                            <div class="usa-site-alert usa-site-alert--info">
+                                <div class="usa-site-alert__body">
+                                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                                    <p class="usa-alert__text">
+                                        <strong>Information:</strong> Our systems will be down for maintenance on Friday at 2:00 AM.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
-                    </section>
-
-                    <h3 class="site-preview-heading">Standard Emergency Site Alert</h3>
-
-                    <section class="usa-site-alert usa-site-alert--emergency" aria-label="Site alert">
-
-                        <div class="usa-alert">
-
-                            <div class="usa-alert__body">
-
-                                <h4 class="usa-alert__heading">Emergency alert message</h4>
-
-                                <p class="usa-alert__text">
-                                    Additional context and followup information including
-                                    <a class="usa-link" href="javascript:void(0);">a link</a>.
-                                </p>
-
-                            </div>
-
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;div class="usa-site-alert usa-site-alert--emergency" role="alert"&gt;
+  &lt;div class="usa-site-alert__body"&gt;
+    &lt;i class="fa-solid fa-triangle-exclamation" aria-hidden="true"&gt;&lt;/i&gt;
+    &lt;p class="usa-alert__text"&gt;
+      &lt;strong&gt;Emergency Alert:&lt;/strong&gt; All roads are closed due to severe weather. Please stay home.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
-                    </section>
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>Use `role="alert"` for time-sensitive alerts to ensure screen readers announce them immediately.</li>
+                            <li>Ensure color contrast is high for both text and icons.</li>
+                            <li>If the alert is dismissible, provide a clearly labeled and accessible close button.</li>
+                        </ul>
 
-                    <h3 class="site-preview-heading">Site Alert with No Header</h3>
-
-                    <section class="usa-site-alert usa-site-alert--emergency usa-site-alert--no-heading" aria-label="Site alert">
-
-                        <div class="usa-alert">
-
-                            <div class="usa-alert__body">
-
-                                <p class="usa-alert__text">
-                                    <strong>Short alert message.</strong> Additional context and followup
-                                    information including
-                                    <a class="usa-link" href="javascript:void(0);">a link</a>.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                    <h3 class="site-preview-heading">Site Alert with List</h3>
-
-                    <section class="usa-site-alert usa-site-alert--emergency" aria-label="Site alert">
-
-                        <div class="usa-alert">
-
-                            <div class="usa-alert__body">
-
-                                <h4 class="usa-alert__heading">Emergency alert message</h4>
-
-                                <ul class="usa-list">
-
-                                    <li>
-                                        The primary emergency message and
-                                        <a class="usa-link" href="javascript:void(0);">a link</a> for
-                                        supporting context.
-                                    </li>
-
-                                    <li>
-                                        Another message,
-                                        <a class="usa-link" href="javascript:void(0);">and another link</a>.
-                                    </li>
-
-                                    <li>A final emergency message.</li>
-
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                    <h3 class="site-preview-heading">Slim Site Alert</h3>
-
-                    <section class="usa-site-alert usa-site-alert--emergency usa-site-alert--slim" aria-label="Site alert">
-
-                        <div class="usa-alert">
-
-                            <div class="usa-alert__body">
-
-                                <p class="usa-alert__text">
-                                    <strong>Short alert message.</strong> Additional context and followup
-                                    information including
-                                    <a class="usa-link" href="javascript:void(0);">a link</a>.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                    <h3 class="site-preview-heading">Site Alert with No Icon</h3>
-
-                    <section class="usa-site-alert usa-site-alert--emergency usa-site-alert--no-icon" aria-label="Site alert">
-
-                        <div class="usa-alert">
-
-                            <div class="usa-alert__body">
-
-                                <p class="usa-alert__text">
-                                    <strong>Short alert message.</strong> Additional context and followup
-                                    information including
-                                    <a class="usa-link" href="javascript:void(0);">a link</a>.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                    <h2>Guidance</h2>
-
-                    <h3>When to Use the Site Alert Component</h3>
-
-                    <ul>
-
-                        <li><strong>Critical system notifications.</strong> Use a site alert to deliver a static system status update, such as notices about unavailable services or content. Site alerts should appear by default and not in response to an action.</li>
-
-                        <li><strong>Messages that should be displayed on every page.</strong> A site alert makes critical information obvious and findable on every page.</li>
-
-                    </ul>
-
-                    <h3>When to Consider Something Else</h3>
-
-                    <ul>
-
-                        <li><strong>Responding to user actions.</strong> Use the alert component for page-level validation messages (like error messages on a form) or to inform a user that a task was completed successfully.</li>
-
-                        <li><strong>Validating form input.</strong> On most forms, especially longer forms, validation messages should appear inline with error messages at the top of the form.</li>
-
-                    </ul>
-
-                    <h3>Usability Guidance</h3>
-
-                    <ul>
-
-                        <li><strong>Place prominently.</strong> Use a full-width site alert positioned near the top of the page so it’s one of the first things users see.</li>
-
-                        <li><strong>Avoid stacking multiple site alerts.</strong> If you need to convey more than one message, provide a list of links within a single site alert instead of multiple, stacked alerts.</li>
-
-                        <li><strong>Avoid overwhelming use of color.</strong> It may be tempting to make heavy use of bright red or orange to draw attention to an emergency-related site alert. However, these colors can produce strong negative emotional reactions such as fear or panic. Positioning the banner at the top of the screen provides enough weight that such strong colors may not be necessary.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the site alert component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/site-alert/" target="_blank">Site Alert Component Testing Checklist</a>.</p>
+                        <h2>Testing</h2>
+                        <p>To ensure the site alert component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/site-alert/" target="_blank">Site Alert Component Testing Checklist</a>.</p>
+                    </div>
                 </div>
 
-            </div>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-        </main>
-
-        <footer class="container" id="footer">
-
-            <nav aria-label="Site map">
-
-                <ul>
-
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=site-alert-component.md")
-
                     .then(response => response.json())
-
                     .then(commits => {
-
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
-                        if (modified != "") {
-
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
-
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
-
             }
-
         }
+        
+        window.onload = setModifiedDate;
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>

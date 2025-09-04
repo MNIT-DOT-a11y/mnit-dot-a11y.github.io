@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -15,8 +15,8 @@
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Table Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating a table component that displays information in columns and rows." />
-    <meta property="og:description" content="Guide to creating a table component that displays information in columns and rows." />
+    <meta name="description" content="Guide to creating an accessible table component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible table component. Includes source code and interactive example." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/table-component/" />
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/table-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
@@ -24,54 +24,53 @@
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Table Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating a table component that displays information in columns and rows.",
-        "headline": "Table Component",
-        "url": "https://mnit-dot-a11y.github.io/table-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible table component. Includes source code and interactive example.",
+            "headline": "Table Component",
+            "url": "https://mnit-dot-a11y.github.io/table-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-table-container--scrollable {
-            overflow-x: auto;
-            margin-bottom: 20px;
+        .table-container {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
         }
 
         .usa-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 10px;
         }
 
-        .usa-table th, .usa-table td {
-            border: 1px solid #ddd;
+        .usa-table th,
+        .usa-table td {
+            border: 1px solid #ccc;
             padding: 8px;
             text-align: left;
         }
 
-        .usa-table--striped tbody tr:nth-child(odd) {
-            background-color: #f9f9f9;
+        .usa-table th {
+            background-color: #eee;
+            font-weight: bold;
         }
 
-        .usa-table--compact td, .usa-table--compact th {
-            padding: 4px;
+        .main-content {
+            padding: 20px;
         }
 
-        .usa-table--borderless th, .usa-table--borderless td {
-            border: none;
+        .content-container {
+            margin-left: 270px;
         }
-
-        .usa-table--sticky thead th {
-            position: sticky;
-            top: 0;
-            background-color: #fff;
-            z-index: 10;
-        }
-
-        .sidenav {
+        
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
@@ -80,20 +79,41 @@
             top: 100px;
             height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
         }
 
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder">
         <ul class="site-sidenav usa-sidenav">
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
@@ -139,910 +159,191 @@
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
         </ul>
-    </aside>
+    </div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
                     <li class="web alpha"><a href="/web/">Web</a></li>
-
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
                     <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
-
                     <li class="expander-group site-sub-group">
-
                         <button class="expander-toggle" aria-expanded="false">More</button>
-
                         <ul class="expander-content">
-
                             <li><a href="/how-to-test/">How-to Test</a></li>
-
                             <li><a href="/demos/">Demos</a></li>
-
                             <li><a href="/about/">About</a></li>
-
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
                         </ul>
-
                     </li>
-
                 </ul>
-
             </nav>
-
         </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Table Component</h1>
+                        <p>Tables are used to display data in rows and columns. An accessible table must use correct semantic HTML to properly associate headers with data cells, allowing screen readers to convey the information's structure to the user.</p>
 
-            <div class="container">
+                        <h2>Interactive Example</h2>
+                        <div class="table-container">
+                            <table class="usa-table">
+                                <caption>Monthly Sales Report</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Month</th>
+                                        <th scope="col">Sales</th>
+                                        <th scope="col">Profit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>January</td>
+                                        <td>$10,000</td>
+                                        <td>$2,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>February</td>
+                                        <td>$12,000</td>
+                                        <td>$2,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>March</td>
+                                        <td>$15,000</td>
+                                        <td>$3,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                <div class="post-content">
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;table class="usa-table"&gt;
+  &lt;caption&gt;Monthly Sales Report&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Month&lt;/th&gt;
+      &lt;th scope="col"&gt;Sales&lt;/th&gt;
+      &lt;th scope="col"&gt;Profit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;January&lt;/td&gt;
+      &lt;td&gt;$10,000&lt;/td&gt;
+      &lt;td&gt;$2,000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;February&lt;/td&gt;
+      &lt;td&gt;$12,000&lt;/td&gt;
+      &lt;td&gt;$2,500&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;March&lt;/td&gt;
+      &lt;td&gt;$15,000&lt;/td&gt;
+      &lt;td&gt;$3,000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
 
-                    <h1>Table</h1>
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>Use a `<caption>` element to provide a clear title for the table.</li>
+                            <li>Use `<th>` for all table headers and `scope="col"` or `scope="row"` to associate them with the data cells.</li>
+                            <li>Avoid using tables for layout purposes.</li>
+                        </ul>
 
-                    <p>A table shows information in columns and rows.</p>
-
-                    <p>Passed WCAG 2.1 AA</p>
-
-                    <p>Tables help logically organize information and group like things together, and they make it easier to understand complex content, as explained on plainlanguage.gov. They’re especially useful for showing long lists of sequential or structured content. Users read tables one row or column at a time, making it easy to digest and compare information.</p>
-
-                    <p>Tables also help users find specific information within a large data set. For example, if someone is looking for how much their tax is based on their income for a particular year, it’s much easier to find the intersection of that year and income range than to scan or read an entire paragraph of text.</p>
-
-                    <h2>Standard Table</h2>
-
-                    <div class="usa-table-container--scrollable" tabindex="0">
-
-                        <table class="usa-table">
-
-                            <caption>Bordered table</caption>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Document title</th>
-
-                                    <th scope="col">Description</th>
-
-                                    <th scope="col">Year</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Independence</th>
-
-                                    <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-
-                                    <td>1776</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Bill of Rights</th>
-
-                                    <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-
-                                    <td>1791</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Sentiments</th>
-
-                                    <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-
-                                    <td>1848</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Emancipation Proclamation</th>
-
-                                    <td>An executive order granting freedom to slaves in designated southern states.</td>
-
-                                    <td>1863</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
+                        <h2>Testing</h2>
+                        <p>To ensure the table component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/table/" target="_blank">Table Component Testing Checklist</a>.</p>
                     </div>
-
-                    <h2>Striped Table</h2>
-
-                    <div class="usa-table-container--scrollable" tabindex="0">
-
-                        <table class="usa-table usa-table--striped">
-
-                            <caption>Bordered table with horizontal stripes</caption>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Document title</th>
-
-                                    <th scope="col">Description</th>
-
-                                    <th scope="col">Year</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Independence</th>
-
-                                    <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-
-                                    <td>1776</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Bill of Rights</th>
-
-                                    <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-
-                                    <td>1791</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Sentiments</th>
-
-                                    <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-
-                                    <td>1848</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Emancipation Proclamation</th>
-
-                                    <td>An executive order granting freedom to slaves in designated southern states.</td>
-
-                                    <td>1863</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                    <h2>Borderless Table</h2>
-
-                    <div class="usa-table-container--scrollable" tabindex="0">
-
-                        <table class="usa-table usa-table--borderless">
-
-                            <caption>Borderless table</caption>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Document title</th>
-
-                                    <th scope="col">Description</th>
-
-                                    <th scope="col">Year</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Independence</th>
-
-                                    <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-
-                                    <td>1776</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Bill of Rights</th>
-
-                                    <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-
-                                    <td>1791</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Sentiments</th>
-
-                                    <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-
-                                    <td>1848</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Emancipation Proclamation</th>
-
-                                    <td>An executive order granting freedom to slaves in designated southern states.</td>
-
-                                    <td>1863</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                    <h2>Scrollable Table</h2>
-
-                    <div class="usa-table-container--scrollable" tabindex="0">
-
-                        <table class="usa-table">
-
-                            <caption>Scrollable table</caption>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Document title</th>
-
-                                    <th scope="col">Description</th>
-
-                                    <th scope="col">Year</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Independence</th>
-
-                                    <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-
-                                    <td>1776</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Bill of Rights</th>
-
-                                    <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-
-                                    <td>1791</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Sentiments</th>
-
-                                    <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-
-                                    <td>1848</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Emancipation Proclamation</th>
-
-                                    <td>An executive order granting freedom to slaves in designated southern states.</td>
-
-                                    <td>1863</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                    <h2>Compact Scrollable Table</h2>
-
-                    <div class="usa-table-container--scrollable" tabindex="0">
-
-                        <table class="usa-table usa-table--compact">
-
-                            <caption>Compact scrollable table</caption>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Document title</th>
-
-                                    <th scope="col">Description</th>
-
-                                    <th scope="col">Year</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Independence</th>
-
-                                    <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-
-                                    <td>1776</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Bill of Rights</th>
-
-                                    <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-
-                                    <td>1791</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Sentiments</th>
-
-                                    <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-
-                                    <td>1848</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Emancipation Proclamation</th>
-
-                                    <td>An executive order granting freedom to slaves in designated southern states.</td>
-
-                                    <td>1863</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                    <h2>Compact Scrollable Table with Stripes</h2>
-
-                    <div class="usa-table-container--scrollable" tabindex="0">
-
-                        <table class="usa-table usa-table--compact usa-table--striped">
-
-                            <caption>Compact scrollable table with horizontal stripes</caption>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Document title</th>
-
-                                    <th scope="col">Description</th>
-
-                                    <th scope="col">Year</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Independence</th>
-
-                                    <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-
-                                    <td>1776</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Bill of Rights</th>
-
-                                    <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-
-                                    <td>1791</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Sentiments</th>
-
-                                    <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-
-                                    <td>1848</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Emancipation Proclamation</th>
-
-                                    <td>An executive order granting freedom to slaves in designated southern states.</td>
-
-                                    <td>1863</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                    <h2>Responsive Stacked Table</h2>
-
-                    <div class="usa-table-container--scrollable" tabindex="0">
-
-                        <table class="usa-table">
-
-                            <caption>Responsive stacked table</caption>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Document title</th>
-
-                                    <th scope="col">Description</th>
-
-                                    <th scope="col">Year</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Independence</th>
-
-                                    <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-
-                                    <td>1776</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Bill of Rights</th>
-
-                                    <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-
-                                    <td>1791</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Sentiments</th>
-
-                                    <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-
-                                    <td>1848</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Emancipation Proclamation</th>
-
-                                    <td>An executive order granting freedom to slaves in designated southern states.</td>
-
-                                    <td>1863</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                    <h2>Sortable Table</h2>
-
-                    <div class="usa-table-container--scrollable" tabindex="0">
-
-                        <table class="usa-table">
-
-                            <caption>Sortable table</caption>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Name</th>
-
-                                    <th scope="col">Order admitted to union</th>
-
-                                    <th scope="col">Date of ratification vote</th>
-
-                                    <th scope="col">Date admitted to union</th>
-
-                                    <th scope="col">Percent of voters in favor of ratification</th>
-
-                                    <th scope="col">Votes cast in favor of ratification</th>
-
-                                    <th scope="col">Estimated population at time of admission</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <th scope="row">Utah</th>
-
-                                    <td>45th</td>
-
-                                    <td>Nov. 5, 1895</td>
-
-                                    <td>Jan. 4, 1896</td>
-
-                                    <td>80.5%</td>
-
-                                    <td>31,305</td>
-
-                                    <td>210,779</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Oklahoma</th>
-
-                                    <td>46th</td>
-
-                                    <td>Sep. 17, 1907</td>
-
-                                    <td>Nov. 16, 1907</td>
-
-                                    <td>71.2%</td>
-
-                                    <td>180,333</td>
-
-                                    <td>1,657,155</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">New Mexico</th>
-
-                                    <td>47th</td>
-
-                                    <td>Nov. 5, 1911</td>
-
-                                    <td>Jan. 6, 1912</td>
-
-                                    <td>70.3%</td>
-
-                                    <td>31,742</td>
-
-                                    <td>327,301</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Arizona</th>
-
-                                    <td>48th</td>
-
-                                    <td>Feb. 9, 1911</td>
-
-                                    <td>Feb. 14, 1912</td>
-
-                                    <td>78.7%</td>
-
-                                    <td>12,187</td>
-
-                                    <td>204,354</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Alaska</th>
-
-                                    <td>49th</td>
-
-                                    <td>Apr. 24, 1956</td>
-
-                                    <td>Jan. 3, 1959</td>
-
-                                    <td>68.1%</td>
-
-                                    <td>17,477</td>
-
-                                    <td>226,167</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Hawaii</th>
-
-                                    <td>50th</td>
-
-                                    <td>Jun. 27, 1959</td>
-
-                                    <td>Aug. 21, 1959</td>
-
-                                    <td>94.3%</td>
-
-                                    <td>132,773</td>
-
-                                    <td>632,772</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                    <h2>Sticky Header Table</h2>
-
-                    <div class="usa-table-container--scrollable" tabindex="0">
-
-                        <table class="usa-table usa-table--sticky">
-
-                            <caption>Sticky header table</caption>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th scope="col">Document title</th>
-
-                                    <th scope="col">Description</th>
-
-                                    <th scope="col">Year</th>
-
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Independence</th>
-
-                                    <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-
-                                    <td>1776</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Bill of Rights</th>
-
-                                    <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-
-                                    <td>1791</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Sentiments</th>
-
-                                    <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-
-                                    <td>1848</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Emancipation Proclamation</th>
-
-                                    <td>An executive order granting freedom to slaves in designated southern states.</td>
-
-                                    <td>1863</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Independence</th>
-
-                                    <td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>
-
-                                    <td>1776</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Bill of Rights</th>
-
-                                    <td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>
-
-                                    <td>1791</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Declaration of Sentiments</th>
-
-                                    <td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>
-
-                                    <td>1848</td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <th scope="row">Emancipation Proclamation</th>
-
-                                    <td>An executive order granting freedom to slaves in designated southern states.</td>
-
-                                    <td>1863</td>
-
-                                </tr>
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                    <h2>Guidance</h2>
-
-                    <h3>When to Use the Table Component</h3>
-
-                    <ul>
-
-                        <li><strong>Displaying tabular data.</strong> When you need to display tabular information, such as statistical data.</li>
-
-                        <li><strong>Displaying directories.</strong> When listing locations or resources that have similarly structured content for many items.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-
-                    <p>To ensure the table component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/table/" target="_blank">Table Component Testing Checklist</a>.</p>
-
                 </div>
 
-            </div>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-        </main>
-
-        <footer class="container" id="footer">
-
-            <nav aria-label="Site map">
-
-                <ul>
-
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=table-component.md")
-
                     .then(response => response.json())
-
                     .then(commits => {
-
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
-                        if (modified != "") {
-
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
-
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
-
             }
-
         }
+        
+        window.onload = setModifiedDate;
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>

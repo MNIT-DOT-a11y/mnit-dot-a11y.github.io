@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -15,8 +15,8 @@
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Summary Box Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating a summary box component that highlights key information from a longer page or displays next steps." />
-    <meta property="og:description" content="Guide to creating a summary box component that highlights key information from a longer page or displays next steps." />
+    <meta name="description" content="Guide to creating an accessible summary box component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible summary box component. Includes source code and interactive example." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/summary-box-component/" />
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/summary-box-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
@@ -24,41 +24,43 @@
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Summary Box Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating a summary box component that highlights key information from a longer page or displays next steps.",
-        "headline": "Summary Box Component",
-        "url": "https://mnit-dot-a11y.github.io/summary-box-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible summary box component. Includes source code and interactive example.",
+            "headline": "Summary Box Component",
+            "url": "https://mnit-dot-a11y.github.io/summary-box-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-summary-box {
-            border: 1px solid #0056b3;
-            background-color: #f0f8ff;
+        .summary-box-container {
+            margin: 20px;
             padding: 15px;
-            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
         }
 
-        .usa-summary-box__heading {
-            font-size: 1.25em;
-            margin-bottom: 10px;
+        .usa-summary-box {
+            padding: 20px;
+            border: 1px solid #004085;
+            background-color: #f0f8ff;
+            color: #004085;
+            border-radius: 4px;
         }
 
-        .usa-summary-box__text .usa-list {
-            padding-left: 20px;
-            list-style-type: disc;
+        .main-content {
+            padding: 20px;
         }
 
-        .usa-summary-box__link {
-            color: #0056b3;
-            text-decoration: underline;
+        .content-container {
+            margin-left: 270px;
         }
-
-        .sidenav {
+        
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
@@ -67,11 +69,32 @@
             top: 100px;
             height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
         }
     </style>
 
@@ -79,7 +102,8 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder">
         <ul class="site-sidenav usa-sidenav">
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
@@ -125,247 +149,155 @@
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
         </ul>
-    </aside>
+    </div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
                     <li class="web alpha"><a href="/web/">Web</a></li>
-
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
                     <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
-
                     <li class="expander-group site-sub-group">
-
                         <button class="expander-toggle" aria-expanded="false">More</button>
-
                         <ul class="expander-content">
-
                             <li><a href="/how-to-test/">How-to Test</a></li>
-
                             <li><a href="/demos/">Demos</a></li>
-
                             <li><a href="/about/">About</a></li>
-
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
                         </ul>
-
                     </li>
-
                 </ul>
-
             </nav>
-
         </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Summary Box Component</h1>
+                        <p>A summary box provides a concise overview of key information, often used at the beginning of a section or page. It is designed to be easily skimmable and to highlight the most important points for the user.</p>
 
-            <div class="container">
-
-                <div class="post-content">
-
-                    <h1>Summary Box</h1>
-
-                    <p>A summary box highlights key information from a longer page or displays next steps.</p>
-
-                    <p>Passed WCAG 2.1 AA</p>
-
-                    <h2>Component Preview</h2>
-
-                    <h3 class="site-preview-heading">Default</h3>
-
-                    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
-
-                        <div class="usa-summary-box__body">
-
-                            <h4 class="usa-summary-box__heading" id="summary-box-key-information">
-
-                                Key information
-
-                            </h4>
-
-                            <div class="usa-summary-box__text">
-
-                                <ul class="usa-list">
-
-                                    <li>
-                                        If you are under a winter storm warning,
-                                        <a class="usa-summary-box__link" href="">find shelter</a> right away.
-                                    </li>
-
-                                    <li>
-                                        Sign up for
-                                        <a class="usa-summary-box__link" href="">
-                                            your community’s warning system</a>.
-                                    </li>
-
-                                    <li>
-                                        Learn the signs of, and basic treatments for,
-                                        <a class="usa-summary-box__link" href="">frostbite</a> and
-                                        <a class="usa-summary-box__link" href="">hypothermia</a>.
-                                    </li>
-
-                                    <li>
-                                        Gather emergency supplies for your
-                                        <a class="usa-summary-box__link" href="">home</a> and your
-                                        <a class="usa-summary-box__link" href="">car</a>.
-                                    </li>
-
+                        <h2>Interactive Example</h2>
+                        <div class="summary-box-container">
+                            <div class="usa-summary-box" role="complementary">
+                                <h3>Important Information</h3>
+                                <p>This is a summary of the most important information on the page. It helps users quickly understand the key takeaways before they read the full content.</p>
+                                <ul>
+                                    <li>Point 1</li>
+                                    <li>Point 2</li>
+                                    <li>Point 3</li>
                                 </ul>
-
                             </div>
-
                         </div>
 
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;div class="usa-summary-box" role="complementary"&gt;
+  &lt;h3&gt;Important Information&lt;/h3&gt;
+  &lt;p&gt;This is a summary of the most important information on the page. It helps users quickly understand the key takeaways before they read the full content.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Point 1&lt;/li&gt;
+    &lt;li&gt;Point 2&lt;/li&gt;
+    &lt;li&gt;Point 3&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>Use `role="complementary"` or another appropriate ARIA role to convey the purpose of the summary box to screen readers.</li>
+                            <li>Use a clear heading (`<h3>`) to provide a title for the summary.</li>
+                            <li>Ensure that the content within the summary is concise and easy to read.</li>
+                        </ul>
+
+                        <h2>Testing</h2>
+                        <p>To ensure the summary box component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/summary-box/" target="_blank">Summary Box Component Testing Checklist</a>.</p>
                     </div>
-
-                    <h2>Guidance</h2>
-
-                    <h3>When to Use the Summary Box Component</h3>
-
-                    <ul>
-
-                        <li><strong>Summarize dense content.</strong> If your page contains a lot of information, use the summary box to call out 3-5 key details that readers shouldn’t miss.</li>
-
-                        <li><strong>Highlight a short, actionable list.</strong> If the page content describes a few steps or a checklist of items to remember, collect them in a summary box. Use five bullet points or less.</li>
-
-                    </ul>
-
-                    <h3>When to Consider Something Else</h3>
-
-                    <ul>
-
-                        <li><strong>Internal page navigation.</strong> Don’t use a summary box as a table of contents. If you’re listing headings for internal page navigation, use a simple unordered list of jump links or side navigation.</li>
-
-                        <li><strong>Your page is short.</strong> The summary box gives users quick access to the most important information on a long page. If your page isn’t that long, a recap may feel redundant.</li>
-
-                        <li><strong>Your list needs more detail.</strong> Summary boxes should be short. Use a process list, graphic list, or icon list in the body of the article when:
-
-                            <ul>
-
-                                <li>There are more than five bullet points.</li>
-
-                                <li>Bullet points are longer than 20 words.</li>
-
-                                <li>Bullet points require a header, image, or button.</li>
-
-                            </ul>
-
-                        </li>
-
-                        <li><strong>Alerts or callouts.</strong> If you’re highlighting something new, rather than surfacing details from further down the page, use the alert component, such as the informative status alert.</li>
-
-                    </ul>
-
-                    <h3>Usability Guidance</h3>
-
-                    <ul>
-
-                        <li><strong>Select, split, and sequence to prioritize critical information.</strong> First, select the most important information from the page. Then, split up the information into logical parts. Finally, sequence the parts in an order that makes sense to the reader.</li>
-
-                        <li><strong>Link to more information.</strong> We suggest linking to further reading on the same page using an anchor link. To do this without confusing your readers, do your best to explain where the link will take them in the hyperlinked text and reiterate it with the subsequent heading.</li>
-
-                        <li><strong>Use smooth scrolling.</strong> Show the reader that they haven’t left the page with smooth scrolling. If you opt for smooth scrolling, ensure the focus state is transferred appropriately.</li>
-
-                        <li><strong>Give the user a way to get back.</strong> Provide a “back to top” link or sticky internal navigation.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the summary box component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/summary-box/" target="_blank">Summary Box Component Testing Checklist</a>.</p>
                 </div>
 
-            </div>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-        </main>
-
-        <footer class="container" id="footer">
-
-            <nav aria-label="Site map">
-
-                <ul>
-
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=summary-box-component.md")
-
                     .then(response => response.json())
-
                     .then(commits => {
-
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
-                        if (modified != "") {
-
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
-
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
-
             }
-
         }
+        
+        window.onload = setModifiedDate;
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>

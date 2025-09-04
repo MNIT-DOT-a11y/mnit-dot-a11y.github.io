@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -10,10 +10,10 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Accessible Text Input - MNIT DOT A11y</title>
+    <title>Text Input Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Accessible Text Input" />
+    <meta property="og:title" content="Text Input Component" />
     <meta property="og:locale" content="en_US" />
     <meta name="description" content="Guide to creating an accessible text input component. Includes source code and interactive example." />
     <meta property="og:description" content="Guide to creating an accessible text input component. Includes source code and interactive example." />
@@ -22,48 +22,51 @@
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Accessible Text Input" />
+    <meta property="twitter:title" content="Text Input Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible text input component. Includes source code and interactive example.",
-        "headline": "Accessible Text Input",
-        "url": "https://mnit-dot-a11y.github.io/text-input-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible text input component. Includes source code and interactive example.",
+            "headline": "Text Input Component",
+            "url": "https://mnit-dot-a11y.github.io/text-input-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-input,
-        .usa-textarea {
-            width: 100%;
-            padding: 0.5rem;
+        .text-input-container {
+            margin: 20px;
+            padding: 15px;
             border: 1px solid #ccc;
-            border-radius: 0.25rem;
-            font-size: 1rem;
+            border-radius: 4px;
+            background-color: #f9f9f9;
         }
 
-        .usa-input:focus,
-        .usa-textarea:focus {
-            outline: 2px solid #0071bc;
-            outline-offset: 2px;
-        }
-
-        .usa-label {
+        .text-input-container label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 5px;
             font-weight: bold;
         }
 
-        .error {
-            color: red;
-            font-size: 0.9em;
-            margin-top: 0.25rem;
+        .text-input-container input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
-        .sidenav {
+        .main-content {
+            padding: 20px;
+        }
+
+        .content-container {
+            margin-left: 270px;
+        }
+        
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
@@ -72,11 +75,32 @@
             top: 100px;
             height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
         }
     </style>
 
@@ -84,7 +108,8 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder">
         <ul class="site-sidenav usa-sidenav">
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
@@ -130,254 +155,143 @@
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
         </ul>
-    </aside>
+    </div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
                     <li class="web alpha"><a href="/web/">Web</a></li>
-
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
                     <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
-
                     <li class="expander-group site-sub-group">
-
                         <button class="expander-toggle" aria-expanded="false">More</button>
-
                         <ul class="expander-content">
-
                             <li><a href="/how-to-test/">How-to Test</a></li>
-
                             <li><a href="/demos/">Demos</a></li>
-
                             <li><a href="/about/">About</a></li>
-
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
                         </ul>
-
                     </li>
-
                 </ul>
-
             </nav>
-
         </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Text Input Component</h1>
+                        <p>Text input fields are used to gather short-form text from a user, such as a name or a subject line. An accessible text input field has a clear label and can be easily used by all users.</p>
 
-            <div class="container">
-
-                <div class="post-content">
-
-                    <h1>Text Input</h1>
-
-                    <p>This guide provides instructions for creating a text input component that meets accessibility standards.</p>
-
-                    <h2>Interactive Example</h2>
-
-                    <form id="example-form">
-
-                        <div>
-
-                            <label class="usa-label" for="textInput">Text input label (Free Text)</label>
-
-                            <input class="usa-input" id="textInput" name="textInput" type="text" aria-describedby="textInputError" />
-
-                            <p id="textInputError" class="error" style="display:none;">Please enter a valid text input.</p>
-
+                        <h2>Interactive Example</h2>
+                        <div class="text-input-container">
+                            <label for="name-input">Your Name:</label>
+                            <input type="text" id="name-input" name="name-input">
                         </div>
 
-                        <div>
-
-                            <label class="usa-label" for="ssnInput">Social Security Number</label>
-
-                            <input class="usa-input" id="ssnInput" name="ssnInput" type="text" pattern="\d{3}-\d{2}-\d{4}" aria-describedby="ssnError" placeholder="XXX-XX-XXXX" />
-
-                            <p id="ssnError" class="error" style="display:none;">Please enter a valid SSN in the format XXX-XX-XXXX.</p>
-
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;div class="text-input-container"&gt;
+  &lt;label for="name-input"&gt;Your Name:&lt;/label&gt;
+  &lt;input type="text" id="name-input" name="name-input"&gt;
+&lt;/div&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
-                        <div>
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>Ensure an explicit `label` is associated with the `input` using `for` and `id` attributes.</li>
+                            <li>Use an appropriate `type` attribute (e.g., `text`, `email`, `tel`) to provide context to browsers and assistive technologies.</li>
+                            <li>Provide a clear focus state for keyboard users.</li>
+                        </ul>
 
-                            <label class="usa-label" for="emailInput">Email</label>
-
-                            <input class="usa-input" id="emailInput" name="emailInput" type="email" aria-describedby="emailError" />
-
-                            <p id="emailError" class="error" style="display:none;">Please enter a valid email address.</p>
-
-                        </div>
-
-                        <div>
-
-                            <label class="usa-label" for="textArea">Text area label</label>
-
-                            <textarea class="usa-textarea" id="textArea" name="textArea" aria-describedby="textAreaError"></textarea>
-
-                            <p id="textAreaError" class="error" style="display:none;">Please enter text in the text area.</p>
-
-                        </div>
-
-                        <button type="submit">Submit</button>
-
-                    </form>
-
+                        <h2>Testing</h2>
+                        <p>To ensure the text input component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/text-input/" target="_blank">Text Input Component Testing Checklist</a>.</p>
+                    </div>
                 </div>
 
-            </div>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-            <div class="print-container">
-
-                <button type="button" class="print-button" aria-label="Print this page">
-
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-
-                </button>
-
-            </div>
-
-            <h2>Testing</h2>
-            <p>To ensure the text input component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/text-input/" target="_blank">Text Input Component Testing Checklist</a>.</p>
-
-        </main>
-
-        <footer class="container" id="footer">
-
-            <nav aria-label="Site map">
-
-                <ul>
-
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
-        $("body").removeClass("preload"); // Prevents animations on page load
+        $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=text-input-component.md")
-
                     .then(response => response.json())
-
                     .then(commits => {
-
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
-                        if (modified != "") {
-
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
-
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
-
             }
-
         }
+        
+        window.onload = setModifiedDate;
 
-        // Form validation on submit
-        document.getElementById('example-form').addEventListener('submit', function (event) {
-
-            let isValid = true;
-
-            // Validate text input
-            const textInput = document.getElementById('textInput');
-            const textInputError = document.getElementById('textInputError');
-            if (!textInput.value.trim()) {
-                textInputError.style.display = 'block';
-                isValid = false;
-            } else {
-                textInputError.style.display = 'none';
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
             }
-
-            // Validate SSN input
-            const ssnInput = document.getElementById('ssnInput');
-            const ssnError = document.getElementById('ssnError');
-            if (!ssnInput.value.match(/^\d{3}-\d{2}-\d{4}$/)) {
-                ssnError.style.display = 'block';
-                isValid = false;
-            } else {
-                ssnError.style.display = 'none';
-            }
-
-            // Validate email input
-            const emailInput = document.getElementById('emailInput');
-            const emailError = document.getElementById('emailError');
-            if (!emailInput.value || !emailInput.checkValidity()) {
-                emailError.style.display = 'block';
-                isValid = false;
-            } else {
-                emailError.style.display = 'none';
-            }
-
-            // Validate text area
-            const textArea = document.getElementById('textArea');
-            const textAreaError = document.getElementById('textAreaError');
-            if (!textArea.value.trim()) {
-                textAreaError.style.display = 'block';
-                isValid = false;
-            } else {
-                textAreaError.style.display = 'none';
-            }
-
-            if (!isValid) {
-                event.preventDefault(); // Prevent form submission if validation fails
-            }
-
-        });
-
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>
