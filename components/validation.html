@@ -10,26 +10,26 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Typography - MNIT DOT A11y</title>
+    <title>Validation Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Typography" />
+    <meta property="og:title" content="Validation Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating accessible typography. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating accessible typography. Includes source code and interactive example." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/typography/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/typography/" />
+    <meta name="description" content="Guide to creating an accessible validation component for form inputs. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible validation component for form inputs. Includes source code and interactive example." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/validation-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/validation-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Typography" />
+    <meta property="twitter:title" content="Validation Component" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "Guide to creating accessible typography. Includes source code and interactive example.",
-            "headline": "Typography",
-            "url": "https://mnit-dot-a11y.github.io/typography/"
+            "description": "Guide to creating an accessible validation component for form inputs. Includes source code and interactive example.",
+            "headline": "Validation Component",
+            "url": "https://mnit-dot-a11y.github.io/validation-component/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
@@ -76,20 +76,37 @@
         a.usa-button::after {
             content: none !important;
         }
-
-        /* Component-specific styles */
-        h1, h2, h3, h4, h5, h6 {
-            color: #333;
-            margin-top: 20px;
-            margin-bottom: 10px;
+        
+        /* New styles for validation component */
+        .validation-example {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-        p {
-            line-height: 1.6;
-            margin-bottom: 15px;
+        .form-group {
+            margin-bottom: 20px;
         }
-        ul, ol {
-            margin-bottom: 15px;
-            padding-left: 20px;
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .feedback {
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .feedback.success {
+            color: #28a745;
+        }
+        .feedback.error {
+            color: #dc3545;
         }
     </style>
 
@@ -133,74 +150,95 @@
             <main id="content" class="main-content">
                 <div class="container">
                     <div class="post-content">
-                        <h1>Typography</h1>
-                        <p>Accessible typography ensures that text is readable and legible for all users. This includes proper heading structure, font choices, line height, and color contrast.</p>
+                        <h1>Validation Component</h1>
+                        <p>A validation component provides real-time or on-demand feedback to users about the correctness of their input. It is crucial for accessibility that this feedback is conveyed both visually and to assistive technologies.</p>
 
                         <h2>Interactive Example</h2>
-                        <h1>Heading 1 (H1)</h1>
-                        <p>This is a paragraph of standard body text. It should have sufficient line-height for readability and strong color contrast against the background.</p>
-
-                        <h2>Heading 2 (H2)</h2>
-                        <p>This is another paragraph. Headings should be used hierarchically to outline the content structure of the page.</p>
-
-                        <h3>Heading 3 (H3)</h3>
-                        <p>This paragraph contains an unordered list:</p>
-                        <ul>
-                            <li>List item 1</li>
-                            <li>List item 2</li>
-                            <li>List item 3</li>
-                        </ul>
-
-                        <h4>Heading 4 (H4)</h4>
-                        <p>This paragraph contains an ordered list:</p>
-                        <ol>
-                            <li>First step</li>
-                            <li>Second step</li>
-                            <li>Third step</li>
-                        </ol>
-
-                        <h5>Heading 5 (H5)</h5>
-                        <h6>Heading 6 (H6)</h6>
+                        <div class="validation-example">
+                            <form id="validation-form" novalidate>
+                                <div class="form-group">
+                                    <label for="username">Username (must be at least 3 characters)</label>
+                                    <input type="text" id="username" name="username">
+                                    <div id="username-feedback" class="feedback" aria-live="polite"></div>
+                                </div>
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
 
                         <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;h1&gt;Heading 1 (H1)&lt;/h1&gt;
-&lt;p&gt;This is a paragraph of standard body text. It should have sufficient line-height for readability and strong color contrast against the background.&lt;/p&gt;
+                            <pre><code>&lt;form id="validation-form" novalidate&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="username"&gt;Username (must be at least 3 characters)&lt;/label&gt;
+    &lt;input type="text" id="username" name="username"&gt;
+    &lt;div id="username-feedback" class="feedback" aria-live="polite"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
 
-&lt;h2&gt;Heading 2 (H2)&lt;/h2&gt;
-&lt;p&gt;This is another paragraph. Headings should be used hierarchically to outline the content structure of the page.&lt;/p&gt;
+&lt;style&gt;
+.form-group {
+    margin-bottom: 20px;
+}
+.feedback {
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+.feedback.success {
+    color: #28a745;
+}
+.feedback.error {
+    color: #dc3545;
+}
+&lt;/style&gt;
 
-&lt;h3&gt;Heading 3 (H3)&lt;/h3&gt;
-&lt;p&gt;This paragraph contains an unordered list:&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;List item 1&lt;/li&gt;
-    &lt;li&gt;List item 2&lt;/li&gt;
-    &lt;li&gt;List item 3&lt;/li&gt;
-&lt;/ul&gt;
+&lt;script&gt;
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById('validation-form');
+    const usernameInput = document.getElementById('username');
+    const feedbackDiv = document.getElementById('username-feedback');
 
-&lt;h4&gt;Heading 4 (H4)&lt;/h4&gt;
-&lt;p&gt;This paragraph contains an ordered list:&lt;/p&gt;
-&lt;ol&gt;
-    &lt;li&gt;First step&lt;/li&gt;
-    &lt;li&gt;Second step&lt;/li&gt;
-    &lt;li&gt;Third step&lt;/li&gt;
-&lt;/ol&gt;
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = usernameInput.value.trim();
 
-&lt;h5&gt;Heading 5 (H5)&lt;/h5&gt;
-&lt;h6&gt;Heading 6 (H6)&lt;/h6&gt;</code></pre>
+        // Simple validation logic
+        if (username.length < 3) {
+            feedbackDiv.textContent = "Username must be at least 3 characters.";
+            feedbackDiv.classList.add('error');
+            feedbackDiv.classList.remove('success');
+            usernameInput.setAttribute('aria-invalid', 'true');
+        } else {
+            feedbackDiv.textContent = "Success! Username is valid.";
+            feedbackDiv.classList.add('success');
+            feedbackDiv.classList.remove('error');
+            usernameInput.removeAttribute('aria-invalid');
+            // In a real-world scenario, you would submit the form here
+        }
+    });
+
+    // Clear feedback on input change
+    usernameInput.addEventListener('input', function() {
+        feedbackDiv.textContent = '';
+        feedbackDiv.classList.remove('error', 'success');
+        usernameInput.removeAttribute('aria-invalid');
+    });
+});
+&lt;/script&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
                         <h2>Accessibility Guidance</h2>
                         <ul>
-                            <li>Use a logical heading structure (`<h1>` down to `<h6>`) without skipping levels.</li>
-                            <li>Ensure font size is large enough to be easily readable, with a minimum of `16px` for body text.</li>
-                            <li>Use sufficient color contrast between text and background, at least a ratio of 4.5:1.</li>
-                            <li>Use clear, simple fonts and avoid styling that makes text difficult to read (e.g., all caps, excessive italicization).</li>
+                            <li><strong>`aria-live="polite"`:</strong> Use this on the feedback container (`<div>`) to ensure that when the text content changes, screen readers announce the message without interrupting the user.</li>
+                            <li><strong>`aria-invalid="true"`:</strong> Set this attribute on the input field when the input is invalid. This tells assistive technologies that the field has an error.</li>
+                            <li><strong>`aria-describedby`:</strong> (Not shown in this simple example, but highly recommended for complex forms) Link the error message to the input using `aria-describedby` so the user hears the error description immediately after the input's label. The ID of the feedback div should match the `aria-describedby` attribute on the input.</li>
+                            <li><strong>Clear Error Messages:</strong> The error message must be descriptive and helpful, guiding the user on how to fix the issue.</li>
+                            <li><strong>Visual and Non-Visual Feedback:</strong> Always provide both visual cues (e.g., color change, icons) and text-based feedback for all users.</li>
                         </ul>
 
                         <h2>Testing</h2>
-                        <p>To ensure the component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/typography/" target="_blank">Typography Testing Checklist</a>.</p>
+                        <p>To ensure the validation component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/validation/" target="_blank">Validation Component Testing Checklist</a>.</p>
                     </div>
                 </div>
 
@@ -235,7 +273,7 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=typography.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=validation-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);

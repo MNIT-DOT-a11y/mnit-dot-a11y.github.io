@@ -10,26 +10,26 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Side Navigation - MNIT DOT A11y</title>
+    <title>Side Alert Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Side Navigation" />
+    <meta property="og:title" content="Side Alert Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible side navigation component. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating an accessible side navigation component. Includes source code and interactive example." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/side-navigation/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/side-navigation/" />
+    <meta name="description" content="Guide to creating an accessible side alert component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible side alert component. Includes source code and interactive example." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/side-alert-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/side-alert-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Side Navigation" />
+    <meta property="twitter:title" content="Side Alert Component" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "Guide to creating an accessible side navigation component. Includes source code and interactive example.",
-            "headline": "Side Navigation",
-            "url": "https://mnit-dot-a11y.github.io/side-navigation/"
+            "description": "Guide to creating an accessible side alert component. Includes source code and interactive example.",
+            "headline": "Side Alert Component",
+            "url": "https://mnit-dot-a11y.github.io/side-alert-component/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
@@ -77,49 +77,38 @@
             content: none !important;
         }
 
-        /* Component-specific styles */
-        .side-nav {
-            list-style: none;
-            padding: 0;
+        /* New styles for side alert */
+        .side-alert-example {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
         }
-        .side-nav li a {
-            display: block;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: #333;
-            border-bottom: 1px solid #eee;
+        .side-alert {
+            position: fixed;
+            bottom: 20px;
+            right: -350px; /* Initially hidden off-screen */
+            width: 300px;
+            padding: 20px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: right 0.5s ease-in-out;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .side-nav li a:hover,
-        .side-nav li a:focus {
-            background-color: #e9ecef;
+        .side-alert.show {
+            right: 20px; /* Slides in */
         }
-        .side-nav .active {
-            background-color: #007bff;
-            color: white;
-        }
-        .side-nav .sub-nav {
-            list-style: none;
-            padding-left: 20px;
-            display: none; /* Hide sub-nav by default */
-        }
-        .side-nav .sub-nav.open {
-            display: block; /* Show when open */
-        }
-        .side-nav .expander-toggle {
-            width: 100%;
-            text-align: left;
+        .side-alert-close-btn {
             background: none;
             border: none;
-            padding: 10px 15px;
-            color: #333;
-            border-bottom: 1px solid #eee;
-        }
-        .side-nav .expander-toggle:hover,
-        .side-nav .expander-toggle:focus {
-            background-color: #e9ecef;
-        }
-        .side-nav .expander-toggle .icon {
-            float: right;
+            color: #155724;
+            font-size: 1.5em;
+            cursor: pointer;
         }
     </style>
 
@@ -127,7 +116,6 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
     <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
@@ -163,59 +151,86 @@
             <main id="content" class="main-content">
                 <div class="container">
                     <div class="post-content">
-                        <h1>Side Navigation</h1>
-                        <p>A side navigation component allows users to easily access different sections or pages of a website. It should be keyboard accessible and properly announce its state to screen readers.</p>
+                        <h1>Side Alert Component</h1>
+                        <p>A side alert is a non-disruptive way to display status messages or important information that doesn't require immediate user action. This type of alert often appears in a fixed position, sliding in from the side or bottom of the screen.</p>
 
                         <h2>Interactive Example</h2>
-                        <nav aria-label="Primary side navigation">
-                            <ul class="side-nav">
-                                <li><a href="#section-1">Section 1</a></li>
-                                <li class="expander-group">
-                                    <button class="expander-toggle" aria-expanded="false" aria-controls="sub-nav-1">Section 2
-                                        <i class="fa-solid fa-angle-down icon" role="img" aria-label="Expand" aria-hidden="true"></i>
-                                    </button>
-                                    <ul id="sub-nav-1" class="sub-nav">
-                                        <li><a href="#section-2-1">Section 2.1</a></li>
-                                        <li><a href="#section-2-2">Section 2.2</a></li>
-                                    </ul>
-                                </li>
-                                <li class="active"><a href="#section-3" aria-current="page">Section 3</a></li>
-                                <li><a href="#section-4">Section 4</a></li>
-                            </ul>
-                        </nav>
+                        <div class="side-alert-example">
+                            <button id="showAlertButton" type="button">Show Alert</button>
+                        </div>
+                        <div id="sideAlert" class="side-alert" role="alert" aria-live="polite">
+                            <span>Your changes have been saved successfully!</span>
+                            <button class="side-alert-close-btn" aria-label="Close alert">&times;</button>
+                        </div>
 
                         <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;nav aria-label="Primary side navigation"&gt;
-    &lt;ul class="side-nav"&gt;
-        &lt;li&gt;&lt;a href="#section-1"&gt;Section 1&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="expander-group"&gt;
-            &lt;button class="expander-toggle" aria-expanded="false" aria-controls="sub-nav-1"&gt;Section 2
-                &lt;i class="fa-solid fa-angle-down icon" role="img" aria-label="Expand" aria-hidden="true"&gt;&lt;/i&gt;
-            &lt;/button&gt;
-            &lt;ul id="sub-nav-1" class="sub-nav"&gt;
-                &lt;li&gt;&lt;a href="#section-2-1"&gt;Section 2.1&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;&lt;a href="#section-2-2"&gt;Section 2.2&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/li&gt;
-        &lt;li class="active"&gt;&lt;a href="#section-3" aria-current="page"&gt;Section 3&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#section-4"&gt;Section 4&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/nav&gt;</code></pre>
+                            <pre><code>&lt;!-- Interactive Button --&gt;
+&lt;button id="showAlertButton" type="button"&gt;Show Alert&lt;/button&gt;
+
+&lt;!-- Alert Component --&gt;
+&lt;div id="sideAlert" class="side-alert" role="alert" aria-live="polite"&gt;
+  &lt;span&gt;Your changes have been saved successfully!&lt;/span&gt;
+  &lt;button class="side-alert-close-btn" aria-label="Close alert"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.side-alert {
+    position: fixed;
+    bottom: 20px;
+    right: -350px;
+    width: 300px;
+    padding: 20px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: right 0.5s ease-in-out;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.side-alert.show {
+    right: 20px;
+}
+.side-alert-close-btn {
+    background: none;
+    border: none;
+    color: #155724;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+document.getElementById('showAlertButton').addEventListener('click', function() {
+    const alert = document.getElementById('sideAlert');
+    alert.classList.add('show');
+    // Hide the alert after 5 seconds
+    setTimeout(() => {
+        alert.classList.remove('show');
+    }, 5000);
+});
+
+document.querySelector('.side-alert-close-btn').addEventListener('click', function() {
+    document.getElementById('sideAlert').classList.remove('show');
+});
+&lt;/script&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
                         <h2>Accessibility Guidance</h2>
                         <ul>
-                            <li>Use `role="navigation"` or the `<nav>` element to identify the navigation landmark.</li>
-                            <li>Use `aria-label` on the `<nav>` element for a concise label, if a visible heading is not available.</li>
-                            <li>For collapsible menus, use a `<button>` with `aria-expanded` and `aria-controls` to indicate the state of the menu.</li>
-                            <li>Use `aria-current="page"` on the link for the current page to inform screen readers.</li>
-                            <li>Ensure all links are keyboard focusable and provide clear focus styles.</li>
+                            <li><strong>`aria-live` and `role="alert"`:</strong> Use these attributes on the alert container to ensure screen readers announce the content as soon as it appears on the page.</li>
+                            <li><strong>Clear Labeling:</strong> Provide a clear, concise text message. If there's a close button, it must have an accessible name using `aria-label` to let screen reader users know its purpose.</li>
+                            <li><strong>Do Not Steal Focus:</strong> Alerts should not take focus away from the user's current position on the page, as this can be disorienting.</li>
+                            <li><strong>Keyboard and Mouse Support:</strong> Ensure users can dismiss the alert using both the keyboard (e.g., Tab to the close button and press Enter/Space) and mouse.</li>
                         </ul>
 
                         <h2>Testing</h2>
-                        <p>To ensure the component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/side-nav/" target="_blank">Side Navigation Testing Checklist</a>.</p>
+                        <p>To ensure the side alert component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/alert/" target="_blank">Side Alert Component Testing Checklist</a>.</p>
                     </div>
                 </div>
 
@@ -250,7 +265,7 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=side-navigation.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=side-alert-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
@@ -271,19 +286,6 @@
                 .catch(err => {
                     console.error("Failed to load sidebar: ", err);
                 });
-            
-            // Side nav expander functionality
-            document.querySelectorAll('.expander-toggle').forEach(button => {
-                button.addEventListener('click', () => {
-                    const expanded = button.getAttribute('aria-expanded') === 'true' || false;
-                    button.setAttribute('aria-expanded', !expanded);
-                    const subNavId = button.getAttribute('aria-controls');
-                    const subNav = document.getElementById(subNavId);
-                    if (subNav) {
-                        subNav.classList.toggle('open');
-                    }
-                });
-            });
         });
 
         // Copy button functionality
@@ -306,6 +308,21 @@
             }, 2000);
             window.getSelection().removeAllRanges();
         }
+
+        // New script for side alert functionality
+        document.getElementById('showAlertButton').addEventListener('click', function() {
+            const alert = document.getElementById('sideAlert');
+            alert.classList.add('show');
+            // Hide the alert after 5 seconds
+            setTimeout(() => {
+                alert.classList.remove('show');
+            }, 5000);
+        });
+
+        document.querySelector('.side-alert-close-btn').addEventListener('click', function() {
+            document.getElementById('sideAlert').classList.remove('show');
+        });
+
     </script>
 </body>
 
