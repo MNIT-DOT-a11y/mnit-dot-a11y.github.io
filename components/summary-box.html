@@ -10,56 +10,38 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Summary Box Component - MNIT DOT A11y</title>
+    <title>Summary Box - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Summary Box Component" />
+    <meta property="og:title" content="Summary Box" />
     <meta property="og:locale" content="en_US" />
     <meta name="description" content="Guide to creating an accessible summary box component. Includes source code and interactive example." />
     <meta property="og:description" content="Guide to creating an accessible summary box component. Includes source code and interactive example." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/summary-box-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/summary-box-component/" />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/summary-box/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/summary-box/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Summary Box Component" />
+    <meta property="twitter:title" content="Summary Box" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "description": "Guide to creating an accessible summary box component. Includes source code and interactive example.",
-            "headline": "Summary Box Component",
-            "url": "https://mnit-dot-a11y.github.io/summary-box-component/"
+            "headline": "Summary Box",
+            "url": "https://mnit-dot-a11y.github.io/summary-box/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .summary-box-container {
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-
-        .usa-summary-box {
-            padding: 20px;
-            border: 1px solid #004085;
-            background-color: #f0f8ff;
-            color: #004085;
-            border-radius: 4px;
-        }
-
         .main-content {
             padding: 20px;
         }
-
         .content-container {
             margin-left: 270px;
         }
-        
         .sidebar-placeholder {
             width: 250px;
             padding: 15px;
@@ -76,7 +58,6 @@
         .code-container {
             position: relative;
         }
-
         .copy-button {
             position: absolute;
             top: 10px;
@@ -88,13 +69,36 @@
             cursor: pointer;
             border-radius: 4px;
         }
-
         /* Fix to remove pseudo-element content from all buttons */
         button::before,
         button::after,
         a.usa-button::before,
         a.usa-button::after {
             content: none !important;
+        }
+
+        /* Component-specific styles */
+        .summary-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .summary-box h2 {
+            margin-top: 0;
+        }
+        .summary-box .summary-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #ddd;
+            padding: 10px 0;
+        }
+        .summary-box .summary-item:last-child {
+            border-bottom: none;
+        }
+        .summary-box .summary-item .label {
+            font-weight: bold;
         }
     </style>
 
@@ -103,55 +107,7 @@
 <body onload="setModifiedDate();" class="preload">
 
     <!-- Placeholder for the dynamically loaded sidebar -->
-    <div id="sidebar-placeholder" class="sidebar-placeholder">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </div>
+    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
         <div class="skip-links container">
@@ -186,45 +142,72 @@
             <main id="content" class="main-content">
                 <div class="container">
                     <div class="post-content">
-                        <h1>Summary Box Component</h1>
-                        <p>A summary box provides a concise overview of key information, often used at the beginning of a section or page. It is designed to be easily skimmable and to highlight the most important points for the user.</p>
+                        <h1>Summary Box</h1>
+                        <p>A summary box is used to provide a quick overview of key information, often before a final submission or confirmation. It should be clearly structured and easy to read.</p>
 
                         <h2>Interactive Example</h2>
-                        <div class="summary-box-container">
-                            <div class="usa-summary-box" role="complementary">
-                                <h3>Important Information</h3>
-                                <p>This is a summary of the most important information on the page. It helps users quickly understand the key takeaways before they read the full content.</p>
-                                <ul>
-                                    <li>Point 1</li>
-                                    <li>Point 2</li>
-                                    <li>Point 3</li>
-                                </ul>
+                        <div class="summary-box" role="region" aria-label="Order Summary">
+                            <h2>Order Summary</h2>
+                            <div class="summary-item">
+                                <span class="label">Product:</span>
+                                <span>Premium Widget</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Quantity:</span>
+                                <span>2</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Subtotal:</span>
+                                <span>$199.98</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Tax:</span>
+                                <span>$15.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Total:</span>
+                                <span>$214.98</span>
                             </div>
                         </div>
 
                         <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;div class="usa-summary-box" role="complementary"&gt;
-  &lt;h3&gt;Important Information&lt;/h3&gt;
-  &lt;p&gt;This is a summary of the most important information on the page. It helps users quickly understand the key takeaways before they read the full content.&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Point 1&lt;/li&gt;
-    &lt;li&gt;Point 2&lt;/li&gt;
-    &lt;li&gt;Point 3&lt;/li&gt;
-  &lt;/ul&gt;
+                            <pre><code>&lt;div class="summary-box" role="region" aria-label="Order Summary"&gt;
+    &lt;h2&gt;Order Summary&lt;/h2&gt;
+    &lt;div class="summary-item"&gt;
+        &lt;span class="label"&gt;Product:&lt;/span&gt;
+        &lt;span&gt;Premium Widget&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="summary-item"&gt;
+        &lt;span class="label"&gt;Quantity:&lt;/span&gt;
+        &lt;span&gt;2&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="summary-item"&gt;
+        &lt;span class="label"&gt;Subtotal:&lt;/span&gt;
+        &lt;span&gt;$199.98&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="summary-item"&gt;
+        &lt;span class="label"&gt;Tax:&lt;/span&gt;
+        &lt;span&gt;$15.00&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="summary-item"&gt;
+        &lt;span class="label"&gt;Total:&lt;/span&gt;
+        &lt;span&gt;$214.98&lt;/span&gt;
+    &lt;/div&gt;
 &lt;/div&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
                         <h2>Accessibility Guidance</h2>
                         <ul>
-                            <li>Use `role="complementary"` or another appropriate ARIA role to convey the purpose of the summary box to screen readers.</li>
-                            <li>Use a clear heading (`<h3>`) to provide a title for the summary.</li>
-                            <li>Ensure that the content within the summary is concise and easy to read.</li>
+                            <li>Use a clear heading (`<h2>` in this case) to give the component a name.</li>
+                            <li>Use `role="region"` and `aria-label` if the summary box is a significant section of the page and a heading is not sufficient.</li>
+                            <li>Ensure the key-value pairs are clearly associated, for example using CSS for layout.</li>
+                            <li>Avoid using tables for purely visual layout; if the data is tabular, a `<table role="table">` should be used.</li>
                         </ul>
 
                         <h2>Testing</h2>
-                        <p>To ensure the summary box component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/summary-box/" target="_blank">Summary Box Component Testing Checklist</a>.</p>
+                        <p>To ensure the component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/summary-box/" target="_blank">Summary Box Testing Checklist</a>.</p>
                     </div>
                 </div>
 
@@ -259,23 +242,28 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=summary-box-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=summary-box.md")
                     .then(response => response.json())
                     .then(commits => {
-                        if (commits && commits.length > 0) {
-                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                            if (modified != "") {
-                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
-                            }
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
                         }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching commit date:', error);
                     });
             }
         }
         
-        window.onload = setModifiedDate;
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
+                });
+        });
 
         // Copy button functionality
         function copyCode(button) {

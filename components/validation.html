@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -10,87 +10,39 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Validation Component - MNIT DOT A11y</title>
+    <title>Typography - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Validation Component" />
+    <meta property="og:title" content="Typography" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to using the validation component to provide live feedback and ensure usability." />
-    <meta property="og:description" content="Guide to using the validation component to provide live feedback and ensure usability." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/validation-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/validation-component/" />
+    <meta name="description" content="Guide to creating accessible typography. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating accessible typography. Includes source code and interactive example." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/typography/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/typography/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Validation Component" />
+    <meta property="twitter:title" content="Typography" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to using the validation component to provide live feedback and ensure usability.",
-        "headline": "Validation Component",
-        "url": "https://mnit-dot-a11y.github.io/validation-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating accessible typography. Includes source code and interactive example.",
+            "headline": "Typography",
+            "url": "https://mnit-dot-a11y.github.io/typography/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body {
-            font-family: 'Source Sans Pro', sans-serif;
-            line-height: 1.5;
-            margin: 0;
-            padding: 0;
-            color: #212121;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            margin: 0 0 15px;
-            line-height: 1.2;
-        }
-
-        p, ul, ol {
-            margin: 0 0 15px;
-        }
-
-        ul, ol {
-            padding-left: 20px;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
+        .main-content {
             padding: 20px;
         }
-
-        .usa-form {
-            margin-top: 20px;
+        .content-container {
+            margin-left: 270px;
         }
-
-        .usa-alert {
-            margin-bottom: 20px;
-        }
-
-        .usa-input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            font-size: 1em;
-        }
-
-        .usa-button {
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .usa-checklist__item.checked {
-            text-decoration: line-through;
-        }
-
-        .sidenav {
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
@@ -99,11 +51,45 @@
             top: 100px;
             height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
+        }
+
+        /* Component-specific styles */
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
         }
     </style>
 
@@ -111,292 +97,188 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </aside>
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
                     <li class="web alpha"><a href="/web/">Web</a></li>
-
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
                     <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
-
                     <li class="expander-group site-sub-group">
-
                         <button class="expander-toggle" aria-expanded="false">More</button>
-
                         <ul class="expander-content">
-
                             <li><a href="/how-to-test/">How-to Test</a></li>
-
                             <li><a href="/demos/">Demos</a></li>
-
                             <li><a href="/about/">About</a></li>
-
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
                         </ul>
-
                     </li>
-
                 </ul>
-
             </nav>
-
         </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Typography</h1>
+                        <p>Accessible typography ensures that text is readable and legible for all users. This includes proper heading structure, font choices, line height, and color contrast.</p>
 
-            <div class="container usa-content">
+                        <h2>Interactive Example</h2>
+                        <h1>Heading 1 (H1)</h1>
+                        <p>This is a paragraph of standard body text. It should have sufficient line-height for readability and strong color contrast against the background.</p>
 
-                <h1>Validation</h1>
+                        <h2>Heading 2 (H2)</h2>
+                        <p>This is another paragraph. Headings should be used hierarchically to outline the content structure of the page.</p>
 
-                <p>Stating validation requirements up front, with live feedback, means users won’t be left guessing.</p>
+                        <h3>Heading 3 (H3)</h3>
+                        <p>This paragraph contains an unordered list:</p>
+                        <ul>
+                            <li>List item 1</li>
+                            <li>List item 2</li>
+                            <li>List item 3</li>
+                        </ul>
 
-                <h2>About the validation component</h2>
-
-                <p><strong>Note:</strong> USWDS testing and research recently uncovered major usability and accessibility issues with this component. Due to these issues, we’re slating it for removal from future versions, and won’t be supporting it after USWDS v3.12.0. To learn more about how we made this decision, you can <a href="#">read more about this testing and research</a> and <a href="#">follow the steps we took</a>.</p>
-
-                <p><strong>Testing has revealed some issues with this component.</strong> Learn more in the <a href="#">known issues section</a> on this page.</p>
-
-                <h2>Component preview</h2>
-
-                <h3 class="site-preview-heading">Default</h3>
-
-                <form class="usa-form">
-
-                    <fieldset class="usa-fieldset">
-
-                        <legend class="usa-legend usa-legend--large">Enter a code</legend>
-
-                        <div class="usa-alert usa-alert--info usa-alert--validation">
-
-                            <div class="usa-alert__body">
-
-                                <h4 class="usa-alert__heading">Code requirements</h4>
-
-                                <ul class="usa-checklist" id="validate-code">
-
-                                    <li class="usa-checklist__item" data-validator="uppercase">
-                                        Use at least one uppercase character
-                                    </li>
-
-                                    <li class="usa-checklist__item" data-validator="numerical">
-                                        Use at least one number
-                                    </li>
-
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-                        <label class="usa-label" for="code">Code</label>
-
-                        <input
-                            class="usa-input"
-                            id="code"
-                            name="code"
-                            data-validate-uppercase="[A-Z]"
-                            data-validate-numerical="\d"
-                            data-validation-element="validate-code"
-                        />
-
-                        <input class="usa-button" type="submit" value="Submit code" />
-
-                    </fieldset>
-
-                </form>
-
-                <h2>Guidance</h2>
-
-                <h3>When to use the validation component</h3>
-
-                <p><strong>Provide helpful validation feedback.</strong> Use the validation component to give immediate feedback on which validation requirements have been successfully met, and which are not completed yet.</p>
-
-                <h3>Using the validation component</h3>
-
-                <ul>
-
-                    <li><strong>Validate on the server side as well.</strong> The validation component is intended primarily for usability, not as a robust security solution, since all the validation logic occurs on the client side. The validation should be “mirrored” on the server-side for security purposes.</li>
-
-                    <li><strong>Connect the input element to your validation checklist.</strong> Set the value of your input’s <code>data-validation-element</code> to the <code>id</code> of its related <code>.usa-checklist</code>. For example, if the <code>.usa-checklist</code> element has an <code>id</code> of <code>validate-code</code>, use <code>data-validation-element="validate-code"</code>.</li>
-
-                    <li><strong>Customize the validation attributes.</strong> For each type of validation you’d like to provide feedback on:
-
+                        <h4>Heading 4 (H4)</h4>
+                        <p>This paragraph contains an ordered list:</p>
                         <ol>
-
-                            <li>Come up with a custom name for your validator, e.g. <code>uppercase</code>. This name shouldn’t have any spaces in it.</li>
-
-                            <li>On the appropriate list item in <code>.usa-checklist</code>, set the <code>data-validator</code> attribute to the name of your custom validator, e.g. <code>data-validator="uppercase"</code>. This is the list item that will appear “checked” when the validator’s condition is met.</li>
-
-                            <li>On the input element, add an attribute called <code>data-validate-[validator name]</code>, where <code>[validator name]</code> is the custom name you created in step 1. Define this attribute with a <a href="https://regexone.com/">regular expression</a> that represents whether the validator’s condition is met. For example, if your custom validator is called <code>uppercase</code>, use <code>data-validate-uppercase="[A-Z]"</code>.</li>
-
+                            <li>First step</li>
+                            <li>Second step</li>
+                            <li>Third step</li>
                         </ol>
 
-                    </li>
+                        <h5>Heading 5 (H5)</h5>
+                        <h6>Heading 6 (H6)</h6>
 
-                </ul>
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;h1&gt;Heading 1 (H1)&lt;/h1&gt;
+&lt;p&gt;This is a paragraph of standard body text. It should have sufficient line-height for readability and strong color contrast against the background.&lt;/p&gt;
 
-                <p>For reference, you can find the complete implementation of this configuration in the “Component code” accordion panel at the top of this page.</p>
+&lt;h2&gt;Heading 2 (H2)&lt;/h2&gt;
+&lt;p&gt;This is another paragraph. Headings should be used hierarchically to outline the content structure of the page.&lt;/p&gt;
 
-                <h2>Testing</h2>
-                <p>To ensure the validation component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/validation/" target="_blank">Validation Component Testing Checklist</a>.</p>
+&lt;h3&gt;Heading 3 (H3)&lt;/h3&gt;
+&lt;p&gt;This paragraph contains an unordered list:&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;List item 1&lt;/li&gt;
+    &lt;li&gt;List item 2&lt;/li&gt;
+    &lt;li&gt;List item 3&lt;/li&gt;
+&lt;/ul&gt;
 
-            </div>
+&lt;h4&gt;Heading 4 (H4)&lt;/h4&gt;
+&lt;p&gt;This paragraph contains an ordered list:&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;First step&lt;/li&gt;
+    &lt;li&gt;Second step&lt;/li&gt;
+    &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
 
-        </main>
+&lt;h5&gt;Heading 5 (H5)&lt;/h5&gt;
+&lt;h6&gt;Heading 6 (H6)&lt;/h6&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
 
-        <footer class="container" id="footer">
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>Use a logical heading structure (`<h1>` down to `<h6>`) without skipping levels.</li>
+                            <li>Ensure font size is large enough to be easily readable, with a minimum of `16px` for body text.</li>
+                            <li>Use sufficient color contrast between text and background, at least a ratio of 4.5:1.</li>
+                            <li>Use clear, simple fonts and avoid styling that makes text difficult to read (e.g., all caps, excessive italicization).</li>
+                        </ul>
 
-            <nav aria-label="Site map">
+                        <h2>Testing</h2>
+                        <p>To ensure the component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/typography/" target="_blank">Typography Testing Checklist</a>.</p>
+                    </div>
+                </div>
 
-                <ul>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
-
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=validation-component.md")
-
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=typography.md")
                     .then(response => response.json())
-
                     .then(commits => {
-
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
                         if (modified != "") {
-
                             document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
                         }
-
                     });
-
             }
-
         }
-
-        // Validate input on keyup
-        $(document).ready(function() {
-            $('#code').on('keyup', function() {
-                const value = $(this).val();
-                const uppercaseRegex = new RegExp($(this).data('validate-uppercase'));
-                const numericalRegex = new RegExp($(this).data('validate-numerical'));
-                
-                $('.usa-checklist__item').each(function() {
-                    const validator = $(this).data('validator');
-                    if (validator === 'uppercase' && uppercaseRegex.test(value)) {
-                        $(this).addClass('checked');
-                    } else if (validator === 'numerical' && numericalRegex.test(value)) {
-                        $(this).addClass('checked');
-                    } else {
-                        $(this).removeClass('checked');
-                    }
+        
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
                 });
-            });
         });
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>

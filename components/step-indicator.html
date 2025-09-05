@@ -10,69 +10,32 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Step Indicator Component - MNIT DOT A11y</title>
+    <title>Step Indicator - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Step Indicator Component" />
+    <meta property="og:title" content="Step Indicator" />
     <meta property="og:locale" content="en_US" />
     <meta name="description" content="Guide to creating an accessible step indicator component. Includes source code and interactive example." />
     <meta property="og:description" content="Guide to creating an accessible step indicator component. Includes source code and interactive example." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/step-indicator-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/step-indicator-component/" />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/step-indicator/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/step-indicator/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Step Indicator Component" />
+    <meta property="twitter:title" content="Step Indicator" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "description": "Guide to creating an accessible step indicator component. Includes source code and interactive example.",
-            "headline": "Step Indicator Component",
-            "url": "https://mnit-dot-a11y.github.io/step-indicator-component/"
+            "headline": "Step Indicator",
+            "url": "https://mnit-dot-a11y.github.io/step-indicator/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .step-indicator-container {
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-
-        .usa-step-indicator {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .usa-step-indicator-item {
-            flex: 1;
-            text-align: center;
-            position: relative;
-            padding-bottom: 25px;
-        }
-
-        .usa-step-indicator-item::after {
-            content: '';
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background-color: #ccc;
-        }
-
-        .usa-step-indicator-item.usa-current::after {
-            background-color: #007bff;
-        }
-
         .main-content {
             padding: 20px;
         }
@@ -113,6 +76,54 @@
         a.usa-button::after {
             content: none !important;
         }
+
+        /* Component-specific styles */
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .step-indicator li {
+            position: relative;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .step-indicator li:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: calc(50% + 15px);
+            width: calc(100% - 30px);
+            height: 2px;
+            background-color: #ccc;
+        }
+        .step-indicator li.active::after {
+            background-color: #007bff;
+        }
+        .step-indicator .step-circle {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            border-radius: 50%;
+            background-color: #ccc;
+            color: white;
+            margin: 0 auto 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-indicator .step-circle i {
+            font-size: 14px;
+        }
+        .step-indicator li.completed .step-circle {
+            background-color: #28a745;
+        }
+        .step-indicator li.active .step-circle {
+            background-color: #007bff;
+        }
     </style>
 
 </head>
@@ -120,55 +131,7 @@
 <body onload="setModifiedDate();" class="preload">
 
     <!-- Placeholder for the dynamically loaded sidebar -->
-    <div id="sidebar-placeholder" class="sidebar-placeholder">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </div>
+    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
         <div class="skip-links container">
@@ -203,51 +166,58 @@
             <main id="content" class="main-content">
                 <div class="container">
                     <div class="post-content">
-                        <h1>Step Indicator Component</h1>
-                        <p>A step indicator, or process list, helps users track their progress through a multi-step process, such as a form or a purchase flow. This component clearly communicates the current step, completed steps, and upcoming steps.</p>
+                        <h1>Step Indicator</h1>
+                        <p>A step indicator visually represents progress through a sequence of steps. It should clearly show the current, completed, and upcoming steps to users.</p>
 
                         <h2>Interactive Example</h2>
-                        <div class="step-indicator-container">
-                            <ol class="usa-step-indicator">
-                                <li class="usa-step-indicator-item usa-current">
-                                    <div class="usa-step-indicator-item-label">Step 1</div>
+                        <nav aria-label="Progress through steps">
+                            <ol class="step-indicator">
+                                <li class="completed">
+                                    <div class="step-circle"><i class="fa-solid fa-check" role="img" aria-label="Completed" aria-hidden="true"></i></div>
+                                    Step 1
                                 </li>
-                                <li class="usa-step-indicator-item">
-                                    <div class="usa-step-indicator-item-label">Step 2</div>
+                                <li class="active" aria-current="step">
+                                    <div class="step-circle">2</div>
+                                    Step 2
                                 </li>
-                                <li class="usa-step-indicator-item">
-                                    <div class="usa-step-indicator-item-label">Step 3</div>
+                                <li>
+                                    <div class="step-circle">3</div>
+                                    Step 3
                                 </li>
                             </ol>
-                        </div>
+                        </nav>
 
                         <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;div class="step-indicator-container"&gt;
-  &lt;ol class="usa-step-indicator"&gt;
-    &lt;li class="usa-step-indicator-item usa-current"&gt;
-      &lt;div class="usa-step-indicator-item-label"&gt;Step 1&lt;/div&gt;
-    &lt;/li&gt;
-    &lt;li class="usa-step-indicator-item"&gt;
-      &lt;div class="usa-step-indicator-item-label"&gt;Step 2&lt;/div&gt;
-    &lt;/li&gt;
-    &lt;li class="usa-step-indicator-item"&gt;
-      &lt;div class="usa-step-indicator-item-label"&gt;Step 3&lt;/div&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</code></pre>
+                            <pre><code>&lt;nav aria-label="Progress through steps"&gt;
+    &lt;ol class="step-indicator"&gt;
+        &lt;li class="completed"&gt;
+            &lt;div class="step-circle"&gt;&lt;i class="fa-solid fa-check" role="img" aria-label="Completed" aria-hidden="true"&gt;&lt;/i&gt;&lt;/div&gt;
+            Step 1
+        &lt;/li&gt;
+        &lt;li class="active" aria-current="step"&gt;
+            &lt;div class="step-circle"&gt;2&lt;/div&gt;
+            Step 2
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;div class="step-circle"&gt;3&lt;/div&gt;
+            Step 3
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
                         <h2>Accessibility Guidance</h2>
                         <ul>
-                            <li>Use an ordered list (<code>&lt;ol&gt;</code>) to convey the sequential nature of the steps.</li>
-                            <li>Use <code>aria-current="step"</code> on the current list item to provide context for screen readers.</li>
-                            <li>Ensure that each step's label is clear and descriptive.</li>
+                            <li>Use a `<nav>` with a descriptive `aria-label` to provide context.</li>
+                            <li>Use an ordered list <code>&lt;ol&gt;</code> to indicate the sequential nature of the steps.</li>
+                            <li>Use `aria-current="step"` on the current step to inform screen readers of the user's progress.</li>
+                            <li>Ensure color contrast is sufficient for both text and indicator states.</li>
                         </ul>
 
                         <h2>Testing</h2>
-                        <p>To ensure the step indicator component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/step-indicator/" target="_blank">Step Indicator Component Testing Checklist</a>.</p>
+                        <p>To ensure the component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/step-indicator/" target="_blank">Step Indicator Testing Checklist</a>.</p>
                     </div>
                 </div>
 
@@ -282,23 +252,28 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=step-indicator-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=step-indicator.md")
                     .then(response => response.json())
                     .then(commits => {
-                        if (commits && commits.length > 0) {
-                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                            if (modified != "") {
-                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
-                            }
+                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                        if (modified != "") {
+                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
                         }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching commit date:', error);
                     });
             }
         }
         
-        window.onload = setModifiedDate;
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
+                });
+        });
 
         // Copy button functionality
         function copyCode(button) {

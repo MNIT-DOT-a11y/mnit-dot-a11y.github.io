@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -10,50 +10,39 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Tooltip Component - MNIT DOT A11y</title>
+    <title>Tooltip - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Tooltip Component" />
+    <meta property="og:title" content="Tooltip" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible tooltip component. Includes source code, interactive example, and guidance." />
-    <meta property="og:description" content="Guide to creating an accessible tooltip component. Includes source code, interactive example, and guidance." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/tooltip-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/tooltip-component/" />
+    <meta name="description" content="Guide to creating an accessible tooltip component. Includes source code and interactive example." />
+    <meta property="og:description" content="Guide to creating an accessible tooltip component. Includes source code and interactive example." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/tooltip/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/tooltip/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Tooltip Component" />
+    <meta property="twitter:title" content="Tooltip" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible tooltip component. Includes source code, interactive example, and guidance.",
-        "headline": "Tooltip Component",
-        "url": "https://mnit-dot-a11y.github.io/tooltip-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible tooltip component. Includes source code and interactive example.",
+            "headline": "Tooltip",
+            "url": "https://mnit-dot-a11y.github.io/tooltip/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
 
     <style>
-        .usa-button {
-            position: relative;
-            margin: 10px;
+        .main-content {
+            padding: 20px;
         }
-
-        .usa-tooltip {
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
+        .content-container {
+            margin-left: 270px;
         }
-
-        /* Ensure tooltips appear above other elements */
-        .tippy-box {
-            z-index: 9999 !important;
-        }
-
-        .sidenav {
+        .sidebar-placeholder {
             width: 250px;
             padding: 15px;
             background-color: #f8f9fa;
@@ -62,312 +51,219 @@
             top: 100px;
             height: calc(100% - 100px);
             overflow-y: auto;
+            z-index: 100;
         }
 
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
         }
 
+        /* Component-specific styles */
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip-trigger {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            color: #007bff;
+            text-decoration: underline;
+        }
+        .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip-container:hover .tooltip-text,
+        .tooltip-container:focus-within .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </aside>
+    <!-- Placeholder for the dynamically loaded sidebar -->
+    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
                     <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
                     <li class="web alpha"><a href="/web/">Web</a></li>
-
                     <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
                     <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
                     <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
                     <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
                     <li class="native bravo"><a href="/demos/">Demos</a></li>
-
                     <li class="expander-group site-sub-group">
-
                         <button class="expander-toggle" aria-expanded="false">More</button>
-
                         <ul class="expander-content">
-
                             <li><a href="/how-to-test/">How-to Test</a></li>
-
                             <li><a href="/demos/">Demos</a></li>
-
                             <li><a href="/about/">About</a></li>
-
                             <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
                         </ul>
-
                     </li>
-
                 </ul>
-
             </nav>
-
         </header>
 
-        <main id="content" class="main-content">
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="container">
+                    <div class="post-content">
+                        <h1>Tooltip</h1>
+                        <p>A tooltip provides supplementary information when a user hovers over or focuses on a specific element. For accessibility, tooltips must be keyboard accessible and be announced by screen readers.</p>
 
-            <div class="container">
-
-                <div class="post-content">
-
-                    <h1>Tooltip</h1>
-
-                    <p>A tooltip is a short descriptive message that appears when a user hovers or focuses on an element.</p>
-
-                    <p>Passed WCAG 2.1 AA</p>
-
-                    <h2>Component Preview</h2>
-
-                    <h3 class="site-preview-heading">Standard tooltip</h3>
-
-                    <div class="padding-8">
-
-                        <div class="margin-4">
-
-                            <button type="button" class="usa-button usa-tooltip" data-tippy-content="Top" data-position="top">
-                                Show on top
-                            </button>
-
+                        <h2>Interactive Example</h2>
+                        <p>Hover or focus on the following link for more information:</p>
+                        <div class="tooltip-container">
+                            <button class="tooltip-trigger" aria-describedby="my-tooltip">Learn More</button>
+                            <span id="my-tooltip" role="tooltip" class="tooltip-text">
+                                This is the tooltip content. It provides extra information about the link.
+                            </span>
                         </div>
 
-                        <div class="margin-4">
-
-                            <button type="button" class="usa-button usa-tooltip" data-tippy-content="Right" data-position="right">
-                                Show on right
-                            </button>
-
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;div class="tooltip-container"&gt;
+    &lt;button class="tooltip-trigger" aria-describedby="my-tooltip"&gt;Learn More&lt;/button&gt;
+    &lt;span id="my-tooltip" role="tooltip" class="tooltip-text"&gt;
+        This is the tooltip content. It provides extra information about the link.
+    &lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
-                        <div class="margin-4">
+                        <h2>Accessibility Guidance</h2>
+                        <ul>
+                            <li>The element that triggers the tooltip (the "trigger") should be focusable, such as a `<button>` or a `<span>` with `tabindex="0"`.</li>
+                            <li>Use `aria-describedby` on the trigger element to link it to the tooltip's content.</li>
+                            <li>The tooltip content should have `role="tooltip"`.</li>
+                            <li>Ensure the tooltip appears on both hover (for mouse users) and focus (for keyboard users).</li>
+                        </ul>
 
-                            <button type="button" class="usa-button usa-tooltip" data-tippy-content="Left" data-position="left">
-                                Show on left
-                            </button>
-
-                        </div>
-
-                        <div class="margin-4">
-
-                            <button type="button" class="usa-button usa-tooltip" data-tippy-content="Bottom" data-position="bottom">
-                                Show on bottom
-                            </button>
-
-                        </div>
-
+                        <h2>Testing</h2>
+                        <p>To ensure the component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/tooltip/" target="_blank">Tooltip Testing Checklist</a>.</p>
                     </div>
-
-                    <h3 class="site-preview-heading">Tooltip with utility classes</h3>
-
-                    <div class="grid-row padding-8">
-
-                        <div class="tablet:grid-col-3 margin-top-2 text-center">
-
-                            <button type="button" class="usa-button usa-tooltip" data-tippy-content="Top" data-position="top">
-                                Show on top
-                            </button>
-
-                        </div>
-
-                        <div class="tablet:grid-col-3 margin-top-2 text-center">
-
-                            <button type="button" class="usa-button usa-tooltip" data-tippy-content="Bottom" data-position="bottom">
-                                Show on bottom
-                            </button>
-
-                        </div>
-
-                        <div class="tablet:grid-col-3 margin-top-2 text-center">
-
-                            <button type="button" class="usa-button usa-tooltip" data-tippy-content="Right" data-position="right">
-                                Show on right
-                            </button>
-
-                        </div>
-
-                        <div class="tablet:grid-col-3 margin-top-2 text-center">
-
-                            <button type="button" class="usa-button usa-tooltip" data-tippy-content="Left" data-position="left">
-                                Show on left
-                            </button>
-
-                        </div>
-
-                    </div>
-
                 </div>
 
-            </div>
+                <div class="print-container">
+                    <button type="button" class="print-button" aria-label="Print this page">
+                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                    </button>
+                </div>
+            </main>
 
-            <div class="print-container">
-
-                <button type="button" class="print-button" aria-label="Print this page">
-
-                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-
-                </button>
-
-            </div>
-
-            <h2>Testing</h2>
-            <p>To ensure the tooltip component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/tooltip/" target="_blank">Tooltip Component Testing Checklist</a>.</p>
-
-        </main>
-
-        <footer class="container" id="footer">
-
-            <nav aria-label="Site map">
-
-                <ul>
-
-                    <li><a href="/about/">About</a></li>
-
-                    <li><a href="/resources/">Resources</a></li>
-
-                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
-                    <li><a href="/testing-routine/">Testing Routine</a></li>
-
-                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
-                    <li><a href="/site-map/">Site map</a></li>
-
-                </ul>
-
-            </nav>
-
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
-            <p class="last-modified" id='last-modified'></p>
-
-        </footer>
-
+            <footer class="container" id="footer">
+                <nav aria-label="Site map">
+                    <ul>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/resources/">Resources</a></li>
+                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                        <li><a href="/testing-routine/">Testing Routine</a></li>
+                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                        <li><a href="/site-map/">Site map</a></li>
+                    </ul>
+                </nav>
+                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+                <p class="last-modified" id='last-modified'></p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-
-    <script src="https://unpkg.com/tippy.js@6"></script>
-
     <script>
-
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=tooltip-component.md")
-
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=tooltip.md")
                     .then(response => response.json())
-
                     .then(commits => {
-
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
                         if (modified != "") {
-
                             document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
                         }
-
                     });
-
             }
-
         }
-
-        // Initialize Tippy.js for all tooltip elements
-        document.addEventListener('DOMContentLoaded', function () {
-            const tooltipElements = document.querySelectorAll('.usa-tooltip');
-            tooltipElements.forEach((el) => {
-                const position = el.getAttribute('data-position') || 'top'; // Default to 'top' if no position is specified
-                tippy(el, {
-                    content: el.getAttribute('data-tippy-content'),
-                    placement: position,
-                    arrow: true,
-                    theme: 'light',
+        
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
                 });
-            });
         });
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            const range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Copy failed';
+            }
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+            window.getSelection().removeAllRanges();
+        }
     </script>
-
 </body>
 
 </html>
