@@ -112,7 +112,6 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
     <div id="sidebar-placeholder" class="sidebar-placeholder">
         <ul class="site-sidenav usa-sidenav">
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
@@ -197,54 +196,43 @@
             <main id="content" class="main-content">
                 <div class="container">
                     <div class="post-content">
-                        <h1>Pagination Component</h1>
-                        <p>Pagination allows users to navigate through a large set of content by dividing it into multiple pages. This component helps to prevent information overload and improves performance on pages with many items.</p>
+                        <h1>Modal Component</h1>
+                        <p>A modal is a temporary window that overlays a webpage. It requires user interaction before returning to the main page content, and is useful for critical alerts or short-form tasks.</p>
 
                         <h2>Interactive Example</h2>
-                        <div class="pagination-container">
-                            <nav aria-label="Pagination">
-                                <ul class="pagination">
-                                    <li class="pagination-item">
-                                        <a href="#" aria-label="Previous page">Previous</a>
-                                    </li>
-                                    <li class="pagination-item"><a href="#">1</a></li>
-                                    <li class="pagination-item active"><a href="#" aria-current="page">2</a></li>
-                                    <li class="pagination-item"><a href="#">3</a></li>
-                                    <li class="pagination-item">
-                                        <a href="#" aria-label="Next page">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
+                        <div class="modal-container">
+                            <button class="usa-button" onclick="document.getElementById('modal-example').showModal()">Open Modal</button>
                         </div>
 
+                        <dialog id="modal-example" class="modal" aria-labelledby="modal-heading">
+                            <h2 id="modal-heading">Modal Title</h2>
+                            <p>This is the content of the modal. You must close this window to continue.</p>
+                            <button class="usa-button" onclick="document.getElementById('modal-example').close()">Close</button>
+                        </dialog>
+                        
                         <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;nav aria-label="Pagination"&gt;
-  &lt;ul class="pagination"&gt;
-    &lt;li class="pagination-item"&gt;
-      &lt;a href="#" aria-label="Previous page"&gt;Previous&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li class="pagination-item"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-    &lt;li class="pagination-item active"&gt;&lt;a href="#" aria-current="page"&gt;2&lt;/a&gt;&lt;/li&gt;
-    &lt;li class="pagination-item"&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
-    &lt;li class="pagination-item"&gt;
-      &lt;a href="#" aria-label="Next page"&gt;Next&lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;</code></pre>
+                            <pre><code>&lt;button class="usa-button" onclick="document.getElementById('modal-example').showModal()"&gt;Open Modal&lt;/button&gt;
+
+&lt;dialog id="modal-example" class="modal" aria-labelledby="modal-heading"&gt;
+  &lt;h2 id="modal-heading"&gt;Modal Title&lt;/h2&gt;
+  &lt;p&gt;This is the content of the modal. You must close this window to continue.&lt;/p&gt;
+  &lt;button class="usa-button" onclick="document.getElementById('modal-example').close()"&gt;Close&lt;/button&gt;
+&lt;/dialog&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
                         <h2>Accessibility Guidance</h2>
                         <ul>
-                            <li>Use a `nav` element with a descriptive `aria-label` to identify the pagination section.</li>
-                            <li>Use `aria-label` on "Previous" and "Next" links to provide more context to screen reader users.</li>
-                            <li>The current page should be marked with `aria-current="page"`.</li>
-                            <li>Use `role="list"` and `role="listitem"` if not using `ul` and `li` tags.</li>
+                            <li><strong>Semantic HTML:</strong> Use the `<dialog>` element for native modal functionality. It handles focus trapping, modality, and the ESC key by default, which is far more robust and accessible than building a modal from scratch with `div`s.</li>
+                            <li><strong>`aria-labelledby`:</strong> The `aria-labelledby` attribute on the `<dialog>` element must reference the `id` of the modal's title. This provides an accessible name for the modal window.</li>
+                            <li><strong>Focus Management:</strong> When the modal opens, focus should be moved to the first interactive element inside it (or the modal itself). When the modal closes, focus should be returned to the element that triggered it. The `<dialog>` element handles this automatically.</li>
+                            <li><strong>Keyboard Interaction:</strong> Users must be able to close the modal using the **Escape** key. This is a crucial feature for keyboard and screen reader users, and it is handled natively by the `<dialog>` element.</li>
+                            <li><strong>Background Content:</strong> The content behind the modal should be made inaccessible to assistive technologies. The `<dialog>` element handles this naturally. If you are not using `<dialog>`, you must use `aria-hidden="true"` on the main page content to prevent screen readers from interacting with it.</li>
                         </ul>
 
                         <h2>Testing</h2>
-                        <p>To ensure the pagination component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/pagination/" target="_blank">Pagination Component Testing Checklist</a>.</p>
+                        <p>To ensure the modal component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/modal/" target="_blank">Modal Component Testing Checklist</a>.</p>
                     </div>
                 </div>
 
@@ -279,7 +267,7 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=pagination-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=modal-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         if (commits && commits.length > 0) {

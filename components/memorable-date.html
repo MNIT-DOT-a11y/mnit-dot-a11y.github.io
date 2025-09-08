@@ -113,7 +113,6 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <!-- Placeholder for the dynamically loaded sidebar -->
     <div id="sidebar-placeholder" class="sidebar-placeholder">
         <ul class="site-sidenav usa-sidenav">
             <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
@@ -198,42 +197,65 @@
             <main id="content" class="main-content">
                 <div class="container">
                     <div class="post-content">
-                        <h1>Modal Component</h1>
-                        <p>A modal is a temporary window that overlays a webpage. It requires user interaction before returning to the main page content, and is useful for critical alerts or short-form tasks.</p>
+                        <h1>Memorable Date Component</h1>
+                        <p>The memorable date component is a set of three text fields used to enter a date that a user can easily recall, such as a date of birth. This approach is often more accessible and efficient than using a calendar-based date picker for dates in the distant past.</p>
 
                         <h2>Interactive Example</h2>
-                        <div class="modal-container">
-                            <button class="usa-button" onclick="document.getElementById('modal-example').showModal()">Open Modal</button>
+                        <div class="memorable-date-container">
+                            <fieldset>
+                                <legend>Date of Birth</legend>
+                                <p class="usa-hint">For example: 01 19 2000</p>
+                                <div class="date-inputs">
+                                    <div class="form-group">
+                                        <label for="month-input" class="usa-label">Month</label>
+                                        <input class="usa-input" id="month-input" name="month" type="text" pattern="[0-9]*" inputmode="numeric" size="2" maxlength="2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="day-input" class="usa-label">Day</label>
+                                        <input class="usa-input" id="day-input" name="day" type="text" pattern="[0-9]*" inputmode="numeric" size="2" maxlength="2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="year-input" class="usa-label">Year</label>
+                                        <input class="usa-input" id="year-input" name="year" type="text" pattern="[0-9]*" inputmode="numeric" size="4" maxlength="4">
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
 
-                        <dialog id="modal-example" class="modal" aria-labelledby="modal-heading">
-                            <h2 id="modal-heading">Modal Title</h2>
-                            <p>This is the content of the modal. You must close this window to continue.</p>
-                            <button class="usa-button" onclick="document.getElementById('modal-example').close()">Close</button>
-                        </dialog>
-                        
                         <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;button class="usa-button" onclick="document.getElementById('modal-example').showModal()"&gt;Open Modal&lt;/button&gt;
-
-&lt;dialog id="modal-example" class="modal" aria-labelledby="modal-heading"&gt;
-  &lt;h2 id="modal-heading"&gt;Modal Title&lt;/h2&gt;
-  &lt;p&gt;This is the content of the modal. You must close this window to continue.&lt;/p&gt;
-  &lt;button class="usa-button" onclick="document.getElementById('modal-example').close()"&gt;Close&lt;/button&gt;
-&lt;/dialog&gt;</code></pre>
+                            <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;Date of Birth&lt;/legend&gt;
+  &lt;p class="usa-hint"&gt;For example: 01 19 2000&lt;/p&gt;
+  &lt;div class="date-inputs"&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label for="month-input" class="usa-label"&gt;Month&lt;/label&gt;
+      &lt;input class="usa-input" id="month-input" name="month" type="text" pattern="[0-9]*" inputmode="numeric" size="2" maxlength="2"&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label for="day-input" class="usa-label"&gt;Day&lt;/label&gt;
+      &lt;input class="usa-input" id="day-input" name="day" type="text" pattern="[0-9]*" inputmode="numeric" size="2" maxlength="2"&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label for="year-input" class="usa-label"&gt;Year&lt;/label&gt;
+      &lt;input class="usa-input" id="year-input" name="year" type="text" pattern="[0-9]*" inputmode="numeric" size="4" maxlength="4"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
                         <h2>Accessibility Guidance</h2>
                         <ul>
-                            <li>Use the `<dialog>` element for semantic meaning and built-in accessibility features.</li>
-                            <li>Ensure the modal can be closed using the keyboard (e.g., the Escape key).</li>
-                            <li>Use `aria-labelledby` to associate the modal's title with the `<dialog>` element.</li>
-                            <li>Trap focus within the modal so users can't tab to elements in the background.</li>
+                            <li><strong>Group Inputs:</strong> Wrap the set of inputs in a `<fieldset>` element and provide a clear label using a `<legend>`. This links the inputs together semantically for screen readers.</li>
+                            <li><strong>Individual Labels:</strong> Each input field (day, month, year) must have its own `<label>` element with a `for` attribute that matches the input's `id`.</li>
+                            <li><strong>Input Attributes:</strong> Use `type="text"` with `inputmode="numeric"` to open a numeric keypad on mobile devices without triggering usability issues associated with `type="number"`. Use `pattern` and `maxlength` to enforce the expected format.</li>
+                            <li><strong>Do Not Auto-Advance:</strong> Avoid using JavaScript to automatically move the cursor to the next input field. This behavior can disorient keyboard-only and screen reader users.</li>
+                            <li><strong>Validation:</strong> Provide clear and helpful validation messages for errors, such as an invalid date (e.g., February 30th) or an incomplete date.</li>
                         </ul>
 
                         <h2>Testing</h2>
-                        <p>To ensure the modal component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/modal/" target="_blank">Modal Component Testing Checklist</a>.</p>
+                        <p>To ensure the memorable date component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/memorable-date/" target="_blank">Memorable Date Component Testing Checklist</a>.</p>
                     </div>
                 </div>
 
@@ -268,7 +290,7 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=modal-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=memorable-date-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         if (commits && commits.length > 0) {
