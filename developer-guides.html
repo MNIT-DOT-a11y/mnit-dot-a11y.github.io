@@ -36,21 +36,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        .cards.home {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 900px; /* Adjust this value to match your home page's content width */
+            margin: 0 auto; /* Center the cards */
+            padding: 0;
+            list-style: none;
+        }
+
+        .cards.home .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
         .cards.home .card a.display {
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
+            justify-content: center;
+            height: 100%;
         }
 
         .cards.home .card a.display i {
             font-size: 75px;
             margin-bottom: 10px;
+            color: #000000; /* Set Font Awesome icons to black */
         }
 
-        .cards.home .card a.display span {
+        /* For embedded SVGs, ensure fill is set to black */
+        .cards.home .card a.display svg {
+            fill: #000000;
+            margin-bottom: 10px;
+            height: 75px; /* Adjust height to match font-size of fa icons */
+            width: 75px; /* Adjust width to match font-size of fa icons */
+        }
+
+        .cards.home .card a.display span.secondary-text {
             display: block;
             margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 
