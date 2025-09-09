@@ -35,6 +35,25 @@
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        .cards.home .card a.display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cards.home .card a.display i {
+            font-size: 75px;
+            margin-bottom: 10px;
+        }
+
+        .cards.home .card a.display span {
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+
 </head>
 
 <body onload="setModifiedDate();" class="preload">
@@ -80,28 +99,28 @@
                 <div class="container">
                     <ul class="cards home">
                         <li class="card">
-                            <a class="display" href="{{ site.baseurl }}/guides/java-axe-core-installation.html">
+                            <a class="display" href="/java-axe-core/setup.html">
                                 <i class="fa-brands fa-java fa-3x" aria-hidden="true"></i>
                                 Java Axe-core installation Guide
                                 <span class="secondary-text">Axe-core installation</span>
                             </a>
                         </li>
                         <li class="card">
-                            <a class="display" href="{{ site.baseurl }}/guides/python-axe-core-installation.html">
+                            <a class="display" href="/python-axe-core/setup-py.html">
                                 <i class="fa-brands fa-python fa-3x" aria-hidden="true"></i>
                                 Python Axe-core installation Guide
                                 <span class="secondary-text">Axe-core installation</span>
                             </a>
                         </li>
                         <li class="card">
-                            <a class="display" href="{{ site.baseurl }}/guides/developer-components.html">
+                            <a class="display" href="/components/intro.html">
                                 <i class="fa-solid fa-code fa-3x" aria-hidden="true"></i>
                                 Developer Components
                                 <span class="secondary-text">Guides and Code</span>
                             </a>
                         </li>
                         <li class="card">
-                            <a class="display" href="{{ site.baseurl }}/guides/ci-cd-implementation.html">
+                            <a class="display" href="/ci-cd/setup-ci-cd.html">
                                 <i class="fa-solid fa-gears fa-3x" aria-hidden="true"></i>
                                 CI/CD Implementation Guides
                                 <span class="secondary-text">Integration guides</span>
