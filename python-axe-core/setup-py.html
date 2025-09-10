@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +10,6 @@
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
     <title>Instructions to Install and Run Axe-Core Selenium scripts with Python - MNIT DOT A11y</title>
-
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Instructions to Install and Run Axe-Core Selenium scripts with Python" />
     <meta property="og:locale" content="en_US" />
@@ -36,36 +34,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .character-count-container {
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-
-        .character-count-container textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            font-size: 1em;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .character-count {
-            font-size: 0.9em;
-            color: #333;
-        }
-
-        .character-count.alert {
-            color: red;
-        }
-
         .centered-container {
             max-width: 900px;
-            /* Adjust this value as needed */
             margin: 0 auto;
             padding: 20px;
         }
@@ -101,40 +71,64 @@
             background-color: #005f9e;
         }
 
-        .section-links {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-        }
-        
-        .section-links li {
-            text-align: left;
+        /* Styles for sidebar navigation */
+        .page-content-with-sidebar {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            align-items: flex-start;
         }
 
-        .section-links li a {
+        .page-content-with-sidebar .toc-nav {
+            flex-shrink: 0;
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            height: auto; /* Correctly sets height to content length */
+            align-self: flex-start;
+        }
+
+        .page-content-with-sidebar .main-post-content {
+            flex-grow: 1;
+            max-width: 900px;
+        }
+
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: block; 
+        }
+
+        .toc-nav li {
+            display: block; 
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
             display: block;
             padding: 8px 15px;
             text-decoration: none;
             color: #003865;
             font-weight: bold;
-            border: 1px solid #003865;
+            border: 1px solid transparent;
             border-radius: 5px;
-            margin-bottom: 10px;
-            transition: background-color 0.3s, color 0.3s;
+            margin-bottom: 5px;
         }
 
-        .section-links li a:hover {
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
             background-color: #003865;
             color: white;
         }
     </style>
-
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
@@ -191,110 +185,105 @@
         </header>
 
         <main id="content" class="main-content">
-            <div class="centered-container">
-                <div class="post-content">
-                    <h1>Instructions to Install and Run Axe-Core Selenium scripts with Python</h1>
-                    <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>Python</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong>.</p>
-                    <hr>
-
-                    <nav aria-label="On-page links">
-                        <ul class="section-links">
-                            <li><a href="#install-python-and-vs-code">1. Install Python and VS Code</a></li>
-                            <li><a href="#set-up-a-python-project">2. Set up a Python Project</a></li>
-                            <li><a href="#install-required-libraries">3. Install Libraries</a></li>
-                            <li><a href="#download-and-install-cffi-wheel">4. Download and Install cffi Wheel</a></li>
-                            <li><a href="#create-the-python-test-file">5. Create the Python Test File</a></li>
-                            <li><a href="#run-the-tests">6. Run the Tests</a></li>
+            <div class="container page-content-with-sidebar">
+                <nav aria-label="On-page links" class="toc-nav">
+                    <ul>
+                        <li><a href="#install-python-and-vs-code">1. Install Python and VS Code</a></li>
+                        <li><a href="#set-up-a-python-project">2. Set up a Python Project</a></li>
+                        <li><a href="#install-required-libraries">3. Install Libraries</a></li>
+                        <li><a href="#download-and-install-cffi-wheel">4. Download and Install cffi Wheel</a></li>
+                        <li><a href="#create-the-python-test-file">5. Create the Python Test File</a></li>
+                        <li><a href="#run-the-tests">6. Run the Tests</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
+                    <div class="post-content">
+                        <h1>Instructions to Install and Run Axe-Core Selenium scripts with Python</h1>
+                        <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>Python</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong>.</p>
+                        <hr>
+                        <h2 id="install-python-and-vs-code">1. Install Python and Visual Studio Code</h2>
+                        <ul>
+                            <li>
+                                <strong>Install Python:</strong> Download the <strong>latest stable build</strong> from the official Python website. When running the installer, be sure to <strong>check the box to "Add python.exe to PATH"</strong> to ensure you can run Python and pip commands from any terminal.
+                            </li>
+                            <li>
+                                <strong>Install VS Code:</strong> Visual Studio Code should already be installed.
+                            </li>
                         </ul>
-                    </nav>
-
-                    <h2 id="install-python-and-vs-code">1. Install Python and Visual Studio Code</h2>
-                    <ul>
-                        <li>
-                            <strong>Install Python:</strong> Download the <strong>latest stable build</strong> from the official Python website. When running the installer, be sure to <strong>check the box to "Add python.exe to PATH"</strong> to ensure you can run Python and pip commands from any terminal.
-                        </li>
-                        <li>
-                            <strong>Install VS Code:</strong> Visual Studio Code should already be installed.
-                        </li>
-                    </ul>
-                    <hr>
-
-                    <h2 id="set-up-a-python-project">2. Set up a Python Project in VS Code</h2>
-                    <ul>
-                        <li>
-                            <strong>Create Project Folder:</strong> Open your terminal (e.g., PowerShell) and run the following commands to create and enter a project directory:
-                            <div class="code-container">
-                                <pre><code class="language-bash">mkdir python-axe-selenium
+                        <hr>
+                        <h2 id="set-up-a-python-project">2. Set up a Python Project in VS Code</h2>
+                        <ul>
+                            <li>
+                                <strong>Create Project Folder:</strong> Open your terminal (e.g., PowerShell) and run the following commands to create and enter a project directory:
+                                <div class="code-container">
+                                    <pre><code class="language-bash">mkdir python-axe-selenium
 cd python-axe-selenium</code></pre>
-                                <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Open the Project in VS Code:</strong> Open the new folder in Visual Studio Code by running the following command:
-                            <div class="code-container">
-                                <pre><code class="language-bash">code .</code></pre>
-                                <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Create a Virtual Environment:</strong> In VS Code, open the integrated terminal (Ctrl+`). Create a virtual environment using the command below.
-                            <div class="code-container">
-                                <pre><code class="language-bash">python -m venv .venv</code></pre>
-                                <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                            </div>
-                            <p>VS Code will likely prompt you to select this new environment. If not, use the Command Palette (Ctrl+Shift+P) and type "Python: Select Interpreter" to choose the `.venv` interpreter.</p>
-                        </li>
-                    </ul>
-                    <hr>
-
-                    <h2 id="install-required-libraries">3. Install Required Libraries</h2>
-                    <ul>
-                        <li>
-                            <strong>Activate Virtual Environment:</strong> In the VS Code terminal, activate your environment by running this command:
-                            <div class="code-container">
-                                <pre><code class="language-bash">.venv\Scripts\activate</code></pre>
-                                <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Install Packages:</strong> Use `pip` to install the necessary libraries for your tests:
-                            <div class="code-container">
-                                <pre><code class="language-bash">pip install selenium pytest axe-selenium-python webdriver-manager pytest-html</code></pre>
-                                <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                            </div>
-                        </li>
-                    </ul>
-                    <hr>
-
-                    <h2 id="download-and-install-cffi-wheel">4. Download and Install the cffi Wheel File</h2>
-                    <p>For certain dependencies, it may be necessary to install a specific wheel file manually. The filename `cffi-1.17.1-cp313-cp313-win_amd64.whl` indicates it's built for <strong>Python 3.13</strong> on a <strong>64-bit Windows</strong> system.</p>
-                    <ul>
-                        <li>
-                            <strong>Download the Wheel File:</strong> You will need to download this file from a trusted source, such as the cffi project page on PyPI:
-                            <div class="code-container">
-                                <pre><code>https://files.pythonhosted.org/packages/b9/7d/13e9a98e826b6f793f6d3d0e34fb8/cffi-1.17.1-cp313-cp313-win_amd64.whl</code></pre>
-                                <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Install the `.whl` file:</strong> Once the file is downloaded, navigate to its directory in your terminal and run the following command. Be sure to replace the filename if you have a different version.
-                            <div class="code-container">
-                                <pre><code class="language-bash">pip install cffi-1.17.1-cp313-cp313-win_amd64.whl</code></pre>
-                                <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                            </div>
-                        </li>
-                    </ul>
-                    <hr>
-
-                    <h2 id="create-the-python-test-file">5. Create the Python Test File</h2>
-                    <ul>
-                        <li>
-                            <strong>Create the File:</strong> In VS Code's File Explorer, create a new file named `test_accessibility.py` in the root of your project folder.
-                        </li>
-                        <li>
-                            <strong>Add the Code:</strong> Copy and paste the corrected Python code into this new file. The code uses the `parametrize` marker to test multiple sites and generates a JSON report for any violations.
-                            <div class="code-container">
-                                <pre><code class="language-python">import pytest
+                                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Open the Project in VS Code:</strong> Open the new folder in Visual Studio Code by running the following command:
+                                <div class="code-container">
+                                    <pre><code class="language-bash">code .</code></pre>
+                                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Create a Virtual Environment:</strong> In VS Code, open the integrated terminal (Ctrl+`). Create a virtual environment using the command below.
+                                <div class="code-container">
+                                    <pre><code class="language-bash">python -m venv .venv</code></pre>
+                                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <p>VS Code will likely prompt you to select this new environment. If not, use the Command Palette (Ctrl+Shift+P) and type "Python: Select Interpreter" to choose the `.venv` interpreter.</p>
+                            </li>
+                        </ul>
+                        <hr>
+                        <h2 id="install-required-libraries">3. Install Required Libraries</h2>
+                        <ul>
+                            <li>
+                                <strong>Activate Virtual Environment:</strong> In the VS Code terminal, activate your environment by running this command:
+                                <div class="code-container">
+                                    <pre><code class="language-bash">.venv\Scripts\activate</code></pre>
+                                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Install Packages:</strong> Use `pip` to install the necessary libraries for your tests:
+                                <div class="code-container">
+                                    <pre><code class="language-bash">pip install selenium pytest axe-selenium-python webdriver-manager pytest-html</code></pre>
+                                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <hr>
+                        <h2 id="download-and-install-cffi-wheel">4. Download and Install the cffi Wheel File</h2>
+                        <p>For certain dependencies, it may be necessary to install a specific wheel file manually. The filename `cffi-1.17.1-cp313-cp313-win_amd64.whl` indicates it's built for <strong>Python 3.13</strong> on a <strong>64-bit Windows</strong> system.</p>
+                        <ul>
+                            <li>
+                                <strong>Download the Wheel File:</strong> You will need to download this file from a trusted source, such as the cffi project page on PyPI:
+                                <div class="code-container">
+                                    <pre><code>https://files.pythonhosted.org/packages/b9/7d/13e9a98e826b6f793f6d3d0e34fb8/cffi-1.17.1-cp313-cp313-win_amd64.whl</code></pre>
+                                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Install the `.whl` file:</strong> Once the file is downloaded, navigate to its directory in your terminal and run the following command. Be sure to replace the filename if you have a different version.
+                                <div class="code-container">
+                                    <pre><code class="language-bash">pip install cffi-1.17.1-cp313-cp313-win_amd64.whl</code></pre>
+                                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <hr>
+                        <h2 id="create-the-python-test-file">5. Create the Python Test File</h2>
+                        <ul>
+                            <li>
+                                <strong>Create the File:</strong> In VS Code's File Explorer, create a new file named `test_accessibility.py` in the root of your project folder.
+                            </li>
+                            <li>
+                                <strong>Add the Code:</strong> Copy and paste the corrected Python code into this new file. The code uses the `parametrize` marker to test multiple sites and generates a JSON report for any violations.
+                                <div class="code-container">
+                                    <pre><code class="language-python">import pytest
 import os
 import json
 from selenium import webdriver
@@ -364,9 +353,9 @@ def test_accessibility_on_sites(driver, site_url):
             print(f"Impact: {violation['impact']}")
             print("Nodes:")
             for node in violation.get('nodes', []):
-                print(f"    HTML: {node['html']}")
-                print(f"    Target: {node['target']}")
-                print(f"    Failure Summary: {node['failureSummary']}")
+                print(f"     HTML: {node['html']}")
+                print(f"     Target: {node['target']}")
+                print(f"     Failure Summary: {node['failureSummary']}")
                 print("-----")
 
         # If violations exist, fail the test and provide a message.
@@ -374,29 +363,28 @@ def test_accessibility_on_sites(driver, site_url):
     else:
         # If no violations, print a success message.
         print(f"No accessibility violations found on {site_url}!")</code></pre>
+                                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <hr>
+                        <h2 id="run-the-tests">6. Run the Tests and View Results</h2>
+                        <p>
+                            <strong>Run the Tests:</strong> In the VS Code terminal, run the following command to execute your tests and generate a detailed HTML report:
+                            <div class="code-container">
+                                <pre><code class="language-bash">pytest --html=test_report.html</code></pre>
                                 <button class="copy-button" onclick="copyCode(this)">Copy</button>
                             </div>
-                        </li>
-                    </ul>
-                    <hr>
-
-                    <h2 id="run-the-tests">6. Run the Tests and View Results</h2>
-                    <p>
-                        <strong>Run the Tests:</strong> In the VS Code terminal, run the following command to execute your tests and generate a detailed HTML report:
-                        <div class="code-container">
-                            <pre><code class="language-bash">pytest --html=test_report.html</code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
-                    </p>
-                    <p>
-                        <strong>Check Test Results:</strong>
-                    </p>
-                    <ul>
-                        <li><strong>Terminal Output:</strong> Test results will be displayed directly in the VS Code terminal.</li>
-                        <li><strong>JSON Reports:</strong> Detailed accessibility results for each site are saved as separate JSON files in the `target/a11y-json-reports` folder.</li>
-                        <li><strong>HTML Report:</strong> The overall test summary is saved in `test_report.html` in your project's root directory. You can open this file in any web browser to view a comprehensive report of the test run.</li>
-                    </ul>
-
+                        </p>
+                        <p>
+                            <strong>Check Test Results:</strong>
+                        </p>
+                        <ul>
+                            <li><strong>Terminal Output:</strong> Test results will be displayed directly in the VS Code terminal.</li>
+                            <li><strong>JSON Reports:</strong> Detailed accessibility results for each site are saved as separate JSON files in the `target/a11y-json-reports` folder.</li>
+                            <li><strong>HTML Report:</strong> The overall test summary is saved in `test_report.html` in your project's root directory. You can open this file in any web browser to view a comprehensive report of the test run.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -405,7 +393,6 @@ def test_accessibility_on_sites(driver, site_url):
                     <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
                 </button>
             </div>
-
         </main>
 
         <footer class="container" id="footer">
@@ -422,9 +409,7 @@ def test_accessibility_on_sites(driver, site_url):
             <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
             <p class="last-modified" id='last-modified'></p>
         </footer>
-
     </div>
-
     <script>
         // Function to replace text wrapped in **...** with <strong>...</strong>
         function formatBoldText() {
@@ -452,27 +437,10 @@ def test_accessibility_on_sites(driver, site_url):
                     }, 2000);
                 });
         }
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <script src="/assets/scripts/index.js?1736284235"></script>
-
-    <script>
-        $("body").removeClass("preload"); // Prevents animations on page load
-
-        document.getElementById('input-textarea').addEventListener('input', function() {
-            const maxLength = this.getAttribute('maxlength');
-            const currentLength = this.value.length;
-            const remaining = maxLength - currentLength;
-            const charCountElem = document.getElementById('charCount');
-
-            charCountElem.textContent = `${remaining} characters remaining`;
-            charCountElem.classList.toggle('alert', remaining < 10);
-        });
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=character-count-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=axe-core-java-instructions.md")
                     .then(response => response.json())
                     .then(commits => {
                         var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
@@ -482,12 +450,14 @@ def test_accessibility_on_sites(driver, site_url):
                     });
             }
         }
-        // Call the function on page load
+        
+        // Call the function on page load to format the bold text
         document.addEventListener("DOMContentLoaded", function() {
             formatBoldText();
         });
     </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
 </body>
 
 </html>
