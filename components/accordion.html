@@ -40,6 +40,7 @@
             padding: 20px;
         }
 
+        /* Adjust the content container to make space for the fixed sidebar */
         .content-container {
             margin-left: 270px;
         }
@@ -52,16 +53,49 @@
             position: fixed;
             top: 60px;
             left: 0;
-            height: calc(100% - 60px);
+            /* Corrected height to be auto to fit content */
+            height: auto;
             overflow-y: auto;
             z-index: 100;
         }
-        /* Custom styles for the sidebar navigation */
+        
+        /* Custom styles for the sidebar navigation links to fix spacing */
         .usa-sidenav__item a {
             font-size: 1.05em;
             padding-top: 8px;
             padding-bottom: 6px;
         }
+
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* The fix for the navigation links to ensure they are stacked */
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
+        }
+        
         /* Styles for copy button */
         .code-container {
             position: relative;
