@@ -96,11 +96,13 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            /* Ensures vertical stacking */
+            display: block; 
         }
 
-        /* New rule to ensure each list item is a block element and stacks vertically */
         .toc-nav li {
-            display: block;
+            /* Ensures each list item is a block element and stacks vertically */
+            display: block; 
         }
 
         .toc-nav li a {
@@ -585,77 +587,77 @@ public class LiveAxeCoreTest {
 &lt;/plugin>
 &lt;plugin>
 &lt;groupId>org.apache.maven.plugins&lt;/groupId>
-&lt;artifactId>maven-site-plugin&lt;/artifactId>
-&lt;version>3.12.1&lt;/version>
+&lt;artifactId>maven-site-plugin</artifactId>
+&lt;version>3.12.1</version>
 &lt;/plugin>
 &lt;/plugins>
 &lt;/reporting>
 &lt;profiles>
 &lt;profile>
-&lt;id>release&lt;/id>
+&lt;id>release</id>
 &lt;build>
 &lt;plugins>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins&lt;/groupId>
-&lt;artifactId>maven-source-plugin&lt;/artifactId>
-&lt;version>3.3.1&lt;/version>
+&lt;groupId>org.apache.maven.plugins</groupId>
+&lt;artifactId>maven-source-plugin</artifactId>
+&lt;version>3.3.1</version>
 &lt;executions>
 &lt;execution>
-&lt;id>attach-sources&lt;/id>
+&lt;id>attach-sources</id>
 &lt;goals>
-&lt;goal>jar-no-fork&lt;/goal>
+&lt;goal>jar-no-fork</goal>
 &lt;/executions>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins&lt;/groupId>
-&lt;artifactId>maven-javadoc-plugin&lt;/artifactId>
-&lt;version>3.11.1&lt;/version>
+&lt;groupId>org.apache.maven.plugins</groupId>
+&lt;artifactId>maven-javadoc-plugin</artifactId>
+&lt;version>3.11.1</version>
 &lt;executions>
 &lt;execution>
-&lt;id>attach-javadocs&lt;/id>
+&lt;id>attach-javadocs</id>
 &lt;goals>
-&lt;goal>jar&lt;/goal>
+&lt;goal>jar</goal>
 &lt;/executions>
 &lt;configuration>
-&lt;source>21&lt;/source>
+&lt;source>21</source>
 &lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins&lt;/groupId>
-&lt;artifactId>maven-compiler-plugin&lt;/artifactId>
-&lt;version>3.13.0&lt;/version>
+&lt;groupId>org.apache.maven.plugins</groupId>
+&lt;artifactId>maven-compiler-plugin</artifactId>
+&lt;version>3.13.0</version>
 &lt;configuration>
-&lt;source>21&lt;/source>
-&lt;target>21&lt;/target>
+&lt;source>21</source>
+&lt;target>21</target>
 &lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins&lt;/groupId>
-&lt;artifactId>maven-gpg-plugin&lt;/artifactId>
-&lt;version>3.2.7&lt;/version>
+&lt;groupId>org.apache.maven.plugins</groupId>
+&lt;artifactId>maven-gpg-plugin</artifactId>
+&lt;version>3.2.7</version>
 &lt;executions>
 &lt;execution>
-&lt;id>sign-artifacts&lt;/id>
-&lt;phase>verify&lt;/phase>
+&lt;id>sign-artifacts</id>
+&lt;phase>verify</phase>
 &lt;goals>
-&lt;goal>sign&lt;/goal>
+&lt;goal>sign</goal>
 &lt;/executions>
 &lt;configuration>
 &lt;gpgArguments>
-&lt;arg>--pinentry-mode&lt;/arg>
-&lt;arg>loopback&lt;/arg>
+&lt;arg>--pinentry-mode</arg>
+&lt;arg>loopback</arg>
 &lt;/gpgArguments>
 &lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.sonatype.plugins&lt;/groupId>
-&lt;artifactId>nexus-staging-maven-plugin&lt;/artifactId>
-&lt;version>1.7.0&lt;/version>
-&lt;extensions>true&lt;/extensions>
+&lt;groupId>org.sonatype.plugins</groupId>
+&lt;artifactId>nexus-staging-maven-plugin</artifactId>
+&lt;version>1.7.0</version>
+&lt;extensions>true</extensions>
 &lt;configuration>
-&lt;serverId>ossrh&lt;/serverId>
+&lt;serverId>ossrh</serverId>
 &lt;nexusUrl>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/&lt;/url>
-&lt;autoReleaseAfterClose>true&lt;/autoReleaseAfterClose>
+&lt;autoReleaseAfterClose>true</autoReleaseAfterClose>
 &lt;/configuration>
 &lt;/plugin>
 &lt;/plugins>
@@ -686,7 +688,7 @@ public class LiveAxeCoreTest {
 &lt;scope>test</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.junit.jupiter</groupId>
+&lt;groupId>org.junit.jupiter</lt;/groupId>
 &lt;artifactId>junit-jupiter-api</artifactId>
 &lt;version>5.10.3</version>
 &lt;scope>test</scope>
