@@ -40,7 +40,6 @@
             padding: 20px;
         }
 
-        /* Adjust the content container to make space for the fixed sidebar */
         .content-container {
             margin-left: 270px;
         }
@@ -53,8 +52,7 @@
             position: fixed;
             top: 60px;
             left: 0;
-            /* Corrected height to be auto to fit content */
-            height: auto;
+            height: calc(100% - 60px);
             overflow-y: auto;
             z-index: 100;
         }
@@ -72,7 +70,6 @@
             margin: 0;
         }
 
-        /* The fix for the navigation links to ensure they are stacked */
         .toc-nav li {
             display: block;
             margin: 0;
@@ -118,6 +115,21 @@
         a.usa-button::before,
         a.usa-button::after {
             content: none !important;
+        }
+
+        /* Corrected styles to match the reference page's layout */
+        .how-to-test-wrapper {
+            display: flex;
+            gap: 20px;
+        }
+
+        .how-to-test-wrapper .toc-nav {
+            flex-shrink: 0;
+            width: 250px;
+        }
+
+        .how-to-test-wrapper .post-content {
+            flex-grow: 1;
         }
     </style>
 
