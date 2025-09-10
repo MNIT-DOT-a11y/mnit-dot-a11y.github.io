@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +11,7 @@
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
     <title>Instructions to Install and Run Axe-Core Selenium scripts with Java - MNIT DOT A11y</title>
+
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Instructions to Install and Run Axe-Core Selenium scripts with Java" />
     <meta property="og:locale" content="en_US" />
@@ -32,40 +34,31 @@
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        .character-count-container {
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-
-        .character-count-container textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            font-size: 1em;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .character-count {
-            font-size: 0.9em;
-            color: #333;
-        }
-
-        .character-count.alert {
-            color: red;
-        }
-
-        .centered-container {
-            max-width: 900px;
-            margin: 0 auto;
+        .main-content {
             padding: 20px;
         }
 
+        /* Adjust the content container to make space for the fixed sidebar */
+        .content-container {
+            margin-left: 270px;
+        }
+        
+        /* Styles for the fixed sidebar */
+        .sidebar {
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            top: 60px; /* Adjust this value to the height of your fixed header */
+            left: 0;
+            height: calc(100% - 60px); /* Adjust height to fill the remaining vertical space */
+            overflow-y: auto;
+            z-index: 100;
+        }
+        
         .code-container {
             position: relative;
             background: #f4f4f4;
@@ -96,42 +89,28 @@
         .copy-button:hover {
             background-color: #005f9e;
         }
-        
-        .section-links {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0; /* Ensures proper spacing */
-        }
-        
-        .section-links li {
-            text-align: left;
-        }
-        
-        .section-links li a {
-            display: block;
-            padding: 8px 15px;
-            text-decoration: none;
-            color: #003865;
-            font-weight: bold;
-            border: 1px solid #003865;
-            border-radius: 5px;
-            margin-bottom: 10px; /* Separates each link */
-            transition: background-color 0.3s, color 0.3s;
-        }
-        
-        .section-links li a:hover {
-            background-color: #003865;
-            color: white;
-        }
     </style>
 </head>
 
 <body onload="setModifiedDate();" class="preload">
+
+    <div id="sidebar" class="sidebar">
+        <ul class="site-sidenav usa-sidenav">
+            <li class="usa-sidenav__item"><a href="#download-and-install-jdk">1. Download and Install JDK</a></li>
+            <li class="usa-sidenav__item"><a href="#download-and-install-maven">2. Download and Install Maven</a></li>
+            <li class="usa-sidenav__item"><a href="#clone-repository">3. Clone Repository</a></li>
+            <li class="usa-sidenav__item"><a href="#create-and-configure-java-file">4. Create and Configure Java File</a></li>
+            <li class="usa-sidenav__item"><a href="#update-pom-file">5. Update pom.xml File</a></li>
+            <li class="usa-sidenav__item"><a href="#run-tests">6. Run the Tests</a></li>
+        </ul>
+    </div>
+
     <div class="page-wrapper">
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
+
         <header class="container">
             <nav id="nav" class="menu" aria-label="Site menu">
                 <ul>
@@ -181,109 +160,101 @@
                 <div class="search-container"></div>
             </nav>
         </header>
-        <main id="content" class="main-content">
-            <div class="centered-container">
-                <div class="post-content">
-                    <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
-                    <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>Java</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong>.</p>
-                    <hr>
-                    <nav aria-label="On-page links">
-                        <ul class="section-links">
-                            <li><a href="#download-and-install-jdk">1. Download and Install JDK</a></li>
-                            <li><a href="#download-and-install-maven">2. Download and Install Maven</a></li>
-                            <li><a href="#clone-repository">3. Clone Repository</a></li>
-                            <li><a href="#create-and-configure-java-file">4. Create and Configure Java File</a></li>
-                            <li><a href="#update-pom-file">5. Update pom.xml File</a></li>
-                            <li><a href="#run-tests">6. Run the Tests</a></li>
-                        </ul>
-                    </nav>
-                    <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
-                    <p>You need the JDK to compile and run Java applications.</p>
-                    <p>
-                        Download JDK: Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).
-                    </p>
-                    <p>
-                        Run the Installer: Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.
-                    </p>
-                    <p>
-                        Set <strong>JAVA_HOME</strong> Environment Variable:
-                    </p>
-                    <ol>
-                        <li>Right-click the <strong>Start</strong> button and select <strong>System</strong>.</li>
-                        <li>Click <strong>Advanced system settings</strong>.</li>
-                        <li>In the <strong>System Properties</strong> window, click <strong>Edit the System Environment Variables for your account</strong>.</li>
-                        <li>Under <strong>System variables</strong>, click <strong>New...</strong>.</li>
-                        <li>For <strong>Variable name</strong>, enter `JAVA_HOME`.</li>
-                        <li>For <strong>Variable value</strong>, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
-                        <li>Click <strong>OK</strong>.</li>
-                    </ol>
-                    <p>
-                        Update the Path Variable:
-                    </p>
-                    <ol>
-                        <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
-                        <li>Click <strong>New</strong> and add `%JAVA_HOME%\bin`.</li>
-                        <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
-                        <li>Click <strong>OK</strong> on all open windows.</li>
-                    </ol>
-                    <p>
-                        Verify Installation: Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.
-                    </p>
-                    <hr>
-                    <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
-                    <p>Maven is a build automation tool used for Java projects.</p>
-                    <p>
-                        Download Maven: Go to the Apache Maven download page. Download the <strong>Binary zip archive</strong> (e.g., `apache-maven-3.9.6-bin.zip`).
-                    </p>
-                    <p>
-                        Extract Maven: Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.
-                    </p>
-                    <p>
-                        Set <strong>MAVEN_HOME</strong> (or <strong>M2_HOME</strong>) Environment Variable: Follow the same steps as for <strong>JAVA_HOME</strong>.
-                    </p>
-                    <ol>
-                        <li>For <strong>Variable name</strong>, enter `MAVEN_HOME` (or `M2_HOME`).</li>
-                        <li>For <strong>Variable value</strong>, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
-                        <li>Click <strong>OK</strong>.</li>
-                    </ol>
-                    <p>
-                        Update the Path Variable:
-                    </p>
-                    <ol>
-                        <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
-                        <li>Click <strong>New</strong> and add `%MAVEN_HOME%\bin` (or `%M2_HOME%\bin`).</li>
-                        <li>Click <strong>OK</strong> on all open windows.</li>
-                    </ol>
-                    <p>
-                        Verify Installation: Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.
-                    </p>
-                    <hr>
-                    <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
-                    <p>You'll download the <strong>axe-core-maven-html</strong> repository using Git.</p>
-                    <p>
-                        Install Git: If you don't have Git installed, download it from git-scm.com and follow the installation instructions.
-                    </p>
-                    <p>
-                        Clone the Repository: Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).
-                    </p>
-                    <div class="code-container">
-                        <pre><code class="language-bash">git clone https://github.com/dequelabs/axe-core-maven-html.git</code></pre>
-                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <p>
-                        This will create a new folder named `axe-core-maven-html` containing the repository's contents.
-                    </p>
-                    <hr>
-                    <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
-                    <p>This is the test file where you will write the accessibility scan logic.</p>
-                    <p>
-                        Create the file: Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).
-                    </p>
-                    <p>
-                        Add the code: Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.
-                    </p>
-                    <div class="code-container">
-                        <pre><code class="language-java">package com.yourcompany.axtest;
+
+        <div class="content-container">
+            <main id="content" class="main-content">
+                <div class="centered-container">
+                    <div class="post-content">
+                        <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
+                        <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>Java</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong>.</p>
+                        <hr>
+                        <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
+                        <p>You need the JDK to compile and run Java applications.</p>
+                        <p>
+                            Download JDK: Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).
+                        </p>
+                        <p>
+                            Run the Installer: Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.
+                        </p>
+                        <p>
+                            Set **JAVA_HOME** Environment Variable:
+                        </p>
+                        <ol>
+                            <li>Right-click the <strong>Start</strong> button and select <strong>System</strong>.</li>
+                            <li>Click <strong>Advanced system settings</strong>.</li>
+                            <li>In the <strong>System Properties</strong> window, click <strong>Edit the System Environment Variables for your account</strong>.</li>
+                            <li>Under <strong>System variables</strong>, click <strong>New...</strong>.</li>
+                            <li>For <strong>Variable name</strong>, enter `JAVA_HOME`.</li>
+                            <li>For <strong>Variable value</strong>, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
+                            <li>Click <strong>OK</strong>.</li>
+                        </ol>
+                        <p>
+                            Update the Path Variable:
+                        </p>
+                        <ol>
+                            <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
+                            <li>Click <strong>New</strong> and add `%JAVA_HOME%\bin`.</li>
+                            <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
+                            <li>Click <strong>OK</strong> on all open windows.</li>
+                        </ol>
+                        <p>
+                            Verify Installation: Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.
+                        </p>
+                        <hr>
+                        <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
+                        <p>Maven is a build automation tool used for Java projects.</p>
+                        <p>
+                            Download Maven: Go to the Apache Maven download page. Download the <strong>Binary zip archive</strong> (e.g., `apache-maven-3.9.6-bin.zip`).
+                        </p>
+                        <p>
+                            Extract Maven: Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.
+                        </p>
+                        <p>
+                            Set **MAVEN_HOME** (or **M2_HOME**) Environment Variable: Follow the same steps as for <strong>JAVA_HOME</strong>.
+                        </p>
+                        <ol>
+                            <li>For <strong>Variable name</strong>, enter `MAVEN_HOME` (or `M2_HOME`).</li>
+                            <li>For <strong>Variable value</strong>, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
+                            <li>Click <strong>OK</strong>.</li>
+                        </ol>
+                        <p>
+                            Update the Path Variable:
+                        </p>
+                        <ol>
+                            <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
+                            <li>Click <strong>New</strong> and add `%MAVEN_HOME%\bin` (or `%M2_HOME%\bin`).</li>
+                            <li>Click <strong>OK</strong> on all open windows.</li>
+                        </ol>
+                        <p>
+                            Verify Installation: Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.
+                        </p>
+                        <hr>
+                        <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
+                        <p>You'll download the <strong>axe-core-maven-html</strong> repository using Git.</p>
+                        <p>
+                            Install Git: If you don't have Git installed, download it from git-scm.com and follow the installation instructions.
+                        </p>
+                        <p>
+                            Clone the Repository: Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).
+                        </p>
+                        <div class="code-container">
+                            <pre><code class="language-bash">git clone https://github.com/dequelabs/axe-core-maven-html.git</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <p>
+                            This will create a new folder named `axe-core-maven-html` containing the repository's contents.
+                        </p>
+                        <hr>
+                        <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
+                        <p>This is the test file where you will write the accessibility scan logic.</p>
+                        <p>
+                            Create the file: Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).
+                        </p>
+                        <p>
+                            Add the code: Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.
+                        </p>
+                        <div class="code-container">
+                            <pre><code class="language-java">package com.yourcompany.axtest;
 
 import com.deque.html.axecore.results.AxeRuntimeException;
 import com.deque.html.axecore.results.Results;
@@ -319,7 +290,7 @@ public class LiveAxeCoreTest {
     }
 
     @Parameters
-    public static Collection<Object[]> siteProvider() {
+    public static Collection&lt;Object[]> siteProvider() {
         return Arrays.asList(new Object[][] {
             {"https://mn.gov/mnit/about-mnit/accessibility/office-of-inaccessibility.jsp"},
             {"https://www.google.com"},
@@ -371,9 +342,9 @@ public class LiveAxeCoreTest {
                     System.out.println("Impact: " + violation.getImpact());
                     System.out.println("Nodes:");
                     violation.getNodes().forEach(node -> {
-                        System.out.println("    HTML: " + node.getHtml());
-                        System.out.println("    Target: " + node.getTarget());
-                        System.out.println("    Failure Summary: " + node.getHtml());
+                        System.out.println("     HTML: " + node.getHtml());
+                        System.out.println("     Target: " + node.getTarget());
+                        System.out.println("     Failure Summary: " + node.getHtml());
                         System.out.println("-----");
                     });
                     System.out.println("------------------------------------");
@@ -396,28 +367,28 @@ public class LiveAxeCoreTest {
 
     private static void generateHtmlReport(Results results, String url) throws IOException {
         StringBuilder htmlContent = new StringBuilder();
-        htmlContent.append("<!DOCTYPE html>\\n<html>\\n<head>\\n<meta charset=\"UTF-8\">\\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\\n<title>Accessibility Report for ").append(url).append("</title>\\n");
-        htmlContent.append("<style>body { font-family: Arial, sans-serif; margin: 20px; } h1 { color: #333; } table { width: 100%; border-collapse: collapse; margin-top: 20px; } th, td { border: 1px solid #ddd; padding: 8px; text-align: left; } th { background-color: #f2f2f2; } .violation-impact-critical { background-color: #ffe0e0; } .violation-impact-serious { background-color: #fffacd; } .violation-impact-moderate { background-color: #e0f2f7; } .violation-impact-minor { background-color: #e6ffe6; } .summary-box { background-color: #f9f9f9; border: 1px solid #eee; padding: 15px; margin-bottom: 20px; }</style>\\n");
-        htmlContent.append("</head>\\n<body>\\n<h1>Accessibility Report</h1>\\n<p><strong>Page Scanned:</strong> <a href=\"").append(url).append("\">").append(url).append("</a></p>\\n<div class=\"summary-box\"><h2>Summary</h2><p>Total Violations: <strong>").append(results.getViolations().size()).append("</strong></p><p>Total Inapplicable: <strong>").append(results.getInapplicable().size()).append("</strong></p><p>Total Incomplete: <strong>").append(results.getIncomplete().size()).append("</strong></p></div>\\n");
+        htmlContent.append("<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Accessibility Report for ").append(url).append("</title>\n");
+        htmlContent.append("<style>body { font-family: Arial, sans-serif; margin: 20px; } h1 { color: #333; } table { width: 100%; border-collapse: collapse; margin-top: 20px; } th, td { border: 1px solid #ddd; padding: 8px; text-align: left; } th { background-color: #f2f2f2; } .violation-impact-critical { background-color: #ffe0e0; } .violation-impact-serious { background-color: #fffacd; } .violation-impact-moderate { background-color: #e0f2f7; } .violation-impact-minor { background-color: #e6ffe6; } .summary-box { background-color: #f9f9f9; border: 1px solid #eee; padding: 15px; margin-bottom: 20px; }</style>\n");
+        htmlContent.append("</head>\n<body>\n<h1>Accessibility Report</h1>\n<p><strong>Page Scanned:</strong> <a href=\"").append(url).append("\">").append(url).append("</a></p>\n<div class=\"summary-box\"><h2>Summary</h2><p>Total Violations: <strong>").append(results.getViolations().size()).append("</strong></p><p>Total Inapplicable: <strong>").append(results.getInapplicable().size()).append("</strong></p><p>Total Incomplete: <strong>").append(results.getIncomplete().size()).append("</strong></p></div>\n");
         if (!results.getViolations().isEmpty()) {
-            htmlContent.append("<h2>Violations (").append(results.getViolations().size()).append(")</h2>\\n<table><thead><tr><th>Rule ID</th><th>Impact</th><th>Description</th><th>HTML Affected</th><th>Failure Summary</th><th>Help Link</th></tr></thead><tbody>\\n");
+            htmlContent.append("<h2>Violations (").append(results.getViolations().size()).append(")</h2>\n<table><thead><tr><th>Rule ID</th><th>Impact</th><th>Description</th><th>HTML Affected</th><th>Failure Summary</th><th>Help Link</th></tr></thead><tbody>\n");
             for (Rule violation : results.getViolations()) {
                 String impactClass = "violation-impact-" + violation.getImpact();
-                htmlContent.append("<tr class=\"").append(impactClass).append("\"><td>").append(escapeHtml(violation.getId())).append("</td><td>").append(escapeHtml(violation.getImpact())).append("</td><td>").append(escapeHtml(violation.getDescription())).append("</td><td>\\n");
+                htmlContent.append("<tr class=\"").append(impactClass).append("\"><td>").append(escapeHtml(violation.getId())).append("</td><td>").append(escapeHtml(violation.getImpact())).append("</td><td>").append(escapeHtml(violation.getDescription())).append("</td><td>\n");
                 for (Node node : violation.getNodes()) {
-                    htmlContent.append("<p><code>").append(escapeHtml(node.getHtml())).append("</code></p><p>Target: <code>").append(escapeHtml(node.getTarget().toString())).append("</code></p>\\n");
+                    htmlContent.append("<p><code>").append(escapeHtml(node.getHtml())).append("</code></p><p>Target: <code>").append(escapeHtml(node.getTarget().toString())).append("</code></p>\n");
                 }
-                htmlContent.append("</td><td>\\n");
+                htmlContent.append("</td><td>\n");
                 for (Node node : violation.getNodes()) {
-                    htmlContent.append("<p>").append(escapeHtml(node.getHtml())).append("</p>\\n");
+                    htmlContent.append("<p>").append(escapeHtml(node.getHtml())).append("</p>\n");
                 }
-                htmlContent.append("</td><td><a href=\"").append(violation.getHelpUrl()).append("\" target=\"_blank\">Learn More</a></td></tr>\\n");
+                htmlContent.append("</td><td><a href=\"").append(violation.getHelpUrl()).append("\" target=\"_blank\">Learn More</a></td></tr>\n");
             }
-            htmlContent.append("</tbody></table>\\n");
+            htmlContent.append("</tbody></table>\n");
         } else {
-            htmlContent.append("<p>No accessibility violations found.</p>\\n");
+            htmlContent.append("<p>No accessibility violations found.</p>\n");
         }
-        htmlContent.append("</body>\\n</html>");
+        htmlContent.append("</body>\n</html>");
         File htmlReportDir = new File("target/a11y-html-reports");
         if (!htmlReportDir.exists()) {
             htmlReportDir.mkdirs();
@@ -449,19 +420,19 @@ public class LiveAxeCoreTest {
         }
     }
 }</code></pre>
-                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                    </div>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
 
-                    <h2 id="update-pom-file">5. Update the `pom.xml` file </h2>
-                    <p>You need to update the `pom.xml` file to ensure all dependencies are correct and to handle the JUnit 4 `Parameterized` runner.</p>
-                    <p>
-                        Open the `pom.xml` file: Navigate to `axe-core-maven-html/selenium/pom.xml`.
-                    </p>
-                    <p>
-                        Replace the content with the corrected and updated code provided in the document. This file ensures the correct dependencies are used and removes the invalid `junit-platform-surefire-provider` entry.
-                    </p>
-                    <div class="code-container">
-                        <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?>
+                        <h2 id="update-pom-file">5. Update the `pom.xml` file </h2>
+                        <p>You need to update the `pom.xml` file to ensure all dependencies are correct and to handle the JUnit 4 `Parameterized` runner.</p>
+                        <p>
+                            Open the `pom.xml` file: Navigate to `axe-core-maven-html/selenium/pom.xml`.
+                        </p>
+                        <p>
+                            Replace the content with the corrected and updated code provided in the document. This file ensures the correct dependencies are used and removes the invalid `junit-platform-surefire-provider` entry.
+                        </p>
+                        <div class="code-container">
+                            <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?>
 &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 &lt;modelVersion>4.0.0&lt;/modelVersion>
 &lt;artifactId>selenium&lt;/artifactId>
@@ -470,190 +441,188 @@ public class LiveAxeCoreTest {
 &lt;parent>
 &lt;groupId>com.deque.html.axe-core&lt;/groupId>
 &lt;artifactId>virtual-superpackage&lt;/artifactId>
-&lt;version>4.10.1</version>
-&lt;relativePath>../pom.xml</relativePath>
+&lt;version>4.10.1&lt;/version>
+&lt;relativePath>../pom.xml&lt;/relativePath>
 &lt;/parent>
 &lt;build>
 &lt;resources>
 &lt;resource>
-&lt;directory>selenium/src/main/resources</directory>
+&lt;directory>selenium/src/main/resources&lt;/directory>
 &lt;/resource>
 &lt;resource>
-&lt;filtering>false</filtering>
-&lt;directory>node_modules/axe-core</directory>
+&lt;filtering>false&lt;/filtering>
+&lt;directory>node_modules/axe-core&lt;/directory>
 &lt;includes>
-&lt;include>axe.min.js</include>
+&lt;include>axe.min.js&lt;/include>
 &lt;/includes>
 &lt;/resource>
 &lt;/resources>
 &lt;plugins>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
-&lt;artifactId>maven-compiler-plugin</artifactId>
-&lt;version>3.13.0</version>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
+&lt;artifactId>maven-compiler-plugin&lt;/artifactId>
+&lt;version>3.13.0&lt;/version>
 &lt;configuration>
-&lt;source>21</source>
-&lt;target>21</target>
+&lt;source>21&lt;/source>
+&lt;target>21&lt;/target>
 &lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>com.github.eirslett</groupId>
-&lt;artifactId>frontend-maven-plugin</artifactId>
-&lt;version>1.15.1</version>
+&lt;groupId>com.github.eirslett&lt;/groupId>
+&lt;artifactId>frontend-maven-plugin&lt;/artifactId>
+&lt;version>1.15.1&lt;/version>
 &lt;executions>
 &lt;execution>
-&lt;id>install node and npm</id>
+&lt;id>install node and npm&lt;/id>
 &lt;goals>
-&lt;goal>install-node-and-npm</goal>
+&lt;goal>install-node-and-npm&lt;/goal>
 &lt;/goals>
 &lt;configuration>
-&lt;nodeVersion>v16.14.0</nodeVersion>
-&lt;npmVersion>8.5.5</npmVersion>
+&lt;nodeVersion>v16.14.0&lt;/nodeVersion>
+&lt;npmVersion>8.5.5&lt;/npmVersion>
 &lt;/configuration>
 &lt;/execution>
 &lt;execution>
-&lt;id>npm install</id>
+&lt;id>npm install&lt;/id>
 &lt;goals>
-&lt;goal>npm</goal>
+&lt;goal>npm&lt;/goal>
 &lt;/goals>
 &lt;/execution>
 &lt;/executions>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
-&lt;artifactId>maven-surefire-plugin</artifactId>
-&lt;version>3.5.2</version>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
+&lt;artifactId>maven-surefire-plugin&lt;/artifactId>
+&lt;version>3.5.2&lt;/version>
 &lt;configuration>
-&lt;runOrder>alphabetical</runOrder>
+&lt;runOrder>alphabetical&lt;/runOrder>
 &lt;includes>
-&lt;include>com/yourcompany/axtest/LiveAxeCoreTest.java</include>
-&lt;include>com/deque/html/axecore/selenium/*.java</include>
+&lt;include>com/yourcompany/axtest/LiveAxeCoreTest.java&lt;/include>
+&lt;include>com/deque/html/axecore/selenium/*.java&lt;/include>
 &lt;/includes>
 &lt;/configuration>
 &lt;/plugin>
 &lt;/plugins>
 &lt;/build>
-&lt;name>aXe Selenium Integration</name>
+&lt;name>aXe Selenium Integration&lt;/name>
 &lt;description>
-&lt;p>Tools for using aXe for web accessibility testing with JUnit and Selenium.</p>
+&lt;p>Tools for using aXe for web accessibility testing with JUnit and Selenium.&lt;/p>
 &lt;/description>
-&lt;url>https://github.com/dequelabs/axe-core-maven-html</url>
+&lt;url>https://github.com/dequelabs/axe-core-maven-html&lt;/url>
 &lt;licenses>
 &lt;license>
-&lt;name>Mozilla Public License, Version 2.0</name>
-&lt;url>https://www.mozilla.org/MPL/2.0/</url>
+&lt;name>Mozilla Public License, Version 2.0&lt;/name>
+&lt;url>https://www.mozilla.org/MPL/2.0/&lt;/url>
 &lt;/license>
 &lt;/licenses>
 &lt;distributionManagement>
 &lt;repository>
-&lt;id>ossrh</id>
-&lt;url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
+&lt;id>ossrh&lt;/id>
+&lt;url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/&lt;/url>
 &lt;/repository>
 &lt;snapshotRepository>
-&lt;id>ossrh</id>
-&lt;url>https://central.sonatype.com/repository/maven-snapshots/</url>
+&lt;id>ossrh&lt;/id>
+&lt;url>https://central.sonatype.com/repository/maven-snapshots/&lt;/url>
 &lt;/snapshotRepository>
 &lt;/distributionManagement>
 &lt;developers>
 &lt;developer>
-&lt;name>Dian Fay</name>
-&lt;email>dian.fay@deque.com</email>
-&lt;organization>Deque Labs</organization>
-&lt;organizationUrl>http://www.deque.com</organizationUrl>
+&lt;name>Dian Fay&lt;/name>
+&lt;email>dian.fay@deque.com&lt;/email>
+&lt;organization>Deque Labs&lt;/organization>
+&lt;organizationUrl>http://www.deque.com&lt;/organizationUrl>
 &lt;/developer>
 &lt;/developers>
 &lt;scm>
-&lt;connection>scm:git:git@github.com:dequelabs/axe-core-maven-html.git</connection>
-&lt;developerConnection>scm:git:git@github.com:dequelabs/axe-core-maven-html.git</developerConnection>
-&lt;url>https://github.com/dequelabs/axe-core-maven-html</url>
+&lt;connection>scm:git:git@github.com:dequelabs/axe-core-maven-html.git&lt;/connection>
+&lt;developerConnection>scm:git:git@github.com:dequelabs/axe-core-maven-html.git&lt;/developerConnection>
+&lt;url>https://github.com/dequelabs/axe-core-maven-html&lt;/url>
 &lt;/scm>
 &lt;properties>
-&lt;project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+&lt;project.build.sourceEncoding>UTF-8&lt;/project.build.sourceEncoding>
 &lt;/properties>
 &lt;reporting>
 &lt;plugins>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
-&lt;artifactId>maven-surefire-report-plugin</artifactId>
-&lt;version>3.5.2</version>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
+&lt;artifactId>maven-surefire-report-plugin&lt;/artifactId>
+&lt;version>3.5.2&lt;/version>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
-&lt;artifactId>maven-site-plugin</artifactId>
-&lt;version>3.12.1</version>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
+&lt;artifactId>maven-site-plugin&lt;/artifactId>
+&lt;version>3.12.1&lt;/version>
 &lt;/plugin>
 &lt;/plugins>
 &lt;/reporting>
 &lt;profiles>
 &lt;profile>
-&lt;id>release</id>
+&lt;id>release&lt;/id>
 &lt;build>
 &lt;plugins>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
-&lt;artifactId>maven-source-plugin</artifactId>
-&lt;version>3.3.1</version>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
+&lt;artifactId>maven-source-plugin&lt;/artifactId>
+&lt;version>3.3.1&lt;/version>
 &lt;executions>
 &lt;execution>
-&lt;id>attach-sources</id>
+&lt;id>attach-sources&lt;/id>
 &lt;goals>
-&lt;goal>jar-no-fork</goal>
+&lt;goal>jar-no-fork&lt;/goal>
 &lt;/executions>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
-&lt;artifactId>maven-javadoc-plugin</artifactId>
-&lt;version>3.11.1</version>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
+&lt;artifactId>maven-javadoc-plugin&lt;/artifactId>
+&lt;version>3.11.1&lt;/version>
 &lt;executions>
 &lt;execution>
-&lt;id>attach-javadocs</id>
+&lt;id>attach-javadocs&lt;/id>
 &lt;goals>
-&lt;goal>jar</goal>
-&lt;/goals>
-&lt;/execution>
+&lt;goal>jar&lt;/goal>
 &lt;/executions>
 &lt;configuration>
-&lt;source>21</source>
+&lt;source>21&lt;/source>
 &lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
-&lt;artifactId>maven-compiler-plugin</artifactId>
-&lt;version>3.13.0</version>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
+&lt;artifactId>maven-compiler-plugin&lt;/artifactId>
+&lt;version>3.13.0&lt;/version>
 &lt;configuration>
-&lt;source>21</source>
-&lt;target>21</target>
+&lt;source>21&lt;/source>
+&lt;target>21&lt;/target>
 &lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
-&lt;artifactId>maven-gpg-plugin</artifactId>
-&lt;version>3.2.7</version>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
+&lt;artifactId>maven-gpg-plugin&lt;/artifactId>
+&lt;version>3.2.7&lt;/version>
 &lt;executions>
 &lt;execution>
-&lt;id>sign-artifacts</id>
-&lt;phase>verify</phase>
+&lt;id>sign-artifacts&lt;/id>
+&lt;phase>verify&lt;/phase>
 &lt;goals>
-&lt;goal>sign</goal>
+&lt;goal>sign&lt;/goal>
 &lt;/goals>
 &lt;/execution>
 &lt;/executions>
 &lt;configuration>
 &lt;gpgArguments>
-&lt;arg>--pinentry-mode</arg>
-&lt;arg>loopback</arg>
+&lt;arg>--pinentry-mode&lt;/arg>
+&lt;arg>loopback&lt;/arg>
 &lt;/gpgArguments>
-&&lt;/configuration>
+&lt;/configuration>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.sonatype.plugins</groupId>
-&lt;artifactId>nexus-staging-maven-plugin</artifactId>
-&lt;version>1.7.0</version>
-&lt;extensions>true</extensions>
+&lt;groupId>org.sonatype.plugins&lt;/groupId>
+&lt;artifactId>nexus-staging-maven-plugin&lt;/artifactId>
+&lt;version>1.7.0&lt;/version>
+&lt;extensions>true&lt;/extensions>
 &lt;configuration>
-&lt;serverId>ossrh</serverId>
-&lt;nexusUrl>https://ossrh-staging-api.central.sonatype.com/</nexusUrl>
-&lt;autoReleaseAfterClose>true</autoReleaseAfterClose>
+&lt;serverId>ossrh&lt;/serverId>
+&lt;nexusUrl>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/&lt;/nexusUrl>
+&lt;autoReleaseAfterClose>true&lt;/autoReleaseAfterClose>
 &lt;/configuration>
 &lt;/plugin>
 &lt;/plugins>
@@ -662,66 +631,66 @@ public class LiveAxeCoreTest {
 &lt;/profiles>
 &lt;dependencies>
 &lt;dependency>
-&lt;groupId>commons-io</groupId>
-&lt;artifactId>commons-io</artifactId>
-&lt;version>2.18.0</version>
+&lt;groupId>commons-io&lt;/groupId>
+&lt;artifactId>commons-io&lt;/artifactId>
+&lt;version>2.18.0&lt;/version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.seleniumhq.selenium</groupId>
-&lt;artifactId>selenium-java</artifactId>
-&lt;version>4.22.0</version>
+&lt;groupId>org.seleniumhq.selenium&lt;/groupId>
+&lt;artifactId>selenium-java&lt;/artifactId>
+&lt;version>4.22.0&lt;/version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>io.github.bonigarcia</groupId>
-&lt;artifactId>webdrivermanager</artifactId>
-&lt;version>5.9.1</version>
-&lt;scope>test</scope>
+&lt;groupId>io.github.bonigarcia&lt;/groupId>
+&lt;artifactId>webdrivermanager&lt;/artifactId>
+&lt;version>5.9.1&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>junit</groupId>
-&lt;artifactId>junit</artifactId>
-&lt;version>4.13.2</version>
-&lt;scope>test</scope>
+&lt;groupId>junit&lt;/groupId>
+&lt;artifactId>junit&lt;/artifactId>
+&lt;version>4.13.2&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.junit.jupiter</groupId>
-&lt;artifactId>junit-jupiter-api</artifactId>
-&lt;version>5.10.3</version>
-&lt;scope>test</scope>
+&lt;groupId>org.junit.jupiter&lt;/groupId>
+&lt;artifactId>junit-jupiter-api&lt;/artifactId>
+&lt;version>5.10.3&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.junit.jupiter</groupId>
-&lt;artifactId>junit-jupiter-engine</artifactId>
-&lt;version>5.10.3</version>
-&lt;scope>test</scope>
+&lt;groupId>org.junit.jupiter&lt;/groupId>
+&lt;artifactId>junit-jupiter-engine&lt;/artifactId>
+&lt;version>5.10.3&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.apache.commons</groupId>
-&lt;artifactId>commons-lang3</artifactId>
-&lt;version>3.17.0</version>
+&lt;groupId>org.apache.commons&lt;/groupId>
+&lt;artifactId>commons-lang3&lt;/artifactId>
+&lt;version>3.17.0&lt;/version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>com.fasterxml.jackson.core</groupId>
-&lt;artifactId>jackson-databind</artifactId>
-&lt;version>2.18.2</version>
+&lt;groupId>com.fasterxml.jackson.core&lt;/groupId>
+&lt;artifactId>jackson-databind&lt;/artifactId>
+&lt;version>2.18.2&lt;/version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.mockito</groupId>
-&lt;artifactId>mockito-core</artifactId>
-&lt;version>4.11.0</version>
-&lt;scope>test</scope>
+&lt;groupId>org.mockito&lt;/groupId>
+&lt;artifactId>mockito-core&lt;/artifactId>
+&lt;version>4.11.0&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>com.deque.html.axe-core</groupId>
-&lt;artifactId>dequeutilites</artifactId>
-&lt;version>4.10.1</version>
-&lt;scope>compile</scope>
+&lt;groupId>com.deque.html.axe-core&lt;/groupId>
+&lt;artifactId>dequeutilites&lt;/artifactId>
+&lt;version>4.10.1&lt;/version>
+&lt;scope>compile&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.junit.vintage</groupId>
-&lt;artifactId>junit-vintage-engine</artifactId>
-&lt;version>5.10.3</version>
-&lt;scope>test</scope>
+&lt;groupId>org.junit.vintage&lt;/groupId>
+&lt;artifactId>junit-vintage-engine&lt;/artifactId>
+&lt;version>5.10.3&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;/dependencies>
 &lt;/project></code></pre>
@@ -765,75 +734,4 @@ public class LiveAxeCoreTest {
                     <li><a href="/testing-routine/">Testing Routine</a></li>
                     <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
                     <li><a href="/site-map/">Site map</a></li>
-                </ul>
-            </nav>
-            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-            <p class="last-modified" id='last-modified'></p>
-        </footer>
-    </div>
-    <script>
-        // Function to replace text wrapped in **...** with <strong>...</strong>
-        function formatBoldText() {
-            const elementsToScan = document.querySelectorAll('p, li, h2, h3, h4, h5, h6');
-            elementsToScan.forEach(el => {
-                let htmlContent = el.innerHTML;
-                const boldRegex = /\*\*(.*?)\*\*/g;
-                if (boldRegex.test(htmlContent)) {
-                    htmlContent = htmlContent.replace(boldRegex, '<strong>$1</strong>');
-                    el.innerHTML = htmlContent;
-                }
-            });
-        }
 
-        // Function to handle copying code without animation
-        function copyCode(button) {
-            const codeBlock = button.previousElementSibling.querySelector('code');
-            navigator.clipboard.writeText(codeBlock.innerText)
-                .then(() => {
-                    button.textContent = "Copied!";
-                })
-                .catch(err => {
-                    console.error('Failed to copy text: ', err);
-                    button.textContent = "Error";
-                })
-                .finally(() => {
-                    // Revert button text after 2 seconds
-                    setTimeout(() => {
-                        button.textContent = "Copy";
-                    }, 2000);
-                });
-        }
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/assets/scripts/index.js?1736284235"></script>
-    <script>
-        $("body").removeClass("preload");
-        document.getElementById('input-textarea').addEventListener('input', function() {
-            const maxLength = this.getAttribute('maxlength');
-            const currentLength = this.value.length;
-            const remaining = maxLength - currentLength;
-            const charCountElem = document.getElementById('charCount');
-            charCountElem.textContent = `${remaining} characters remaining`;
-            charCountElem.classList.toggle('alert', remaining < 10);
-        });
-
-        function setModifiedDate() {
-            if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=character-count-component.md")
-                    .then(response => response.json())
-                    .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                        if (modified != "") {
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-                        }
-                    });
-            }
-        }
-        // Call the function on page load to format the bold text
-        document.addEventListener("DOMContentLoaded", function() {
-            formatBoldText();
-        });
-    </script>
-</body>
-
-</html>
