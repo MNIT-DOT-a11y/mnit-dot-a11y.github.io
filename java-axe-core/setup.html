@@ -76,6 +76,7 @@
             display: flex;
             gap: 20px;
             padding: 20px 0;
+            align-items: flex-start; /* Ensures sidebar and content align at the top */
         }
 
         .page-content-with-sidebar .toc-nav {
@@ -84,6 +85,9 @@
             padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
+            /* The fix: sidebar height now adjusts to content */
+            height: auto; 
+            align-self: flex-start; /* Correctly aligns the sidebar at the top of the flex container */
         }
 
         .page-content-with-sidebar .main-post-content {
@@ -91,18 +95,17 @@
             max-width: 900px;
         }
 
-        /* The fix for the navigation links */
         .toc-nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            /* Ensures vertical stacking */
-            display: block; 
         }
 
+        /* The fix for vertical stacking */
         .toc-nav li {
-            /* Ensures each list item is a block element and stacks vertically */
             display: block; 
+            margin: 0;
+            padding: 0;
         }
 
         .toc-nav li a {
@@ -120,12 +123,6 @@
         .toc-nav li a.active {
             background-color: #003865;
             color: white;
-        }
-
-        /* Adding this to make the nested list items closer */
-        .toc-nav ul li a {
-            padding: 4px 15px;
-            font-size: 1em;
         }
     </style>
 </head>
@@ -558,7 +555,7 @@ public class LiveAxeCoreTest {
 &lt;url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/&lt;/url>
 &lt;/repository>
 &lt;snapshotRepository>
-&lt;id>ossrh&lt;/id>
+&lt;id>ossrh</id>
 &lt;url>https://central.sonatype.com/repository/maven-snapshots/&lt;/url>
 &lt;/snapshotRepository>
 &lt;/distributionManagement>
@@ -687,7 +684,6 @@ public class LiveAxeCoreTest {
 &lt;version>4.13.2</version>
 &lt;scope>test</scope>
 &lt;/dependency>
-&lt;dependency>
 &lt;groupId>org.junit.jupiter</lt;/groupId>
 &lt;artifactId>junit-jupiter-api</artifactId>
 &lt;version>5.10.3</version>
