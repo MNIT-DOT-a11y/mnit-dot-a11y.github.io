@@ -91,6 +91,7 @@
             max-width: 900px;
         }
 
+        /* The fix for the navigation links */
         .toc-nav ul {
             list-style: none;
             padding: 0;
@@ -112,6 +113,12 @@
         .toc-nav li a.active {
             background-color: #003865;
             color: white;
+        }
+
+        /* Adding this to make the nested list items closer */
+        .toc-nav ul li a {
+            padding: 4px 15px;
+            font-size: 1em;
         }
     </style>
 </head>
@@ -642,7 +649,7 @@ public class LiveAxeCoreTest {
 &lt;extensions>true&lt;/extensions>
 &lt;configuration>
 &lt;serverId>ossrh&lt;/serverId>
-&lt;nexusUrl>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/&lt;/nexusUrl>
+&lt;nexusUrl>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/&lt;/url>
 &lt;autoReleaseAfterClose>true&lt;/autoReleaseAfterClose>
 &lt;/configuration>
 &lt;/plugin>
@@ -669,39 +676,40 @@ public class LiveAxeCoreTest {
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>junit&lt;/groupId>
-&lt;artifactId>junit&lt;/artifactId>
-&lt;version>4.13.2&lt;/version>
-&lt;scope>test&lt;/scope>
+&lt;artifactId>junit</artifactId>
+&lt;version>4.13.2</version>
+&lt;scope>test</scope>
 &lt;/dependency>
+&lt;dependency>
 &lt;groupId>org.junit.jupiter&lt;/groupId>
 &lt;artifactId>junit-jupiter-api</artifactId>
 &lt;version>5.10.3</version>
 &lt;scope>test</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.junit.jupiter</groupId>
+&lt;groupId>org.junit.jupiter</lt;/groupId>
 &lt;artifactId>junit-jupiter-engine</artifactId>
 &lt;version>5.10.3</version>
 &lt;scope>test</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.apache.commons</groupId>
+&lt;groupId>org.apache.commons</lt;/groupId>
 &lt;artifactId>commons-lang3</artifactId>
 &lt;version>3.17.0</version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>com.fasterxml.jackson.core</groupId>
+&lt;groupId>com.fasterxml.jackson.core</lt;/groupId>
 &lt;artifactId>jackson-databind</artifactId>
 &lt;version>2.18.2</version>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>org.mockito</groupId>
+&lt;groupId>org.mockito</lt;/groupId>
 &lt;artifactId>mockito-core</artifactId>
 &lt;version>4.11.0</version>
 &lt;scope>test</scope>
 &lt;/dependency>
 &lt;dependency>
-&lt;groupId>com.deque.html.axe-core</groupId>
+&lt;groupId>com.deque.html.axe-core</lt;/groupId>
 &lt;artifactId>dequeutilites</artifactId>
 &lt;version>4.10.1</version>
 &lt;scope>compile</scope>
@@ -709,7 +717,7 @@ public class LiveAxeCoreTest {
 &lt;dependency>
 &lt;groupId>org.junit.vintage</lt;/groupId>
 &lt;artifactId>junit-vintage-engine</artifactId>
-&lt;version>5.10.3&lt;/version>
+&lt;version>5.10.3</version>
 &lt;scope>test</scope>
 &lt;/dependency>
 &lt;/dependencies>
