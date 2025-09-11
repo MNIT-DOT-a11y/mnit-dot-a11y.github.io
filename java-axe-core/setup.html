@@ -35,53 +35,57 @@
     
    <style>
     /* Styles for sidebar navigation */
-    .page-content-with-sidebar {
-        display: flex;
-        gap: 20px;
-        padding: 20px 0;
-        align-items: flex-start; /* Ensures sidebar and content align at the top */
-    }
+   .page-content-with-sidebar {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
 
-    .page-content-with-sidebar .toc-nav {
-        flex-shrink: 0;
-        width: 250px;
-        padding: 15px;
-        background-color: #f8f9fa;
-        border-right: 1px solid #ddd;
-        /* The fix: sidebar height now adjusts to content */
-        height: auto; 
-        align-self: flex-start; /* Correctly aligns the sidebar at the top of the flex container */
-    }
+.page-content-with-sidebar .toc-nav {
+    flex-shrink: 0;
+    width: 250px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    height: auto;
+    align-self: flex-start;
+}
 
-    .page-content-with-sidebar .main-post-content {
-        flex-grow: 1;
-        max-width: 900px;
-    }
+.page-content-with-sidebar .main-post-content {
+    flex-grow: 1;
+    max-width: 900px;
+}
 
-    .toc-nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+.toc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-    /* The fix for vertical stacking */
-    .toc-nav li {
-        display: block; 
-        margin: 0;
-        padding: 0;
-    }
+.toc-nav li {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
 
-    .toc-nav li a {
-        display: block;
-        padding: 8px 15px;
-        text-decoration: none;
-        color: #003865;
-        font-weight: bold;
-        border: 1px solid transparent;
-        border-radius: 5px;
-        margin-bottom: 5px;
-    }
+.toc-nav li a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #003865;
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
 
+.toc-nav li a:hover,
+.toc-nav li a.active {
+    background-color: #003865;
+    color: white;
+}
     .toc-nav li a:hover,
     .toc-nav li a.active {
         background-color: #003865;
