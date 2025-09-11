@@ -204,15 +204,11 @@
                         <hr>
                         <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
                         <p>You need the JDK to compile and run Java applications.</p>
-                        <p>
-                            Download JDK: Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).
-                        </p>
-                        <p>
-                            Run the Installer: Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.
-                        </p>
-                        <p>
-                            Set **JAVA_HOME** Environment Variable:
-                        </p>
+                        <ul>
+                            <li><strong>Download JDK:</strong> Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).</li>
+                            <li><strong>Run the Installer:</strong> Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.</li>
+                            <li><strong>Set JAVA_HOME Environment Variable:</strong></li>
+                        </ul>
                         <ol>
                             <li>Right-click the <strong>Start</strong> button and select <strong>System</strong>.</li>
                             <li>Click <strong>Advanced system settings</strong>.</li>
@@ -222,71 +218,61 @@
                             <li>For <strong>Variable value</strong>, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
                             <li>Click <strong>OK</strong>.</li>
                         </ol>
-                        <p>
-                            Update the Path Variable:
-                        </p>
+                        <ul>
+                            <li><strong>Update the Path Variable:</strong></li>
+                        </ul>
                         <ol>
                             <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
                             <li>Click <strong>New</strong> and add `%JAVA_HOME%\bin`.</li>
                             <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
                             <li>Click <strong>OK</strong> on all open windows.</li>
                         </ol>
-                        <p>
-                            Verify Installation: Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.
-                        </p>
+                        <ul>
+                            <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.</li>
+                        </ul>
                         <hr>
                         <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
                         <p>Maven is a build automation tool used for Java projects.</p>
-                        <p>
-                            Download Maven: Go to the Apache Maven download page. Download the <strong>Binary zip archive</strong> (e.g., `apache-maven-3.9.6-bin.zip`).
-                        </p>
-                        <p>
-                            Extract Maven: Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.
-                        </p>
-                        <p>
-                            Set **MAVEN_HOME** (or **M2_HOME**) Environment Variable: Follow the same steps as for <strong>JAVA_HOME</strong>.
-                        </p>
+                        <ul>
+                            <li><strong>Download Maven:</strong> Go to the Apache Maven download page. Download the <strong>Binary zip archive</strong> (e.g., `apache-maven-3.9.6-bin.zip`).</li>
+                            <li><strong>Extract Maven:</strong> Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.</li>
+                            <li><strong>Set MAVEN_HOME (or M2_HOME) Environment Variable:</strong> Follow the same steps as for <strong>JAVA_HOME</strong>.</li>
+                        </ul>
                         <ol>
                             <li>For <strong>Variable name</strong>, enter `MAVEN_HOME` (or `M2_HOME`).</li>
                             <li>For <strong>Variable value</strong>, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
                             <li>Click <strong>OK</strong>.</li>
                         </ol>
-                        <p>
-                            Update the Path Variable:
-                        </p>
+                        <ul>
+                            <li><strong>Update the Path Variable:</strong></li>
+                        </ul>
                         <ol>
                             <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
                             <li>Click <strong>New</strong> and add `%MAVEN_HOME%\bin`.</li>
                             <li>Click <strong>OK</strong> on all open windows.</li>
                         </ol>
-                        <p>
-                            Verify Installation: Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.
-                        </p>
+                        <ul>
+                            <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.</li>
+                        </ul>
                         <hr>
                         <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
                         <p>You'll download the <strong>axe-core-maven-html</strong> repository using Git.</p>
-                        <p>
-                            Install Git: If you don't have Git installed, download it from git-scm.com and follow the installation instructions.
-                        </p>
-                        <p>
-                            Clone the Repository: Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).
-                        </p>
+                        <ul>
+                            <li><strong>Install Git:</strong> If you don't have Git installed, download it from git-scm.com and follow the installation instructions.</li>
+                            <li><strong>Clone the Repository:</strong> Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).</li>
+                        </ul>
                         <div class="code-container">
                             <pre><code class="language-bash">git clone https://github.com/dequelabs/axe-core-maven-html.git</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <p>
-                            This will create a new folder named `axe-core-maven-html` containing the repository's contents.
-                        </p>
+                        <p>This will create a new folder named `axe-core-maven-html` containing the repository's contents.</p>
                         <hr>
                         <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
                         <p>This is the test file where you will write the accessibility scan logic.</p>
-                        <p>
-                            Create the file: Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).
-                        </p>
-                        <p>
-                            Add the code: Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.
-                        </p>
+                        <ul>
+                            <li><strong>Create the file:</strong> Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).</li>
+                            <li><strong>Add the code:</strong> Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.</li>
+                        </ul>
                         <div class="code-container">
                             <pre><code class="language-java">package com.yourcompany.axtest;
 
@@ -324,7 +310,7 @@ public class LiveAxeCoreTest {
     }
 
     @Parameters
-    public static Collection&lt;Object[]> siteProvider() {
+    public static Collection<Object[]> siteProvider() {
         return Arrays.asList(new Object[][] {
             {"https://mn.gov/mnit/about-mnit/accessibility/office-of-inaccessibility.jsp"},
             {"https://www.google.com"},
@@ -376,9 +362,9 @@ public class LiveAxeCoreTest {
                     System.out.println("Impact: " + violation.getImpact());
                     System.out.println("Nodes:");
                     violation.getNodes().forEach(node -> {
-                        System.out.println("     HTML: " + node.getHtml());
-                        System.out.println("     Target: " + node.getTarget());
-                        System.out.println("     Failure Summary: " + node.getHtml());
+                        System.out.println("    HTML: " + node.getHtml());
+                        System.out.println("    Target: " + node.getTarget());
+                        System.out.println("    Failure Summary: " + node.getHtml());
                         System.out.println("-----");
                     });
                     System.out.println("------------------------------------");
@@ -459,12 +445,10 @@ public class LiveAxeCoreTest {
 
                         <h2 id="update-pom-file">5. Update the `pom.xml` file </h2>
                         <p>You need to update the `pom.xml` file to ensure all dependencies are correct and to handle the JUnit 4 `Parameterized` runner.</p>
-                        <p>
-                            Open the `pom.xml` file: Navigate to `axe-core-maven-html/selenium/pom.xml`.
-                        </p>
-                        <p>
-                            Replace the content with the corrected and updated code provided in the document. This file ensures the correct dependencies are used and removes the invalid `junit-platform-surefire-provider` entry.
-                        </p>
+                        <ul>
+                            <li><strong>Open the `pom.xml` file:</strong> Navigate to `axe-core-maven-html/selenium/pom.xml`.</li>
+                            <li><strong>Replace the content:</strong> with the corrected and updated code provided in the document. This file ensures the correct dependencies are used and removes the invalid `junit-platform-surefire-provider` entry.</li>
+                        </ul>
                         <div class="code-container">
                             <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?>
 &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -665,63 +649,64 @@ public class LiveAxeCoreTest {
 &lt;dependency>
 &lt;groupId>commons-io</groupId>
 &lt;artifactId>commons-io</artifactId>
-&lt;version>2.18.0</version>
+&lt;version>2.18.0&lt;/version>
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>org.seleniumhq.selenium</groupId>
 &lt;artifactId>selenium-java</artifactId>
-&lt;version>4.22.0</version>
+&lt;version>4.22.0&lt;/version>
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>io.github.bonigarcia</groupId>
 &lt;artifactId>webdrivermanager</artifactId>
-&lt;version>5.9.1</version>
-&lt;scope>test</scope>
+&lt;version>5.9.1&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>junit</groupId>
 &lt;artifactId>junit</artifactId>
-&lt;version>4.13.2</version>
-&lt;scope>test</scope>
+&lt;version>4.13.2&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
+&lt;dependency>
 &lt;groupId>org.junit.jupiter</lt;/groupId>
 &lt;artifactId>junit-jupiter-api</artifactId>
-&lt;version>5.10.3</version>
-&lt;scope>test</scope>
+&lt;version>5.10.3&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>org.junit.jupiter</lt;/groupId>
 &lt;artifactId>junit-jupiter-engine</artifactId>
-&lt;version>5.10.3</version>
-&lt;scope>test</scope>
+&lt;version>5.10.3&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>org.apache.commons</lt;/groupId>
 &lt;artifactId>commons-lang3</artifactId>
-&lt;version>3.17.0</version>
+&lt;version>3.17.0&lt;/version>
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>com.fasterxml.jackson.core</lt;/groupId>
 &lt;artifactId>jackson-databind</artifactId>
-&lt;version>2.18.2</version>
+&lt;version>2.18.2&lt;/version>
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>org.mockito</lt;/groupId>
 &lt;artifactId>mockito-core</artifactId>
-&lt;version>4.11.0</version>
-&lt;scope>test</scope>
+&lt;version>4.11.0&lt;/version>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>com.deque.html.axe-core</lt;/groupId>
 &lt;artifactId>dequeutilites</artifactId>
-&lt;version>4.10.1</version>
-&lt;scope>compile</scope>
+&lt;version>4.10.1&lt;/version>
+&lt;scope>compile&lt;/scope>
 &lt;/dependency>
 &lt;dependency>
 &lt;groupId>org.junit.vintage</lt;/groupId>
 &lt;artifactId>junit-vintage-engine</artifactId>
 &lt;version>5.10.3</version>
-&lt;scope>test</scope>
+&lt;scope>test&lt;/scope>
 &lt;/dependency>
 &lt;/dependencies>
 &lt;/project></code></pre>
@@ -730,23 +715,23 @@ public class LiveAxeCoreTest {
 
                         <h2 id="run-tests">6. Run the Tests</h2>
                         <p>Now, you are ready to compile and run your new test file.</p>
-                        <p>
-                            Navigate to the `selenium` module: The tests for the axe-selenium integration are located within the `selenium` sub-directory of the cloned repository.
-                        </p>
+                        <ul>
+                            <li><strong>Navigate to the `selenium` module:</strong> The tests for the axe-selenium integration are located within the `selenium` sub-directory of the cloned repository.</li>
+                        </ul>
                         <div class="code-container">
                             <pre><code class="language-bash">cd axe-core-maven-html/selenium</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <p>
-                            Run the tests: Execute the Maven test goal with the following command:
-                        </p>
+                        <ul>
+                            <li><strong>Run the tests:</strong> Execute the Maven test goal with the following command:</li>
+                        </ul>
                         <div class="code-container">
                             <pre><code class="language-bash">mvn test</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <p>
-                            Check Test Results: After the command finishes, check the terminal output for <strong>BUILD SUCCESS</strong> or <strong>BUILD FAILURE</strong>. Detailed test reports (including any accessibility violations found by Axe-core) will be generated.
-                        </p>
+                        <ul>
+                            <li><strong>Check Test Results:</strong> After the command finishes, check the terminal output for <strong>BUILD SUCCESS</strong> or <strong>BUILD FAILURE</strong>. Detailed test reports (including any accessibility violations found by Axe-core) will be generated.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
