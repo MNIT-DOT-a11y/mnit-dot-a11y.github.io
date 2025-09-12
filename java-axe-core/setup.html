@@ -4,84 +4,145 @@ title: Instructions to Install and Run Axe-Core Selenium scripts with Java
 description: A guide to setting up and running a Java-based project with Axe-Core and Selenium for accessibility testing.
 ---
 
-<div class="container">
-    <div class="post-content">
-        <h1>Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
-        <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>Java</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong>.</p>
-        <hr>
-        <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
-        <p>You need the JDK to compile and run Java applications.</p>
-        <ul>
-            <li><strong>Download JDK:</strong> Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).</li>
-            <li><strong>Run the Installer:</strong> Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.</li>
-            <li><strong>Set JAVA_HOME Environment Variable:</strong></li>
-        </ul>
-        <ol>
-            <li>Right-click the <strong>Start</strong> button and select <strong>System</strong>.</li>
-            <li>Click <strong>Advanced system settings</strong>.</li>
-            <li>In the <strong>System Properties</strong> window, click <strong>Edit the System Environment Variables for your account</strong>.</li>
-            <li>Under <strong>System variables</strong>, click <strong>New...</strong>.</li>
-            <li>For <strong>Variable name</strong>, enter `JAVA_HOME`.</li>
-            <li>For <strong>Variable value</strong>, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
-            <li>Click <strong>OK</strong>.</li>
-        </ol>
-        <ul>
-            <li><strong>Update the Path Variable:</strong></li>
-        </ul>
-        <ol>
-            <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
-            <li>Click <strong>New</strong> and add `%JAVA_HOME%\bin`.</li>
-            <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
-            <li>Click <strong>OK</strong> on all open windows.</li>
-        </ol>
-        <ul>
-            <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.</li>
-        </ul>
-        <hr>
-        <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
-        <p>Maven is a build automation tool used for Java projects.</p>
-        <ul>
-            <li><strong>Download Maven:</strong> Go to the Apache Maven download page. Download the <strong>Binary zip archive</strong> (e.g., `apache-maven-3.9.6-bin.zip`).</li>
-            <li><strong>Extract Maven:</strong> Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.</li>
-            <li><strong>Set MAVEN_HOME (or M2_HOME) Environment Variable:</strong> Follow the same steps as for <strong>JAVA_HOME</strong>.</li>
-        </ul>
-        <ol>
-            <li>For <strong>Variable name</strong>, enter `MAVEN_HOME` (or `M2_HOME`).</li>
-            <li>For <strong>Variable value</strong>, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
-            <li>Click <strong>OK</strong>.</li>
-        </ol>
-        <ul>
-            <li><strong>Update the Path Variable:</strong></li>
-        </ul>
-        <ol>
-            <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
-            <li>Click <strong>New</strong> and add `%MAVEN_HOME%\bin`.</li>
-            <li>Click <strong>OK</strong> on all open windows.</li>
-        </ol>
-        <ul>
-            <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.</li>
-        </ul>
-        <hr>
-        <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
-        <p>You'll download the <strong>axe-core-maven-html</strong> repository using Git.</p>
-        <ul>
-            <li><strong>Install Git:</strong> If you don't have Git installed, download it from git-scm.com and follow the installation instructions.</li>
-            <li><strong>Clone the Repository:</strong> Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).</li>
-        </ul>
-        <div class="code-container">
-            <pre><code class="language-bash">git clone https://github.com/dequelabs/axe-core-maven-html.git</code></pre>
-            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-        </div>
-        <p>This will create a new folder named `axe-core-maven-html` containing the repository's contents.</p>
-        <hr>
-        <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
-        <p>This is the test file where you will write the accessibility scan logic.</p>
-        <ul>
-            <li><strong>Create the file:</strong> Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).</li>
-            <li><strong>Add the code:</strong> Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.</li>
-        </ul>
-        <div class="code-container">
-            <pre><code class="language-java">package com.yourcompany.axtest;
+<style>
+    .page-content-with-sidebar .toc-nav {
+        flex-shrink: 0;
+        width: 250px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-right: 1px solid #ddd;
+        height: auto;
+        align-self: flex-start;
+    }
+
+    .toc-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .toc-nav li {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .toc-nav li a {
+        display: block;
+        padding: 8px 15px;
+        text-decoration: none;
+        color: #003865;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    .toc-nav li a:hover,
+    .toc-nav li a.active {
+        background-color: #003865;
+        color: white;
+    }
+
+    /* Fix to remove pseudo-element content from all buttons and copy buttons */
+    .copy-button::before, .copy-button::after {
+        content: none !important;
+    }
+    button::before, button::after {
+        content: none !important;
+    }
+</style>
+
+<main id="content" class="main-content">
+    <div class="container page-content-with-sidebar">
+        <nav aria-label="On-page links" class="toc-nav">
+            <ul>
+                <li><a href="#download-and-install-jdk">1. Download and Install JDK</a></li>
+                <li><a href="#download-and-install-maven">2. Download and Install Maven</a></li>
+                <li><a href="#clone-repository">3. Clone Repository</a></li>
+                <li><a href="#create-and-configure-java-file">4. Create and Configure Java File</a></li>
+                <li><a href="#update-pom-file">5. Update pom.xml File</a></li>
+                <li><a href="#run-tests">6. Run the Tests</a></li>
+            </ul>
+        </nav>
+        <div class="main-post-content">
+            <div class="post-content">
+                <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
+                <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>Java</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong>.</p>
+                <hr>
+                <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
+                <p>You need the JDK to compile and run Java applications.</p>
+                <ul>
+                    <li><strong>Download JDK:</strong> Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).</li>
+                    <li><strong>Run the Installer:</strong> Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.</li>
+                    <li><strong>Set JAVA_HOME Environment Variable:</strong></li>
+                </ul>
+                <ol>
+                    <li>Right-click the <strong>Start</strong> button and select <strong>System</strong>.</li>
+                    <li>Click <strong>Advanced system settings</strong>.</li>
+                    <li>In the <strong>System Properties</strong> window, click <strong>Edit the System Environment Variables for your account</strong>.</li>
+                    <li>Under <strong>System variables</strong>, click <strong>New...</strong>.</li>
+                    <li>For <strong>Variable name</strong>, enter `JAVA_HOME`.</li>
+                    <li>For <strong>Variable value</strong>, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
+                    <li>Click <strong>OK</strong>.</li>
+                </ol>
+                <ul>
+                    <li><strong>Update the Path Variable:</strong></li>
+                </ul>
+                <ol>
+                    <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
+                    <li>Click <strong>New</strong> and add `%JAVA_HOME%\bin`.</li>
+                    <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
+                    <li>Click <strong>OK</strong> on all open windows.</li>
+                </ol>
+                <ul>
+                    <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.</li>
+                </ul>
+                <hr>
+                <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
+                <p>Maven is a build automation tool used for Java projects.</p>
+                <ul>
+                    <li><strong>Download Maven:</strong> Go to the Apache Maven download page. Download the <strong>Binary zip archive</strong> (e.g., `apache-maven-3.9.6-bin.zip`).</li>
+                    <li><strong>Extract Maven:</strong> Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.</li>
+                    <li><strong>Set MAVEN_HOME (or M2_HOME) Environment Variable:</strong> Follow the same steps as for <strong>JAVA_HOME</strong>.</li>
+                </ul>
+                <ol>
+                    <li>For <strong>Variable name</strong>, enter `MAVEN_HOME` (or `M2_HOME`).</li>
+                    <li>For <strong>Variable value</strong>, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
+                    <li>Click <strong>OK</strong>.</li>
+                </ol>
+                <ul>
+                    <li><strong>Update the Path Variable:</strong></li>
+                </ul>
+                <ol>
+                    <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
+                    <li>Click <strong>New</strong> and add `%MAVEN_HOME%\bin`.</li>
+                    <li>Click <strong>OK</strong> on all open windows.</li>
+                </ol>
+                <ul>
+                    <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.</li>
+                </ul>
+                <hr>
+                <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
+                <p>You'll download the <strong>axe-core-maven-html</strong> repository using Git.</p>
+                <ul>
+                    <li><strong>Install Git:</strong> If you don't have Git installed, download it from git-scm.com and follow the installation instructions.</li>
+                    <li><strong>Clone the Repository:</strong> Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).</li>
+                </ul>
+                <div class="code-container">
+                    <pre><code class="language-bash">git clone https://github.com/dequelabs/axe-core-maven-html.git</code></pre>
+                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                </div>
+                <p>This will create a new folder named `axe-core-maven-html` containing the repository's contents.</p>
+                <hr>
+                <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
+                <p>This is the test file where you will write the accessibility scan logic.</p>
+                <ul>
+                    <li><strong>Create the file:</strong> Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).</li>
+                    <li><strong>Add the code:</strong> Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.</li>
+                </ul>
+                <div class="code-container">
+                    <pre><code class="language-java">package com.yourcompany.axtest;
 
 import com.deque.html.axecore.results.AxeRuntimeException;
 import com.deque.html.axecore.results.Results;
