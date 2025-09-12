@@ -124,6 +124,15 @@
             background-color: #003865;
             color: white;
         }
+         /* Fix to remove pseudo-element content from all buttons and copy buttons */
+        .copy-button::before, .copy-button::after {
+            content: none !important;
+        }
+        button::before, button::after {
+            content: none !important;
+        }
+
+
     </style>
 </head>
 
