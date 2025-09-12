@@ -1,4 +1,444 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Instructions to Install and Run Axe-Core Selenium scripts with Java - MNIT DOT A11y</title>
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Instructions to Install and Run Axe-Core Selenium scripts with Java" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="A guide to setting up and running a Java-based project with Axe-Core and Selenium for accessibility testing." />
+    <meta property="og:description" content="A guide to setting up and running a Java-based project with Axe-Core and Selenium for accessibility testing." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/axe-core-java-instructions/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/axe-core-java-instructions/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Instructions to Install and Run Axe-Core Selenium scripts with Java" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "A guide to setting up and running a Java-based project with Axe-Core and Selenium for accessibility testing.",
+            "headline": "Instructions to Install and Run Axe-Core Selenium scripts with Java",
+            "url": "https://mnit-dot-a11y.github.io/axe-core-java-instructions/"
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+<style>
+        .centered-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .code-container {
+            position: relative;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .code-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #003865;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+        .copy-button:hover {
+            background-color: #005f9e;
+        }
+
+        /* Styles for sidebar navigation */
+        .page-content-with-sidebar {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            align-items: flex-start;
+        }
+
+        .page-content-with-sidebar .toc-nav {
+            flex-shrink: 0;
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            height: auto; /* Correctly sets height to content length */
+            align-self: flex-start;
+        }
+
+        .page-content-with-sidebar .main-post-content {
+            flex-grow: 1;
+            max-width: 900px;
+        }
+
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: block; 
+        }
+
+        .toc-nav li {
+            display: block; 
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
+        }
+    </style>
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/identifying-components/">Identifying Components </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/demos/">Demos </a>
+                    </li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/demos/">Demos</a>
+                            </li>
+                            <li>
+                                <a href="/developing-components/">Developing Components</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
+            </nav>
+        </header>
+
+        <main id="content" class="main-content">
+            <div class="container page-content-with-sidebar">
+                <nav aria-label="On-page links" class="toc-nav">
+                    <ul>
+                        <li><a href="#download-and-install-jdk">1. Download and Install JDK</a></li>
+                        <li><a href="#download-and-install-maven">2. Download and Install Maven</a></li>
+                        <li><a href="#clone-repository">3. Clone Repository</a></li>
+                        <li><a href="#create-and-configure-java-file">4. Create and Configure Java File</a></li>
+                        <li><a href="#update-pom-file">5. Update pom.xml File</a></li>
+                        <li><a href="#run-tests">6. Run the Tests</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
+                    <div class="post-content">
+                        <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with Java</h1>
+                        <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>Java</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong>.</p>
+                        <hr>
+                        <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
+                        <p>You need the JDK to compile and run Java applications.</p>
+                        <ul>
+                            <li><strong>Download JDK:</strong> Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).</li>
+                            <li><strong>Run the Installer:</strong> Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.</li>
+                            <li><strong>Set JAVA_HOME Environment Variable:</strong></li>
+                        </ul>
+                        <ol>
+                            <li>Right-click the <strong>Start</strong> button and select <strong>System</strong>.</li>
+                            <li>Click <strong>Advanced system settings</strong>.</li>
+                            <li>In the <strong>System Properties</strong> window, click <strong>Edit the System Environment Variables for your account</strong>.</li>
+                            <li>Under <strong>System variables</strong>, click <strong>New...</strong>.</li>
+                            <li>For <strong>Variable name</strong>, enter `JAVA_HOME`.</li>
+                            <li>For <strong>Variable value</strong>, enter the path to your JDK installation directory (e.g., `C:\Program Files\Java\jdk-17`).</li>
+                            <li>Click <strong>OK</strong>.</li>
+                        </ol>
+                        <ul>
+                            <li><strong>Update the Path Variable:</strong></li>
+                        </ul>
+                        <ol>
+                            <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
+                            <li>Click <strong>New</strong> and add `%JAVA_HOME%\bin`.</li>
+                            <li>Make sure this entry is moved up to a high priority to ensure the correct JDK is used.</li>
+                            <li>Click <strong>OK</strong> on all open windows.</li>
+                        </ol>
+                        <ul>
+                            <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.</li>
+                        </ul>
+                        <hr>
+                        <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
+                        <p>Maven is a build automation tool used for Java projects.</p>
+                        <ul>
+                            <li><strong>Download Maven:</strong> Go to the Apache Maven download page. Download the <strong>Binary zip archive</strong> (e.g., `apache-maven-3.9.6-bin.zip`).</li>
+                            <li><strong>Extract Maven:</strong> Unzip the downloaded archive to a location like `C:\Program Files\Apache\apache-maven-[version]`.</li>
+                            <li><strong>Set MAVEN_HOME (or M2_HOME) Environment Variable:</strong> Follow the same steps as for <strong>JAVA_HOME</strong>.</li>
+                        </ul>
+                        <ol>
+                            <li>For <strong>Variable name</strong>, enter `MAVEN_HOME` (or `M2_HOME`).</li>
+                            <li>For <strong>Variable value</strong>, enter the path to your Maven installation directory (e.g., `C:\Program Files\Apache\apache-maven-3.9.6`).</li>
+                            <li>Click <strong>OK</strong>.</li>
+                        </ol>
+                        <ul>
+                            <li><strong>Update the Path Variable:</strong></li>
+                        </ul>
+                        <ol>
+                            <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
+                            <li>Click <strong>New</strong> and add `%MAVEN_HOME%\bin`.</li>
+                            <li>Click <strong>OK</strong> on all open windows.</li>
+                        </ol>
+                        <ul>
+                            <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `mvn -version`. You should see the Maven version information.</li>
+                        </ul>
+                        <hr>
+                        <h2 id="clone-repository">3. Clone Axe-core Selenium Repository</h2>
+                        <p>You'll download the <strong>axe-core-maven-html</strong> repository using Git.</p>
+                        <ul>
+                            <li><strong>Install Git:</strong> If you don't have Git installed, download it from git-scm.com and follow the installation instructions.</li>
+                            <li><strong>Clone the Repository:</strong> Open your terminal and navigate to the directory where you want to save the repository (e.g., `C:\Users\rubi1dou\Documents`).</li>
+                        </ul>
+                        <div class="code-container">
+                            <pre><code class="language-bash">git clone https://github.com/dequelabs/axe-core-maven-html.git</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <p>This will create a new folder named `axe-core-maven-html` containing the repository's contents.</p>
+                        <hr>
+                        <h2 id="create-and-configure-java-file">4. Create and Configure LiveAxeCoreTest.java</h2>
+                        <p>This is the test file where you will write the accessibility scan logic.</p>
+                        <ul>
+                            <li><strong>Create the file:</strong> Inside the cloned repository, navigate to `axe-core-maven-html/selenium/src/test/java/com/yourcompany/axtest/`. Create a new file named `LiveAxeCoreTest.java` (if the directories don't exist, create them).</li>
+                            <li><strong>Add the code:</strong> Copy and paste the provided JUnit 4 code into the new file. This code uses the `Parameterized` runner to test multiple sites.</li>
+                        </ul>
+                        <div class="code-container">
+                            <pre><code class="language-java">package com.yourcompany.axtest;
+
+import com.deque.html.axecore.results.AxeRuntimeException;
+import com.deque.html.axecore.results.Results;
+import com.deque.html.axecore.results.Rule;
+import com.deque.html.axecore.results.Node;
+import com.deque.html.axecore.selenium.AxeBuilder;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.Assert;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+@RunWith(Parameterized.class)
+public class LiveAxeCoreTest {
+    private WebDriver driver;
+    private String siteUrl;
+
+    public LiveAxeCoreTest(String siteUrl) {
+        this.siteUrl = siteUrl;
+    }
+
+    @Parameters
+    public static Collection<Object[]> siteProvider() {
+        return Arrays.asList(new Object[][] {
+            {"https://mn.gov/mnit/about-mnit/accessibility/office-of-inaccessibility.jsp"},
+            {"https://www.google.com"},
+            {"https://www.bing.com"},
+            {"https://www.yahoo.com"}
+        });
+    }
+
+    @Before
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        driver = new ChromeDriver(options);
+    }
+
+    @Test
+    public void runAxeCoreScanOnSite() {
+        System.out.println("Navigating to page: " + siteUrl);
+        try {
+            driver.get(siteUrl);
+            AxeBuilder axeBuilder = new AxeBuilder();
+            System.out.println("Executing axe-core accessibility scan on " + siteUrl + "...");
+            Results axeResults = axeBuilder.analyze(driver);
+            System.out.println("Axe-core scan completed for " + siteUrl + ".");
+
+            ObjectMapper mapper = new ObjectMapper();
+            File jsonReportDir = new File("target/a11y-json-reports");
+            if (!jsonReportDir.exists()) {
+                jsonReportDir.mkdirs();
+            }
+            String jsonFileName = siteUrl.replaceAll("[^a-zA-Z0-9.-]", "_") + "_axe_results.json";
+            File jsonFile = new File(jsonReportDir, jsonFileName);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(jsonFile, axeResults);
+            System.out.println("Axe-core JSON results saved to: " + jsonFile.getAbsolutePath());
+
+            generateHtmlReport(axeResults, siteUrl);
+
+            if (axeResults.getViolations().isEmpty()) {
+                System.out.println("No accessibility violations found on " + siteUrl + "!");
+                System.out.println("This means the page appears to be highly accessible.");
+            } else {
+                System.out.println("--- Accessibility Violations Found on " + siteUrl + " ---");
+                System.out.println("Review these issues to improve the accessibility of the page.");
+                axeResults.getViolations().forEach(violation -> {
+                    System.out.println("Rule ID: " + violation.getId());
+                    System.out.println("Description: " + violation.getDescription());
+                    System.out.println("Help URL: " + violation.getHelpUrl());
+                    System.out.println("Impact: " + violation.getImpact());
+                    System.out.println("Nodes:");
+                    violation.getNodes().forEach(node -> {
+                        System.out.println("     HTML: " + node.getHtml());
+                        System.out.println("     Target: " + node.getTarget());
+                        System.out.println("     Failure Summary: " + node.getHtml());
+                        System.out.println("-----");
+                    });
+                    System.out.println("------------------------------------");
+                });
+            }
+
+            Assert.assertTrue("Accessibility violations found on " + siteUrl + ": " + axeResults.getViolations().toString(),
+                axeResults.getViolations().isEmpty());
+        } catch (AxeRuntimeException e) {
+            System.err.println("Axe-core runtime error during analysis of " + siteUrl + ": " + e.getMessage());
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.err.println("Error saving Axe-core results to JSON or HTML for " + siteUrl + ": " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("An unexpected error occurred while testing " + siteUrl + ": " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateHtmlReport(Results results, String url) throws IOException {
+        StringBuilder htmlContent = new StringBuilder();
+        htmlContent.append("<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Accessibility Report for ").append(url).append("</title>\n");
+        htmlContent.append("<style>body { font-family: Arial, sans-serif; margin: 20px; } h1 { color: #333; } table { width: 100%; border-collapse: collapse; margin-top: 20px; } th, td { border: 1px solid #ddd; padding: 8px; text-align: left; } th { background-color: #f2f2f2; } .violation-impact-critical { background-color: #ffe0e0; } .violation-impact-serious { background-color: #fffacd; } .violation-impact-moderate { background-color: #e0f2f7; } .violation-impact-minor { background-color: #e6ffe6; } .summary-box { background-color: #f9f9f9; border: 1px solid #eee; padding: 15px; margin-bottom: 20px; }</style>\n");
+        htmlContent.append("</head>\n<body>\n<h1>Accessibility Report</h1>\n<p><strong>Page Scanned:</strong> <a href=\"").append(url).append("\">").append(url).append("</a></p>\n<div class=\"summary-box\"><h2>Summary</h2><p>Total Violations: <strong>").append(results.getViolations().size()).append("</strong></p><p>Total Inapplicable: <strong>").append(results.getInapplicable().size()).append("</strong></p><p>Total Incomplete: <strong>").append(results.getIncomplete().size()).append("</strong></p></div>\n");
+        if (!results.getViolations().isEmpty()) {
+            htmlContent.append("<h2>Violations (").append(results.getViolations().size()).append(")</h2>\n<table><thead><tr><th>Rule ID</th><th>Impact</th><th>Description</th><th>HTML Affected</th><th>Failure Summary</th><th>Help Link</th></tr></thead><tbody>\n");
+            for (Rule violation : results.getViolations()) {
+                String impactClass = "violation-impact-" + violation.getImpact();
+                htmlContent.append("<tr class=\"").append(impactClass).append("\"><td>").append(escapeHtml(violation.getId())).append("</td><td>").append(escapeHtml(violation.getImpact())).append("</td><td>").append(escapeHtml(violation.getDescription())).append("</td><td>\n");
+                for (Node node : violation.getNodes()) {
+                    htmlContent.append("<p><code>").append(escapeHtml(node.getHtml())).append("</code></p><p>Target: <code>").append(escapeHtml(node.getTarget().toString())).append("</code></p>\n");
+                }
+                htmlContent.append("</td><td>\n");
+                for (Node node : violation.getNodes()) {
+                    htmlContent.append("<p>").append(escapeHtml(node.getHtml())).append("</p>\n");
+                }
+                htmlContent.append("</td><td><a href=\"").append(violation.getHelpUrl()).append("\" target=\"_blank\">Learn More</a></td></tr>\n");
+            }
+            htmlContent.append("</tbody></table>\n");
+        } else {
+            htmlContent.append("<p>No accessibility violations found.</p>\n");
+        }
+        htmlContent.append("</body>\n</html>");
+        File htmlReportDir = new File("target/a11y-html-reports");
+        if (!htmlReportDir.exists()) {
+            htmlReportDir.mkdirs();
+        }
+        String htmlFileName = url.replaceAll("[^a-zA-Z0-9.-]", "_") + "_accessibility_report.html";
+        File htmlFile = new File(htmlReportDir, htmlFileName);
+        try (FileWriter writer = new FileWriter(htmlFile)) {
+            writer.write(htmlContent.toString());
+        }
+        System.out.println("HTML accessibility report generated at: " + htmlFile.getAbsolutePath());
+    }
+
+    private static String escapeHtml(String text) {
+        if (text == null) {
+            return "";
+        }
+        return text.replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace("\"", "&quot;")
+            .replace("'", "&#x27;");
+    }
+
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            System.out.println("Closing browser after testing " + siteUrl + ".");
+            driver.quit();
+        }
+    }
+}<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/assets/scripts/index.js?1736284235"></script>
 <script>
     // Function to replace text wrapped in **...** with <strong>...</strong>
