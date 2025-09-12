@@ -33,105 +33,65 @@
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
- <style>
-        .centered-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+   <style>
+    /* Styles for sidebar navigation */
+   .page-content-with-sidebar {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
 
-        .code-container {
-            position: relative;
-            background: #f4f4f4;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
+.page-content-with-sidebar .toc-nav {
+    flex-shrink: 0;
+    width: 250px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    height: auto;
+    align-self: flex-start;
+}
 
-        .code-container pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
+.page-content-with-sidebar .main-post-content {
+    flex-grow: 1;
+    max-width: 900px;
+}
 
-        .copy-button {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: #003865;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 3px;
-            font-size: 0.8em;
-        }
+.toc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .copy-button:hover {
-            background-color: #005f9e;
-        }
+.toc-nav li {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
 
-        /* Styles for sidebar navigation */
-        .page-content-with-sidebar {
-            display: flex;
-            gap: 20px;
-            padding: 20px 0;
-            align-items: flex-start; /* Ensures sidebar and content align at the top */
-        }
+.toc-nav li a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #003865;
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
 
-        .page-content-with-sidebar .toc-nav {
-            flex-shrink: 0;
-            width: 250px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-right: 1px solid #ddd;
-            /* The fix: sidebar height now adjusts to content */
-            height: auto; 
-            align-self: flex-start; /* Correctly aligns the sidebar at the top of the flex container */
-        }
-
-        .page-content-with-sidebar .main-post-content {
-            flex-grow: 1;
-            max-width: 900px;
-        }
-
-        .toc-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        /* The fix for vertical stacking */
-        .toc-nav li {
-            display: block; 
-            margin: 0;
-            padding: 0;
-        }
-
-        .toc-nav li a {
-            display: block;
-            padding: 8px 15px;
-            text-decoration: none;
-            color: #003865;
-            font-weight: bold;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
-
-        .toc-nav li a:hover,
-        .toc-nav li a.active {
-            background-color: #003865;
-            color: white;
-        }
-         /* Fix to remove pseudo-element content from all buttons and copy buttons */
-        .copy-button::before, .copy-button::after {
-            content: none !important;
-        }
-        button::before, button::after {
-            content: none !important;
-        }
-    </style>
+.toc-nav li a:hover,
+.toc-nav li a.active {
+    background-color: #003865;
+    color: white;
+}
+    .toc-nav li a:hover,
+    .toc-nav li a.active {
+        background-color: #003865;
+        color: white;
+    }
+</style>
 </head>
 
 <body onload="setModifiedDate();" class="preload">
@@ -193,7 +153,7 @@
         </header>
 
         <main id="content" class="main-content">
-            <div class="container page-content-with-sidebar">
+            <div class="container how-to-test-wrapper">
                 <nav aria-label="On-page links" class="toc-nav">
                     <ul>
                         <li><a href="#download-and-install-jdk">1. Download and Install JDK</a></li>
@@ -210,11 +170,11 @@
                         <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>Java</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong>.</p>
                         <hr>
                         <h2 id="download-and-install-jdk">1. Download and Install Java Development Kit (JDK)</h2>
-                        <p>You need the JDK to compile and run Java applications.</p>
                         <ul>
-                            <li><strong>Download JDK:</strong> Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).</li>
-                            <li><strong>Run the Installer:</strong> Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.</li>
-                            <li><strong>Set JAVA_HOME Environment Variable:</strong></li>
+                            <li><p>You need the JDK to compile and run Java applications.</p></li>
+                            <li><p><strong>Download JDK:</strong> Go to the official Oracle JDK download page (or choose an OpenJDK distribution like Adoptium Temurin). Choose the Windows installer (.exe) that matches your system (usually x64).</p></li>
+                            <li><p><strong>Run the Installer:</strong> Double-click the downloaded `.exe` file and follow the on-screen instructions. The default installation path (e.g., `C:\Program Files\Java\jdk-[version]`) is usually fine.</p></li>
+                            <li><p><strong>Set JAVA_HOME Environment Variable:</strong></p></li>
                         </ul>
                         <ol>
                             <li>Right-click the <strong>Start</strong> button and select <strong>System</strong>.</li>
@@ -226,7 +186,7 @@
                             <li>Click <strong>OK</strong>.</li>
                         </ol>
                         <ul>
-                            <li><strong>Update the Path Variable:</strong></li>
+                            <li><p><strong>Update the Path Variable:</strong></p></li>
                         </ul>
                         <ol>
                             <li>In the <strong>System variables</strong> section, find the `Path` variable and click <strong>Edit...</strong>.</li>
@@ -235,7 +195,7 @@
                             <li>Click <strong>OK</strong> on all open windows.</li>
                         </ol>
                         <ul>
-                            <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.</li>
+                            <li><p><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type `java -version` and `javac -version`. You should see the installed JDK version information.</p></li>
                         </ul>
                         <hr>
                         <h2 id="download-and-install-maven">2. Download and Install Apache Maven</h2>
@@ -394,11 +354,8 @@ public class LiveAxeCoreTest {
 
     private static void generateHtmlReport(Results results, String url) throws IOException {
         StringBuilder htmlContent = new StringBuilder();
-        htmlContent.append("<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Accessibility Report for ").append(url).append("</title>\n");
-        htmlContent.append("<style>body { font-family: Arial, sans-serif; margin: 20px; } h1 { color: #333; } table { width: 100%; border-collapse: collapse; margin-top: 20px; } th, td { border: 1px solid #ddd; padding: 8px; text-align: left; } th { background-color: #f2f2f2; } .violation-impact-critical { background-color: #ffe0e0; } .violation-impact-serious { background-color: #fffacd; } .violation-impact-moderate { background-color: #e0f2f7; } .violation-impact-minor { background-color: #e6ffe6; } .summary-box { background-color: #f9f9f9; border: 1px solid #eee; padding: 15px; margin-bottom: 20px; }</style>\n");
-        htmlContent.append("</head>\n<body>\n<h1>Accessibility Report</h1>\n<p><strong>Page Scanned:</strong> <a href=\"").append(url).append("\">").append(url).append("</a></p>\n<div class=\"summary-box\"><h2>Summary</h2><p>Total Violations: <strong>").append(results.getViolations().size()).append("</strong></p><p>Total Inapplicable: <strong>").append(results.getInapplicable().size()).append("</strong></p><p>Total Incomplete: <strong>").append(results.getIncomplete().size()).append("</strong></p></div>\n");
-        if (!results.getViolations().isEmpty()) {
-            htmlContent.append("<h2>Violations (").append(results.getViolations().size()).append(")</h2>\n<table><thead><tr><th>Rule ID</th><th>Impact</th><th>Description</th><th>HTML Affected</th><th>Failure Summary</th><th>Help Link</th></tr></thead><tbody>\n");
+    htmlContent.append("<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Accessibility Report for ").append(url).append("</title>\n<style>body { font-family: Arial, sans-serif; margin: 20px; } h1 { color: #333; } table { width: 100%; border-collapse: collapse; margin-top: 20px; } th, td { border: 1px solid #ddd; padding: 8px; text-align: left; } th { background-color: #f2f2f2; } .violation-impact-critical { background-color: #ffe0e0; } .violation-impact-serious { background-color: #fffacd; } .violation-impact-moderate { background-color: #e0f2f7; } .violation-impact-minor { background-color: #e6ffe6; } .summary-box { background-color: #f9f9f9; border: 1px solid #eee; padding: 15px; margin-bottom: 20px; }</style>\n</head>\n<body>\n<h1>Accessibility Report</h1>\n<p><strong>Page Scanned:</strong> <a href=\"" + url + "\">" + url + "</a></p>\n<div class=\"summary-box\"><h2>Summary</h2><p>Total Violations: <strong>" + results.getViolations().size() + "</strong></p><p>Total Inapplicable: <strong>" + results.getInapplicable().size() + "</strong></p><p>Total Incomplete: <strong>" + results.getIncomplete().size() + "</strong></p></div>\n");
+    htmlContent.append("<h2>Violations (").append(results.getViolations().size()).append(")</h2>\n<table><thead><tr><th>Rule ID</th><th>Impact</th><th>Description</th><th>HTML Affected</th><th>Failure Summary</th><th>Help Link</th></tr></thead><tbody>\n");
             for (Rule violation : results.getViolations()) {
                 String impactClass = "violation-impact-" + violation.getImpact();
                 htmlContent.append("<tr class=\"").append(impactClass).append("\"><td>").append(escapeHtml(violation.getId())).append("</td><td>").append(escapeHtml(violation.getImpact())).append("</td><td>").append(escapeHtml(violation.getDescription())).append("</td><td>\n");
@@ -517,64 +474,64 @@ public class LiveAxeCoreTest {
 &lt;/plugin>
 &lt;plugin>
 &lt;groupId>org.apache.maven.plugins&lt;/groupId>
-&lt;artifactId>maven-surefire-plugin</artifactId>
-&lt;version>3.5.2</version>
+&lt;artifactId>maven-surefire-plugin&lt;/artifactId>
+&lt;version>3.5.2&lt;/version>
 &lt;configuration>
-&lt;runOrder>alphabetical</runOrder>
+&lt;runOrder>alphabetical&lt;/runOrder>
 &lt;includes>
-&lt;include>com/yourcompany/axtest/LiveAxeCoreTest.java</include>
-&lt;include>com/deque/html/axecore/selenium/*.java</include>
+&lt;include>com/yourcompany/axtest/LiveAxeCoreTest.java&lt;/include>
+&lt;include>com/deque/html/axecore/selenium/*.java&lt;/include>
 &lt;/includes>
 &lt;/configuration>
 &lt;/plugin>
 &lt;/plugins>
 &lt;/build>
-&lt;name>aXe Selenium Integration</name>
+&lt;name>aXe Selenium Integration&lt;/name>
 &lt;description>
-&lt;p>Tools for using aXe for web accessibility testing with JUnit and Selenium.</p>
+&lt;p>Tools for using aXe for web accessibility testing with JUnit and Selenium.&lt;/p>
 &lt;/description>
-&lt;url>https://github.com/dequelabs/axe-core-maven-html</url>
+&lt;url>https://github.com/dequelabs/axe-core-maven-html&lt;/url>
 &lt;licenses>
 &lt;license>
-&lt;name>Mozilla Public License, Version 2.0</name>
-&lt;url>https://www.mozilla.org/MPL/2.0/</url>
+&lt;name>Mozilla Public License, Version 2.0&lt;/name>
+&lt;url>https://www.mozilla.org/MPL/2.0/&lt;/url>
 &lt;/license>
 &lt;/licenses>
 &lt;distributionManagement>
 &lt;repository>
-&lt;id>ossrh</id>
-&lt;url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
+&lt;id>ossrh&lt;/id>
+&lt;url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/&lt;/url>
 &lt;/repository>
 &lt;snapshotRepository>
 &lt;id>ossrh</id>
-&lt;url>https://central.sonatype.com/repository/maven-snapshots/</url>
+&lt;url>https://central.sonatype.com/repository/maven-snapshots/&lt;/url>
 &lt;/snapshotRepository>
 &lt;/distributionManagement>
 &lt;developers>
 &lt;developer>
-&lt;name>Dian Fay</name>
-&lt;email>dian.fay@deque.com</email>
-&lt;organization>Deque Labs</organization>
-&lt;organizationUrl>http://www.deque.com</organizationUrl>
+&lt;name>Dian Fay&lt;/name>
+&lt;email>dian.fay@deque.com&lt;/email>
+&lt;organization>Deque Labs&lt;/organization>
+&lt;organizationUrl>http://www.deque.com&lt;/organizationUrl>
 &lt;/developer>
 &lt;/developers>
 &lt;scm>
-&lt;connection>scm:git:git@github.com:dequelabs/axe-core-maven-html.git</connection>
-&lt;developerConnection>scm:git:git@github.com:dequelabs/axe-core-maven-html.git</developerConnection>
-&lt;url>https://github.com/dequelabs/axe-core-maven-html</url>
+&lt;connection>scm:git:git@github.com:dequelabs/axe-core-maven-html.git&lt;/connection>
+&lt;developerConnection>scm:git:git@github.com:dequelabs/axe-core-maven-html.git&lt;/developerConnection>
+&lt;url>https://github.com/dequelabs/axe-core-maven-html&lt;/url>
 &lt;/scm>
 &lt;properties>
-&lt;project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+&lt;project.build.sourceEncoding>UTF-8&lt;/project.build.sourceEncoding>
 &lt;/properties>
 &lt;reporting>
 &lt;plugins>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
-&lt;artifactId>maven-surefire-report-plugin</artifactId>
-&lt;version>3.5.2</version>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
+&lt;artifactId>maven-surefire-report-plugin&lt;/artifactId>
+&lt;version>3.5.2&lt;/version>
 &lt;/plugin>
 &lt;plugin>
-&lt;groupId>org.apache.maven.plugins</groupId>
+&lt;groupId>org.apache.maven.plugins&lt;/groupId>
 &lt;artifactId>maven-site-plugin</artifactId>
 &lt;version>3.12.1</version>
 &lt;/plugin>
@@ -622,100 +579,102 @@ public class LiveAxeCoreTest {
 &lt;plugin>
 &lt;groupId>org.apache.maven.plugins</groupId>
 &lt;artifactId>maven-gpg-plugin</artifactId>
-&lt;version>3.2.7</version>
-&lt;executions>
-&lt;execution>
-&lt;id>sign-artifacts</id>
-&lt;phase>verify</phase>
-&lt;goals>
-&lt;goal>sign</goal>
-&lt;/executions>
-&lt;configuration>
-&lt;gpgArguments>
-&lt;arg>--pinentry-mode</arg>
-&lt;arg>loopback</arg>
-&lt;/gpgArguments>
-&lt;/configuration>
-&lt;/plugin>
-&lt;plugin>
-&lt;groupId>org.sonatype.plugins</groupId>
-&lt;artifactId>nexus-staging-maven-plugin</artifactId>
-&lt;version>1.7.0</version>
-&lt;extensions>true</extensions>
-&lt;configuration>
-&lt;serverId>ossrh</serverId>
-&lt;nexusUrl>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</nexusUrl>
-&lt;autoReleaseAfterClose>true</autoReleaseAfterClose>
-&lt;/configuration>
-&lt;/plugin>
-&lt;/plugins>
-&lt;/build>
-&lt;/profile>
-&lt;/profiles>
-&lt;dependencies>
-&lt;dependency>
-&lt;groupId>commons-io</groupId>
-&lt;artifactId>commons-io</artifactId>
-&lt;version>2.18.0</version>
-&lt;/dependency>
-&lt;dependency>
-&lt;groupId>org.seleniumhq.selenium</groupId>
-&lt;artifactId>selenium-java</artifactId>
-&lt;version>4.22.0</version>
-&lt;/dependency>
-&lt;dependency>
-&lt;groupId>io.github.bonigarcia</groupId>
-&lt;artifactId>webdrivermanager</artifactId>
-&lt;version>5.9.1</version>
-&lt;scope>test</scope>
-&lt;/dependency>
-&lt;dependency>
-&lt;groupId>junit</groupId>
-&lt;artifactId>junit</artifactId>
-&lt;version>4.13.2</version>
-&lt;scope>test</scope>
-&lt;/dependency>
-&lt;dependency>
-&lt;groupId>org.junit.jupiter</groupId>
-&lt;artifactId>junit-jupiter-api</artifactId>
-&lt;version>5.10.3</version>
-&lt;scope>test</scope>
-&lt;/dependency>
-&lt;dependency>
-&lt;groupId>org.junit.jupiter</groupId>
-&lt;artifactId>junit-jupiter-engine</artifactId>
-&lt;version>5.10.3</version>
-&lt;scope>test</scope>
-&lt;/dependency>
-&lt;dependency>
-&lt;groupId>org.apache.commons</groupId>
-&lt;artifactId>commons-lang3</artifactId>
-&lt;version>3.17.0</version>
-&lt;/dependency>
-&lt;dependency>
-&lt;groupId>com.fasterxml.jackson.core</groupId>
-&lt;artifactId>jackson-databind</artifactId>
-&lt;version>2.18.2</version>
-&lt;/dependency>
-&lt;dependency>
-&lt;groupId>org.mockito</groupId>
-&lt;artifactId>mockito-core</artifactId>
-&lt;version>4.11.0</version>
-&lt;scope>test</scope>
-&lt;/dependency>
-&lt;dependency>
-&lt;groupId>com.deque.html.axe-core</groupId>
+                            <version>3.2.7</version>
+                            <executions>
+                                <execution>
+                                    <id>sign-artifacts</id>
+                                    <phase>verify</phase>
+                                    <goals>
+                                        <goal>sign</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                            <configuration>
+                                <gpgArguments>
+                                    <arg>--pinentry-mode</arg>
+                                    <arg>loopback</arg>
+                                </gpgArguments>
+                            </configuration>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.sonatype.plugins</groupId>
+                                <artifactId>nexus-staging-maven-plugin</artifactId>
+                                <version>1.7.0</version>
+                                <extensions>true</extensions>
+                                <configuration>
+                                    <serverId>ossrh</serverId>
+                                    <nexusUrl>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/&lt;/url>
+                                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                                </configuration>
+                                </plugin>
+                            </plugins>
+                            </build>
+                            </profile>
+                            </profiles>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>commons-io</groupId>
+                                    <artifactId>commons-io</artifactId>
+                                    <version>2.18.0</version>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.seleniumhq.selenium</groupId>
+                                    <artifactId>selenium-java</artifactId>
+                                    <version>4.22.0</version>
+                                </dependency>
+                                <dependency>
+                                    <groupId>io.github.bonigarcia</groupId>
+                                    <artifactId>webdrivermanager</artifactId>
+                                    <version>5.9.1</version>
+                                    <scope>test</scope>
+                                </dependency>
+                                <dependency>
+                                    <groupId>junit</groupId>
+                                    <artifactId>junit</artifactId>
+                                    <version>4.13.2</version>
+                                    <scope>test</scope>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.junit.jupiter</groupId>
+                                    <artifactId>junit-jupiter-api</artifactId>
+                                    <version>5.10.3</version>
+                                    <scope>test</scope>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.junit.jupiter</groupId>
+                                    <artifactId>junit-jupiter-engine</artifactId>
+                                    <version>5.10.3</version>
+                                    <scope>test</scope>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.apache.commons</groupId>
+                                    <artifactId>commons-lang3</artifactId>
+                                    <version>3.17.0</version>
+                                </dependency>
+                                <dependency>
+                                    <groupId>com.fasterxml.jackson.core</groupId>
+                                    <artifactId>jackson-databind</artifactId>
+                                    <version>2.18.2</version>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.mockito</groupId>
+                                    <artifactId>mockito-core</artifactId>
+                                    <version>4.11.0</version>
+                                    <scope>test</scope>
+                                </dependency>
+                                <dependency>
+                                    <groupId>com.deque.html.axe-core</groupId>
                                     <artifactId>dequeutilites</artifactId>
                                     <version>4.10.1</version>
                                     <scope>compile</scope>
-                                    </dependency>
-                                    <dependency>
+                                </dependency>
+                                <dependency>
                                     <groupId>org.junit.vintage</groupId>
                                     <artifactId>junit-vintage-engine</artifactId>
                                     <version>5.10.3</version>
                                     <scope>test</scope>
-                                    </dependency>
-                                </dependencies>
+                                </dependency>
+                            </dependencies>
                             </project></code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
