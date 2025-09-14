@@ -36,31 +36,119 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-alert {
-            margin: 16px 0;
-            padding: 16px;
-            border-left-width: 4px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-            position: relative;
+        /* Styles for the page content and sidebar layout */
+        .content-with-sidebar-wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
         }
 
+        .sidebar-placeholder {
+            flex-shrink: 0;
+            width: 250px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            padding: 15px;
+            height: auto;
+        }
+
+        .main-post-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        /* Custom styles for the sidebar navigation links */
+        .usa-sidenav__item a {
+            font-size: 1.05em;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
+        }
+
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #003865;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
+        }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+        }
+        
+        /* New CSS for the scrolling sidebar */
+        .scrollable-sidebar {
+            max-height: 100vh;
+            overflow-y: auto;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+        
+        /* Accessible alert colors with sufficient contrast */
         .usa-alert--info {
-            border-color: #17a2b8;
-            background-color: #d1ecf1;
-            color: #0c5460;
+            border-color: #003865;
+            background-color: #e0f2f7;
+            color: #003865;
         }
 
         .usa-alert--warning {
-            border-color: #ffc107;
-            background-color: #fff3cd;
-            color: #856404;
+            border-color: #6b4e00;
+            background-color: #fce8c7;
+            color: #6b4e00;
         }
 
         .usa-alert--success {
-            border-color: #28a745;
+            border-color: #005f32;
             background-color: #d4edda;
-            color: #155724;
+            color: #005f32;
         }
 
         .usa-alert--error {
@@ -68,79 +156,11 @@
             background-color: #f8d7da;
             color: #721c24;
         }
-
-        .usa-alert--emergency {
-            border-color: #dc3545;
-            background-color: #f5c6cb;
-            color: #721c24;
-            font-weight: bold;
-        }
-
-        .usa-alert--slim {
-            padding: 8px;
-        }
-
-        .usa-alert--no-icon .usa-alert__body {
-            padding-left: 0;
-        }
-
-        .usa-alert__heading {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .usa-alert__text {
-            margin-bottom: 0;
-        }
-
-        .usa-link {
-            color: #0056b3;
-            text-decoration: underline;
-        }
-
-        .main-content {
-            padding: 20px;
-        }
-
-        .content-container {
-            margin-left: 270px;
-        }
-        
-        .sidebar-placeholder {
-            width: 250px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            height: calc(100% - 100px);
-            overflow-y: auto;
-            z-index: 100;
-        }
-
-        .code-container {
-            position: relative;
-        }
-
-        .copy-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
-
-    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
         <div class="skip-links container">
@@ -151,29 +171,100 @@
         <header class="container">
             <nav id="nav" class="menu" aria-label="Site menu">
                 <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/developer-guides.html">Developer Resources </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/testing-environment/">Testing Apps Setup </a>
+                    </li>
                     <li class="expander-group site-sub-group">
                         <button class="expander-toggle" aria-expanded="false">More</button>
                         <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/developer-guides.html">Developer Resources</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
             </nav>
         </header>
 
-        <div class="content-container">
-            <main id="content" class="main-content">
-                <div class="container">
+        <main id="content" class="main-content">
+            <div class="container content-with-sidebar-wrapper">
+                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
+                    <ul class="site-sidenav usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/intro.html">Components</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html" class="usa-current">Banner</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/identifier.html">Identifier</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
                     <div class="post-content">
                         <h1>Banner Component</h1>
                         <p>A banner is used to display an important message to users on a webpage, often used for announcements or alerts.</p>
@@ -183,33 +274,27 @@
                         <h3>Standard Banners</h3>
                         <div class="usa-alert usa-alert--info">
                             <div class="usa-alert__body">
-                                <h4 class="usa-alert__heading">Informative status</h4>
+                                <h4 class="usa-alert__heading">Reminder: Preheat your oven!</h4>
                                 <p class="usa-alert__text">
-                                    Lorem ipsum dolor sit amet,
-                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                    elit, sed do eiusmod.
+                                    Before you start baking, ensure your oven is preheated to the correct temperature. This guarantees a perfect rise and a golden crust.
                                 </p>
                             </div>
                         </div>
 
                         <div class="usa-alert usa-alert--warning">
                             <div class="usa-alert__body">
-                                <h4 class="usa-alert__heading">Warning status</h4>
+                                <h4 class="usa-alert__heading">Warning: Watch your bake time!</h4>
                                 <p class="usa-alert__text">
-                                    Lorem ipsum dolor sit amet,
-                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                    elit, sed do eiusmod.
+                                    Your cookies may burn if you bake them for too long. Check them two minutes before the timer goes off.
                                 </p>
                             </div>
                         </div>
 
                         <div class="usa-alert usa-alert--success">
                             <div class="usa-alert__body">
-                                <h4 class="usa-alert__heading">Success status</h4>
+                                <h4 class="usa-alert__heading">Success! Your cake is baked.</h4>
                                 <p class="usa-alert__text">
-                                    Lorem ipsum dolor sit amet,
-                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
-                                    elit, sed do eiusmod.
+                                    Congratulations! Your cake has successfully baked and is now ready for cooling and frosting.
                                 </p>
                             </div>
                         </div>
@@ -220,61 +305,61 @@
 
 &lt;div class="usa-alert usa-alert--info"&gt;
 
-  &lt;div class="usa-alert__body"&gt;
+    &lt;div class="usa-alert__body"&gt;
 
-    &lt;h4 class="usa-alert__heading"&gt;Informative status&lt;/h4&gt;
+        &lt;h4 class="usa-alert__heading"&gt;Informative status&lt;/h4&gt;
 
-    &lt;p class="usa-alert__text"&gt;
+        &lt;p class="usa-alert__text"&gt;
 
-      Lorem ipsum dolor sit amet,
+            Lorem ipsum dolor sit amet,
 
-      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
 
-      elit, sed do eiusmod.
+            elit, sed do eiusmod.
 
-    &lt;/p&gt;
+        &lt;/p&gt;
 
-  &lt;/div&gt;
+    &lt;/div&gt;
 
 &lt;/div&gt;
 
 &lt;div class="usa-alert usa-alert--warning"&gt;
 
-  &lt;div class="usa-alert__body"&gt;
+    &lt;div class="usa-alert__body"&gt;
 
-    &lt;h4 class="usa-alert__heading"&gt;Warning status&lt;/h4&gt;
+        &lt;h4 class="usa-alert__heading"&gt;Warning status&lt;/h4&gt;
 
-    &lt;p class="usa-alert__text"&gt;
+        &lt;p class="usa-alert__text"&gt;
 
-      Lorem ipsum dolor sit amet,
+            Lorem ipsum dolor sit amet,
 
-      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
 
-      elit, sed do eiusmod.
+            elit, sed do eiusmod.
 
-    &lt;/p&gt;
+        &lt;/p&gt;
 
-  &lt;/div&gt;
+    &lt;/div&gt;
 
 &lt;/div&gt;
 
 &lt;div class="usa-alert usa-alert--success"&gt;
 
-  &lt;div class="usa-alert__body"&gt;
+    &lt;div class="usa-alert__body"&gt;
 
-    &lt;h4 class="usa-alert__heading"&gt;Success status&lt;/h4&gt;
+        &lt;h4 class="usa-alert__heading"&gt;Success status&lt;/h4&gt;
 
-    &lt;p class="usa-alert__text"&gt;
+        &lt;p class="usa-alert__text"&gt;
 
-      Lorem ipsum dolor sit amet,
+            Lorem ipsum dolor sit amet,
 
-      &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
 
-      elit, sed do eiusmod.
+            elit, sed do eiusmod.
 
-    &lt;/p&gt;
+        &lt;/p&gt;
 
-  &lt;/div&gt;
+    &lt;/div&gt;
 
 &lt;/div&gt;
 
@@ -342,25 +427,20 @@
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=banner-component.md")
                     .then(response => response.json())
                     .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                        if (modified != "") {
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
             }
         }
         
-        // JavaScript to fetch and insert the sidebar
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('/assets/components-sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-placeholder').innerHTML = html;
-                })
-                .catch(err => {
-                    console.error("Failed to load sidebar: ", err);
-                });
-        });
+        window.onload = setModifiedDate;
 
         // Copy button functionality
         function copyCode(button) {
