@@ -56,6 +56,13 @@
             flex-grow: 1;
             padding: 20px;
         }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+        }
 
         /* Custom styles for the sidebar navigation links */
         .usa-sidenav__item a {
@@ -107,7 +114,7 @@
             cursor: pointer;
             border-radius: 4px;
         }
-
+        
         /* Fix to remove pseudo-element content from all buttons */
         button::before,
         button::after,
@@ -235,14 +242,14 @@
                         <h2>Source Code</h2>
                         <div class="code-container">
                             <pre><code>&lt;div class="accordion-container"&gt;
-  &lt;div class="accordion-item"&gt;
-    &lt;button class="accordion-header" aria-expanded="false" aria-controls="section1"&gt;
-      Section 1
-    &lt;/button&gt;
-    &lt;div id="section1" class="accordion-content" hidden&gt;
-      &lt;p&gt;This is the content for section 1.&lt;/p&gt;
+    &lt;div class="accordion-item"&gt;
+        &lt;button class="accordion-header" aria-expanded="false" aria-controls="section1"&gt;
+            Section 1
+        &lt;/button&gt;
+        &lt;div id="section1" class="accordion-content" hidden&gt;
+            &lt;p&gt;This is the content for section 1.&lt;/p&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
@@ -259,31 +266,30 @@
                         <p>To ensure the accordion component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/accordion/" target="_blank">Accordion Component Testing Checklist</a>.</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="print-container">
-                    <button type="button" class="print-button" aria-label="Print this page">
-                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                    </button>
-                </div>
-            </main>
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
 
-            <footer class="container" id="footer">
-                <nav aria-label="Site map">
-                    <ul>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/resources/">Resources</a></li>
-                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                        <li><a href="/testing-routine/">Testing Routine</a></li>
-                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                        <li><a href="/site-map/">Site map</a></li>
-                    </ul>
-                </nav>
-                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-                <p class="last-modified" id='last-modified'></p>
-            </footer>
-        </div>
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
