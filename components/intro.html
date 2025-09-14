@@ -10,50 +10,126 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Introduction to Components - MNIT DOT A11y</title>
+    <title>Alert Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Introduction to Components" />
+    <meta property="og:title" content="Alert Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="An introduction to accessible components and a list of available guides." />
-    <meta property="og:description" content="An introduction to accessible components and a list of available guides." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/components/intro.html" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/components/intro.html" />
+    <meta name="description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible alert component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/alert-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/alert-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Introduction to Components" />
+    <meta property="twitter:title" content="Alert Component" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "An introduction to accessible components and a list of available guides.",
-            "headline": "Introduction to Components",
-            "url": "https://mnit-dot-a11y.github.io/components/intro.html"
+            "description": "Guide to creating an accessible alert component. Includes source code, interactive example, and guidance.",
+            "headline": "Alert Component",
+            "url": "https://mnit-dot-a11y.github.io/alert-component/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .main-content {
-            padding: 20px;
-        }
-
-        .content-container {
-            margin-left: 270px;
+        /* Styles for the page content and sidebar layout */
+        .content-with-sidebar-wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .sidebar-placeholder {
+            flex-shrink: 0;
             width: 250px;
-            padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            height: calc(100% - 100px);
+            padding: 15px;
+            height: auto;
+        }
+
+        .main-post-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        /* Custom styles for the sidebar navigation links */
+        .usa-sidenav__item a {
+            font-size: 1.05em;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
+        }
+
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
+        }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+        }
+        
+        /* New CSS for the scrolling sidebar */
+        .scrollable-sidebar {
+            max-height: 100vh;
             overflow-y: auto;
-            z-index: 100;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
         }
     </style>
 
@@ -61,38 +137,38 @@
 
 <body onload="setModifiedDate();" class="preload">
 
-    <header class="container">
-        <nav id="nav" class="menu" aria-label="Site menu">
-            <ul>
-                <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                <li class="web alpha"><a href="/web/">Web</a></li>
-                <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                <li class="native bravo"><a href="/demos/">Demos</a></li>
-                <li class="expander-group site-sub-group">
-                    <button class="expander-toggle" aria-expanded="false">More</button>
-                    <ul class="expander-content">
-                        <li><a href="/how-to-test/">How-to Test</a></li>
-                        <li><a href="/demos/">Demos</a></li>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
     <div class="page-wrapper">
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
+                    <li class="web alpha"><a href="/web/">Web</a></li>
+                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
+                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
+                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
+                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
+                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li><a href="/how-to-test/">How-to Test</a></li>
+                            <li><a href="/demos/">Demos</a></li>
+                            <li><a href="/about/">About</a></li>
+                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
         <main id="content" class="main-content">
             <div class="container content-with-sidebar-wrapper">
-                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder">
+                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
                     <ul class="site-sidenav usa-sidenav">
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/intro.html">Components</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
@@ -141,11 +217,250 @@
                 </nav>
                 <div class="main-post-content">
                     <div class="post-content">
-                        <h1>Introduction to Components</h1>
-                        <p>This section of the site is dedicated to providing guides and code examples for accessible UI components. An **accessible component** is a reusable user interface element that has been developed with universal design principles in mind, ensuring it can be used effectively by everyone, including people with disabilities.</p>
-                        <p>By using these components, developers can create consistent and compliant user experiences. Each guide details the component's purpose, provides a working example, and offers essential accessibility guidance and testing recommendations.</p>
+                        <h1>Alert Component</h1>
+                        <p>An alert keeps users informed of important and sometimes time-sensitive changes.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-                        <p>Here, you'll find guides and code examples for building accessible UI components. An accessible component is a reusable user interface element designed with universal principles, making it usable by everyone, including people with disabilities. Using these components, developers can build consistent and compliant user experiences. Each guide describes the component's purpose, provides a functional example, and shares important accessibility tips and testing recommendations.</p>
+                        <h2>Component Preview</h2>
+                        <h3>Standard Alerts</h3>
+                        <div class="usa-alert usa-alert--info">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Informative status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="usa-alert usa-alert--warning">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Warning status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="usa-alert usa-alert--success">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Success status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="usa-alert usa-alert--error" role="alert">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Error status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="usa-alert usa-alert--emergency" role="alert">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Emergency status</h4>
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3>Slim Alert</h3>
+                        <div class="usa-alert usa-alert--info usa-alert--slim">
+                            <div class="usa-alert__body">
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3>Alert with No Icon</h3>
+                        <div class="usa-alert usa-alert--info usa-alert--no-icon">
+                            <div class="usa-alert__body">
+                                <p class="usa-alert__text">
+                                    Lorem ipsum dolor sit amet,
+                                    <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a>
+                                    elit, sed do eiusmod.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2>Component Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard alerts&lt;/h3&gt;
+
+&lt;div class="usa-alert usa-alert--info"&gt;
+
+    &lt;div class="usa-alert__body"&gt;
+
+        &lt;h4 class="usa-alert__heading"&gt;Informative status&lt;/h4&gt;
+
+        &lt;p class="usa-alert__text"&gt;
+
+            Lorem ipsum dolor sit amet,
+
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--warning"&gt;
+
+    &lt;div class="usa-alert__body"&gt;
+
+        &lt;h4 class="usa-alert__heading"&gt;Warning status&lt;/h4&gt;
+
+        &lt;p class="usa-alert__text"&gt;
+
+            Lorem ipsum dolor sit amet,
+
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--success"&gt;
+
+    &lt;div class="usa-alert__body"&gt;
+
+        &lt;h4 class="usa-alert__heading"&gt;Success status&lt;/h4&gt;
+
+        &lt;p class="usa-alert__text"&gt;
+
+            Lorem ipsum dolor sit amet,
+
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--error" role="alert"&gt;
+
+    &lt;div class="usa-alert__body"&gt;
+
+        &lt;h4 class="usa-alert__heading"&gt;Error status&lt;/h4&gt;
+
+        &lt;p class="usa-alert__text"&gt;
+
+            Lorem ipsum dolor sit amet,
+
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class="usa-alert usa-alert--emergency" role="alert"&gt;
+
+    &lt;div class="usa-alert__body"&gt;
+
+        &lt;h4 class="usa-alert__heading"&gt;Emergency status&lt;/h4&gt;
+
+        &lt;p class="usa-alert__text"&gt;
+
+            Lorem ipsum dolor sit amet,
+
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Slim alert&lt;/h3&gt;
+
+&lt;div class="usa-alert usa-alert--info usa-alert--slim"&gt;
+
+    &lt;div class="usa-alert__body"&gt;
+
+        &lt;p class="usa-alert__text"&gt;
+
+            Lorem ipsum dolor sit amet,
+
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h3 class="site-preview-heading"&gt;Alert with no icon&lt;/h3&gt;
+
+&lt;div class="usa-alert usa-alert--info usa-alert--no-icon"&gt;
+
+    &lt;div class="usa-alert__body"&gt;
+
+        &lt;p class="usa-alert__text"&gt;
+
+            Lorem ipsum dolor sit amet,
+
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+
+                        <h2>Guidance</h2>
+
+                        <h3>When to use the alert component</h3>
+                        <ul>
+                            <li><strong>System status messages.</strong> An alert may be a notification that keeps people informed of the status of the system and may or may not require the user to respond. Such notifications may be errors, warnings, and general updates.</li>
+                            <li><strong>Validation messages.</strong> An alert may be a validation message that informs a user they just took an action that needs to be corrected or a confirmation that a task was completed successfully.</li>
+                        </ul>
+
+                        <h3>When to consider something else</h3>
+                        <ul>
+                            <li><strong>Small, temporary status messages.</strong> For temporary status messages, consider using a different component, such as an inline banner.</li>
+                            <li><strong>In-page messages.</strong> For a large amount of in-page information, consider using an inline text.</li>
+                        </ul>
 
                     </div>
                 </div>
@@ -173,7 +488,6 @@
             <p class="last-modified" id='last-modified'></p>
         </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
@@ -181,7 +495,7 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=intro.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=alert-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         if (commits && commits.length > 0) {
@@ -198,7 +512,19 @@
         }
         
         window.onload = setModifiedDate;
-        
+
+        // JavaScript to fetch and insert the sidebar
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/assets/components-sidebar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('sidebar-placeholder').innerHTML = html;
+                })
+                .catch(err => {
+                    console.error("Failed to load sidebar: ", err);
+                });
+        });
+
         // Copy button functionality
         function copyCode(button) {
             const pre = button.previousElementSibling;
