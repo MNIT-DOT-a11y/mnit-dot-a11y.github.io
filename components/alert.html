@@ -100,7 +100,7 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #007bff;
+            background-color: #003865;
             color: white;
             border: none;
             padding: 5px 10px;
@@ -131,40 +131,105 @@
             position: sticky;
             top: 0;
         }
+
+        /* Accessible alert colors with sufficient contrast */
+        .usa-alert--info {
+            border-color: #003865;
+            background-color: #e0f2f7;
+            color: #003865;
+        }
+
+        .usa-alert--warning {
+            border-color: #6b4e00;
+            background-color: #fce8c7;
+            color: #6b4e00;
+        }
+
+        .usa-alert--success {
+            border-color: #005f32;
+            background-color: #d4edda;
+            color: #005f32;
+        }
+
+        .usa-alert--error {
+            border-color: #dc3545;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .usa-alert--emergency {
+            border-color: #721c24;
+            background-color: #f8d7da;
+            color: #721c24;
+            font-weight: bold;
+        }
+        .usa-link {
+            color: #003865;
+            text-decoration: underline;
+        }
+
+        .usa-link:hover,
+        .usa-link:focus {
+            color: #005f9e;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <header class="container">
-        <nav id="nav" class="menu" aria-label="Site menu">
-            <ul>
-                <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                <li class="web alpha"><a href="/web/">Web</a></li>
-                <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                <li class="native bravo"><a href="/demos/">Demos</a></li>
-                <li class="expander-group site-sub-group">
-                    <button class="expander-toggle" aria-expanded="false">More</button>
-                    <ul class="expander-content">
-                        <li><a href="/how-to-test/">How-to Test</a></li>
-                        <li><a href="/demos/">Demos</a></li>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
     <div class="page-wrapper">
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/developer-guides.html">Developer Resources </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/testing-environment/">Testing Apps Setup </a>
+                    </li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/developer-guides.html">Developer Resources</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
+            </nav>
+        </header>
 
         <main id="content" class="main-content">
             <div class="container content-with-sidebar-wrapper">
