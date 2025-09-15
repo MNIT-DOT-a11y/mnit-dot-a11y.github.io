@@ -55,6 +55,7 @@
         .main-post-content {
             flex-grow: 1;
             padding: 20px;
+            max-width: calc(100% - 270px); /* Adjust max-width to account for sidebar and gap */
         }
         
         .print-container {
@@ -135,32 +136,30 @@
         
         /* Card specific styles */
         .card {
-            border: 1px solid #ddd;
+            border: 1px solid #003865; /* Darker border to match new background */
             border-radius: 4px;
             padding: 1rem;
             margin-bottom: 1rem;
-        }
-        .card-image {
-            width: 100%;
-            height: auto;
-            margin-bottom: 1rem;
+            background-color: #003865; /* Accessible bold blue background */
+            color: #fff; /* White text for contrast */
         }
         .card-title {
             font-size: 1.5rem;
             margin-top: 0;
+            color: #fff; /* Ensure title is white */
         }
         .card-text {
-            color: #333;
+            color: #fff; /* Ensure text is white */
         }
         .card-link {
             display: inline-block;
             margin-top: 1rem;
-            color: #003865;
+            color: #bbeaff; /* Lighter blue for link on dark background */
             text-decoration: underline;
         }
         .card-link:hover,
         .card-link:focus {
-            color: #002d51;
+            color: #88c6ff; /* Slightly different hover for contrast */
             text-decoration: none;
         }
     </style>
@@ -274,13 +273,12 @@
                 <div class="main-post-content">
                     <div class="post-content">
                         <h1>Card Component</h1>
-                        <p>A card is a flexible and extensible content container. They are ideal for grouping related information, such as an image, a heading, and a short description, to create a clear and organized visual display.</p>
+                        <p>A card is a flexible and extensible content container. They are ideal for grouping related information, such as a heading and a short description, to create a clear and organized visual display.</p>
                         <p>Passed WCAG 2.1 AA</p>
 
                         <h2>Interactive Example</h2>
                         <h3>Standard Card</h3>
                         <div class="card">
-                            <img class="card-image" src="https://mnit-dot-a11y.github.io/assets/images/placeholder_card.png" alt="A gray image with a tree illustration, indicating a place for an image to be inserted.">
                             <h4 class="card-title">Card Title</h4>
                             <p class="card-text">This is a brief description of the card's content. It provides a summary of the information the user will find if they click the link below.</p>
                             <a href="#" class="card-link">Learn More</a>
@@ -289,7 +287,6 @@
                         <h2>Source Code</h2>
                         <div class="code-container">
                             <pre><code>&lt;div class="card"&gt;
-    &lt;img class="card-image" src="/assets/images/placeholder_card.png" alt="A gray image with a tree illustration, indicating a place for an image to be inserted."&gt;
     &lt;h4 class="card-title"&gt;Card Title&lt;/h4&gt;
     &lt;p class="card-text"&gt;This is a brief description of the card's content. It provides a summary of the information the user will find if they click the link below.&lt;/p&gt;
     &lt;a href="#" class="card-link"&gt;Learn More&lt;/a&gt;
@@ -314,10 +311,9 @@
 
                         <h2>Accessibility Features</h2>
                         <ul>
-                            <li>**Alternative Text.** Ensure all meaningful images within the card have descriptive alternative text.</li>
                             <li>**Semantic HTML.** Use proper semantic HTML, such as `h1-h6` for titles and `p` for paragraphs, to help assistive technologies understand the structure.</li>
                             <li>**Keyboard Operability.** If the entire card is a link, ensure it is focusable as a single unit for keyboard users.</li>
-                            <li>**Contrast.** All text and background colors should meet WCAG 2.1 AA contrast standards.</li>
+                            <li>**Contrast.** All text and background colors should meet WCAG 2.1 AA contrast standards. The chosen blue background and white text ensure this.</li>
                         </ul>
 
                         <h2>Testing</h2>
