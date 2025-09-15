@@ -114,12 +114,14 @@
             cursor: pointer;
             border-radius: 4px;
         }
-        
+
         /* Fix to remove pseudo-element content from all buttons */
         button::before,
         button::after,
         a.usa-button::before,
-        a.usa-button::after {
+        a.usa-button::after,
+        .copy-button::before,
+        .copy-button::after {
             content: none !important;
         }
         
@@ -146,7 +148,7 @@
         .breadcrumb-item { 
             padding: 8px 16px; 
             text-decoration: none; 
-            color: #003865; /* Using site's primary blue for accessibility */
+            color: #003865;
         } 
 
         .breadcrumb-item + .breadcrumb-item::before { 
@@ -160,7 +162,6 @@
         .breadcrumb-item.active { 
             color: #6c757d; 
         }
-
     </style>
 
 </head>
@@ -271,115 +272,66 @@
                 </nav>
                 <div class="main-post-content">
                     <div class="post-content">
-                        <h1>Banner Component</h1>
-                        <p>A banner is used to display an important message to users on a webpage, often used for announcements or alerts.</p>
-                        <p>Passed WCAG 2.1 AA</p>
+                        <h1>Breadcrumb Component</h1>
+                        <p>This guide provides instructions for creating a breadcrumb component that meets accessibility standards.</p>
 
-                        <h2>Component Preview</h2>
-                        <h3>Standard Banners</h3>
-                        <div class="usa-alert usa-alert--info">
-                            <div class="usa-alert__body">
-                                <h4 class="usa-alert__heading">Reminder: Preheat your oven!</h4>
-                                <p class="usa-alert__text">
-                                    Before you start baking, ensure your oven is preheated to the correct temperature. This guarantees a perfect rise and a golden crust.
-                                </p>
-                            </div>
-                        </div>
+                        <h2>Interactive Example</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Data</li>
+                            </ol>
+                        </nav>
 
-                        <div class="usa-alert usa-alert--warning">
-                            <div class="usa-alert__body">
-                                <h4 class="usa-alert__heading">Warning: Watch your bake time!</h4>
-                                <p class="usa-alert__text">
-                                    Your cookies may burn if you bake them for too long. Check them two minutes before the timer goes off.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="usa-alert usa-alert--success">
-                            <div class="usa-alert__body">
-                                <h4 class="usa-alert__heading">Success! Your cake is baked.</h4>
-                                <p class="usa-alert__text">
-                                    Congratulations! Your cake has successfully baked and is now ready for cooling and frosting.
-                                </p>
-                            </div>
-                        </div>
-
-                        <h2>Component Code</h2>
+                        <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard banners&lt;/h3&gt;&lt;div class="usa-alert usa-alert--info"&gt;
+                            <pre><code>&lt;nav aria-label="breadcrumb"&gt;
 
-    &lt;div class="usa-alert__body"&gt;
+    &lt;ol class="breadcrumb"&gt;
 
-        &lt;h4 class="usa-alert__heading"&gt;Informative status&lt;/h4&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
 
-        &lt;p class="usa-alert__text"&gt;
+        &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
 
-            Lorem ipsum dolor sit amet,
+        &lt;li class="breadcrumb-item active" aria-current="page"&gt;Data&lt;/li&gt;
 
-            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+    &lt;/ol&gt;
 
-            elit, sed do eiusmod.
-
-        &lt;/p&gt;
-
-    &lt;/div&gt;&lt;/div&gt;&lt;div class="usa-alert usa-alert--warning"&gt;
-
-    &lt;div class="usa-alert__body"&gt;
-
-        &lt;h4 class="usa-alert__heading"&gt;Warning status&lt;/h4&gt;
-
-        &lt;p class="usa-alert__text"&gt;
-
-            Lorem ipsum dolor sit amet,
-
-            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
-
-            elit, sed do eiusmod.
-
-        &lt;/p&gt;
-
-    &lt;/div&gt;&lt;/div&gt;&lt;div class="usa-alert usa-alert--success"&gt;
-
-    &lt;div class="usa-alert__body"&gt;
-
-        &lt;h4 class="usa-alert__heading"&gt;Success status&lt;/h4&gt;
-
-        &lt;p class="usa-alert__text"&gt;
-
-            Lorem ipsum dolor sit amet,
-
-            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
-
-            elit, sed do eiusmod.
-
-        &lt;/p&gt;
-
-    &lt;/div&gt;&lt;/div&gt;</code></pre>
+&lt;/nav&gt;
+</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
                         <h2>Guidance</h2>
 
-                        <h3>When to use the banner component</h3>
+                        <p>When using breadcrumb components, it is important to provide users with a clear and easy way to navigate back to previous sections of the site.</p>
+
                         <ul>
-                            <li><strong>Announcements.</strong> Use banners to announce new features or important updates to users.</li>
-                            <li><strong>Critical messages.</strong> Deliver critical information that needs immediate attention.</li>
+
+                            <li>Use breadcrumbs for hierarchical navigation.</li>
+
+                            <li>Ensure links are distinct and clearly formatted.</li>
+
+                            <li>Use <code>aria-current="page"</code> to indicate the current page for accessibility.</li>
+
+                            <li>Keep the breadcrumb path consistent with the site structure.</li>
+
                         </ul>
 
-                        <h3>Usability tips</h3>
-                        <ul>
-                            <li><strong>Clarity is key.</strong> Ensure the message is clear and concise to convey the main point quickly.</li>
-                            <li><strong>Effective design.</strong> Use contrasting colors to ensure the banner stands out on the page without being jarring.</li>
-                        </ul>
+                        <h2>Accessibility Features</h2>
 
-                        <h3>Accessibility guidance</h3>
-                        <p>Ensure your banner component is accessible by providing text alternatives and using proper ARIA roles.</p>
                         <ul>
-                            <li>Utilize <code>role="banner"</code> for defining the component and enhance discoverability for assistive technologies.</li>
+
+                            <li>The breadcrumb uses <code>aria-label="breadcrumb"</code> to provide a label for assistive technologies.</li>
+
+                            <li>Each item is clearly defined, and the current page is marked with <code>aria-current="page"</code> to indicate the user's position.</li>
+
                         </ul>
 
                         <h2>Testing</h2>
-                        <p>To ensure the banner component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/banner/" target="_blank">Banner Component Testing Checklist</a>.</p>
+
+                        <p>To ensure the breadcrumb component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/breadcrumbs/" target="_blank">Breadcrumb Component Testing Checklist</a>.</p>
 
                     </div>
                 </div>
@@ -415,7 +367,7 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=banner-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=breadcrumb-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         if (commits && commits.length > 0) {
@@ -453,4 +405,7 @@
             }, 2000);
             window.getSelection().removeAllRanges();
         }
-    </script></body></html>
+    </script>
+</body>
+
+</html>
