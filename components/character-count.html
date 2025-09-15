@@ -15,8 +15,8 @@
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Character Count Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible character count component. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating an accessible character count component. Includes source code and interactive example." />
+    <meta name="description" content="Guide to creating an accessible character count component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible character count component. Includes source code, interactive example, and guidance." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/character-count-component/" />
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/character-count-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
@@ -27,7 +27,7 @@
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "Guide to creating an accessible character count component. Includes source code and interactive example.",
+            "description": "Guide to creating an accessible character count component. Includes source code, interactive example, and guidance.",
             "headline": "Character Count Component",
             "url": "https://mnit-dot-a11y.github.io/character-count-component/"
         }
@@ -36,63 +36,80 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .character-count-container {
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-
-        .character-count-container textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            font-size: 1em;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .character-count {
-            font-size: 0.9em;
-            color: #333;
-        }
-
-        .character-count.alert {
-            color: red;
-        }
-
-        .main-content {
-            padding: 20px;
-        }
-
-        .content-container {
-            margin-left: 270px;
+        /* Styles for the page content and sidebar layout */
+        .content-with-sidebar-wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .sidebar-placeholder {
+            flex-shrink: 0;
             width: 250px;
-            padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            height: calc(100% - 100px);
-            overflow-y: auto;
-            z-index: 100;
+            padding: 15px;
+            height: auto;
+        }
+
+        .main-post-content {
+            flex-grow: 1;
+            padding: 20px;
+            max-width: calc(100% - 270px);
+        }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Custom styles for the sidebar navigation links */
+        .usa-sidenav__item a {
+            font-size: 1.05em;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
         }
 
         /* Styles for copy button */
         .code-container {
             position: relative;
         }
-
         .copy-button {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #007bff;
+            background-color: #003865;
             color: white;
             border: none;
             padding: 5px 10px;
@@ -107,16 +124,50 @@
         a.usa-button::after {
             content: none !important;
         }
+        
+        /* New CSS for the scrolling sidebar */
+        .scrollable-sidebar {
+            max-height: 100vh;
+            overflow-y: auto;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+        
+        /* Character Count specific styles */
+        .character-count-container {
+            margin-bottom: 1rem;
+        }
+        .character-count-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .character-count-input {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .character-count-feedback {
+            margin-top: 0.5rem;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .character-count-feedback.limit-exceeded {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
-
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
@@ -125,142 +176,201 @@
         <header class="container">
             <nav id="nav" class="menu" aria-label="Site menu">
                 <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/developer-guides.html">Developer Resources </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/testing-environment/">Testing Apps Setup </a>
+                    </li>
                     <li class="expander-group site-sub-group">
                         <button class="expander-toggle" aria-expanded="false">More</button>
                         <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/developer-guides.html">Developer Resources</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
             </nav>
         </header>
 
-        <div class="content-container">
-            <main id="content" class="main-content">
-                <div class="container">
+        <main id="content" class="main-content">
+            <div class="container content-with-sidebar-wrapper">
+                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
+                    <ul class="site-sidenav usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/intro.html">Components</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html" class="usa-current">Character count</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/identifier.html">Identifier</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
                     <div class="post-content">
                         <h1>Character Count Component</h1>
-
-                        <p>This guide provides instructions for creating a character count component that meets accessibility standards.</p>
-
+                        <p>A character count component provides real-time feedback to users on the number of characters they have typed into a text input. This component is most useful when a character limit is imposed, such as for a short description or a social media post, to help users stay within the required constraints.</p>
+                        <p>Passed WCAG 2.1 AA</p>
+        
                         <h2>Interactive Example</h2>
-
+                        <h3>Standard Character Count</h3>
                         <div class="character-count-container">
-
-                            <label for="input-textarea">Your Message:</label>
-
-                            <textarea id="input-textarea" aria-describedby="charCount" maxlength="200"></textarea>
-
-                            <div id="charCount" class="character-count" aria-live="polite">200 characters remaining</div>
-
+                            <label for="char-count-input" class="character-count-label">Your message (max 100 characters):</label>
+                            <textarea id="char-count-input" class="character-count-input" maxlength="100" aria-describedby="char-count-feedback"></textarea>
+                            <div id="char-count-feedback" class="character-count-feedback" aria-live="polite">
+                                <span>100</span> characters remaining.
+                            </div>
                         </div>
 
                         <h2>Source Code</h2>
-
                         <div class="code-container">
                             <pre><code>&lt;div class="character-count-container"&gt;
-
-  &lt;label for="input-textarea"&gt;Your Message:&lt;/label&gt;
-
-  &lt;textarea id="input-textarea" aria-describedby="charCount" maxlength="200"&gt;&lt;/textarea&gt;
-
-  &lt;div id="charCount" class="character-count" aria-live="polite"&gt;200 characters remaining&lt;/div&gt;
-
+    &lt;label for="char-count-input" class="character-count-label"&gt;Your message (max 100 characters):&lt;/label&gt;
+    &lt;textarea id="char-count-input" class="character-count-input" maxlength="100" aria-describedby="char-count-feedback"&gt;&lt;/textarea&gt;
+    &lt;div id="char-count-feedback" class="character-count-feedback" aria-live="polite"&gt;
+        &lt;span&gt;100&lt;/span&gt; characters remaining.
+    &lt;/div&gt;
 &lt;/div&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
-
-                        <h2>Accessibility Features</h2>
-
+                        
+                        <h2>Guidance</h2>
+                        <p>A character count is a valuable tool for guiding users in forms with character limits. It provides immediate feedback and prevents users from exceeding a limit before submission.</p>
+                        
+                        <h3>When to use the character count component</h3>
                         <ul>
-
-                            <li>The textarea includes a <code>maxlength</code> attribute to prevent input beyond a specified limit.</li>
-
-                            <li>The character count feedback uses <code>aria-live="polite"</code> to update screen readers without interrupting.</li>
-
-                            <li>A descriptive label is associated with the textarea for better accessibility.</li>
-
+                            <li><strong>Forms with limits.</strong> Use for fields like text areas, where the length of the input is restricted.</li>
+                            <li><strong>Concise communication.</strong> Useful for components that require short, focused messages, such as bios or descriptions.</li>
                         </ul>
-
+        
+                        <h3>Usability tips</h3>
+                        <ul>
+                            <li><strong>Clear display.</strong> The character count should be easy to find and read, positioned near the input field it relates to.</li>
+                            <li><strong>Provide context.</strong> Clearly state the maximum character limit so users know the constraint from the start.</li>
+                        </ul>
+        
+                        <h2>Accessibility Features</h2>
+                        <ul>
+                            <li>**Live Region.** The feedback message uses <code>aria-live="polite"</code> to automatically announce character count changes to screen readers without interrupting the user's typing.</li>
+                            <li>**Labeling.** The `label` is associated with the `textarea` using a `for` and `id` pair, providing a clear programmatic name.</li>
+                            <li>**Context.** The `aria-describedby` attribute on the `textarea` links it to the feedback message, giving screen reader users more context about the input.</li>
+                        </ul>
+        
                         <h2>Testing</h2>
                         <p>To ensure the character count component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/character-count/" target="_blank">Character Count Component Testing Checklist</a>.</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="print-container">
-                    <button type="button" class="print-button" aria-label="Print this page">
-                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                    </button>
-                </div>
-
-            </main>
-
-            <footer class="container" id="footer">
-                <nav aria-label="Site map">
-                    <ul>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/resources/">Resources</a></li>
-                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                        <li><a href="/testing-routine/">Testing Routine</a></li>
-                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                        <li><a href="/site-map/">Site map</a></li>
-                    </ul>
-                </nav>
-                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-                <p class="last-modified" id='last-modified'></p>
-            </footer>
-
-        </div>
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+        
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
-        $("body").removeClass("preload"); // Prevents animations on page load
+        $("body").removeClass("preload");
 
-        document.getElementById('input-textarea').addEventListener('input', function() {
-            const maxLength = this.getAttribute('maxlength');
-            const currentLength = this.value.length;
-            const remaining = maxLength - currentLength;
-            const charCountElem = document.getElementById('charCount');
-            charCountElem.textContent = `${remaining} characters remaining`;
-            charCountElem.classList.toggle('alert', remaining < 10);
-        });
-        
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=character-count-component.md")
                     .then(response => response.json())
                     .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                        if (modified != "") {
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
             }
         }
         
-        // JavaScript to fetch and insert the sidebar
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('/assets/components-sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-placeholder').innerHTML = html;
-                })
-                .catch(err => {
-                    console.error("Failed to load sidebar: ", err);
-                });
-        });
+        window.onload = setModifiedDate;
 
         // Copy button functionality
         function copyCode(button) {
@@ -282,6 +392,25 @@
             }, 2000);
             window.getSelection().removeAllRanges();
         }
+
+        // Character Count functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.getElementById('char-count-input');
+            const feedback = document.getElementById('char-count-feedback');
+            const maxLength = textarea.getAttribute('maxlength');
+            const updateCount = () => {
+                const currentLength = textarea.value.length;
+                const remaining = maxLength - currentLength;
+                feedback.innerHTML = `<span>${remaining}</span> characters remaining.`;
+                if (remaining <= 0) {
+                    feedback.classList.add('limit-exceeded');
+                } else {
+                    feedback.classList.remove('limit-exceeded');
+                }
+            };
+            textarea.addEventListener('input', updateCount);
+            updateCount();
+        });
     </script>
 </body>
 
