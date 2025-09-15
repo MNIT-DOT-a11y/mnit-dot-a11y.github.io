@@ -36,59 +36,73 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .breadcrumb {
-            list-style: none;
-            padding: 0;
+        /* Styles for the page content and sidebar layout */
+        .content-with-sidebar-wrapper {
             display: flex;
-            flex-wrap: wrap;
-            background-color: #f8f9fa;
-            border-radius: 0.25rem;
-            align-items: center;
-        }
-
-        .breadcrumb-item {
-            padding: 8px 16px;
-            text-decoration: none;
-            color: #007bff;
-        }
-
-        .breadcrumb-item + .breadcrumb-item::before {
-            padding: 0 5px;
-            color: #6c757d;
-            content: "\00BB"; /* A more modern chevron symbol */
-            font-size: 1.25rem;
-            line-height: 1;
-        }
-
-        .breadcrumb-item.active {
-            color: #6c757d;
-        }
-
-        .main-content {
-            padding: 20px;
-        }
-
-        .content-container {
-            margin-left: 270px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .sidebar-placeholder {
+            flex-shrink: 0;
             width: 250px;
-            padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            height: calc(100% - 100px);
-            overflow-y: auto;
-            z-index: 100;
+            padding: 15px;
+            height: auto;
         }
 
-        /* New styles for copy button */
+        .main-post-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+        }
+
+        /* Custom styles for the sidebar navigation links */
+        .usa-sidenav__item a {
+            font-size: 1.05em;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
+        }
+
+        /* Styles for copy button */
         .code-container {
             position: relative;
         }
-
         .copy-button {
             position: absolute;
             top: 10px;
@@ -100,13 +114,58 @@
             cursor: pointer;
             border-radius: 4px;
         }
+        
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
+        }
+        
+        /* New CSS for the scrolling sidebar */
+        .scrollable-sidebar {
+            max-height: 100vh;
+            overflow-y: auto;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+        
+        /* Breadcrumb specific styles */
+        .breadcrumb { 
+            list-style: none; 
+            padding: 0; 
+            display: flex; 
+            flex-wrap: wrap; 
+            background-color: #f8f9fa; 
+            border-radius: 0.25rem; 
+            align-items: center; 
+        } 
+
+        .breadcrumb-item { 
+            padding: 8px 16px; 
+            text-decoration: none; 
+            color: #003865; /* Using site's primary blue for accessibility */
+        } 
+
+        .breadcrumb-item + .breadcrumb-item::before { 
+            padding: 0 5px; 
+            color: #6c757d; 
+            content: "\00BB";
+            font-size: 1.25rem;
+            line-height: 1; 
+        } 
+
+        .breadcrumb-item.active { 
+            color: #6c757d; 
+        }
+
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
-
-    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
         <div class="skip-links container">
@@ -117,99 +176,210 @@
         <header class="container">
             <nav id="nav" class="menu" aria-label="Site menu">
                 <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/developer-guides.html">Developer Resources </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/testing-environment/">Testing Apps Setup </a>
+                    </li>
                     <li class="expander-group site-sub-group">
                         <button class="expander-toggle" aria-expanded="false">More</button>
                         <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/developer-guides.html">Developer Resources</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
             </nav>
         </header>
 
-        <div class="content-container">
-            <main id="content" class="main-content">
-                <div class="container">
+        <main id="content" class="main-content">
+            <div class="container content-with-sidebar-wrapper">
+                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
+                    <ul class="site-sidenav usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/intro.html">Components</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html" class="usa-current">Banner</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/identifier.html">Identifier</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
                     <div class="post-content">
+                        <h1>Banner Component</h1>
+                        <p>A banner is used to display an important message to users on a webpage, often used for announcements or alerts.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-                        <h1>Breadcrumb Component</h1>
+                        <h2>Component Preview</h2>
+                        <h3>Standard Banners</h3>
+                        <div class="usa-alert usa-alert--info">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Reminder: Preheat your oven!</h4>
+                                <p class="usa-alert__text">
+                                    Before you start baking, ensure your oven is preheated to the correct temperature. This guarantees a perfect rise and a golden crust.
+                                </p>
+                            </div>
+                        </div>
 
-                        <p>This guide provides instructions for creating a breadcrumb component that meets accessibility standards.</p>
+                        <div class="usa-alert usa-alert--warning">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Warning: Watch your bake time!</h4>
+                                <p class="usa-alert__text">
+                                    Your cookies may burn if you bake them for too long. Check them two minutes before the timer goes off.
+                                </p>
+                            </div>
+                        </div>
 
-                        <h2>Interactive Example</h2>
+                        <div class="usa-alert usa-alert--success">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Success! Your cake is baked.</h4>
+                                <p class="usa-alert__text">
+                                    Congratulations! Your cake has successfully baked and is now ready for cooling and frosting.
+                                </p>
+                            </div>
+                        </div>
 
-                        <nav aria-label="breadcrumb">
-
-                            <ol class="breadcrumb">
-
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-
-                                <li class="breadcrumb-item"><a href="#">Library</a></li>
-
-                                <li class="breadcrumb-item active" aria-current="page">Data</li>
-
-                            </ol>
-
-                        </nav>
-
-                        <h2>Source Code</h2>
+                        <h2>Component Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;nav aria-label="breadcrumb"&gt;
+                            <pre><code>&lt;h3 class="site-preview-heading"&gt;Standard banners&lt;/h3&gt;&lt;div class="usa-alert usa-alert--info"&gt;
 
-  &lt;ol class="breadcrumb"&gt;
+    &lt;div class="usa-alert__body"&gt;
 
-    &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;h4 class="usa-alert__heading"&gt;Informative status&lt;/h4&gt;
 
-    &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
+        &lt;p class="usa-alert__text"&gt;
 
-    &lt;li class="breadcrumb-item active" aria-current="page"&gt;Data&lt;/li&gt;
+            Lorem ipsum dolor sit amet,
 
-  &lt;/ol&gt;
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
 
-&lt;/nav&gt;
-</code></pre>
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;&lt;/div&gt;&lt;div class="usa-alert usa-alert--warning"&gt;
+
+    &lt;div class="usa-alert__body"&gt;
+
+        &lt;h4 class="usa-alert__heading"&gt;Warning status&lt;/h4&gt;
+
+        &lt;p class="usa-alert__text"&gt;
+
+            Lorem ipsum dolor sit amet,
+
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;&lt;/div&gt;&lt;div class="usa-alert usa-alert--success"&gt;
+
+    &lt;div class="usa-alert__body"&gt;
+
+        &lt;h4 class="usa-alert__heading"&gt;Success status&lt;/h4&gt;
+
+        &lt;p class="usa-alert__text"&gt;
+
+            Lorem ipsum dolor sit amet,
+
+            &lt;a class="usa-link" href="javascript:void(0);"&gt;consectetur adipiscing&lt;/a&gt;
+
+            elit, sed do eiusmod.
+
+        &lt;/p&gt;
+
+    &lt;/div&gt;&lt;/div&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
 
                         <h2>Guidance</h2>
 
-                        <p>When using breadcrumb components, it is important to provide users with a clear and easy way to navigate back to previous sections of the site.</p>
-
+                        <h3>When to use the banner component</h3>
                         <ul>
-
-                            <li>Use breadcrumbs for hierarchical navigation.</li>
-
-                            <li>Ensure links are distinct and clearly formatted.</li>
-
-                            <li>Use <code>aria-current="page"</code> to indicate the current page for accessibility.</li>
-
-                            <li>Keep the breadcrumb path consistent with the site structure.</li>
-
+                            <li><strong>Announcements.</strong> Use banners to announce new features or important updates to users.</li>
+                            <li><strong>Critical messages.</strong> Deliver critical information that needs immediate attention.</li>
                         </ul>
 
-                        <h2>Accessibility Features</h2>
-
+                        <h3>Usability tips</h3>
                         <ul>
+                            <li><strong>Clarity is key.</strong> Ensure the message is clear and concise to convey the main point quickly.</li>
+                            <li><strong>Effective design.</strong> Use contrasting colors to ensure the banner stands out on the page without being jarring.</li>
+                        </ul>
 
-                            <li>The breadcrumb uses <code>aria-label="breadcrumb"</code> to provide a label for assistive technologies.</li>
-
-                            <li>Each item is clearly defined, and the current page is marked with <code>aria-current="page"</code> to indicate the user's position.</li>
-
+                        <h3>Accessibility guidance</h3>
+                        <p>Ensure your banner component is accessible by providing text alternatives and using proper ARIA roles.</p>
+                        <ul>
+                            <li>Utilize <code>role="banner"</code> for defining the component and enhance discoverability for assistive technologies.</li>
                         </ul>
 
                         <h2>Testing</h2>
-
-                        <p>To ensure the breadcrumb component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/breadcrumbs/" target="_blank">Breadcrumb Component Testing Checklist</a>.</p>
+                        <p>To ensure the banner component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/banner/" target="_blank">Banner Component Testing Checklist</a>.</p>
 
                     </div>
                 </div>
@@ -245,28 +415,23 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=breadcrumb-component.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=banner-component.md")
                     .then(response => response.json())
                     .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                        if (modified != "") {
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
             }
         }
         
-        // JavaScript to fetch and insert the sidebar
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('/assets/components-sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-placeholder').innerHTML = html;
-                })
-                .catch(err => {
-                    console.error("Failed to load sidebar: ", err);
-                });
-        });
+        window.onload = setModifiedDate;
 
         // Copy button functionality
         function copyCode(button) {
@@ -288,7 +453,4 @@
             }, 2000);
             window.getSelection().removeAllRanges();
         }
-    </script>
-</body>
-
-</html>
+    </script></body></html>
