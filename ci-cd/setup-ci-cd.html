@@ -139,13 +139,30 @@
             padding-top: 0;
             padding-bottom: 0;
         }
-        .site-sidenav .usa-sidenav__item {
-            margin-bottom: 0;
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-        .toc-nav .site-sidenav .usa-sidenav__item a {
-            margin-bottom: 0;
-            padding-top: 8px;
-            padding-bottom: 8px;
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
         }
     </style>
 
