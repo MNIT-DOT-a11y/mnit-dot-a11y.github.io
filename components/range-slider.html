@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -15,8 +15,8 @@
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Range Slider Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible range slider component with usage guidelines and examples." />
-    <meta property="og:description" content="Guide to creating an accessible range slider component with usage guidelines and examples." />
+    <meta name="description" content="Guide to creating an accessible range slider component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible range slider component. Includes source code, interactive example, and guidance." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/range-slider-component/" />
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/range-slider-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
@@ -24,319 +24,357 @@
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Range Slider Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible range slider component with usage guidelines and examples.",
-        "headline": "Range Slider Component",
-        "url": "https://mnit-dot-a11y.github.io/range-slider-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible range slider component. Includes source code, interactive example, and guidance.",
+            "headline": "Range Slider Component",
+            "url": "https://mnit-dot-a11y.github.io/range-slider-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-
-        .usa-form {
-            max-width: none; /* Remove the fixed max-width */
-            padding: 20px;
+        /* Styles for the page content and sidebar layout */
+        .content-with-sidebar-wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .usa-range {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .range-display {
-            margin-top: 10px;
-        }
-
-        .sidenav {
+        .sidebar-placeholder {
+            flex-shrink: 0;
             width: 250px;
-            padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px; /* Start level with component header */
-            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
-            overflow-y: auto;
+            padding: 15px;
+            height: auto;
         }
 
-        .main-content {
-            margin-left: 270px;
+        .main-post-content {
+            flex-grow: 1;
             padding: 20px;
+            max-width: calc(100% - 270px);
+        }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
         }
 
-        .container {
-            width: 100%; /* Ensure container uses full width */
-            max-width: 1200px; /* Optional: Control maximum content width */
-            margin: 0 auto; /* Center the content */
+        /* Custom styles for the sidebar navigation links */
+        .usa-sidenav__item a {
+            font-size: 1.05em;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
+        }
+
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #003865;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
+        }
+        
+        /* New CSS for the scrolling sidebar */
+        .scrollable-sidebar {
+            max-height: 100vh;
+            overflow-y: auto;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+        
+        /* Range Slider specific styles */
+        .range-slider-container {
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .range-slider-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .range-slider-container input[type="range"] {
+            width: 100%;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
 
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </aside>
-
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
-
-                    <li class="expander-group site-sub-group">
-
-                        <button class="expander-toggle" aria-expanded="false">More</button>
-
-                        <ul class="expander-content">
-
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-
-                            <li><a href="/demos/">Demos</a></li>
-
-                            <li><a href="/about/">About</a></li>
-
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
-                        </ul>
-
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
                     </li>
-
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/developer-guides.html">Developer Resources </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/testing-environment/">Testing Apps Setup </a>
+                    </li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/developer-guides.html">Developer Resources</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
-
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
             </nav>
-
         </header>
 
         <main id="content" class="main-content">
+            <div class="container content-with-sidebar-wrapper">
+                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
+                    <ul class="site-sidenav usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/intro.html">Components</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/identifier.html">Identifier</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/prose.html">Prose</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html" class="usa-current">Range slider</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
+                    <div class="post-content">
+                        <h1>Range Slider Component</h1>
+                        <p>A range slider component allows users to select a value from a predefined range by dragging a handle. It is a simple and intuitive way to input a value when the exact number is less important than the relative position within the range.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-            <div class="container">
-
-                <div class="post-content usa-form">
-
-                    <h1>Range Slider</h1>
-
-                    <p>A range slider allows users to choose an approximate number from a range.</p>
-
-                    <h2>Component Preview</h2>
-
-                    <form class="usa-form" aria-labelledby="range-slider-label">
-
-                        <label id="range-slider-label" class="usa-label" for="usa-range">Range slider</label>
-
-                        <input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-valuetext="20" />
-
-                        <div class="range-display" aria-live="polite">Current Value: <span id="range-value-display">20</span></div>
-
-                    </form>
-
-                    <h2>Component Code</h2>
-
-                    <pre><code>&lt;form class="usa-form" aria-labelledby="range-slider-label"&gt;
-
-  &lt;label id="range-slider-label" class="usa-label" for="usa-range"&gt;Range slider&lt;/label&gt;
-
-  &lt;input id="usa-range" class="usa-range" type="range" min="0" max="100" step="10" value="20" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-valuetext="20"&gt;
-
-  &lt;div class="range-display" aria-live="polite"&gt;Current Value: &lt;span id="range-value-display"&gt;20&lt;/span&gt;&lt;/div&gt;
-
-&lt;/form&gt;
-
+                        <h2>Interactive Example</h2>
+                        <h3>Standard Range Slider</h3>
+                        <div class="range-slider-container">
+                            <label for="volume-slider">Volume:</label>
+                            <input type="range" id="volume-slider" name="volume" min="0" max="100" value="50">
+                        </div>
+                        
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;!-- A simple range slider with a label --&gt;
+&lt;label for="volume-slider"&gt;Volume:&lt;/label&gt;
+&lt;input type="range" id="volume-slider" name="volume" min="0" max="100" value="50"&gt;
 </code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        
+                        <h2>Guidance</h2>
+                        <p>Range sliders are a great alternative to text inputs for selecting a value when the user can estimate the value by its position on a scale. They are often used for settings like volume, brightness, or rating scales.</p>
+                        
+                        <h3>When to use a range slider component</h3>
+                        <ul>
+                            <li><strong>Volume or brightness controls.</strong> For settings that are relative and don't require a precise number.</li>
+                            <li><strong>Rating or scoring scales.</strong> To provide a simple way for users to rate something on a scale.</li>
+                        </ul>
 
-                    <h2>Guidance</h2>
-
-                    <h3>When to Use the Range Slider Component</h3>
-
-                    <ul>
-
-                        <li><strong>When the range is more important than precision.</strong> For instance, it could be more important for a target price selector to communicate where the target price falls within a certain range than the precise dollar amount selected.</li>
-
-                        <li><strong>When a relative value is more important than an exact value.</strong> For instance, a volume slider is typically more focussed on the relative loudness of the output rather than the specific decibel level.</li>
-
-                    </ul>
-
-                    <h3>When to Consider Something Else</h3>
-
-                    <ul>
-
-                        <li>Use a regular text input if a user needs to enter a precise number.</li>
-
-                    </ul>
-
-                    <h3>Usability Guidance</h3>
-
-                    <ul>
-
-                        <li><strong>Highlight the control when selected.</strong> The slider control should change color to indicate it is active when a user selects it.</li>
-
-                        <li><strong>The control must be draggable.</strong> Users should be able to drag the slider control or select somewhere along the slider itself to change the value.</li>
-
-                        <li><strong>Label the limits of the range.</strong> When appropriate, label the ends of the slider with the limits of the range (for example: “0/100”, “small/large” or “less expensive/more expensive”).</li>
-
-                        <li><strong>Don’t be too granular.</strong> In a range slider, the relative value is more important than the specific value, so set the step attribute so it’s not too granular. By setting the step to a value of 10-20% of the total range, you prevent unnecessary precision and cognitive strain in your users. For example, set <code>step="10"</code> in a total range of 100.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-
-                    <p>To ensure the range slider component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/range-slider/" target="_blank">Range Slider Component Testing Checklist</a>.</p>
-
+                        <h3>Usability tips</h3>
+                        <ul>
+                            <li><strong>Clear label.</strong> Always include a visible and associated `<label>` for the slider to explain its purpose.</li>
+                            <li><strong>Visual feedback.</strong> Consider adding a real-time display of the current value next to the slider as the user interacts with it.</li>
+                            <li><strong>Logical range.</strong> The `min` and `max` values should be clearly defined and appropriate for the task.</li>
+                        </ul>
+        
+                        <h2>Accessibility Features</h2>
+                        <ul>
+                            <li>**Keyboard Operability.** The range slider must be fully operable via the keyboard. Users should be able to navigate to it and adjust the value using the arrow keys.</li>
+                            <li>**Associated Label.** The `<label>` element is correctly associated with the `<input>` using `for` and `id` attributes, allowing screen readers to announce the purpose of the control.</li>
+                            <li>**Semantic HTML.** The native `<input type="range">` element provides built-in accessibility features that most assistive technologies can interpret without additional ARIA attributes.</li>
+                        </ul>
+        
+                        <h2>Testing</h2>
+                        <p>To ensure the range slider component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/range-slider/" target="_blank">Range Slider Component Testing Checklist</a>.</p>
+                    </div>
                 </div>
-
             </div>
 
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
         </main>
-
+        
         <footer class="container" id="footer">
-
             <nav aria-label="Site map">
-
                 <ul>
-
                     <li><a href="/about/">About</a></li>
-
                     <li><a href="/resources/">Resources</a></li>
-
                     <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
                     <li><a href="/testing-routine/">Testing Routine</a></li>
-
                     <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
                     <li><a href="/site-map/">Site map</a></li>
-
                 </ul>
-
             </nav>
-
             <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
             <p class="last-modified" id='last-modified'></p>
-
         </footer>
-
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
                 fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=range-slider-component.md")
-
                     .then(response => response.json())
-
                     .then(commits => {
-
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
-                        if (modified != "") {
-
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
-
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
-
             }
-
         }
+        
+        window.onload = setModifiedDate;
 
-        // Update the output value when the slider changes
-        document.addEventListener('DOMContentLoaded', function() {
-            const rangeInput = document.getElementById('usa-range');
-            const rangeValueDisplay = document.getElementById('range-value-display');
-
-            rangeInput.addEventListener('input', function() {
-                rangeValueDisplay.textContent = this.value;
-                rangeInput.setAttribute('aria-valuenow', this.value);
-                rangeInput.setAttribute('aria-valuetext', this.value);
-            });
-        });
-
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            navigator.clipboard.writeText(code.innerText)
+                .then(() => {
+                    button.textContent = 'Copied!';
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    button.textContent = 'Error';
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                    }, 2000);
+                });
+        }
     </script>
-
 </body>
 
 </html>
