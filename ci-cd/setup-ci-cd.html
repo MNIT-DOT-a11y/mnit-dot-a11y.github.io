@@ -214,23 +214,16 @@
         </header>
 
         <main id="content" class="main-content">
-            <div class="container content-with-sidebar-wrapper">
-                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
-                    <ul class="site-sidenav usa-sidenav">
-                        <li class="usa-sidenav__item"><a href="#github-actions">GitHub Actions</a></li>
-                        <li class="usa-sidenav__item"><a href="#gitlab-ci-cd">GitLab CI/CD</a></li>
-                    </ul>
-                </nav>
-                <div class="main-post-content">
-                    <div class="post-content">
-                        <h1>CI/CD Implementation Guides</h1>
-                        <p>This guide provides instructions for integrating automated accessibility checks into your Continuous Integration/Continuous Deployment (CI/CD) pipelines. By automating these checks, you can catch accessibility issues early in the development process and ensure your applications remain compliant.</p>
+            <div class="container main-content-no-sidebar">
+                <div class="post-content">
+                    <h1>CI/CD Implementation Guides</h1>
+                    <p>This guide provides instructions for integrating automated accessibility checks into your Continuous Integration/Continuous Deployment (CI/CD) pipelines. By automating these checks, you can catch accessibility issues early in the development process and ensure your applications remain compliant.</p>
 
-                        <h2 id="github-actions">GitHub Actions</h2>
-                        <p>To set up accessibility testing with GitHub Actions, you will need to create a workflow file that runs on code pushes or pull requests. This workflow will execute a script that uses a tool like Axe-core to scan your web application for accessibility violations.</p>
-                        <p>Here is a basic example of a workflow file (`.github/workflows/accessibility.yml`):</p>
-                        <div class="code-container">
-                            <pre><code>name: Accessibility Audit
+                    <h2 id="github-actions">GitHub Actions</h2>
+                    <p>To set up accessibility testing with GitHub Actions, you will need to create a workflow file that runs on code pushes or pull requests. This workflow will execute a script that uses a tool like Axe-core to scan your web application for accessibility violations.</p>
+                    <p>Here is a basic example of a workflow file (`.github/workflows/accessibility.yml`):</p>
+                    <div class="code-container">
+                        <pre><code>name: Accessibility Audit
 
 on: [push]
 
@@ -247,15 +240,15 @@ jobs:
       - name: Run Axe-core scan
         run: npx axe-cli --config .axe-config.json http://localhost:3000
     </code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <p>You can customize this workflow to suit your project's needs, such as running the scan on a specific branch or adding more advanced configurations.</p>
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <p>You can customize this workflow to suit your project's needs, such as running the scan on a specific branch or adding more advanced configurations.</p>
 
-                        <h2 id="gitlab-ci-cd">GitLab CI/CD</h2>
-                        <p>GitLab CI/CD uses a `.gitlab-ci.yml` file to define its pipeline. You can add a job to this file that performs accessibility testing. This job can be configured to run in a separate stage of your pipeline, allowing you to get feedback on accessibility without delaying other build or deployment processes.</p>
-                        <p>Here is a basic example of a `.gitlab-ci.yml` file with an accessibility job:</p>
-                        <div class="code-container">
-                            <pre><code>stages:
+                    <h2 id="gitlab-ci-cd">GitLab CI/CD</h2>
+                    <p>GitLab CI/CD uses a `.gitlab-ci.yml` file to define its pipeline. You can add a job to this file that performs accessibility testing. This job can be configured to run in a separate stage of your pipeline, allowing you to get feedback on accessibility without delaying other build or deployment processes.</p>
+                    <p>Here is a basic example of a `.gitlab-ci.yml` file with an accessibility job:</p>
+                    <div class="code-container">
+                        <pre><code>stages:
   - build
   - test
 
@@ -271,10 +264,9 @@ accessibility_test:
     - npm install
     - npx axe-cli --config .axe-config.json http://your-staging-url.com
     </code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <p>This configuration assumes you have a running instance of your application accessible at a URL. GitLab CI can also be configured to deploy a review app and then run the accessibility test against it for dynamic environments.</p>
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
                     </div>
+                    <p>This configuration assumes you have a running instance of your application accessible at a URL. GitLab CI can also be configured to deploy a review app and then run the accessibility test against it for dynamic environments.</p>
                 </div>
             </div>
 
