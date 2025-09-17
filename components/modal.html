@@ -15,8 +15,8 @@
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Modal Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible modal component. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating an accessible modal component. Includes source code and interactive example." />
+    <meta name="description" content="Guide to creating an accessible modal component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible modal component. Includes source code, interactive example, and guidance." />
     <link rel="canonical" href="https://mnit-dot-a11y.github.io/modal-component/" />
     <meta property="og:url" content="https://mnit-dot-a11y.github.io/modal-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
@@ -27,7 +27,7 @@
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "Guide to creating an accessible modal component. Includes source code and interactive example.",
+            "description": "Guide to creating an accessible modal component. Includes source code, interactive example, and guidance.",
             "headline": "Modal Component",
             "url": "https://mnit-dot-a11y.github.io/modal-component/"
         }
@@ -36,69 +36,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .modal-container {
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f9f9f9;
+        /* Styles for the page content and sidebar layout */
+        .content-with-sidebar-wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .modal {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            background-color: white;
-            z-index: 999;
-        }
-
-        .modal-container button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .main-content {
-            padding: 20px;
-        }
-
-        .content-container {
-            margin-left: 270px;
-        }
-        
         .sidebar-placeholder {
+            flex-shrink: 0;
             width: 250px;
-            padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            height: calc(100% - 100px);
-            overflow-y: auto;
-            z-index: 100;
+            padding: 15px;
+            height: auto;
+        }
+
+        .main-post-content {
+            flex-grow: 1;
+            padding: 20px;
+            max-width: calc(100% - 270px);
+        }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Custom styles for the sidebar navigation links */
+        .usa-sidenav__item a {
+            font-size: 1.05em;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
         }
 
         /* Styles for copy button */
         .code-container {
             position: relative;
         }
-
         .copy-button {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #007bff;
+            background-color: #003865;
             color: white;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
             border-radius: 4px;
         }
-
+        
         /* Fix to remove pseudo-element content from all buttons */
         button::before,
         button::after,
@@ -106,62 +124,57 @@
         a.usa-button::after {
             content: none !important;
         }
+        
+        /* New CSS for the scrolling sidebar */
+        .scrollable-sidebar {
+            max-height: 100vh;
+            overflow-y: auto;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+
+        /* Modal specific styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-dialog {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #555;
+        }
+        .modal-close-button:hover,
+        .modal-close-button:focus {
+            color: #000;
+        }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
-
-    <div id="sidebar-placeholder" class="sidebar-placeholder">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </div>
 
     <div class="page-wrapper">
         <div class="skip-links container">
@@ -172,94 +185,194 @@
         <header class="container">
             <nav id="nav" class="menu" aria-label="Site menu">
                 <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/developer-guides.html">Developer Resources </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/testing-environment/">Testing Apps Setup </a>
+                    </li>
                     <li class="expander-group site-sub-group">
                         <button class="expander-toggle" aria-expanded="false">More</button>
                         <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/developer-guides.html">Developer Resources</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
             </nav>
         </header>
 
-        <div class="content-container">
-            <main id="content" class="main-content">
-                <div class="container">
+        <main id="content" class="main-content">
+            <div class="container content-with-sidebar-wrapper">
+                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
+                    <ul class="site-sidenav usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/intro.html">Components</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/identifier.html">Identifier</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html" class="usa-current">Modal</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
                     <div class="post-content">
                         <h1>Modal Component</h1>
-                        <p>A modal is a temporary window that overlays a webpage. It requires user interaction before returning to the main page content, and is useful for critical alerts or short-form tasks.</p>
+                        <p>A modal is a temporary pop-up window that appears over the main content, demanding user attention or input before they can continue. Accessible modals are designed to be fully usable for all users, including those who rely on a keyboard or screen reader.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
                         <h2>Interactive Example</h2>
-                        <div class="modal-container">
-                            <button class="usa-button" onclick="document.getElementById('modal-example').showModal()">Open Modal</button>
+                        <h3>Standard Modal Dialog</h3>
+                        <button class="usa-button usa-button--primary" onclick="openModal()">Open Modal</button>
+
+                        <div id="modal-overlay" class="modal-overlay" hidden>
+                            <div id="modal-dialog" class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+                                <h4 id="modal-title">Modal Title</h4>
+                                <p>This is the content of the modal. You can place forms, alerts, or other information here.</p>
+                                <button class="modal-close-button" onclick="closeModal()">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                                <button class="usa-button usa-button--secondary">Cancel</button>
+                                <button class="usa-button usa-button--primary">Confirm</button>
+                            </div>
                         </div>
 
-                        <dialog id="modal-example" class="modal" aria-labelledby="modal-heading">
-                            <h2 id="modal-heading">Modal Title</h2>
-                            <p>This is the content of the modal. You must close this window to continue.</p>
-                            <button class="usa-button" onclick="document.getElementById('modal-example').close()">Close</button>
-                        </dialog>
-                        
                         <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;button class="usa-button" onclick="document.getElementById('modal-example').showModal()"&gt;Open Modal&lt;/button&gt;
+                            <pre><code>&lt;!-- Button to trigger the modal --&gt;
+&lt;button class="usa-button usa-button--primary" onclick="openModal()"&gt;Open Modal&lt;/button&gt;
 
-&lt;dialog id="modal-example" class="modal" aria-labelledby="modal-heading"&gt;
-  &lt;h2 id="modal-heading"&gt;Modal Title&lt;/h2&gt;
-  &lt;p&gt;This is the content of the modal. You must close this window to continue.&lt;/p&gt;
-  &lt;button class="usa-button" onclick="document.getElementById('modal-example').close()"&gt;Close&lt;/button&gt;
-&lt;/dialog&gt;</code></pre>
+&lt;!-- The modal structure --&gt;
+&lt;div id="modal-overlay" class="modal-overlay" hidden&gt;
+    &lt;div id="modal-dialog" class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-modal="true"&gt;
+        &lt;h4 id="modal-title"&gt;Modal Title&lt;/h4&gt;
+        &lt;p&gt;This is the content of the modal.&lt;/p&gt;
+        &lt;button class="modal-close-button" onclick="closeModal()"&gt;
+            &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+            &lt;span class="sr-only"&gt;Close modal&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;button class="usa-button usa-button--secondary"&gt;Cancel&lt;/button&gt;
+        &lt;button class="usa-button usa-button--primary"&gt;Confirm&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
-
-                        <h2>Accessibility Guidance</h2>
+                        
+                        <h2>Guidance</h2>
+                        <p>Modals are useful for capturing user attention without navigating away from the current page. They should be used sparingly for critical tasks, such as confirmations or alerts that require a direct response.</p>
+                        
+                        <h3>When to use a modal component</h3>
                         <ul>
-                            <li><strong>Semantic HTML:</strong> Use the `<dialog>` element for native modal functionality. It handles focus trapping, modality, and the ESC key by default, which is far more robust and accessible than building a modal from scratch with `div`s.</li>
-                            <li><strong>`aria-labelledby`:</strong> The `aria-labelledby` attribute on the `<dialog>` element must reference the `id` of the modal's title. This provides an accessible name for the modal window.</li>
-                            <li><strong>Focus Management:</strong> When the modal opens, focus should be moved to the first interactive element inside it (or the modal itself). When the modal closes, focus should be returned to the element that triggered it. The `<dialog>` element handles this automatically.</li>
-                            <li><strong>Keyboard Interaction:</strong> Users must be able to close the modal using the **Escape** key. This is a crucial feature for keyboard and screen reader users, and it is handled natively by the `<dialog>` element.</li>
-                            <li><strong>Background Content:</strong> The content behind the modal should be made inaccessible to assistive technologies. The `<dialog>` element handles this naturally. If you are not using `<dialog>`, you must use `aria-hidden="true"` on the main page content to prevent screen readers from interacting with it.</li>
+                            <li><strong>User confirmations.</strong> To confirm a user's action, such as deleting an account.</li>
+                            <li><strong>Forms or wizards.</strong> For multi-step forms or small forms that need to be completed before the user can proceed.</li>
                         </ul>
 
+                        <h3>Usability tips</h3>
+                        <ul>
+                            <li><strong>Keyboard trap.</strong> When the modal is open, focus should be confined to the modal itself, preventing users from accidentally tabbing to elements in the background.</li>
+                            <li><strong>Clear dismissals.</strong> Provide multiple ways to close the modal, including an "x" button, a "Cancel" button, and the Escape key.</li>
+                        </ul>
+        
+                        <h2>Accessibility Features</h2>
+                        <ul>
+                            <li>**ARIA Roles.** The `role="dialog"` and `aria-modal="true"` attributes are crucial for screen readers to announce the modal as a dialog and to understand that the background content is no longer interactive.</li>
+                            <li>**Keyboard Focus.** The modal should trap the keyboard focus, ensuring that users can't tab to elements outside of the modal when it's open. The Escape key should also close the modal.</li>
+                            <li>**Descriptive Labels.** The modal's title should be linked to the dialog using `aria-labelledby` to provide a clear and accessible name.</li>
+                        </ul>
+        
                         <h2>Testing</h2>
                         <p>To ensure the modal component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/modal/" target="_blank">Modal Component Testing Checklist</a>.</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="print-container">
-                    <button type="button" class="print-button" aria-label="Print this page">
-                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                    </button>
-                </div>
-            </main>
-
-            <footer class="container" id="footer">
-                <nav aria-label="Site map">
-                    <ul>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/resources/">Resources</a></li>
-                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                        <li><a href="/testing-routine/">Testing Routine</a></li>
-                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                        <li><a href="/site-map/">Site map</a></li>
-                    </ul>
-                </nav>
-                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-                <p class="last-modified" id='last-modified'></p>
-            </footer>
-        </div>
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+        
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
@@ -289,21 +402,19 @@
         function copyCode(button) {
             const pre = button.previousElementSibling;
             const code = pre.querySelector('code');
-            const range = document.createRange();
-            range.selectNode(code);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            try {
-                document.execCommand('copy');
-                button.textContent = 'Copied!';
-            } catch (err) {
-                console.error('Failed to copy text: ', err);
-                button.textContent = 'Copy failed';
-            }
-            setTimeout(() => {
-                button.textContent = 'Copy';
-            }, 2000);
-            window.getSelection().removeAllRanges();
+            navigator.clipboard.writeText(code.innerText)
+                .then(() => {
+                    button.textContent = 'Copied!';
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    button.textContent = 'Error';
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                    }, 2000);
+                });
         }
     </script>
 </body>

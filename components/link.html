@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
 
@@ -24,342 +24,393 @@
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:title" content="Link Component" />
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "description": "Guide to creating an accessible link component. Includes source code, interactive example, and guidance.",
-        "headline": "Link Component",
-        "url": "https://mnit-dot-a11y.github.io/link-component/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "Guide to creating an accessible link component. Includes source code, interactive example, and guidance.",
+            "headline": "Link Component",
+            "url": "https://mnit-dot-a11y.github.io/link-component/"
+        }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .usa-input-group {
+        /* Styles for the page content and sidebar layout */
+        .content-with-sidebar-wrapper {
             display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 16px;
-            padding: 8px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .sidenav {
+        .sidebar-placeholder {
+            flex-shrink: 0;
             width: 250px;
-            padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px; /* Start level with component header */
-            height: calc(100% - 100px); /* Adjust height to fit within the viewport */
-            overflow-y: auto;
+            padding: 15px;
+            height: auto;
         }
 
-        .main-content {
-            margin-left: 270px; /* Adjusts the main content to not overlap with the sidenav */
+        .main-post-content {
+            flex-grow: 1;
             padding: 20px;
+            max-width: calc(100% - 270px);
+        }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Custom styles for the sidebar navigation links */
+        .usa-sidenav__item a {
+            font-size: 1.05em;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
+        }
+
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #003865;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
+        }
+        
+        /* New CSS for the scrolling sidebar */
+        .scrollable-sidebar {
+            max-height: 100vh;
+            overflow-y: auto;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+        
+        /* Link specific styles */
+        .link-example a {
+            font-size: 1.1em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .link-example a:hover,
+        .link-example a:focus {
+            color: #002d51;
+        }
+        .link-text-description {
+            color: #555;
+            font-size: 0.9em;
+            margin-left: 1rem;
         }
     </style>
 
 </head>
 
-<body class="preload">
-
-    <aside class="sidenav" id="page-side-navigation" aria-label="Section navigation">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components.html">Components</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-prefix-suffix.html">Input prefix/suffix</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/process-list.html">Process list</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/radio-buttons.html">Radio buttons</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/typography.html">Typography</a></li>
-            <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
-        </ul>
-    </aside>
+<body onload="setModifiedDate();" class="preload">
 
     <div class="page-wrapper">
-
         <div class="skip-links container">
             <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
             <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
         </div>
 
         <header class="container">
-
             <nav id="nav" class="menu" aria-label="Site menu">
-
                 <ul>
-
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
-
-                    <li class="expander-group site-sub-group">
-
-                        <button class="expander-toggle" aria-expanded="false">More</button>
-
-                        <ul class="expander-content">
-
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-
-                            <li><a href="/demos/">Demos</a></li>
-
-                            <li><a href="/about/">About</a></li>
-
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
-
-                        </ul>
-
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
                     </li>
-
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/developer-guides.html">Developer Resources </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/testing-environment/">Testing Apps Setup </a>
+                    </li>
+                    <li class="expander-group site-sub-group">
+                        <button class="expander-toggle" aria-expanded="false">More</button>
+                        <ul class="expander-content">
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/developer-guides.html">Developer Resources</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
-
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
             </nav>
-
         </header>
 
         <main id="content" class="main-content">
-
-            <div class="container">
-
-                <div class="post-content">
-
-                    <h1>Link</h1>
-
-                    <p>A link connects users to a different page or further information.</p>
-
-                    <p>Passed WCAG 2.1 AA</p>
-
-                    <h2>About the Link Component</h2>
-
-                    <p>Links are navigational elements that direct visitors to other locations, either on the same page or to a different page or site. They can be inline or separate from the text flow. Since every link is a potential user interaction, too many links can be overwhelming. Be judicious with links to better identify necessary calls to action.</p>
-
-                    <h2>Component Preview</h2>
-
-                    <p>This is <a href="#" class="text-link">a text link</a> on a light background.</p>
-
-                    <p>This is <a href="#" class="visited-link">a visited link</a>.</p>
-
-                    <p>This is a link that opens in the <em>current</em> tab and goes to an <a href="#" class="external-link">external website</a>.</p>
-
-                    <p>This is a link that opens in a <em>new</em> tab and goes to an <a href="#" target="_blank" class="external-link">external website</a>.</p>
-
-                    <p>This is <a href="#" class="text-link-dark">a text link on a dark background</a>.</p>
-
-                    <p>This is <a href="#" class="alternate-link-dark">an alternate external text link on a dark background</a>.</p>
-
-                    <h2>Guidance</h2>
-
-                    <h3>Overview</h3>
-
-                    <p>Each item below is explained in the guidance sections that follow.</p>
-
-                    <h4>What you should do</h4>
-
-                    <ul>
-
-                        <li>Clearly identify external links</li>
-
-                        <li>Notify users about non-federal external links</li>
-
-                        <li>Use unique, meaningful link text</li>
-
-                        <li>Simplify link placement in body text</li>
-
-                        <li>Link directly to the most relevant page</li>
-
-                        <li>Indicate nonpublic links that require authentication</li>
-
-                        <li>If you use an external link indicator, use it consistently for all text links</li>
-
-                        <li>Add <code>rel="noreferrer"</code> to external links</li>
-
-                        <li>Provide text context for external links</li>
-
-                        <li>Add a non-endorsement statement</li>
-
-                        <li>Indicate file type and size for links to non-HTML content</li>
-
-                        <li>Identify jump links in body text</li>
-
-                        <li>Write out email and phone links</li>
-
-                        <li>Encode email and phone links</li>
-
-                        <li>Check with your IT security department regarding email link best practices</li>
-
+            <div class="container content-with-sidebar-wrapper">
+                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
+                    <ul class="site-sidenav usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/intro.html">Components</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/identifier.html">Identifier</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html" class="usa-current">In-page navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
                     </ul>
+                </nav>
+                <div class="main-post-content">
+                    <div class="post-content">
+                        <h1>In-page Navigation Component</h1>
+                        <p>In-page navigation, often in the form of a table of contents or "jump links," helps users quickly navigate to specific sections of a long document or webpage. For accessibility, it is crucial that these links are properly structured and provide a clear way to jump to the intended content.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-                    <h4>What you shouldn't do</h4>
+                        <h2>Interactive Example</h2>
+                        <h3>Standard In-page Navigation</h3>
+                        <nav aria-label="On-page links" class="in-page-nav">
+                            <ul>
+                                <li><a href="#section1">Section 1: The First Topic</a></li>
+                                <li><a href="#section2">Section 2: The Second Topic</a></li>
+                                <li><a href="#section3">Section 3: The Third Topic</a></li>
+                            </ul>
+                        </nav>
+                        
+                        <div id="section1" class="section-content">
+                            <h3>Section 1: The First Topic</h3>
+                            <p>This is the content for the first section. In-page navigation links are essential for long pages, as they allow users to quickly find the information they are looking for without scrolling. This improves both usability and accessibility. Proper use of semantic headings (`h2`, `h3`, etc.) is key to creating anchor points for these links.</p>
+                        </div>
 
-                    <ul>
+                        <div id="section2" class="section-content">
+                            <h3>Section 2: The Second Topic</h3>
+                            <p>This is the content for the second section. Screen readers can use the list of navigation links to jump directly to the content, which saves time and effort. For sighted users, the navigation provides a quick overview of the page's structure.</p>
+                        </div>
 
-                        <li>Don’t rely only on color to distinguish links</li>
+                        <div id="section3" class="section-content">
+                            <h3>Section 3: The Third Topic</h3>
+                            <p>This is the content for the third section. Ensure that the text of the in-page navigation link clearly matches the heading of the section it links to. This consistency is vital for all users.</p>
+                        </div>
+                        
+                        <h2>Source Code</h2>
+                        <div class="code-container">
+                            <pre><code>&lt;!-- In-page navigation menu --&gt;
+&lt;nav aria-label="On-page links"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#section1"&gt;Section 1: The First Topic&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;Section 2: The Second Topic&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;Section 3: The Third Topic&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
 
-                        <li>Don’t block external links with disruptive notifications</li>
+&lt;!-- Content sections with matching IDs --&gt;
+&lt;div id="section1"&gt;
+    &lt;h3&gt;Section 1: The First Topic&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;
 
-                        <li>Don’t use generic link text like “read more” or “link”</li>
+&lt;div id="section2"&gt;
+    &lt;h3&gt;Section 2: The Second Topic&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;
 
-                        <li>Don’t use the same link text for different URLs on the same page</li>
-
-                    </ul>
-
-                    <h3>What You Should Do</h3>
-
-                    <ul>
-
-                        <li><strong>Clearly identify external links.</strong> The external link icon () is a good way to communicate that a link is external.</li>
-
-                        <li><strong>Notify users about non-federal links.</strong> Review this resource on Digital.gov for guidance on non-federal link requirements.</li>
-
-                        <li><strong>Use unique, meaningful link text.</strong> Link text should explain the link’s purpose and help the user understand the link’s destination.</li>
-
-                        <li><strong>Simplify link placement in body text.</strong> Reduce the number of links in a single sentence to simplify its message.</li>
-
-                        <li><strong>Link directly to the most relevant page.</strong> Avoid links to pages that require further user action to locate the intended information.</li>
-
-                        <li><strong>Indicate nonpublic links that require authentication.</strong> Use text or an indicator to signal any link that is not publicly available.</li>
-
-                        <li><strong>If you use an external link indicator, use it consistently for all text links.</strong></li>
-
-                        <li><strong>Use <code>rel="noreferrer"</code> property on external links.</strong></li>
-
-                        <li><strong>Provide text context for external links.</strong> Use plain text to indicate where a link goes.</li>
-
-                        <li><strong>Add a non-endorsement statement to your site.</strong></li>
-
-                        <li><strong>Indicate file type and size for links to non-HTML content.</strong></li>
-
-                        <li><strong>Identify jump links in body text.</strong> Use link text like “jump to”, “above” or “below”.</li>
-
-                        <li><strong>Write out email and phone links.</strong> For `mailto:` and `tel:` links, write out email addresses and phone numbers.</li>
-
-                        <li><strong>Encode email and phone links.</strong> Use `mailto:` and `tel:` for email addresses and phone numbers.</li>
-
-                    </ul>
-
-                    <h2>Testing</h2>
-                    <p>To ensure the link component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/link/" target="_blank">Link Component Testing Checklist</a>.</p>
+&lt;div id="section3"&gt;
+    &lt;h3&gt;Section 3: The Third Topic&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        
+                        <h2>Guidance</h2>
+                        <p>In-page navigation links are essential for providing a better user experience on long, content-heavy pages. They serve as a quick reference, allowing users to jump directly to the information they need.</p>
+                        
+                        <h3>When to use the in-page navigation component</h3>
+                        <ul>
+                            <li><strong>Long documents.</strong> Use on any page with a lot of content that is broken up into distinct sections.</li>
+                            <li><strong>Tables of contents.</strong> Ideal for creating a table of contents that allows users to quickly scan and access information.</li>
+                        </ul>
+        
+                        <h3>Usability tips</h3>
+                        <ul>
+                            <li><strong>Match headings.</strong> The text of the navigation link should accurately reflect the heading of the section it links to.</li>
+                            <li><strong>Visual feedback.</strong> Consider highlighting the link for the section the user is currently viewing to provide a clear sense of location.</li>
+                        </ul>
+        
+                        <h2>Accessibility Features</h2>
+                        <ul>
+                            <li>**Nav Landmark.** The `<nav>` element with `aria-label` correctly identifies the component as a landmark region for screen readers.</li>
+                            <li>**Descriptive Links.** The `href` attribute on the links points to the `id` of the destination heading, which is a standard and accessible method of in-page navigation.</li>
+                            <li>**Visual Focus.** All links must have a visible focus state for keyboard users.</li>
+                        </ul>
+        
+                        <h2>Testing</h2>
+                        <p>To ensure the in-page navigation component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/in-page-navigation/" target="_blank">In-page Navigation Component Testing Checklist</a>.</p>
+                    </div>
                 </div>
-
             </div>
 
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
         </main>
-
+        
         <footer class="container" id="footer">
-
             <nav aria-label="Site map">
-
                 <ul>
-
                     <li><a href="/about/">About</a></li>
-
                     <li><a href="/resources/">Resources</a></li>
-
                     <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-
                     <li><a href="/testing-routine/">Testing Routine</a></li>
-
                     <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-
                     <li><a href="/site-map/">Site map</a></li>
-
                 </ul>
-
             </nav>
-
             <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-
             <p class="last-modified" id='last-modified'></p>
-
         </footer>
-
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="/assets/scripts/index.js?1736284235"></script>
-
     <script>
-
         $("body").removeClass("preload");
 
         function setModifiedDate() {
-
             if (document.getElementById('last-modified')) {
-
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=link-component.md")
-
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=in-page-navigation-component.md")
                     .then(response => response.json())
-
                     .then(commits => {
-
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-
-                        if (modified != "") {
-
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
-
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
-
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
-
             }
-
         }
+        
+        window.onload = setModifiedDate;
 
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            navigator.clipboard.writeText(code.innerText)
+                .then(() => {
+                    button.textContent = 'Copied!';
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    button.textContent = 'Error';
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                    }, 2000);
+                });
+        }
     </script>
-
 </body>
 
 </html>
