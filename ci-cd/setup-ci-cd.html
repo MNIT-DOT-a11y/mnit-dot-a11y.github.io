@@ -36,38 +36,138 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .main-content {
-            padding: 20px;
-        }
-
-        .content-container {
-            margin-left: 270px;
+        /* Styles for the page content and sidebar layout */
+        .content-with-sidebar-wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .sidebar-placeholder {
+            flex-shrink: 0;
             width: 250px;
-            padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            height: calc(100% - 100px);
-            overflow-y: auto;
-            z-index: 100;
+            padding: 15px;
+            height: auto;
         }
+
+        .main-post-content {
+            flex-grow: 1;
+            padding: 20px;
+            max-width: calc(100% - 270px);
+        }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Custom styles for the sidebar navigation links */
+        .usa-sidenav__item a {
+            font-size: 1.05em;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
+        }
+
+        /* Styles for copy button */
+        .code-container {
+            position: relative;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #003865;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        /* Fix to remove pseudo-element content from all buttons */
+        button::before,
+        button::after,
+        a.usa-button::before,
+        a.usa-button::after {
+            content: none !important;
+        }
+        
+        /* New CSS for the scrolling sidebar */
+        .scrollable-sidebar {
+            max-height: 100vh;
+            overflow-y: auto;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+        
+        /* Breadcrumb specific styles */
+        .breadcrumb { 
+            list-style: none; 
+            padding: 0; 
+            display: flex; 
+            flex-wrap: wrap; 
+            background-color: #f8f9fa; 
+            border-radius: 0.25rem; 
+            align-items: center; 
+        } 
+
+        .breadcrumb-item { 
+            padding: 8px 16px; 
+            text-decoration: none; 
+            color: #003865;
+        } 
+
+        .breadcrumb-item + .breadcrumb-item::before { 
+            padding: 0 5px; 
+            color: #6c757d; 
+            content: "\00BB";
+            font-size: 1.25rem;
+            line-height: 1; 
+        } 
+
+        .breadcrumb-item.active { 
+            color: #6c757d; 
+        }
+
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
-
-    <!-- Sidebar navigation for this page -->
-    <div id="sidebar-placeholder" class="sidebar-placeholder">
-        <ul class="site-sidenav usa-sidenav">
-            <li class="usa-sidenav__item"><a href="#github-actions">GitHub Actions</a></li>
-            <li class="usa-sidenav__item"><a href="#gitlab-ci-cd">GitLab CI/CD</a></li>
-        </ul>
-    </div>
 
     <div class="page-wrapper">
         <div class="skip-links container">
@@ -78,29 +178,59 @@
         <header class="container">
             <nav id="nav" class="menu" aria-label="Site menu">
                 <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/developer-guides.html">Developer Resources </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/testing-environment/">Testing Apps Setup </a>
+                    </li>
                     <li class="expander-group site-sub-group">
                         <button class="expander-toggle" aria-expanded="false">More</button>
                         <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/developer-guides.html">Developer Resources</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
             </nav>
         </header>
 
-        <div class="content-container">
-            <main id="content" class="main-content">
-                <div class="container">
+        <main id="content" class="main-content">
+            <div class="container content-with-sidebar-wrapper">
+                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
+                    <ul class="site-sidenav usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="#github-actions">GitHub Actions</a></li>
+                        <li class="usa-sidenav__item"><a href="#gitlab-ci-cd">GitLab CI/CD</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
                     <div class="post-content">
                         <h1>CI/CD Implementation Guides</h1>
                         <p>This guide provides instructions for integrating automated accessibility checks into your Continuous Integration/Continuous Deployment (CI/CD) pipelines. By automating these checks, you can catch accessibility issues early in the development process and ensure your applications remain compliant.</p>
@@ -125,8 +255,8 @@ jobs:
 
       - name: Run Axe-core scan
         run: npx axe-cli --config .axe-config.json http://localhost:3000
-
     </code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
                         <p>You can customize this workflow to suit your project's needs, such as running the scan on a specific branch or adding more advanced configurations.</p>
 
@@ -149,37 +279,36 @@ accessibility_test:
   script:
     - npm install
     - npx axe-cli --config .axe-config.json http://your-staging-url.com
-
     </code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
                         <p>This configuration assumes you have a running instance of your application accessible at a URL. GitLab CI can also be configured to deploy a review app and then run the accessibility test against it for dynamic environments.</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="print-container">
-                    <button type="button" class="print-button" aria-label="Print this page">
-                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                    </button>
-                </div>
-            </main>
-
-            <footer class="container" id="footer">
-                <nav aria-label="Site map">
-                    <ul>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/resources/">Resources</a></li>
-                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                        <li><a href="/testing-routine/">Testing Routine</a></li>
-                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                        <li><a href="/site-map/">Site map</a></li>
-                    </ul>
-                </nav>
-                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-                <p class="last-modified" id='last-modified'></p>
-            </footer>
-        </div>
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+        
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
@@ -204,6 +333,25 @@ accessibility_test:
         }
         
         window.onload = setModifiedDate;
+
+        // Copy button functionality
+        function copyCode(button) {
+            const pre = button.previousElementSibling;
+            const code = pre.querySelector('code');
+            navigator.clipboard.writeText(code.innerText)
+                .then(() => {
+                    button.textContent = 'Copied!';
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    button.textContent = 'Error';
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                    }, 2000);
+                });
+        }
     </script>
 </body>
 
