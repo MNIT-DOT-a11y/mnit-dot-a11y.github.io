@@ -10,48 +10,95 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>Text Input - MNIT DOT A11y</title>
+    <title>Text Input Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="Text Input" />
+    <meta property="og:title" content="Text Input Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible text input component. Includes source code and interactive example." />
-    <meta property="og:description" content="Guide to creating an accessible text input component. Includes source code and interactive example." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/text-input/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/text-input/" />
+    <meta name="description" content="Guide to creating an accessible text input component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible text input component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/text-input-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/text-input-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Text Input" />
+    <meta property="twitter:title" content="Text Input Component" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "Guide to creating an accessible text input component. Includes source code and interactive example.",
-            "headline": "Text Input",
-            "url": "https://mnit-dot-a11y.github.io/text-input/"
+            "description": "Guide to creating an accessible text input component. Includes source code, interactive example, and guidance.",
+            "headline": "Text Input Component",
+            "url": "https://mnit-dot-a11y.github.io/text-input-component/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        .main-content {
-            padding: 20px;
+        /* Styles for the page content and sidebar layout */
+        .content-with-sidebar-wrapper {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
         }
-        .content-container {
-            margin-left: 270px;
-        }
+
         .sidebar-placeholder {
+            flex-shrink: 0;
             width: 250px;
-            padding: 15px;
             background-color: #f8f9fa;
             border-right: 1px solid #ddd;
-            position: fixed;
-            top: 100px;
-            height: calc(100% - 100px);
-            overflow-y: auto;
-            z-index: 100;
+            padding: 15px;
+            height: auto;
+        }
+
+        .main-post-content {
+            flex-grow: 1;
+            padding: 20px;
+            max-width: calc(100% - 270px);
+        }
+        
+        .print-container {
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Custom styles for the sidebar navigation links */
+        .usa-sidenav__item a {
+            font-size: 1.05em;
+            padding-top: 8px;
+            padding-bottom: 6px;
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-nav li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
         }
 
         /* Styles for copy button */
@@ -62,13 +109,14 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #007bff;
+            background-color: #003865;
             color: white;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
             border-radius: 4px;
         }
+        
         /* Fix to remove pseudo-element content from all buttons */
         button::before,
         button::after,
@@ -76,45 +124,37 @@
         a.usa-button::after {
             content: none !important;
         }
-
-        /* Component-specific styles */
-        .form-group {
-            margin-bottom: 20px;
+        
+        /* New CSS for the scrolling sidebar */
+        .scrollable-sidebar {
+            max-height: 100vh;
+            overflow-y: auto;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
         }
-        .form-group label {
+        
+        /* Text Input specific styles */
+        .text-input-container {
+            margin-bottom: 1rem;
+        }
+        .text-input-container label {
             display: block;
-            margin-bottom: 5px;
             font-weight: bold;
+            margin-bottom: 0.5rem;
         }
-        .form-group input {
+        .text-input-container input[type="text"],
+        .text-input-container input[type="email"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-        }
-        .form-group input:focus {
-            outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-        }
-        .form-group .description {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 5px;
-        }
-        .form-group .error-message {
-            color: #dc3545;
-            font-size: 0.9em;
-            margin-top: 5px;
         }
     </style>
 
 </head>
 
 <body onload="setModifiedDate();" class="preload">
-
-    <!-- Placeholder for the dynamically loaded sidebar -->
-    <div id="sidebar-placeholder" class="sidebar-placeholder"></div>
 
     <div class="page-wrapper">
         <div class="skip-links container">
@@ -125,99 +165,173 @@
         <header class="container">
             <nav id="nav" class="menu" aria-label="Site menu">
                 <ul>
-                    <li class="home"><a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a></li>
-                    <li class="web alpha"><a href="/web/">Web</a></li>
-                    <li class="web alpha"><a href="/desktop/">Desktop Apps</a></li>
-                    <li class="native alpha"><a href="/native/">Native Apps</a></li>
-                    <li class="web-alpha"><a href="/components/identifier.html">Identifying Components</a></li>
-                    <li class="native bravo"><a href="/how-to-test/">How-to Test</a></li>
-                    <li class="native bravo"><a href="/demos/">Demos</a></li>
+                    <li class="home">
+                        <a aria-label="MNIT DOT Accessibility" href="/">MNIT DOT A11y</a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/web/">Web </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/desktop/">Desktop Apps </a>
+                    </li>
+                    <li class="native alpha">
+                        <a href="/native/">Native Apps </a>
+                    </li>
+                    <li class="web alpha">
+                        <a href="/developer-guides.html">Developer Resources </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/how-to-test/">How-to Test </a>
+                    </li>
+                    <li class="native bravo">
+                        <a href="/testing-environment/">Testing Apps Setup </a>
+                    </li>
                     <li class="expander-group site-sub-group">
                         <button class="expander-toggle" aria-expanded="false">More</button>
                         <ul class="expander-content">
-                            <li><a href="/how-to-test/">How-to Test</a></li>
-                            <li><a href="/demos/">Demos</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/code-of-conduct/">Code of Conduct</a></li>
+                            <li>
+                                <a href="/how-to-test/">How-to Test</a>
+                            </li>
+                            <li>
+                                <a href="/developer-guides.html">Developer Resources</a>
+                            </li>
+                            <li>
+                                <a href="/about/">About</a>
+                            </li>
+                            <li>
+                                <a href="/code-of-conduct/">Code of Conduct</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
             </nav>
         </header>
 
-        <div class="content-container">
-            <main id="content" class="main-content">
-                <div class="container">
+        <main id="content" class="main-content">
+            <div class="container content-with-sidebar-wrapper">
+                <nav aria-label="Secondary Navigation" class="toc-nav sidebar-placeholder scrollable-sidebar">
+                    <ul class="site-sidenav usa-sidenav">
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/intro.html">Components</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/accordion.html">Accordion</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/alert.html">Alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/banner.html">Banner</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/breadcrumb.html">Breadcrumb</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button.html">Button</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/button-group.html">Button group</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/card.html">Card</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/character-count.html">Character count</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/checkbox.html">Checkbox</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/collection.html">Collection</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/combo-box.html">Combo box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/data-visualizations.html">Data visualizations</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-picker.html">Date picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/date-range-picker.html">Date range picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/utilities/layout-grid.html">Grid</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/identifier.html">Identifier</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/link.html">Link</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/prose.html">Prose</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tag.html">Tag</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/text-input.html">Text input</a></li>
+                        <li class="usa-sidenav__item usa-current"><a href="https://mnit-dot-a11y.github.io/components/time-picker.html">Time picker</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/tooltip.html">Tooltip</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/validation.html">Validation</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
                     <div class="post-content">
-                        <h1>Text Input</h1>
-                        <p>Accessible text inputs are the foundation of any web form. They must have clear labels, keyboard support, and provide feedback for validation errors.</p>
+                        <h1>Time Picker Component</h1>
+                        <p>A time picker is a graphical user interface element that allows users to select a specific time. This component simplifies the process of entering time values and helps ensure the data is in a consistent and valid format.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
                         <h2>Interactive Example</h2>
-                        <form>
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" id="username" name="username" aria-describedby="username-desc">
-                                <div id="username-desc" class="description">Enter your desired username.</div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email">
-                            </div>
-                        </form>
+                        <h3>Standard Time Picker</h3>
+                        <div class="time-picker-wrapper">
+                            <label for="time-input">Select a time:</label>
+                            <input type="text" id="time-input" class="time-picker-input" placeholder="HH:MM AM/PM">
+                        </div>
 
                         <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>&lt;form&gt;
-    &lt;div class="form-group"&gt;
-        &lt;label for="username"&gt;Username&lt;/label&gt;
-        &lt;input type="text" id="username" name="username" aria-describedby="username-desc"&gt;
-        &lt;div id="username-desc" class="description"&gt;Enter your desired username.&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="form-group"&gt;
-        &lt;label for="email"&gt;Email&lt;/label&gt;
-        &lt;input type="email" id="email" name="email"&gt;
-    &lt;/div&gt;
-&lt;/form&gt;</code></pre>
+                            <pre><code>&lt;div class="time-picker-wrapper"&gt;
+    &lt;label for="time-input"&gt;Select a time:&lt;/label&gt;
+    &lt;input type="text" id="time-input" class="time-picker-input" placeholder="HH:MM AM/PM"&gt;
+&lt;/div&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
-
-                        <h2>Accessibility Guidance</h2>
+                        
+                        <h2>Guidance</h2>
+                        <p>Time pickers are an effective way to handle time entry in forms, providing an intuitive interface that reduces user error. The component should be designed to be easily operable with both a mouse and a keyboard.</p>
+                        
+                        <h3>When to use the time picker component</h3>
                         <ul>
-                            <li>Use a `<label>` element for every input field and ensure its `for` attribute matches the input's `id`.</li>
-                            <li>Use `aria-describedby` to link additional instructional or descriptive text to the input field.</li>
-                            <li>Use appropriate `type` attributes (e.g., `email`, `tel`) to provide semantic meaning and help with mobile keyboards.</li>
-                            <li>Ensure the input field is keyboard focusable and provides a clear visual focus indicator.</li>
+                            <li><strong>Form fields.</strong> When a form requires a specific time input, such as for scheduling appointments or setting reminders.</li>
+                            <li><strong>Time-based filtering.</strong> For filtering search results or data based on a time of day.</li>
                         </ul>
 
+                        <h3>Usability tips</h3>
+                        <ul>
+                            <li><strong>Clear labels.</strong> The input field must have a visible and correctly associated label to explain its purpose.</li>
+                            <li><strong>Keyboard support.</strong> The component should be fully navigable and operable using a keyboard, including arrow keys for changing the time.</li>
+                        </ul>
+        
+                        <h2>Accessibility Features</h2>
+                        <ul>
+                            <li>**Descriptive Labels.** The `<label>` element is correctly associated with the `<input>`, providing a clear accessible name for screen readers.</li>
+                            <li>**Semantic HTML.** The `<input>` element is used correctly within the form. For a rich interactive time picker, additional ARIA attributes (like `aria-expanded`) might be needed to communicate the state of the component.</li>
+                            <li>**Keyboard Operability.** The time picker should allow users to enter time values directly or use keyboard shortcuts to interact with a graphical interface.</li>
+                        </ul>
+        
                         <h2>Testing</h2>
-                        <p>To ensure the component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/text-input/" target="_blank">Text Input Testing Checklist</a>.</p>
+                        <p>To ensure the time picker component meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/time-picker/" target="_blank">Time Picker Component Testing Checklist</a>.</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="print-container">
-                    <button type="button" class="print-button" aria-label="Print this page">
-                        <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
-                    </button>
-                </div>
-            </main>
-
-            <footer class="container" id="footer">
-                <nav aria-label="Site map">
-                    <ul>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/resources/">Resources</a></li>
-                        <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
-                        <li><a href="/testing-routine/">Testing Routine</a></li>
-                        <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-                        <li><a href="/site-map/">Site map</a></li>
-                    </ul>
-                </nav>
-                <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
-                <p class="last-modified" id='last-modified'></p>
-            </footer>
-        </div>
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+        
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/assets/scripts/index.js?1736284235"></script>
     <script>
@@ -225,48 +339,41 @@
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=text-input.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=time-picker-component.md")
                     .then(response => response.json())
                     .then(commits => {
-                        var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
-                        if (modified != "") {
-                            document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
                         }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commit date:', error);
                     });
             }
         }
         
-        // JavaScript to fetch and insert the sidebar
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('/assets/components-sidebar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-placeholder').innerHTML = html;
-                })
-                .catch(err => {
-                    console.error("Failed to load sidebar: ", err);
-                });
-        });
+        window.onload = setModifiedDate;
 
         // Copy button functionality
         function copyCode(button) {
             const pre = button.previousElementSibling;
             const code = pre.querySelector('code');
-            const range = document.createRange();
-            range.selectNode(code);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            try {
-                document.execCommand('copy');
-                button.textContent = 'Copied!';
-            } catch (err) {
-                console.error('Failed to copy text: ', err);
-                button.textContent = 'Copy failed';
-            }
-            setTimeout(() => {
-                button.textContent = 'Copy';
-            }, 2000);
-            window.getSelection().removeAllRanges();
+            navigator.clipboard.writeText(code.innerText)
+                .then(() => {
+                    button.textContent = 'Copied!';
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    button.textContent = 'Error';
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        button.textContent = 'Copy';
+                    }, 2000);
+                });
         }
     </script>
 </body>
