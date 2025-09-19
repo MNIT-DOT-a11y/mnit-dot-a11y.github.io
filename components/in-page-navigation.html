@@ -10,26 +10,26 @@
     <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
     <meta name="theme-color" content="#003865">
     <meta name="robots" content="noindex">
-    <title>In-page Navigation Component - MNIT DOT A11y</title>
+    <title>Icon Component - MNIT DOT A11y</title>
 
     <meta name="generator" content="Jekyll v3.10.0" />
-    <meta property="og:title" content="In-page Navigation Component" />
+    <meta property="og:title" content="Icon Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible in-page navigation component. Includes source code, interactive example, and guidance." />
-    <meta property="og:description" content="Guide to creating an accessible in-page navigation component. Includes source code, interactive example, and guidance." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/in-page-navigation-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/in-page-navigation-component/" />
+    <meta name="description" content="Guide to creating an accessible icon component. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible icon component. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/icon-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/icon-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="In-page Navigation Component" />
+    <meta property="twitter:title" content="Icon Component" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "Guide to creating an accessible in-page navigation component. Includes source code, interactive example, and guidance.",
-            "headline": "In-page Navigation Component",
-            "url": "https://mnit-dot-a11y.github.io/in-page-navigation-component/"
+            "description": "Guide to creating an accessible icon component. Includes source code, interactive example, and guidance.",
+            "headline": "Icon Component",
+            "url": "https://mnit-dot-a11y.github.io/icon-component/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
@@ -134,41 +134,16 @@
             top: 0;
         }
         
-        /* In-page Navigation specific styles */
-        .in-page-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            border-left: 2px solid #ccc;
-            padding-left: 1rem;
+        /* Icon example specific styles */
+        .icon-example,
+        .post-content p > i[class^="fa-"] {
+            background-color: transparent !important;
+            padding: 0; /* Removing padding that may have been part of the old style */
         }
-        .in-page-nav li {
-            margin-bottom: 0.5rem;
+        .icon-example {
+            margin-bottom: 1rem;
         }
-        .in-page-nav a {
-            text-decoration: none;
-            color: #003865;
-            font-weight: bold;
-        }
-        .in-page-nav a:hover,
-        .in-page-nav a:focus {
-            color: #002d51;
-            text-decoration: underline;
-        }
-        .in-page-nav a.active {
-            color: #003865;
-            text-decoration: underline;
-        }
-        .section-content {
-            height: 500px; /* Example height for scrolling demonstration */
-            background-color: #f8f8f8;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-left: 2px solid #ddd;
-        }
-        .section-content h3 {
-            margin-top: 0;
-        }
+        
     </style>
 
 </head>
@@ -252,9 +227,8 @@
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/layout-grid.html">Grid</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
-                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
-                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html" class="usa-current">Icon list</a></li>
-
+                        <li class="usa-sidenav__item usa-current"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
