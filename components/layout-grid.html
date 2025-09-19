@@ -15,10 +15,10 @@
     <meta name="generator" content="Jekyll v3.10.0" />
     <meta property="og:title" content="Layout Grid Component" />
     <meta property="og:locale" content="en_US" />
-    <meta name="description" content="Guide to creating an accessible layout grid component. Includes source code, interactive example, and guidance." />
-    <meta property="og:description" content="Guide to creating an accessible layout grid component. Includes source code, interactive example, and guidance." />
-    <link rel="canonical" href="https://mnit-dot-a11y.github.io/layout-grid-component/" />
-    <meta property="og:url" content="https://mnit-dot-a11y.github.io/layout-grid-component/" />
+    <meta name="description" content="Guide to creating an accessible layout grid. Includes source code, interactive example, and guidance." />
+    <meta property="og:description" content="Guide to creating an accessible layout grid. Includes source code, interactive example, and guidance." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/components/layout-grid-component/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/components/layout-grid-component/" />
     <meta property="og:site_name" content="MNIT DOT A11y" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
@@ -27,9 +27,9 @@
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "description": "Guide to creating an accessible layout grid component. Includes source code, interactive example, and guidance.",
+            "description": "Guide to creating an accessible layout grid. Includes source code, interactive example, and guidance.",
             "headline": "Layout Grid Component",
-            "url": "https://mnit-dot-a11y.github.io/layout-grid-component/"
+            "url": "https://mnit-dot-a11y.github.io/components/layout-grid-component/"
         }
     </script>
     <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
@@ -133,29 +133,45 @@
             position: sticky;
             top: 0;
         }
-        
+
         /* Layout Grid specific styles */
-        .grid-example {
-            display: grid;
-            gap: 1rem;
-            grid-template-columns: repeat(3, 1fr); /* Default 3-column layout */
-        }
-        .grid-item {
-            background-color: #f0f0f0;
+        .grid-container {
             border: 1px solid #ccc;
             padding: 1rem;
+        }
+        .grid-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px 1rem -10px;
+        }
+        .grid-row:last-child {
+            margin-bottom: 0;
+        }
+        .grid-row [class^="col-"] {
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+        .grid-row [class^="col-"] > div {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 1rem;
             text-align: center;
+            font-weight: bold;
+            color: #333;
         }
-        @media (max-width: 768px) {
-            .grid-example {
-                grid-template-columns: repeat(2, 1fr); /* 2-column on tablets */
-            }
-        }
-        @media (max-width: 480px) {
-            .grid-example {
-                grid-template-columns: 1fr; /* Single column on mobile */
-            }
-        }
+        .col-1 { width: 8.33%; }
+        .col-2 { width: 16.66%; }
+        .col-3 { width: 25%; }
+        .col-4 { width: 33.33%; }
+        .col-5 { width: 41.66%; }
+        .col-6 { width: 50%; }
+        .col-7 { width: 58.33%; }
+        .col-8 { width: 66.66%; }
+        .col-9 { width: 75%; }
+        .col-10 { width: 83.33%; }
+        .col-11 { width: 91.66%; }
+        .col-12 { width: 100%; }
+
     </style>
 
 </head>
@@ -237,11 +253,11 @@
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/file-input.html">File input</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/footer.html">Footer</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/form.html">Form</a></li>
-                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/component/layout-grid.html" class="usa-current">Grid</a></li>
+                        <li class="usa-sidenav__item usa-current"><a href="https://mnit-dot-a11y.github.io/components/layout-grid.html">Layout grid</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/header.html">Header</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon.html">Icon</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/icon-list.html">Icon list</a></li>
-
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/identifier.html">Identifier</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/in-page-navigation.html">In-page navigation</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/input-mask.html">Input mask</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/language-selector.html">Language selector</a></li>
@@ -249,11 +265,12 @@
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/list.html">List</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/memorable-date.html">Memorable date</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/modal.html">Modal</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/pagination.html">Pagination</a></li>
+                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/prose.html">Prose</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/range-slider.html">Range slider</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/search.html">Search</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/select.html">Select</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/side-navigation.html">Side navigation</a></li>
-                        <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/site-alert.html">Site alert</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/step-indicator.html">Step indicator</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/summary-box.html">Summary box</a></li>
                         <li class="usa-sidenav__item"><a href="https://mnit-dot-a11y.github.io/components/table.html">Table</a></li>
@@ -266,57 +283,83 @@
                 </nav>
                 <div class="main-post-content">
                     <div class="post-content">
-                        <h1>CI/CD Implementation Guides</h1>
-                        <p>This guide provides instructions for integrating automated accessibility checks into your Continuous Integration/Continuous Deployment (CI/CD) pipelines. By automating these checks, you can catch accessibility issues early in the development process and ensure your applications remain compliant.</p>
+                        <h1>Layout Grid Component</h1>
+                        <p>A layout grid helps align and structure content on a page. It uses a system of columns and gutters to create a consistent, orderly, and responsive design that adapts across different screen sizes.</p>
+                        <p>Passed WCAG 2.1 AA</p>
 
-                        <h2 id="github-actions">GitHub Actions</h2>
-                        <p>To set up accessibility testing with GitHub Actions, you will need to create a workflow file that runs on code pushes or pull requests. This workflow will execute a script that uses a tool like Axe-core to scan your web application for accessibility violations.</p>
-                        <p>Here is a basic example of a workflow file (`.github/workflows/accessibility.yml`):</p>
+                        <h2>Interactive Example</h2>
+                        <div class="grid-container" role="region" aria-label="Layout Grid Example">
+                            <div class="grid-row">
+                                <div class="col-12"><div>12</div></div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="col-6"><div>6</div></div>
+                                <div class="col-6"><div>6</div></div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="col-4"><div>4</div></div>
+                                <div class="col-4"><div>4</div></div>
+                                <div class="col-4"><div>4</div></div>
+                            </div>
+                            <div class="grid-row">
+                                <div class="col-8"><div>8</div></div>
+                                <div class="col-4"><div>4</div></div>
+                            </div>
+                        </div>
+
+                        <h2>Source Code</h2>
                         <div class="code-container">
-                            <pre><code>name: Accessibility Audit
-
-on: [push]
-
-jobs:
-  accessibility-audit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Axe-core scan
-        run: npx axe-cli --config .axe-config.json http://localhost:3000
-    </code></pre>
+                            <pre><code>&lt;div class="grid-container"&gt;
+    &lt;!-- Full width --&gt;
+    &lt;div class="grid-row"&gt;
+        &lt;div class="col-12"&gt;&lt;div&gt;12&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Halves --&gt;
+    &lt;div class="grid-row"&gt;
+        &lt;div class="col-6"&gt;&lt;div&gt;6&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="col-6"&gt;&lt;div&gt;6&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Thirds --&gt;
+    &lt;div class="grid-row"&gt;
+        &lt;div class="col-4"&gt;&lt;div&gt;4&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="col-4"&gt;&lt;div&gt;4&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="col-4"&gt;&lt;div&gt;4&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Mixed --&gt;
+    &lt;div class="grid-row"&gt;
+        &lt;div class="col-8"&gt;&lt;div&gt;8&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="col-4"&gt;&lt;div&gt;4&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <p>You can customize this workflow to suit your project's needs, such as running the scan on a specific branch or adding more advanced configurations.</p>
+                        
+                        <h2>Guidance</h2>
+                        <p>Grids are the foundation of page layout. A consistent grid system improves readability and user experience by creating visual rhythm and predictability.</p>
+                        
+                        <h3>When to use a layout grid</h3>
+                        <ul>
+                            <li><strong>Page structure.</strong> To define the main regions of a page, such as headers, footers, sidebars, and main content areas.</li>
+                            <li><strong>Content alignment.</strong> To align cards, images, text blocks, and other components in a visually pleasing and organized way.</li>
+                            <li><strong>Responsive design.</strong> To ensure that page layouts adapt gracefully from large desktop monitors to small mobile screens.</li>
+                        </ul>
 
-                        <h2 id="gitlab-ci-cd">GitLab CI/CD</h2>
-                        <p>GitLab CI/CD uses a `.gitlab-ci.yml` file to define its pipeline. You can add a job to this file that performs accessibility testing. This job can be configured to run in a separate stage of your pipeline, allowing you to get feedback on accessibility without delaying other build or deployment processes.</p>
-                        <p>Here is a basic example of a `.gitlab-ci.yml` file with an accessibility job:</p>
-                        <div class="code-container">
-                            <pre><code>stages:
-  - build
-  - test
-
-build:
-  stage: build
-  script:
-    - echo "Building the application..."
-
-accessibility_test:
-  stage: test
-  image: node:latest
-  script:
-    - npm install
-    - npx axe-cli --config .axe-config.json http://your-staging-url.com
-    </code></pre>
-                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <p>This configuration assumes you have a running instance of your application accessible at a URL. GitLab CI can also be configured to deploy a review app and then run the accessibility test against it for dynamic environments.</p>
+                        <h3>Usability tips</h3>
+                        <ul>
+                            <li><strong>Choose a standard.</strong> A 12-column grid is a flexible and widely-used standard that allows for many column combinations (halves, thirds, quarters).</li>
+                            <li><strong>Mind the gap.</strong> Use consistent spacing (gutters) between columns to prevent content from running together and to improve readability.</li>
+                            <li><strong>Mobile-first.</strong> Design your grid to work on small screens first, then add complexity for larger screens. Content should stack vertically in a single column by default.</li>
+                        </ul>
+        
+                        <h2>Accessibility Features</h2>
+                        <ul>
+                            <li><strong>Logical source order.</strong> The order of elements in the HTML (DOM order) should make sense without CSS. Screen readers follow the DOM order, not the visual order, so content should be structured logically.</li>
+                            <li><strong>Semantic containers.</strong> Use semantic HTML elements like `<main>`, `<nav>`, `<aside>`, and `<section>` as grid containers instead of using `<div>` for everything. This adds meaning and improves page navigation for assistive technology users.</li>
+                            <li><strong>Responsiveness.</strong> The grid must be responsive to prevent horizontal scrolling on small screens, which is a failure of WCAG 1.4.10 Reflow.</li>
+                        </ul>
+        
+                        <h2>Testing</h2>
+                        <p>To ensure the layout grid meets accessibility standards, refer to the <a href="https://mnit-dot-a11y.github.io/checklist-web/layout-grid/" target="_blank">Layout Grid Component Testing Checklist</a>.</p>
                     </div>
                 </div>
             </div>
@@ -350,7 +393,7 @@ accessibility_test:
 
         function setModifiedDate() {
             if (document.getElementById('last-modified')) {
-                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=ci-cd/setup-ci-cd.md")
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=layout-grid-component.md")
                     .then(response => response.json())
                     .then(commits => {
                         if (commits && commits.length > 0) {
