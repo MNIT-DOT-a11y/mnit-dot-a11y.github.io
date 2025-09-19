@@ -147,6 +147,7 @@
             flex-grow: 1;
             text-align: center;
             position: relative;
+            list-style: none;
         }
         .step-indicator li::before {
             content: "";
@@ -357,9 +358,9 @@
         
                         <h2>Accessibility Features</h2>
                         <ul>
-                            <li>**Nav Landmark.** The `<nav>` element with `aria-label="Progress"` provides a clear landmark role for the component.</li>
-                            <li>**Current State.** The `aria-current="step"` attribute on the current list item is used to inform screen readers of the active step in the process.</li>
-                            <li>**Semantic List.** Using a `<ul>` and `<li>` structure provides a logical and understandable format for assistive technologies.</li>
+                            <li><strong>Nav Landmark.</strong> The nav element with <strong>aria-label="Progress"</strong> provides a clear landmark role for the component.</li>
+                            <li><strong>Current State.</strong> The `aria-current="step"` attribute on the current list item is used to inform screen readers of the active step in the process.</li>
+                            <li><strong>Semantic List.</strong> Using a "ul" and "li" structure provides a logical and understandable format for assistive technologies.</li>
                         </ul>
         
                         <h2>Testing</h2>
