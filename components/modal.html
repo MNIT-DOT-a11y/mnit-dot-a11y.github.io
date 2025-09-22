@@ -147,6 +147,9 @@
             align-items: center;
             z-index: 1000;
         }
+        .modal-overlay[hidden] {
+            display: none;
+        }
         .modal-dialog {
             background-color: #fff;
             padding: 2rem;
@@ -160,15 +163,31 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background: none;
+            background: #333;
+            color: white;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1rem;
             cursor: pointer;
-            color: #555;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            line-height: 30px;
+            padding: 0;
+            text-align: center;
         }
         .modal-close-button:hover,
         .modal-close-button:focus {
-            color: #000;
+            background: #000;
+        }
+        .modal-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        .usa-button {
+            margin: 0 !important; /* Reset any unwanted margin */
+            padding: 10px 15px; /* Standardize padding */
         }
     </style>
 
@@ -286,7 +305,7 @@
 
                         <h2>Interactive Example</h2>
                         <h3>Standard Modal Dialog</h3>
-                        <button class="usa-button usa-button--primary" onclick="openModal()">Open Modal</button>
+                        <button id="open-modal-btn" class="usa-button usa-button--primary" onclick="openModal()">Open Modal</button>
 
                         <div id="modal-overlay" class="modal-overlay" hidden>
                             <div id="modal-dialog" class="modal-dialog" role="dialog" aria-labelledby="modal-title" aria-modal="true">
@@ -296,8 +315,10 @@
                                     <span aria-hidden="true">&times;</span>
                                     <span class="sr-only">Close modal</span>
                                 </button>
-                                <button class="usa-button usa-button--secondary">Cancel</button>
-                                <button class="usa-button usa-button--primary">Confirm</button>
+                                <div class="modal-actions">
+                                    <button class="usa-button usa-button--secondary" onclick="closeModal()">Cancel</button>
+                                    <button class="usa-button usa-button--primary" onclick="closeModal()">Confirm</button>
+                                </div>
                             </div>
                         </div>
 
@@ -315,8 +336,10 @@
             &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
             &lt;span class="sr-only"&gt;Close modal&lt;/span&gt;
         &lt;/button&gt;
-        &lt;button class="usa-button usa-button--secondary"&gt;Cancel&lt;/button&gt;
-        &lt;button class="usa-button usa-button--primary"&gt;Confirm&lt;/button&gt;
+        &lt;div class="modal-actions"&gt;
+             &lt;button class="usa-button usa-button--secondary" onclick="closeModal()"&gt;Cancel&lt;/button&gt;
+             &lt;button class="usa-button usa-button--primary" onclick="closeModal()"&gt;Confirm&lt;/button&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -397,6 +420,32 @@
         }
         
         window.onload = setModifiedDate;
+
+        // --- MODAL SCRIPT ---
+        const modalOverlay = document.getElementById('modal-overlay');
+        const openBtn = document.getElementById('open-modal-btn');
+        const closeBtn = document.querySelector('.modal-close-button');
+
+        function openModal() {
+            if (modalOverlay) {
+                modalOverlay.hidden = false;
+                closeBtn.focus();
+            }
+        }
+
+        function closeModal() {
+            if (modalOverlay) {
+                modalOverlay.hidden = true;
+                openBtn.focus();
+            }
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modalOverlay && !modalOverlay.hidden) {
+                closeModal();
+            }
+        });
+
 
         // Copy button functionality
         function copyCode(button) {
