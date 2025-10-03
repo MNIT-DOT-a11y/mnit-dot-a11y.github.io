@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png">
+    <meta property="og:image" content="https://mnit-dot-a11y.github.io/assets/favicon/favicon.png" />
+    <meta name="theme-color" content="#003865">
+    <meta name="robots" content="noindex">
+    <title>Instructions to Install and Run Axe-Core Selenium scripts with C# - MNIT DOT A11y</title>
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="Instructions to Install and Run Axe-Core Selenium scripts with C#" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="A guide to setting up and running a C#-based project with Axe-Core and Selenium for accessibility testing." />
+    <meta property="og:description" content="A guide to setting up and running a C#-based project with Axe-Core and Selenium for accessibility testing." />
+    <link rel="canonical" href="https://mnit-dot-a11y.github.io/axe-core-csharp-instructions/" />
+    <meta property="og:url" content="https://mnit-dot-a11y.github.io/axe-core-csharp-instructions/" />
+    <meta property="og:site_name" content="MNIT DOT A11y" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Instructions to Install and Run Axe-Core Selenium scripts with C#" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "description": "A guide to setting up and running a C#-based project with Axe-Core and Selenium for accessibility testing.",
+            "headline": "Instructions to Install and Run Axe-Core Selenium scripts with C#",
+            "url": "https://mnit-dot-a11y.github.io/axe-core-csharp-instructions/"
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/main-dev.css?1736284235">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .centered-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .code-container {
+            position: relative;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .code-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #003865;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+        .copy-button:hover {
+            background-color: #005f9e;
+        }
+
+        /* Styles for sidebar navigation */
+        .page-content-with-sidebar {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            align-items: flex-start; /* Ensures sidebar and content align at the top */
+        }
+
+        .page-content-with-sidebar .toc-nav {
+            flex-shrink: 0;
+            width: 250px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            /* The fix: sidebar height now adjusts to content */
+            height: auto; 
+            align-self: flex-start; /* Correctly aligns the sidebar at the top of the flex container */
+        }
+
+        .page-content-with-sidebar .main-post-content {
+            flex-grow: 1;
+            max-width: 900px;
+        }
+
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* The fix for vertical stacking */
+        .toc-nav li {
+            display: block; 
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #003865;
+            font-weight: bold;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .toc-nav li a:hover,
+        .toc-nav li a.active {
+            background-color: #003865;
+            color: white;
+        }
+         /* Fix to remove pseudo-element content from all buttons and copy buttons */
+        .copy-button::before, .copy-button::after {
+            content: none !important;
+        }
+        button::before, button::after {
+            content: none !important;
+        }
+
+
+    </style>
+</head>
+
+<body onload="setModifiedDate();" class="preload">
+
+    <div class="page-wrapper">
+        <div class="skip-links container">
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <a href="#footer" class="sr-only sr-only-focusable">Skip to site Map</a>
+        </div>
+
+        <header class="container">
+            <nav id="nav" class="menu" aria-label="Site menu">
+                <ul>
+    <li class="home">
+      <a aria-label="MNIT DOT Accessibility" aria-current="page" href="/"
+        >MNIT DOT A11y
+      </a>
+    </li>
+    <li class="web alpha">
+      <a href="/web/">Web </a>
+    </li>
+    <li class="web alpha">
+      <a href="/desktop/">Desktop Apps </a>
+    </li>
+    <li class="native alpha">
+      <a href="/native/">Native Apps </a>
+    </li>
+    <li class="web alpha">
+      <a href="/developer-guides.html">Developer Resources </a>
+    </li>
+    <li class="native bravo">
+      <a href="/how-to-test/">How-to Test </a>
+    </li>
+    <li class="native bravo">
+      <a href="/testing-environment/">Testing Apps Setup </a>
+    </li>
+    <li class="expander-group site-sub-group">
+      <button class="expander-toggle" aria-expanded="false">More</button>
+      <ul class="expander-content">
+        <li>
+          <a href="/how-to-test/">How-to Test</a>
+        </li>
+        <li>
+          <a href="/developer-guides.html">Developer Resources</a>
+        </li>
+        <li>
+          <a href="/about/">About</a>
+        </li>
+        <li>
+          <a href="/code-of-conduct/">Code of Conduct</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+                <script async src="https://cse.google.com/cse.js?cx=4568d52831f6a44d2"></script>
+                <div class="search-container"></div>
+            </nav>
+        </header>
+
+        <main id="content" class="main-content">
+            <div class="container page-content-with-sidebar">
+                <nav aria-label="On-page links" class="toc-nav">
+                    <ul>
+                        <li><a href="#install-dotnet-sdk">1. Install .NET SDK</a></li>
+                        <li><a href="#create-test-project">2. Create a New Test Project</a></li>
+                        <li><a href="#add-nuget-packages">3. Add NuGet Packages</a></li>
+                        <li><a href="#create-csharp-file">4. Create and Configure C# Test File</a></li>
+                        <li><a href="#run-tests">5. Run the Tests</a></li>
+                    </ul>
+                </nav>
+                <div class="main-post-content">
+                    <div class="post-content">
+                        <h1 class="h-alpha">Instructions to Install and Run Axe-Core Selenium scripts with C#</h1>
+                        <p>This guide provides step-by-step instructions for setting up your environment and running an accessibility scan on a web page using <strong>C#</strong>, <strong>Axe-core</strong>, and <strong>Selenium</strong> with the .NET framework.</p>
+                        <hr>
+                        <h2 id="install-dotnet-sdk">1. Download and Install .NET SDK</h2>
+                        <p>You need the .NET SDK to build and run .NET applications. It includes the runtime, libraries, and command-line tools.</p>
+                        <ul>
+                            <li><strong>Download .NET SDK:</strong> Go to the official <a href="https://dotnet.microsoft.com/download">Microsoft .NET download page</a>. Download the installer for the latest recommended version that matches your system (usually x64 for Windows).</li>
+                            <li><strong>Run the Installer:</strong> Double-click the downloaded installer file and follow the on-screen instructions. The installer will automatically set up the necessary environment variables.</li>
+                            <li><strong>Verify Installation:</strong> Open a new Command Prompt or PowerShell window and type the following command. You should see the installed SDK version information.</li>
+                        </ul>
+                        <div class="code-container">
+                            <pre><code class="language-bash">dotnet --version</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <hr>
+                        <h2 id="create-test-project">2. Create a New Test Project</h2>
+                        <p>You will create a new NUnit test project using the .NET command-line interface (CLI).</p>
+                        <ul>
+                            <li><strong>Open your terminal:</strong> Navigate to the directory where you want to create your project (e.g., `C:\Users\YourUser\Documents\Projects`).</li>
+                            <li><strong>Create the project:</strong> Run the following command. This creates a new folder named `AxeCoreSeleniumTest` containing a C# project file and a basic test file.</li>
+                        </ul>
+                        <div class="code-container">
+                            <pre><code class="language-bash">dotnet new nunit -n AxeCoreSeleniumTest</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <ul>
+                            <li><strong>Navigate into the project directory:</strong></li>
+                        </ul>
+                        <div class="code-container">
+                            <pre><code class="language-bash">cd AxeCoreSeleniumTest</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <hr>
+                        <h2 id="add-nuget-packages">3. Add Required NuGet Packages</h2>
+                        <p>NuGet is the package manager for .NET. You'll add packages for Selenium, Axe-Core, and a JSON handler.</p>
+                        <ul>
+                            <li>Run the following commands one by one in your terminal within the project directory:</li>
+                        </ul>
+                        <div class="code-container">
+                            <pre><code class="language-bash">dotnet add package Selenium.WebDriver
+dotnet add package Axe.Selenium.Src
+dotnet add package Newtonsoft.Json
+dotnet add package Selenium.WebDriver.ChromeDriver</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <p>These commands update your project's `.csproj` file with the necessary dependencies.</p>
+                        <hr>
+                        <h2 id="create-csharp-file">4. Create and Configure AccessibilityTests.cs</h2>
+                        <p>This is the test file where you will write the accessibility scan logic. You can rename the default `UnitTest1.cs` or create a new file.</p>
+                        <ul>
+                            <li><strong>Create or open the file:</strong> Inside your project folder, create a new file named `AccessibilityTests.cs` (or rename `UnitTest1.cs`).</li>
+                            <li><strong>Add the code:</strong> Copy and paste the provided C# code into the file. This code uses NUnit's `TestCase` attribute to test multiple sites.</li>
+                        </ul>
+                        <div class="code-container">
+                            <pre><code class="language-csharp">using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using Deque.Selenium.Axe;
+using Newtonsoft.Json;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
+using Deque.AxeCore.Commons;
+
+namespace AxeCoreSeleniumTest
+{
+    [TestFixture]
+    public class AccessibilityTests
+    {
+        private IWebDriver? _driver;
+        private string? _currentUrl;
+
+        [SetUp]
+        public void Setup()
+        {
+            var options = new ChromeOptions();
+            options.AddArgument("--start-maximized");
+            // To run headless (without opening a browser window), uncomment the line below
+            // options.AddArgument("--headless"); 
+            _driver = new ChromeDriver(options);
+        }
+
+        [TestCase("https://mn.gov/mnit/about-mnit/accessibility/office-of-inaccessibility.jsp")]
+        [TestCase("https://www.google.com")]
+        [TestCase("https://www.bing.com")]
+        [TestCase("https://www.yahoo.com")]
+        public void RunAxeCoreScanOnSite(string siteUrl)
+        {
+            _currentUrl = siteUrl;
+            if (_driver == null)
+            {
+                Assert.Fail("WebDriver is not initialized.");
+                return;
+            }
+
+            try
+            {
+                _driver.Navigate().GoToUrl(siteUrl);
+                Console.WriteLine($"Navigating to page: {siteUrl}");
+
+                AxeResult axeResult = new AxeBuilder(_driver).Analyze();
+                Console.WriteLine($"Axe-core scan completed for {siteUrl}.");
+                
+                // Save JSON report
+                string reportsDir = Path.Combine(TestContext.CurrentContext.TestDirectory, "a11y-reports");
+                Directory.CreateDirectory(reportsDir);
+                string sanitizedUrl = Regex.Replace(siteUrl, "[^a-zA-Z0-9.-]", "_");
+                
+                string jsonFileName = $"{sanitizedUrl}_axe_results.json";
+                string jsonFilePath = Path.Combine(reportsDir, jsonFileName);
+                File.WriteAllText(jsonFilePath, JsonConvert.SerializeObject(axeResult, Formatting.Indented));
+                Console.WriteLine($"Axe-core JSON results saved to: {jsonFilePath}");
+
+                // Generate and save HTML report
+                GenerateHtmlReport(axeResult, siteUrl, reportsDir, sanitizedUrl);
+
+                if (axeResult.Violations.Length == 0)
+                {
+                    Console.WriteLine($"No accessibility violations found on {siteUrl}!");
+                    Console.WriteLine("This means the page appears to be highly accessible.");
+                }
+                else
+                {
+                    Console.WriteLine($"--- Accessibility Violations Found on {siteUrl} ---");
+                    Console.WriteLine("Review these issues to improve the accessibility of the page.");
+                    foreach (var violation in axeResult.Violations)
+                    {
+                        Console.WriteLine($"Rule ID: {violation.Id}");
+                        Console.WriteLine($"Description: {violation.Description}");
+                        Console.WriteLine($"Help URL: {violation.HelpUrl}");
+                        Console.WriteLine($"Impact: {violation.Impact}");
+                        Console.WriteLine("Nodes:");
+                        foreach (var node in violation.Nodes)
+                        {
+                            Console.WriteLine($"    HTML: {node.Html}");
+                            Console.WriteLine($"    Target: {string.Join(", ", node.Target)}");
+                            Console.WriteLine($"    Failure Summary: {node.FailureSummary}");
+                            Console.WriteLine("-----");
+                        }
+                        Console.WriteLine("------------------------------------");
+                    }
+                }
+                
+                Assert.That(axeResult.Violations, Is.Empty, $"Accessibility violations found on {siteUrl}");
+            }
+            catch (Exception e)
+            {
+                Assert.Fail($"An unexpected error occurred while testing {siteUrl}: {e.Message}");
+            }
+        }
+        
+        private void GenerateHtmlReport(AxeResult results, string url, string reportDir, string sanitizedUrl)
+        {
+            var htmlContent = new StringBuilder();
+            htmlContent.Append($"<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Accessibility Report for {url}</title>\n");
+            htmlContent.Append("<style>body { font-family: Arial, sans-serif; margin: 20px; } h1 { color: #333; } table { width: 100%; border-collapse: collapse; margin-top: 20px; } th, td { border: 1px solid #ddd; padding: 8px; text-align: left; } th { background-color: #f2f2f2; } .violation-impact-critical { background-color: #ffe0e0; } .violation-impact-serious { background-color: #fffacd; } .violation-impact-moderate { background-color: #e0f2f7; } .violation-impact-minor { background-color: #e6ffe6; } .summary-box { background-color: #f9f9f9; border: 1px solid #eee; padding: 15px; margin-bottom: 20px; } code { background-color: #eee; padding: 2px 4px; border-radius: 3px; }</style>\n");
+            htmlContent.Append($"</head>\n<body>\n<h1>Accessibility Report</h1>\n<p><strong>Page Scanned:</strong> <a href=\"{url}\">{url}</a></p>\n<div class=\"summary-box\"><h2>Summary</h2><p>Total Violations: <strong>{results.Violations.Length}</strong></p><p>Total Inapplicable: <strong>{results.Inapplicable.Length}</strong></p><p>Total Incomplete: <strong>{results.Incomplete.Length}</strong></p></div>\n");
+            
+            if (results.Violations.Length > 0)
+            {
+                htmlContent.Append($"<h2>Violations ({results.Violations.Length})</h2>\n<table><thead><tr><th>Rule ID</th><th>Impact</th><th>Description</th><th>HTML Affected</th><th>Failure Summary</th><th>Help Link</th></tr></thead><tbody>\n");
+                foreach (var violation in results.Violations)
+                {
+                    string impactClass = $"violation-impact-{(violation.Impact ?? "unknown").ToLower()}";
+                    htmlContent.Append($"<tr class=\"{impactClass}\"><td>{EscapeHtml(violation.Id)}</td><td>{EscapeHtml(violation.Impact)}</td><td>{EscapeHtml(violation.Description)}</td><td>\n");
+                    foreach (var node in violation.Nodes)
+                    {
+                        htmlContent.Append($"<p><code>{EscapeHtml(node.Html)}</code></p><p>Target: <code>{EscapeHtml(string.Join(", ", node.Target))}</code></p>\n");
+                    }
+                    htmlContent.Append("</td><td>\n");
+                    foreach (var node in violation.Nodes)
+                    {
+                        htmlContent.Append($"<p>{EscapeHtml(node.FailureSummary)}</p>\n");
+                    }
+                    htmlContent.Append($"</td><td><a href=\"{violation.HelpUrl}\" target=\"_blank\">Learn More</a></td></tr>\n");
+                }
+                htmlContent.Append("</tbody></table>\n");
+            }
+            else
+            {
+                htmlContent.Append("<p>No accessibility violations found.</p>\n");
+            }
+
+            htmlContent.Append("</body>\n</html>");
+            string htmlFileName = $"{sanitizedUrl}_accessibility_report.html";
+            string htmlFilePath = Path.Combine(reportDir, htmlFileName);
+            File.WriteAllText(htmlFilePath, htmlContent.ToString());
+            Console.WriteLine($"HTML accessibility report generated at: {htmlFilePath}");
+        }
+
+        private static string EscapeHtml(string? text)
+        {
+            if (text == null) return "";
+            return text.Replace("&", "&amp;")
+                       .Replace("<", "&lt;")
+                       .Replace(">", "&gt;")
+                       .Replace("\"", "&quot;")
+                       .Replace("'", "&#x27;");
+        }
+
+        [TearDown]
+        public void Teardown()
+        {
+            if (_driver != null)
+            {
+                Console.WriteLine($"Closing browser after testing {_currentUrl}.");
+                _driver.Quit();
+                _driver.Dispose();
+            }
+        }
+    }
+}
+</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+
+                        <h2 id="run-tests">5. Run the Tests</h2>
+                        <p>Now, you are ready to build the project and run your tests.</p>
+                        <ul>
+                            <li><strong>Run the tests:</strong> From your terminal in the project directory, execute the following command:</li>
+                        </ul>
+                        <div class="code-container">
+                            <pre><code class="language-bash">dotnet test</code></pre>
+                            <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <ul>
+                            <li><strong>Check Test Results:</strong> The terminal will show the test progress and results. After the command finishes, check the output for passed or failed tests. The JSON and HTML report files will be generated in the `AxeCoreSeleniumTest/bin/Debug/netX.X/a11y-reports` folder (the .NET version may vary).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="print-container">
+                <button type="button" class="print-button" aria-label="Print this page">
+                    <i class="fa-solid fa-lg fa-print" aria-hidden="true"></i> Print this Page
+                </button>
+            </div>
+        </main>
+
+        <footer class="container" id="footer">
+            <nav aria-label="Site map">
+                <ul>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/resources/">Resources</a></li>
+                    <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+                    <li><a href="/testing-routine/">Testing Routine</a></li>
+                    <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
+                    <li><a href="/site-map/">Site map</a></li>
+                </ul>
+            </nav>
+            <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+            <p class="last-modified" id='last-modified'></p>
+        </footer>
+    </div>
+    <script>
+        // Function to replace text wrapped in **...** with <strong>...</strong>
+        function formatBoldText() {
+            const elementsToScan = document.querySelectorAll('p, li, h2, h3, h4, h5, h6');
+            elementsToScan.forEach(el => {
+                let htmlContent = el.innerHTML;
+                const boldRegex = /\*\*(.*?)\*\*/g;
+                if (boldRegex.test(htmlContent)) {
+                    htmlContent = htmlContent.replace(boldRegex, '<strong>$1</strong>');
+                    el.innerHTML = htmlContent;
+                }
+            });
+        }
+
+        // Function to handle copying code without animation
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling.querySelector('code');
+            navigator.clipboard.writeText(codeBlock.innerText)
+                .then(() => {
+                    button.textContent = "Copied!";
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    button.textContent = "Error";
+                })
+                .finally(() => {
+                    // Revert button text after 2 seconds
+                    setTimeout(() => {
+                        button.textContent = "Copy";
+                    }, 2000);
+                });
+        }
+
+        function setModifiedDate() {
+            if (document.getElementById('last-modified')) {
+                fetch("https://api.github.com/repos/mnit-dot-a11y/mnit-dot-a11y.github.io/commits?path=axe-core-csharp-instructions.md")
+                    .then(response => response.json())
+                    .then(commits => {
+                        if (commits && commits.length > 0) {
+                            var modified = commits[0]['commit']['committer']['date'].slice(0, 10);
+                            if (modified != "") {
+                                document.getElementById('last-modified').textContent = "Last modified: " + modified;
+                            }
+                        }
+                    });
+            }
+        }
+        
+        // Call the function on page load to format the bold text
+        document.addEventListener("DOMContentLoaded", function() {
+            formatBoldText();
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/assets/scripts/index.js?1736284235"></script>
+</body>
+
+</html>
