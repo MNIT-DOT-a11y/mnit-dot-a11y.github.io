@@ -225,7 +225,7 @@
                         <p>You will create a new NUnit test project using the .NET command-line interface (CLI).</p>
                         <ul>
                             <li><strong>Open your terminal:</strong> Navigate to the directory where you want to create your project (e.g., `C:\Users\YourUser\Documents\Projects`).</li>
-                            <li><strong>Create the project:</strong> Run the following command. This creates a new folder named `AxeCoreSeleniumTest` containing a C# project file and a basic test file.</li>
+                            <li><strong>Create the project:</strong> Run the following command. This creates a new folder named AxeCoreSeleniumTest containing a C# project file and a basic test file.</li>
                         </ul>
                         <div class="code-container">
                             <pre><code class="language-bash">dotnet new nunit -n AxeCoreSeleniumTest</code></pre>
@@ -251,13 +251,13 @@ dotnet add package Newtonsoft.Json
 dotnet add package Selenium.WebDriver.ChromeDriver</code></pre>
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
-                        <p>These commands update your project's `.csproj` file with the necessary dependencies.</p>
+                        <p>These commands update your project's .csproj file with the necessary dependencies.</p>
                         <hr>
                         <h2 id="create-csharp-file">4. Create and Configure AccessibilityTests.cs</h2>
-                        <p>This is the test file where you will write the accessibility scan logic. You can rename the default `UnitTest1.cs` or create a new file.</p>
+                        <p>This is the test file where you will write the accessibility scan logic.</p>
                         <ul>
-                            <li><strong>Create or open the file:</strong> Inside your project folder, create a new file named `AccessibilityTests.cs` (or rename `UnitTest1.cs`).</li>
-                            <li><strong>Add the code:</strong> Copy and paste the provided C# code into the file. This code uses NUnit's `TestCase` attribute to test multiple sites.</li>
+                            <li><strong>Create or open the file:</strong> Inside your project folder, create a new file named AccessibilityTests.cs (or rename UnitTest1.cs).</li>
+                            <li><strong>Add the code:</strong> Copy and paste the provided C# code into the file. This code uses NUnit's TestCase attribute to test multiple sites.</li>
                         </ul>
                         <div class="code-container">
                             <pre><code class="language-csharp">using NUnit.Framework;
@@ -432,7 +432,7 @@ namespace AxeCoreSeleniumTest
                             <button class="copy-button" onclick="copyCode(this)">Copy</button>
                         </div>
                         <ul>
-                            <li><strong>Check Test Results:</strong> The terminal will show the test progress and results. After the command finishes, check the output for passed or failed tests. The JSON and HTML report files will be generated in the `AxeCoreSeleniumTest/bin/Debug/netX.X/a11y-reports` folder (the .NET version may vary).</li>
+                            <li><strong>Check Test Results:</strong> The terminal will show the test progress and results. After the command finishes, check the output for passed or failed tests. The JSON and HTML report files will be generated in the AxeCoreSeleniumTest/bin/Debug/netX.X/a11y-reports folder (the .NET version may vary).</li>
                         </ul>
                     </div>
                 </div>
