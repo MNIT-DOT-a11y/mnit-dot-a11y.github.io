@@ -11,6 +11,21 @@ description: Guides and code for implementing accessible components and integrat
     </div>
 </div>
 
+<style>
+    .cards.home {
+        display: flex;      /* Aligns the cards in a row */
+        flex-wrap: wrap;    /* Allows cards to wrap to the next line if needed */
+        gap: 1rem;          /* Adds some space between the cards */
+    }
+    .card {
+        display: flex;      /* Makes the card a flex container too */
+        flex: 1;            /* Allows each card to grow and take up equal space */
+    }
+    .card a.display {
+        width: 100%;        /* Ensures the link fills the entire card width */
+    }
+</style>
+
 <div class="container">
     <ul class="cards home">
         <li class="card emphasized">
