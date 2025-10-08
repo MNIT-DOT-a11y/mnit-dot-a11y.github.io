@@ -1,3 +1,10 @@
+You're right. The issue is that a more general style from your site's main stylesheet is overriding the grid layout.
+
+To fix this, we need to make the CSS rules more specific. By adding an `id` to your list, we can create a powerful selector that will not be overridden. I've also added `!important` as a final guarantee to force the correct display.
+
+Here is the corrected code. This should resolve the issue and give you the three-column layout.
+
+```html
 ---
 layout: default
 title: Developer Guides
@@ -69,3 +76,4 @@ description: Guides and code for implementing accessible components and integrat
         </li>
     </ul>
 </div>
+```
