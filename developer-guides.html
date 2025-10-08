@@ -12,24 +12,20 @@ description: Guides and code for implementing accessible components and integrat
 </div>
 
 <style>
-    .cards.home {
-        display: grid;
-        /* This rule creates 3 equal-width columns */
-        grid-template-columns: repeat(3, 1fr);
-        /* This adds a gap between the cards */
+    #developer-guides-list {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
         gap: 1.5rem;
         list-style: none;
         padding: 0;
     }
 
-    .card {
-        /* This ensures the card stretches to the full height of its row */
+    #developer-guides-list > .card {
         display: flex;
         height: 100%;
     }
 
-    .card a.display {
-        /* This makes the link fill the card and center the text inside */
+    #developer-guides-list > .card > a.display {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -40,7 +36,7 @@ description: Guides and code for implementing accessible components and integrat
 </style>
 
 <div class="container">
-    <ul class="cards home">
+    <ul class="cards home" id="developer-guides-list">
         <li class="card emphasized">
             <a class="display" href="/java-axe-core/setup.html">
                 Java<br>Axe-Core
