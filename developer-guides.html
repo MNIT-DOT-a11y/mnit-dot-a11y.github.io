@@ -12,9 +12,14 @@ description: Guides and code for implementing accessible components and integrat
 </div>
 
 <style>
+    /* This new rule forces the wrapper to take up the full width */
+    .card-grid-wrapper {
+        width: 100%;
+    }
+
     #developer-guides-list {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
         list-style: none;
         padding: 0;
@@ -22,7 +27,6 @@ description: Guides and code for implementing accessible components and integrat
 
     #developer-guides-list > .card {
         display: flex;
-        height: 100%;
     }
 
     #developer-guides-list > .card > a.display {
@@ -32,41 +36,44 @@ description: Guides and code for implementing accessible components and integrat
         justify-content: center;
         text-align: center;
         padding: 1.5rem;
+        /* This rule makes the cards taller */
+        min-height: 160px;
     }
 </style>
 
 <div class="container">
-    <ul class="cards home" id="developer-guides-list">
-        <li class="card emphasized">
-            <a class="display" href="/java-axe-core/setup.html">
-                Java<br>Axe-Core
-                <span class="secondary-text">Installation Guide</span>
-            </a>
-        </li>
-        <li class="card emphasized">
-            <a class="display" href="/python-axe-core/setup.html">
-                Python<br>Axe-Core
-                <span class="secondary-text">Installation Guide</span>
-            </a>
-        </li>
-        <li class="card emphasized">
-            <a class="display" href="/c-sharp-axe-core/setup.html">
-                C#<br>Axe-Core
-                <span class="secondary-text">Installation Guides</span>
-            </a>
-        </li>
-        <li class="card emphasized">
-            <a class="display" href="/ci-cd/setup-ci-cd.html">
-                CI/CD<br>Implementation Guides
-                <span class="secondary-text">Integration Guides</span>
-            </a>
-        </li>
-        <li class="card">
-            <a class="display" href="/components/intro.html">
-                Components
-                <span class="secondary-text">Guides and Code</span>
-            </a>
-        </li>
-    </ul>
+    <div class="card-grid-wrapper">
+        <ul class="cards home" id="developer-guides-list">
+            <li class="card emphasized">
+                <a class="display" href="/java-axe-core/setup.html">
+                    Java<br>Axe-Core
+                    <span class="secondary-text">Installation Guide</span>
+                </a>
+            </li>
+            <li class="card emphasized">
+                <a class="display" href="/python-axe-core/setup.html">
+                    Python<br>Axe-Core
+                    <span class="secondary-text">Installation Guide</span>
+                </a>
+            </li>
+            <li class="card emphasized">
+                <a class="display" href="/c-sharp-axe-core/setup.html">
+                    C#<br>Axe-Core
+                    <span class="secondary-text">Installation Guides</span>
+                </a>
+            </li>
+            <li class="card emphasized">
+                <a class="display" href="/ci-cd/setup-ci-cd.html">
+                    CI/CD<br>Implementation Guides
+                    <span class="secondary-text">Integration Guides</span>
+                </a>
+            </li>
+            <li class="card">
+                <a class="display" href="/components/intro.html">
+                    Components
+                    <span class="secondary-text">Guides and Code</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
-```
