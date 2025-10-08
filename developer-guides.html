@@ -6,74 +6,42 @@ description: Guides and code for implementing accessible components and integrat
 
 <div class="container">
     <div class="post-content">
-        <h1>Developer Guides</h1>
+        <h1 class="h-alpha">
+            <span class="h-delta">Developer Resources</span><br/>
+            Developer Guides
+        </h1>
         <p>This developer resource offers a variety of guides and code samples to assist developers in implementing accessibility testing and creating accessible components. It covers different technologies and integration points, including automated testing with Axe-core and developing common UI elements.</p>
     </div>
 </div>
 
-<style>
-    /* This new rule forces the wrapper to take up the full width */
-    .card-grid-wrapper {
-        width: 100%;
-    }
-
-    #developer-guides-list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-        list-style: none;
-        padding: 0;
-    }
-
-    #developer-guides-list > .card {
-        display: flex;
-    }
-
-    #developer-guides-list > .card > a.display {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        padding: 1.5rem;
-        /* This rule makes the cards taller */
-        min-height: 160px;
-    }
-</style>
-
 <div class="container">
-    <div class="card-grid-wrapper">
-        <ul class="cards home" id="developer-guides-list">
+    <nav aria-label="Developer Guides">
+        <ul class="cards cards-how-to-test">
             <li class="card emphasized">
-                <a class="display" href="/java-axe-core/setup.html">
-                    Java<br>Axe-Core
-                    <span class="secondary-text">Installation Guide</span>
+                <a href="/java-axe-core/setup.html">
+                    <span class="title">Java Axe-Core</span>
                 </a>
             </li>
             <li class="card emphasized">
-                <a class="display" href="/python-axe-core/setup.html">
-                    Python<br>Axe-Core
-                    <span class="secondary-text">Installation Guide</span>
+                <a href="/python-axe-core/setup.html">
+                    <span class="title">Python Axe-Core</span>
                 </a>
             </li>
             <li class="card emphasized">
-                <a class="display" href="/c-sharp-axe-core/setup.html">
-                    C#<br>Axe-Core
-                    <span class="secondary-text">Installation Guides</span>
+                <a href="/c-sharp-axe-core/setup.html">
+                    <span class="title">C# Axe-Core</span>
                 </a>
             </li>
             <li class="card emphasized">
-                <a class="display" href="/ci-cd/setup-ci-cd.html">
-                    CI/CD<br>Implementation Guides
-                    <span class="secondary-text">Integration Guides</span>
+                <a href="/ci-cd/setup-ci-cd.html">
+                    <span class="title">CI/CD Implementation</span>
                 </a>
             </li>
             <li class="card">
-                <a class="display" href="/components/intro.html">
-                    Components
-                    <span class="secondary-text">Guides and Code</span>
+                <a href="/components/intro.html">
+                    <span class="title">Accessible Components</span>
                 </a>
             </li>
         </ul>
-    </div>
+    </nav>
 </div>
