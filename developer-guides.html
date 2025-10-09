@@ -6,9 +6,15 @@ description: Guides and code for implementing accessible components and integrat
 
 <head>
   <style>
+    /* This keeps the subtitle styled correctly */
     .card .subtitle {
       font-size: smaller;
       display: block;
+    }
+
+    /* This new rule targets and hides the icons */
+    .cards-how-to-test .card::before {
+      display: none !important;
     }
   </style>
 </head>
@@ -24,7 +30,7 @@ description: Guides and code for implementing accessible components and integrat
 
 <div class="container">
   <nav aria-label="Developer Guides">
-    <ul class="cards">
+    <ul class="cards cards-how-to-test">
       <li class="card emphasized">
         <a href="/java-axe-core/setup.html">
           <span class="title">Java Axe-Core</span>
