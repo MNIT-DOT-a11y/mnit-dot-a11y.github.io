@@ -12,11 +12,10 @@ description: Guides and code for implementing accessible components and integrat
       display: block;
     }
 
-    /* This new, more forceful rule targets and removes the icons */
-    .cards-how-to-test .card::before {
-      display: none !important;
-      content: none !important;
+    /* This rule targets the card itself to remove a background icon */
+    .cards-how-to-test .card.emphasized {
       background-image: none !important;
+      padding-left: 20px !important; /* Resets padding used for the icon */
     }
   </style>
 </head>
