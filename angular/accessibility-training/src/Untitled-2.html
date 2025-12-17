@@ -1,0 +1,21 @@
+<section class="demo-container">
+  <h2>Product Image Alt Text Binding Demo</h2>
+
+  <article class="product-card bad-example">
+    <span class="badge-error">Inaccessible Example</span>
+    
+    <h3>{{ product.name }}</h3>
+    <img [src]="product.imageUrl" alt="Product Image">
+    <p>Price: {{ product.price | currency }}</p>
+  </article>
+
+  <hr class="demo-divider">
+
+  <article class="product-card good-example">
+    <span class="badge-success">Accessible Example</span>
+
+    <h3>{{ product.name }}</h3>
+    <img [src]="product.imageUrl" [alt]="product.imageAltText">
+    <p>Price: {{ product.price | currency }}</p>
+  </article>
+</section>

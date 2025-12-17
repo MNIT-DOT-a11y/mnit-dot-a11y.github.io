@@ -1,0 +1,115 @@
+<main>
+  <h1>{{ title }}</h1>
+  
+  <div class="navigation">
+    <a href="#demo1">Link: Demo 1: Data Modeling</a> | 
+    <a href="#demo2">Link: Demo 2: Accessible Forms</a>
+  </div>
+
+  <hr style="margin: 40px 0;">
+
+  <section id="demo1" class="demo-section">
+    <h2>1. Data Modeling & Strong Typing Demo</h2>
+    <p>This comparison shows how TypeScript interfaces prevent accessibility defects by enforcing a complete data contract including `profileImageAltText` that the loose `any` type ignores.</p>
+
+    <div class="card-container">
+      
+      <div class="code-output-container">
+        <h3>Inaccessible Version (Uses 'any')</h3>
+        
+        <pre class="code-snippet">
+<span class="comment">// 1. Inaccessible Data Contract (any type)</span>
+export class ProfileBadComponent &#123; 
+  profile: **any**; 
+&#125;
+
+<span class="comment">// 2. Inaccessible Template Binding</span>
+&lt;img 
+  [src]="profile?.imgSrc" 
+  **alt="Product Image"**> 
+</pre>
+        <div class="output-preview">
+          <h4>Output:</h4>
+          <app-profile-bad></app-profile-bad>
+        </div>
+      </div>
+
+      <div class="code-output-container">
+        <h3>Accessible Version (Uses UserProfile Interface)</h3>
+        
+        <pre class="code-snippet">
+<span class="comment">// 1. Accessible Data Contract (Interface)</span>
+export interface UserProfile &#123; 
+  // ...
+  profileImageAltText: **string**; 
+&#125;
+
+<span class="comment">// 2. Accessible Template Binding</span>
+&lt;img
+  [src]="profile?.profileImageUrl"
+  **[alt]="profile?.profileImageAltText"**> 
+</pre>
+        <div class="output-preview">
+          <h4>Output:</h4>
+          <app-profile-good></app-profile-good>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr style="margin: 80px 0;"> <section id="demo2" class="demo-section">
+    <h2>2. Accessible Form Validation Demo</h2>
+    <p>This demonstrates linking the error message to the input field using ARIA attributes (`aria-describedby`) and ensuring instant feedback via `role="alert"`.</p>
+
+    <div class="form-container">
+      
+      <form>
+        <div class="form-group"> 
+          <label for="email-2">Email:</label> 
+          
+          <pre class="code-snippet-form">
+&lt;input 
+  id="email-2" 
+  [formControl]="email" 
+  [attr.aria-describedby]="**'email-error'**" 
+  [attr.aria-invalid]="email.invalid">
+
+&lt;div 
+  id="email-error" 
+  **role="alert"**>
+    &lt;span>... error message ...&lt;/span>
+&lt;/div>
+          </pre>
+          
+          <div class="live-form-output">
+            <input 
+              id="email-2" 
+              type="email" 
+              [formControl]="email" 
+              [attr.aria-describedby]="email.invalid &amp;&amp; email.touched ? 'email-error' : null" 
+              [attr.aria-invalid]="email.invalid &amp;&amp; email.touched ? 'true' : null"> 
+            
+            <div 
+              *ngIf="email.invalid && email.touched" 
+              id="email-error" 
+              role="alert" 
+              class="error-message"> 
+              <span *ngIf="email.errors?.['required']">
+                  <span class="icon" aria-hidden="true">❌</span> 
+                  Email address is required.
+              </span>
+              <span *ngIf="email.errors?.['email']">
+                  <span class="icon" aria-hidden="true">❌</span> 
+                  Please enter a valid email address.
+              </span> 
+            </div> 
+            <p style="font-size: 0.9em; margin-top: 15px;">
+              *Click the input, then click outside, to see the accessible error.
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

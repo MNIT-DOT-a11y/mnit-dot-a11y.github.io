@@ -1,0 +1,43 @@
+TypeScript
+Component (app.component.ts): 
+import { Component } from '@angular/core'; 
+import { FormControl, Validators } from '@angular/forms'; 
+
+@Component({ 
+  selector: 'app-root', 
+  templateUrl: './app.component.html', 
+}) 
+export class AppComponent { 
+  email = new FormControl('', [Validators.required, Validators.email]); 
+} 
+HTML
+Template (app.component.html) - INACCESSIBLE:
+<div> 
+  <label for="email-1">Email:</label> 
+  <input id="email-1" type="email" [formControl]="email"> 
+  <div *ngIf="email.invalid && email.touched" style="color: red;"> 
+    Email is required. 
+  </div> 
+</div>
+"This first example only uses color and proximity. It's not programmatically linked to the input."
+HTML
+Template (app.component.html) - ACCESSIBLE:
+<div> 
+  <label for="email-2">Email:</label> 
+  <input 
+    id="email-2" 
+    type="email" 
+    [formControl]="email" 
+    [attr.aria-describedby]="email.invalid && email.touched ? 'email-error' : null" 
+    [attr.aria-invalid]="email.invalid && email.touched"> 
+
+  <div 
+    *ngIf="email.invalid && email.touched" 
+    id="email-error" 
+    role="alert" 
+    style="color: red;"> 
+    <span *ngIf="email.errors?.['required']">Email is required.</span> 
+    <span *ngIf="email.errors?.['email']">Please enter a valid email address.</span> 
+  </div> 
+</div>
+
