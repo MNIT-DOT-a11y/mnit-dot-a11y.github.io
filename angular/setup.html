@@ -178,44 +178,6 @@ import 'cypress-axe';</code></pre>
 }</code></pre>
 <button class="copy-button" onclick="copyCode(this)">Copy</button>
 </div>
-
-<hr>
-<h2 id="create-test-script">4. Create the Accessibility Test File</h2>
-<p>Create a new test file at <code>cypress/e2e/accessibility.cy.ts</code> and add the following code to scan your Angular application:</p>
-<div class="code-container">
-<pre><code class="language-typescript">describe('Accessibility Audits', () => {
-beforeEach(() => {
-cy.visit('/'); // Visit the root of your Angular app
-cy.injectAxe(); // Inject the axe-core runtime
-});
-
-it('Has no detectable accessibility violations on load', () => {
-// Basic check
-cy.checkA11y();
-});
-
-it('Checks specific element accessibility', () => {
-// Check only the main content area with serious/critical impact rules
-cy.checkA11y('main', {
-includedImpacts: ['serious', 'critical']
-});
-});
-});</code></pre>
-<button class="copy-button" onclick="copyCode(this)">Copy</button>
-</div>
-
-<hr>
-<h2 id="run-cypress">5. Run the Tests</h2>
-<p>You can run your tests in the interactive runner or in headless mode for CI/CD:</p>
-<div class="code-container">
-<pre><code class="language-bash"># To open the Cypress Test Runner
-npx cypress open
-
-# To run tests in the terminal
-npx cypress run</code></pre>
-<button class="copy-button" onclick="copyCode(this)">Copy</button>
-</div>
-</div>
 </div>
 </div>
 
