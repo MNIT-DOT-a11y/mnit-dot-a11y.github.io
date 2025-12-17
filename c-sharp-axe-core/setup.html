@@ -2,103 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Instructions to Install and Run Axe-Core Cypress Tests (for C# Teams) - MNIT DOT A11y</title>
-</head>
-<body>
-  <nav>
-    <a href="#content">Skip to main content</a>
-    <a href="#footer">Skip to site Map</a>
-    <ul>
-      <li><a href="https://mnit-dot-a11y.github.io/">MNIT DOT A11y</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/web/">Web</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/desktop/">Desktop Apps</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/native/">Native Apps</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/developer-guides.html">Developer Resources</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/how-to-test/">How-to Test</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/testing-environment/">Testing Apps Setup</a></li>
-    </ul>
-  </nav>
+  <title>Axe-Core Cypress Setup (for C# Teams) | MNIT DOT A11y</title>
 
-  <main id="content">
+  <!-- Shared MNIT DOT A11y styles -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/">MNIT DOT A11y</a></li>
+        <li><a href="/web/">Web</a></li>
+        <li><a href="/desktop/">Desktop Apps</a></li>
+        <li><a href="/native/">Native Apps</a></li>
+        <li><a href="/developer-guides.html">Developer Resources</a></li>
+        <li><a href="/how-to-test/">How-to Test</a></li>
+        <li><a href="/testing-environment/">Testing Apps Setup</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="content-wrapper">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/ci-cd/">CI/CD</a></li>
+        <li>Axe-Core Cypress Setup</li>
+      </ol>
+    </nav>
+
     <h1>Instructions to Install and Run Axe-Core Cypress Tests (for C# Teams)</h1>
 
     <p>
-      This guide provides step-by-step instructions for setting up and running
-      <strong>axe-core accessibility scans using Cypress</strong>.
-      While Cypress tests are written in JavaScript, this approach is commonly
-      used by <strong>C# development teams</strong> as part of CI/CD pipelines,
-      shared accessibility testing strategies, or cross-team quality workflows.
+      This guide explains how to run <strong>axe-core accessibility scans using Cypress</strong>.
+      Although Cypress tests are written in JavaScript, they are commonly used by
+      <strong>C# development teams</strong> as part of CI/CD pipelines and shared accessibility testing strategies.
     </p>
 
-    <h2 id="install-node">1. Install Node.js</h2>
+    <h2>1. Install Node.js</h2>
     <ul>
-      <li><strong>Download Node.js:</strong> Visit the <a href="https://nodejs.org/">official Node.js website</a>.</li>
-      <li><strong>Install:</strong> Use the LTS version recommended for most users.</li>
-      <li><strong>Verify installation:</strong> Run <code>node --version</code> and <code>npm --version</code>.</li>
+      <li>Download Node.js from the official website</li>
+      <li>Install the LTS version</li>
+      <li>Verify installation using <code>node --version</code></li>
     </ul>
 
-    <h2 id="create-project">2. Create a Cypress Project</h2>
-    <ul>
-      <li><strong>Create a new folder:</strong> <code>mkdir axe-cypress-tests</code></li>
-      <li><strong>Navigate into the folder:</strong> <code>cd axe-cypress-tests</code></li>
-      <li><strong>Initialize npm:</strong> <code>npm init -y</code></li>
-      <li><strong>Install Cypress:</strong> <code>npm install cypress --save-dev</code></li>
-    </ul>
+    <h2>2. Create a Cypress Project</h2>
+    <pre><code class="language-bash">
+mkdir axe-cypress-tests
+cd axe-cypress-tests
+npm init -y
+npm install cypress --save-dev
+    </code></pre>
 
-    <h2 id="add-axe">3. Add Axe-Core for Cypress</h2>
-    <pre><code>npm install cypress-axe axe-core --save-dev</code></pre>
+    <h2>3. Add Axe-Core for Cypress</h2>
+    <pre><code class="language-bash">
+npm install cypress-axe axe-core --save-dev
+    </code></pre>
 
-    <h2 id="configure-cypress">4. Configure Cypress for Accessibility Testing</h2>
-    <p>
-      Open <code>cypress/support/e2e.js</code> (or <code>support/index.js</code> in older versions)
-      and add the following:
-    </p>
+    <h2>4. Configure Cypress</h2>
+    <p>Add axe-core support to Cypress:</p>
+    <pre><code class="language-javascript">
+import 'cypress-axe';
+    </code></pre>
 
-    <pre><code>import 'cypress-axe';</code></pre>
-
-    <h2 id="create-test">5. Create an Accessibility Test</h2>
-    <p>
-      Create a new test file such as
-      <code>cypress/e2e/accessibility.cy.js</code> and add the following example:
-    </p>
-
-    <pre><code>describe('Accessibility checks', () => {
+    <h2>5. Create an Accessibility Test</h2>
+    <pre><code class="language-javascript">
+describe('Accessibility checks', () => {
   it('Runs axe-core on the page', () => {
     cy.visit('https://www.example.com');
     cy.injectAxe();
     cy.checkA11y();
   });
-});</code></pre>
+});
+    </code></pre>
 
-    <h2 id="run-tests">6. Run the Tests</h2>
+    <h2>6. Run the Tests</h2>
     <ul>
-      <li><strong>Open Cypress Test Runner:</strong> <code>npx cypress open</code></li>
-      <li><strong>Run headless (CI-friendly):</strong> <code>npx cypress run</code></li>
-      <li><strong>Review results:</strong> Accessibility violations appear in the Cypress output and CI logs.</li>
+      <li>Open Cypress UI: <code>npx cypress open</code></li>
+      <li>Run headless: <code>npx cypress run</code></li>
+      <li>Review accessibility violations in test output</li>
     </ul>
 
-    <h2 id="csharp-integration">7. Using Cypress Results in C# Workflows</h2>
-    <p>
-      C# teams commonly integrate Cypress accessibility results by:
-    </p>
+    <h2>7. Using Cypress Results in C# Workflows</h2>
     <ul>
-      <li>Running Cypress tests in CI pipelines alongside .NET builds</li>
-      <li>Failing builds when accessibility violations exceed thresholds</li>
-      <li>Parsing Cypress JSON or console output for reporting in C# dashboards</li>
-      <li>Using Cypress for UI accessibility and C# tests for API or backend validation</li>
+      <li>Run Cypress alongside .NET builds in CI</li>
+      <li>Fail builds when accessibility violations occur</li>
+      <li>Parse Cypress output for reporting dashboards</li>
+      <li>Use Cypress for UI testing and C# for backend validation</li>
     </ul>
   </main>
 
-  <footer id="footer">
+  <footer class="site-footer" id="footer">
     <ul>
-      <li><a href="https://mnit-dot-a11y.github.io/about/">About</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/resources/">Resources</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/testing-environment/">Set Up Your Testing Environment</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/testing-routine/">Testing Routine</a></li>
-      <li><a href="mailto:Kim.Lanahan-Lahti@state.mn.us?subject=MNIT%20DOT%20A11y%20comment">Send Feedback</a></li>
-      <li><a href="https://mnit-dot-a11y.github.io/site-map/">Site map</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/resources/">Resources</a></li>
+      <li><a href="/testing-environment/">Set Up Your Testing Environment</a></li>
+      <li><a href="/testing-routine/">Testing Routine</a></li>
+      <li><a href="/site-map/">Site map</a></li>
     </ul>
-    <p>MNIT DOT Accessibility Testing Resources. Source code by the T-Mobile - Accessibility Resource Center</p>
+    <p>MNIT DOT Accessibility Testing Resources</p>
   </footer>
+
+  <script src="/assets/js/prism.js"></script>
 </body>
 </html>
