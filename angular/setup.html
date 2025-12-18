@@ -186,24 +186,147 @@ transition: none !important;
 
 <div class="main-post-content">
 <div class="post-content">
-<h1>Instructions to Install and Run Cypress Axe-Core Scripts with Angular</h1>
-<p>This guide provides step-by-step instructions for integrating <strong>Cypress</strong> and <strong>cypress-axe</strong> into an <strong>Angular TypeScript</strong> project to automate accessibility auditing.</p>
+<h1>Install and Run Cypress Axe-Core with Angular</h1>
+
+<p>
+This guide walks you through cloning the MNIT DOT accessibility training project,
+running it locally, and executing automated accessibility tests using
+<strong>Cypress</strong> and <strong>axe-core</strong>.
+</p>
 
 <hr>
-<h2 id="install-dependencies">1. Install Required Dependencies</h2>
-<p>In your Angular project root, install Cypress and the Axe-core plugin using npm:</p>
+
+<h2 id="prerequisites">Before You Begin</h2>
+<ul>
+  <li>Node.js (LTS recommended)</li>
+  <li>npm (included with Node.js)</li>
+  <li>Angular CLI (<code>npm install -g @angular/cli</code>)</li>
+  <li>Git</li>
+</ul>
+
+<p><strong>Checkpoint:</strong> Running <code>node -v</code> and <code>ng version</code> works in your terminal.</p>
+
+<hr>
+
+<h2 id="clone-repo">1. Clone the Repository</h2>
+<p>Clone the MNIT DOT A11y repository and navigate to the Angular training project:</p>
+
+<div class="code-container">
+<pre><code class="language-bash">git clone https://github.com/mnit-dot-a11y/mnit-dot-a11y.github.io.git
+cd mnit-dot-a11y.github.io/angular/accessibility-training</code></pre>
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+</div>
+
+<p><strong>Checkpoint:</strong> You are inside the <code>accessibility-training</code> folder.</p>
+
+<hr>
+
+<h2 id="install-project-deps">2. Install Project Dependencies</h2>
+<p>Install all required Angular dependencies:</p>
+
+<div class="code-container">
+<pre><code class="language-bash">npm install</code></pre>
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+</div>
+
+<p><strong>Checkpoint:</strong> A <code>node_modules</code> folder is created with no errors.</p>
+
+<hr>
+
+<h2 id="install-cypress">3. Install Cypress and Axe-Core</h2>
+<p>Install Cypress and accessibility testing libraries:</p>
+
 <div class="code-container">
 <pre><code class="language-bash">npm install --save-dev cypress cypress-axe axe-core</code></pre>
 <button class="copy-button" onclick="copyCode(this)">Copy</button>
 </div>
 
+<p><strong>Checkpoint:</strong> Cypress appears in <code>package.json</code> under <code>devDependencies</code>.</p>
+
 <hr>
-<h2 id="configure-cypress">2. Configure Cypress Support File</h2>
-<p>Open <code>cypress/support/e2e.ts</code> (or <code>e2e.js</code>) and import the cypress-axe commands so they are available in your tests:</p>
+
+<h2 id="run-angular">4. Start the Angular Application</h2>
+<p>Cypress requires the Angular app to be running locally.</p>
+
+<div class="code-container">
+<pre><code class="language-bash">ng serve</code></pre>
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+</div>
+
+<p>Leave this terminal window open.</p>
+
+<p><strong>Checkpoint:</strong> Visit <code>http://localhost:4200</code> and confirm the app loads.</p>
+
+<hr>
+
+<h2 id="configure-cypress">5. Configure Cypress Support File</h2>
+<p>Open <code>cypress/support/e2e.ts</code> and import the axe commands:</p>
+
 <div class="code-container">
 <pre><code class="language-typescript">import './commands';
 import 'cypress-axe';</code></pre>
 <button class="copy-button" onclick="copyCode(this)">Copy</button>
+</div>
+
+<p><strong>Checkpoint:</strong> No TypeScript errors appear.</p>
+
+<hr>
+
+<h2 id="update-typescript-config">6. Configure TypeScript Types</h2>
+<p>Update <code>cypress/tsconfig.json</code>:</p>
+
+<div class="code-container">
+<pre><code class="language-json">{
+  "compilerOptions": {
+    "types": ["cypress", "cypress-axe"]
+  }
+}</code></pre>
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+</div>
+
+<p><strong>Checkpoint:</strong> IntelliSense recognizes <code>cy.checkA11y()</code>.</p>
+
+<hr>
+
+<h2 id="create-test-script">7. Create the Accessibility Test</h2>
+<p>Create <code>cypress/e2e/accessibility.cy.ts</code>:</p>
+
+<div class="code-container">
+<pre><code class="language-typescript">describe('Accessibility Audits', () => {
+  beforeEach(() => {
+    cy.visit('/');
+    cy.injectAxe();
+  });
+
+  it('Has no detectable accessibility violations on load', () => {
+    cy.checkA11y();
+  });
+
+  it('Checks main content for serious and critical issues', () => {
+    cy.checkA11y('main', {
+      includedImpacts: ['serious', 'critical']
+    });
+  });
+});</code></pre>
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+</div>
+
+<p><strong>Checkpoint:</strong> The test file appears under <code>cypress/e2e</code>.</p>
+
+<hr>
+
+<h2 id="run-cypress">8. Run the Tests</h2>
+<p>Open Cypress in interactive mode:</p>
+
+<div class="code-container">
+<pre><code class="language-bash">npx cypress open</code></pre>
+<button class="copy-button" onclick="copyCode(this)">Copy</button>
+</div>
+
+<p>Select <strong>E2E Testing</strong> and run <code>accessibility.cy.ts</code>.</p>
+
+<p><strong>Checkpoint:</strong> Tests complete with no accessibility violations.</p>
+
 </div>
 
 <hr>
