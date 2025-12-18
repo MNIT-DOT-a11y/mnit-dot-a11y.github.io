@@ -1,8 +1,10 @@
-/* Accessible Base Styles */
+/* =========================
+   Accessible Base Styles
+   ========================= */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333; /* Dark gray for high contrast */
+  color: #333;
   margin: 0;
   padding: 20px;
 }
@@ -13,24 +15,36 @@ h1 {
   margin-bottom: 20px;
 }
 
-.demo-section {
-  padding: 25px;
-  border: 1px solid #ccc;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  background-color: #f9f9f9; /* Light contrast background */
+h2, h3, h4, h5 {
+  color: #003366;
+  font-weight: bold;
 }
 
-/* Demo Card Layout */
+/* =========================
+   Shared Section Styling
+   ========================= */
+.demo-section,
+.training-section {
+  padding: 25px;
+  border: 2px solid #000;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* =========================
+   Demo Card Layout
+   ========================= */
 .card-container {
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  flex-wrap: wrap;
   gap: 40px;
   justify-content: center;
   margin-top: 20px;
 }
 
-.card-bad, .card-good {
+.card-bad,
+.card-good {
   border: 2px solid;
   padding: 15px;
   border-radius: 5px;
@@ -38,21 +52,74 @@ h1 {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Inaccessible Card (Danger Color Scheme - Sufficient Contrast) */
+/* Inaccessible Card */
 .card-bad {
-  border-color: #a94442; /* Darker red border */
-  background-color: #f2dede; 
-  color: #a94442; 
+  border-color: #a94442;
+  background-color: #f2dede;
+  color: #a94442;
 }
 
-/* Accessible Card (Success Color Scheme - Sufficient Contrast) */
+/* Accessible Card */
 .card-good {
-  border-color: #3c763d; /* Darker green border */
+  border-color: #3c763d;
   background-color: #dff0d8;
-  color: #3c763d; 
+  color: #3c763d;
 }
 
-/* Form Styling */
+/* =========================
+   Navigation
+   ========================= */
+.navigation {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navigation a {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #1a0dab;
+  text-decoration: none;
+  padding: 0 15px;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Code Snippets & Outputs
+   ========================= */
+.code-output-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 45%;
+}
+
+/* High‑contrast code blocks */
+pre.code-snippet,
+pre.code-snippet-form {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 2px solid #000;
+  padding: 14px;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 0.95em;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* Comment styling inside code */
+.code-snippet span.comment {
+  color: #9cdcfe;
+}
+
+/* =========================
+   Forms & Validation
+   ========================= */
 .form-group {
   margin-bottom: 20px;
   padding: 15px;
@@ -69,20 +136,19 @@ label {
 input[type="email"] {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 2px solid #000;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-/* ACCESSIBLE ERROR MESSAGE STYLING */
+/* Accessible error messaging */
 .error-message {
-  color: #a94442; /* Dark red text */
-  font-weight: bold; /* Text is now bolded */
+  color: #a94442;
+  font-weight: bold;
   margin-top: 8px;
   padding: 5px;
 }
 
-/* Error Icon Styling - Ensures the 'X' is visible */
 .error-message .icon {
   margin-right: 8px;
   font-size: 1.1em;
@@ -90,47 +156,9 @@ input[type="email"] {
   vertical-align: middle;
 }
 
-/* Styling for Navigation and Layout */
-.navigation {
-  text-align: center;
-  margin-top: 20px;
-  padding-bottom: 20px;
-}
-.navigation a {
-  font-weight: bold;
-  font-size: 1.1em;
-  color: #1a0dab;
-  text-decoration: none;
-  padding: 0 15px;
-}
-
-/* Styling for Code Snippets and Output Containers */
-.code-output-container {
-  /* Ensure code and output stack neatly */
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start;
-  width: 45%; 
-}
-
-/* Code Formatting */
-pre.code-snippet, pre.code-snippet-form {
-  background-color: #eee;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  width: 100%;
-  font-size: 0.9em;
-  white-space: pre-wrap; /* Allows long lines to wrap */
-  box-sizing: border-box;
-  overflow-x: auto;
-}
-
-.code-snippet span.comment {
-  color: #666; /* Gray for comments */
-}
-
-/* Form Demo Layout */
+/* =========================
+   Form Demo Layout
+   ========================= */
 .form-container {
   display: flex;
   justify-content: center;
@@ -139,8 +167,9 @@ pre.code-snippet, pre.code-snippet-form {
 .live-form-output {
   margin-top: 15px;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 2px solid #ff9900;
   border-radius: 4px;
   width: 100%;
-  max-width: 450px; 
+  max-width: 450px;
+  background-color: #fffbe6;
 }

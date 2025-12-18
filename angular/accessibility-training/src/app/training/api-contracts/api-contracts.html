@@ -1,0 +1,121 @@
+<section class="demo-section">
+
+  <h2>API Contracts & Accessibility</h2>
+
+  <p>
+    Strong API contracts help prevent accessibility defects by making required
+    relationships explicit instead of forcing developers to guess.
+  </p>
+
+  <hr>
+
+  <!-- Scenario 1 -->
+  <h3>Scenario: A User Profile Card</h3>
+
+  <p>
+    On the left, a vague model forces guessing and alt text is forgotten.
+    On the right, a clear model makes the data relationships obvious.
+  </p>
+
+  <div class="card-container">
+    <div class="code-output-container">
+      <h4>Not Accessible: Vague Data Model</h4>
+
+      <pre class="code-snippet">
+&lt;div class="product-card"&gt;
+  &lt;h3&gt;&#125;&#125; product.name &#125;&#125;&lt;/h3&gt;
+  &lt;img
+    &#91;src&#93;="product.imageUrl"
+    &#91;alt&#93;="product.imageAltText"&gt;
+&lt;/div&gt;
+      </pre>
+    </div>
+
+    <div class="code-output-container">
+      <h4>Accessible: Clear, Descriptive Contract</h4>
+
+      <pre class="code-snippet">
+export interface UserProfile &#123;
+  displayName: string;
+  jobTitle: string;
+
+  // Naming and grouping makes the relationship obvious
+  profileImageUrl: string;
+  profileImageAltText: string;
+&#125;
+      </pre>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Scenario 2 -->
+  <h3>Scenario: Displaying a Product Image</h3>
+
+  <p>
+    If an API only sends an image URL, the front-end developer is forced to
+    either omit alt text (an accessibility failure) or guess with something
+    unhelpful like “product image”.
+  </p>
+
+  <p>
+    This places responsibility for accessibility on the wrong party.
+    The API should provide the required information.
+  </p>
+
+  <h4>JSON from API</h4>
+
+  <pre class="code-snippet">
+&#123;
+  "id": "cfa...",
+  "name": "Heavy-Duty Work Gloves",
+  "imageUrl": "/images/gloves.jpg",
+  "imageAltText": "A pair of durable, brown leather work gloves."
+&#125;
+  </pre>
+
+  <h4>TypeScript Interface</h4>
+
+  <pre class="code-snippet">
+export interface Product &#123;
+  id: string;
+  name: string;
+  imageUrl: string;
+  imageAltText: string;
+&#125;
+  </pre>
+
+  <h4>Angular Component Template</h4>
+
+  <div class="card-container">
+    <div class="code-output-container">
+      <h5>Inaccessible</h5>
+
+      <pre class="code-snippet">
+&lt;div class="product-card"&gt;
+  &lt;h3&gt;&#125;&#125; product.name &#125;&#125;&lt;/h3&gt;
+  &lt;img &#91;src&#93;="product.imageUrl" alt="Product Image"&gt;
+&lt;/div&gt;
+      </pre>
+    </div>
+
+    <div class="code-output-container">
+      <h5>Accessible</h5>
+
+      <pre class="code-snippet">
+&lt;div class="product-card"&gt;
+  &lt;h3&gt;&#125;&#125; product.name &#125;&#125;&lt;/h3&gt;
+  &lt;img
+    &#91;src&#93;="product.imageUrl"
+    &#91;alt&#93;="product.imageAltText"&gt;
+&lt;/div&gt;
+      </pre>
+    </div>
+  </div>
+
+  <p>
+    The accessible version uses property binding:
+    <code>&#91;alt&#93;="product.imageAltText"</code>.
+    This ensures specific, descriptive alt text is always present.
+  </p>
+</section>

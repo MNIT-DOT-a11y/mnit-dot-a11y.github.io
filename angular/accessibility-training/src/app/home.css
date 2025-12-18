@@ -1,0 +1,88 @@
+/* General layout for demo sections */
+.demo-section {
+  margin: 40px 0;
+  padding: 20px;
+  border: 3px solid #000; /* strong contrast border */
+  background-color: #f9f9f9; /* light neutral background */
+  border-radius: 6px;
+}
+
+/* Headings */
+.demo-section h2 {
+  color: #003366; /* dark navy for strong contrast */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Code snippets */
+.code-snippet {
+  background-color: #1e1e1e; /* dark background */
+  color: #ffffff;            /* white text for contrast */
+  padding: 15px;
+  border-radius: 6px;
+  font-family: Consolas, monospace;
+  font-size: 0.95em;
+  overflow-x: auto;
+}
+
+.code-snippet .comment {
+  color: #00ff00; /* bright green comments for visibility */
+}
+
+/* Output preview cards */
+.output-preview {
+  background-color: #e6f7ff; /* pale blue background */
+  border: 2px solid #004080; /* dark blue border */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.output-preview h4 {
+  color: #004080;
+  font-weight: bold;
+}
+
+/* Form demo container */
+.form-container {
+  background-color: #fffbe6; /* pale yellow background */
+  border: 2px solid #ff9900; /* bold orange border */
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Input styling */
+.live-form-output input {
+  border: 2px solid #000;
+  padding: 8px;
+  font-size: 1em;
+  border-radius: 4px;
+}
+
+/* Error messages */
+.error-message {
+  color: #b30000; /* bold red for errors */
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.error-message .icon {
+  margin-right: 5px;
+}
+
+/* Navigation links */
+nav.navigation a {
+  color: #004080;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+nav.navigation a:hover {
+  text-decoration: underline;
+}
