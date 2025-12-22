@@ -92,7 +92,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
 
   <tr>
     <th scope="row">
-      <span class="keyboard-key"> Esc (Escape)</span>
+      <span class="keyboard-key"> Esc</span>
     </th>
     <td>
       Close dialogs or modals.
