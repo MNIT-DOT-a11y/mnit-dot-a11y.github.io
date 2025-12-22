@@ -101,6 +101,11 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
   
   </tbody>
 </table>
+<h3>Testing shortcuts by application</h3>
+<ul>
+<li><a href="https://mnit-dot-a11y.github.io/how-to-test/keyboard-shortcuts-gis/">Keyboard shortcuts for accessibility testing in GIS</a></li>
+<li><a href="https://mnit-dot-a11y.github.io/how-to-test/keyboard-shortcuts-powerbi/">Keyboard shortcuts for accessibility testing in Power BI</a></li>
+</ul>
 
 ## <step-number>3</step-number> What to test for
 {: .divider }
@@ -112,7 +117,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
 
 <div class="how-to-test-checklist-item">
   <h3>Ensure there is a highly visible visual indication of keyboard focus</h3>
-  <p>Keyboard users need to understand where they are in the interface at all times. The visual indication of keyboard focus (focus ring) should be highly visible and have a color contrast ratio of 3:1 against the background. Verify that overlapping items (e.g. cookie banners, sticky footers, sticky headers, and non-modal dialogs) do not obscure the visual indicator. </p>
+  <p>Keyboard users need to understand where they are in the interface at all times. The visual indication of keyboard focus (focus ring) should be highly visible and have a color contrast ratio of 3:1 against the background. Verify that overlapping items (e.g. cookie banners, sticky footers, sticky headers, and non-modal dialogs) do not obscure the visual indicator.</p>
 </div>
 
 <div class="how-to-test-checklist-item">
