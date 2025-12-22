@@ -50,7 +50,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
       <span class="keyboard-key">Arrows</span>
     </th>
     <td>
-      Should scroll the screen or interact with form fields
+      Navigate within menus, radio buttons, or dropdowns.
     </td>
   </tr>
   
@@ -59,7 +59,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
       <span class="keyboard-key">Tab</span>
     </th>
     <td>
-      Moves through the interface focusing on elements that are focusable. For example, buttons and links.
+      Move forward through interactive elements (links, buttons, form fields).
     </td>
   </tr>  
 
@@ -68,7 +68,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
       <span class="keyboard-key">Shift + Tab</span>
     </th>
     <td>
-      Moves in reverse through the interface focusing on elements that are focusable.
+      Move backward through interactive elements.
     </td>
   </tr> 
 
@@ -77,7 +77,7 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
       <span class="keyboard-key">Enter</span>
     </th>
     <td>
-      Activates links and buttons
+      Activates links, buttons, enter into widgets, maps etc.
     </td>
   </tr> 
 
@@ -86,16 +86,16 @@ Keyboard testing consists of a few keyboard commands to interact with web experi
       <span class="keyboard-key">Spacebar</span>
     </th>
     <td>
-      Activates buttons and interacts with form elements
+      Activate a button, toggle a checkbox, expand/collapse menus.
     </td>
   </tr> 
 
   <tr>
     <th scope="row">
-      <span class="keyboard-key">Escape</span>
+      <span class="keyboard-key"> Esc (Escape)</span>
     </th>
     <td>
-      Should close or dismiss widgets like dialogs
+      Close dialogs or modals.
     </td>
   </tr>  
   
