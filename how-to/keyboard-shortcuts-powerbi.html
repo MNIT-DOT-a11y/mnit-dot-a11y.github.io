@@ -4,102 +4,108 @@ title: Power BI keyboard shortcuts for accessibility testing
 permalink: /how-to-test/keyboard-shortcuts-powerbi/
 ---
 
-<p>Power BI relies primarily on standard web keyboard navigation, with a few app-specific behaviors. Below is a reference for keyboard testing published reports and dashboards.</p>
+<p>Power BI relies primarily on standard web keyboard navigation, with a few app‑specific behaviors. Below is a reference for keyboard testing published reports and dashboards.</p>
 <p><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts">Complete list of keyboard shortcuts in Power BI Desktop.</a></p>
 <h2>General tips for accessibility testing </h2>
 <p>When keyboard testing:</p>
 <ul>
-      <li>Navigate the entire experience with keyboard only, ensuring all interactive elements are reachable, operable, and have  visible focus.</li>
-      <li>Check that all interactive elements (filters, visuals, buttons) are reachable and usable without a mouse.</li>
+      <li>Navigate the entire experience with keyboard  only, ensuring all interactive elements are reachable, operable, and have  visible focus.</li>
+      <li>Check that all interactive elements (filters,  visuals, buttons) are reachable and usable without a mouse.</li>
     <li>Make sure users can exit  any component (like a visual or filter pane) without getting stuck.</li>
       <li>While in Focus Mode, verify data tables are well-structured with a  table header and rows identified.</li>
 </ul>
 <h2>Core Navigation Keys</h2>
-<table border="1" cellspacing="0" cellpadding="0" width="100%">
-      <tr>
-        <td width="52%" valign="top"><p align="center">Action</p></td>
-        <td width="48%"  valign="top"><p align="center">Shortcut</p></td>
+<table class="">
+      <thead>
+        <th scope="col">Action</th>
+        <th scope="col">Shortcut</th>
+      </thead>
+    <tbody>
+      <tr scope="row">
+        <td>Show all keyboard shortcuts</td>
+          <td><span class="keyboard-key">Shift + /</span></td>
       </tr>
-      <tr>
-        <td valign="top"><p>Show all keyboard shortcuts</p></td>
-        <td valign="top"><p>Shift + /</p></td>
+      <tr scope="row">
+        <td>Move focus between major report sections (like slicers, visuals).</td>
+        <td><span class="keyboard-key">Ctrl + F6</span></td>
       </tr>
-      <tr>
-        <td valign="top"><p>Move focus between major report sections (like slicers, visuals).</p></td>
-        <td valign="top"><p>Ctrl + F6</p></td>
+     <tr scope="row">
+        <td>Move forward through focusable elements within a section or visual.</td>
+        <td><span class="keyboard-key">Tab</span></td>
       </tr>
-      <tr>
-        <td valign="top"><p>Move forward through focusable elements within a section or visual.</p></td>
-        <td valign="top"><p>Tab</p></td>
+     <tr scope="row">
+        <td>Move backward through elements.</td>
+        <td><span class="keyboard-key">Shift + Tab</span></td>
       </tr>
-      <tr>
-        <td valign="top"><p>Move backward through elements.</p></td>
-        <td valign="top"><p>Shift + Tab</p></td>
+     <tr scope="row">
+        <td>Enter visuals (Enter), move within them</td>
+        <td><span class="keyboard-key">Enter</span></td>
       </tr>
-      <tr>
-        <td valign="top"><p>Enter    visuals (Enter), move within them </p></td>
-        <td valign="top"><p>Enter</p></td>
+     <tr scope="row">
+        <td>Exit the current visual/section and return focus to the main report area.</td>
+        <td><span class="keyboard-key">Esc</span></td>
       </tr>
-      <tr>
-        <td valign="top"><p>Exit the current visual/section and return focus to the main    report area. </p></td>
-        <td valign="top"><p>Esc</p></td>
-      </tr>
+        </tbody>
 </table>
 <h2>Visual Interaction &amp; Data Selection</h2>
-<table border="1" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
-    <td width="52%" valign="top"><p align="center"><strong>Action</strong></p></td>
-    <td width="48%" valign="top"><p align="center"><strong>Shortcut</strong></p></td>
+<table class="">
+      <thead>
+        <th scope="col">Action</th>
+        <th scope="col">Shortcut</th>
+      </thead>
+<tbody>
+  <tr scope="row">
+    <td>Select or activate a data point or element.</td>
+    <td class="keyboard-key">Enter / Spacebar</td>
+  </tr>
+  <tr scope="row">
+    <td>Multi-select data points.</td>
+    <td class="keyboard-key">Ctrl + Spacebar</td>
   </tr>
   <tr>
-    <td valign="top"><p>Select or activate a data point or element.</p></td>
-    <td valign="top"><p>Enter / Spacebar</p></td>
+    <td>Exit a visual or layer.</td>
+    <td class="keyboard-key">Esc</td>
+  </tr>
+  <tr scope="row">
+    <td>Move focus to the visual menu.</td>
+    <td class="keyboard-key">Alt + Shift + F10</td>
+  </tr>
+  <tr scope="row">
+    <td>Show data as a table (Focus Mode)</td>
+    <td class="keyboard-key">Alt + Shift + F11</td>
   </tr>
   <tr>
-    <td valign="top"><p>Multi-select data points.</p></td>
-    <td valign="top"><p>Ctrl + Spacebar</p></td>
+    <td>Select or clear the selection of a data point</td>
+    <td class="keyboard-key">Enter or Spacebar; Multi-select: Ctrl + Spacebar</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Exit a visual or layer.</p></td>
-    <td valign="top"><p>Esc</p></td>
+  <tr scope="row">
+    <td>Show data point details (useful for screen readers).</td>
+    <td class="keyboard-key">Ctrl + H</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Move focus to the visual menu.</p></td>
-    <td valign="top"><p>Alt + Shift + F10</p></td>
+  <tr scope="row">
+    <td>Clear all filter selections.</td>
+    <td class="keyboard-key">Ctrl + Shift + C</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Show data as a table (Focus Mode)</p></td>
-    <td valign="top"><p>Alt + Shift + F11</p></td>
-  </tr>
-  <tr>
-    <td valign="top"><p>Select or clear the selection of a data point</p></td>
-    <td valign="top"><p>Enter or Spacebar; Multi-select: Ctrl + Spacebar</p></td>
-  </tr>
-  <tr>
-    <td valign="top"><p>Show data point details (useful for screen readers).</p></td>
-    <td valign="top"><p>Ctrl + H</p></td>
-  </tr>
-  <tr>
-    <td valign="top"><p>Clear all filter selections.</p></td>
-    <td valign="top"><p>Ctrl + Shift + C</p></td>
-  </tr>
+</tbody>
 </table>
 <h2>Table Navigation</h2>
-<table border="1" cellspacing="0" cellpadding="0" width="100%">
-      <tr>
-        <td width="52%"  valign="top"><p align="center"><strong>Action</strong></p></td>
-        <td width="48%"  valign="top"><p align="center"><strong>Shortcut</strong></p></td>
+<table class="">
+      <thead>
+        <th scope="col">Action</th>
+        <th scope="col">Shortcut</th>
+      </thead>
+<tbody>
+      <tr scope="row">
+        <td>Move focus up/down/left/right.</td>
+        <td class="keyboard-key">Arrow keys</td>
       </tr>
-      <tr>
-        <td valign="top"><p>Move focus up/down/left/right.</p></td>
-        <td valign="top"><p>Arrow keys</p></td>
+      <tr scope="row">
+        <td>Jump to first/last cell in row.</td>
+        <td class="keyboard-key">Ctrl + Left Arrow / Ctrl + Right Arrow</td>
       </tr>
-      <tr>
-        <td valign="top"><p>Jump to first/last cell in row.</p></td>
-        <td valign="top"><p>Ctrl + Left Arrow / Ctrl + Right Arrow</p></td>
+      <tr scope="row">
+        <td>Jump to first/last cell in column.</td>
+        <td class="keyboard-key">Ctrl + Up Arrow / Ctrl + Down Arrow</td>
       </tr>
-      <tr>
-        <td valign="top"><p>Jump to first/last cell in column.</p></td>
-        <td valign="top"><p>Ctrl + Up Arrow / Ctrl + Down Arrow</p></td>
-      </tr>
-</table>
+    </tbody>
+    </table>
