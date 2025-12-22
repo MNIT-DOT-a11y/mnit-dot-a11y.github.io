@@ -4,42 +4,44 @@ title: GIS Keyboard Shortcuts for Accessibility Testing
 permalink: /how-to-test/keyboard-shortcuts-gis/
 ---
 
-<p>ArcGIS apps mostly rely on standard web keyboard navigation plus a few app-specific behaviors. Below is a reference you can use when testing published web maps, Dashboards, and StoryMaps.</p>
+<p>ArcGIS apps mostly rely on standard web keyboard navigation plus a few app‑specific behaviors. Below is a reference you can use when testing published web maps, Dashboards, and StoryMaps.</p>
 
 <h2>When doing keyboard testing on ArcGIS maps, Dashboards, and  StoryMaps:</h2>
 <ul>
   <li>Navigate the entire experience with keyboard  only, ensuring all interactive elements are reachable, operable, and have  visible focus.</li>
-  <li>Check that map interactions (panning, zooming,  opening pop-ups) and dashboard interactions (filters, selectors)  are fully usable without a mouse.</li>
+  <li>Check that map interactions (panning, zooming,  opening pop‑ups) and dashboard interactions (filters, selectors)  are fully usable without a mouse.</li>
 </ul>
 <h3>Resouces</h3>
 <p><a href="https://www.youtube.com/watch?v=ulnlAatS_hg&t=632s">Getting  Started with Keyboard Navigation</a> (YouTube Video)<br>
-<a href="https://www.youtube.com/watch?v=ulnlAatS_hg">Testing  Your Apps for Accessibility</a>: The ArcGIS Online Approach - learn about  testing accessibility in web apps. (YouTube Video)</p>
+<a href="https://www.youtube.com/watch?v=ulnlAatS_hg">Testing  Your Apps for Accessibility</a>: The ArcGIS Online Approach – learn about  testing accessibility in web apps. (YouTube Video)</p>
 <h2>Core Navigation Keys</h2>
-<table border="1" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
-    <td width="50%" valign="top"><p align="center"><strong>Action</strong></p></td>
-    <td width="50%" valign="top"><p align="center"><strong>Shortcut</strong></p></td>
+<table class="">
+      <thead>
+        <th scope="col">Shortcut</th>
+        <th scope="col">Action</th>
+      </thead>
+<tbody>
+  <tr scope="row">
+    <td><span class="keyboard-key">Tab</span></td>
+      <td>Move focus forward through all interactive elements (links, buttons, widgets, map, media, etc.)</td> 
   </tr>
-  <tr>
-    <td valign="top"><p>Move focus forward through all interactive elements (links, buttons, widgets, map, media, etc.)</p></td>
-    <td valign="top"><p>Tab</p></td>
+  <tr scope="row">
+    <td><span class="keyboard-key">Shift + Tab</span></td>
+    <td>Move focus backward through interactive elements.</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Move focus backward through interactive elements. </p></td>
-    <td valign="top"><p>Shift + Tab</p></td>
+  <tr scope="row">
+    <td><span class="keyboard-key">Enter or Space bar</span></td>
+    <td>Activate the focused control (equivalent to click; opens panels, activates buttons, toggles checkboxes, etc.).</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Activate the focused control (equivalent to click; opens panels, activates buttons, toggles checkboxes, etc.).</p></td>
-    <td valign="top"><p>Enter or Space bar</p></td>
+  <tr scope="row">
+    <td><span class="keyboard-key">Arrow keys</span></td>
+    <td>Move within a focused control (for example, through menu items, tabs, or options)    and, in maps, pan the view depending on the app.</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Move within a focused control (for example, through menu items, tabs, or options) and, in maps, pan the view depending on the app.</p></td>
-    <td valign="top"><p>Arrow keys</p></td>
+  <tr scope="row">
+    <td><span class="keyboard-key">Esc</span></td>
+    <td>Close dialogs and menus or return focus from embedded media or maps to surrounding content.</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Close dialogs and menus or return focus from embedded media or maps to surrounding content.</p></td>
-    <td valign="top"><p>Esc</p></td>
-  </tr>
+</tbody>
 </table>
 <h2>Published web maps inside apps </h2>
 <p>When a web map is embedded in an ArcGIS app (such as in  Dashboards or StoryMaps), test using the core navigation keys to verify:</p>
@@ -50,35 +52,35 @@ permalink: /how-to-test/keyboard-shortcuts-gis/
 <h2>ArcGIS Dashboards keyboard testing </h2>
 <p>Dashboards support full keyboard navigation through the  layout and individual elements. Test dashboard using the core navigation keys  to verify:</p>
 <ol>
-  <li>Focus order is logical as you Tab through the  page (top-to-bottom, left-to-right,  grouping related controls together).</li>
+  <li>Focus order is logical as you Tab through the  page (top‑to‑bottom, left‑to‑right,  grouping related controls together).</li>
   <li>Every interactive element shows a visible focus  indicator and can be used with Enter/Space.</li>
 </ol>
 <h2>StoryMaps reading/navigation shortcuts </h2>
-<p>For readers of classic Story Map Journal/Series and modern ArcGIS StoryMaps, keyboard navigation lets you move through the narrative and  media.</p>
-<table border="1" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
-    <td width="50%" valign="top"><br>
-      <strong>Action</strong></td>
-    <td width="50%" valign="top"><p align="center"><strong>Shortcut</strong></p></td>
+<p>For readers of classic Story Map Journal/Series and modern  ArcGIS StoryMaps, keyboard navigation lets you move through the narrative and  media.</p>
+<table class="">
+      <thead>
+        <th scope="col">Shortcut</th>
+        <th scope="col">Action</th>
+      </thead>
+<tbody>
+ <tr scope="row">
+    <td><span class="keyboard-key">Tab</span></td>
+     <td>Move forward through the story header, section navigation, narrative text, and media frames.</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Move forward through the story header, section navigation, narrative text, and media frames.</p></td>
-    <td valign="top"><p>Tab</p></td>
+  <tr scope="row">
+    <td><span class="keyboard-key">Shift + Tab</span></td>
+      <td>Move backward through the story header, section navigation, narrative text, and media frames. </td>
   </tr>
-  <tr>
-    <td valign="top"><p>Move backward through the story header, section navigation, narrative text, and media frames </p></td>
-    <td valign="top"><p>Shift + Tab</p></td>
+  <tr scope="row">
+    <td><span class="keyboard-key">Enter or Space bar</span></td>
+      <td>Activate focused buttons such as "Skip to narrative".Send keyboard focus to media, links, and embedded media controls.</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Activate focused buttons such as "Skip to narrative".Send keyboard focus to media, links, and embedded media controls</p></td>
-    <td valign="top"><p>Enter or Space bar</p></td>
+  <tr scope="row">
+    <td><span class="keyboard-key">Arrow keys</span></td>
+    <td>Scroll narrative panels and sometimes move between items depending on block type; they can also be used by screen readers to move within content.</td>
   </tr>
-  <tr>
-    <td valign="top"><p>Scroll narrative panels and sometimes move between items depending on block type; they can also be used by screen readers to move within content.</p></td>
-    <td valign="top"><p>Arrow keys</p></td>
+  <tr scope="row">
+    <td><span class="keyboard-key">Esc</span></td><td>When focus is inside an image or map in classic Story Map Journal, Esc returns focus to the narrative panel</td>
   </tr>
-  <tr>
-    <td valign="top"><p>When focus is inside an image or map in classic Story Map Journal, Esc returns focus to the narrative panel</p></td>
-    <td valign="top"><p>Esc</p></td>
-  </tr>
+</tbody>
 </table>
