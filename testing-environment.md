@@ -37,7 +37,7 @@ Steps to how to test with a screen reader can be found on the [How-to Test Scree
 
 1. _Go to_ the **_Start_** menu and open the **_Software Center_** application.
 2. From the Applications window, _search_ for **_NVDA_**.
-3. _Select_NVDA (No AutoStart) .
+3. Select **NVDA (No AutoStart)**.
     <example>
         <img src="/assets/images/testing-tools/nvda-software-center.jpg" alt="Screenshot showing steps 2 and 3">
     </example>
