@@ -6,16 +6,6 @@ description: Static accessibility scanning using the Axe Linter plugin in Intell
 
 <div class="container page-content-with-sidebar">
 
-  <nav aria-label="On-page links" class="toc-nav">
-    <ul>
-      <li><a href="#install-intellij">Install IntelliJ</a></li>
-      <li><a href="#install-axe-linter">Install Axe Linter</a></li>
-      <li><a href="#configure-rules">Configure Rules</a></li>
-      <li><a href="#create-test-file">Create Test File</a></li>
-      <li><a href="#run-scans">Run Scans</a></li>
-    </ul>
-  </nav>
-
   <div class="main-post-content">
     <div class="post-content">
 
@@ -23,25 +13,23 @@ description: Static accessibility scanning using the Axe Linter plugin in Intell
       <p>This guide explains how to install IntelliJ IDEA, configure the Axe Linter plugin, set up rule configuration using <code>axe-linter.yml</code>, and run static accessibility scans directly in the editor.</p>
 
       <div class="download-container" style="margin: 20px 0;">
-        <a href="/downloads/intellij-axe-linter-sample.zip" class="btn btn-primary" style="background-color:#003865; color:white; padding:10px 15px; border-radius:5px; text-decoration:none;">
+        <a href="/downloads/intellij-axe-linter-sample.zip" class="btn btn-primary">
           <i class="fa-solid fa-download" aria-hidden="true"></i> Download Sample IntelliJ Project
         </a>
       </div>
 
       <hr>
 
-      <!-- SECTION 1 -->
       <h2 id="install-intellij">Install IntelliJ</h2>
       <p>Install <strong>IntelliJ IDEA Community or Ultimate</strong> and ensure you have <strong>JDK 17+</strong> installed.</p>
 
       <div class="code-container">
-        <pre><code class="language-bash">java -version</code></pre>
         <button class="copy-button" onclick="copyCode(this)">Copy</button>
+        <pre><code class="language-bash">java -version</code></pre>
       </div>
 
       <hr>
 
-      <!-- SECTION 2 -->
       <h2 id="install-axe-linter">Install Axe Linter</h2>
       <p>You may install either the free Accessibility Linter or the licensed Deque Axe DevTools Linter.</p>
 
@@ -63,11 +51,11 @@ description: Static accessibility scanning using the Axe Linter plugin in Intell
 
       <hr>
 
-      <!-- SECTION 3 -->
       <h2 id="configure-rules">Configure Rules</h2>
       <p>Create an <code>axe-linter.yml</code> file in the project root to control which rules are evaluated.</p>
 
       <div class="code-container">
+        <button class="copy-button" onclick="copyCode(this)">Copy</button>
         <pre><code class="language-yaml">tags:
   - wcag2a
   - wcag21a
@@ -76,16 +64,15 @@ description: Static accessibility scanning using the Axe Linter plugin in Intell
 
 rules:
   html-has-lang: false</code></pre>
-        <button class="copy-button" onclick="copyCode(this)">Copy</button>
       </div>
 
       <hr>
 
-      <!-- SECTION 4 -->
       <h2 id="create-test-file">Create Test File</h2>
       <p>Open any HTML, JSX, or template file. Axe Linter will automatically highlight violations.</p>
 
       <div class="code-container">
+        <button class="copy-button" onclick="copyCode(this)">Copy</button>
         <pre><code class="language-html">&lt;!-- Example with violations --&gt;
 &lt;html&gt;
   &lt;body&gt;
@@ -94,15 +81,24 @@ rules:
     &lt;input type="text"&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)">Copy</button>
       </div>
 
       <hr>
 
-      <!-- SECTION 5 -->
       <h2 id="run-scans">Run Scans</h2>
       <p>Violations appear as wavy underlines and in the <strong>Problems</strong> panel. Hover to view WCAG mappings and remediation guidance.</p>
 
     </div>
   </div>
+
+  <nav aria-label="On-page links" class="toc-nav">
+    <ul>
+      <li><a href="#install-intellij">Install IntelliJ</a></li>
+      <li><a href="#install-axe-linter">Install Axe Linter</a></li>
+      <li><a href="#configure-rules">Configure Rules</a></li>
+      <li><a href="#create-test-file">Create Test File</a></li>
+      <li><a href="#run-scans">Run Scans</a></li>
+    </ul>
+  </nav>
+
 </div>
