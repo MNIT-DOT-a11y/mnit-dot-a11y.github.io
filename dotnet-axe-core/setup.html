@@ -1,0 +1,123 @@
+---
+layout: default
+title: .NET Axe-Core Selenium
+description: Dynamic accessibility scanning using Deque.AxeCore.Selenium in .NET.
+---
+
+<div class="container page-content-with-sidebar">
+
+  <nav aria-label="On-page links" class="toc-nav">
+    <ul>
+      <li><a href="#install-intellij">Install .NET Tools</a></li>
+      <li><a href="#install-axe-linter">Install Axe-Core Selenium</a></li>
+      <li><a href="#configure-rules">Configure Rules</a></li>
+      <li><a href="#create-test-file">Create Test File</a></li>
+      <li><a href="#run-scans">Run Scans</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-post-content">
+    <div class="post-content">
+
+      <h1>.NET Axe-Core Selenium</h1>
+      <p>This guide explains how to install AxeCore Selenium, configure WebDriver, write accessibility test cases, and run dynamic scans against the rendered DOM.</p>
+
+      <div class="download-container" style="margin: 20px 0;">
+        <a href="/downloads/dotnet-axe-core-sample.zip" class="btn btn-primary" style="background-color:#003865; color:white; padding:10px 15px; border-radius:5px; text-decoration:none;">
+          <i class="fa-solid fa-download" aria-hidden="true"></i> Download Sample .NET Project
+        </a>
+      </div>
+
+      <hr>
+
+      <!-- SECTION 1 -->
+      <h2 id="install-intellij">Install .NET Tools</h2>
+      <p>Install the .NET SDK and create a new NUnit test project.</p>
+
+      <div class="code-container">
+        <pre><code class="language-bash">dotnet new nunit -n AccessibilityScans
+cd AccessibilityScans</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+      </div>
+
+      <hr>
+
+      <!-- SECTION 2 -->
+      <h2 id="install-axe-linter">Install Axe-Core Selenium</h2>
+      <p>Install required NuGet packages:</p>
+
+      <div class="code-container">
+        <pre><code class="language-bash">dotnet add package Deque.AxeCore.Selenium
+dotnet add package Deque.AxeCore.Commons
+dotnet add package Selenium.WebDriver
+dotnet add package Selenium.WebDriver.ChromeDriver</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+      </div>
+
+      <hr>
+
+      <!-- SECTION 3 -->
+      <h2 id="configure-rules">Configure Rules</h2>
+      <p>Use <code>WithTags()</code> or <code>DisableRules()</code> to control which WCAG rules are evaluated.</p>
+
+      <div class="code-container">
+        <pre><code class="language-csharp">var result = new AxeBuilder(driver)
+  .WithTags("wcag2a", "wcag21aa")
+  .Analyze();</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+      </div>
+
+      <hr>
+
+      <!-- SECTION 4 -->
+      <h2 id="create-test-file">Create Test File</h2>
+      <p>Create a test file such as <code>FullPageScanTests.cs</code>:</p>
+
+      <div class="code-container">
+        <pre><code class="language-csharp">using Deque.AxeCore.Selenium;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+
+[TestFixture]
+public class FullPageScanTests {
+  private IWebDriver driver;
+
+  [SetUp]
+  public void SetUp() {
+    var options = new ChromeOptions();
+    options.AddArgument("--headless");
+    driver = new ChromeDriver(options);
+  }
+
+  [Test]
+  public void HomePage_Should_Have_No_Violations() {
+    driver.Navigate().GoToUrl("https://your-app-url.com");
+    var result = new AxeBuilder(driver).Analyze();
+    Assert.That(result.Violations, Is.Empty);
+  }
+
+  [TearDown]
+  public void TearDown() {
+    driver.Quit();
+  }
+}</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+      </div>
+
+      <hr>
+
+      <!-- SECTION 5 -->
+      <h2 id="run-scans">Run Scans</h2>
+      <p>Execute tests using:</p>
+
+      <div class="code-container">
+        <pre><code class="language-bash">dotnet test AccessibilityScans.csproj</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+      </div>
+
+      <p>Violations appear in the test output and can be exported as TRX files for CI/CD pipelines.</p>
+
+    </div>
+  </div>
+</div>
