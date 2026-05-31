@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundations of Web Accessibility</title>
+    <!-- Link to Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        /* Custom styles for 'Inter' font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Specific H2 styling from the reference page for consistency */
+        .section-heading {
+            border-bottom: 2px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        /* Ensures navigation links have no default underline and get one on hover */
+        .nav-item-link {
+            text-decoration: none;
+        }
+        .nav-item-link:hover {
+            text-decoration: underline;
+        }
+        /* Custom styling for the code block container */
+        .code-container {
+            position: relative;
+            background-color: #1a202c; /* dark gray background for code */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+            max-height: 500px; /* Limit height and add scroll */
+        }
+        .code-container pre {
+            margin: 0;
+            padding: 0;
+        }
+        .code-container code {
+            font-size: 0.9rem;
+        }
+        .copy-button {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background-color: #2d3748; /* darker blue-gray */
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            z-index: 10;
+        }
+        .copy-button:hover {
+            background-color: #4a5568; /* slightly lighter on hover */
+        }
+        .copy-message {
+            position: absolute;
+            top: 0.75rem;
+            right: 4rem; /* Adjust based on button size */
+            background-color: #48bb78; /* green */
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 10;
+        }
+        .copy-message.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased leading-relaxed">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Foundations of Web Accessibility</h1>
+            <!-- Subtitle removed as requested -->
+        </header>
+
+        <main class="bg-white rounded-lg shadow-xl p-4 md:p-6 my-8">
+            <nav aria-label="Main training topics" class="mb-8">
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-4 section-heading">Example Links</h2>
+                <ul class="space-y-3">
+                    <li class="p-3 bg-gray-50 hover:bg-gray-100 rounded-md transition-colors duration-200 shadow-sm">
+                        <a href="https://drubio614.github.io/developer-training/semantic-examples.html" class="text-blue-700 hover:text-blue-800 font-medium text-lg block nav-item-link">
+                            <span class="font-bold mr-2">1.</span> Semantic HTML Example
+                        </a>
+                    </li>
+                    <li class="p-3 bg-gray-50 hover:bg-gray-100 rounded-md transition-colors duration-200 shadow-sm">
+                        <a href="https://drubio614.github.io/developer-training/heading-examples.html" class="text-blue-700 hover:text-blue-800 font-medium text-lg block nav-item-link">
+                            <span class="font-bold mr-2">2.</span> Heading Example &lt;h1&gt;,&lt;h2&gt;,&lt;h3&gt;
+                        </a>
+                    </li>
+                    <li class="p-3 bg-gray-50 hover:bg-gray-100 rounded-md transition-colors duration-200 shadow-sm">
+                        <a href="https://drubio614.github.io/developer-training/list-examples.html" class="text-blue-700 hover:text-blue-800 font-medium text-lg block nav-item-link">
+                            <span class="font-bold mr-2">3.</span> List Examples &lt;ul&gt;, &lt;ol&gt;
+                        </a>
+                    </li>
+                    <li class="p-3 bg-gray-50 hover:bg-gray-100 rounded-md transition-colors duration-200 shadow-sm">
+                        <a href="https://drubio614.github.io/developer-training/paragraph.html" class="text-blue-700 hover:text-blue-800 font-medium text-lg block nav-item-link">
+                            <span class="font-bold mr-2">4.</span> Paragraph &lt;p&gt; example
+                        </a>
+                    </li>
+                    <li class="p-3 bg-gray-50 hover:bg-gray-100 rounded-md transition-colors duration-200 shadow-sm">
+                        <a href="https://drubio614.github.io/developer-training/emphasis-example-2.html" class="text-blue-700 hover:text-blue-800 font-medium text-lg block nav-item-link">
+                            <span class="font-bold mr-2">5.</span> Emphasis &lt;strong&gt;, &lt;em&gt;
+                        </a>
+                    </li>
+                    <li class="p-3 bg-gray-50 hover:bg-gray-100 rounded-md transition-colors duration-200 shadow-sm">
+                        <a href="https://drubio614.github.io/developer-training/aria-examples.html" class="text-blue-700 hover:text-blue-800 font-medium text-lg block nav-item-link">
+                            <span class="font-bold mr-2">6.</span> ARIA Landmark Roles
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <section class="mt-8 pt-8 border-t-2 border-gray-200">
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-4 section-heading">Hands-on Activity</h2>
+                <p class="text-lg mb-4">
+                    For this hands-on activity, your task is to build an accessible HTML page.
+                    Start with the provided HTML Template below, and apply the principles of semantic HTML,
+                    proper heading structure, and ARIA landmarks that you've learned.
+                    Focus on making the content easily consumable by assistive technologies.
+                </p>
+                <h3 class="text-xl md:text-2xl font-medium text-gray-700 mb-3">HTML Template:</h3>
+                <!-- Dynamic Code Editor / Display Area -->
+                <div class="code-container">
+                    <button id="copyCodeButton" class="copy-button" aria-label="Copy HTML code to clipboard">Copy Code</button>
+                    <span id="copyMessage" class="copy-message" aria-live="polite">Copied!</span>
+                    <pre><code id="htmlTemplateCode" class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Your Accessible Page Exercise - Styled Example&lt;/title&gt;
+    &lt;!-- Link to Tailwind CSS for modern styling --&gt;
+    &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"&gt;
+    &lt;style&gt;
+        /* Custom styles for 'Inter' font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Basic styling for section headings */
+        .section-heading {
+            border-bottom: 2px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class="bg-gray-100 text-gray-900 antialiased leading-relaxed"&gt;
+
+    &lt;div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl"&gt;
+
+        &lt;!-- PART 1: Creating the Basic Structure --&gt;
+
+        &lt;!-- Your HEADER goes here --&gt;
+        Welcome to the Angler's Guide
+
+        &lt;!-- Your NAVIGATION goes here --&gt;
+        About Us
+        Fishing Techniques
+        Best Spots
+        Contact
+
+        &lt;!-- Your MAIN content area goes here --&gt;
+        &lt;!-- PART 2: Adding Content and Enhancing Accessibility --&gt;
+        &lt;!-- Inside your MAIN element, create an ARTICLE.
+             Then add headings (h2, h3, h4, etc.) and paragraphs (p)
+             to structure your article content.
+             Remember to follow a logical heading hierarchy! --&gt;
+        About Our Guide
+        This guide is your comprehensive resource for all things fishing. We aim to share knowledge for both beginners and experienced anglers. Our goal is to promote sustainable fishing practices and appreciation for aquatic environments.
+
+        &lt;!-- Add LISTS (ul, ol, dl) and EMPHASIS (strong, em) within your article. --&gt;
+        Types of Fishing
+        Fly Fishing: An elegant method using lightweight lures.
+        Baitcasting: Ideal for precision and heavy lures.
+        Spinning: Versatile and popular for various fish.
+        Ice Fishing: Exciting winter pursuit on frozen lakes.
+
+        Fishing Safety Tips
+        Always wear a life vest near water.
+        Be aware of weather conditions.
+        Tell someone where you are going.
+        Handle fish with care.
+
+        &lt;!-- Your FOOTER goes here --&gt;
+        © 2024 The Angler's Guide. All rights reserved.
+
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </div>
+                <div class="mt-6 text-center">
+                    <p class="text-lg">Once you've completed the exercise, you can view a fully structured and styled example here:
+                        <a href="https://drubio614.github.io/developer-training/exercise-complete.html" class="text-blue-600 hover:text-blue-800 underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+                            Completed Example
+                        </a>
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-gray-500">
+            <p class="text-sm">&copy; 2025 Accessibility Training</p>
+        </footer>
+    </div>
+
+    <!-- Prism.js for syntax highlighting - MUST be loaded after the content -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-markup.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const htmlTemplateCodeElement = document.getElementById('htmlTemplateCode');
+            const copyCodeButton = document.getElementById('copyCodeButton');
+            const copyMessage = document.getElementById('copyMessage');
+
+            /**
+             * Displays a temporary message box at the bottom center of the screen.
+             * @param {string} message The message to display.
+             * @param {string} type 'success' or 'error' to determine background color.
+             */
+            function showMessageBox(message, type = 'success') {
+                const messageBox = document.createElement('div');
+                messageBox.textContent = message;
+                messageBox.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: ${type === 'success' ? '#48bb78' : '#dc2626'}; /* green-500 or red-600 */
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.5s ease-in-out;
+                `;
+                document.body.appendChild(messageBox);
+
+                setTimeout(() => {
+                    messageBox.style.opacity = '1';
+                }, 10); // Small delay to trigger transition
+
+                setTimeout(() => {
+                    messageBox.style.opacity = '0';
+                    messageBox.addEventListener('transitionend', () => messageBox.remove(), { once: true });
+                }, 3000); // Hide after 3 seconds
+            }
+
+            // Apply Prism.js highlighting to the pre-loaded content when the page loads
+            Prism.highlightElement(htmlTemplateCodeElement);
+
+            /**
+             * Copies the content of the HTML template code block to the clipboard.
+             * Provides visual feedback to the user.
+             */
+            copyCodeButton.addEventListener('click', () => {
+                const codeToCopy = htmlTemplateCodeElement.textContent;
+                // Use document.execCommand('copy') for better iframe compatibility
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = codeToCopy;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        copyMessage.classList.add('show');
+                        setTimeout(() => {
+                            copyMessage.classList.remove('show');
+                        }, 2000); // Hide message after 2 seconds
+                    } else {
+                        console.error('Fallback: Could not copy text');
+                        showMessageBox('Could not copy code. Please select and copy manually.', 'error');
+                    }
+                } catch (err) {
+                    console.error('Error copying text: ', err);
+                    showMessageBox('Error copying code. Please select and copy manually.', 'error');
+                } finally {
+                    document.body.removeChild(tempTextArea);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

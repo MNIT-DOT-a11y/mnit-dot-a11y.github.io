@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proper Use of HTML Headings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Styles for the main page content */
+        h2 {
+            border-bottom: 2px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        /* Container for rendered examples */
+        .example-container {
+            border: 1px solid #d1d5db; /* gray-300 */
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+        /* Resetting heading styles within the example containers to mimic browser defaults */
+        .example-container h1, .example-container h2, .example-container h3, .example-container h4 {
+            all: unset; /* Remove Tailwind styles */
+            display: block; /* Ensure they behave like headings */
+            color: black;
+        }
+        .example-container h1 { font-size: 2em; font-weight: bold; margin: 0.67em 0; }
+        .example-container h2 { font-size: 1.5em; font-weight: bold; margin: 0.83em 0; }
+        .example-container h3 { font-size: 1.17em; font-weight: bold; margin: 1em 0; }
+        .example-container h4 { font-size: 1em; font-weight: bold; margin: 1.33em 0; }
+        .example-container p { margin: 1em 0; }
+        .example-container footer { margin-top: 1em; border-top: 1px solid #ccc; padding-top: 0.5em;}
+        .example-container .comment {
+            color: #ef4444; /* red-500 */
+            font-family: monospace;
+            font-size: 0.9em;
+            background-color: #fef2f2; /* red-50 */
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        /* Styles for code blocks */
+        pre {
+            background-color: #f3f4f6; /* gray-100 */
+            border: 1px solid #e5e7eb; /* gray-200 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 0.9em;
+            color: #374151; /* gray-700 */
+            display: block; /* Ensures code block takes up full width */
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Proper Use of HTML Heading Tags</h1>
+            <p class="text-lg text-gray-600 mt-2">Correctly structuring headings is crucial for accessibility, SEO, and document clarity.</p>
+        </header>
+
+        <main>
+            <section id="good-example" class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Good Example: Logical Order</h2>
+                <p class="mb-4">This structure follows a logical, descending order (<code>h1</code> &rarr; <code>h2</code> &rarr; <code>h3</code>) without skipping any levels. This creates a clear outline of the page that can be easily understood by users and assistive technologies.</p>
+                <div class="example-container">
+                    <h1>Page Title: Exploring Web Accessibility</h1>
+                    <main>
+                        <h2>Understanding WCAG Principles</h2>
+                        <p>The Web Content Accessibility Guidelines (WCAG) are organized around four main principles: Perceivable, Operable, Understandable, and Robust. Adhering to these helps make web content more accessible to all.</p>
+                        <h3>Perceivable</h3>
+                        <p>Information and user interface components must be presentable to users in ways they can perceive. This means providing text alternatives for non-text content like images and captions for videos.</p>
+                        <h3>Operable</h3>
+                        <p>User interface components and navigation must be operable. For example, all functionality should be available from a keyboard, and users must have enough time to read and use content.</p>
+
+                        <h2>Practical Tips for Accessible Design</h2>
+                        <p>Beyond principles, practical steps can make a huge difference. Simple changes in how you write your code and design your layouts can greatly improve the user experience for people with disabilities.</p>
+                        <h3>Use Semantic HTML</h3>
+                        <p>Using HTML elements for their intended purpose provides meaning and structure. This benefits screen reader users who can navigate by headings and helps search engines better understand your content.</p>
+                    </main>
+                    <footer>
+                        <p>&copy; 2024 Accessibility Training</p>
+                    </footer>
+                </div>
+                <h3>Code:</h3>
+                <pre><code>&lt;h1&gt;Page Title: Exploring Web Accessibility&lt;/h1&gt;
+&lt;main&gt;
+    &lt;h2&gt;Understanding WCAG Principles&lt;/h2&gt;
+    &lt;p&gt;The Web Content Accessibility Guidelines (WCAG) are organized around four main principles: Perceivable, Operable, Understandable, and Robust. Adhering to these helps make web content more accessible to all.&lt;/p&gt;
+    &lt;h3&gt;Perceivable&lt;/h3&gt;
+    &lt;p&gt;Information and user interface components must be presentable to users in ways they can perceive. This means providing text alternatives for non-text content like images and captions for videos.&lt;/p&gt;
+    &lt;h3&gt;Operable&lt;/h3&gt;
+    &lt;p&gt;User interface components and navigation must be operable. For example, all functionality should be available from a keyboard, and users must have enough time to read and use content.&lt;/p&gt;
+
+    &lt;h2&gt;Practical Tips for Accessible Design&lt;/h2&gt;
+    &lt;p&gt;Beyond principles, practical steps can make a huge difference. Simple changes in how you write your code and design your layouts can greatly improve the user experience for people with disabilities.&lt;/p&gt;
+    &lt;h3&gt;Use Semantic HTML&lt;/h3&gt;
+    &lt;p&gt;Using HTML elements for their intended purpose provides meaning and structure. This benefits screen reader users who can navigate by headings and helps search engines better understand your content.&lt;/p&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2024 Accessibility Training&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+            </section>
+
+            <section id="bad-examples" class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Bad Examples</h2>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Bad Example (Skipped Level)</h3>
+                <p class="mb-4">Here, an <code>&lt;h4&gt;</code> directly follows an <code>&lt;h2&gt;</code>, skipping the <code>&lt;h3&gt;</code> level. This breaks the logical structure and can be confusing for screen reader users who navigate by headings.</p>
+                <div class="example-container">
+                    <h1>Page Title: Common Baking Mistakes</h1>
+                    <main>
+                        <h2>Mistake 1: Incorrect Measurements</h2>
+                        <p>One of the most frequent sources of baking failures is inaccurate measurement of ingredients, especially dry ones like flour and sugar.</p>
+                        <p><span class="comment">&lt;!-- INCORRECT: This should be an h3 --&gt;</span></p>
+                        <h4>Problem: Sub-point on Flour</h4>
+                        <p>Forgetting to sift flour or packing it too tightly into a measuring cup can result in using up to 25% more flour than a recipe calls for, leading to dense and dry baked goods.</p>
+                    </main>
+                </div>
+                <h3>Code:</h3>
+                <pre><code>&lt;h1&gt;Page Title: Common Baking Mistakes&lt;/h1&gt;
+&lt;main&gt;
+    &lt;h2&gt;Mistake 1: Incorrect Measurements&lt;/h2&gt;
+    &lt;p&gt;One of the most frequent sources of baking failures is inaccurate measurement of ingredients, especially dry ones like flour and sugar.&lt;/p&gt;
+    &lt;p&gt;&lt;span class="comment"&gt;&lt;!-- INCORRECT: This should be an h3 --&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;h4&gt;Problem: Sub-point on Flour&lt;/h4&gt;
+    &lt;p&gt;Forgetting to sift flour or packing it too tightly into a measuring cup can result in using up to 25% more flour than a recipe calls for, leading to dense and dry baked goods.&lt;/p&gt;
+&lt;/main&gt;</code></pre>
+
+                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Bad Example (Multiple &lt;h1&gt;s)</h3>
+                <p class="mb-4">Using more than one <code>&lt;h1&gt;</code> on a page is generally discouraged. A single <code>&lt;h1&gt;</code> should represent the main title of the entire page. Using multiple <code>&lt;h1&gt;</code>s for section titles dilutes the semantic meaning of the primary page title.</p>
+                <div class="example-container">
+                    <h1>My Recipe Blog</h1>
+                    <main>
+                        <p><span class="comment">&lt;!-- INCORRECT: These should be h2 --&gt;</span></p>
+                        <h1>Delicious Chocolate Cake</h1>
+                        <p>This is my favorite recipe for a rich, moist chocolate cake that is perfect for any occasion, from birthdays to simple weekend treats.</p>
+                        <h1>Tips for Perfect Frosting</h1>
+                        <p>To avoid grainy frosting, make sure your butter is at room temperature and that you sift your powdered sugar before mixing.</p>
+                    </main>
+                </div>
+                <h3>Code:</h3>
+                <pre><code>&lt;h1&gt;My Recipe Blog&lt;/h1&gt;
+&lt;main&gt;
+    &lt;p&gt;&lt;span class="comment"&gt;&lt;!-- INCORRECT: These should be h2 --&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;h1&gt;Delicious Chocolate Cake&lt;/h1&gt;
+    &lt;p&gt;This is my favorite recipe for a rich, moist chocolate cake that is perfect for any occasion, from birthdays to simple weekend treats.&lt;/p&gt;
+    &lt;h1&gt;Tips for Perfect Frosting&lt;/h1&gt;
+    &lt;p&gt;To avoid grainy frosting, make sure your butter is at room temperature and that you sift your powdered sugar before mixing.&lt;/p&gt;
+&lt;/main&gt;</code></pre>
+            </section>
+
+            <section id="corrected-example" class="mb-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">A More Appropriate Structure</h2>
+                <p class="mb-4">This is a better way to structure the recipe blog example. It uses a single <code>&lt;h1&gt;</code> for the page's unique title ("Delicious Chocolate Cake") and <code>&lt;h2&gt;</code> tags for the main sections, creating a clear and correct hierarchy.</p>
+                <div class="example-container">
+                    <header>
+                        <p>My Recipe Blog (Site Name/Logo)</p>
+                    </header>
+                    <main>
+                        <h1>Delicious Chocolate Cake</h1>
+                        <section>
+                            <h2>Ingredients</h2>
+                            <p>You will need flour, sugar, cocoa powder, baking soda, eggs, buttermilk, and vegetable oil. A full list with measurements is below.</p>
+                        </section>
+                        <section>
+                            <h2>Instructions</h2>
+                            <p>Start by preheating your oven to 350°F (175°C). While it heats, whisk together the dry ingredients in a large bowl. Then, add the wet ingredients and mix until just combined.</p>
+                        </section>
+                        <section>
+                            <h2>Tips for Perfect Frosting</h2>
+                            <p>For the smoothest chocolate frosting, use a high-quality cocoa powder and ensure all your ingredients, especially butter and cream cheese, are at room temperature before you begin mixing.</p>
+                        </section>
+                    </main>
+                </div>
+                <h3>Code:</h3>
+                <pre><code>&lt;header&gt;
+    &lt;p&gt;My Recipe Blog (Site Name/Logo)&lt;/p&gt;
+&lt;/header&gt;
+&lt;main&gt;
+    &lt;h1&gt;Delicious Chocolate Cake&lt;/h1&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Ingredients&lt;/h2&gt;
+        &lt;p&gt;You will need flour, sugar, cocoa powder, baking soda, eggs, buttermilk, and vegetable oil. A full list with measurements is below.&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Instructions&lt;/h2&gt;
+        &lt;p&gt;Start by preheating your oven to 350&amp;deg;F (175&amp;deg;C). While it heats, whisk together the dry ingredients in a large bowl. Then, add the wet ingredients and mix until just combined.&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Tips for Perfect Frosting&lt;/h2&gt;
+        &lt;p&gt;For the smoothest chocolate frosting, use a high-quality cocoa powder and ensure all your ingredients, especially butter and cream cheese, are at room temperature before you begin mixing.&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+            </section>
+        </main>
+
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-gray-500">
+            <p>&copy; 2025 Accessibility Training</p>
+        </footer>
+    </div>
+</body>
+</html>

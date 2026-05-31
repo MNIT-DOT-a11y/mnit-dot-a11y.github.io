@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices for Accessible Lists</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Styles for the main page content */
+        h2 {
+            border-bottom: 2px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        h3 {
+             font-size: 1.25rem; /* 20px */
+             font-weight: 600;
+             margin-top: 1.5rem;
+        }
+        /* Container for rendered examples */
+        .example-container {
+            border: 1px solid #d1d5db; /* gray-300 */
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+        .example-container p { margin: 0.5em 0; }
+        .example-container ul { list-style-type: disc; padding-left: 2rem; margin: 1em 0; }
+        .example-container ol { list-style-type: decimal; padding-left: 2rem; margin: 1em 0; }
+
+
+        /* Style for code blocks */
+        pre {
+            background-color: #1f2937; /* gray-800 */
+            color: #f3f4f6; /* gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: monospace;
+            margin-top: 1rem;
+        }
+        
+        /* Style for INLINE code snippets */
+        .code-inline {
+            font-family: monospace;
+            background-color: #e5e7eb; /* gray-200 */
+            color: #1f2937; /* gray-800 */
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        /* Overrides to ensure code within a <pre> block is visible */
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+        }
+
+    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Best Practices for Accessible Lists</h1>
+            <p class="text-lg text-gray-600 mt-2">Using proper list elements is essential for structure and navigation, especially for screen reader users.</p>
+        </header>
+
+        <main>
+            <section id="best-practices" class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">When to Use Ordered and Unordered Lists</h2>
+                <p><strong class="text-gray-900">Unordered Lists (<code class="code-inline">&lt;ul&gt;</code>):</strong> Use for a list of items where the order does not matter. Screen readers will typically announce this as a "list" with a certain number of items, and each item is often read with "bullet" or a similar indicator. Examples include shopping lists, feature lists, or navigation links.</p>
+                <p class="mt-4"><strong class="text-gray-900">Ordered Lists (<code class="code-inline">&lt;ol&gt;</code>):</strong> Use for a list of items where the sequence is important. Screen readers will announce this as a "numbered list" and read out the number of each item (e.g., "1 of 5," "2 of 5"). This is crucial for things like step-by-step instructions, rankings, or legal clauses.</p>
+                <p class="mt-4">Using the correct list element provides essential context that visual styling alone cannot. It allows users of assistive technologies to understand the structure of the content and navigate through it efficiently.</p>
+            </section>
+
+            <section id="examples" class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Examples</h2>
+                
+                <h3>Good Examples</h3>
+                <p>These examples use list elements correctly based on the context of the content.</p>
+
+                <div class="example-container">
+                    <p><strong>Pancake Ingredients:</strong></p>
+                    <ul>
+                        <li>Flour</li>
+                        <li>Eggs</li>
+                        <li>Milk</li>
+                        <li>Sugar</li>
+                        <li>Baking Powder</li>
+                    </ul>
+                    <p><strong>How to Make Pancakes:</strong></p>
+                    <ol>
+                        <li>Mix dry ingredients in a bowl.</li>
+                        <li>Add wet ingredients and whisk until smooth.</li>
+                        <li>Pour batter onto a hot, greased pan.</li>
+                        <li>Cook until bubbles form, then flip.</li>
+                        <li>Serve warm.</li>
+                    </ol>
+                </div>
+<pre><code>&lt;!-- Correct: Using &lt;ul&gt; because the order of ingredients doesn't matter --&gt;
+&lt;p&gt;&lt;strong&gt;Pancake Ingredients:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Flour&lt;/li&gt;
+    &lt;li&gt;Eggs&lt;/li&gt;
+    &lt;li&gt;Milk&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Correct: Using &lt;ol&gt; because the sequence of steps is critical --&gt;
+&lt;p&gt;&lt;strong&gt;How to Make Pancakes:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;Mix dry ingredients in a bowl.&lt;/li&gt;
+    &lt;li&gt;Add wet ingredients and whisk until smooth.&lt;/li&gt;
+    &lt;li&gt;Cook until bubbles form, then flip.&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+
+                <h3 class="mt-8">Bad Examples</h3>
+                <p>These examples fail to use proper semantic list elements, creating barriers for users of assistive technology.</p>
+                
+                <div class="example-container">
+                    <p><strong>Features (Incorrectly made with paragraphs):</strong></p>
+                    <p>- Fast performance</p>
+                    <p>- Secure browsing</p>
+                    <p>- Cross-platform sync</p>
+                </div>
+<pre><code>&lt;!-- Incorrect: Simulating a list with &lt;p&gt; tags and hyphens. --&gt;
+&lt;!-- A screen reader will just read these as three separate paragraphs, --&gt;
+&lt;!-- not as a structured list of three items. --&gt;
+&lt;p&gt;- Fast performance&lt;/p&gt;
+&lt;p&gt;- Secure browsing&lt;/p&gt;
+&lt;p&gt;- Cross-platform sync&lt;/p&gt;
+</code></pre>
+            </section>
+
+        </main>
+
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-gray-500">
+            <p>&copy; 2025 Accessibility Training</p>
+        </footer>
+    </div>
+</body>
+</html>

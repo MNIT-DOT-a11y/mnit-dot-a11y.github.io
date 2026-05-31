@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices for Accessible Emphasis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Styles for the main page content */
+        h2 {
+            border-bottom: 2px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        h3 {
+             font-size: 1.25rem; /* 20px */
+             font-weight: 600;
+             margin-top: 1.5rem;
+        }
+        /* Container for rendered examples */
+        .example-container {
+            border: 1px solid #d1d5db; /* gray-300 */
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+        .example-container p { margin: 0.5em 0; }
+        .example-container .product-name {
+            font-weight: bold;
+        }
+
+        /* Style for code blocks */
+        pre {
+            background-color: #1f2937; /* gray-800 */
+            color: #f3f4f6; /* gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: monospace;
+            margin-top: 1rem;
+        }
+        
+        /* Style for INLINE code snippets */
+        .code-inline {
+            font-family: monospace;
+            background-color: #e5e7eb; /* gray-200 */
+            color: #1f2937; /* gray-800 */
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        /* Overrides to ensure code within a <pre> block is visible */
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+        }
+
+    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Best Practices for Accessible Emphasis</h1>
+            <p class="text-lg text-gray-600 mt-2">Using emphasis correctly ensures that all users understand the intended meaning and importance of your content.</p>
+        </header>
+
+        <main>
+            <section id="best-practices" class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Core Principles</h2>
+                <p><strong class="text-gray-900">Use Semantically:</strong> Employ <code class="code-inline">&lt;strong&gt;</code> for strong importance, seriousness, or urgency, and <code class="code-inline">&lt;em&gt;</code> for stress emphasis that changes the meaning of a sentence. This provides essential context for screen reader users.</p>
+                <p class="mt-4"><strong class="text-gray-900">Prioritize Clear Language:</strong> For information that is truly critical, ensure the text itself conveys this importance. For example, prefixing crucial instructions with words like "Important:", "Warning:", or "Note:" can be effective for all users.</p>
+                <p class="mt-4"><strong class="text-gray-900">Use CSS for Visuals:</strong> If the intent is purely visual (e.g., making a product name bold for branding purposes without implying strong importance), use CSS properties like <code class="code-inline">font-weight: bold;</code> or <code class="code-inline">font-style: italic;</code> on a <code class="code-inline">&lt;span&gt;</code> or other appropriate element. This avoids conveying unintended semantic meaning.</p>
+                <p class="mt-4"><strong class="text-gray-900">Avoid Overuse:</strong> Excessive use of emphasis can make text harder to read and can diminish the impact of genuinely important or stressed phrases. Use it sparingly to maintain its effectiveness.</p>
+            </section>
+
+            <section id="examples" class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Examples</h2>
+                
+                <h3>Good Examples</h3>
+                <p>These examples use HTML tags according to their semantic meaning.</p>
+
+                <div class="example-container">
+                    <p><strong>Warning:</strong> This product contains peanuts.</p>
+                    <p>She was <em>not</em> the person I was expecting.</p>
+                    <p>Our new <span class="product-name">QuantumLeap</span> browser is the fastest on the market.</p>
+                </div>
+<pre><code>&lt;!-- Correct: Using &lt;strong&gt; for a serious warning --&gt;
+&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; This product contains peanuts.&lt;/p&gt;
+
+&lt;!-- Correct: Using &lt;em&gt; to change the meaning of the sentence --&gt;
+&lt;p&gt;She was &lt;em&gt;not&lt;/em&gt; the person I was expecting.&lt;/p&gt;
+
+&lt;!-- Correct: Using CSS (via a class) for purely visual styling --&gt;
+&lt;p&gt;Our new &lt;span class="product-name"&gt;QuantumLeap&lt;/span&gt; browser is the fastest on the market.&lt;/p&gt;
+</code></pre>
+
+                <h3 class="mt-8">Bad Examples</h3>
+                <p>These examples misuse semantic tags for styling, which can confuse users and assistive technologies.</p>
+                
+                <div class="example-container">
+                     <p><strong>Our Mission</strong></p>
+                     <p><em>This paragraph is italicized just to make it look different, which makes it harder to read and provides no semantic value. It's better to use CSS for this kind of styling.</em></p>
+                </div>
+<pre><code>&lt;!-- Incorrect: Using &lt;strong&gt; for a heading. A heading tag like &lt;h3&gt; should be used instead. --&gt;
+&lt;p&gt;&lt;strong&gt;Our Mission&lt;/strong&gt;&lt;/p&gt;
+
+&lt;!-- Incorrect: Using &lt;em&gt; to style an entire paragraph. This overuses emphasis and makes the text difficult to read. --&gt;
+&lt;p&gt;&lt;em&gt;This paragraph is italicized just to make it look different, which makes it harder to read and provides no semantic value. It's better to use CSS for this kind of styling.&lt;/em&gt;&lt;/p&gt;
+</code></pre>
+            </section>
+
+        </main>
+
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-gray-500">
+            <p>&copy; 2025 Accessibility Training</p>
+        </footer>
+    </div>
+</body>
+</html>

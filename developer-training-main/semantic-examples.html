@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices for HTML Structural Elements</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h2 {
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+        h3 {
+             font-size: 1.5rem;
+             font-weight: 600;
+             margin-top: 2rem;
+        }
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+        }
+        /* Container for rendered examples */
+        .example-container {
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+        .example-container p, .example-container li { margin: 0.5em 0; }
+        .example-container ul { list-style-type: disc; padding-left: 2rem; margin: 1em 0; }
+        .example-container header, .example-container footer, .example-container aside, .example-container section, .example-container article, .example-container main, .example-container nav {
+            display: block; /* Ensures elements are rendered as blocks */
+            border: 1px dashed #9ca3af;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            position: relative;
+        }
+        .example-container header::before, .example-container footer::before, .example-container aside::before, .example-container section::before, .example-container article::before, .example-container main::before, .example-container nav::before {
+            content: '<' attr(data-element) '>';
+            position: absolute;
+            top: -10px;
+            left: 5px;
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+            padding: 2px 5px;
+            font-size: 0.75rem;
+            font-family: monospace;
+            border-radius: 4px;
+        }
+
+        /* Style for code blocks */
+        pre {
+            background-color: #1f2937;
+            color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: monospace;
+            margin-top: 1rem;
+        }
+        
+        .code-inline {
+            font-family: monospace;
+            background-color: #e5e7eb;
+            color: #1f2937;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+        }
+    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Semantic HTML5 Elements for Accessibility</h1>
+        </header>
+
+        <main>
+            <section id="overview" class="mb-12">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-4">Semantic HTML Examples</h2>
+                <p>The primary HTML5 elements for structuring a web page allow developers to define distinct regions such as headers, navigation menus, main content areas, and footers. Using these elements correctly provides a clear roadmap of the page for both browsers and assistive technologies.</p>
+            </section>
+
+            <!-- Individual Element Explanations -->
+            <section id="element-details">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-4">Element Reference</h2>
+                
+                <h4>&lt;header&gt;</h4>
+                <p>The <code class="code-inline">&lt;header&gt;</code> element represents introductory content for its nearest ancestor sectioning content or sectioning root element. Typically, a page <code class="code-inline">&lt;header&gt;</code> contains a site logo, title, primary navigation, and perhaps a search form.</p>
+
+                <h4>&lt;nav&gt;</h4>
+                <p>The <code class="code-inline">&lt;nav&gt;</code> element defines a section containing navigation links. This is intended for major blocks of navigation, such as the primary site navigation or a table of contents.</p>
+
+                <h4>&lt;main&gt;</h4>
+                <p>The <code class="code-inline">&lt;main&gt;</code> element represents the dominant content of the <code class="code-inline">&lt;body&gt;</code>. The content inside should be unique to the document and not repeated across pages. There should only be one <code class="code-inline">&lt;main&gt;</code> element per page.</p>
+                
+                <h4>&lt;article&gt;</h4>
+                <p>The <code class="code-inline">&lt;article&gt;</code> element represents a self-contained composition that is independently distributable or reusable, like a blog post, forum post, or news story.</p>
+
+                <h4>&lt;section&gt;</h4>
+                <p>The <code class="code-inline">&lt;section&gt;</code> element represents a thematic grouping of content, typically with a heading. It's a generic sectioning element for when other, more specific elements aren't appropriate.</p>
+
+                <h4>&lt;footer&gt;</h4>
+                <p>The <code class="code-inline">&lt;footer&gt;</code> element represents a footer for its nearest sectioning content. A footer typically contains information like the author, copyright data, or links to related documents.</p>
+
+                <h4>&lt;aside&gt;</h4>
+                <p>The <code class="code-inline">&lt;aside&gt;</code> element represents content that is only indirectly related to the document's main content, often presented as a sidebar or call-out box.</p>
+            </section>
+
+            <section id="examples" class="mb-12">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-4">Structuring a Page</h2>
+
+                <h3>Good Example: Correct Semantic Structure</h3>
+                <p>This example uses each element for its intended purpose, creating a clear, accessible, and meaningful document outline.</p>
+                <div class="example-container">
+                    <header data-element="header">
+                        <h1>My Tech Blog</h1>
+                        <nav data-element="nav">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Tutorials</a></li>
+                                <li><a href="#">About</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <main data-element="main">
+                        <article data-element="article">
+                            <h2>The Importance of Semantic HTML</h2>
+                            <p>Semantic HTML is crucial for web accessibility...</p>
+                            <section data-element="section">
+                                <h3>Why it Matters for SEO</h3>
+                                <p>Search engines use semantic markup to understand the content...</p>
+                            </section>
+                            <footer data-element="footer">
+                                <p>Posted by Alex Doe</p>
+                            </footer>
+                        </article>
+                    </main>
+                    <aside data-element="aside">
+                        <h3>Related Posts</h3>
+                        <ul>
+                            <li><a href="#">Understanding ARIA</a></li>
+                        </ul>
+                    </aside>
+                    <footer data-element="footer">
+                        <p>&copy; 2025 My Tech Blog</p>
+                    </footer>
+                </div>
+<pre><code>&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;My Tech Blog&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;article&gt;
+      &lt;h2&gt;The Importance of Semantic HTML&lt;/h2&gt;
+      &lt;p&gt;Semantic HTML is crucial for web accessibility...&lt;/p&gt;
+      &lt;section&gt;
+        &lt;h3&gt;Why it Matters for SEO&lt;/h3&gt;
+        &lt;p&gt;Search engines use semantic markup...&lt;/p&gt;
+      &lt;/section&gt;
+      &lt;footer&gt;
+        &lt;p&gt;Posted by Alex Doe&lt;/p&gt;
+      &lt;/footer&gt;
+    &lt;/article&gt;
+  &lt;/main&gt;
+
+  &lt;aside&gt;
+    &lt;h3&gt;Related Posts&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Understanding ARIA&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;&copy; 2025 My Tech Blog&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+
+                <h3>Bad Example: Non-Semantic "div soup"</h3>
+                <p>This common anti-pattern uses non-semantic <code class="code-inline">&lt;div&gt;</code> elements for everything. While it can be styled to look identical to the good example, it provides no structural meaning for assistive technologies or search engines.</p>
+                <div class="example-container">
+                    <div style="border: 1px dashed #9ca3af; padding: 0.5rem; margin: 0.5rem 0;">
+                        <span style="font-size:1.5em; font-weight: bold;">My Tech Blog</span>
+                         <div style="border: 1px dashed #9ca3af; padding: 0.5rem; margin: 0.5rem 0;">
+                            <ul><li><a href="#">Home</a></li><li><a href="#">Tutorials</a></li></ul>
+                        </div>
+                    </div>
+                     <div style="border: 1px dashed #9ca3af; padding: 0.5rem; margin: 0.5rem 0;">
+                        <div style="border: 1px dashed #9ca3af; padding: 0.5rem; margin: 0.5rem 0;">
+                            <span style="font-size:1.2em; font-weight: bold;">The Importance of Semantic HTML</span>
+                            <p>Semantic HTML is crucial for web accessibility...</p>
+                             <div style="border: 1px dashed #9ca3af; padding: 0.5rem; margin: 0.5rem 0;">
+                                <span style="font-size:1.1em; font-weight: bold;">Why it Matters for SEO</span>
+                                <p>Search engines use semantic markup to understand the content...</p>
+                            </div>
+                            <div style="border: 1px dashed #9ca3af; padding: 0.5rem; margin: 0.5rem 0;">
+                                <p>Posted by Alex Doe</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div style="border: 1px dashed #9ca3af; padding: 0.5rem; margin: 0.5rem 0;">
+                        <span style="font-size:1.1em; font-weight: bold;">Related Posts</span>
+                        <ul><li><a href="#">Understanding ARIA</a></li></ul>
+                    </div>
+                     <div style="border: 1px dashed #9ca3af; padding: 0.5rem; margin: 0.5rem 0;">
+                        <p>&copy; 2025 My Tech Blog</p>
+                    </div>
+                </div>
+<pre><code>&lt;body&gt;
+  &lt;div class="header"&gt;
+    &lt;div class="h1"&gt;My Tech Blog&lt;/div&gt;
+    &lt;div class="nav"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="main"&gt;
+    &lt;div class="article"&gt;
+      &lt;div class="h2"&gt;The Importance of Semantic HTML&lt;/div&gt;
+      &lt;p&gt;Semantic HTML is crucial for web accessibility...&lt;/p&gt;
+      &lt;div class="section"&gt;
+        &lt;div class="h3"&gt;Why it Matters for SEO&lt;/div&gt;
+        &lt;p&gt;Search engines use semantic markup...&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="footer"&gt;
+        &lt;p&gt;Posted by Alex Doe&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="sidebar"&gt;
+    &lt;div class="h3"&gt;Related Posts&lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Understanding ARIA&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+
+  &lt;div class="site-footer"&gt;
+    &lt;p&gt;&copy; 2025 My Tech Blog&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/body&gt;</code></pre>
+            </section>
+        </main>
+
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-gray-500">
+            <p>&copy; 2025 Accessibility Training</p>
+        </footer>
+    </div>
+</body>
+</html>

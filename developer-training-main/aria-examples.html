@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding HTML Landmark Roles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Styles for the main page content */
+        h2 {
+            border-bottom: 2px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        /* Container for rendered examples */
+        .example-container {
+            border: 1px solid #d1d5db; /* gray-300 */
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+        /* Resetting styles within the example containers to mimic browser defaults */
+        .example-container header, .example-container main, .example-container footer, .example-container nav, .example-container section {
+            display: block;
+        }
+        .example-container h1, .example-container h2 {
+            all: unset;
+            display: block;
+            color: black;
+        }
+        .example-container h1 { font-size: 2em; font-weight: bold; margin: 0.67em 0; }
+        .example-container h2 { font-size: 1.5em; font-weight: bold; margin: 0.83em 0; }
+        .example-container p { margin: 1em 0; }
+        .example-container ul { list-style: disc; padding-left: 40px; margin: 1em 0; }
+        .example-container a { color: #2563eb; text-decoration: underline; }
+        .example-container footer { margin-top: 1em; border-top: 1px solid #ccc; padding-top: 0.5em;}
+        .example-container nav { padding: 0.5em 0; }
+        .example-container label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        .example-container input[type="search"] { border: 1px solid #9ca3af; padding: 0.5rem; border-radius: 0.25rem; width: 200px; }
+        .example-container button { background-color: #3b82f6; color: white; padding: 0.5rem 1rem; border: none; border-radius: 0.25rem; cursor: pointer; }
+        .example-container button:hover { background-color: #2563eb; }
+        pre {
+            background-color: #1f2937; /* gray-800 */
+            color: #f3f4f6; /* gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: monospace;
+            margin-top: 1rem;
+        }
+        code {
+            font-family: monospace;
+        }
+
+    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Proper Use of HTML Landmark Roles</h1>
+            <p class="text-lg text-gray-600 mt-2">Landmarks help users of assistive technologies understand the layout of a page and navigate to main sections easily.</p>
+        </header>
+
+        <main>
+            <section id="implicit-landmarks" class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Using HTML5 Elements (Implicit Landmarks)</h2>
+                <p class="mb-4">Modern HTML5 elements like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> automatically create landmark roles. Using them correctly is the easiest way to make a page's structure accessible.</p>
+                <div class="example-container">
+                    <header>
+                        <h1>Site Title</h1>
+                    </header>
+                    <nav aria-label="Primary Site Navigation">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                        </ul>
+                    </nav>
+                    <main>
+                        <p>This is the main content of the page.</p>
+                    </main>
+                    <footer>
+                        <p>&copy; 2024</p>
+                    </footer>
+                </div>
+<pre><code>&lt;header&gt;
+  &lt;h1&gt;Site Title&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav aria-label="Primary Site Navigation"&gt;
+  &lt;ul&gt;&lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+  &lt;p&gt;This is the main content of the page.&lt;/p&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&copy; 2024&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+            </section>
+
+            <section id="explicit-landmarks" class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Explicitly Defining a Landmark with "role"</h2>
+                <p class="mb-4">For elements that don't have an implicit role, you can add one using the <code>role</code> attribute. For instance, you can designate a search area. While this works, it's often better to use the native <code>&lt;search&gt;</code> element or add <code>role="search"</code> directly to the <code>&lt;form&gt;</code> tag.</p>
+                <div class="example-container">
+                    <div role="search">
+                        <form id="searchform" action="/search" method="get">
+                            <label for="search-input">Search this site:</label>
+                            <input type="search" id="search-input" name="q">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+<pre><code>&lt;div role="search"&gt;
+  &lt;form id="searchform" action="/search" method="get"&gt;
+    &lt;label for="search-input"&gt;Search this site:&lt;/label&gt;
+    &lt;input type="search" id="search-input" name="q"&gt;
+    &lt;button type="submit"&gt;Search&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+            </section>
+
+            <section id="labeling-regions" class="mb-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Labeling Generic Regions</h2>
+                <p class="mb-4">A <code>&lt;section&gt;</code> element can create a generic landmark, but it's not useful to assistive technology unless it's given a unique, accessible name. The <code>aria-labelledby</code> attribute points to the ID of the section's visible heading, using that heading as its label.</p>
+                <div class="example-container">
+                    <section aria-labelledby="related-links-heading">
+                        <h2 id="related-links-heading">Related Links</h2>
+                        <ul>
+                            <li><a href="/related1">Related Article 1</a></li>
+                            <li><a href="/related2">Related Article 2</a></li>
+                        </ul>
+                    </section>
+                </div>
+<pre><code>&lt;section aria-labelledby="related-links-heading"&gt;
+  &lt;h2 id="related-links-heading"&gt;Related Links&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="/related1"&gt;Related Article 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/related2"&gt;Related Article 2&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;</code></pre>
+            </section>
+        </main>
+
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-gray-500">
+            <p>&copy; 2025 Accessibility Training</p>
+        </footer>
+    </div>
+</body>
+</html>
