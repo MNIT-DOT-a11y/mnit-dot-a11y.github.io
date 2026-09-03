@@ -1,101 +1,77 @@
 ---
 layout: base
 ---
-<div class="container">
-  <div class="how-to-test-wrapper">
-    <nav aria-label="Developer Guides" class="toc-nav">
-      <ul>
-        <li>
-          <a
-            {% if page.url == "/developer-guides.html" %} aria-current="page" {% endif %}
-            {% if page.url == "/developer-guides.html" %} class="current" {% endif %}
-            href="{{ site.baseurl }}/developer-guides.html">
-            Developer Guides
-          </a>
+<style>
+  .page-content-with-sidebar {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    align-items: flex-start;
+  }
 
-          <ul>
-            <li>
-              <a
-                {% if page.url == "/java-axe-core/setup.html" %} aria-current="page" {% endif %}
-                {% if page.url == "/java-axe-core/setup.html" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/java-axe-core/setup.html">
-                Java Axe-Core
-              </a>
-            </li>
-            <li>
-              <a
-                {% if page.url == "/python-axe-core/setup.html" %} aria-current="page" {% endif %}
-                {% if page.url == "/python-axe-core/setup.html" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/python-axe-core/setup.html">
-                Python Axe-Core
-              </a>
-            </li>
-            <li>
-              <a
-                {% if page.url == "/c-sharp-axe-core/setup.html" %} aria-current="page" {% endif %}
-                {% if page.url == "/c-sharp-axe-core/setup.html" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/c-sharp-axe-core/setup.html">
-                C# Axe-Core
-              </a>
-            </li>
-            <li>
-              <a
-                {% if page.url == "/angular/setup.html" %} aria-current="page" {% endif %}
-                {% if page.url == "/angular/setup.html" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/angular/setup.html">
-                Angular Axe-Core
-              </a>
-            </li>
-            <li>
-              <a
-                {% if page.url == "/intellij-axe-core/setup.html" %} aria-current="page" {% endif %}
-                {% if page.url == "/intellij-axe-core/setup.html" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/intellij-axe-core/setup.html">
-                IntelliJ + Axe Linter
-              </a>
-            </li>
-            <li>
-              <a
-                {% if page.url == "/dotnet-axe-core/setup.html" %} aria-current="page" {% endif %}
-                {% if page.url == "/dotnet-axe-core/setup.html" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/dotnet-axe-core/setup.html">
-                .NET Axe-Core
-              </a>
-            </li>
-            <li>
-              <a
-                {% if page.url == "/ci-cd/setup-ci-cd.html" %} aria-current="page" {% endif %}
-                {% if page.url == "/ci-cd/setup-ci-cd.html" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/ci-cd/setup-ci-cd.html">
-                CI/CD
-              </a>
-            </li>
-            <li>
-              <a
-                {% if page.url == "/components/intro.html" %} aria-current="page" {% endif %}
-                {% if page.url == "/components/intro.html" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/components/intro.html">
-                Accessible Components
-              </a>
-            </li>
-            <li>
-              <a
-                {% if page.url == "/code-review-checklist/" %} aria-current="page" {% endif %}
-                {% if page.url == "/code-review-checklist/" %} class="current" {% endif %}
-                href="{{ site.baseurl }}/code-review-checklist/">
-                Accessibility in Code Review
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+  .page-content-with-sidebar .toc-nav {
+    flex-shrink: 0;
+    width: 250px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    height: auto;
+    align-self: flex-start;
+  }
 
+  .page-content-with-sidebar .main-post-content {
+    flex-grow: 1;
+    max-width: 900px;
+  }
+
+  .toc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-nav li {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toc-nav li a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #003865;
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+
+  .toc-nav li a:hover,
+  .toc-nav li a.active {
+    background-color: #003865;
+    color: white;
+  }
+</style>
+
+<div class="container page-content-with-sidebar">
+  <nav aria-label="Developer Guides" class="toc-nav">
+    <ul>
+      <li><a href="{{ site.baseurl }}/java-axe-core/setup.html">Java Axe-Core</a></li>
+      <li><a href="{{ site.baseurl }}/python-axe-core/setup.html">Python Axe-Core</a></li>
+      <li><a href="{{ site.baseurl }}/c-sharp-axe-core/setup.html">C# Axe-Core</a></li>
+      <li><a href="{{ site.baseurl }}/angular/setup.html">Angular Axe-Core</a></li>
+      <li><a href="{{ site.baseurl }}/intellij-axe-core/setup.html">IntelliJ + Axe Linter</a></li>
+      <li><a href="{{ site.baseurl }}/dotnet-axe-core/setup.html">.NET Axe-Core</a></li>
+      <li><a href="{{ site.baseurl }}/ci-cd/setup-ci-cd.html">CI/CD</a></li>
+      <li><a href="{{ site.baseurl }}/components/intro.html">Accessible Components</a></li>
+      <li><a href="{{ site.baseurl }}/code-review-checklist/">Accessibility in Code Review</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-post-content">
     <div class="post-content">
-      <h1 class="h-alpha">
-        <span class="h-delta">Developer Resources</span><br/>
-        {{ page.title | escape }}
-      </h1>
+      <h1 class="h-alpha">{{ page.title | escape }}</h1>
       {{ content }}
     </div>
   </div>
