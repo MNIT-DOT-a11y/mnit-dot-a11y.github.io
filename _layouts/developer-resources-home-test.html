@@ -2,63 +2,101 @@
 layout: base
 ---
 <div class="container">
-  <div>
+  <div class="how-to-test-wrapper">
+    <nav aria-label="Developer Guides" class="toc-nav">
+      <ul>
+        <li>
+          <a
+            {% if page.url == "/developer-guides.html" %} aria-current="page" {% endif %}
+            {% if page.url == "/developer-guides.html" %} class="current" {% endif %}
+            href="{{ site.baseurl }}/developer-guides.html">
+            Developer Guides
+          </a>
+
+          <ul>
+            <li>
+              <a
+                {% if page.url == "/java-axe-core/setup.html" %} aria-current="page" {% endif %}
+                {% if page.url == "/java-axe-core/setup.html" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/java-axe-core/setup.html">
+                Java Axe-Core
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url == "/python-axe-core/setup.html" %} aria-current="page" {% endif %}
+                {% if page.url == "/python-axe-core/setup.html" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/python-axe-core/setup.html">
+                Python Axe-Core
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url == "/c-sharp-axe-core/setup.html" %} aria-current="page" {% endif %}
+                {% if page.url == "/c-sharp-axe-core/setup.html" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/c-sharp-axe-core/setup.html">
+                C# Axe-Core
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url == "/angular/setup.html" %} aria-current="page" {% endif %}
+                {% if page.url == "/angular/setup.html" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/angular/setup.html">
+                Angular Axe-Core
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url == "/intellij-axe-core/setup.html" %} aria-current="page" {% endif %}
+                {% if page.url == "/intellij-axe-core/setup.html" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/intellij-axe-core/setup.html">
+                IntelliJ + Axe Linter
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url == "/dotnet-axe-core/setup.html" %} aria-current="page" {% endif %}
+                {% if page.url == "/dotnet-axe-core/setup.html" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/dotnet-axe-core/setup.html">
+                .NET Axe-Core
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url == "/ci-cd/setup-ci-cd.html" %} aria-current="page" {% endif %}
+                {% if page.url == "/ci-cd/setup-ci-cd.html" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/ci-cd/setup-ci-cd.html">
+                CI/CD
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url == "/components/intro.html" %} aria-current="page" {% endif %}
+                {% if page.url == "/components/intro.html" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/components/intro.html">
+                Accessible Components
+              </a>
+            </li>
+            <li>
+              <a
+                {% if page.url == "/code-review-checklist/" %} aria-current="page" {% endif %}
+                {% if page.url == "/code-review-checklist/" %} class="current" {% endif %}
+                href="{{ site.baseurl }}/code-review-checklist/">
+                Accessibility in Code Review
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
     <div class="post-content">
-      
       <h1 class="h-alpha">
         <span class="h-delta">Developer Resources</span><br/>
         {{ page.title | escape }}
       </h1>
-
-      <nav aria-label="Developer Resources">
-        <ul class="cards cards-how-to-test">
-          <li class="card emphasized">
-            <a href="/java-axe-core/setup.html">
-              <span class="title">Java Axe-Core Integration</span>
-            </a>
-          </li>
-          <li class="card emphasized">
-            <a href="/python-axe-core/setup.html">
-              <span class="title">Python Axe-Core Integration</span>
-            </a>
-          </li>
-          <li class="card emphasized">
-            <a href="/how-to-test/images/">
-              <span class="title">C# Axe-Core Integration</span>
-            </a>
-          </li>
-          <li class="card">
-            <a href="/angular/setup.html">
-              <span class="title">Angular Axe-Core Integration</span>
-            </a>
-          </li>
-          <li class="card">
-            <a href="/how-to-test/axe/">
-              <span class="title">IntelliJ Axe-Core Integration</span>
-            </a>
-          </li>
-          <li class="card">
-            <a href="/how-to-test/link-button/">
-              <span class="title">.NET Axe-Core Integration</span>
-            </a>
-          </li>
-                  <li class="card">
-            <a href="/ci-cd/setup-ci-cd.html">
-              <span class="title">CI/CD Integration</span>
-            </a>
-          </li>
-          <li class="card">
-            <a href="/components/intro.html">
-              <span class="title">Accessible Components</span>
-            </a>
-          </li>
-          </ul>
-      </nav>
-
+      {{ content }}
     </div>
   </div>
 </div>
-<div class="container post-content narrow">
-  {{ content }}
-</div>
-
