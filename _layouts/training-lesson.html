@@ -1,0 +1,207 @@
+---
+layout: base
+---
+{%- assign slide_count = page.slides | size -%}
+<div class="container">
+  <div class="how-to-test-wrapper training-wrapper">
+    {%- include training-nav.html -%}
+
+    <div class="post-content training-content">
+      <nav aria-label="Breadcrumb" class="training-breadcrumb">
+        <ol>
+          <li><a href="{{ site.baseurl }}/training/">Learning Pathway</a></li>
+          <li><a href="{{ site.baseurl }}/training/#{{ page.section }}">{{ page.section_title | escape }}</a></li>
+          <li aria-current="page">{{ page.title | escape }}</li>
+        </ol>
+      </nav>
+
+      <h1 class="h-alpha">
+        <span class="h-delta">Training &middot; Lesson {{ page.lesson_number }} of {{ page.lesson_total }}</span><br/>
+        {{ page.title | escape }}
+      </h1>
+
+      {% if page.description %}
+      <p class="training-lede">{{ page.description | escape }}</p>
+      {% endif %}
+
+      <nav aria-label="On this page" class="training-jumps">
+        <ul>
+          <li><a href="#slides">Slides</a></li>
+          <li><a href="#script">Lesson script</a></li>
+          <li><a href="#quiz">Knowledge check</a></li>
+        </ul>
+      </nav>
+
+      {%- comment -%} ===================== SLIDE VIEWER ===================== {%- endcomment -%}
+      <section id="slides" class="tdeck" aria-labelledby="slides-heading" data-tdeck>
+        <h2 id="slides-heading">Slides</h2>
+        <p class="tdeck-help">
+          Use the Previous and Next buttons (or the left and right arrow keys while the viewer has focus)
+          to move through the slides, or choose &ldquo;Show all slides&rdquo; to read them as one page.
+        </p>
+
+        <div class="tdeck-toolbar" data-tdeck-toolbar>
+          <button type="button" class="tdeck-btn" data-tdeck-prev aria-describedby="slides-status">
+            <span aria-hidden="true">&larr;</span> Previous
+          </button>
+          <p class="tdeck-status" id="slides-status" aria-live="polite" aria-atomic="true" data-tdeck-status>
+            {{ slide_count }} slides
+          </p>
+          <button type="button" class="tdeck-btn" data-tdeck-next aria-describedby="slides-status">
+            Next <span aria-hidden="true">&rarr;</span>
+          </button>
+          <button type="button" class="tdeck-btn tdeck-btn-toggle" data-tdeck-toggle aria-pressed="false">
+            Show all slides
+          </button>
+        </div>
+
+        <ol class="tdeck-slides" data-tdeck-slides>
+          {%- for slide in page.slides -%}
+          {%- assign n = forloop.index -%}
+          <li class="tslide tslide-type-{{ slide.type }}" id="slide-{{ n }}" data-tdeck-slide tabindex="-1">
+            {%- if slide.type == "title" -%}
+              <div class="tslide-hero">
+                <p class="tslide-brand" aria-hidden="true">Minnesota IT Services</p>
+                <h3 class="tslide-title">
+                  <span class="hidden">Slide {{ n }} of {{ slide_count }}: </span>{{ slide.title | escape }}
+                </h3>
+                <p class="tslide-presenters">
+                  {%- for who in slide.presenters -%}
+                    <span>{{ who | escape }}</span>
+                  {%- endfor -%}
+                </p>
+              </div>
+            {%- else -%}
+              <div class="tslide-bar">
+                <h3 class="tslide-title">
+                  <span class="hidden">Slide {{ n }} of {{ slide_count }}: </span>{{ slide.title | escape }}
+                </h3>
+              </div>
+              <div class="tslide-body">
+                {%- if slide.type == "agenda" or slide.type == "list" -%}
+                  <p class="tslide-lead">{{ slide.header | escape }}</p>
+                  <ul>
+                    {%- for item in slide.items -%}
+                    <li>{{ item | escape }}</li>
+                    {%- endfor -%}
+                  </ul>
+                {%- elsif slide.type == "definitions" -%}
+                  <dl class="tslide-defs">
+                    {%- for d in slide.items -%}
+                    <div>
+                      <dt>{{ d.term | escape }}</dt>
+                      <dd>{{ d.desc | escape }}</dd>
+                    </div>
+                    {%- endfor -%}
+                  </dl>
+                {%- elsif slide.type == "body" -%}
+                  {%- for group in slide.groups -%}
+                  <h4 class="tslide-group">{{ group.header | escape }}</h4>
+                  <ul>
+                    {%- for item in group.items -%}
+                    <li>{{ item | escape }}</li>
+                    {%- endfor -%}
+                  </ul>
+                  {%- endfor -%}
+                {%- elsif slide.type == "resources" -%}
+                  <p class="tslide-lead">{{ slide.header | escape }}</p>
+                  <p><a href="{{ slide.url }}">{{ slide.url }}</a></p>
+                {%- endif -%}
+              </div>
+              <div class="tslide-footer" aria-hidden="true">
+                <span>Information Technology for Minnesota Government</span>
+                <span>{{ n }}</span>
+              </div>
+            {%- endif -%}
+          </li>
+          {%- endfor -%}
+        </ol>
+
+        <p class="tdeck-download">
+          <a href="{{ site.baseurl }}/assets/training/decks/{{ page.deck | uri_escape }}" download>
+            Download the slide deck &mdash; {{ page.deck | escape }} (PowerPoint)
+          </a>
+        </p>
+      </section>
+
+      {%- comment -%} ===================== SCRIPT ===================== {%- endcomment -%}
+      <section id="script" class="training-script" aria-labelledby="script-heading">
+        <h2 id="script-heading">Lesson script</h2>
+        <p class="training-script-note">
+          This is the narration that accompanies the slides. Read it on its own, or follow along while you move through the deck.
+        </p>
+        {{ content }}
+      </section>
+
+      {%- comment -%} ===================== KNOWLEDGE CHECK ===================== {%- endcomment -%}
+      <section id="quiz" class="tquiz" aria-labelledby="quiz-heading">
+        <h2 id="quiz-heading">Knowledge check</h2>
+        <p>Answer the questions below, then choose &ldquo;Check answers.&rdquo; Nothing is recorded &mdash; this is just for you.</p>
+
+        <form data-tquiz novalidate>
+          {%- for q in page.quiz -%}
+          {%- assign qi = forloop.index -%}
+          <fieldset class="tquiz-question" data-tquiz-question data-tquiz-answer="{{ q.answer }}" id="tq{{ qi }}">
+            <legend>{{ qi }}. {{ q.q | escape }}</legend>
+            <div class="tquiz-options">
+              {%- for opt in q.options -%}
+              {%- assign oi = forloop.index0 -%}
+              <div class="tquiz-option">
+                <input type="radio" id="tq{{ qi }}-o{{ oi }}" name="tq{{ qi }}" value="{{ oi }}">
+                <label for="tq{{ qi }}-o{{ oi }}">{{ opt | escape }}</label>
+              </div>
+              {%- endfor -%}
+            </div>
+            <p class="tquiz-feedback" id="tq{{ qi }}-feedback" data-tquiz-feedback hidden></p>
+            <details class="tquiz-reveal" data-tquiz-reveal>
+              <summary>Show answer</summary>
+              {%- assign ai = q.answer | plus: 0 -%}
+              <p><strong>Answer:</strong> {{ q.options[ai] | escape }}</p>
+              <p>{{ q.explain | escape }}</p>
+            </details>
+          </fieldset>
+          {%- endfor -%}
+
+          <div class="tquiz-actions" data-tquiz-actions hidden>
+            <button type="submit" class="tdeck-btn tquiz-submit">Check answers</button>
+            <button type="button" class="tdeck-btn tdeck-btn-toggle" data-tquiz-reset>Start over</button>
+          </div>
+          <p class="tquiz-result" role="status" data-tquiz-result tabindex="-1"></p>
+        </form>
+      </section>
+
+      {%- comment -%} ===================== PAGER ===================== {%- endcomment -%}
+      <nav aria-label="Lesson navigation" class="training-pager">
+        <ul>
+          <li class="training-pager-prev">
+            {%- if page.prev_slug -%}
+            <a href="{{ site.baseurl }}/training/{{ page.prev_slug }}/">
+              <span class="training-pager-label">Previous lesson</span>
+              <span class="training-pager-title">{{ page.prev_title | escape }}</span>
+            </a>
+            {%- else -%}
+            <a href="{{ site.baseurl }}/training/">
+              <span class="training-pager-label">Back to</span>
+              <span class="training-pager-title">Learning Pathway</span>
+            </a>
+            {%- endif -%}
+          </li>
+          <li class="training-pager-next">
+            {%- if page.next_slug -%}
+            <a href="{{ site.baseurl }}/training/{{ page.next_slug }}/">
+              <span class="training-pager-label">Next lesson</span>
+              <span class="training-pager-title">{{ page.next_title | escape }}</span>
+            </a>
+            {%- else -%}
+            <a href="{{ site.baseurl }}/training/">
+              <span class="training-pager-label">You&rsquo;ve finished the pathway</span>
+              <span class="training-pager-title">Back to Learning Pathway</span>
+            </a>
+            {%- endif -%}
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<script src="{{ site.baseurl }}/assets/scripts/training.js?{{ site.time | date: '%s' }}" defer></script>
