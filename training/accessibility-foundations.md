@@ -4,6 +4,7 @@ title: Accessibility Foundations
 seoTitle: Accessibility Foundations - Accessibility training
 description: 'The starting point for all accessibility work at MNIT DOT: what accessibility means, the POUR principles, WCAG, and who we build for.'
 permalink: /training/accessibility-foundations/
+slug: accessibility-foundations
 section: foundations
 section_title: Accessibility Foundations
 lesson_number: 1
@@ -109,53 +110,16 @@ slides:
   title: Resources
   header: Where to Learn More
   url: https://mnit-dot-a11y.github.io/how-to-test/
-quiz:
-- q: What do the four POUR principles stand for?
-  options:
-  - Perceivable, Operable, Understandable, Robust
-  - Practical, Organized, Usable, Responsive
-  - Perceivable, Optional, Uniform, Readable
-  - Performance, Output, Usability, Reliability
-  answer: 0
-  explain: 'POUR is the foundation of WCAG: content must be Perceivable, Operable, Understandable, and Robust.'
-- q: Which statement best describes how MNIT DOT treats accessibility?
-  options:
-  - It is a nice-to-have that QA handles at the end
-  - It is part of our development standards, testing expectations, and responsibility to the public
-  - It only applies to public-facing marketing pages
-  - It is the designer's responsibility alone
-  answer: 1
-  explain: At DOT, accessibility is not optional — it's part of our standards and our responsibility to the public.
-- q: Which of these is an example of a situational limitation that accessible design helps with?
-  options:
-  - Using a screen reader
-  - Using an alternative keyboard
-  - Trying to use an app in bright sunlight
-  - Using high contrast mode
-  answer: 2
-  explain: Situational limitations — like bright sunlight or a noisy room — affect everyone, which is why accessibility benefits all users.
-- q: According to the training, accessibility is best described as…
-  options:
-  - A checklist to complete before release
-  - A QA sign-off step
-  - A mindset — a way of thinking about users, interactions, and barriers
-  - A browser setting
-  answer: 2
-  explain: Accessibility is not a checklist; it's a mindset that makes every development decision more intentional.
 ---
 
-Hi everyone and thank you for taking this training. I’m Doug Rubio, accessibility development coach for MNDOT.  In this session, we’re going to cover Accessibility Foundations. This is the starting point for all accessibility work at MNIT DOT. Before we test, before we code, before we integrate tools, we need a shared understanding of what accessibility is, why it matters, and how it shapes the way we build applications.
+This lesson sets the shared foundation for every training that follows. Accessibility at DOT means every person can use our applications regardless of ability, device, or assistive technology — and it is part of our development standards and testing expectations, not an optional extra.
 
-Accessibility is about ensuring that every person can use our applications regardless of ability, device, or assistive technology. At DOT, accessibility is not optional. It is part of our development standards, our testing expectations, and our responsibility to the public.
+You'll meet the four POUR principles (Perceivable, Operable, Understandable, Robust) that organize WCAG, and see how everyday development decisions — semantic HTML, labels, keyboard access, predictable focus — map directly to those requirements. The lesson also looks at who we build for: screen reader and magnifier users, people using speech input or alternative keyboards, and anyone with a temporary or situational limitation.
 
-Let’s begin with the core principles. Accessibility is guided by four major concepts known as POUR. Perceivable, Operable, Understandable, and Robust. Perceivable means users must be able to see, hear, or otherwise sense the content. Operable means users must be able to interact with the interface using a keyboard, mouse, touch, or assistive technology. Understandable means the content and interactions must be clear and predictable. Robust means the application must work with a wide range of assistive technologies.
+### You'll learn to
 
-These principles come from the Web Content Accessibility Guidelines, also known as WCAG. WCAG is the standard we follow at MNIT DOT. It defines the criteria we test against and the requirements developers must meet. You don’t need to memorize every criterion, but you do need to understand how your development decisions affect accessibility. For example, choosing semantic HTML, providing labels, ensuring keyboard access, and maintaining predictable focus behavior all directly support WCAG compliance.
-
-Now let’s talk about the user experience. When we build accessible applications, we’re building for people who use screen readers, magnification tools, high contrast modes, speech input, or alternative keyboards. We’re also building for people with temporary limitations, like a broken wrist, or situational limitations, like trying to use an app in bright sunlight. Accessibility benefits everyone.
-
-At DOT, accessibility is part of the development lifecycle. It begins at design, continues through development, and is validated in QA. Developers are responsible for building accessible components from the start. QA is responsible for verifying accessibility through manual and automated testing. When both teams work together, accessibility becomes a natural part of the workflow instead of a last-minute fix.
-
-Before we move into the next training, I want to emphasize one key point. Accessibility is not a checklist. It is a mindset. It is a way of thinking about users, interactions, and barriers. When you understand the foundations, every decision you make as a developer becomes more intentional and more inclusive.
-
-Thank you for joining me for this foundational session. In the next training, we will move into HTML Accessibility Fundamentals, where we’ll look at how semantic structure supports accessibility and how developers can build interfaces that assistive technologies can understand.
+- Explain what accessibility means at DOT and why it's required
+- Describe the four POUR principles and how they relate to WCAG
+- Recognize the range of users and situations accessible design supports
+- See where accessibility fits across design, development, and QA
+- Treat accessibility as a mindset rather than a checklist

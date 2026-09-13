@@ -16,7 +16,7 @@ layout: base
       </nav>
 
       <h1 class="h-alpha">
-        <span class="h-delta">Training &middot; Lesson {{ page.lesson_number }} of {{ page.lesson_total }}</span><br/>
+        <span class="h-delta">Training &middot; Lesson {{ page.lesson_number }} of {{ page.lesson_total }}</span>
         {{ page.title | escape }}
       </h1>
 
@@ -27,8 +27,8 @@ layout: base
       <nav aria-label="On this page" class="training-jumps">
         <ul>
           <li><a href="#slides">Slides</a></li>
-          <li><a href="#script">Lesson script</a></li>
-          <li><a href="#quiz">Knowledge check</a></li>
+          <li><a href="#about">About this lesson</a></li>
+          <li><a href="{{ site.baseurl }}/training/knowledge-check/#{{ page.slug }}">Knowledge check</a></li>
         </ul>
       </nav>
 
@@ -125,49 +125,18 @@ layout: base
       </section>
 
       {%- comment -%} ===================== SCRIPT ===================== {%- endcomment -%}
-      <section id="script" class="training-script" aria-labelledby="script-heading">
-        <h2 id="script-heading">Lesson script</h2>
-        <p class="training-script-note">
-          This is the narration that accompanies the slides. Read it on its own, or follow along while you move through the deck.
-        </p>
+      <section id="about" class="training-about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About this lesson</h2>
         {{ content }}
       </section>
 
-      {%- comment -%} ===================== KNOWLEDGE CHECK ===================== {%- endcomment -%}
-      <section id="quiz" class="tquiz" aria-labelledby="quiz-heading">
-        <h2 id="quiz-heading">Knowledge check</h2>
-        <p>Answer the questions below, then choose &ldquo;Check answers.&rdquo; Nothing is recorded &mdash; this is just for you.</p>
-
-        <form data-tquiz novalidate>
-          {%- for q in page.quiz -%}
-          {%- assign qi = forloop.index -%}
-          <fieldset class="tquiz-question" data-tquiz-question data-tquiz-answer="{{ q.answer }}" id="tq{{ qi }}">
-            <legend>{{ qi }}. {{ q.q | escape }}</legend>
-            <div class="tquiz-options">
-              {%- for opt in q.options -%}
-              {%- assign oi = forloop.index0 -%}
-              <div class="tquiz-option">
-                <input type="radio" id="tq{{ qi }}-o{{ oi }}" name="tq{{ qi }}" value="{{ oi }}">
-                <label for="tq{{ qi }}-o{{ oi }}">{{ opt | escape }}</label>
-              </div>
-              {%- endfor -%}
-            </div>
-            <p class="tquiz-feedback" id="tq{{ qi }}-feedback" data-tquiz-feedback hidden></p>
-            <details class="tquiz-reveal" data-tquiz-reveal>
-              <summary>Show answer</summary>
-              {%- assign ai = q.answer | plus: 0 -%}
-              <p><strong>Answer:</strong> {{ q.options[ai] | escape }}</p>
-              <p>{{ q.explain | escape }}</p>
-            </details>
-          </fieldset>
-          {%- endfor -%}
-
-          <div class="tquiz-actions" data-tquiz-actions hidden>
-            <button type="submit" class="tdeck-btn tquiz-submit">Check answers</button>
-            <button type="button" class="tdeck-btn tdeck-btn-toggle" data-tquiz-reset>Start over</button>
-          </div>
-          <p class="tquiz-result" role="status" data-tquiz-result tabindex="-1"></p>
-        </form>
+      <section class="training-check-cta" aria-labelledby="check-heading">
+        <h2 id="check-heading">Check what you learned</h2>
+        <p>
+          The knowledge check for this lesson lives on the combined
+          <a href="{{ site.baseurl }}/training/knowledge-check/#{{ page.slug }}">Knowledge Check</a>
+          page, alongside the questions for every other lesson in the pathway.
+        </p>
       </section>
 
       {%- comment -%} ===================== PAGER ===================== {%- endcomment -%}

@@ -4,6 +4,7 @@ title: Error Messaging & Focus Interaction Patterns
 seoTitle: Error Messaging & Focus Interaction Patterns - Accessibility training
 description: Shared patterns for clear, announced error messages and predictable focus behavior in modals, tabs, and composite widgets.
 permalink: /training/error-messaging-and-focus-patterns/
+slug: error-messaging-and-focus-patterns
 section: patterns
 section_title: Technology-Agnostic Accessibility Patterns
 lesson_number: 14
@@ -111,154 +112,16 @@ slides:
   title: Resources
   header: Where to Learn More
   url: https://mnit-dot-a11y.github.io/how-to-test/keyboard-focus/
-quiz:
-- q: Which is the correct error pattern?
-  options:
-  - Red border only
-  - Red border, error icon, descriptive message, and aria-describedby association
-  - A console.log message
-  - A color change on the label
-  answer: 1
-  explain: Errors need text, association, and an announcement — never color alone.
-- q: Where should focus go when a modal closes?
-  options:
-  - To the top of the page
-  - Back to the element that triggered the modal
-  - To the footer
-  - Nowhere
-  answer: 1
-  explain: Returning focus to the trigger keeps navigation predictable for keyboard and screen reader users.
-- q: What is 'roving tabindex' used for?
-  options:
-  - Hiding elements from screen readers
-  - Managing focus within composite widgets like menus and tabs
-  - Styling focus rings
-  - Disabling keyboard access
-  answer: 1
-  explain: Roving tabindex lets one Tab stop enter a composite widget, with arrow keys moving focus inside it.
-- q: Which WCAG criterion covers suggesting how to fix an error?
-  options:
-  - Error Identification (3.3.1)
-  - Error Suggestions (3.3.3)
-  - Focus Visible (2.4.7)
-  - Keyboard (2.1.1)
-  answer: 1
-  explain: 3.3.1 says identify the error; 3.3.3 says tell the user how to correct it.
 ---
 
-Hi everyone, and welcome back. I’m Doug Rubio, accessibility development coach for MNIT DOT. In today’s session, we’re going to focus on Error Messaging & Focus Interaction Patterns, two critical areas that determine whether users can understand issues, recover from mistakes, and navigate your application efficiently.
+Whether users can understand a problem, recover from a mistake, and keep moving through an application comes down to two things: how errors are communicated and how focus behaves. This lesson defines shared patterns for both so every application gives consistent, accessible feedback.
 
-Error messaging and focus interaction patterns apply across all technologies and are essential for creating predictable, usable interfaces. When developers follow shared patterns, users receive clear feedback and can operate components confidently.
+Error messages must include text (not just color), be programmatically associated with their field, be announced to screen readers, and remain visible at every magnification level. Focus must stay visible, move logically, trap correctly inside modals, and return to the triggering element. The lesson brings these together in unified examples for errors, modals, and tabs, plus a testing checklist.
 
-This session builds on the Forms, Keyboard, and Component Patterns modules you completed earlier. Now we will shift our attention to error flows and interaction behaviors.
+### You'll learn to
 
-## Why Error Messaging & Focus Interaction Matter
-
-These patterns ensure:
-
-- users understand what went wrong
-- errors are announced to screen readers
-- focus moves logically
-- focus is visible at all times
-- users can recover from mistakes
-- interactions follow WCAG and MNIT standards
-
-These patterns support several WCAG criteria, including:
-
-- Error Identification (3.3.1)
-- Error Suggestions (3.3.3)
-- Focus Visible (2.4.7)
-- Keyboard (2.1.x)
-
-## Error Messaging Patterns
-
-Error messages must be clear, descriptive, and actionable.
-
-Core Principles
-
-- Errors must include text, not just color
-- Errors must be programmatically associated with fields
-- Errors must be announced to screen readers
-- Errors must be visible at all magnification levels
-- Errors must be consistent across the application
-
-Correct Example
-
-- Red border
-- Error icon
-- Descriptive error message
-- ARIA association (aria-describedby)
-
-Incorrect Example
-
-- Red border only
-- No text
-- No icon
-- No ARIA association
-
-Consistent error patterns reduce confusion and improve usability.
-
-## Focus Interaction Patterns
-
-Focus interaction patterns ensure that users can navigate and operate components using the keyboard and assistive technologies.
-
-Core Principles
-
-- Focus must always be visible
-- Focus must move logically
-- Focus must be trapped inside modals
-- Focus must return to the triggering element
-- Components must support Space, Enter, and Arrow keys
-
-Common Interaction Patterns
-
-- Arrow key navigation for menus and tabs
-- Space/Enter activation for buttons
-- Escape key to close dialogs
-- Roving tabindex for composite widgets
-- Focus trapping for modals
-
-These patterns ensure that all users can operate components efficiently.
-
-## Unified Error & Focus Examples
-
-Accessible Error Pattern
-
-- Error message is descriptive
-- Error is associated with the field
-- Error is announced
-- Error is visible at 200% and 400% zoom
-
-Accessible Modal Pattern
-
-- Focus moves into the modal
-- Focus is trapped inside
-- Escape closes the modal
-- Focus returns to the trigger
-- Modal has a clear accessible name
-
-Accessible Tab Pattern
-
-- Arrow keys move between tabs
-- Tab panels have correct roles
-- Active tab is announced
-- Focus remains predictable
-
-## Testing Error & Focus Patterns
-
-Checklist:
-
-- Are errors descriptive and associated?
-- Are errors announced?
-- Is focus visible and predictable?
-- Does focus trap correctly in modals?
-- Do components support keyboard interaction?
-- Are state changes announced?
-
-Testing early prevents issues from reaching QA.
-
-## Conclusion
-
-Error Messaging & Focus Interaction Patterns ensure that users receive clear feedback, can recover from mistakes, and can navigate your application confidently. When you apply shared patterns across your applications, you create interfaces that are predictable, usable, and accessible.
-
-In the next training, we will move into Accessibility in SDLC, where you will learn how to embed accessibility into your development lifecycle and GitHub workflows.
+- Build error messages that are descriptive, associated, and announced
+- Distinguish a correct error pattern from a color-only one
+- Manage focus for modals: move in, trap, close on Escape, return to the trigger
+- Apply arrow-key navigation and roving tabindex to composite widgets
+- Test error and focus patterns against WCAG 3.3.1, 3.3.3, 2.4.7, and 2.1.x

@@ -32,5 +32,12 @@
         {% endfor %}
       </ul>
     </li>
+    <li class="training-nav-check">
+      <a
+        {% if page.url == "/training/knowledge-check/" %} aria-current="page" class="current" {% endif %}
+        href="{{ site.baseurl }}/training/knowledge-check/">
+        Knowledge Check
+      </a>
+    </li>
   </ul>
 </nav>

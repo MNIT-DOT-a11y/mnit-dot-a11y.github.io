@@ -4,6 +4,7 @@ title: Keyboard Testing
 seoTitle: Keyboard Testing - Accessibility training
 description: 'Test every interactive element without a mouse: commands, focus indicators, focus order, keyboard traps, skip links, and custom components.'
 permalink: /training/keyboard-testing/
+slug: keyboard-testing
 section: core-testing
 section_title: Core Testing Skills
 lesson_number: 5
@@ -152,222 +153,16 @@ slides:
   title: Resources
   header: Where to Learn More
   url: https://mnit-dot-a11y.github.io/how-to-test/keyboard-focus/
-quiz:
-- q: Which key combination moves focus backward through interactive elements?
-  options:
-  - Escape
-  - Shift + Tab
-  - Ctrl + Tab
-  - Backspace
-  answer: 1
-  explain: Tab moves forward, Shift + Tab moves backward. Arrow keys navigate within components like menus and radio groups.
-- q: What does the training say if you can't see where keyboard focus is?
-  options:
-  - It's fine as long as the mouse works
-  - The component is not accessible
-  - Add a tooltip
-  - It only matters for screen reader users
-  answer: 1
-  explain: Focus Visible (2.4.7) requires a clear, high-contrast focus indicator at all times.
-- q: How do you test for a keyboard trap?
-  options:
-  - Click every element with the mouse
-  - Tab into the component, then try Tab, Shift+Tab, and Escape to leave it
-  - Run an automated scan only
-  - Check the component's CSS
-  answer: 1
-  explain: If none of Tab, Shift+Tab, or Escape lets you leave, the component contains a trap — a serious failure.
-- q: What should a skip link do?
-  options:
-  - Be hidden from keyboard users
-  - Appear when focused and move focus to the main content
-  - Open a new window
-  - Only appear on mobile
-  answer: 1
-  explain: Skip links let users bypass repetitive content. They should appear on focus, move focus correctly, and sit at the top of the page.
 ---
 
-Hi everyone, and welcome back. I’m Doug Rubio, accessibility development coach for MNIT DOT. In this session, we’re going to focus on Keyboard Testing, one of the most essential accessibility skills for developers. Keyboard accessibility is a core requirement of WCAG and a foundational part of building usable applications. Many users rely on keyboards or keyboard-like devices to navigate, and every interactive element must work without a mouse.
+Every interactive element must work without a mouse. Keyboard testing is the fastest way to find the barriers that block people with motor disabilities, low vision, or blindness — and it catches many of the same defects a screen reader would.
 
-This training builds on the HTML, ARIA, and Forms modules you’ve already completed. Now we will learn how to verify that your components are fully operable using only the keyboard, and how to identify common issues before they reach QA.
+This lesson teaches the core commands (Tab, Shift+Tab, Enter, Space, arrow keys, Escape), what a good focus indicator looks like, and how focus order should match the visual layout. You'll test buttons, links, form fields, dropdowns, and modals; check for keyboard traps; verify skip links; and give custom components the extra scrutiny they need because they don't inherit native behavior.
 
-## Why Keyboard Accessibility Matters
+### You'll learn to
 
-Keyboard accessibility ensures that users can:
-
-- navigate through content
-- activate buttons and links
-- complete forms
-- open and close menus
-- interact with custom components
-
-This is essential for users with motor disabilities, low vision, blindness, or those who simply prefer keyboard navigation. It also supports assistive technologies such as screen readers, which rely heavily on keyboard commands.
-
-Keyboard accessibility supports several WCAG criteria, including:
-
-- Keyboard (2.1.1)
-- No Keyboard Trap (2.1.2)
-- Focus Order (2.4.3)
-- Focus Visible (2.4.7)
-
-When developers test keyboard behavior early, accessibility issues become much easier to prevent and fix.
-
-## Basic Keyboard Commands
-
-To perform keyboard testing, you need to understand the core commands users rely on.
-
-- Tab moves forward through focusable elements
-- Shift + Tab moves backward
-- Enter activates buttons, links, and controls
-- Spacebar activates buttons and toggles
-- Arrow keys navigate menus, radio buttons, sliders, and lists
-- Escape closes dialogs, menus, and popups
-
-These commands allow you to test every interactive element in your application.
-
-## Focus Indicators
-
-As you move through the page, you should always see a clear visual indicator showing which element is currently focused. This indicator must be visible, high-contrast, and not hidden by design.
-
-Examples of good focus indicators:
-
-- a visible outline
-- a highlight
-- an underline
-- a border change
-
-If you cannot see where focus is, the component is not accessible.
-
-## Logical Focus Order
-
-Focus must move in a predictable order that matches the visual layout and reading sequence. Users should not jump unexpectedly between unrelated elements.
-
-Correct focus order:
-
-- header
-- navigation
-- main content
-- sidebar
-- footer
-
-Incorrect focus order:
-
-- jumping into hidden content
-- skipping important elements
-- moving into ads or unrelated sections
-- entering modals unexpectedly
-
-Logical focus order supports user understanding and prevents confusion.
-
-## Testing Interactive Elements
-
-Every interactive element must be reachable and operable using only the keyboard.
-
-### Buttons and Links
-
-- Tab to the element
-- Press Enter or Space
-- Confirm the action works
-
-### Form Fields
-
-- Tab into each field
-- Enter text
-- Use arrow keys for radio buttons
-- Use Space for checkboxes
-- Confirm error messages appear correctly
-
-### Dropdowns and Menus
-
-- Use Enter or Space to open
-- Use arrow keys to navigate
-- Use Enter to select
-- Use Escape to close
-
-### Modals and Dialogs
-
-- Focus should move into the modal automatically
-- Tab should cycle within the modal
-- Escape should close the modal
-- Focus should return to the trigger
-
-These behaviors ensure users can operate your application without barriers.
-
-### Keyboard Traps
-
-A keyboard trap occurs when users enter a component and cannot leave it. This is a serious accessibility failure.
-
-Examples of keyboard traps:
-
-- modals that do not release focus
-- custom widgets that trap focus
-- iframes without escape paths
-- components that require a mouse to exit
-
-To test for traps:
-
-- Tab into the component
-- Try to Tab out
-- Try Shift + Tab
-- Try Escape
-
-If none of these work, the component contains a trap and must be fixed.
-
-## Skip Links
-
-Skip links allow users to bypass repetitive content and jump directly to the main section of the page. They are essential for keyboard and screen reader users.
-
-Correct example:
-
-```html
-<a href="#main-content" class="skip-link">Skip to main content</a>
-```
-
-Skip links should:
-
-- appear when focused
-- move focus to the correct section
-- be placed at the top of the page
-
-They improve navigation and reduce frustration.
-
-## Testing Custom Components
-
-Custom components often require special attention because they do not inherit native keyboard behavior.
-
-Examples include:
-
-- custom dropdowns
-- sliders
-- tabs
-- accordions
-- carousels
-- tooltips
-
-When testing custom components:
-
-- verify keyboard access
-- verify ARIA roles and states
-- verify focus behavior
-- verify Escape closes the component
-- verify arrow keys behave correctly
-
-Custom components must behave like their native equivalents.
-
-## Common Keyboard Accessibility Issues
-
-Developers often encounter issues such as:
-
-- missing focus indicators
-- incorrect focus order
-- keyboard traps
-- elements that require a mouse
-- modals without focus management
-- custom controls without ARIA
-- hidden elements receiving focus
-
-These issues are easy to identify when you test early and often.
-
-## Conclusion
-
-Keyboard testing is one of the most important accessibility skills for developers. When you verify keyboard behavior during development, you prevent major accessibility issues and create applications that are usable for everyone. Keyboard accessibility supports WCAG compliance and ensures your components work with assistive technologies.
+- Navigate and operate a page using only the keyboard
+- Judge whether focus indicators are visible and high-contrast
+- Verify that focus order follows the visual reading sequence
+- Detect keyboard traps and confirm skip links work
+- Test custom components for keyboard access, ARIA states, and Escape behavior

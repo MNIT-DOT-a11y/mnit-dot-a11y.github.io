@@ -4,6 +4,7 @@ title: Axe DevTools Basics
 seoTitle: Axe DevTools Basics - Accessibility training
 description: Install Axe DevTools, run a scan, interpret and prioritize results, and document findings — plus why manual testing still matters.
 permalink: /training/axe-devtools-basics/
+slug: axe-devtools-basics
 section: core-testing
 section_title: Core Testing Skills
 lesson_number: 9
@@ -109,136 +110,16 @@ slides:
   title: Resources
   header: Where to Learn More
   url: https://mnit-dot-a11y.github.io/how-to-test/axe/
-quiz:
-- q: What are the three result categories Axe DevTools reports?
-  options:
-  - Errors, Warnings, Info
-  - Violations, Needs review, Best practices
-  - Critical, Major, Minor
-  - Pass, Fail, Skip
-  answer: 1
-  explain: Violations must be fixed; Needs review requires human judgment; Best practices may not map directly to WCAG.
-- q: Roughly what share of accessibility issues does Axe catch on its own?
-  options:
-  - About 30 to 40 percent
-  - About 90 percent
-  - 100 percent
-  - Less than 5 percent
-  answer: 0
-  explain: Automated scanning is a starting point. Manual keyboard, screen reader, zoom, and color testing cover the rest.
-- q: Which of these is a high-impact issue that should be fixed first?
-  options:
-  - A redundant role
-  - A minor semantic problem
-  - A keyboard trap or missing label
-  - A best-practice recommendation
-  answer: 2
-  explain: Keyboard traps, missing labels, missing alt text, and unidentifiable elements block users entirely.
-- q: What should a documented Axe finding include?
-  options:
-  - Only a screenshot
-  - The violation name, WCAG reference, screenshot or highlighted element, steps to reproduce, and expected behavior
-  - Just the URL
-  - The developer's name
-  answer: 1
-  explain: Clear reporting helps developers fix issues faster and keeps standards consistent across DOT applications.
 ---
 
-## Introduction
+Axe DevTools is one of the core tools we use at MNIT DOT because it aligns with WCAG 2.1 AA and finds a large share of common issues in seconds. This lesson takes you from installing the browser extension to running your first scan and reading the results.
 
-Hello everyone, and welcome. In this session, we’re going to walk through how to install Axe DevTools, how to run an accessibility scan, and how to interpret the results so you can identify issues early in development or during QA testing.
+You'll learn the difference between Violations, Needs Review, and Best Practices; how each finding shows the WCAG criterion, an explanation, the failing code, and a highlight on the page; and how to prioritize high-impact issues like keyboard traps and missing labels. Because Axe only catches roughly 30–40% of accessibility problems, the lesson also covers pairing it with manual testing and documenting findings so developers can act on them.
 
-Axe DevTools is one of the core tools we use at MNIT DOT because it aligns with WCAG 2.1 AA and helps us catch a significant portion of accessibility issues quickly. Let’s get started.
+### You'll learn to
 
-## Section 1 – Installing Axe DevTools
-
-First, let’s make sure Axe DevTools is installed.
-
-Open your browser, Chrome or Edge works best  and go to the extension store. Search for ‘Axe DevTools’ and install the extension. Once it’s installed, open your Developer Tools. You’ll see a new tab labeled ‘Axe DevTools.’
-
-If you see that tab, you’re ready to begin scanning. If you don’t see it, double-check that the extension is enabled.
-
-If you want more detail on installation later, you can explore installation basics.
-
-## Section 2 – Running an Axe Scan
-
-Now let’s run our first scan.
-
-With Developer Tools open, select the Axe DevTools tab. You’ll see a button that says ‘Scan all of my page.’ Go ahead and click that. Axe will analyze the page and return a list of violations.
-
-You’ll notice three categories:
-
-- Violations
-- Needs review
-- Best practices
-
-Violations are the issues you must fix. ‘Needs review’ means Axe found something that might be a problem but needs human judgment. ‘Best practices’ are recommendations that improve accessibility but may not map directly to WCAG.
-
-If you want to revisit this later, you can look at running a scan.
-
-## Section 3 – Interpreting Axe Results
-
-Let’s take a closer look at the results.
-
-Click on any violation. Axe will show you:
-
-- The WCAG success criterion
-- A plain-language explanation of why the issue matters
-- A code snippet showing the failing element
-- A ‘Highlight’ button that visually marks the issue on the page
-
-This is extremely helpful because it shows you exactly where the problem is and why it needs to be fixed.
-
-For example, if Axe reports ‘Buttons must have discernible text,’ you’ll see the button element in the code and Axe will highlight it on the page.
-
-If you want more guidance on interpreting results, you can explore interpreting Axe results.
-
-## Section 4 – Prioritizing Issues
-
-Not all issues have the same impact.
-
-High-impact issues include things like keyboard traps, missing labels, missing alt text, or elements that screen readers can’t identify. These should be fixed first.
-
-Medium-impact issues include color contrast or ARIA misuse. Low-impact issues include redundant roles or minor semantic problems.
-
-When you’re working with developers or writing QA reports, always call out the highest-impact issues first.
-
-If you want more detail on prioritization, you can explore issue prioritization.
-
-## Section 5 – Combining Automated and Manual Testing
-
-Axe DevTools is powerful, but it only catches about 30 to 40 percent of accessibility issues.
-
-That means we always combine automated testing with manual testing. Manual testing includes:
-
-- Keyboard navigation
-- Screen reader behavior
-- Focus order
-- Zoom and magnification
-- Color alone testing
-
-Axe helps us identify structural issues quickly, but manual testing ensures we catch everything else.
-
-You can learn more about this in combined testing.
-
-## Section 6 – Documenting Axe Findings
-
-Finally, let’s talk about reporting.
-
-When you document an accessibility issue found by Axe, make sure your defect includes:
-
-- The violation name
-- The WCAG reference
-- A screenshot or highlighted element
-- Steps to reproduce
-- The expected behavior
-
-Clear reporting helps developers fix issues faster and ensures we maintain consistent accessibility standards across DOT applications.
-
-If you want more guidance on writing defects, explore writing accessibility defects.
-
-## Conclusion
-
-That’s the end of our Axe DevTools microtraining. You now know how to install Axe, run a scan, interpret results, prioritize issues, combine automated and manual testing, and document findings clearly.
-
-Thank you for joining me. If you have questions or want to dive deeper into any of these topics, feel free to reach out or explore the linked microtrainings.
+- Install Axe DevTools and run a full-page scan
+- Interpret each violation and locate the failing element
+- Prioritize findings by impact
+- Combine automated scans with keyboard, screen reader, zoom, and color testing
+- Write a defect with the violation name, WCAG reference, and steps to reproduce

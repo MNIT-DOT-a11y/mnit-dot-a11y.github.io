@@ -4,6 +4,7 @@ title: Accessibility in SDLC
 seoTitle: Accessibility in SDLC - Accessibility training
 description: Where accessibility belongs in each phase of the SDLC, the artifacts to add now, and how to automate, measure, and govern it.
 permalink: /training/accessibility-in-sdlc/
+slug: accessibility-in-sdlc
 section: workflow
 section_title: Developer Workflow Integration
 lesson_number: 15
@@ -114,90 +115,16 @@ slides:
   title: Resources
   header: Where to Learn More
   url: https://mnit-dot-a11y.github.io/ci-cd/setup-ci-cd.html
-quiz:
-- q: Why does finding accessibility defects late cost more?
-  options:
-  - Because they often require design or architecture changes
-  - Because QA charges more
-  - It doesn't — the cost is the same
-  - Because browsers change
-  answer: 0
-  explain: Embedding accessibility early reduces rework, shortens remediation cycles, and improves quality.
-- q: Which artifact belongs in the Requirements phase?
-  options:
-  - CI gates
-  - Accessibility acceptance criteria in user stories
-  - Dashboards
-  - Release monitoring
-  answer: 1
-  explain: Stories should require accessible names, keyboard operability, error messaging, and contrast checks.
-- q: What should a CI gate do for accessibility?
-  options:
-  - Ignore accessibility results
-  - Fail builds for critical regressions and surface warnings for lower-severity issues
-  - Only run on Fridays
-  - Replace manual testing
-  answer: 1
-  explain: Automation makes accessibility measurable, but manual checks for NVDA and zoom are still part of the checklist.
-- q: Who should own accessibility on a team, according to the training?
-  options:
-  - Nobody in particular
-  - An accessibility champion per team plus a central governance contact
-  - Only the QA lead
-  - Only the product owner
-  answer: 1
-  explain: Clear ownership keeps accessibility sustainable instead of bolted on.
 ---
 
-Hi everyone, and welcome back. I’m Doug Rubio, accessibility development coach for MNIT DOT. In today’s session, we’re going to focus on Accessibility in SDLC, a practical guide for embedding accessibility into every phase of your software development lifecycle so accessibility is built in — not bolted on.
+Accessibility defects found late are expensive — they often require design or architecture changes. This lesson shows where accessibility belongs in every phase of the software development lifecycle so it's built in from the start rather than bolted on at the end.
 
-This microtraining shows where accessibility belongs, what concrete artifacts and checks to add at each stage, and how to automate and measure progress so teams ship accessible features reliably.
+It maps accessibility to requirements, design, development, code review, CI/CD, QA and UAT, and release monitoring, then gets practical: acceptance criteria in user stories, design tokens and component contracts, API contracts with accessibility metadata, PR checklists, automated Axe scans, manual test scripts, and onboarding. Automation, metrics, and governance — CI gates, precommit hooks, dashboards, and named accessibility champions — make it measurable and sustainable.
 
-## Why Accessibility in SDLC Matters
+### You'll learn to
 
-- Accessibility defects found late are costly to fix and often require design or architecture changes.
-- Embedding accessibility into the SDLC reduces rework, shortens remediation cycles, and improves product quality.
-- It ensures compliance with WCAG and MNIT standards while making your apps usable for everyone.
-
-## Where to Integrate Accessibility in the SDLC
-
-- Requirements — include accessibility acceptance criteria in user stories.
-- Design — apply patterns for color, focus, and interaction in mockups and component libraries.
-- Development — implement accessible components, metadata, and server contracts.
-- Code Review — verify accessibility patterns and automated test results in PRs.
-- CI/CD — run automated scans and gating checks.
-- QA and UAT — include manual keyboard, screen reader, and magnification checks.
-- Release and Monitoring — track accessibility regressions and user feedback.
-
-## Practical Steps and Artifacts to Add Now
-
-- User Stories and Acceptance Criteria — require accessible name, keyboard operability, error messaging, and contrast checks.
-- Design Tokens and Component Library — publish accessible color tokens, focus styles, and component contracts.
-- API Contracts — include alt text, labels, and error metadata in DTOs.
-- Pull Request Checklist — add a short accessibility checklist to PR templates.
-- Automated Tests — integrate Axe Core or similar into unit and end-to-end tests.
-- Manual Test Scripts — provide short scripts for keyboard, NVDA, zoom, and color checks.
-- Training and Onboarding — require new hires to complete core microtrainings and a short hands-on lab.
-
-## Automation, Metrics, and Governance
-
-- CI Gates — fail builds for critical accessibility regressions; surface warnings for lower-severity issues.
-- Precommit Hooks — run linters that catch missing alt attributes and ARIA misuse.
-- Dashboards — track open accessibility defects, scan trends, and remediation time.
-- Ownership — assign an accessibility champion per team and a central governance contact for escalations.
-- Release Criteria — require a passing accessibility checklist and no high-severity findings before production deploy.
-
-## Developer Checklist Copy/Paste Ready
-
-- Story includes accessibility acceptance criteria.
-- Component has accessible name and role.
-- Keyboard interaction verified.
-- Error messages are descriptive and programmatically associated.
-- Color is not the only indicator of meaning.
-- Contrast checks pass automated tests.
-- Axe scan run and results attached to PR.
-- Manual checks for NVDA and zoom completed for complex UI.
-
-## Conclusion
-
-Embedding accessibility into the SDLC makes it predictable, measurable, and sustainable. When teams adopt these artifacts and automation, accessibility becomes part of how you ship — not an afterthought. In the next training, we’ll cover Accessibility in GitHub Workflows and show concrete CI examples and PR templates you can copy into your repos.
+- Identify where accessibility fits in each SDLC phase
+- Add concrete artifacts like acceptance criteria and PR checklists to your workflow
+- Set up CI gates, precommit hooks, and dashboards for accessibility
+- Assign ownership with team champions and a governance contact
+- Use the copy/paste-ready developer checklist before opening a PR

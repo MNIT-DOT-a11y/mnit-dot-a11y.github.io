@@ -4,6 +4,7 @@ title: Text Spacing
 seoTitle: Text Spacing - Accessibility training
 description: The WCAG 1.4.12 spacing values, how to test them with the Text Spacing Bookmarklet, and how to design layouts that don't break.
 permalink: /training/text-spacing/
+slug: text-spacing
 section: core-testing
 section_title: Core Testing Skills
 lesson_number: 8
@@ -136,153 +137,16 @@ slides:
   title: Resources
   header: Where to Learn More
   url: https://mnit-dot-a11y.github.io/how-to-test/text-spacing/
-quiz:
-- q: What line height must content support under WCAG 1.4.12?
-  options:
-  - 1.2 times the font size
-  - 1.5 times the font size
-  - 2 times the font size
-  - 0.12 times the font size
-  answer: 1
-  explain: Line height 1.5×, paragraph spacing 2×, letter spacing 0.12×, and word spacing 0.16× the font size.
-- q: What is the easiest way to test text spacing?
-  options:
-  - Resize the browser window
-  - Use the Text Spacing Bookmarklet
-  - Print the page
-  - Zoom to 400%
-  answer: 1
-  explain: The bookmarklet applies all WCAG-required spacing values to the page so you can check for breakage.
-- q: Which of these commonly breaks under increased spacing?
-  options:
-  - Auto-height containers
-  - Relative units
-  - Fixed-height containers with hidden overflow
-  - Adequate padding
-  answer: 2
-  explain: Fixed heights, hard-coded padding, and overflow hidden are the most common sources of text-spacing bugs.
-- q: Who benefits most from adjustable text spacing?
-  options:
-  - Only screen reader users
-  - Users with low vision, dyslexia, or cognitive disabilities
-  - Mobile users only
-  - Developers
-  answer: 1
-  explain: Increased spacing reduces visual crowding and makes text easier to process.
 ---
 
-Hi everyone, and welcome back. I’m Doug Rubio, accessibility development coach for MNIT DOT. In today’s session, we’re going to focus on Text Spacing, an important accessibility requirement that ensures users can adjust spacing to improve readability. Many users with low vision, dyslexia, or cognitive disabilities increase spacing to reduce visual crowding and make text easier to process.
+Users with low vision, dyslexia, or cognitive disabilities often increase line height, paragraph spacing, letter spacing, and word spacing to reduce visual crowding. WCAG 1.4.12 requires that content stay readable and functional when they do — so layouts can't depend on text staying a fixed size.
 
-This training builds on the Zoom and Magnification module you completed earlier. Now we will explore how spacing adjustments affect layout and how to ensure your content remains usable when users apply custom spacing.
+This lesson gives you the minimum spacing values, shows how to apply them instantly with the Text Spacing Bookmarklet, and walks through what breaks: fixed-height containers, hard-coded padding, labels that overlap inputs, and hidden overflow that cuts text off. Forms and components like cards, accordions, tabs, and modals get their own checks, followed by the flexible-design habits that prevent breakage in the first place.
 
-## Why Text Spacing Matters
+### You'll learn to
 
-Users often adjust spacing to improve readability. When spacing changes break the layout, users lose access to content or controls. WCAG requires that text remain readable and functional when users apply increased spacing.
-
-Text spacing supports WCAG 1.4.12 (Text Spacing), which ensures that content remains usable when users apply custom spacing values.
-
-### WCAG Text Spacing Requirements
-
-WCAG requires that content remain readable and functional when users apply the following minimum spacing values:
-
-- Line Height: 1.5 Times The Font Size
-- Paragraph Spacing: 2 Times The Font Size
-- Letter Spacing: 0.12 Times The Font Size
-- Word Spacing: 0.16 Times The Font Size
-
-These values help users reduce visual crowding and improve comprehension.
-
-### Testing Text Spacing
-
-The easiest way to test text spacing is to use the Text Spacing Bookmarklet, which applies WCAG-required spacing values to the page.
-
-When testing, check for:
-
-- Text That Overlaps
-- Text That Gets Cut Off
-- Buttons That Expand Unexpectedly
-- Labels That Shift Out Of Place
-- Content That Pushes Outside Containers
-- Hidden Overflow That Blocks Text
-- Controls That Become Misaligned
-
-Your layout should remain readable and fully functional.
-
-### Common Text Spacing Issues
-
-Developers often encounter issues such as:
-
-- Fixed Height Containers
-- Text That Cannot Expand
-- Buttons With Hard-Coded Padding
-- Labels That Overlap Inputs
-- Cards That Break Under Increased Spacing
-- Navigation Items That Wrap Incorrectly
-- Icons That Shift Out Of Alignment
-- Overflow Hidden That Cuts Off Text
-
-These issues are easy to identify when you test early.
-
-### Designing For Flexible Spacing
-
-To support text spacing adjustments, use:
-
-- Flexible Containers
-- Auto Height Instead Of Fixed Height
-- Relative Units (Em, Rem)
-- Responsive Layouts
-- Adequate Padding
-- Adequate Line Height
-- Avoidance Of Overflow Hidden
-- Avoidance Of Fixed Pixel Values
-
-Flexible design ensures that spacing changes do not break the layout.
-
-### Text Spacing And Forms
-
-Forms often break under increased spacing because labels, inputs, and error messages shift unexpectedly.
-
-When testing forms, check for:
-
-- Labels That Wrap Correctly
-- Inputs That Expand Without Breaking
-- Error Messages That Remain Visible
-- Buttons That Maintain Alignment
-- Fieldsets That Adjust Gracefully
-- Legends That Remain Readable
-
-Forms must remain usable even when spacing increases.
-
-### Text Spacing And Components
-
-Components such as cards, accordions, tabs, and modals must also support increased spacing.
-
-Check for:
-
-- Card Titles That Wrap Correctly
-- Accordion Headers That Expand Cleanly
-- Tab Labels That Remain Readable
-- Modal Content That Does Not Overflow
-- Buttons That Maintain Proper Alignment
-- Icons That Stay Centered
-
-Spacing adjustments should not break component structure.
-
-### Avoiding Layout Breakage
-
-To prevent breakage under increased spacing:
-
-- Avoid Fixed Heights
-- Avoid Tight Containers
-- Avoid Pixel-Perfect Layouts
-- Avoid Text Inside Rigid Boxes
-- Avoid Overly Dense Content
-- Avoid Absolute Positioning For Text
-
-Flexible design supports both readability and accessibility.
-
-## Conclusion
-
-Text spacing is an essential part of accessible design. When you build layouts that remain usable under increased spacing, you support users with low vision, dyslexia, and cognitive disabilities. Testing spacing early prevents issues and ensures your content remains readable and functional.
-
-In the next training, we will move into Axe DevTools Basics, where you will learn how to use automated scanning tools to identify accessibility issues during development.
+- State the WCAG 1.4.12 minimum spacing values
+- Test any page with the Text Spacing Bookmarklet
+- Identify the layout patterns most likely to break under increased spacing
+- Check forms and components for wrapping, alignment, and overflow problems
+- Build with auto heights, relative units, and adequate padding

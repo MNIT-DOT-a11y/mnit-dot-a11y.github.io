@@ -1,0 +1,562 @@
+# Knowledge-check questions for each lesson, keyed by lesson slug.
+# answer = 0-based index into options. Rendered by training/knowledge-check.html.
+accessibility-foundations:
+  title: Accessibility Foundations
+  questions:
+  - q: What do the four POUR principles stand for?
+    options:
+    - Perceivable, Operable, Understandable, Robust
+    - Practical, Organized, Usable, Responsive
+    - Perceivable, Optional, Uniform, Readable
+    - Performance, Output, Usability, Reliability
+    answer: 0
+    explain: 'POUR is the foundation of WCAG: content must be Perceivable, Operable, Understandable, and Robust.'
+  - q: Which statement best describes how MNIT DOT treats accessibility?
+    options:
+    - It is a nice-to-have that QA handles at the end
+    - It is part of our development standards, testing expectations, and responsibility to the public
+    - It only applies to public-facing marketing pages
+    - It is the designer's responsibility alone
+    answer: 1
+    explain: At DOT, accessibility is not optional — it's part of our standards and our responsibility to the public.
+  - q: Which of these is an example of a situational limitation that accessible design helps with?
+    options:
+    - Using a screen reader
+    - Using an alternative keyboard
+    - Trying to use an app in bright sunlight
+    - Using high contrast mode
+    answer: 2
+    explain: Situational limitations — like bright sunlight or a noisy room — affect everyone, which is why accessibility benefits all users.
+  - q: According to the training, accessibility is best described as…
+    options:
+    - A checklist to complete before release
+    - A QA sign-off step
+    - A mindset — a way of thinking about users, interactions, and barriers
+    - A browser setting
+    answer: 2
+    explain: Accessibility is not a checklist; it's a mindset that makes every development decision more intentional.
+html-accessibility-fundamentals:
+  title: HTML Accessibility Fundamentals
+  questions:
+  - q: Why does semantic HTML matter so much for accessibility?
+    options:
+    - It makes pages load faster
+    - Assistive technologies depend on HTML structure to understand what a page contains and what is interactive
+    - It is required for CSS to work
+    - It replaces the need for testing
+    answer: 1
+    explain: Screen readers, magnifiers, and voice control all rely on HTML structure. When it's misused, they lose the meaning they need.
+  - q: Which element should you use for an action like 'Save' or 'Submit'?
+    options:
+    - <div> with a click handler
+    - <span> styled like a button
+    - <button>
+    - <a> without an href
+    answer: 2
+    explain: <button> gives you keyboard support and the correct role for free; <a> is for navigation.
+  - q: How many <h1> elements should a page have, and how should heading levels flow?
+    options:
+    - Several <h1>s; levels can skip freely
+    - One <h1>; follow a logical order without skipping levels
+    - None — use bold text instead
+    - One <h1> per section; levels don't matter
+    answer: 1
+    explain: Use one <h1> per page and a logical heading outline — headings are navigation shortcuts for screen reader users.
+  - q: When is it appropriate to use a <table>?
+    options:
+    - For page layout
+    - Only for tabular data, with <th> headers and a <caption>
+    - For aligning form fields
+    - Whenever content has more than one column
+    answer: 1
+    explain: Tables are for data, never layout. Use <th> with scope and a <caption> so the structure is announced correctly.
+aria-fundamentals:
+  title: ARIA Fundamentals
+  questions:
+  - q: What is the first rule of ARIA?
+    options:
+    - Add ARIA to every custom component
+    - Use native HTML first; use ARIA only when necessary
+    - ARIA replaces the need for semantic HTML
+    - Always add role='button' to clickable elements
+    answer: 1
+    explain: Native HTML gives you roles, states, and keyboard behavior for free. ARIA fills gaps — it doesn't replace semantics.
+  - q: Which of these does ARIA do?
+    options:
+    - Makes an element keyboard-interactive
+    - Fixes broken HTML
+    - Provides information about roles, states, and relationships to assistive tech
+    - Adds visual focus styles
+    answer: 2
+    explain: ARIA only provides information — it never adds behavior. A div with role='button' still needs keyboard handling.
+  - q: Which attribute describes whether an accordion section is open or closed?
+    options:
+    - aria-label
+    - aria-expanded
+    - aria-describedby
+    - role='tablist'
+    answer: 1
+    explain: aria-expanded is a state attribute; aria-label and aria-describedby are properties, and role='tablist' is a role.
+  - q: What does the training say about untested ARIA?
+    options:
+    - It's harmless because it only adds metadata
+    - It can create more barriers than it solves
+    - It is automatically validated by browsers
+    - It only affects older screen readers
+    answer: 1
+    explain: Incorrect ARIA is worse than no ARIA. Every ARIA pattern must be verified with a keyboard and a screen reader.
+forms-and-error-messages:
+  title: Forms & Error Messages
+  questions:
+  - q: How should a label be associated with its input?
+    options:
+    - Place the label text next to the input visually
+    - Use the placeholder attribute
+    - Use <label for='id'> matching the input's id
+    - Wrap the input in a <div> with a title
+    answer: 2
+    explain: Programmatic association with for/id lets screen readers announce 'Email address, edit text' instead of leaving users guessing.
+  - q: Why are placeholder-only labels a problem?
+    options:
+    - They use too much space
+    - They disappear when users type and aren't announced consistently
+    - They are not supported in Chrome
+    - They can't be styled
+    answer: 1
+    explain: Placeholders vanish on input and are inconsistently exposed to assistive tech — they are not labels.
+  - q: Which combination makes an error message accessible?
+    options:
+    - A red border only
+    - aria-describedby linking the field to the message, and role='alert' so it's announced
+    - A tooltip that appears on hover
+    - Changing the label color to red
+    answer: 1
+    explain: Errors must be linked to the field and announced immediately — and never rely on color alone.
+  - q: After a failed form submission, where should focus move?
+    options:
+    - To the top of the page
+    - To the submit button
+    - To the first field with an error
+    - Nowhere — leave focus where it was
+    answer: 2
+    explain: Moving focus to the first error helps keyboard and screen reader users find the problem immediately.
+keyboard-testing:
+  title: Keyboard Testing
+  questions:
+  - q: Which key combination moves focus backward through interactive elements?
+    options:
+    - Escape
+    - Shift + Tab
+    - Ctrl + Tab
+    - Backspace
+    answer: 1
+    explain: Tab moves forward, Shift + Tab moves backward. Arrow keys navigate within components like menus and radio groups.
+  - q: What does the training say if you can't see where keyboard focus is?
+    options:
+    - It's fine as long as the mouse works
+    - The component is not accessible
+    - Add a tooltip
+    - It only matters for screen reader users
+    answer: 1
+    explain: Focus Visible (2.4.7) requires a clear, high-contrast focus indicator at all times.
+  - q: How do you test for a keyboard trap?
+    options:
+    - Click every element with the mouse
+    - Tab into the component, then try Tab, Shift+Tab, and Escape to leave it
+    - Run an automated scan only
+    - Check the component's CSS
+    answer: 1
+    explain: If none of Tab, Shift+Tab, or Escape lets you leave, the component contains a trap — a serious failure.
+  - q: What should a skip link do?
+    options:
+    - Be hidden from keyboard users
+    - Appear when focused and move focus to the main content
+    - Open a new window
+    - Only appear on mobile
+    answer: 1
+    explain: Skip links let users bypass repetitive content. They should appear on focus, move focus correctly, and sit at the top of the page.
+color-alone-and-contrast:
+  title: Color Alone & Color Contrast
+  questions:
+  - q: What is the minimum contrast ratio for standard body text?
+    options:
+    - 3 to 1
+    - 4.5 to 1
+    - 7 to 1
+    - 2 to 1
+    answer: 1
+    explain: Standard text needs 4.5:1. Large text (18pt regular or 14pt bold) and non-text elements need 3:1.
+  - q: Which of these is an example of relying on color alone?
+    options:
+    - A required field marked with an asterisk and 'required' text
+    - An error shown with a red border, an icon, and a message
+    - Marking required fields in red with no text or icon
+    - A chart with labels on each data point
+    answer: 2
+    explain: Color can support meaning but never be the only indicator. Add text, icons, patterns, or shapes.
+  - q: Which tool does the training name as the most common contrast checker at MNIT DOT?
+    options:
+    - Lighthouse
+    - Color Contrast Analyzer (CCA)
+    - Photoshop
+    - Browser zoom
+    answer: 1
+    explain: Use CCA's eyedropper to pick foreground and background colors and confirm the ratio meets WCAG.
+  - q: What contrast ratio applies to icons, focus indicators, and input borders?
+    options:
+    - 4.5 to 1
+    - 3 to 1
+    - No requirement
+    - 7 to 1
+    answer: 1
+    explain: Non-Text Contrast (1.4.11) requires at least 3:1 so users can identify controls and their purpose.
+zoom-and-magnification:
+  title: Zoom & Magnification
+  questions:
+  - q: Which two WCAG criteria does zoom and magnification testing support?
+    options:
+    - Resize Text (1.4.4) and Reflow (1.4.10)
+    - Keyboard (2.1.1) and Focus Order (2.4.3)
+    - Use of Color (1.4.1) and Contrast (1.4.3)
+    - Labels (3.3.2) and Error Identification (3.3.1)
+    answer: 0
+    explain: Resize Text covers 200% text scaling; Reflow covers single-column layout at 400% without horizontal scrolling.
+  - q: What is the key difference between browser zoom and screen magnification?
+    options:
+    - There is no difference
+    - Browser zoom reflows content; magnification enlarges pixels so only part of the screen is visible
+    - Magnification reflows content; browser zoom doesn't
+    - Browser zoom only affects images
+    answer: 1
+    explain: Magnifier users must pan to read, so sticky headers, hover-only controls, and dense layouts become real barriers.
+  - q: At 400% zoom, what should you expect from an accessible layout?
+    options:
+    - A single-column layout with no horizontal scrolling
+    - A horizontal scrollbar
+    - Hidden navigation
+    - Smaller text
+    answer: 0
+    explain: Reflow means panels stack, controls stay reachable, and there is no horizontal scrolling.
+  - q: Which technique supports reflow?
+    options:
+    - Fixed-width containers
+    - Images of text
+    - Relative units like percent, em, and rem
+    - Absolute positioning
+    answer: 2
+    explain: Responsive layouts, flexible containers, and relative units let content resize and stack instead of breaking.
+text-spacing:
+  title: Text Spacing
+  questions:
+  - q: What line height must content support under WCAG 1.4.12?
+    options:
+    - 1.2 times the font size
+    - 1.5 times the font size
+    - 2 times the font size
+    - 0.12 times the font size
+    answer: 1
+    explain: Line height 1.5×, paragraph spacing 2×, letter spacing 0.12×, and word spacing 0.16× the font size.
+  - q: What is the easiest way to test text spacing?
+    options:
+    - Resize the browser window
+    - Use the Text Spacing Bookmarklet
+    - Print the page
+    - Zoom to 400%
+    answer: 1
+    explain: The bookmarklet applies all WCAG-required spacing values to the page so you can check for breakage.
+  - q: Which of these commonly breaks under increased spacing?
+    options:
+    - Auto-height containers
+    - Relative units
+    - Fixed-height containers with hidden overflow
+    - Adequate padding
+    answer: 2
+    explain: Fixed heights, hard-coded padding, and overflow hidden are the most common sources of text-spacing bugs.
+  - q: Who benefits most from adjustable text spacing?
+    options:
+    - Only screen reader users
+    - Users with low vision, dyslexia, or cognitive disabilities
+    - Mobile users only
+    - Developers
+    answer: 1
+    explain: Increased spacing reduces visual crowding and makes text easier to process.
+axe-devtools-basics:
+  title: Axe DevTools Basics
+  questions:
+  - q: What are the three result categories Axe DevTools reports?
+    options:
+    - Errors, Warnings, Info
+    - Violations, Needs review, Best practices
+    - Critical, Major, Minor
+    - Pass, Fail, Skip
+    answer: 1
+    explain: Violations must be fixed; Needs review requires human judgment; Best practices may not map directly to WCAG.
+  - q: Roughly what share of accessibility issues does Axe catch on its own?
+    options:
+    - About 30 to 40 percent
+    - About 90 percent
+    - 100 percent
+    - Less than 5 percent
+    answer: 0
+    explain: Automated scanning is a starting point. Manual keyboard, screen reader, zoom, and color testing cover the rest.
+  - q: Which of these is a high-impact issue that should be fixed first?
+    options:
+    - A redundant role
+    - A minor semantic problem
+    - A keyboard trap or missing label
+    - A best-practice recommendation
+    answer: 2
+    explain: Keyboard traps, missing labels, missing alt text, and unidentifiable elements block users entirely.
+  - q: What should a documented Axe finding include?
+    options:
+    - Only a screenshot
+    - The violation name, WCAG reference, screenshot or highlighted element, steps to reproduce, and expected behavior
+    - Just the URL
+    - The developer's name
+    answer: 1
+    explain: Clear reporting helps developers fix issues faster and keeps standards consistent across DOT applications.
+nvda-basics:
+  title: NVDA Basics
+  questions:
+  - q: Which NVDA key jumps through headings?
+    options:
+    - D
+    - H
+    - Tab
+    - Insert + F1
+    answer: 1
+    explain: H moves through headings, D cycles landmarks, Insert+F7 opens the element list, Insert+F1 shows element information.
+  - q: What does NVDA reveal that isn't visible on screen?
+    options:
+    - Color contrast ratios
+    - Missing labels, incorrect roles, broken focus order, and unannounced errors
+    - Page load time
+    - CSS specificity
+    answer: 1
+    explain: A screen reader exposes whether your semantics and announcements actually work.
+  - q: When testing landmarks with NVDA, what should you check for?
+    options:
+    - That every section is a <div>
+    - Presence of header, nav, main, and footer, with exactly one main region
+    - That landmarks are hidden
+    - That there are at least five main regions
+    answer: 1
+    explain: Landmarks must support predictable navigation and match the visual layout.
+  - q: How should dynamic content updates be exposed to NVDA?
+    options:
+    - With aria-live regions, using polite or assertive appropriately
+    - With a page reload
+    - With a tooltip
+    - They can't be
+    answer: 0
+    explain: Live regions announce updates automatically without interrupting the user's flow.
+csharp-accessibility-integration:
+  title: C# Accessibility Integration
+  questions:
+  - q: Why does accessibility matter at the C# data layer?
+    options:
+    - It doesn't — accessibility is a front-end concern
+    - If the API omits alt text, labels, or error metadata, the UI cannot compensate for it
+    - C# renders the HTML
+    - Screen readers read C# directly
+    answer: 1
+    explain: Many failures originate in the back end. The UI can't invent alt text or error messages the API never sent.
+  - q: Which property naming is preferred for accessibility metadata?
+    options:
+    - Alt
+    - Msg
+    - ImageAltText
+    - Label
+    answer: 2
+    explain: Clear names like ImageAltText, ErrorMessage, AccessibleLabel, and InstructionsText make the purpose obvious.
+  - q: How should required-field validation messages be written?
+    options:
+    - Left as the framework default
+    - Descriptive, like 'Display name is required.'
+    - As error codes only
+    - Omitted for performance
+    answer: 1
+    explain: '[Required(ErrorMessage = "Display name is required.")] tells users what went wrong and how to fix it.'
+  - q: What does an IsInvalid flag in a ValidationError map to on the front end?
+    options:
+    - aria-label
+    - aria-invalid
+    - role='button'
+    - tabindex
+    answer: 1
+    explain: Explicit error states let the UI set aria-invalid and link messages with aria-describedby.
+java-accessibility-integration:
+  title: Java Accessibility Integration
+  questions:
+  - q: Which Bean Validation annotation example does the training use for required fields?
+    options:
+    - '@NotBlank(message = "Display name is required.")'
+    - '@Required'
+    - '@Validate'
+    - '@Alt'
+    answer: 0
+    explain: Bean Validation messages should be clear and descriptive so users understand what to fix.
+  - q: How does the training recommend localizing accessibility strings in Java?
+    options:
+    - Hard-code English strings
+    - Use messageSource.getMessage(...) with the user's locale
+    - Let the browser translate
+    - Store them in the database only
+    answer: 1
+    explain: Alt text, ARIA labels, error messages, and instructions must all support localization.
+  - q: What should an @ExceptionHandler for validation errors return?
+    options:
+    - A generic 500 error
+    - A clear list of field-level messages
+    - Nothing — log it server-side
+    - A stack trace
+    answer: 1
+    explain: Mapping field errors to ValidationError objects gives users clear, actionable feedback.
+  - q: What makes an API contract an 'accessibility contract'?
+    options:
+    - It uses HTTPS
+    - It guarantees accessibility fields like imageAltText are always present
+    - It returns JSON
+    - It has Swagger docs
+    answer: 1
+    explain: If the API omits accessibility fields, the UI cannot invent them reliably — they must be first-class.
+accessible-component-patterns:
+  title: Accessible Component Patterns
+  questions:
+  - q: Which of these is NOT one of the core principles of accessible components?
+    options:
+    - Accessible name
+    - Correct role
+    - Keyboard operability
+    - Animated transitions
+    answer: 3
+    explain: The five principles are accessible name, correct role, keyboard operability, visible focus, and state announcements.
+  - q: What must an accessible modal do?
+    options:
+    - Trap focus, return focus to the trigger, and have a clear accessible name
+    - Open in a new tab
+    - Disable the keyboard
+    - Auto-close after 5 seconds
+    answer: 0
+    explain: Modals must manage focus in, within, and out — and be named so users know what opened.
+  - q: How should tabs be navigated by keyboard?
+    options:
+    - Only with the mouse
+    - With arrow keys, exposing tab and tabpanel roles
+    - With the Escape key
+    - With Ctrl + number
+    answer: 1
+    explain: Arrow keys move between tabs, roles identify the pattern, and the active tab is announced.
+  - q: Why do shared component patterns matter across Angular, C#, and Java teams?
+    options:
+    - They reduce bundle size
+    - They make accessibility predictable, testable, and easier to maintain
+    - They are required by the browser
+    - They replace testing
+    answer: 1
+    explain: Consistent patterns mean consistent behavior for users and a shared checklist for developers and QA.
+error-messaging-and-focus-patterns:
+  title: Error Messaging & Focus Interaction Patterns
+  questions:
+  - q: Which is the correct error pattern?
+    options:
+    - Red border only
+    - Red border, error icon, descriptive message, and aria-describedby association
+    - A console.log message
+    - A color change on the label
+    answer: 1
+    explain: Errors need text, association, and an announcement — never color alone.
+  - q: Where should focus go when a modal closes?
+    options:
+    - To the top of the page
+    - Back to the element that triggered the modal
+    - To the footer
+    - Nowhere
+    answer: 1
+    explain: Returning focus to the trigger keeps navigation predictable for keyboard and screen reader users.
+  - q: What is 'roving tabindex' used for?
+    options:
+    - Hiding elements from screen readers
+    - Managing focus within composite widgets like menus and tabs
+    - Styling focus rings
+    - Disabling keyboard access
+    answer: 1
+    explain: Roving tabindex lets one Tab stop enter a composite widget, with arrow keys moving focus inside it.
+  - q: Which WCAG criterion covers suggesting how to fix an error?
+    options:
+    - Error Identification (3.3.1)
+    - Error Suggestions (3.3.3)
+    - Focus Visible (2.4.7)
+    - Keyboard (2.1.1)
+    answer: 1
+    explain: 3.3.1 says identify the error; 3.3.3 says tell the user how to correct it.
+accessibility-in-sdlc:
+  title: Accessibility in SDLC
+  questions:
+  - q: Why does finding accessibility defects late cost more?
+    options:
+    - Because they often require design or architecture changes
+    - Because QA charges more
+    - It doesn't — the cost is the same
+    - Because browsers change
+    answer: 0
+    explain: Embedding accessibility early reduces rework, shortens remediation cycles, and improves quality.
+  - q: Which artifact belongs in the Requirements phase?
+    options:
+    - CI gates
+    - Accessibility acceptance criteria in user stories
+    - Dashboards
+    - Release monitoring
+    answer: 1
+    explain: Stories should require accessible names, keyboard operability, error messaging, and contrast checks.
+  - q: What should a CI gate do for accessibility?
+    options:
+    - Ignore accessibility results
+    - Fail builds for critical regressions and surface warnings for lower-severity issues
+    - Only run on Fridays
+    - Replace manual testing
+    answer: 1
+    explain: Automation makes accessibility measurable, but manual checks for NVDA and zoom are still part of the checklist.
+  - q: Who should own accessibility on a team, according to the training?
+    options:
+    - Nobody in particular
+    - An accessibility champion per team plus a central governance contact
+    - Only the QA lead
+    - Only the product owner
+    answer: 1
+    explain: Clear ownership keeps accessibility sustainable instead of bolted on.
+accessibility-in-code-review:
+  title: Accessibility in Code Review
+  questions:
+  - q: Why is code review such an effective place to catch accessibility issues?
+    options:
+    - Because reviewers use screen readers
+    - It is one of the earliest checkpoints, before QA or production
+    - Because it's automated
+    - Because it replaces testing
+    answer: 1
+    explain: When reviewers know what to look for, defects are far easier to prevent and fix.
+  - q: Which is an example of incorrect ARIA usage a reviewer should flag?
+    options:
+    - aria-expanded on an accordion header
+    - aria-describedby linking an error message
+    - Adding a redundant role to a native <button>
+    - role='dialog' on a modal
+    answer: 2
+    explain: Redundant roles, ARIA on native elements, and fake controls without keyboard support are common defects.
+  - q: When reviewing a modal, what focus behavior should you verify?
+    options:
+    - Focus stays on the page behind the modal
+    - Focus moves in, cycles within, Escape closes, and focus returns to the trigger
+    - Focus goes to the footer
+    - Focus is disabled
+    answer: 1
+    explain: Modal focus management is one of the most common fixes reviewers ask for.
+  - q: Why do custom components need extra scrutiny in review?
+    options:
+    - They are slower
+    - They don't inherit native keyboard behavior, roles, or states
+    - They can't be styled
+    - They are always inaccessible
+    answer: 1
+    explain: Verify keyboard access, ARIA roles and states, focus behavior, Escape, and arrow keys for every custom control.

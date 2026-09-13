@@ -111,6 +111,9 @@
 
     form.setAttribute('data-enhanced', 'true');
     actions.hidden = false;
+    var groups = Array.prototype.slice.call(form.querySelectorAll('[data-tquiz-group]'));
+    var nojsNotes = document.querySelectorAll('[data-tquiz-nojs]');
+    for (var n = 0; n < nojsNotes.length; n++) { nojsNotes[n].hidden = true; }
     // Hide the no-JS "Show answer" disclosures; the button reveals feedback instead.
     questions.forEach(function (q) {
       var reveal = q.querySelector('[data-tquiz-reveal]');
@@ -174,7 +177,31 @@
         describe(q, fb.id);
       });
 
-      if (unanswered) {
+      // Per-lesson subtotals (combined knowledge-check page)
+      groups.forEach(function (g) {
+        var out = g.querySelector('[data-tquiz-group-result]');
+        if (!out) { return; }
+        var qs = g.querySelectorAll('[data-tquiz-question]');
+        var ok = g.querySelectorAll('[data-tquiz-question].is-correct').length;
+        var missing = g.querySelectorAll('[data-tquiz-question].is-unanswered').length;
+        if (missing === qs.length) {
+          out.hidden = true;
+          out.textContent = '';
+          return;
+        }
+        out.hidden = false;
+        out.className = 'tquiz-group-result ' + (ok === qs.length ? 'is-perfect' : 'is-partial');
+        out.textContent = 'This lesson: ' + ok + ' of ' + qs.length + ' correct' +
+          (missing ? ' (' + missing + ' unanswered)' : '') + '.';
+      });
+
+      var answered = questions.length - unanswered;
+      if (unanswered && groups.length && answered > 0) {
+        // Combined page: score what was answered, note what wasn't.
+        result.className = 'tquiz-result tquiz-result-done';
+        result.textContent = 'You got ' + correct + ' of ' + answered + ' answered questions correct. ' +
+          unanswered + (unanswered === 1 ? ' question is' : ' questions are') + ' still unanswered.';
+      } else if (unanswered) {
         result.className = 'tquiz-result tquiz-result-missing';
         result.textContent = unanswered === 1
           ? 'One question still needs an answer.'
@@ -196,6 +223,10 @@
       });
       result.className = 'tquiz-result';
       result.textContent = '';
+      groups.forEach(function (g) {
+        var out = g.querySelector('[data-tquiz-group-result]');
+        if (out) { out.hidden = true; out.textContent = ''; }
+      });
       var first = form.querySelector('input[type="radio"]');
       if (first) { first.focus(); }
     });

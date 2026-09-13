@@ -4,6 +4,7 @@ title: Forms & Error Messages
 seoTitle: Forms & Error Messages - Accessibility training
 description: Labels, instructions, required fields, accessible error messages, and focus management for forms users can actually complete.
 permalink: /training/forms-and-error-messages/
+slug: forms-and-error-messages
 section: foundations
 section_title: Accessibility Foundations
 lesson_number: 4
@@ -136,174 +137,16 @@ slides:
   title: Resources
   header: Where to Learn More
   url: https://mnit-dot-a11y.github.io/how-to-test/form/
-quiz:
-- q: How should a label be associated with its input?
-  options:
-  - Place the label text next to the input visually
-  - Use the placeholder attribute
-  - Use <label for='id'> matching the input's id
-  - Wrap the input in a <div> with a title
-  answer: 2
-  explain: Programmatic association with for/id lets screen readers announce 'Email address, edit text' instead of leaving users guessing.
-- q: Why are placeholder-only labels a problem?
-  options:
-  - They use too much space
-  - They disappear when users type and aren't announced consistently
-  - They are not supported in Chrome
-  - They can't be styled
-  answer: 1
-  explain: Placeholders vanish on input and are inconsistently exposed to assistive tech — they are not labels.
-- q: Which combination makes an error message accessible?
-  options:
-  - A red border only
-  - aria-describedby linking the field to the message, and role='alert' so it's announced
-  - A tooltip that appears on hover
-  - Changing the label color to red
-  answer: 1
-  explain: Errors must be linked to the field and announced immediately — and never rely on color alone.
-- q: After a failed form submission, where should focus move?
-  options:
-  - To the top of the page
-  - To the submit button
-  - To the first field with an error
-  - Nowhere — leave focus where it was
-  answer: 2
-  explain: Moving focus to the first error helps keyboard and screen reader users find the problem immediately.
 ---
 
-Hi everyone, and welcome back. I’m Doug Rubio, accessibility development coach for MNIT DOT. In this session, we’re going to focus on Forms and Error Messages, one of the most important areas of accessibility in application development. Forms are where users enter information, complete tasks, and interact with critical systems. When forms are inaccessible, users can become stuck, confused, or unable to complete essential workflows.
+Forms are where users enter information and complete critical tasks — and where missing labels, unclear instructions, or vague errors leave them stuck. This lesson shows how to build forms that stay usable for keyboard and screen reader users from the first field to the final submit.
 
-This training builds on the HTML and ARIA fundamentals you learned earlier. Now we will look at how to create forms that are understandable, operable, and predictable for all users, including those who rely on screen readers, magnifiers, keyboard navigation, or assistive technologies.
+It covers programmatic label association with `for` and `id`, why placeholders are not labels, how to indicate required fields both visually and programmatically, and how to write error messages that identify the field, describe the problem, and say what to do. Focus management during errors and grouping related fields with `fieldset` and `legend` round out the pattern.
 
-## Why Accessible Forms Matter
+### You'll learn to
 
-Forms are a common source of accessibility issues. Users depend on clear labels, predictable focus behavior, meaningful instructions, and descriptive error messages. When any of these elements are missing, users may not know what information is required, what went wrong, or how to fix an issue.
-
-Accessible forms support several WCAG criteria, including:
-
-- Labels or Instructions
-- Error Identification
-- Error Prevention
-- Focus Order
-- Name, Role, Value
-
-When developers build forms correctly, users can complete tasks confidently and without barriers.
-
-## Labels and Programmatic Association
-
-Every form field must have a clear, descriptive label. Labels must be programmatically associated with their inputs so assistive technologies can announce them correctly.
-
-Correct example:
-
-```html
-<label for="email">Email address</label>
-<input id="email" type="email">
-```
-
-This association ensures screen readers announce “Email address, edit text” instead of leaving users guessing.
-
-Avoid placing labels inside placeholders. Placeholders disappear when users type, and they are not announced consistently by screen readers.
-
-## Instructions and Help Text
-
-Users need clear instructions when entering information. Instructions should appear near the field they apply to, not at the top of the page.
-
-Examples of helpful instructions:
-
-- “Enter your full legal name.”
-- “Password must be at least twelve characters.”
-- “Use numbers only.”
-
-Instructions should be visible and easy to understand. They should not rely on color alone.
-
-### Required Fields
-
-Required fields must be clearly indicated. The indication must be communicated visually and programmatically.
-
-Correct example:
-
-```html
-<label for="phone">Phone number <span aria-hidden="true">*</span></label>
-<input id="phone" aria-required="true">
-```
-
-This approach ensures both sighted users and screen reader users understand the requirement.
-
-### Accessible Error Messages
-
-Error messages must be clear, specific, and placed near the field that needs attention. Users should not have to search the page to find out what went wrong.
-
-Correct example:
-
-```html
-<input id="email" aria-describedby="email-error">
-<div id="email-error" role="alert">Email address is required.</div>
-```
-
-This pattern ensures:
-
-- the error is announced immediately
-- the error is linked to the correct field
-- the user knows exactly what needs to be fixed
-
-Avoid vague messages such as “Invalid input.” Users need to know what is wrong and how to correct it.
-
-### Error Message Content
-
-Effective error messages:
-
-- identify the field
-- describe the issue
-- explain what the user must do
-
-Examples:
-
-- “Email address is required.”
-- “Enter a valid email format, such as name@example.com.”
-- “Password must be at least twelve characters.”
-
-Clear messages reduce confusion and support users who rely on assistive technologies.
-
-### Focus Management During Errors
-
-When a form is submitted with errors, focus should move to the first error automatically. This helps keyboard and screen reader users understand where the issue is.
-
-After the error is corrected, focus should return to the appropriate field or continue naturally through the form.
-
-Predictable focus behavior supports WCAG requirements for operability and understandability.
-
-### Grouping Related Fields
-
-When fields belong together, such as radio buttons or checkboxes, use &lt;fieldset&gt; and &lt;legend&gt; to provide structure.
-
-Correct example:
-
-```html
-<fieldset>
-  <legend>Preferred contact method</legend>
-  <label><input type="radio" name="contact" value="email"> Email</label>
-  <label><input type="radio" name="contact" value="phone"> Phone</label>
-</fieldset>
-```
-
-This structure helps assistive technologies understand the relationship between fields.
-
-## Avoiding Common Form Accessibility Issues
-
-Developers often create barriers by:
-
-- using placeholders instead of labels
-- placing error messages far from the field
-- relying on color alone to indicate errors
-- failing to associate labels correctly
-- creating custom controls without ARIA
-- skipping focus management
-- providing vague error messages
-
-These issues are easy to avoid when forms are built with accessibility in mind.
-
-## Conclusion
-
-Accessible forms are essential for creating usable applications. When you provide clear labels, helpful instructions, descriptive error messages, and predictable focus behavior, you create forms that work for everyone. These practices reduce user frustration and support compliance with WCAG and MNIT standards.
-
-In the next training, we will move into Keyboard Testing, where you will learn how to verify that your forms and components are fully operable using only the keyboard.
+- Associate every input with a visible, programmatic label
+- Place instructions and required-field indicators where users will find them
+- Write specific error messages linked with `aria-describedby` and announced with `role="alert"`
+- Move focus to the first error after a failed submission
+- Group related inputs so their relationship is announced
