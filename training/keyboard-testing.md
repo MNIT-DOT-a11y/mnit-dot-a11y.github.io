@@ -6,7 +6,7 @@ description: 'Test every interactive element without a mouse: commands, focus in
 permalink: /training/keyboard-testing/
 slug: keyboard-testing
 section: core-testing
-section_title: Core Testing Skills
+section_title: Accessibility Testing
 lesson_number: 5
 lesson_total: 16
 deck: Keyboard Testing.pptx

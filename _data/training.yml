@@ -26,7 +26,7 @@ sections:
         title: Forms & Error Messages
 
   - id: core-testing
-    title: Core Testing Skills
+    title: Accessibility Testing
     description: >-
       Developers must be able to test their own work before handing it to QA. These lessons cover
       the core testing techniques used across DOT so you can identify issues early and reduce
@@ -89,7 +89,7 @@ sections:
         note: Reference page
 
   - id: advanced
-    title: Optional Advanced Microtrainings
+    title: Optional Advanced Training
     description: >-
       Deeper coverage of complex topics. Optional, but recommended for developers working with
       data-heavy interfaces, dashboards, or applications that rely on structured content.

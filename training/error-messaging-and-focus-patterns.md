@@ -12,8 +12,8 @@ lesson_total: 16
 deck: Error Messaging and Focus Interaction Patterns.pptx
 prev_slug: accessible-component-patterns
 prev_title: Accessible Component Patterns
-next_slug: accessibility-in-sdlc
-next_title: Accessibility in SDLC
+next_section: workflow
+next_section_title: Developer Workflow Integration
 slides:
 - type: title
   title: Error Messaging & Focus Interaction Patterns

@@ -6,7 +6,7 @@ description: Install Axe DevTools, run a scan, interpret and prioritize results,
 permalink: /training/axe-devtools-basics/
 slug: axe-devtools-basics
 section: core-testing
-section_title: Core Testing Skills
+section_title: Accessibility Testing
 lesson_number: 9
 lesson_total: 16
 deck: Axe DevTools Basics.pptx

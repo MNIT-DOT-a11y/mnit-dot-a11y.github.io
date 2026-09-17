@@ -9,7 +9,7 @@ layout: base
     <div class="post-content training-content">
       <nav aria-label="Breadcrumb" class="training-breadcrumb">
         <ol>
-          <li><a href="{{ site.baseurl }}/training/">Learning Pathway</a></li>
+          <li><a href="{{ site.baseurl }}/training/">Developer Learning Pathway</a></li>
           <li><a href="{{ site.baseurl }}/training/#{{ page.section }}">{{ page.section_title | escape }}</a></li>
           <li aria-current="page">{{ page.title | escape }}</li>
         </ol>
@@ -28,7 +28,7 @@ layout: base
         <ul>
           <li><a href="#slides">Slides</a></li>
           <li><a href="#about">About this lesson</a></li>
-          <li><a href="{{ site.baseurl }}/training/knowledge-check/#{{ page.slug }}">Knowledge check</a></li>
+          <li><a href="{{ site.baseurl }}/training/{{ page.slug }}/knowledge-check/">Knowledge check</a></li>
         </ul>
       </nav>
 
@@ -133,9 +133,9 @@ layout: base
       <section class="training-check-cta" aria-labelledby="check-heading">
         <h2 id="check-heading">Check what you learned</h2>
         <p>
-          The knowledge check for this lesson lives on the combined
-          <a href="{{ site.baseurl }}/training/knowledge-check/#{{ page.slug }}">Knowledge Check</a>
-          page, alongside the questions for every other lesson in the pathway.
+          Answer a short
+          <a href="{{ site.baseurl }}/training/{{ page.slug }}/knowledge-check/">Knowledge Check</a>
+          for just this lesson before moving on.
         </p>
       </section>
 
@@ -151,7 +151,7 @@ layout: base
             {%- else -%}
             <a href="{{ site.baseurl }}/training/">
               <span class="training-pager-label">Back to</span>
-              <span class="training-pager-title">Learning Pathway</span>
+              <span class="training-pager-title">Developer Learning Pathway</span>
             </a>
             {%- endif -%}
           </li>
@@ -161,10 +161,15 @@ layout: base
               <span class="training-pager-label">Next lesson</span>
               <span class="training-pager-title">{{ page.next_title | escape }}</span>
             </a>
+            {%- elsif page.next_section -%}
+            <a href="{{ site.baseurl }}/training/#{{ page.next_section }}">
+              <span class="training-pager-label">Next section</span>
+              <span class="training-pager-title">{{ page.next_section_title | escape }}</span>
+            </a>
             {%- else -%}
             <a href="{{ site.baseurl }}/training/">
               <span class="training-pager-label">You&rsquo;ve finished the pathway</span>
-              <span class="training-pager-title">Back to Learning Pathway</span>
+              <span class="training-pager-title">Back to Developer Learning Pathway</span>
             </a>
             {%- endif -%}
           </li>

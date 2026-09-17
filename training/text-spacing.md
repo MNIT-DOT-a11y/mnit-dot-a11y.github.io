@@ -6,7 +6,7 @@ description: The WCAG 1.4.12 spacing values, how to test them with the Text Spac
 permalink: /training/text-spacing/
 slug: text-spacing
 section: core-testing
-section_title: Core Testing Skills
+section_title: Accessibility Testing
 lesson_number: 8
 lesson_total: 16
 deck: Text Spacing.pptx

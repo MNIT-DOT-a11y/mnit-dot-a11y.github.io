@@ -6,7 +6,7 @@ description: Why color can never be the only indicator, the WCAG contrast ratios
 permalink: /training/color-alone-and-contrast/
 slug: color-alone-and-contrast
 section: core-testing
-section_title: Core Testing Skills
+section_title: Accessibility Testing
 lesson_number: 6
 lesson_total: 16
 deck: Color Alone and Color Contrast.pptx

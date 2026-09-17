@@ -6,14 +6,14 @@ description: Use the NVDA screen reader to test headings, landmarks, links, butt
 permalink: /training/nvda-basics/
 slug: nvda-basics
 section: core-testing
-section_title: Core Testing Skills
+section_title: Accessibility Testing
 lesson_number: 10
 lesson_total: 16
 deck: NVDA Basics.pptx
 prev_slug: axe-devtools-basics
 prev_title: Axe DevTools Basics
-next_slug: csharp-accessibility-integration
-next_title: C# Accessibility Integration
+next_section: language-specific
+next_section_title: Language-Specific Accessibility Integration
 slides:
 - type: title
   title: NVDA Basics

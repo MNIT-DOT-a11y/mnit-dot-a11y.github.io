@@ -12,8 +12,8 @@ lesson_total: 16
 deck: Forms and Error Messages.pptx
 prev_slug: aria-fundamentals
 prev_title: ARIA Fundamentals
-next_slug: keyboard-testing
-next_title: Keyboard Testing
+next_section: core-testing
+next_section_title: Accessibility Testing
 slides:
 - type: title
   title: Forms & Error Messages

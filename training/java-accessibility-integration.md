@@ -12,8 +12,8 @@ lesson_total: 16
 deck: Java Accessibility Integration.pptx
 prev_slug: csharp-accessibility-integration
 prev_title: C# Accessibility Integration
-next_slug: accessible-component-patterns
-next_title: Accessible Component Patterns
+next_section: patterns
+next_section_title: Technology-Agnostic Accessibility Patterns
 slides:
 - type: title
   title: Java Accessibility Integration

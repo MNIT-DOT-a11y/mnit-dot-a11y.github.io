@@ -12,16 +12,14 @@ permalink: /training/
 
 <p>
   Each lesson page has the <strong>slides</strong> (viewable in the browser or downloadable as PowerPoint)
-  and a short <strong>summary</strong> of what the lesson covers. When you're ready, test yourself on the
-  combined <a href="{{ site.baseurl }}/training/knowledge-check/">Knowledge Check</a>, which has questions
-  for every lesson in the pathway. Lessons take about 10&ndash;15 minutes each.
+  and a short <strong>summary</strong> of what the lesson covers, plus its own knowledge check at the end
+  so you can test yourself before moving on. Lessons take about 10&ndash;15 minutes each.
 </p>
 
 <div class="training-sections">
   {%- for section in data.sections -%}
   <section class="training-section" id="{{ section.id }}" aria-labelledby="{{ section.id }}-heading">
     <h2 id="{{ section.id }}-heading">
-      <span class="training-section-number">Section {{ forloop.index }}</span>
       <span>{{ section.title }}</span>
     </h2>
     <p class="training-section-desc">{{ section.description }}</p>
@@ -54,21 +52,6 @@ permalink: /training/
   </section>
   {%- endfor -%}
 </div>
-
-<section class="training-section training-section-check" aria-labelledby="check-heading">
-  <h2 id="check-heading">
-    <span class="training-section-number">Quiz</span>
-    <span>Knowledge Check</span>
-  </h2>
-  <p class="training-section-desc">
-    Sixty-four questions &mdash; four per lesson &mdash; with instant feedback and a score for each lesson.
-    Do a few lessons at a time or the whole pathway at once.
-  </p>
-  <p><a class="training-lesson-card is-check" href="{{ site.baseurl }}/training/knowledge-check/">
-    <span class="training-lesson-index" aria-hidden="true">?</span>
-    <span>Take the Knowledge Check</span>
-  </a></p>
-</section>
 
 <h2>How to use this pathway</h2>
 <p>

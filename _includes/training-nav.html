@@ -4,7 +4,7 @@
       <a
         {% if page.url == "/training/" %} aria-current="page" class="current" {% endif %}
         href="{{ site.baseurl }}/training/">
-        Learning Pathway
+        Developer Learning Pathway
       </a>
       <ul>
         {% for section in site.data.training.sections %}
@@ -31,13 +31,6 @@
         </li>
         {% endfor %}
       </ul>
-    </li>
-    <li class="training-nav-check">
-      <a
-        {% if page.url == "/training/knowledge-check/" %} aria-current="page" class="current" {% endif %}
-        href="{{ site.baseurl }}/training/knowledge-check/">
-        Knowledge Check
-      </a>
     </li>
   </ul>
 </nav>

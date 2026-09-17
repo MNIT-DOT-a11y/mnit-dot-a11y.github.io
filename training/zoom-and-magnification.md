@@ -6,7 +6,7 @@ description: How layouts behave under browser zoom and screen magnification, and
 permalink: /training/zoom-and-magnification/
 slug: zoom-and-magnification
 section: core-testing
-section_title: Core Testing Skills
+section_title: Accessibility Testing
 lesson_number: 7
 lesson_total: 16
 deck: Zoom and Magnification.pptx
