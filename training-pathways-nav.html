@@ -1,0 +1,17 @@
+<nav aria-label="Accessibility Learning Pathways" class="toc-nav training-nav training-pathways-nav">
+  <ul>
+    {%- for pathway in site.data.training_pathways.pathways -%}
+    <li>
+      {%- if pathway.url -%}
+        <a
+          {% if page.url == pathway.url %} aria-current="page" class="current" {% endif %}
+          href="{{ site.baseurl }}{{ pathway.url }}">
+          {{ pathway.name }}
+        </a>
+      {%- else -%}
+        <span class="training-nav-soon">{{ pathway.name }} <em>(coming soon)</em></span>
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
+  </ul>
+</nav>
