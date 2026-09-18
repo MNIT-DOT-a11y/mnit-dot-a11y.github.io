@@ -14,6 +14,12 @@ prev_slug: java-accessibility-integration
 prev_title: Java Accessibility Integration
 next_slug: error-messaging-and-focus-patterns
 next_title: Error Messaging & Focus Interaction Patterns
+objectives:
+- 'Apply the five core principles to any UI component'
+- 'State the required behaviors for buttons, links, modals, tabs, accordions, and menus'
+- 'Recognize when a component is missing a role, name, or state announcement'
+- 'Test a component against the shared checklist'
+- 'See how these patterns feed the future Accessibility Pattern Playbook'
 slides:
 - type: title
   title: Accessible Component Patterns
@@ -114,11 +120,3 @@ slides:
 Shared component patterns make accessibility predictable, testable, and easier to maintain across every stack at MNIT DOT — Angular, C#, Java, and beyond. When every button, modal, or tab behaves the same way, users know what to expect and QA knows what to check.
 
 This lesson lays out the five principles every accessible component shares (accessible name, correct role, keyboard operability, visible focus, and state announcements) and applies them to the most common component types: buttons, links, modals, tabs, accordions, and menus. It ends with a short checklist for testing any component before it reaches QA.
-
-### You'll learn to
-
-- Apply the five core principles to any UI component
-- State the required behaviors for buttons, links, modals, tabs, accordions, and menus
-- Recognize when a component is missing a role, name, or state announcement
-- Test a component against the shared checklist
-- See how these patterns feed the future Accessibility Pattern Playbook

@@ -14,6 +14,12 @@ prev_slug: forms-and-error-messages
 prev_title: Forms & Error Messages
 next_slug: color-alone-and-contrast
 next_title: Color Alone & Color Contrast
+objectives:
+- 'Navigate and operate a page using only the keyboard'
+- 'Judge whether focus indicators are visible and high-contrast'
+- 'Verify that focus order follows the visual reading sequence'
+- 'Detect keyboard traps and confirm skip links work'
+- 'Test custom components for keyboard access, ARIA states, and Escape behavior'
 slides:
 - type: title
   title: Keyboard Testing
@@ -158,11 +164,3 @@ slides:
 Every interactive element must work without a mouse. Keyboard testing is the fastest way to find the barriers that block people with motor disabilities, low vision, or blindness — and it catches many of the same defects a screen reader would.
 
 This lesson teaches the core commands (Tab, Shift+Tab, Enter, Space, arrow keys, Escape), what a good focus indicator looks like, and how focus order should match the visual layout. You'll test buttons, links, form fields, dropdowns, and modals; check for keyboard traps; verify skip links; and give custom components the extra scrutiny they need because they don't inherit native behavior.
-
-### You'll learn to
-
-- Navigate and operate a page using only the keyboard
-- Judge whether focus indicators are visible and high-contrast
-- Verify that focus order follows the visual reading sequence
-- Detect keyboard traps and confirm skip links work
-- Test custom components for keyboard access, ARIA states, and Escape behavior

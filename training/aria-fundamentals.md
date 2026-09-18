@@ -14,6 +14,12 @@ prev_slug: html-accessibility-fundamentals
 prev_title: HTML Accessibility Fundamentals
 next_slug: forms-and-error-messages
 next_title: Forms & Error Messages
+objectives:
+- 'Distinguish roles, states, and properties and when each applies'
+- 'Decide when ARIA is necessary and when native HTML already does the job'
+- 'Apply common patterns for buttons, accordions, tabs, and error messages'
+- 'Map ARIA usage to WCAG criteria like Name, Role, Value (4.1.2)'
+- 'Verify ARIA with NVDA, Axe DevTools, and keyboard testing'
 slides:
 - type: title
   title: ARIA Fundamentals
@@ -138,11 +144,3 @@ slides:
 ARIA gives assistive technologies extra information about custom components — what an element represents, what state it is in, and how it relates to other elements. What ARIA does *not* do is just as important: it never makes something keyboard-operable, never fixes broken HTML, and never replaces a native element.
 
 The lesson covers the three categories of ARIA (roles, states, and properties), the first rule of ARIA — native HTML first — and the situations where ARIA is genuinely needed, such as custom dropdowns, tabs, accordions, and modals. It ends with common patterns and the reason every ARIA addition has to be tested with a keyboard and a screen reader.
-
-### You'll learn to
-
-- Distinguish roles, states, and properties and when each applies
-- Decide when ARIA is necessary and when native HTML already does the job
-- Apply common patterns for buttons, accordions, tabs, and error messages
-- Map ARIA usage to WCAG criteria like Name, Role, Value (4.1.2)
-- Verify ARIA with NVDA, Axe DevTools, and keyboard testing

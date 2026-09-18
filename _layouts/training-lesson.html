@@ -1,7 +1,25 @@
 ---
 layout: base
 ---
-{%- assign slide_count = page.slides | size -%}
+{%- comment -%}
+  Lesson page layout.
+
+  Front matter this layout uses:
+    title, description  — H1 and the orientation statement under it
+    slug, section, section_title, lesson_number, lesson_total
+    objectives          — list rendered under "You'll learn to"
+    deck                — .pptx filename in /assets/training/decks/
+    prev_slug/prev_title, next_slug/next_title  — pager within a section
+    next_section/next_section_title             — pager at the end of a section
+
+  Video (optional, add when a recording exists — otherwise the section shows
+  a "coming soon" note):
+    video_embed     — URL for an embedded player (Stream, YouTube, etc.)
+    video_file      — path to an .mp4 served from this site
+    video_captions  — path to the .vtt caption track (used with video_file)
+    video_duration  — e.g. "12 minutes"
+    video_transcript — link to a transcript page or file
+{%- endcomment -%}
 <div class="container">
   <div class="how-to-test-wrapper training-wrapper">
     {%- include training-nav.html -%}
@@ -25,118 +43,89 @@ layout: base
       <p class="training-lede">{{ page.description | escape }}</p>
       {% endif %}
 
-      <nav aria-label="On this page" class="training-jumps">
+      {%- comment -%} ===================== ON THIS PAGE ===================== {%- endcomment -%}
+      <nav aria-labelledby="on-this-page-heading" class="training-jumps">
+        <h2 id="on-this-page-heading">On this page</h2>
         <ul>
-          <li><a href="#slides">Slides</a></li>
           <li><a href="#about">About this lesson</a></li>
-          <li><a href="{{ site.baseurl }}/training/{{ page.slug }}/knowledge-check/">Knowledge check</a></li>
+          <li><a href="#objectives">You&rsquo;ll learn to</a></li>
+          <li><a href="#video">Watch the video</a></li>
+          <li><a href="#slides">Download/view slides</a></li>
+          <li><a href="#knowledge-check">Knowledge check</a></li>
         </ul>
       </nav>
 
-      {%- comment -%} ===================== SLIDE VIEWER ===================== {%- endcomment -%}
-      <section id="slides" class="tdeck" aria-labelledby="slides-heading" data-tdeck>
-        <h2 id="slides-heading">Slides</h2>
-        <p class="tdeck-help">
-          Use the Previous and Next buttons (or the left and right arrow keys while the viewer has focus)
-          to move through the slides, or choose &ldquo;Show all slides&rdquo; to read them as one page.
-        </p>
+      {%- comment -%} ===================== ABOUT ===================== {%- endcomment -%}
+      <section id="about" class="training-about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About this lesson</h2>
+        {{ content }}
+      </section>
 
-        <div class="tdeck-toolbar" data-tdeck-toolbar>
-          <button type="button" class="tdeck-btn" data-tdeck-prev aria-describedby="slides-status">
-            <span aria-hidden="true">&larr;</span> Previous
-          </button>
-          <p class="tdeck-status" id="slides-status" aria-live="polite" aria-atomic="true" data-tdeck-status>
-            {{ slide_count }} slides
-          </p>
-          <button type="button" class="tdeck-btn" data-tdeck-next aria-describedby="slides-status">
-            Next <span aria-hidden="true">&rarr;</span>
-          </button>
-          <button type="button" class="tdeck-btn tdeck-btn-toggle" data-tdeck-toggle aria-pressed="false">
-            Show all slides
-          </button>
-        </div>
-
-        <ol class="tdeck-slides" data-tdeck-slides>
-          {%- for slide in page.slides -%}
-          {%- assign n = forloop.index -%}
-          <li class="tslide tslide-type-{{ slide.type }}" id="slide-{{ n }}" data-tdeck-slide tabindex="-1">
-            {%- if slide.type == "title" -%}
-              <div class="tslide-hero">
-                <p class="tslide-brand" aria-hidden="true">Minnesota IT Services</p>
-                <h3 class="tslide-title">
-                  <span class="hidden">Slide {{ n }} of {{ slide_count }}: </span>{{ slide.title | escape }}
-                </h3>
-                <p class="tslide-presenters">
-                  {%- for who in slide.presenters -%}
-                    <span>{{ who | escape }}</span>
-                  {%- endfor -%}
-                </p>
-              </div>
-            {%- else -%}
-              <div class="tslide-bar">
-                <h3 class="tslide-title">
-                  <span class="hidden">Slide {{ n }} of {{ slide_count }}: </span>{{ slide.title | escape }}
-                </h3>
-              </div>
-              <div class="tslide-body">
-                {%- if slide.type == "agenda" or slide.type == "list" -%}
-                  <p class="tslide-lead">{{ slide.header | escape }}</p>
-                  <ul>
-                    {%- for item in slide.items -%}
-                    <li>{{ item | escape }}</li>
-                    {%- endfor -%}
-                  </ul>
-                {%- elsif slide.type == "definitions" -%}
-                  <dl class="tslide-defs">
-                    {%- for d in slide.items -%}
-                    <div>
-                      <dt>{{ d.term | escape }}</dt>
-                      <dd>{{ d.desc | escape }}</dd>
-                    </div>
-                    {%- endfor -%}
-                  </dl>
-                {%- elsif slide.type == "body" -%}
-                  {%- for group in slide.groups -%}
-                  <h4 class="tslide-group">{{ group.header | escape }}</h4>
-                  <ul>
-                    {%- for item in group.items -%}
-                    <li>{{ item | escape }}</li>
-                    {%- endfor -%}
-                  </ul>
-                  {%- endfor -%}
-                {%- elsif slide.type == "resources" -%}
-                  <p class="tslide-lead">{{ slide.header | escape }}</p>
-                  <p><a href="{{ slide.url }}">{{ slide.url }}</a></p>
-                {%- endif -%}
-              </div>
-              <div class="tslide-footer" aria-hidden="true">
-                <span>Information Technology for Minnesota Government</span>
-                <span>{{ n }}</span>
-              </div>
-            {%- endif -%}
-          </li>
+      {%- comment -%} ===================== OBJECTIVES ===================== {%- endcomment -%}
+      {%- if page.objectives -%}
+      <section id="objectives" class="training-about" aria-labelledby="objectives-heading">
+        <h2 id="objectives-heading">You&rsquo;ll learn to</h2>
+        <ul>
+          {%- for objective in page.objectives -%}
+          <li>{{ objective | markdownify | remove: "<p>" | remove: "</p>" }}</li>
           {%- endfor -%}
-        </ol>
+        </ul>
+      </section>
+      {%- endif -%}
 
-        <p class="tdeck-download">
+      {%- comment -%} ===================== VIDEO ===================== {%- endcomment -%}
+      <section id="video" class="training-video" aria-labelledby="video-heading">
+        <h2 id="video-heading">Lesson video</h2>
+        {%- if page.video_embed -%}
+        <div class="training-video-frame">
+          <iframe src="{{ page.video_embed }}"
+                  title="{{ page.title | escape }} &mdash; lesson video"
+                  allowfullscreen></iframe>
+        </div>
+        {%- elsif page.video_file -%}
+        <video controls preload="metadata" class="training-video-player">
+          <source src="{{ site.baseurl }}{{ page.video_file }}" type="video/mp4">
+          {%- if page.video_captions %}
+          <track kind="captions" src="{{ site.baseurl }}{{ page.video_captions }}" srclang="en" label="English" default>
+          {%- endif %}
+          Your browser cannot play this video. Download the slide deck below, or use the transcript.
+        </video>
+        {%- else -%}
+        <p class="training-video-pending">
+          The recording for this lesson is being produced. In the meantime, the slide deck below
+          covers the same material.
+        </p>
+        {%- endif -%}
+        {%- if page.video_embed or page.video_file -%}
+        <p class="training-video-meta">
+          Captions are enabled.{% if page.video_duration %} Running time: {{ page.video_duration }}.{% endif %}
+          {%- if page.video_transcript %} <a href="{{ site.baseurl }}{{ page.video_transcript }}">Read the transcript</a>.{% endif %}
+        </p>
+        {%- endif -%}
+      </section>
+
+      {%- comment -%} ===================== SLIDE DECK ===================== {%- endcomment -%}
+      <section id="slides" class="training-deck-link" aria-labelledby="slides-heading">
+        <h2 id="slides-heading">Slide deck</h2>
+        <p>
           <a href="{{ site.baseurl }}/assets/training/decks/{{ page.deck | uri_escape }}" download>
             Download the slide deck &mdash; {{ page.deck | escape }} (PowerPoint)
           </a>
         </p>
       </section>
 
-      {%- comment -%} ===================== SCRIPT ===================== {%- endcomment -%}
-      <section id="about" class="training-about" aria-labelledby="about-heading">
-        <h2 id="about-heading">About this lesson</h2>
-        {{ content }}
-      </section>
-
-      <section class="training-check-cta" aria-labelledby="check-heading">
-        <h2 id="check-heading">Check what you learned</h2>
+      {%- comment -%} ===================== KNOWLEDGE CHECK ===================== {%- endcomment -%}
+      {%- assign quiz = site.data.training_quiz[page.slug] -%}
+      <section id="knowledge-check" class="training-check-cta" aria-labelledby="check-heading">
+        <h2 id="check-heading">Knowledge check</h2>
         <p>
-          Answer a short
-          <a href="{{ site.baseurl }}/training/{{ page.slug }}/knowledge-check/">Knowledge Check</a>
-          for just this lesson before moving on.
+          Answer the following {{ quiz.questions | size }} questions about this lesson. You can review
+          your answers before submitting.
+        </p>
+        <p>
+          <a href="{{ site.baseurl }}/training/{{ page.slug }}/knowledge-check/">
+            Take the knowledge check for this lesson
+          </a>
         </p>
       </section>
 
@@ -179,4 +168,3 @@ layout: base
     </div>
   </div>
 </div>
-<script src="{{ site.baseurl }}/assets/scripts/training.js?{{ site.time | date: '%s' }}" defer></script>

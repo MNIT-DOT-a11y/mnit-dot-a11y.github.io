@@ -12,6 +12,12 @@ lesson_total: 16
 deck: Accessibility in Code Review.pptx
 prev_slug: accessibility-in-sdlc
 prev_title: Accessibility in SDLC
+objectives:
+- 'Run a consistent accessibility check on every pull request'
+- 'Verify structure, labels, keyboard access, focus, ARIA, and contrast in code'
+- 'Test buttons, forms, dropdowns, and modals during review'
+- 'Recognize the accessibility issues that appear most often in PRs'
+- 'Ask for the right fixes, from `label for` to modal focus management'
 slides:
 - type: title
   title: Accessibility in Code Review
@@ -130,11 +136,3 @@ slides:
 Pull request review is one of the earliest and cheapest points to catch accessibility issues — when reviewers know what to look for. This lesson gives reviewers a consistent set of checks and shows the fixes they should expect to see.
 
 It covers semantic structure, forms and labels, keyboard operability, focus indicators and focus order, correct (and incorrect) ARIA usage, and color and contrast. You'll test interactive elements the way a keyboard user would, recognize the most common issues found in PRs, and review example fixes for label association, accessible error messaging, modal focus management, and skip links — with extra attention to custom components that don't inherit native behavior.
-
-### You'll learn to
-
-- Run a consistent accessibility check on every pull request
-- Verify structure, labels, keyboard access, focus, ARIA, and contrast in code
-- Test buttons, forms, dropdowns, and modals during review
-- Recognize the accessibility issues that appear most often in PRs
-- Ask for the right fixes, from `label for` to modal focus management

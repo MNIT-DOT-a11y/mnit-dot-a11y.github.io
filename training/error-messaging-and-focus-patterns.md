@@ -14,6 +14,12 @@ prev_slug: accessible-component-patterns
 prev_title: Accessible Component Patterns
 next_section: workflow
 next_section_title: Developer Workflow Integration
+objectives:
+- 'Build error messages that are descriptive, associated, and announced'
+- 'Distinguish a correct error pattern from a color-only one'
+- 'Manage focus for modals: move in, trap, close on Escape, return to the trigger'
+- 'Apply arrow-key navigation and roving tabindex to composite widgets'
+- 'Test error and focus patterns against WCAG 3.3.1, 3.3.3, 2.4.7, and 2.1.x'
 slides:
 - type: title
   title: Error Messaging & Focus Interaction Patterns
@@ -117,11 +123,3 @@ slides:
 Whether users can understand a problem, recover from a mistake, and keep moving through an application comes down to two things: how errors are communicated and how focus behaves. This lesson defines shared patterns for both so every application gives consistent, accessible feedback.
 
 Error messages must include text (not just color), be programmatically associated with their field, be announced to screen readers, and remain visible at every magnification level. Focus must stay visible, move logically, trap correctly inside modals, and return to the triggering element. The lesson brings these together in unified examples for errors, modals, and tabs, plus a testing checklist.
-
-### You'll learn to
-
-- Build error messages that are descriptive, associated, and announced
-- Distinguish a correct error pattern from a color-only one
-- Manage focus for modals: move in, trap, close on Escape, return to the trigger
-- Apply arrow-key navigation and roving tabindex to composite widgets
-- Test error and focus patterns against WCAG 3.3.1, 3.3.3, 2.4.7, and 2.1.x

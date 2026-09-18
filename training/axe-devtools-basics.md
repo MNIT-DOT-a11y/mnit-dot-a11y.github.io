@@ -14,6 +14,12 @@ prev_slug: text-spacing
 prev_title: Text Spacing
 next_slug: nvda-basics
 next_title: NVDA Basics
+objectives:
+- 'Install Axe DevTools and run a full-page scan'
+- 'Interpret each violation and locate the failing element'
+- 'Prioritize findings by impact'
+- 'Combine automated scans with keyboard, screen reader, zoom, and color testing'
+- 'Write a defect with the violation name, WCAG reference, and steps to reproduce'
 slides:
 - type: title
   title: Axe DevTools Basics
@@ -115,11 +121,3 @@ slides:
 Axe DevTools is one of the core tools we use at MNIT DOT because it aligns with WCAG 2.1 AA and finds a large share of common issues in seconds. This lesson takes you from installing the browser extension to running your first scan and reading the results.
 
 You'll learn the difference between Violations, Needs Review, and Best Practices; how each finding shows the WCAG criterion, an explanation, the failing code, and a highlight on the page; and how to prioritize high-impact issues like keyboard traps and missing labels. Because Axe only catches roughly 30–40% of accessibility problems, the lesson also covers pairing it with manual testing and documenting findings so developers can act on them.
-
-### You'll learn to
-
-- Install Axe DevTools and run a full-page scan
-- Interpret each violation and locate the failing element
-- Prioritize findings by impact
-- Combine automated scans with keyboard, screen reader, zoom, and color testing
-- Write a defect with the violation name, WCAG reference, and steps to reproduce

@@ -249,6 +249,10 @@ $training-gray: #e8e8e8;
 
 .training-jumps {
   margin: .25rem 0 3rem 0;
+  h2 {
+    margin: 0 0 .875rem 0;
+    font-size: 1.25rem;
+  }
   ul {
     list-style: none;
     padding: 0;
@@ -525,6 +529,59 @@ $training-gray: #e8e8e8;
   }
 }
 
+// ---------------------------------------------------------------------------
+// Lesson video
+// ---------------------------------------------------------------------------
+.training-video {
+  max-width: 48rem;
+
+  .training-video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: $color-gray-xtra-light;
+    border: 1px solid $color-border-gray;
+    border-radius: .75rem;
+    overflow: hidden;
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+
+  .training-video-player {
+    width: 100%;
+    border: 1px solid $color-border-gray;
+    border-radius: .75rem;
+    background: #000;
+  }
+
+  .training-video-pending {
+    padding: 1.25rem 1.5rem;
+    background: $color-gray-xtra-light;
+    border-left: .25rem solid $training-navy;
+    border-radius: 0 .375rem .375rem 0;
+    line-height: 1.7;
+  }
+
+  .training-video-meta {
+    margin-top: .75rem;
+    font-size: .9375rem;
+    color: $color-gray-dark;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Slide deck link (the in-page slide viewer was retired — link only)
+// ---------------------------------------------------------------------------
+.training-deck-link {
+  max-width: 48rem;
+  a { @include bold; }
+}
+
 .training-check-cta {
   max-width: 48rem;
   padding: 1.5rem 1.75rem;
@@ -533,6 +590,7 @@ $training-gray: #e8e8e8;
   @include float;
   h2 { margin-top: 0; }
   p { padding-bottom: 0; line-height: 1.7; }
+  p + p { padding-top: .75rem; }
 }
 
 // ---------------------------------------------------------------------------

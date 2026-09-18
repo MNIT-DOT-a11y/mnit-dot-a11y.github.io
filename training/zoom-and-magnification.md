@@ -14,6 +14,12 @@ prev_slug: color-alone-and-contrast
 prev_title: Color Alone & Color Contrast
 next_slug: text-spacing
 next_title: Text Spacing
+objectives:
+- 'Explain the WCAG criteria Resize Text (1.4.4) and Reflow (1.4.10)'
+- 'Test layouts at 200% and 400% zoom and know what to look for'
+- 'Use Windows Magnifier to find issues browser zoom hides'
+- 'Recognize common failures like fixed-width containers and modals that overflow'
+- 'Design with relative units and stacking behavior so content reflows'
 slides:
 - type: title
   title: Zoom & Magnification
@@ -138,11 +144,3 @@ slides:
 Many users with low vision enlarge content with browser zoom or a screen magnifier, and our layouts have to stay readable and functional when they do. This lesson explains the difference between the two — browser zoom reflows content, while magnification enlarges pixels so only part of the screen is visible — and why both need testing.
 
 You'll test at 200% and 400% browser zoom for clipped text, overlapping elements, disappearing buttons, and horizontal scrolling, and with Windows Magnifier for the problems zoom can't reveal, like sticky headers that dominate the viewport and hover-only interactions. The lesson closes with the design choices that make reflow possible: responsive layouts, flexible containers, relative units, and scalable text and icons.
-
-### You'll learn to
-
-- Explain the WCAG criteria Resize Text (1.4.4) and Reflow (1.4.10)
-- Test layouts at 200% and 400% zoom and know what to look for
-- Use Windows Magnifier to find issues browser zoom hides
-- Recognize common failures like fixed-width containers and modals that overflow
-- Design with relative units and stacking behavior so content reflows

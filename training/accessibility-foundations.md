@@ -12,6 +12,12 @@ lesson_total: 16
 deck: Accessibility Foundations.pptx
 next_slug: html-accessibility-fundamentals
 next_title: HTML Accessibility Fundamentals
+objectives:
+- 'Explain what accessibility means at DOT and why it''s required'
+- 'Describe the four POUR principles and how they relate to WCAG'
+- 'Recognize the range of users and situations accessible design supports'
+- 'See where accessibility fits across design, development, and QA'
+- 'Treat accessibility as a mindset rather than a checklist'
 slides:
 - type: title
   title: Accessibility Foundations
@@ -115,11 +121,3 @@ slides:
 This lesson sets the shared foundation for every training that follows. Accessibility at DOT means every person can use our applications regardless of ability, device, or assistive technology — and it is part of our development standards and testing expectations, not an optional extra.
 
 You'll meet the four POUR principles (Perceivable, Operable, Understandable, Robust) that organize WCAG, and see how everyday development decisions — semantic HTML, labels, keyboard access, predictable focus — map directly to those requirements. The lesson also looks at who we build for: screen reader and magnifier users, people using speech input or alternative keyboards, and anyone with a temporary or situational limitation.
-
-### You'll learn to
-
-- Explain what accessibility means at DOT and why it's required
-- Describe the four POUR principles and how they relate to WCAG
-- Recognize the range of users and situations accessible design supports
-- See where accessibility fits across design, development, and QA
-- Treat accessibility as a mindset rather than a checklist

@@ -14,6 +14,12 @@ prev_slug: csharp-accessibility-integration
 prev_title: C# Accessibility Integration
 next_section: patterns
 next_section_title: Technology-Agnostic Accessibility Patterns
+objectives:
+- 'Add accessibility metadata to Java models and DTOs'
+- 'Write clear Bean Validation messages for required fields'
+- 'Localize alt text, labels, and error messages with `MessageSource`'
+- 'Return error states that map to `aria-invalid` and `aria-describedby`'
+- 'Handle validation exceptions with user-friendly, field-level responses'
 slides:
 - type: title
   title: Java Accessibility Integration
@@ -126,11 +132,3 @@ slides:
 Java services provide the data, validation, and API responses that front ends rely on — so when accessibility is missing at the service layer, the UI can't compensate. This lesson applies the same end-to-end thinking as the C# module to Java models, DTOs, and controllers.
 
 You'll see how to include alt text and accessible names in DTOs, write descriptive Bean Validation messages with `@NotBlank`, use `MessageSource` for localized accessibility strings, treat the API contract as an accessibility contract, and return explicit error states. It also covers exception handling: a validation `@ExceptionHandler` should return clear, field-level messages rather than a generic failure.
-
-### You'll learn to
-
-- Add accessibility metadata to Java models and DTOs
-- Write clear Bean Validation messages for required fields
-- Localize alt text, labels, and error messages with `MessageSource`
-- Return error states that map to `aria-invalid` and `aria-describedby`
-- Handle validation exceptions with user-friendly, field-level responses

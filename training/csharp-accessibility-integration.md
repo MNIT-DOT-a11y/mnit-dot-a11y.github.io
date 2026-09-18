@@ -14,6 +14,12 @@ prev_slug: nvda-basics
 prev_title: NVDA Basics
 next_slug: java-accessibility-integration
 next_title: Java Accessibility Integration
+objectives:
+- 'Add alt text, labels, instructions, and error messages to DTOs'
+- 'Write validation messages that tell users what went wrong and how to fix it'
+- 'Name accessibility properties clearly and consistently'
+- 'Localize accessibility metadata'
+- 'Return explicit error states the UI can map to ARIA attributes'
 slides:
 - type: title
   title: C# Accessibility Integration
@@ -126,11 +132,3 @@ slides:
 Accessibility is not only a front-end responsibility. Many failures originate in the back end — when models don't include alt text, validation messages are unclear, error states aren't represented in API responses, or metadata never reaches the UI. If the API omits accessibility fields, the UI cannot invent them reliably.
 
 This lesson shows how to make C# models, DTOs, and API responses carry the accessibility metadata the UI needs: alt text and accessible names as first-class properties, descriptive `[Required]` validation messages, consistent naming conventions, localized strings, and explicit error states that map to `aria-invalid` and `aria-describedby`.
-
-### You'll learn to
-
-- Add alt text, labels, instructions, and error messages to DTOs
-- Write validation messages that tell users what went wrong and how to fix it
-- Name accessibility properties clearly and consistently
-- Localize accessibility metadata
-- Return explicit error states the UI can map to ARIA attributes

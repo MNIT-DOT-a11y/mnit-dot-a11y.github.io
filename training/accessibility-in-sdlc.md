@@ -14,6 +14,12 @@ prev_slug: error-messaging-and-focus-patterns
 prev_title: Error Messaging & Focus Interaction Patterns
 next_slug: accessibility-in-code-review
 next_title: Accessibility in Code Review
+objectives:
+- 'Identify where accessibility fits in each SDLC phase'
+- 'Add concrete artifacts like acceptance criteria and PR checklists to your workflow'
+- 'Set up CI gates, precommit hooks, and dashboards for accessibility'
+- 'Assign ownership with team champions and a governance contact'
+- 'Use the copy/paste-ready developer checklist before opening a PR'
 slides:
 - type: title
   title: Accessibility in SDLC
@@ -120,11 +126,3 @@ slides:
 Accessibility defects found late are expensive — they often require design or architecture changes. This lesson shows where accessibility belongs in every phase of the software development lifecycle so it's built in from the start rather than bolted on at the end.
 
 It maps accessibility to requirements, design, development, code review, CI/CD, QA and UAT, and release monitoring, then gets practical: acceptance criteria in user stories, design tokens and component contracts, API contracts with accessibility metadata, PR checklists, automated Axe scans, manual test scripts, and onboarding. Automation, metrics, and governance — CI gates, precommit hooks, dashboards, and named accessibility champions — make it measurable and sustainable.
-
-### You'll learn to
-
-- Identify where accessibility fits in each SDLC phase
-- Add concrete artifacts like acceptance criteria and PR checklists to your workflow
-- Set up CI gates, precommit hooks, and dashboards for accessibility
-- Assign ownership with team champions and a governance contact
-- Use the copy/paste-ready developer checklist before opening a PR

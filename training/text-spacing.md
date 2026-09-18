@@ -14,6 +14,12 @@ prev_slug: zoom-and-magnification
 prev_title: Zoom & Magnification
 next_slug: axe-devtools-basics
 next_title: Axe DevTools Basics
+objectives:
+- 'State the WCAG 1.4.12 minimum spacing values'
+- 'Test any page with the Text Spacing Bookmarklet'
+- 'Identify the layout patterns most likely to break under increased spacing'
+- 'Check forms and components for wrapping, alignment, and overflow problems'
+- 'Build with auto heights, relative units, and adequate padding'
 slides:
 - type: title
   title: Text Spacing
@@ -142,11 +148,3 @@ slides:
 Users with low vision, dyslexia, or cognitive disabilities often increase line height, paragraph spacing, letter spacing, and word spacing to reduce visual crowding. WCAG 1.4.12 requires that content stay readable and functional when they do — so layouts can't depend on text staying a fixed size.
 
 This lesson gives you the minimum spacing values, shows how to apply them instantly with the Text Spacing Bookmarklet, and walks through what breaks: fixed-height containers, hard-coded padding, labels that overlap inputs, and hidden overflow that cuts text off. Forms and components like cards, accordions, tabs, and modals get their own checks, followed by the flexible-design habits that prevent breakage in the first place.
-
-### You'll learn to
-
-- State the WCAG 1.4.12 minimum spacing values
-- Test any page with the Text Spacing Bookmarklet
-- Identify the layout patterns most likely to break under increased spacing
-- Check forms and components for wrapping, alignment, and overflow problems
-- Build with auto heights, relative units, and adequate padding

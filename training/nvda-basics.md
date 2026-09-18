@@ -14,6 +14,12 @@ prev_slug: axe-devtools-basics
 prev_title: Axe DevTools Basics
 next_section: language-specific
 next_section_title: Language-Specific Accessibility Integration
+objectives:
+- 'Launch NVDA and interpret what it announces about focus, role, name, and state'
+- 'Use NVDA commands to move through headings, landmarks, and interactive elements'
+- 'Test forms and error messages for correct labels and announcements'
+- 'Check that dynamic updates use `aria-live` appropriately'
+- 'Recognize the common failures NVDA reveals and how to design around them'
 slides:
 - type: title
   title: NVDA Basics
@@ -122,11 +128,3 @@ slides:
 NVDA is a free screen reader that shows you how users who are blind or visually impaired experience your application. It announces structure, roles, labels, and relationships — and exposes issues that are invisible on screen, like missing labels, incorrect roles, broken focus order, and error messages that never get announced.
 
 The lesson covers what to listen for when NVDA launches, the essential commands for testing (Tab, arrow keys, H for headings, D for landmarks, Insert+F7 for the element list), and how to test headings, landmarks, links and buttons, forms, error messages, and dynamic content. It finishes with the issues NVDA surfaces most often and the semantic-HTML habits that prevent them.
-
-### You'll learn to
-
-- Launch NVDA and interpret what it announces about focus, role, name, and state
-- Use NVDA commands to move through headings, landmarks, and interactive elements
-- Test forms and error messages for correct labels and announcements
-- Check that dynamic updates use `aria-live` appropriately
-- Recognize the common failures NVDA reveals and how to design around them

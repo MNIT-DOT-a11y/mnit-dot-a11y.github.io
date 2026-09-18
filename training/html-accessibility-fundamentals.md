@@ -14,6 +14,12 @@ prev_slug: accessibility-foundations
 prev_title: Accessibility Foundations
 next_slug: aria-fundamentals
 next_title: ARIA Fundamentals
+objectives:
+- 'Choose the semantic element that matches an element''s purpose'
+- 'Structure a page with one `h1` and a logical heading order'
+- 'Use `a` for navigation and `button` for actions, with descriptive text'
+- 'Build forms with programmatically associated labels'
+- 'Avoid common pitfalls like layout tables and images of text'
 slides:
 - type: title
   title: HTML Accessibility Fundamentals
@@ -151,11 +157,3 @@ slides:
 Semantic HTML is the backbone that screen readers, magnifiers, and voice control depend on. When markup describes what content *is* — a button, a navigation region, a heading — assistive technology can announce it and users can operate it. When everything is a `div` or `span`, that meaning disappears and the barriers start.
 
 This lesson walks through the elements that matter most: headings that form a logical outline, links for navigation versus buttons for actions, real form labels associated with their inputs, and tables reserved for tabular data. It closes with the pitfalls developers create without meaning to, and shows how good HTML satisfies several WCAG success criteria before any ARIA is needed.
-
-### You'll learn to
-
-- Choose the semantic element that matches an element's purpose
-- Structure a page with one `h1` and a logical heading order
-- Use `a` for navigation and `button` for actions, with descriptive text
-- Build forms with programmatically associated labels
-- Avoid common pitfalls like layout tables and images of text

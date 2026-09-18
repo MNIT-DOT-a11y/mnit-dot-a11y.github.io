@@ -1,5 +1,6 @@
 # Knowledge-check questions for each lesson, keyed by lesson slug.
-# answer = 0-based index into options. Rendered by training/knowledge-check.html.
+# answer = 0-based index into options. 3 questions per lesson.
+# Rendered by _layouts/training-knowledge-check.html on /training/<slug>/knowledge-check/.
 accessibility-foundations:
   title: Accessibility Foundations
   questions:
@@ -27,14 +28,6 @@ accessibility-foundations:
     - Using high contrast mode
     answer: 2
     explain: Situational limitations — like bright sunlight or a noisy room — affect everyone, which is why accessibility benefits all users.
-  - q: According to the training, accessibility is best described as…
-    options:
-    - A checklist to complete before release
-    - A QA sign-off step
-    - A mindset — a way of thinking about users, interactions, and barriers
-    - A browser setting
-    answer: 2
-    explain: Accessibility is not a checklist; it's a mindset that makes every development decision more intentional.
 html-accessibility-fundamentals:
   title: HTML Accessibility Fundamentals
   questions:
@@ -62,14 +55,6 @@ html-accessibility-fundamentals:
     - One <h1> per section; levels don't matter
     answer: 1
     explain: Use one <h1> per page and a logical heading outline — headings are navigation shortcuts for screen reader users.
-  - q: When is it appropriate to use a <table>?
-    options:
-    - For page layout
-    - Only for tabular data, with <th> headers and a <caption>
-    - For aligning form fields
-    - Whenever content has more than one column
-    answer: 1
-    explain: Tables are for data, never layout. Use <th> with scope and a <caption> so the structure is announced correctly.
 aria-fundamentals:
   title: ARIA Fundamentals
   questions:
@@ -97,14 +82,6 @@ aria-fundamentals:
     - role='tablist'
     answer: 1
     explain: aria-expanded is a state attribute; aria-label and aria-describedby are properties, and role='tablist' is a role.
-  - q: What does the training say about untested ARIA?
-    options:
-    - It's harmless because it only adds metadata
-    - It can create more barriers than it solves
-    - It is automatically validated by browsers
-    - It only affects older screen readers
-    answer: 1
-    explain: Incorrect ARIA is worse than no ARIA. Every ARIA pattern must be verified with a keyboard and a screen reader.
 forms-and-error-messages:
   title: Forms & Error Messages
   questions:
@@ -132,14 +109,6 @@ forms-and-error-messages:
     - Changing the label color to red
     answer: 1
     explain: Errors must be linked to the field and announced immediately — and never rely on color alone.
-  - q: After a failed form submission, where should focus move?
-    options:
-    - To the top of the page
-    - To the submit button
-    - To the first field with an error
-    - Nowhere — leave focus where it was
-    answer: 2
-    explain: Moving focus to the first error helps keyboard and screen reader users find the problem immediately.
 keyboard-testing:
   title: Keyboard Testing
   questions:
@@ -167,14 +136,6 @@ keyboard-testing:
     - Check the component's CSS
     answer: 1
     explain: If none of Tab, Shift+Tab, or Escape lets you leave, the component contains a trap — a serious failure.
-  - q: What should a skip link do?
-    options:
-    - Be hidden from keyboard users
-    - Appear when focused and move focus to the main content
-    - Open a new window
-    - Only appear on mobile
-    answer: 1
-    explain: Skip links let users bypass repetitive content. They should appear on focus, move focus correctly, and sit at the top of the page.
 color-alone-and-contrast:
   title: Color Alone & Color Contrast
   questions:
@@ -194,14 +155,6 @@ color-alone-and-contrast:
     - A chart with labels on each data point
     answer: 2
     explain: Color can support meaning but never be the only indicator. Add text, icons, patterns, or shapes.
-  - q: Which tool does the training name as the most common contrast checker at MNIT DOT?
-    options:
-    - Lighthouse
-    - Color Contrast Analyzer (CCA)
-    - Photoshop
-    - Browser zoom
-    answer: 1
-    explain: Use CCA's eyedropper to pick foreground and background colors and confirm the ratio meets WCAG.
   - q: What contrast ratio applies to icons, focus indicators, and input borders?
     options:
     - 4.5 to 1
@@ -237,14 +190,6 @@ zoom-and-magnification:
     - Smaller text
     answer: 0
     explain: Reflow means panels stack, controls stay reachable, and there is no horizontal scrolling.
-  - q: Which technique supports reflow?
-    options:
-    - Fixed-width containers
-    - Images of text
-    - Relative units like percent, em, and rem
-    - Absolute positioning
-    answer: 2
-    explain: Responsive layouts, flexible containers, and relative units let content resize and stack instead of breaking.
 text-spacing:
   title: Text Spacing
   questions:
@@ -272,25 +217,9 @@ text-spacing:
     - Adequate padding
     answer: 2
     explain: Fixed heights, hard-coded padding, and overflow hidden are the most common sources of text-spacing bugs.
-  - q: Who benefits most from adjustable text spacing?
-    options:
-    - Only screen reader users
-    - Users with low vision, dyslexia, or cognitive disabilities
-    - Mobile users only
-    - Developers
-    answer: 1
-    explain: Increased spacing reduces visual crowding and makes text easier to process.
 axe-devtools-basics:
   title: Axe DevTools Basics
   questions:
-  - q: What are the three result categories Axe DevTools reports?
-    options:
-    - Errors, Warnings, Info
-    - Violations, Needs review, Best practices
-    - Critical, Major, Minor
-    - Pass, Fail, Skip
-    answer: 1
-    explain: Violations must be fixed; Needs review requires human judgment; Best practices may not map directly to WCAG.
   - q: Roughly what share of accessibility issues does Axe catch on its own?
     options:
     - About 30 to 40 percent
@@ -342,14 +271,6 @@ nvda-basics:
     - That there are at least five main regions
     answer: 1
     explain: Landmarks must support predictable navigation and match the visual layout.
-  - q: How should dynamic content updates be exposed to NVDA?
-    options:
-    - With aria-live regions, using polite or assertive appropriately
-    - With a page reload
-    - With a tooltip
-    - They can't be
-    answer: 0
-    explain: Live regions announce updates automatically without interrupting the user's flow.
 csharp-accessibility-integration:
   title: C# Accessibility Integration
   questions:
@@ -361,14 +282,6 @@ csharp-accessibility-integration:
     - Screen readers read C# directly
     answer: 1
     explain: Many failures originate in the back end. The UI can't invent alt text or error messages the API never sent.
-  - q: Which property naming is preferred for accessibility metadata?
-    options:
-    - Alt
-    - Msg
-    - ImageAltText
-    - Label
-    answer: 2
-    explain: Clear names like ImageAltText, ErrorMessage, AccessibleLabel, and InstructionsText make the purpose obvious.
   - q: How should required-field validation messages be written?
     options:
     - Left as the framework default
@@ -396,14 +309,6 @@ java-accessibility-integration:
     - '@Alt'
     answer: 0
     explain: Bean Validation messages should be clear and descriptive so users understand what to fix.
-  - q: How does the training recommend localizing accessibility strings in Java?
-    options:
-    - Hard-code English strings
-    - Use messageSource.getMessage(...) with the user's locale
-    - Let the browser translate
-    - Store them in the database only
-    answer: 1
-    explain: Alt text, ARIA labels, error messages, and instructions must all support localization.
   - q: What should an @ExceptionHandler for validation errors return?
     options:
     - A generic 500 error
@@ -423,14 +328,6 @@ java-accessibility-integration:
 accessible-component-patterns:
   title: Accessible Component Patterns
   questions:
-  - q: Which of these is NOT one of the core principles of accessible components?
-    options:
-    - Accessible name
-    - Correct role
-    - Keyboard operability
-    - Animated transitions
-    answer: 3
-    explain: The five principles are accessible name, correct role, keyboard operability, visible focus, and state announcements.
   - q: What must an accessible modal do?
     options:
     - Trap focus, return focus to the trigger, and have a clear accessible name
@@ -482,14 +379,6 @@ error-messaging-and-focus-patterns:
     - Disabling keyboard access
     answer: 1
     explain: Roving tabindex lets one Tab stop enter a composite widget, with arrow keys moving focus inside it.
-  - q: Which WCAG criterion covers suggesting how to fix an error?
-    options:
-    - Error Identification (3.3.1)
-    - Error Suggestions (3.3.3)
-    - Focus Visible (2.4.7)
-    - Keyboard (2.1.1)
-    answer: 1
-    explain: 3.3.1 says identify the error; 3.3.3 says tell the user how to correct it.
 accessibility-in-sdlc:
   title: Accessibility in SDLC
   questions:
@@ -517,14 +406,6 @@ accessibility-in-sdlc:
     - Replace manual testing
     answer: 1
     explain: Automation makes accessibility measurable, but manual checks for NVDA and zoom are still part of the checklist.
-  - q: Who should own accessibility on a team, according to the training?
-    options:
-    - Nobody in particular
-    - An accessibility champion per team plus a central governance contact
-    - Only the QA lead
-    - Only the product owner
-    answer: 1
-    explain: Clear ownership keeps accessibility sustainable instead of bolted on.
 accessibility-in-code-review:
   title: Accessibility in Code Review
   questions:
@@ -552,11 +433,3 @@ accessibility-in-code-review:
     - Focus is disabled
     answer: 1
     explain: Modal focus management is one of the most common fixes reviewers ask for.
-  - q: Why do custom components need extra scrutiny in review?
-    options:
-    - They are slower
-    - They don't inherit native keyboard behavior, roles, or states
-    - They can't be styled
-    - They are always inaccessible
-    answer: 1
-    explain: Verify keyboard access, ARIA roles and states, focus behavior, Escape, and arrow keys for every custom control.

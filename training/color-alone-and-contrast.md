@@ -14,6 +14,12 @@ prev_slug: keyboard-testing
 prev_title: Keyboard Testing
 next_slug: zoom-and-magnification
 next_title: Zoom & Magnification
+objectives:
+- 'Spot places where color is the only indicator and add a second cue'
+- 'Apply the 4.5:1 and 3:1 contrast minimums to text and UI components'
+- 'Test foreground and background colors with the Color Contrast Analyzer'
+- 'Recognize common contrast failures like light gray text and low-contrast placeholders'
+- 'Make charts, forms, and error messages readable without relying on color'
 slides:
 - type: title
   title: Color Alone & Color Contrast
@@ -142,11 +148,3 @@ slides:
 Color choices affect readability for users with low vision, color blindness, or contrast sensitivity — and for everyone in bright environments or on low-quality screens. Used well, color strengthens communication; used alone, it becomes a barrier.
 
 The lesson covers the two halves of the topic. First, color can never be the only way information is conveyed: required fields, errors, states, and chart categories all need a text, icon, pattern, or shape alongside the color. Second, WCAG sets minimum contrast ratios — 4.5:1 for standard text, 3:1 for large text and for non-text elements like icons, focus indicators, and input borders — and the Color Contrast Analyzer is how we check them.
-
-### You'll learn to
-
-- Spot places where color is the only indicator and add a second cue
-- Apply the 4.5:1 and 3:1 contrast minimums to text and UI components
-- Test foreground and background colors with the Color Contrast Analyzer
-- Recognize common contrast failures like light gray text and low-contrast placeholders
-- Make charts, forms, and error messages readable without relying on color
