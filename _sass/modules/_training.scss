@@ -48,6 +48,40 @@ $training-gray: #e8e8e8;
   max-width: 48rem;
 }
 
+// ---------------------------------------------------------------------------
+// Accessibility Learning Pathways hub (/training/)
+// ---------------------------------------------------------------------------
+.training-pathways-nav {
+  li + li {
+    margin-top: .25rem;
+  }
+}
+
+.training-pathways-list {
+  max-width: 48rem;
+  margin: 0 0 2rem 1.25rem;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+
+  li {
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    list-style-type: disc;
+  }
+  li::marker {
+    color: $training-navy;
+  }
+  strong {
+    display: block;
+    color: $training-navy;
+  }
+  .training-lesson-badge {
+    margin-left: .5rem;
+  }
+}
+
 .training-sections {
   display: grid;
   gap: 2rem;

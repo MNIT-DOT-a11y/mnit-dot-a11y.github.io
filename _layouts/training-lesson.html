@@ -9,8 +9,9 @@ layout: base
     <div class="post-content training-content">
       <nav aria-label="Breadcrumb" class="training-breadcrumb">
         <ol>
-          <li><a href="{{ site.baseurl }}/training/">Developer Learning Pathway</a></li>
-          <li><a href="{{ site.baseurl }}/training/#{{ page.section }}">{{ page.section_title | escape }}</a></li>
+          <li><a href="{{ site.baseurl }}/training/">Training</a></li>
+          <li><a href="{{ site.baseurl }}/training/developers/">Developer Learning Pathway</a></li>
+          <li><a href="{{ site.baseurl }}/training/developers/#{{ page.section }}">{{ page.section_title | escape }}</a></li>
           <li aria-current="page">{{ page.title | escape }}</li>
         </ol>
       </nav>
@@ -149,7 +150,7 @@ layout: base
               <span class="training-pager-title">{{ page.prev_title | escape }}</span>
             </a>
             {%- else -%}
-            <a href="{{ site.baseurl }}/training/">
+            <a href="{{ site.baseurl }}/training/developers/">
               <span class="training-pager-label">Back to</span>
               <span class="training-pager-title">Developer Learning Pathway</span>
             </a>
@@ -162,12 +163,12 @@ layout: base
               <span class="training-pager-title">{{ page.next_title | escape }}</span>
             </a>
             {%- elsif page.next_section -%}
-            <a href="{{ site.baseurl }}/training/#{{ page.next_section }}">
+            <a href="{{ site.baseurl }}/training/developers/#{{ page.next_section }}">
               <span class="training-pager-label">Next section</span>
               <span class="training-pager-title">{{ page.next_section_title | escape }}</span>
             </a>
             {%- else -%}
-            <a href="{{ site.baseurl }}/training/">
+            <a href="{{ site.baseurl }}/training/developers/">
               <span class="training-pager-label">You&rsquo;ve finished the pathway</span>
               <span class="training-pager-title">Back to Developer Learning Pathway</span>
             </a>

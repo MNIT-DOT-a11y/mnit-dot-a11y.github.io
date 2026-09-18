@@ -2,14 +2,14 @@
   <ul>
     <li>
       <a
-        {% if page.url == "/training/" %} aria-current="page" class="current" {% endif %}
-        href="{{ site.baseurl }}/training/">
+        {% if page.url == "/training/developers/" %} aria-current="page" class="current" {% endif %}
+        href="{{ site.baseurl }}/training/developers/">
         Developer Learning Pathway
       </a>
       <ul>
         {% for section in site.data.training.sections %}
         <li class="training-nav-section">
-          <a href="{{ site.baseurl }}/training/#{{ section.id }}">{{ section.title }}</a>
+          <a href="{{ site.baseurl }}/training/developers/#{{ section.id }}">{{ section.title }}</a>
           <ul>
             {% for lesson in section.lessons %}
             <li>
