@@ -1,0 +1,72 @@
+---
+layout: qa-training
+title: QA Accessibility Learning Pathway
+seoTitle: Accessibility training for QA analysts
+description: Short, focused accessibility testing lessons for MNIT DOT QA analysts, with slides and knowledge checks.
+permalink: /training/qa/
+---
+{%- assign data = site.data.qa_training -%}
+{%- assign lesson_counter = 0 -%}
+
+<nav aria-label="Breadcrumb" class="training-breadcrumb">
+  <ol>
+    <li><a href="{{ site.baseurl }}/training/">Training</a></li>
+    <li aria-current="page">{{ page.title | escape }}</li>
+  </ol>
+</nav>
+
+<p class="training-intro">{{ data.intro }}</p>
+
+<p>
+  Each lesson page has a short <strong>summary</strong> of what the lesson covers, the
+  <strong>slide deck</strong> to download, and its own <strong>knowledge check</strong> so you can test
+  yourself before moving on. Lessons take about 10&ndash;15 minutes each.
+</p>
+
+<div class="training-sections">
+  {%- for section in data.sections -%}
+  <section class="training-section" id="{{ section.id }}" aria-labelledby="{{ section.id }}-heading">
+    <h2 id="{{ section.id }}-heading">
+      <span>{{ section.title }}</span>
+    </h2>
+    <p class="training-section-desc">{{ section.description }}</p>
+    <ol>
+      {%- for lesson in section.lessons -%}
+      <li>
+        {%- if lesson.slug -%}
+          {%- assign lesson_counter = lesson_counter | plus: 1 -%}
+          <a class="training-lesson-card" href="{{ site.baseurl }}/training/qa/{{ lesson.slug }}/">
+            <span class="training-lesson-index" aria-hidden="true">{{ lesson_counter }}</span>
+            <span class="hidden">Lesson {{ lesson_counter }}:</span>
+            <span>{{ lesson.title }}</span>
+          </a>
+        {%- elsif lesson.url -%}
+          <a class="training-lesson-card is-ref" href="{{ site.baseurl }}{{ lesson.url }}">
+            <span class="training-lesson-index" aria-hidden="true">&#8599;</span>
+            <span>{{ lesson.title }}</span>
+            <span class="training-lesson-badge">{{ lesson.note | default: "Reference" }}</span>
+          </a>
+        {%- else -%}
+          <span class="training-lesson-card is-soon">
+            <span class="training-lesson-index" aria-hidden="true">&middot;</span>
+            <span>{{ lesson.title }}</span>
+            <span class="training-lesson-badge">Coming soon</span>
+          </span>
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ol>
+  </section>
+  {%- endfor -%}
+</div>
+
+<h2>How to use this pathway</h2>
+<p>
+  New to accessibility testing at DOT? Start with Section 1 and work through the lessons in order &mdash;
+  each one builds on the last. Already comfortable with the basics? Jump to the testing skill you need.
+  Leads can use the sections as an onboarding roadmap for new QA analysts.
+</p>
+<p>
+  The lessons line up with the <a href="{{ site.baseurl }}/how-to-test/">How-to Test</a> guides on this
+  site, so you can move straight from a lesson to the step-by-step test for a component.
+</p>
