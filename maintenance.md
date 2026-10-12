@@ -16,11 +16,11 @@ The website uses two main technologies: [GitHub](https://github.com) and [Jekyll
 Your first step is getting access to the website's management system. Here's what you need:
 
 1. A GitHub account - This serves as your login to manage the website.
-2. Membership in the [MNIT DOT A11y GitHub organization](https://github.com/mnit-dot-a11y/) - This is an organization for MNIT Dot Accessibility resources, primarily this website. Anyone in this organization has write access to the repository.
+2. Membership in the [MNIT-DOT A11y GitHub organization](https://github.com/mnit-dot-a11y/) - This is an organization for MNIT-DOT Accessibility resources, primarily this website. Anyone in this organization has write access to the repository.
 
 To get set up:
 1. [Create a GitHub account](https://github.com/signup) if you don't have one
-2. If you don't have access already, email the Digital Accessibility Coordinator (DAC), Kim Lanahan-Lahti, to request access to the MNIT DOT A11y organization. Provide your GitHub credentials
+2. If you don't have access already, email the Digital Accessibility Coordinator (DAC), Kim Lanahan-Lahti, to request access to the MNIT-DOT A11y organization. Provide your GitHub credentials
 
 ## Quick Reference Resources
 Before diving into the details, here are important links you'll need:
@@ -39,7 +39,7 @@ Before diving into the details, here are important links you'll need:
 When working on the website, you have two main options for your work environment:
 
 ### GitHub Codespaces (Recommended for Most Users)
-GitHub Codespaces is a platform-agnostic way of developing, testing for, and pushing changes for the MNIT Dot Test Guidance website. Due to IT restrictions, it is impossible to install the required tools on your machine without elevated access. Codespaces allows you to run a virtualized development environment for up to 160 hours a month for free, from the web.
+GitHub Codespaces is a platform-agnostic way of developing, testing for, and pushing changes for the MNIT-DOT Test Guidance website. Due to IT restrictions, it is impossible to install the required tools on your machine without elevated access. Codespaces allows you to run a virtualized development environment for up to 160 hours a month for free, from the web.
 
 Commonly, you may see Visual Studio Code and GitHub Codespaces used interchangeably. This is because GitHub codespaces is a browser-based version of Visual Studio Code, so many of the same UI elements and concepts apply.
 

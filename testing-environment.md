@@ -6,7 +6,7 @@ permalink: /testing-environment/
 
 As part of the digital accessibility testing workflow, you will use several tools to determine whether the website and web, native mobile, and desktop applications meet accessibility guidelines.
 
-MNIT DOT recommends that anyone testing applications use the following tools for verification testing. Using the same set of tools will ensure repeatable methods for accessibility risk assessment and testing.
+MNIT-DOT recommends that anyone testing applications use the following tools for verification testing. Using the same set of tools will ensure repeatable methods for accessibility risk assessment and testing.
 
 - **axe DevTools** - A free DevTools browser extension for Chrome, Firefox, or Edge to test web-based applications and help identify and resolve common accessibility issues.
 - **Colour Contrast Analyzer** (CCA) - a free color contrast checker that tests content for color contrast WCAG compliance. It is available in the Software Center
