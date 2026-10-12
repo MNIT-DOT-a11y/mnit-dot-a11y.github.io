@@ -2,7 +2,7 @@
 layout: training-lesson
 title: Accessibility Foundations
 seoTitle: Accessibility Foundations - Accessibility training
-description: 'The starting point for all accessibility work at MNIT DOT: what accessibility means, the POUR principles, WCAG, and who we build for.'
+description: 'The starting point for all accessibility work: what accessibility means, the POUR principles, WCAG, and who we build for.'
 permalink: /training/accessibility-foundations/
 slug: accessibility-foundations
 section: foundations
@@ -13,7 +13,7 @@ deck: Accessibility Foundations.pptx
 next_slug: html-accessibility-fundamentals
 next_title: HTML Accessibility Fundamentals
 objectives:
-- 'Explain what accessibility means at DOT and why it''s required'
+- 'Explain what accessibility means for our teams and why it''s required'
 - 'Describe the four POUR principles and how they relate to WCAG'
 - 'Recognize the range of users and situations accessible design supports'
 - 'See where accessibility fits across design, development, and QA'
@@ -23,12 +23,12 @@ slides:
   title: Accessibility Foundations
   presenters:
   - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – MNIT DOT Digital Accessibility Coordinator
+  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Accessibility Foundations
   items:
-  - What accessibility means at DOT
+  - What accessibility means for our teams
   - The POUR principles
   - 'WCAG: our shared standard'
   - Who we're building for
@@ -47,7 +47,7 @@ slides:
 - type: body
   title: Why Accessibility Matters
   groups:
-  - header: Not Optional at DOT
+  - header: Not Optional
     items:
     - Ensures every person can use our applications, regardless of ability, device, or assistive technology
     - Part of our development standards and testing expectations
@@ -99,7 +99,7 @@ slides:
   title: Recap
   header: Accessibility Foundations Review
   items:
-  - What accessibility means and why it's required at DOT
+  - What accessibility means and why it's required
   - 'The four POUR principles: Perceivable, Operable, Understandable, Robust'
   - WCAG as our shared testing standard
   - 'Who benefits: permanent, temporary, and situational limitations'
@@ -118,6 +118,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/
 ---
 
-This lesson sets the shared foundation for every training that follows. Accessibility at DOT means every person can use our applications regardless of ability, device, or assistive technology — and it is part of our development standards and testing expectations, not an optional extra.
+This lesson sets the shared foundation for every training that follows. Accessibility on our teams means every person can use our applications regardless of ability, device, or assistive technology — and it is part of our development standards and testing expectations, not an optional extra.
 
 You'll meet the four POUR principles (Perceivable, Operable, Understandable, Robust) that organize WCAG, and see how everyday development decisions — semantic HTML, labels, keyboard access, predictable focus — map directly to those requirements. The lesson also looks at who we build for: screen reader and magnifier users, people using speech input or alternative keyboards, and anyone with a temporary or situational limitation.

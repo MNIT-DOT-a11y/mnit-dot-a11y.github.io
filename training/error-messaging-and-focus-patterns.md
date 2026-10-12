@@ -25,7 +25,7 @@ slides:
   title: Error Messaging & Focus Interaction Patterns
   presenters:
   - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – MNIT DOT Digital Accessibility Coordinator
+  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Error Messaging & Focus Interaction Patterns
@@ -53,7 +53,7 @@ slides:
     items:
     - Users understand what went wrong and can recover from mistakes
     - Errors are announced to screen readers, and focus moves logically and stays visible
-    - Interactions follow WCAG and MNIT standards
+    - Interactions follow WCAG and our standards
 - type: body
   title: Error Messaging Patterns
   groups:

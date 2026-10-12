@@ -95,10 +95,10 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
     </tr>  
         <tr>
       <td>
-        <a href="https://mnit-dot-a11y.github.io/">MNIT DOT A11y home</a>
+        <a href="https://mnit-dot-a11y.github.io/">MNIT-DOT A11y home</a>
       </td>
       <td>
-        <a tabindex="0" onmouseup = "location.href="https://mnit-dot-a11y.github.io/'">MNIT DOT A11y home</a>
+        <a tabindex="0" onmouseup = "location.href="https://mnit-dot-a11y.github.io/'">MNIT-DOT A11y home</a>
       </td>
     </tr> 
     </tbody>

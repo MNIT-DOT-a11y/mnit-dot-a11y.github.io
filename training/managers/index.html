@@ -1,0 +1,127 @@
+---
+layout: managers-training
+title: 'Managers & Supervisors Accessibility Learning Pathway'
+seoTitle: 'Accessibility training for managers and supervisors'
+description: 'A leadership-focused accessibility learning pathway for managers and supervisors: people, processes, technology, and sustaining accessible outcomes.'
+permalink: /training/managers/
+---
+{%- assign data = site.data.managers_training -%}
+{%- assign lesson_counter = 0 -%}
+
+<nav aria-label="Breadcrumb" class="training-breadcrumb">
+  <ol>
+    <li><a href="{{ site.baseurl }}/training/">Training</a></li>
+    <li aria-current="page">{{ page.title | escape }}</li>
+  </ol>
+</nav>
+
+{%- for p in data.intro -%}
+<p class="training-intro">{{ p }}</p>
+{%- endfor -%}
+
+<p>
+  Each module is self-paced micro-learning of about 10&ndash;30 minutes. Topics are listed below with
+  their learning objectives; lesson pages, videos, and knowledge checks will be linked as they are built.
+</p>
+
+<h2>How this pathway works</h2>
+<ul class="training-pathways-list">
+  {%- for p in data.principles -%}
+  <li><strong>{{ p.lead }}</strong> {{ p.text }}</li>
+  {%- endfor -%}
+</ul>
+
+<h2>Pathway at a glance</h2>
+<div class="training-table-wrap">
+  <table class="training-glance">
+    <caption class="hidden">Sections of the Managers &amp; Supervisors pathway with number of trainings and total time</caption>
+    <thead>
+      <tr>
+        <th scope="col">Section</th>
+        <th scope="col">Focus area</th>
+        <th scope="col">Trainings</th>
+        <th scope="col">Total time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- assign total = 0 -%}
+      {%- for section in data.sections -%}
+      {%- assign n = section.lessons | size -%}
+      {%- assign total = total | plus: n -%}
+      <tr>
+        <th scope="row"><a href="#{{ section.id }}">Section {{ forloop.index }}: {{ section.title }}</a></th>
+        <td>{{ section.focus }}</td>
+        <td>{{ n }}</td>
+        <td>{{ section.time }}</td>
+      </tr>
+      {%- endfor -%}
+      <tr>
+        <th scope="row">Total</th>
+        <td></td>
+        <td>{{ total }}</td>
+        <td>About 6 hours</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p class="training-section-desc">
+  The number and length of training sessions in Section 4 depend on the Microsoft applications used
+  in an employee&rsquo;s regular work.
+</p>
+
+
+<div class="training-sections training-sections-detailed">
+  {%- for section in data.sections -%}
+  <section class="training-section" id="{{ section.id }}" aria-labelledby="{{ section.id }}-heading">
+    <h2 id="{{ section.id }}-heading">
+      <span>Section {{ forloop.index }}: {{ section.title }}</span>
+    </h2>
+    <p class="training-section-desc">{{ section.description }}</p>
+    {%- if section.note -%}
+    <p class="training-section-desc"><strong>How to sign up:</strong> {{ section.note }}</p>
+    {%- endif -%}
+    <ol>
+      {%- for lesson in section.lessons -%}
+      <li>
+        {%- if lesson.slug -%}
+          {%- assign lesson_counter = lesson_counter | plus: 1 -%}
+          <a class="training-lesson-card" href="{{ site.baseurl }}/training/managers/{{ lesson.slug }}/">
+            <span class="training-lesson-index" aria-hidden="true">{{ lesson_counter }}</span>
+            <span class="hidden">Lesson {{ lesson_counter }}:</span>
+            <span>{{ lesson.title }}</span>
+          </a>
+        {%- elsif lesson.external_url -%}
+          <a class="training-lesson-card is-ref" href="{{ lesson.external_url }}">
+            <span class="training-lesson-index" aria-hidden="true">&#8599;</span>
+            <span>{{ lesson.title }}</span>
+            <span class="training-lesson-badge">{{ lesson.note | default: "External course" }}</span>
+          </a>
+        {%- elsif lesson.url -%}
+          <a class="training-lesson-card is-ref" href="{{ site.baseurl }}{{ lesson.url }}">
+            <span class="training-lesson-index" aria-hidden="true">&#8599;</span>
+            <span>{{ lesson.title }}</span>
+            <span class="training-lesson-badge">{{ lesson.note | default: "Reference" }}</span>
+          </a>
+        {%- else -%}
+          <span class="training-lesson-card is-soon">
+            <span class="training-lesson-index" aria-hidden="true">&middot;</span>
+            <span>{{ lesson.title }}</span>
+            <span class="training-lesson-badge">Coming soon{% if lesson.duration %} &middot; {{ lesson.duration }}{% endif %}</span>
+          </span>
+        {%- endif -%}
+        {%- if lesson.objective -%}
+        <p class="training-lesson-objective">{{ lesson.objective }}</p>
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ol>
+  </section>
+  {%- endfor -%}
+</div>
+
+<h2>How to use this pathway</h2>
+<ul class="training-pathways-list">
+  {%- for s in data.sequencing -%}
+  <li><strong>{{ s.lead }}</strong> &mdash; {{ s.text }}</li>
+  {%- endfor -%}
+</ul>

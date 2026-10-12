@@ -774,3 +774,36 @@ $training-gray: #e8e8e8;
   .tdeck [hidden] { display: block !important; }
   .tslide { break-inside: avoid; box-shadow: none; }
 }
+
+// ---------------------------------------------------------------------------
+// Pathway overview extras (Managers & Supervisors, PM/BA)
+// ---------------------------------------------------------------------------
+.training-sections-detailed .training-section ol {
+  grid-template-columns: 1fr; // objectives under each card need the full width
+}
+.training-lesson-objective {
+  margin: .375rem 0 0 2.75rem;
+  padding: 0 0 .25rem 0;
+  font-size: .9375rem;
+  line-height: 1.6;
+  color: $color-gray-dark;
+}
+.training-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1rem 0;
+}
+.training-glance {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9375rem;
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: .5rem .75rem;
+    border-bottom: 1px solid $color-border-gray;
+  }
+  thead th { @include bold; color: $training-navy; }
+  tbody th { font-weight: normal; }
+  tbody tr:last-child th,
+  tbody tr:last-child td { @include bold; border-bottom: 0; }
+}

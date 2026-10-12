@@ -8,7 +8,7 @@ intro:
     accessibility skills for your everyday work. Each pathway includes 5&ndash;10 micro-learning
     topics, typically 10&ndash;45 minutes each, with skills you can apply right away.
   - >-
-    Whether you are new to MNIT, moving into a new role, or continuing to build your knowledge,
+    Whether you are new to the organization, moving into a new role, or continuing to build your knowledge,
     these pathways can help. They support accessibility throughout the digital service
     lifecycle&mdash;from planning and design through development, testing, procurement, and
     maintenance.
@@ -27,12 +27,14 @@ pathways:
     description: >-
       Learn how to establish clear accessibility expectations, ask informed questions, understand
       roles and evidence, and make risk-based decisions that support accessible outcomes.
+    url: /training/managers/
 
-  - name: Project managers and business analysts
+  - name: Business analysts and program managers
     description: >-
       Develop a common language and consistent practices for communicating accessibility
       requirements, coordinating responsibilities, and carrying accessibility needs from planning
       through build and testing.
+    url: /training/pm-ba/
 
   - name: Quality analysts
     description: >-

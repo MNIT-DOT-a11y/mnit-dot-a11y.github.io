@@ -2,7 +2,7 @@
 layout: training
 title: Developer Accessibility Learning Pathway
 seoTitle: Accessibility training for developers
-description: Short, focused accessibility lessons for MNIT DOT developers, with slides, scripts, and knowledge checks.
+description: Short, focused accessibility lessons for developers, with slides, scripts, and knowledge checks.
 permalink: /training/developers/
 ---
 {%- assign data = site.data.training -%}
@@ -18,16 +18,17 @@ permalink: /training/developers/
 <p class="training-intro">{{ data.intro }}</p>
 
 <p>
-  Each lesson page has the <strong>slides</strong> (viewable in the browser or downloadable as PowerPoint)
-  and a short <strong>summary</strong> of what the lesson covers, plus its own knowledge check at the end
-  so you can test yourself before moving on. Lessons take about 10&ndash;15 minutes each.
+  Each lesson includes a <strong>summary</strong>, a <strong>training video</strong>, a
+  <strong>downloadable slide deck</strong>, and a <strong>knowledge check</strong> to assess your
+  comprehension before moving on. Each lesson takes about 10&ndash;15 minutes. Proceed through the
+  sections in order or choose a specific topic you need.
 </p>
 
 <div class="training-sections">
   {%- for section in data.sections -%}
   <section class="training-section" id="{{ section.id }}" aria-labelledby="{{ section.id }}-heading">
     <h2 id="{{ section.id }}-heading">
-      <span>{{ section.title }}</span>
+      <span>Section {{ forloop.index }}: {{ section.title }}</span>
     </h2>
     <p class="training-section-desc">{{ section.description }}</p>
     <ol>
@@ -62,12 +63,13 @@ permalink: /training/developers/
 
 <h2>How to use this pathway</h2>
 <p>
-  New to accessibility at DOT? Start with Section 1 and work through the lessons in order &mdash;
-  each one builds on the last. Already comfortable with the basics? Jump to the testing skill or
-  language integration you need. Supervisors and leads can use the sections as an onboarding roadmap.
+  New to accessibility at MNIT-DOT? Start with Section 1 and work through the lessons in order &mdash;
+  each builds on the previous one. Supervisors and leads can use the sections as an onboarding
+  roadmap. Already comfortable with the basics? Jump to the testing skill or language integration
+  you need.
 </p>
 <p>
-  Every lesson links to the matching <a href="{{ site.baseurl }}/how-to-test/">How-to Test</a> guide
-  or <a href="{{ site.baseurl }}/developer-guides.html">Developer Resource</a> on this site, so the
-  training and the reference material stay in step.
+  Each training links to the corresponding <a href="{{ site.baseurl }}/how-to-test/">How-to Test guide</a>
+  or <a href="{{ site.baseurl }}/developer-guides.html">Developer Resources</a> on this site, so the
+  training and the reference material stay in sync.
 </p>

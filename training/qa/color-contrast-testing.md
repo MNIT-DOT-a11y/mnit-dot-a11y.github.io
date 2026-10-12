@@ -24,4 +24,4 @@ objectives:
 
 Low contrast makes text and controls hard or impossible to read for people with low vision, and it hurts everyone in bright light or on low-quality screens. WCAG sets minimum contrast ratios for text (1.4.3) and for non-text elements like icons, focus indicators, and input borders (1.4.11).
 
-This lesson covers the ratios QA tests against: 4.5:1 for standard text, 3:1 for large text (18 point regular or 14 point bold), and 3:1 for non-text elements. You'll learn to measure contrast with the Color Contrast Analyzer (CCA), the tool used most across MNIT DOT, and to recognize the issues that show up most often: light gray text, low-contrast placeholders, faint buttons and icons, and unreadable disabled controls.
+This lesson covers the ratios QA tests against: 4.5:1 for standard text, 3:1 for large text (18 point regular or 14 point bold), and 3:1 for non-text elements. You'll learn to measure contrast with the Color Contrast Analyzer (CCA), the tool used most on our teams, and to recognize the issues that show up most often: light gray text, low-contrast placeholders, faint buttons and icons, and unreadable disabled controls.

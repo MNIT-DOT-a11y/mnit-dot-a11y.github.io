@@ -121,7 +121,7 @@ Some images are implemented using inline <code>SVG</code>. Text alternatives for
 <example>
   <img
     src="/assets/images/examples/how-to-test-images-text.png"
-    alt="screen shot showing DOT homepage with Developer tool Element tab active">
+    alt="screen shot showing MNIT-DOT homepage with Developer tool Element tab active">
 </example>
 {:/}
 

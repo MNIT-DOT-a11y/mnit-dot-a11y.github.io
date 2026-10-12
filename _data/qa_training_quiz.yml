@@ -13,7 +13,7 @@ accessibility-foundations:
     answer: 1
     explain: Operable means users must be able to interact using a keyboard, mouse, touch, or assistive
       technology.
-  - q: Which standard does MNIT DOT test against?
+  - q: Which standard do we test against?
     options:
     - Section 508 only
     - ISO 9001
@@ -21,7 +21,7 @@ accessibility-foundations:
     - The browser's default settings
     answer: 2
     explain: WCAG defines the criteria QA tests against and the requirements developers must meet.
-  - q: What is QA's role in accessibility at DOT?
+  - q: What is QA's role in accessibility?
     options:
     - Fix accessibility defects in the code
     - Verify accessibility through manual and automated testing

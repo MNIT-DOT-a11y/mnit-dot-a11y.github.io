@@ -4,11 +4,10 @@
 # is listed but not linked yet. A lesson with `url` links to an existing site page.
 
 intro: >-
-  The QA Accessibility Learning Pathway is a practical sequence of short, focused trainings that
-  build strong accessibility testing skills across MNIT DOT QA teams. Each lesson is derived from
-  our full accessibility trainings and aligned with WCAG, MNIT standards, and DOT testing practices,
-  so you can identify issues early, validate developer fixes, and support DOT’s accessibility
-  commitments.
+  The QA Accessibility Learning Pathway offers a series of concise, targeted training sessions
+  designed to build strong accessibility testing skills for QAs. Each lesson is aligned with WCAG,
+  MNIT-DOT standards, and MNIT-DOT testing practices, helping you detect issues early, verify
+  developer fixes, and uphold MNIT-DOT's accessibility commitments.
 
 sections:
   - id: foundations
@@ -28,7 +27,7 @@ sections:
   - id: manual-testing
     title: "Core Manual Testing Skills"
     description: >-
-      The essential manual testing techniques used across DOT. Each lesson teaches one testing
+      The essential manual testing techniques used across our teams. Each lesson teaches one testing
       method, so QA evaluations stay consistent and accurate.
     lessons:
       - slug: keyboard-testing
@@ -63,7 +62,7 @@ sections:
   - id: automated
     title: "Automated Testing Tools"
     description: >-
-      DOT-approved automated tools: how to run scans, interpret the results, and combine automated
+      Our approved automated tools: how to run scans, interpret the results, and combine automated
       findings with manual testing for complete coverage.
     lessons:
       - slug: axe-devtools-basics
@@ -77,7 +76,7 @@ sections:
     title: "Reporting & Workflow Integration"
     description: >-
       How to communicate accessibility issues clearly and consistently: defect writing,
-      documentation practices, and how accessibility fits into the QA workflow and DOT’s SDLC.
+      documentation practices, and how accessibility fits into the QA workflow and our SDLC.
     lessons:
       - title: "Accessibility Reporting Basics"
         status: coming-soon

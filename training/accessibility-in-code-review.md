@@ -23,7 +23,7 @@ slides:
   title: Accessibility in Code Review
   presenters:
   - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – MNIT DOT Digital Accessibility Coordinator
+  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Accessibility in Code Review

@@ -1,0 +1,38 @@
+<nav aria-label="BA and PM Learning Pathway" class="toc-nav training-nav">
+  <ul>
+    <li>
+      <a
+        {% if page.url == "/training/pm-ba/" %} aria-current="page" class="current" {% endif %}
+        href="{{ site.baseurl }}/training/pm-ba/">
+        BA and PM Learning Pathway
+      </a>
+      <ul>
+        {% for section in site.data.pmba_training.sections %}
+        <li class="training-nav-section">
+          <a href="{{ site.baseurl }}/training/pm-ba/#{{ section.id }}">{{ section.title }}</a>
+          <ul>
+            {% for lesson in section.lessons %}
+            <li>
+              {% if lesson.slug %}
+                {% assign lesson_url = "/training/pm-ba/" | append: lesson.slug | append: "/" %}
+                <a
+                  {% if page.url == lesson_url %} aria-current="page" class="current" {% endif %}
+                  href="{{ site.baseurl }}{{ lesson_url }}">
+                  {{ lesson.title }}
+                </a>
+              {% elsif lesson.external_url %}
+                <a href="{{ lesson.external_url }}">{{ lesson.title }} <em>(external)</em></a>
+              {% elsif lesson.url %}
+                <a href="{{ site.baseurl }}{{ lesson.url }}">{{ lesson.title }}</a>
+              {% else %}
+                <span class="training-nav-soon">{{ lesson.title }} <em>(coming soon)</em></span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+  </ul>
+</nav>

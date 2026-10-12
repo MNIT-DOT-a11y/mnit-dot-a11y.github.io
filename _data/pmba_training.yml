@@ -1,0 +1,99 @@
+# Business Analysts and Program Managers Accessibility Learning Pathway
+# Drives the PM/BA left nav (_includes/pmba-training-nav.html), /training/pm-ba/, and lesson pagers.
+# A lesson with a `slug` has a page at /training/pm-ba/<slug>/. A lesson with `status: coming-soon`
+# is listed but not linked yet. A lesson with `external_url` links to an external course sign-up.
+# Content source: Kim Lanahan-Lahti, "PM-BA GitHub Content" (Oct 2026).
+
+intro:
+  - >-
+    The Business Analyst (BA) and Program Manager (PM) Accessibility Learning Pathway offers a
+    series of concise, targeted training sessions that build strong accessibility knowledge and
+    promote consistent roles and effective communication among PMs/BAs, developers, and QA testers,
+    ensuring a common language as the project advances into the build and testing phases. This
+    pathway supports newly hired and transferred employees and provides a refresher for current staff.
+
+sections:
+  - id: foundations
+    title: "Accessibility Foundations"
+    description: >-
+      Discover the legal reasons behind digital accessibility and the benefits of incorporating it
+      from the beginning. Familiarize yourself with the WCAG POUR principles, understand WCAG 2.1
+      Level AA requirements, and identify common accessibility obstacles.
+    lessons:
+      - slug: why-accessibility-matters
+        title: "Why Accessibility Matters: Legal, Ethical & Business Case"
+      - title: "WCAG 2.1 AA in Plain Language"
+        status: coming-soon
+      - title: "Recognizing Common Barriers"
+        status: coming-soon
+
+  - id: plan-define
+    title: "Plan & Define"
+    description: >-
+      Build accessibility into project intake, clarify roles with the RACI matrix, and collaborate
+      early to develop testable requirements and accessible designs. Set checkpoints, define when
+      work is ready and when it is done, and assign ownership for evidence, remediation, and release
+      decisions.
+    lessons:
+      - title: "Building Accessibility into Project Intake and Scoping"
+        status: coming-soon
+      - title: "Writing Accessible Requirements, Acceptance Criteria and User Stories"
+        status: coming-soon
+      - title: "Setting Accessibility Checkpoints, Milestones & Definitions of Done"
+        status: coming-soon
+
+  - id: procure-vendors
+    title: "Procure & Manage Vendors"
+    description: >-
+      Learn to integrate accessibility into project requests and purchasing criteria, assess vendor
+      responses, and differentiate a VPAT from a completed ACR to guide your inquiries. Schedule
+      regular conformance reviews and recognize when to involve an accessibility specialist or
+      handle vendor resistance.
+    lessons:
+      - title: "Accessibility in Procurement"
+        status: coming-soon
+      - title: "Requesting, Reading & Evaluating VPATs / ACRs"
+        status: coming-soon
+      - title: "Ongoing Vendor & Contract Accessibility Oversight"
+        status: coming-soon
+
+  - id: create-communicate
+    title: "Create & Communicate"
+    description: >-
+      Learn to create accessible documents and verify their accessibility. Complete only the courses
+      relevant to your regular work: Word for creating or editing documents, Excel for working with
+      spreadsheets, PowerPoint for developing presentations, and PDF for saving and sharing PDF files.
+    note: >-
+      These courses are offered separately through the MNIT-DOT Accessibility Training Program.
+      Visit <a href="https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false">MNIT-DOT's Digital Accessibility Program Training SharePoint</a>
+      to sign up for the courses you need.
+    lessons:
+      - title: "Accessible Word"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
+      - title: "Accessible PowerPoint"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
+      - title: "Accessible Excel"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
+      - title: "Accessible PDFs"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
+
+  - id: coordinate-verify
+    title: "Coordinate & Verify"
+    description: >-
+      Understand what accessibility testing tools check for and who uses them. Then prioritize
+      defects and manage remediation by severity, impact, and risk. Recognize when software
+      exceptions are needed and follow the required process for managing mitigation, expiration,
+      and renewal.
+    lessons:
+      - title: "Accessibility Testing 101: What PMs/BAs Need to Know"
+        status: coming-soon
+      - title: "Reading & Triaging Accessibility Defects and Managing Risk"
+        status: coming-soon
+      - title: "Managing Accessibility Exceptions and Risk"
+        status: coming-soon
+      - title: "Facilitating Accessibility in Reviews, Demos, UAT, Pre-Launch Sign-Off & Closeout"
+        status: coming-soon

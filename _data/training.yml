@@ -4,10 +4,10 @@
 # is listed but not linked yet. A lesson with `url` links to an existing site page.
 
 intro: >-
-  The Developer Accessibility Learning Pathway is a progressive sequence of short, focused
-  trainings that build practical accessibility skills across MNIT DOT development teams.
-  Each lesson is a condensed version of our full sessions, aligned with WCAG, MNIT standards,
-  and DOT testing practices. Work through the sections in order, or jump to the topic you need.
+  The Developer Accessibility Learning Pathway offers a series of concise, targeted training
+  sessions to build strong accessibility testing skills for Developers. Each lesson aligns with
+  WCAG, MNIT-DOT standards, and MNIT-DOT testing practices, helping you detect issues early,
+  verify developer fixes, and uphold MNIT-DOT's accessibility commitments.
 
 sections:
   - id: foundations
@@ -29,7 +29,7 @@ sections:
     title: Accessibility Testing
     description: >-
       Developers must be able to test their own work before handing it to QA. These lessons cover
-      the core testing techniques used across DOT so you can identify issues early and reduce
+      the core testing techniques used across our teams so you can identify issues early and reduce
       remediation cycles.
     lessons:
       - slug: keyboard-testing
@@ -50,7 +50,7 @@ sections:
     description: >-
       Different stacks require different techniques. These lessons focus on integrating
       accessibility metadata, error messaging, and keyboard operability into the technologies
-      used across MNIT DOT.
+      used across our teams.
     lessons:
       - slug: csharp-accessibility-integration
         title: C# Accessibility Integration

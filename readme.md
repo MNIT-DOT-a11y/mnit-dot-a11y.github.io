@@ -1,4 +1,4 @@
-<p>Welcome to the MNIT DOT Accessibility Testing GitHub site,  your go-to resource for ensuring digital content is inclusive for all  users. Our comprehensive guidance and tools are designed to help you  effectively test and improve the accessibility of your <a href="#web">web</a>, <a href="#desktop">desktop</a> and <a href="#native">native</a> applications. Explore the site features, which include:</p>
+<p>Welcome to the MNIT-DOT Accessibility Testing GitHub site,  your go-to resource for ensuring digital content is inclusive for all  users. Our comprehensive guidance and tools are designed to help you  effectively test and improve the accessibility of your <a href="#web">web</a>, <a href="#desktop">desktop</a> and <a href="#native">native</a> applications. Explore the site features, which include:</p>
 <ul>
   <li><a href="https://mnit-dot-a11y.github.io"><strong>Checklists for Web, Desktop and Native Applications</strong></a>: These checklists focus on keyboard navigationand screen reader compatibility and outline expected behaviors based on the testing scenarios for optimal user experience.</li>
   <li><a href="https://mnit-dot-a11y.github.io/testing-environment/"><strong>Setting Up Your Testing Environment</strong></a>: A curated list of recommended accessibility testing tools with instructions to help you get up and running.</li>
@@ -26,6 +26,6 @@
 <p>This is not a comprehensive list of all WCAG success  criteria or techniques required to become WCAG 2.1 Level A and AA compliant and  should not be used as such.</p>
 <p>Adherence to this list also does not guarantee that a  digital asset will be free from accessibility issues or complaints.</p>
 <h2>Credits</h2>
-<p>MNIT DOT A11y was sourced from <a href="https://www.magentaa11y.com/web/">MagentaA11y</a> by T-Mobile. It was  created by <a href="https://www.charliecharliecharlie.com">Charlie Triplett</a>,  author of The Book on Accessibility.</p>
+<p>MNIT-DOT A11y was sourced from <a href="https://www.magentaa11y.com/web/">MagentaA11y</a> by T-Mobile. It was  created by <a href="https://www.charliecharliecharlie.com">Charlie Triplett</a>,  author of The Book on Accessibility.</p>
 <h2>License</h2>
 <p>MagentaA11y is <a href="https://opensource.t-mobile.com/">open-sourced by T-Mobile</a> and  released under the Apache 2.0 License.</p>

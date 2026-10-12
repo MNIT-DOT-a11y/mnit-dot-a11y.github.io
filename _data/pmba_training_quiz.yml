@@ -1,0 +1,21 @@
+# Knowledge-check questions for the Business Analysts and Program Managers pathway.
+# Keyed by lesson slug. Same shape as training_quiz.yml:
+#
+# why-accessibility-matters:
+#   questions:
+#     - q: Question text?
+#       options:
+#       - Option A
+#       - Option B
+#       - Option C
+#       - Option D
+#       answer: 1          # zero-based index of the correct option
+#       explain: One-sentence explanation shown after checking answers.
+#
+# A lesson with no entry here (or an empty `questions` list) shows a "knowledge check is being
+# written" note on its lesson page instead of a link. When questions are added, also create
+# training/pm-ba/<slug>-knowledge-check.html (copy one from training/qa/ and change the layout to
+# pmba-training-knowledge-check).
+
+why-accessibility-matters:
+  questions: []

@@ -25,7 +25,7 @@ slides:
   title: Axe DevTools Basics
   presenters:
   - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – MNIT DOT Digital Accessibility Coordinator
+  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Axe DevTools Basics
@@ -118,6 +118,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/axe/
 ---
 
-Axe DevTools is one of the core tools we use at MNIT DOT because it aligns with WCAG 2.1 AA and finds a large share of common issues in seconds. This lesson takes you from installing the browser extension to running your first scan and reading the results.
+Axe DevTools is one of the core tools we use because it aligns with WCAG 2.1 AA and finds a large share of common issues in seconds. This lesson takes you from installing the browser extension to running your first scan and reading the results.
 
 You'll learn the difference between Violations, Needs Review, and Best Practices; how each finding shows the WCAG criterion, an explanation, the failing code, and a highlight on the page; and how to prioritize high-impact issues like keyboard traps and missing labels. Because Axe only catches roughly 30–40% of accessibility problems, the lesson also covers pairing it with manual testing and documenting findings so developers can act on them.

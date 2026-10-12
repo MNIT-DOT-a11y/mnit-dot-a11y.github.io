@@ -25,7 +25,7 @@ slides:
   title: Accessibility in SDLC
   presenters:
   - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – MNIT DOT Digital Accessibility Coordinator
+  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Accessibility in SDLC
@@ -53,7 +53,7 @@ slides:
     items:
     - Defects found late are costly to fix and often require design or architecture changes
     - Embedding accessibility into the SDLC reduces rework, shortens remediation cycles, and improves product quality
-    - Ensures compliance with WCAG and MNIT standards while making apps usable for everyone
+    - Ensures compliance with WCAG and our standards while making apps usable for everyone
 - type: body
   title: Where to Integrate Accessibility
   groups:
