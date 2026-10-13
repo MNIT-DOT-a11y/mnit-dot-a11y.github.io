@@ -1,0 +1,89 @@
+# QA Accessibility Learning Pathway
+# Drives the QA left nav (_includes/qa-training-nav.html), /training/qa/, and lesson pagers.
+# A lesson with a `slug` has a page at /training/qa/<slug>/. A lesson with `status: coming-soon`
+# is listed but not linked yet. A lesson with `url` links to an existing site page.
+
+intro: >-
+  The QA Accessibility Learning Pathway offers a series of concise, targeted training sessions
+  designed to build strong accessibility testing skills for QAs. Each lesson is aligned with WCAG,
+  MNIT-DOT standards, and MNIT-DOT testing practices, helping you detect issues early, verify
+  developer fixes, and uphold MNIT-DOT's accessibility commitments.
+
+sections:
+  - id: foundations
+    title: "Foundations of Accessibility Testing"
+    description: >-
+      The core concepts behind accessibility testing. This section sets the baseline understanding
+      you need before hands-on evaluation, so you know the standards, expectations, and scope of
+      your work.
+    lessons:
+      - slug: accessibility-foundations
+        title: "Accessibility Foundations"
+      - title: "WCAG Testing Overview"
+        status: coming-soon
+      - title: "Accessibility Testing Scope"
+        status: coming-soon
+
+  - id: manual-testing
+    title: "Core Manual Testing Skills"
+    description: >-
+      The essential manual testing techniques used across our teams. Each lesson teaches one testing
+      method, so QA evaluations stay consistent and accurate.
+    lessons:
+      - slug: keyboard-testing
+        title: "Keyboard Testing"
+      - slug: color-alone-testing
+        title: "Color Alone Testing"
+      - slug: color-contrast-testing
+        title: "Color Contrast Testing"
+      - slug: zoom-and-magnification-testing
+        title: "Zoom & Magnification Testing"
+      - slug: text-spacing-bookmarklet-testing
+        title: "Text Spacing Bookmarklet Testing"
+      - title: "Focus Visibility & Focus Order Testing"
+        status: coming-soon
+
+  - id: screen-reader
+    title: "Screen Reader Testing Skills"
+    description: >-
+      How to evaluate content with NVDA. You will learn how screen readers interpret structure,
+      forms, tables, lists, and interactive elements, so you can find issues that only appear when
+      assistive technology is used.
+    lessons:
+      - slug: nvda-basics
+        title: "NVDA Basics"
+      - slug: nvda-page-structure-testing
+        title: "NVDA Page Structure Testing"
+      - slug: nvda-forms-and-error-messages-testing
+        title: "NVDA Forms & Error Messages Testing"
+      - title: "NVDA Tables & Lists Testing"
+        status: coming-soon
+
+  - id: automated
+    title: "Automated Testing Tools"
+    description: >-
+      Our approved automated tools: how to run scans, interpret the results, and combine automated
+      findings with manual testing for complete coverage.
+    lessons:
+      - slug: axe-devtools-basics
+        title: "Axe DevTools Basics"
+      - title: "Interpreting Axe Results"
+        status: coming-soon
+      - title: "Combining Automated & Manual Testing"
+        status: coming-soon
+
+  - id: workflow
+    title: "Reporting & Workflow Integration"
+    description: >-
+      How to communicate accessibility issues clearly and consistently: defect writing,
+      documentation practices, and how accessibility fits into the QA workflow and our SDLC.
+    lessons:
+      - title: "Accessibility Reporting Basics"
+        status: coming-soon
+      - title: "Writing Clear Accessibility Defects"
+        status: coming-soon
+      - slug: accessibility-in-qa-workflow
+        title: "Accessibility in QA Workflow"
+      - title: "QA Accessibility Checklist"
+        url: /how-to-test/
+        note: Reference page
