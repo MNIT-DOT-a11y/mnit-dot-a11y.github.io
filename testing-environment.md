@@ -149,7 +149,7 @@ axe DevTools browser extension automates accessibility testing for web-based app
                 <img src="/assets/images/testing-tools/deque-invite-screenshot.png" alt="Screenshot showing location of the reveal tab">
         </example>
    - Complete steps 1 to 6 in the email notification. 
-   - **Attention!** Use your official state email address to verify your email address during activation (step 3—Verify email address). This is required to ensure proper license assignment and access.
+   - **Attention!** Use your official state email address to verify your email address during activation (step 3, Verify email address). This is required to ensure proper license assignment and access.
 2.  Install the Extension 
    - Chrome/Edge: Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) or [Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/axe-devtools-web-access/kcenlimkmjjkdfcaleembgmldmnnlfkn) and select Add to Chrome/Edge.
    - **Attention!** Pro features like IGT, exporting, and usage reporting are only available in Chrome/Edge. Firefox’s extension version lacks these capabilities.
@@ -270,7 +270,7 @@ The CCA uses an eye drop tool to find the color code of two colors. You can also
         <img src="/assets/images/testing-tools/cca-results.jpg" alt="screenshot showing step 6">
     </example>
 
-[Colour Contrast Analyser video tutorial](https://www.youtube.com/watch?v=agCzn4gdRyY) – created by Berkely University, walks you through how to use the application.
+[Colour Contrast Analyser video tutorial](https://www.youtube.com/watch?v=agCzn4gdRyY), created by Berkely University, walks you through how to use the application.
 
 ---
 
