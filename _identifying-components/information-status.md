@@ -16,8 +16,8 @@ An alert is an element that displays a brief, important message in a way that at
 {:/}
 
 **Identification:**
-- **Visual Inspection:** Look for messages or alerts on the page, often styled distinctively to draw attention (e.g., success, error, warning messages)
-- **HTML Attributes:** Inspect the HTML code for elements with roles like `alert` or classes associated with notifications (e.g., `alert`, `notification`).
+- **Visual Inspection:** Look for messages or alerts on the page, often styled distinctively to draw attention, such as success, error, or warning messages.
+- **HTML Attributes:** Inspect the HTML code for elements with roles like `alert` or classes associated with notifications, such as `alert` or `notification`.
 
 ## Dialog (Modals) {#modals}
 A dialog modal prevents interaction with page content until the user completes an action or dismisses the modal. This intentionally interrupts the user’s workflow.
@@ -30,7 +30,7 @@ A dialog modal prevents interaction with page content until the user completes a
 
 **Identification:**
 - **Visual Inspection:** Look for pop-up windows or overlays that appear on top of the current page content, often requiring interaction before returning to the main page.
-- **HTML Attributes:** Inspect the HTML code for elements with roles like `dialog` or classes commonly associated with modal libraries (e.g., `modal`, `dialog`).
+- **HTML Attributes:** Inspect the HTML code for elements with roles like `dialog` or classes commonly associated with modal libraries, such as `modal` or `dialog`.
 
 ## Progress Bars {#progressbars}
 A progress bar can show users how far along they are in a process.

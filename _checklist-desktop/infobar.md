@@ -30,7 +30,7 @@ screenreader:
 
 ### Content wrapping
 
-- If the info bar content, excluding custom content, is unable to fit on a single horizontal line they will be laid out vertically. The Title, Message, and ActionButton — if present — will each appear on separate lines.
+- If the info bar content, excluding custom content, is unable to fit on a single horizontal line they will be laid out vertically. The Title, Message, and ActionButton, if present, will each appear on separate lines.
 
 ### Iconography and color
 

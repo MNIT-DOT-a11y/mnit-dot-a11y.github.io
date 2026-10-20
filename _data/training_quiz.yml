@@ -19,7 +19,7 @@ accessibility-foundations:
     - It only applies to public-facing marketing pages
     - It is the designer's responsibility alone
     answer: 1
-    explain: Here, accessibility is not optional — it's part of our standards and our responsibility to the public.
+    explain: Here, accessibility is not optional. It is part of our standards and our responsibility to the public.
   - q: Which of these is an example of a situational limitation that accessible design helps with?
     options:
     - Using a screen reader
@@ -27,7 +27,7 @@ accessibility-foundations:
     - Trying to use an app in bright sunlight
     - Using high contrast mode
     answer: 2
-    explain: Situational limitations — like bright sunlight or a noisy room — affect everyone, which is why accessibility benefits all users.
+    explain: Situational limitations like bright sunlight or a noisy room affect everyone, which is why accessibility benefits all users.
 html-accessibility-fundamentals:
   title: HTML Accessibility Fundamentals
   questions:
@@ -51,10 +51,10 @@ html-accessibility-fundamentals:
     options:
     - Several <h1>s; levels can skip freely
     - One <h1>; follow a logical order without skipping levels
-    - None — use bold text instead
+    - None, use bold text instead
     - One <h1> per section; levels don't matter
     answer: 1
-    explain: Use one <h1> per page and a logical heading outline — headings are navigation shortcuts for screen reader users.
+    explain: Use one <h1> per page and a logical heading outline, because headings are navigation shortcuts for screen reader users.
 aria-fundamentals:
   title: ARIA Fundamentals
   questions:
@@ -65,7 +65,7 @@ aria-fundamentals:
     - ARIA replaces the need for semantic HTML
     - Always add role='button' to clickable elements
     answer: 1
-    explain: Native HTML gives you roles, states, and keyboard behavior for free. ARIA fills gaps — it doesn't replace semantics.
+    explain: Native HTML gives you roles, states, and keyboard behavior for free. ARIA fills gaps. It doesn't replace semantics.
   - q: Which of these does ARIA do?
     options:
     - Makes an element keyboard-interactive
@@ -73,7 +73,7 @@ aria-fundamentals:
     - Provides information about roles, states, and relationships to assistive tech
     - Adds visual focus styles
     answer: 2
-    explain: ARIA only provides information — it never adds behavior. A div with role='button' still needs keyboard handling.
+    explain: ARIA only provides information. It never adds behavior. A div with role='button' still needs keyboard handling.
   - q: Which attribute describes whether an accordion section is open or closed?
     options:
     - aria-label
@@ -100,7 +100,7 @@ forms-and-error-messages:
     - They are not supported in Chrome
     - They can't be styled
     answer: 1
-    explain: Placeholders vanish on input and are inconsistently exposed to assistive tech — they are not labels.
+    explain: Placeholders vanish on input and are inconsistently exposed to assistive tech. They are not labels.
   - q: Which combination makes an error message accessible?
     options:
     - A red border only
@@ -108,7 +108,7 @@ forms-and-error-messages:
     - A tooltip that appears on hover
     - Changing the label color to red
     answer: 1
-    explain: Errors must be linked to the field and announced immediately — and never rely on color alone.
+    explain: Errors must be linked to the field and announced immediately, and never rely on color alone.
 keyboard-testing:
   title: Keyboard Testing
   questions:
@@ -135,7 +135,7 @@ keyboard-testing:
     - Run an automated scan only
     - Check the component's CSS
     answer: 1
-    explain: If none of Tab, Shift+Tab, or Escape lets you leave, the component contains a trap — a serious failure.
+    explain: If none of Tab, Shift+Tab, or Escape lets you leave, the component contains a trap, which is a serious failure.
 color-alone-and-contrast:
   title: Color Alone & Color Contrast
   questions:
@@ -276,7 +276,7 @@ csharp-accessibility-integration:
   questions:
   - q: Why does accessibility matter at the C# data layer?
     options:
-    - It doesn't — accessibility is a front-end concern
+    - It doesn't, because accessibility is a front-end concern
     - If the API omits alt text, labels, or error metadata, the UI cannot compensate for it
     - C# renders the HTML
     - Screen readers read C# directly
@@ -313,7 +313,7 @@ java-accessibility-integration:
     options:
     - A generic 500 error
     - A clear list of field-level messages
-    - Nothing — log it server-side
+    - Nothing, just log it server-side
     - A stack trace
     answer: 1
     explain: Mapping field errors to ValidationError objects gives users clear, actionable feedback.
@@ -324,7 +324,7 @@ java-accessibility-integration:
     - It returns JSON
     - It has Swagger docs
     answer: 1
-    explain: If the API omits accessibility fields, the UI cannot invent them reliably — they must be first-class.
+    explain: If the API omits accessibility fields, the UI cannot invent them reliably, so they must be first-class.
 accessible-component-patterns:
   title: Accessible Component Patterns
   questions:
@@ -335,7 +335,7 @@ accessible-component-patterns:
     - Disable the keyboard
     - Auto-close after 5 seconds
     answer: 0
-    explain: Modals must manage focus in, within, and out — and be named so users know what opened.
+    explain: Modals must manage focus in, within, and out, and be named so users know what opened.
   - q: How should tabs be navigated by keyboard?
     options:
     - Only with the mouse
@@ -362,7 +362,7 @@ error-messaging-and-focus-patterns:
     - A console.log message
     - A color change on the label
     answer: 1
-    explain: Errors need text, association, and an announcement — never color alone.
+    explain: Errors need text, association, and an announcement, never color alone.
   - q: Where should focus go when a modal closes?
     options:
     - To the top of the page
@@ -386,7 +386,7 @@ accessibility-in-sdlc:
     options:
     - Because they often require design or architecture changes
     - Because QA charges more
-    - It doesn't — the cost is the same
+    - It doesn't, the cost is the same
     - Because browsers change
     answer: 0
     explain: Embedding accessibility early reduces rework, shortens remediation cycles, and improves quality.

@@ -2,7 +2,7 @@
 layout: training-lesson
 title: Axe DevTools Basics
 seoTitle: Axe DevTools Basics - Accessibility training
-description: Install Axe DevTools, run a scan, interpret and prioritize results, and document findings — plus why manual testing still matters.
+description: Install Axe DevTools, run a scan, interpret and prioritize results, and document findings, plus why manual testing still matters.
 permalink: /training/axe-devtools-basics/
 slug: axe-devtools-basics
 section: core-testing
@@ -24,8 +24,8 @@ slides:
 - type: title
   title: Axe DevTools Basics
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Axe DevTools Basics
@@ -52,7 +52,7 @@ slides:
     items:
     - Open Chrome or Edge and search the extension store for “Axe DevTools”
     - Install the extension, then open Developer Tools
-    - Look for a new “Axe DevTools” tab — if you see it, you're ready to scan
+    - Look for a new “Axe DevTools” tab. If you see it, you're ready to scan
 - type: body
   title: Running an Axe Scan
   groups:
@@ -101,7 +101,7 @@ slides:
   items:
   - Install the extension, open Developer Tools, and scan from the Axe DevTools tab
   - Violations, Needs Review, and Best Practices are three different things
-  - Prioritize high-impact issues — keyboard traps and missing labels — first
+  - Prioritize high-impact issues first, such as keyboard traps and missing labels
   - Axe only catches 30-40% of issues, so manual testing is still required
   - Clear defects include the violation name, WCAG reference, and reproduction steps
 - type: list
@@ -120,4 +120,4 @@ slides:
 
 Axe DevTools is one of the core tools we use because it aligns with WCAG 2.1 AA and finds a large share of common issues in seconds. This lesson takes you from installing the browser extension to running your first scan and reading the results.
 
-You'll learn the difference between Violations, Needs Review, and Best Practices; how each finding shows the WCAG criterion, an explanation, the failing code, and a highlight on the page; and how to prioritize high-impact issues like keyboard traps and missing labels. Because Axe only catches roughly 30–40% of accessibility problems, the lesson also covers pairing it with manual testing and documenting findings so developers can act on them.
+You'll learn the difference between Violations, Needs Review, and Best Practices; how each finding shows the WCAG criterion, an explanation, the failing code, and a highlight on the page; and how to prioritize high-impact issues like keyboard traps and missing labels. Because Axe only catches roughly 30 to 40% of accessibility problems, the lesson also covers pairing it with manual testing and documenting findings so developers can act on them.

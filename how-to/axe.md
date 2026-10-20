@@ -119,11 +119,11 @@ Understanding why certain issues appear can help you confirm their validity. If 
 
 ### Ask Yourself These Questions
 In general, as you perform an automated test, ask these questions when axe highlights issues related to ARIA:
-- Is the element’s purpose clear when you look at it or use it (e.g., can you tell it’s a button that should open something)?  
+- Is the element’s purpose clear when you look at it or use it? For example, can you tell it’s a button that should open something?  
 - Does the state of that element (expanded, collapsed, selected, pressed) visually match what is expected? If something is flagged as having incorrect ARIA but it clearly behaves differently on screen, that supports the idea that the code might not be communicating correctly to assistive technologies.
 - Is the use of ARIA really necessary and can the same thing be accomplished with standard HTML elements? Remember, the first rule of ARIA is to **not use ARIA**. If the application can use a native HTML element or attribute with the semantics and behavior you require already built in, instead of repurposing an element and adding an ARIA role, state or property to make it accessible, then do so.
 
-Observing these alignments—or lack thereof—between what axe reports and what you see helps you confirm that the issues are meaningful and not false alarms.
+Observing these alignments, or lack thereof, between what axe reports and what you see helps you confirm that the issues are meaningful and not false alarms.
 
 ### Common Issues
 The following are some commonly encountered issue names you may encounter, along with methods to confirm their validity:
@@ -131,33 +131,33 @@ The following are some commonly encountered issue names you may encounter, along
 #### Missing or Incomplete Names/Labels
 - **Common Axe Issue Names:**  
   - "Buttons must have an accessible name" (**button-name**)  
-  - "Form elements must have labels" (e.g., **input-image-alt**, **label** issues)
+  - "Form elements must have labels" (for issues such as **input-image-alt** and **label**)
 - **Validation:** Using NVDA, press Tab to move focus to the flagged element. If NVDA announces "button" or "edit field" without any descriptive text, it confirms the issue reported by axe.
 
 #### Landmarks and Regions
 - **Common Axe Issue Names:**  
   - "Landmarks must have a unique role" (**landmark-unique**)  
   - "Ensures `<main>` landmark is not duplicated" (a variation of **landmark-\*** issues)
-- **Validation:** Move focus to the flagged landmark element. NVDA should announce a meaningful landmark role (e.g., "main landmark" or "navigation landmark"). If it does not match the expected role, the issue identified by axe is confirmed.
+- **Validation:** Move focus to the flagged landmark element. NVDA should announce a meaningful landmark role, such as "main landmark" or "navigation landmark". If it does not match the expected role, the issue identified by axe is confirmed.
 
 #### ARIA Attributes and States
 - **Common Axe Issue Names:**  
   - "ARIA attributes must have valid values" (**aria-valid-attr-value**)  
   - "ARIA attributes must be permitted for the element’s role" (`aria-allowed-attr`)  
   - "Elements with a role that require certain ARIA attributes must have them" (**aria-required-attr**)
-- **Validation:** Interact with the highlighted element (e.g., click it if it’s supposed to expand). NVDA should announce the correct state (“expanded” or “collapsed”). If NVDA’s announcement doesn’t match what’s visually happening or what axe reports, the issue is confirmed.
+- **Validation:** Interact with the highlighted element, for example click it if it’s supposed to expand. NVDA should announce the correct state (“expanded” or “collapsed”). If NVDA’s announcement doesn’t match what’s visually happening or what axe reports, the issue is confirmed.
 
 #### Roles on Interactive Elements
 - **Common Axe Issue Names:**  
   - "ARIA roles used must conform to valid roles" (**aria-valid-attr**)  
   - "ARIA role not appropriate for the element" (**aria-allowed-role**)
-- **Validation:** Shift focus to the reported element and listen to how NVDA announces it. If NVDA’s announcement does not match the type of control the element appears to be (e.g., looks like a button but NVDA says otherwise), it confirms the axe findings.
+- **Validation:** Shift focus to the reported element and listen to how NVDA announces it. If NVDA’s announcement does not match the type of control the element appears to be, for example it looks like a button but NVDA says otherwise, it confirms the axe findings.
 
 #### Redundant or Conflicting Roles
 - **Common Axe Issue Names:**  
   - "ARIA attributes must not be used if there is no corresponding role" (variation of **aria-valid-attr**)  
   - "Multiple conflicting ARIA attributes" (can appear under various ARIA rule names)
-- **Validation:** Focus NVDA on the element. If NVDA’s announcement is confusing or repetitive (e.g., "button, link"), this confirms the inconsistency reported by axe.
+- **Validation:** Focus NVDA on the element. If NVDA’s announcement is confusing or repetitive, such as "button, link", this confirms the inconsistency reported by axe.
 
 #### Elements with Hidden Text or Content
 - **Common Axe Issue Names:**  

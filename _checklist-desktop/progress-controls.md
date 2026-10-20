@@ -6,7 +6,7 @@ categories: patterns
 
 screenreader:  
   name:  |
-    The task that the progress control represents (i.e. 'Copying file')
+    The task that the progress control represents, such as 'Copying file',
   role:  |
     It identifies its role as a progress bar or ring
   state: |
@@ -14,7 +14,7 @@ screenreader:
 ---
 
 ## Should you use a progress bar or ring
-It's not always obvious what control or what state (determinate vs indeterminate) to use when trying to show something is happening. Sometimes a task is obvious enough that it doesn't require a progress control at all – and sometimes even if a progress control is used, a line of text is still necessary in order to explain to the user what operation is underway.
+It's not always obvious what control or what state (determinate vs indeterminate) to use when trying to show something is happening. Sometimes a task is obvious enough that it doesn't require a progress control at all, and sometimes even if a progress control is used, a line of text is still necessary in order to explain to the user what operation is underway.
 
 - When a progress bar is in use, interaction is non-modal, typically meaning that the user is not blocked by that operation's completion, and can continue to use the app in other ways until that aspect has completed.
 - If an operation requires all (or a large portion of) interaction with the app to wait until it has been completed, then a progress ring is the better choice.
@@ -31,11 +31,11 @@ It's not always obvious what control or what state (determinate vs indeterminate
 
 ### Roles
 
-- Ensure that the progress bar is marked up with appropriate roles, such as progressbar in UI frameworks (e.g., WPF, WinForms).
+- Ensure that the progress bar is marked up with appropriate roles, such as progressbar, in UI frameworks like WPF and WinForms.
 
 ### Names
 
-- Provide an accessible name for the progress bar, so users know what it represents (e.g., "File upload progress").
+- Provide an accessible name for the progress bar, so users know what it represents, such as "File upload progress".
 
 ### States
 

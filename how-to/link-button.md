@@ -108,7 +108,7 @@ Use a screen reader, such as [NVDA](https://www.nvaccess.org/) (for Windows) or 
 <div class="how-to-test-checklist-item">
   <h3>Ensure disabled controls are both **not** focusable or actionable, and have an <code>aria-disabled="true"</code> attribute</h3>
   <p><strong>Note:</strong> A control that is disabled should not be interactive to any users. Nothing should happen when activated, and it should not appear in the tabbing order.</p>
-  <p><strong>Note 2:</strong> <code>Aria-disabled</code> is useful for elements that are not normally disabled (e.g., custom controls), while the <code>disabled</code> attribute is useful for native links or buttons that have built-in handling for being placed in a disabled state.</p>
+  <p><strong>Note 2:</strong> <code>Aria-disabled</code> is useful for elements that are not normally disabled, such as custom controls, while the <code>disabled</code> attribute is useful for native links or buttons that have built-in handling for being placed in a disabled state.</p>
   <table class="column-2">
     <thead>
       <th scope="col">

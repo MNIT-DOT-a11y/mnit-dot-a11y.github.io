@@ -369,7 +369,7 @@ $training-gray: #e8e8e8;
 .tdeck [hidden],
 .tquiz [hidden] { display: none !important; }
 
-// The slide "card" — echoes the MNIT PowerPoint template (navy bar, green rule)
+// The slide "card" - echoes the MNIT PowerPoint template (navy bar, green rule)
 .tslide {
   background: #fff;
   border: 1px solid $color-border-gray;
@@ -575,7 +575,7 @@ $training-gray: #e8e8e8;
 }
 
 // ---------------------------------------------------------------------------
-// Slide deck link (the in-page slide viewer was retired — link only)
+// Slide deck link (the in-page slide viewer was retired - link only)
 // ---------------------------------------------------------------------------
 .training-deck-link {
   max-width: 48rem;

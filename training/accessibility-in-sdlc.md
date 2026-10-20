@@ -24,8 +24,8 @@ slides:
 - type: title
   title: Accessibility in SDLC
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Accessibility in SDLC
@@ -105,7 +105,7 @@ slides:
   title: Recap
   header: Accessibility in SDLC Review
   items:
-  - Accessibility belongs in every phase — requirements through release and monitoring
+  - Accessibility belongs in every phase, from requirements through release and monitoring
   - Artifacts like PR checklists, design tokens, and API contracts make it concrete
   - CI gates, precommit hooks, and dashboards turn accessibility into something measurable
   - A copy/paste-ready checklist keeps every PR consistent
@@ -123,6 +123,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/ci-cd/setup-ci-cd.html
 ---
 
-Accessibility defects found late are expensive — they often require design or architecture changes. This lesson shows where accessibility belongs in every phase of the software development lifecycle so it's built in from the start rather than bolted on at the end.
+Accessibility defects found late are expensive. They often require design or architecture changes. This lesson shows where accessibility belongs in every phase of the software development lifecycle so it's built in from the start rather than bolted on at the end.
 
-It maps accessibility to requirements, design, development, code review, CI/CD, QA and UAT, and release monitoring, then gets practical: acceptance criteria in user stories, design tokens and component contracts, API contracts with accessibility metadata, PR checklists, automated Axe scans, manual test scripts, and onboarding. Automation, metrics, and governance — CI gates, precommit hooks, dashboards, and named accessibility champions — make it measurable and sustainable.
+It maps accessibility to requirements, design, development, code review, CI/CD, QA and UAT, and release monitoring, then gets practical: acceptance criteria in user stories, design tokens and component contracts, API contracts with accessibility metadata, PR checklists, automated Axe scans, manual test scripts, and onboarding. Automation, metrics, and governance (CI gates, precommit hooks, dashboards, and named accessibility champions - make it measurable and sustainable.

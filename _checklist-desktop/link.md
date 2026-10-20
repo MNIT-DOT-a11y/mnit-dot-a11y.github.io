@@ -41,8 +41,8 @@ wcag:
 ## Visual best practices
 
 Links should be visually distinguishable as interactive elements. This means that users must be able to tell at a glance which elements are clickable or actionable. Ensure that:
-- Links have a clear, distinct visual style (e.g., underlined, colored).
-- Labels used on links accurately represent their destination or action (e.g., "Learn More" or "Download PDF").
+- Links have a clear, distinct visual style, such as underlined or colored.
+- Labels used on links accurately represent their destination or action, such as "Learn More" or "Download PDF".
 
 Check for:
 - Check if links are easily identifiable on the screen.

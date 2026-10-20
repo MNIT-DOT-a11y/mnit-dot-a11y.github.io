@@ -40,7 +40,7 @@ settings:
   - 1 A non-interactive image in a table row, where the whole table row acts like a button.  
   - 2 A single interactive element, like an image button
   - 3 An audio challenge as an equivalent experience to the image challenge
-- When selecting the type of CAPTCHA, do not limit the options to only <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html#dfn-cognitive-function-test"> cognitive function tests </a> (e.g. remembering or transcribing a word, or recognizing a picture the website provided).  When possible, leverage <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html#examples"> recommended techniques recommended by the W3C</a> such as email link authentication, 3rd party  authentication, or 2 factor authentication.
+- When selecting the type of CAPTCHA, do not limit the options to only <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html#dfn-cognitive-function-test"> cognitive function tests </a>, such as remembering or transcribing a word, or recognizing a picture the website provided.  When possible, leverage <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html#examples"> recommended techniques recommended by the W3C</a> such as email link authentication, 3rd party  authentication, or 2 factor authentication.
 - CAPTCHA is not common in native apps, as there are other options for authentication
 
 ### Name
@@ -81,7 +81,7 @@ settings:
   1. Ensure that the child elements of the overarching view you want to group in has their `isAccessibilityElement` properties set to false.
   2. Set `isAccessibilityElement` to `true` for the parent view. Then, adjust `accessibilityLabel` and `accessibilityTraits` accordingly.
   - If frame does not exist due to custom button, use `accessibilityFrameInContainer` to set the custom control’s frame to the parent view’s container or view of your choice.
-    - You can also unionize two frames with `frame.union` (i.e. `titleLabel.frame.union(subtitleLabel.frame)`).
+    - You can also unionize two frames with `frame.union`, for example `titleLabel.frame.union(subtitleLabel.frame)`.
   - Use `shouldGroupAccessibilityElement` for a precise order if the native order should be disrupted.
   - Use `shouldGroupAccessibilityChildren` to indicate whether VoiceOver must group its children views. This allows making unique vocalizations or define a particular reading order for a part of the page.
 
@@ -133,7 +133,7 @@ settings:
   - 1 A non-interactive image in a table row, where the whole table row acts like a button.  
   - 2 A single interactive element, like an image button
   - 3 An audio challenge as an equivalent experience to the image challenge
-- When selecting the type of CAPTCHA, do not limit the options to only <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html#dfn-cognitive-function-test"> cognitive function tests </a> (e.g. remembering or transcribing a word, or recognizing a picture the website provided).  When possible, leverage <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html#examples"> recommended techniques recommended by the W3C</a> such as email link authentication, 3rd party  authentication, or 2 factor authentication.
+- When selecting the type of CAPTCHA, do not limit the options to only <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html#dfn-cognitive-function-test"> cognitive function tests </a>, such as remembering or transcribing a word, or recognizing a picture the website provided.  When possible, leverage <a href="https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html#examples"> recommended techniques recommended by the W3C</a> such as email link authentication, 3rd party  authentication, or 2 factor authentication.
 - CAPTCHA is not common in apps, as there are other options for authentication
   
 ### Name  

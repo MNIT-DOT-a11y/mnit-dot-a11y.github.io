@@ -24,8 +24,8 @@ slides:
 - type: title
   title: C# Accessibility Integration
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: C# Accessibility Integration
@@ -65,13 +65,13 @@ slides:
     - Error messages and instructions
   - header: Example
     items:
-    - A ProductDto needs an ImageAltText field alongside Name and ImageUrl — without it, the UI can't provide a meaningful description for screen reader users
+    - A ProductDto needs an ImageAltText field alongside Name and ImageUrl. Without it, the UI can't provide a meaningful description for screen reader users
 - type: body
   title: Accessible Validation and Error Messaging
   groups:
   - header: Required Fields Need Real Messages
     items:
-    - Use [Required(ErrorMessage = "...")] with clear, descriptive text — “Display name is required,” not a generic message
+    - Use [Required(ErrorMessage = "...")] with clear, descriptive text such as “Display name is required,” not a generic message
     - Alt text fields need their own required-field validation too
     - Clear error messages help users understand what went wrong and how to fix it
 - type: body
@@ -113,13 +113,13 @@ slides:
   - Accessibility failures often start at the data layer, not the UI
   - DTOs need alt text, accessible names, and descriptive error messages as first-class fields
   - Consistent naming makes accessibility metadata easy to find and use
-  - API contracts must guarantee accessibility fields — the UI can't invent them
+  - API contracts must guarantee accessibility fields, because the UI can't invent them
   - Error state fields like IsInvalid map directly to ARIA attributes on the front end
 - type: list
   title: Key Takeaways
   header: C# Accessibility Integration
   items:
-  - Accessibility is not only a front-end responsibility — it starts with your API contract
+  - Accessibility is not only a front-end responsibility. It starts with your API contract
   - Treat accessibility metadata as a first-class citizen in every DTO
   - Consistent, localized naming keeps accessibility maintainable across the codebase
   - 'Up next: Angular Accessibility Integration'
@@ -129,6 +129,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/c-sharp-axe-core/setup.html
 ---
 
-Accessibility is not only a front-end responsibility. Many failures originate in the back end — when models don't include alt text, validation messages are unclear, error states aren't represented in API responses, or metadata never reaches the UI. If the API omits accessibility fields, the UI cannot invent them reliably.
+Accessibility is not only a front-end responsibility. Many failures originate in the back end, when models don't include alt text, validation messages are unclear, error states aren't represented in API responses, or metadata never reaches the UI. If the API omits accessibility fields, the UI cannot invent them reliably.
 
 This lesson shows how to make C# models, DTOs, and API responses carry the accessibility metadata the UI needs: alt text and accessible names as first-class properties, descriptive `[Required]` validation messages, consistent naming conventions, localized strings, and explicit error states that map to `aria-invalid` and `aria-describedby`.

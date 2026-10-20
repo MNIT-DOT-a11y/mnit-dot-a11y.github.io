@@ -16,7 +16,7 @@ screenreader:
   name:  |
     Describes the CAPTCHA purpose and how to complete it, such as "Check the box to indicate you are not a robot" or "Select all images with traffic lights."
   role:  |
-    Identifies the CAPTCHA as an interactive verification mechanism (e.g., form element).
+    Identifies the CAPTCHA as an interactive verification mechanism, such as form element.
   instructions: |
     It provides clear instructions on how to interact with the CAPTCHA, such as "Click on all images that contain traffic lights."
   state: |
@@ -53,8 +53,8 @@ wcag:
     list:
       - criteria: CAPTCHA elements are clearly identifiable.
       - criteria: Text instructions and image selections are easily readable.
-      - criteria: Alternatives are provided for non-text content (e.g., CAPTCHA images, audio).
-      - criteria: CAPTCHA is designed to be accessible for users with visual impairments (e.g., using audio CAPTCHA as an alternative).
+      - criteria: Alternatives are provided for non-text content, such as CAPTCHA images or audio.
+      - criteria: CAPTCHA is designed to be accessible for users with visual impairments, such as using audio CAPTCHA as an alternative.
   - name: Operable
     list:
       - criteria: CAPTCHA can be completed using keyboard-only navigation.
@@ -63,14 +63,14 @@ wcag:
       - criteria: The focus indication for CAPTCHA elements is clearly visible and meets contrast guidelines.
   - name: Understandable
     list:
-      - criteria: CAPTCHA purpose is clear in the context of the page (e.g., verifying the user is not a bot).
+      - criteria: CAPTCHA purpose is clear in the context of the page, such as verifying the user is not a bot.
       - criteria: CAPTCHA instructions are clear and concise.
-      - criteria: Any errors in CAPTCHA input (e.g., incorrect image selection) are clearly communicated to the user.
+      - criteria: Any errors in CAPTCHA input, such as incorrect image selection, are clearly communicated to the user.
   - name: Robust
     list:
-      - criteria: CAPTCHA conveys the correct semantic role for all elements (e.g., form fields, buttons).
+      - criteria: CAPTCHA conveys the correct semantic role for all elements, such as form fields or buttons.
       - criteria: CAPTCHA is accessible across multiple platforms, devices, and viewports.
-      - criteria: CAPTCHA supports different input methods (e.g., touch, keyboard, voice commands).
+      - criteria: CAPTCHA supports different input methods, such as touch, keyboard, or voice commands.
       - criteria: Failing to solve a CAPTCHA provides multiple chances to try again and does not erase existing data entered in corresponding forms when failures occur.
       
 ---
@@ -80,7 +80,7 @@ wcag:
 ### Clarity of Instructions
 
 - Ensure CAPTCHA instructions are clear and easy to understand. Avoid ambiguous terms.
-- If images are used, ensure they are easy to distinguish. Offer an alternative (e.g., audio CAPTCHA) for users struggling with visual recognition
+- If images are used, ensure they are easy to distinguish. Offer an alternative, such as audio CAPTCHA, for users struggling with visual recognition
 
 ### Readability
 

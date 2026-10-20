@@ -11,7 +11,7 @@ keyboard:
   space bar: |
     Toggles the checkbox between states.  
   arrow keys: |
-    Moves between programmatically grouped checkboxes (i.e. a section of an extensive settings screen).  
+    Moves between programmatically grouped checkboxes, such as a section of an extensive settings screen.  
 
 screenreader:
   name:  |
@@ -76,7 +76,7 @@ If a checkbox will cause another checkbox to be unchecked, similarly to the func
 
 ## Checkboxes should not cause dialogs to appear
 - Do not launch a dialog box or modal when a checkbox is checked or unchecked.
-- If the user should be warned about an action that might occur after checking or unchecking the box, these warnings should be displayed after the user confirms options or submits the form. (i.e. clicking 'Apply' in a settings dialog).
+- If the user should be warned about an action that might occur after checking or unchecking the box, these warnings should be displayed after the user confirms options or submits the form, for example when the user clicks 'Apply' in a settings dialog.
 
 ## States
 - When using the indeterminate state, there should always be associated checkboxes that influence this state. Indeterminate is used to indicate that an option is set for some, but not all, sub-choices. 

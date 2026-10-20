@@ -1,16 +1,16 @@
-# Accessibility Learning Pathways hub (/training/) — the 4 role-based pathways.
+# Accessibility Learning Pathways hub (/training/) - the 4 role-based pathways.
 # Drives training/index.html and _includes/training-pathways-nav.html.
 # A pathway with a `url` is built and linked; one without is listed as coming soon.
 
 intro:
   - >-
     Accessibility Learning Pathways offer short, role-based learning to help you build practical
-    accessibility skills for your everyday work. Each pathway includes 5&ndash;10 micro-learning
-    topics, typically 10&ndash;45 minutes each, with skills you can apply right away.
+    accessibility skills for your everyday work. Each pathway includes 5 to 10 micro-learning
+    topics, typically 10 to 45 minutes each, with skills you can apply right away.
   - >-
     Whether you are new to the organization, moving into a new role, or continuing to build your knowledge,
     these pathways can help. They support accessibility throughout the digital service
-    lifecycle&mdash;from planning and design through development, testing, procurement, and
+    lifecycle, from planning and design through development, testing, procurement, and
     maintenance.
   - >-
     Each pathway is tailored to the responsibilities of specific roles and is grounded in digital

@@ -2,7 +2,7 @@
 layout: training-lesson
 title: HTML Accessibility Fundamentals
 seoTitle: HTML Accessibility Fundamentals - Accessibility training
-description: How semantic HTML gives assistive technologies the structure they need — headings, links, buttons, forms, and tables done right.
+description: 'How semantic HTML gives assistive technologies the structure they need: headings, links, buttons, forms, and tables done right.'
 permalink: /training/html-accessibility-fundamentals/
 slug: html-accessibility-fundamentals
 section: foundations
@@ -24,8 +24,8 @@ slides:
 - type: title
   title: HTML Accessibility Fundamentals
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: HTML Accessibility Fundamentals
@@ -67,7 +67,7 @@ slides:
     - <nav>, <header>, <footer>, <main> for page structure
     - <form> and <label> for input groups
     - <table> only for tabular data
-    - Headings (<h1>–<h6>) to create a logical outline
+    - Headings (<h1> to <h6>) to create a logical outline
   - header: Why It Pays Off
     items:
     - Built-in keyboard support and accessibility roles
@@ -79,11 +79,11 @@ slides:
   - header: Navigation Shortcuts for Screen Reader Users
     items:
     - Use one <h1> per page
-    - Follow a logical order — never skip levels
+    - Follow a logical order and never skip levels
     - Use headings to outline content, not to style text
   - header: Supports WCAG 2.4.6
     items:
-    - Headings and Labels — a predictable structure helps users understand the hierarchy
+    - Headings and Labels: a predictable structure helps users understand the hierarchy
 - type: body
   title: Links and Buttons
   groups:
@@ -95,7 +95,7 @@ slides:
     - Descriptive link text (“View Report,” not “Click Here”)
   - header: Supports WCAG 2.4.4
     items:
-    - Link Purpose — assistive tech can announce the correct role
+    - Link Purpose: assistive tech can announce the correct role
 - type: body
   title: Forms and Labels
   groups:
@@ -112,7 +112,7 @@ slides:
 - type: body
   title: Tables
   groups:
-  - header: For Data — Never for Layout
+  - header: For Data, Never for Layout
     items:
     - <th> for headers, with scope="col" or scope="row"
     - A <caption> describing the table's purpose
@@ -138,7 +138,7 @@ slides:
   - HTML is the backbone every assistive technology depends on
   - Semantic elements over generic <div> and <span>
   - Logical headings, correct links and buttons, real labels
-  - Tables for data only — never layout
+  - Tables for data only, never layout
   - How semantic HTML maps to eight WCAG success criteria
 - type: list
   title: Key Takeaways
@@ -154,6 +154,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/code-review-checklist/
 ---
 
-Semantic HTML is the backbone that screen readers, magnifiers, and voice control depend on. When markup describes what content *is* — a button, a navigation region, a heading — assistive technology can announce it and users can operate it. When everything is a `div` or `span`, that meaning disappears and the barriers start.
+Semantic HTML is the backbone that screen readers, magnifiers, and voice control depend on. When markup describes what content *is* (a button, a navigation region, a heading), assistive technology can announce it and users can operate it. When everything is a `div` or `span`, that meaning disappears and the barriers start.
 
 This lesson walks through the elements that matter most: headings that form a logical outline, links for navigation versus buttons for actions, real form labels associated with their inputs, and tables reserved for tabular data. It closes with the pitfalls developers create without meaning to, and shows how good HTML satisfies several WCAG success criteria before any ARIA is needed.

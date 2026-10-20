@@ -24,8 +24,8 @@ slides:
 - type: title
   title: Zoom & Magnification
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Zoom & Magnification
@@ -44,9 +44,9 @@ slides:
   - term: Reflow (1.4.10)
     desc: Content must reflow to a single column at 400% zoom without horizontal scrolling.
   - term: Browser Zoom
-    desc: Enlarges content and triggers layout reflow — text, images, and containers all resize.
+    desc: Enlarges content and triggers layout reflow, so text, images, and containers all resize.
   - term: Screen Magnification
-    desc: Enlarges pixels instead of reflowing content — only part of the screen is visible at a time.
+    desc: Enlarges pixels instead of reflowing content, so only part of the screen is visible at a time.
 - type: body
   title: Why Zoom and Magnification Matter
   groups:
@@ -131,7 +131,7 @@ slides:
   title: Key Takeaways
   header: Zoom & Magnification
   items:
-  - Browser zoom and screen magnification reveal different problems — test both
+  - Browser zoom and screen magnification reveal different problems, so test both
   - Design layouts with relative units so they can reflow, not just resize
   - Magnification testing catches issues zoom alone can miss, like dominant sticky headers
   - 'Up next: Text Spacing'
@@ -141,6 +141,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/zoom-magnification/
 ---
 
-Many users with low vision enlarge content with browser zoom or a screen magnifier, and our layouts have to stay readable and functional when they do. This lesson explains the difference between the two — browser zoom reflows content, while magnification enlarges pixels so only part of the screen is visible — and why both need testing.
+Many users with low vision enlarge content with browser zoom or a screen magnifier, and our layouts have to stay readable and functional when they do. This lesson explains the difference between the two (browser zoom reflows content, while magnification enlarges pixels so only part of the screen is visible) and why both need testing.
 
 You'll test at 200% and 400% browser zoom for clipped text, overlapping elements, disappearing buttons, and horizontal scrolling, and with Windows Magnifier for the problems zoom can't reveal, like sticky headers that dominate the viewport and hover-only interactions. The lesson closes with the design choices that make reflow possible: responsive layouts, flexible containers, relative units, and scalable text and icons.

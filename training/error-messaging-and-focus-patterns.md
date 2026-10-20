@@ -24,8 +24,8 @@ slides:
 - type: title
   title: Error Messaging & Focus Interaction Patterns
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Error Messaging & Focus Interaction Patterns
@@ -102,7 +102,7 @@ slides:
   title: Recap
   header: Error Messaging & Focus Review
   items:
-  - Error messages need text, association, and an announcement — never color alone
+  - Error messages need text, association, and an announcement, never color alone
   - Focus must always be visible, move logically, and trap correctly inside modals
   - Modals, tabs, and error flows each have their own predictable interaction pattern
   - Testing early against the checklist prevents issues from reaching QA

@@ -37,7 +37,7 @@ permalink: /how-to-test/test-pdf/
   <li><em>Select</em><strong> Start Checking</strong>
     <ul>
       <li>Acrobat will process the document and provide a  detailed report on accessibility issues.</li>
-      <li>The results will also be displayed in the  left-hand pane, with issues categorized by type (e.g., Document, Page Content, Forms).
+      <li>The results will also be displayed in the  left-hand pane, with issues categorized by type, such as Document, Page Content, or Forms.
       <example><img src="/assets/images/examples/pdf-accessibility-checker-dialog-box.jpg"  alt="screen shot showing steps 5a, 5b, and 6."/></example>    </li>
     </ul>
   </li>
@@ -112,8 +112,8 @@ permalink: /how-to-test/test-pdf/
   <li>Tags  should be semantic (headings, paragraphs, lists, tables, etc.).</li>
   <li>The first  heading should be an "H1," and only heading levels 1-6 should be used.</li>
   <ul>
-    <li>Heading  levels should not be skipped (e.g., H2 followed by H4).</li>
-    <li>Heading  levels can restart (e.g., H3 followed by H4, followed by H2).</li>
+    <li>Heading  levels should not be skipped, such as H2 followed by H4.</li>
+    <li>Heading  levels can restart, such as H3 followed by H4, followed by H2.</li>
   </ul>
 </ul>
 <h4><strong>How to test</strong></h4>
@@ -126,7 +126,7 @@ permalink: /how-to-test/test-pdf/
   <li><em>Select</em> on the arrow next to the <strong>Tags</strong> in  the <strong>Accessibility Tags panel.</strong></li>
   <li><em>Select</em> the first tag in the list below  &lt;Sect&gt;. This should be an H1 tag. Verify that the document title is  highlighted with a colored box around it.<br>
   <example><img src="/assets/images/examples/pdf-tag-tree.jpg" alt="screen shot showing steps 2 and 3."/></example></li>
-  <li>Use a mouse or keyboard with the arrow keys to  move down the tag tree; move down the list of tags and verify that the  highlighted content is in the correct reading order. The tags are similar&mdash;if  not identical to tags in HTML. The most notable difference is  the &lt;Figure&gt; tag, like the &lt;img&gt; tag in HTML.
+  <li>Use a mouse or keyboard with the arrow keys to  move down the tag tree; move down the list of tags and verify that the  highlighted content is in the correct reading order. The tags are similar, if not identical, to tags in HTML. The most notable difference is  the &lt;Figure&gt; tag, like the &lt;img&gt; tag in HTML.
     <ul>
       <li>If  tags are out of order, document findings by noting any accessibility issues found during testing and recommendations  for improvements.</li>
       <li>Consider providing screenshots or examples for  clarity.</li>
@@ -154,7 +154,7 @@ permalink: /how-to-test/test-pdf/
   </ul>
   <li>Verify Field Type</li>
   <ul>
-    <li>Ensure that the correct field type is used (e.g., text fields, checkboxes, radio buttons).</li>
+    <li>Ensure that the correct field type is used, such as text fields, checkboxes, or radio buttons.</li>
   </ul>
   <li>Check Tab Order</li>
   <ul>
@@ -213,7 +213,7 @@ permalink: /how-to-test/test-pdf/
   <li>Verify and can navigate to and that the screen  reader announces:</li>
   <li>Headings:
       <ul>
-      <li>Navigate to  the first heading using your screen reader&rsquo;s heading navigation commands (e.g.,  H for NVDA).</li>
+      <li>Navigate to  the first heading using your screen reader&rsquo;s heading navigation commands, such as H for NVDA.</li>
       <li>Confirm that  headings are announced correctly and in the proper order.</li>
     </ul>
   </li>
@@ -250,7 +250,7 @@ permalink: /how-to-test/test-pdf/
   </li>
   <li>Check for Logical Reading Order
       <ul>
-      <li>Move through  the document using the reading order commands (e.g., arrow keys).</li>
+      <li>Move through  the document using the reading order commands, such as arrow keys.</li>
       <li>Ensure that  the content is read in a logical sequence, as intended.</li>
     </ul>
   </li>
@@ -264,8 +264,8 @@ permalink: /how-to-test/test-pdf/
 <hr/>
 <h2>Resources</h2>
 <ul>
-  <li><a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html">Create  and verify PDF accessibility (Acrobat Pro)</a> – Adobe</li>
-  <li><a href="https://www.w3.org/TR/WCAG20-TECHS/pdf">PDF  Techniques for WCAG 2.0</a> – W3C</li>
+  <li><a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html">Create  and verify PDF accessibility (Acrobat Pro)</a>, Adobe</li>
+  <li><a href="https://www.w3.org/TR/WCAG20-TECHS/pdf">PDF  Techniques for WCAG 2.0</a>, W3C</li>
   <li><a href="https://webaim.org/techniques/acrobat/">PDF  Accessibility</a> - WebAIM</li>
-  <li><a href="https://www.section508.gov/create/pdfs/">Create  Accessible PDFs</a> – Section 508</li>
+  <li><a href="https://www.section508.gov/create/pdfs/">Create  Accessible PDFs</a>, Section 508</li>
 </ul>

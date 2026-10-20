@@ -46,8 +46,8 @@ wcag:
 ## How to identify interactive buttons
 
 Buttons should be visually distinguishable as interactive elements. This means that users must be able to tell at a glance which elements are clickable or actionable. Ensure that:
-- Buttons have a clear, distinct visual style (e.g., raised, with borders).
-- Labels or icons used on buttons accurately represent their function (e.g., "Submit" or an icon of a floppy disk for saving).
+- Buttons have a clear, distinct visual style, such as raised or with borders.
+- Labels or icons used on buttons accurately represent their function, such as "Submit" or an icon of a floppy disk for saving.
 
 Check for:
 - Visual scan: Check if buttons are easily identifiable on the screen.
@@ -98,10 +98,10 @@ A button should be properly identified as a button by assistive technologies. Th
 
 ## Ensuring that the state is conveyed
 
-For buttons that can be toggled (e.g., a play/pause button), the current state of the button must be clearly conveyed. The user should know whether the button is in an active or inactive state.
+For buttons that can be toggled, such as a play/pause button, the current state of the button must be clearly conveyed. The user should know whether the button is in an active or inactive state.
 
 - Press the button to toggle its state.
-- Ensure that the screen reader or assistive technology announces the state change (e.g., "Pressed" or "Unpressed").
+- Ensure that the screen reader or assistive technology announces the state change, such as "Pressed" or "Unpressed".
 
 ## Developer Notes
 

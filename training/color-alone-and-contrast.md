@@ -24,8 +24,8 @@ slides:
 - type: title
   title: Color Alone & Color Contrast
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Color Alone & Color Contrast
@@ -121,14 +121,14 @@ slides:
     - Add labels directly to data points, use patterns or textures, use distinct shapes, and provide legends with clear text
   - header: Forms & Error Messages
     items:
-    - Pair color with a red border, an error icon, and a descriptive error message — never a red border alone
+    - Pair color with a red border, an error icon, and a descriptive error message, never a red border alone
 - type: list
   title: Recap
   header: Color Alone & Contrast Review
   items:
   - Color can support meaning, but it can never be the only source of meaning
   - Standard text needs 4.5:1 contrast; large text needs 3:1
-  - Non-text elements — icons, controls, focus indicators — need 3:1 contrast
+  - Non-text elements such as icons, controls, and focus indicators need 3:1 contrast
   - The Color Contrast Analyzer is our standard testing tool
   - Charts, forms, and error messages all need a non-color indicator alongside color
 - type: list
@@ -137,7 +137,7 @@ slides:
   items:
   - Test contrast during development, not after
   - Never let color alone carry required information
-  - Accessible color choices don't limit creativity — they support usability
+  - Accessible color choices don't limit creativity, they support usability
   - 'Up next: Zoom & Magnification'
 - type: resources
   title: Resources
@@ -145,6 +145,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/color-contrast/
 ---
 
-Color choices affect readability for users with low vision, color blindness, or contrast sensitivity — and for everyone in bright environments or on low-quality screens. Used well, color strengthens communication; used alone, it becomes a barrier.
+Color choices affect readability for users with low vision, color blindness, or contrast sensitivity, and for everyone in bright environments or on low-quality screens. Used well, color strengthens communication; used alone, it becomes a barrier.
 
-The lesson covers the two halves of the topic. First, color can never be the only way information is conveyed: required fields, errors, states, and chart categories all need a text, icon, pattern, or shape alongside the color. Second, WCAG sets minimum contrast ratios — 4.5:1 for standard text, 3:1 for large text and for non-text elements like icons, focus indicators, and input borders — and the Color Contrast Analyzer is how we check them.
+The lesson covers the two halves of the topic. First, color can never be the only way information is conveyed: required fields, errors, states, and chart categories all need a text, icon, pattern, or shape alongside the color. Second, WCAG sets minimum contrast ratios: 4.5:1 for standard text, 3:1 for large text and for non-text elements like icons, focus indicators, and input borders - and the Color Contrast Analyzer is how we check them.

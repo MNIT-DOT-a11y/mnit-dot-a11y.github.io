@@ -22,22 +22,22 @@ intro:
 principles:
   - lead: "Leadership, not technical mastery."
     text: >-
-      Managers and supervisors don&rsquo;t need to run a screen reader test &mdash; they need to know
+      Managers and supervisors don&rsquo;t need to run a screen reader test. They need to know
       what &ldquo;tested&rdquo; means, ask the right questions, and know when something isn&rsquo;t
       good enough to ship.
-  - lead: "Micro-learning, 10&ndash;30 minutes."
+  - lead: "Micro-learning, 10 to 30 minutes."
     text: Each module is self-paced e-learning.
 
 sequencing:
   - lead: "Everyone starts with Section 1"
     text: >-
-      the shared foundation: understanding and responsibilities of the state standards and WCAG.
-  - lead: "Sections 2&ndash;4 can be taken in order or by relevance"
+      The shared foundation: understanding and responsibilities of the state standards and WCAG.
+  - lead: "Sections 2 to 4 can be taken in order or by relevance"
     text: >-
-      complete them in the recommended order, or assign them based on an immediate leadership need.
+      Complete them in the recommended order, or assign them based on an immediate leadership need.
   - lead: "Section 5 works best after at least one other section is complete"
     text: >-
-      champion-building, escalation, and vision communication land better once a manager has
+      Champion-building, escalation, and vision communication land better once a manager has
       already thought through their own team&rsquo;s people and process gaps.
 
 sections:
@@ -56,7 +56,7 @@ sections:
         objective: >-
           Identify the organization&rsquo;s accessibility policy and applicable legal obligations.
           Describe WCAG 2.1 Level AA as the baseline technical standard and understand that the goal
-          is usable, equitable access &mdash; not merely passing a scan.
+          is usable, equitable access, not merely passing a scan.
       - title: "Why Accessibility Matters: Inclusion, Quality, and Risk"
         duration: "15 min"
         status: coming-soon
@@ -104,7 +104,7 @@ sections:
     focus: "Process"
     time: "25 min"
     description: >-
-      Plan accessible work &mdash; intake, prioritization, capacity, and definitions of done &mdash;
+      Plan accessible work (intake, prioritization, capacity, and definitions of done)
       and make informed vendor accessibility decisions.
     lessons:
       - title: "Plan Capacity, Time, and Risk for Accessibility"
@@ -131,7 +131,7 @@ sections:
       What &ldquo;tested&rdquo; means, how to read accessibility findings at a leadership level, and
       how to model accessible communication in the documents, presentations, and spreadsheets you
       produce. Complete only the Microsoft application accessibility training that applies to the
-      tools you use in your regular work &mdash; for example, take the Word course if you create or
+      tools you use in your regular work. For example, take the Word course if you create or
       edit Word documents, the Excel course if you work with spreadsheets, and the PowerPoint course
       if you develop presentations.
     note: >-

@@ -76,7 +76,7 @@ wcag:
 ---
 ## Developer notes
 
-### Animations (e.g. gifs) can be accessible if:
+### Animations, such as gifs, can be accessible if:
 - it automatically stops after 5 seconds or 
 - if users are presented with an intuitive way to pause it
 

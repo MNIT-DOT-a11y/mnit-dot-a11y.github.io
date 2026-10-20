@@ -24,8 +24,8 @@ slides:
 - type: title
   title: Forms & Error Messages
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Forms & Error Messages
@@ -145,6 +145,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/form/
 ---
 
-Forms are where users enter information and complete critical tasks — and where missing labels, unclear instructions, or vague errors leave them stuck. This lesson shows how to build forms that stay usable for keyboard and screen reader users from the first field to the final submit.
+Forms are where users enter information and complete critical tasks, and where missing labels, unclear instructions, or vague errors leave them stuck. This lesson shows how to build forms that stay usable for keyboard and screen reader users from the first field to the final submit.
 
 It covers programmatic label association with `for` and `id`, why placeholders are not labels, how to indicate required fields both visually and programmatically, and how to write error messages that identify the field, describe the problem, and say what to do. Focus management during errors and grouping related fields with `fieldset` and `legend` round out the pattern.

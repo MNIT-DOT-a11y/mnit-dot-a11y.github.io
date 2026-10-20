@@ -24,8 +24,8 @@ slides:
 - type: title
   title: Keyboard Testing
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Keyboard Testing
@@ -151,7 +151,7 @@ slides:
   title: Key Takeaways
   header: Keyboard Testing
   items:
-  - Test keyboard behavior early — before it reaches QA
+  - Test keyboard behavior early, before it reaches QA
   - If you can't see focus, the component isn't accessible
   - Custom components must behave like their native equivalents
   - This wraps our developer training series
@@ -161,6 +161,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/keyboard-focus/
 ---
 
-Every interactive element must work without a mouse. Keyboard testing is the fastest way to find the barriers that block people with motor disabilities, low vision, or blindness — and it catches many of the same defects a screen reader would.
+Every interactive element must work without a mouse. Keyboard testing is the fastest way to find the barriers that block people with motor disabilities, low vision, or blindness, and it catches many of the same defects a screen reader would.
 
 This lesson teaches the core commands (Tab, Shift+Tab, Enter, Space, arrow keys, Escape), what a good focus indicator looks like, and how focus order should match the visual layout. You'll test buttons, links, form fields, dropdowns, and modals; check for keyboard traps; verify skip links; and give custom components the extra scrutiny they need because they don't inherit native behavior.

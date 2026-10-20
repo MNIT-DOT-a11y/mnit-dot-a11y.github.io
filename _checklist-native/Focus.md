@@ -19,7 +19,7 @@ mobile:
     
 screenreader: 
   initial focus: |
-    Starts in a logical place (e.g. back button, close button, top of screen)
+    Starts in a logical place, such as the back button, close button, or top of screen.
   navigate: |
     Focus moves left to right, top to bottom in a logical order
   visible focus indicator: |

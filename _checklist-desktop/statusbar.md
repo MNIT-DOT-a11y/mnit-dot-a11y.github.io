@@ -6,7 +6,7 @@ categories: patterns
 
 screenreader:
   status bar content:  |
-      The status bar is read aloud when using screen reader-specific keystrokes (i.e. NVDA+Shift+End for NVDA, JAWSKey+PageDown for JAWS). Every screen reader will have different keystrokes.
+      The status bar is read aloud when using screen reader-specific keystrokes, such as NVDA+Shift+End for NVDA or JAWSKey+PageDown for JAWS. Every screen reader will have different keystrokes.
 ---
 
 ##  Status bars should not be used for important information that must be reacted to.

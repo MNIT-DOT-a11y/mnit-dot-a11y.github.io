@@ -30,7 +30,7 @@ wcag:
   - name: Perceivable  
     list:  
       - criteria: Menus and ribbons are visually distinguishable and interactive  
-      - criteria: Color is not the only means of conveying information (e.g., disabled or selected items)  
+      - criteria: Color is not the only means of conveying information, such as disabled or selected items.  
   - name: Operable  
     list:  
       - criteria: Menus and ribbons are fully navigable via keyboard  
@@ -43,7 +43,7 @@ wcag:
       - criteria: The purpose of each menu or ribbon item is clear in the context of the user's task  
   - name: Robust  
     list:  
-      - criteria: Menu bars and ribbons convey the correct semantic role (e.g., as menus or commands)  
+      - criteria: Menu bars and ribbons convey the correct semantic role, such as menus or commands.  
       - criteria: The state of each menu or ribbon item is expressed (enabled, disabled, checked, unchecked)  
       - criteria: The functionality is consistent across different platforms, devices, and screen sizes  
 ---

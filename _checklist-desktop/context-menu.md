@@ -54,7 +54,7 @@ wcag:
 
 ## Provide instructions
 - Applications should provide clear and understandable instructions on how context menus are used.
-- Instead of saying right-click, applications should use inclusive language that also supports keyboard users (i.e. telling users about the Shift+F10 keystroke in copy text)
+- Instead of saying right-click, applications should use inclusive language that also supports keyboard users, such as telling users about the Shift+F10 keystroke in copy text.
 
 ## Design Notes
 

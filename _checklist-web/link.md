@@ -68,7 +68,7 @@ When performing accessibility testing, it's crucial to verify that the text of e
 
 1.	Meaningful Text: The link text should clearly describe the destination or action. Avoid using generic phrases like "click here" or "read more." Instead, use descriptive text that provides context, such as "Download the accessibility testing checklist" or "Learn more about our services."
 2.	Unique Text: Each link on a page should have unique text to avoid confusion. If multiple links lead to different destinations, their text should reflect those differences. For example, instead of having multiple "Learn more" links, specify "Learn more about accessibility testing" and "Learn more about our services."
-3.	Links without Content: Navigate the page using only the links (for example, by tabbing through them) to confirm that each link’s purpose is clear from its text alone. This mimics how screen reader users may interact with the page.
+3.	Links without Content: Navigate the page using only the links, for example by tabbing through them, to confirm that each link’s purpose is clear from its text alone. This mimics how screen reader users may interact with the page.
 
 By ensuring that link text is meaningful and unique, you enhance the overall accessibility of your content, making it easier for all users to navigate and understand your website
 

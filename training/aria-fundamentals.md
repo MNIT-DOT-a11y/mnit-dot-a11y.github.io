@@ -24,13 +24,13 @@ slides:
 - type: title
   title: ARIA Fundamentals
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: ARIA Fundamentals
   items:
-  - What ARIA is — and isn't
+  - What ARIA is, and what it isn't
   - Why we need ARIA
   - Roles, states, and properties
   - When to use ARIA (and when not to)
@@ -94,13 +94,13 @@ slides:
     - 1.3.1 Info and Relationships
     - 2.4.3 Focus Order
     - 2.4.6 Headings and Labels
-    - 4.1.2 Name, Role, Value — exposing name, role, and state to assistive tech
+    - 4.1.2 Name, Role, Value: exposing name, role, and state to assistive tech
 - type: body
   title: Common ARIA Patterns
   groups:
   - header: Buttons and Accordions
     items:
-    - <div role="button" tabindex="0"> — only when a <button> isn't possible
+    - <div role="button" tabindex="0">, only when a <button> isn't possible
     - aria-expanded + aria-controls for accordions
   - header: Tabs and Error Messages
     items:
@@ -124,14 +124,14 @@ slides:
   items:
   - What ARIA is, and what it can't do
   - 'The three categories: roles, states, and properties'
-  - When ARIA is appropriate — and when it isn't
+  - When ARIA is appropriate, and when it isn't
   - Common patterns for buttons, accordions, tabs, and error messages
   - Why every ARIA pattern needs to be tested
 - type: list
   title: Key Takeaways
   header: ARIA Fundamentals
   items:
-  - Use native HTML first — ARIA only fills the gaps
+  - Use native HTML first, because ARIA only fills the gaps
   - Incorrect ARIA is worse than no ARIA at all
   - Every ARIA pattern must be verified with a screen reader
   - 'Up next: Forms & Error Messages'
@@ -141,6 +141,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/aria/
 ---
 
-ARIA gives assistive technologies extra information about custom components — what an element represents, what state it is in, and how it relates to other elements. What ARIA does *not* do is just as important: it never makes something keyboard-operable, never fixes broken HTML, and never replaces a native element.
+ARIA gives assistive technologies extra information about custom components: what an element represents, what state it is in, and how it relates to other elements. What ARIA does *not* do is just as important: it never makes something keyboard-operable, never fixes broken HTML, and never replaces a native element.
 
-The lesson covers the three categories of ARIA (roles, states, and properties), the first rule of ARIA — native HTML first — and the situations where ARIA is genuinely needed, such as custom dropdowns, tabs, accordions, and modals. It ends with common patterns and the reason every ARIA addition has to be tested with a keyboard and a screen reader.
+The lesson covers the three categories of ARIA (roles, states, and properties), the first rule of ARIA (native HTML first), and the situations where ARIA is genuinely needed, such as custom dropdowns, tabs, accordions, and modals. It ends with common patterns and the reason every ARIA addition has to be tested with a keyboard and a screen reader.

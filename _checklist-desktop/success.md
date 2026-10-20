@@ -40,14 +40,14 @@ wcag:
       - criteria: Success messages use plain language and avoid unnecessary jargon.  
   - name: Robust  
     list:  
-      - criteria: Success notifications utilize appropriate system alerts (e.g., modal, informational) to convey significance.  
+      - criteria: Success notifications utilize appropriate system alerts, such as modal or informational, to convey significance.  
       - criteria: The state of the success (confirmation, completion, etc.) is conveyed both visually and programmatically.  
       - criteria: Success notifications function consistently across various screen resolutions, input methods, and assistive technologies.  
 ---
 
 ## Best practices for focus management
 
-- When a success notification appears, focus should automatically move to the notification, typically on the notification's first actionable element (e.g., the “OK” or “Close” button).
+- When a success notification appears, focus should automatically move to the notification, typically on the notification's first actionable element, such as the “OK” or “Close” button.
 - When the notification has been closed, focus should return to the previously focused item.
 
 ## Visual and Sound Cues

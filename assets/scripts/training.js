@@ -1,6 +1,6 @@
 /*
  * Training lessons: accessible slide viewer + knowledge check.
- * Progressive enhancement — without JavaScript every slide is visible and each
+ * Progressive enhancement - without JavaScript every slide is visible and each
  * question has a "Show answer" disclosure. With JavaScript we add a one-slide-
  * at-a-time viewer and a "Check answers" button.
  */
@@ -209,7 +209,7 @@
       } else {
         result.className = 'tquiz-result ' + (correct === questions.length ? 'tquiz-result-perfect' : 'tquiz-result-done');
         result.textContent = 'You got ' + correct + ' of ' + questions.length + ' correct.' +
-          (correct === questions.length ? ' Nice work — you’re ready for the next lesson.' : ' Review the feedback above, then try again.');
+          (correct === questions.length ? ' Nice work. You’re ready for the next lesson.' : ' Review the feedback above, then try again.');
       }
       // Move focus to the summary so screen reader and keyboard users hear/see the outcome.
       result.focus();

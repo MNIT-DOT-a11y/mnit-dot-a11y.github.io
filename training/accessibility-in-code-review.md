@@ -2,7 +2,7 @@
 layout: training-lesson
 title: Accessibility in Code Review
 seoTitle: Accessibility in Code Review - Accessibility training
-description: What to check during pull request review — structure, forms, keyboard, focus, ARIA, contrast — and the fixes reviewers ask for most.
+description: What to check during pull request review (structure, forms, keyboard, focus, ARIA, contrast) and the fixes reviewers ask for most.
 permalink: /training/accessibility-in-code-review/
 slug: accessibility-in-code-review
 section: workflow
@@ -22,8 +22,8 @@ slides:
 - type: title
   title: Accessibility in Code Review
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Accessibility in Code Review
@@ -97,7 +97,7 @@ slides:
   groups:
   - header: Labels, Errors, and Focus
     items:
-    - A <label for> tied to its <input> by id — not a placeholder standing in for a label
+    - A <label for> tied to its <input> by id, not a placeholder standing in for a label
     - An error message linked with aria-describedby and role="alert"
     - A modal that moves focus to its first focusable element when it opens
   - header: Skip Links
@@ -133,6 +133,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/code-review-checklist/
 ---
 
-Pull request review is one of the earliest and cheapest points to catch accessibility issues — when reviewers know what to look for. This lesson gives reviewers a consistent set of checks and shows the fixes they should expect to see.
+Pull request review is one of the earliest and cheapest points to catch accessibility issues, when reviewers know what to look for. This lesson gives reviewers a consistent set of checks and shows the fixes they should expect to see.
 
-It covers semantic structure, forms and labels, keyboard operability, focus indicators and focus order, correct (and incorrect) ARIA usage, and color and contrast. You'll test interactive elements the way a keyboard user would, recognize the most common issues found in PRs, and review example fixes for label association, accessible error messaging, modal focus management, and skip links — with extra attention to custom components that don't inherit native behavior.
+It covers semantic structure, forms and labels, keyboard operability, focus indicators and focus order, correct (and incorrect) ARIA usage, and color and contrast. You'll test interactive elements the way a keyboard user would, recognize the most common issues found in PRs, and review example fixes for label association, accessible error messaging, modal focus management, and skip links - with extra attention to custom components that don't inherit native behavior.

@@ -24,8 +24,8 @@ slides:
 - type: title
   title: Accessible Component Patterns
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Accessible Component Patterns
@@ -117,6 +117,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/components/intro.html
 ---
 
-Shared component patterns make accessibility predictable, testable, and easier to maintain across every stack we support — Angular, C#, Java, and beyond. When every button, modal, or tab behaves the same way, users know what to expect and QA knows what to check.
+Shared component patterns make accessibility predictable, testable, and easier to maintain across every stack we support: Angular, C#, Java, and beyond. When every button, modal, or tab behaves the same way, users know what to expect and QA knows what to check.
 
 This lesson lays out the five principles every accessible component shares (accessible name, correct role, keyboard operability, visible focus, and state announcements) and applies them to the most common component types: buttons, links, modals, tabs, accordions, and menus. It ends with a short checklist for testing any component before it reaches QA.

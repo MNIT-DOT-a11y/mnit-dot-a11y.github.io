@@ -22,8 +22,8 @@ slides:
 - type: title
   title: Accessibility Foundations
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Accessibility Foundations
@@ -108,7 +108,7 @@ slides:
   title: Key Takeaways
   header: Accessibility Foundations
   items:
-  - Accessibility is not optional — it's part of our development standards
+  - Accessibility is not optional. It's part of our development standards
   - POUR gives us a shared vocabulary for accessible design
   - Accessibility is a mindset that shapes every decision you make
   - 'Up next: HTML Accessibility Fundamentals'
@@ -118,6 +118,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/
 ---
 
-This lesson sets the shared foundation for every training that follows. Accessibility on our teams means every person can use our applications regardless of ability, device, or assistive technology — and it is part of our development standards and testing expectations, not an optional extra.
+This lesson sets the shared foundation for every training that follows. Accessibility on our teams means every person can use our applications regardless of ability, device, or assistive technology, and it is part of our development standards and testing expectations, not an optional extra.
 
-You'll meet the four POUR principles (Perceivable, Operable, Understandable, Robust) that organize WCAG, and see how everyday development decisions — semantic HTML, labels, keyboard access, predictable focus — map directly to those requirements. The lesson also looks at who we build for: screen reader and magnifier users, people using speech input or alternative keyboards, and anyone with a temporary or situational limitation.
+You'll meet the four POUR principles (Perceivable, Operable, Understandable, Robust) that organize WCAG, and see how everyday development decisions (semantic HTML, labels, keyboard access, predictable focus) map directly to those requirements. The lesson also looks at who we build for: screen reader and magnifier users, people using speech input or alternative keyboards, and anyone with a temporary or situational limitation.

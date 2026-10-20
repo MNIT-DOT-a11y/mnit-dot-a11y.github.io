@@ -5,20 +5,20 @@ layout: base
   Lesson page layout.
 
   Front matter this layout uses:
-    title, description  — H1 and the orientation statement under it
+    title, description - H1 and the orientation statement under it
     slug, section, section_title, lesson_number, lesson_total
-    objectives          — list rendered under "You'll learn to"
-    deck                — .pptx filename in /assets/training/decks/
-    prev_slug/prev_title, next_slug/next_title  — pager within a section
-    next_section/next_section_title             — pager at the end of a section
+    objectives - list rendered under "You'll learn to"
+    deck - .pptx filename in /assets/training/decks/
+    prev_slug/prev_title, next_slug/next_title - pager within a section
+    next_section/next_section_title - pager at the end of a section
 
-  Video (optional, add when a recording exists — otherwise the section shows
+  Video (optional, add when a recording exists - otherwise the section shows
   a "coming soon" note):
-    video_embed     — URL for an embedded player (Stream, YouTube, etc.)
-    video_file      — path to an .mp4 served from this site
-    video_captions  — path to the .vtt caption track (used with video_file)
-    video_duration  — e.g. "12 minutes"
-    video_transcript — link to a transcript page or file
+    video_embed - URL for an embedded player (Stream, YouTube, etc.)
+    video_file - path to an .mp4 served from this site
+    video_captions - path to the .vtt caption track (used with video_file)
+    video_duration - e.g. "12 minutes"
+    video_transcript - link to a transcript page or file
 {%- endcomment -%}
 <div class="container">
   <div class="how-to-test-wrapper training-wrapper">
@@ -79,7 +79,7 @@ layout: base
         {%- if page.video_embed -%}
         <div class="training-video-frame">
           <iframe src="{{ page.video_embed }}"
-                  title="{{ page.title | escape }} &mdash; lesson video"
+                  title="{{ page.title | escape }}: lesson video"
                   allowfullscreen></iframe>
         </div>
         {%- elsif page.video_file -%}
@@ -110,7 +110,7 @@ layout: base
         {%- if page.deck -%}
         <p>
           <a href="{{ site.baseurl }}/assets/training/decks/{{ page.deck | uri_escape }}" download>
-            Download the slide deck &mdash; {{ page.deck | escape }} (PowerPoint)
+            Download the slide deck: {{ page.deck | escape }} (PowerPoint)
           </a>
         </p>
         {%- else -%}

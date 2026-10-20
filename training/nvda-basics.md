@@ -24,8 +24,8 @@ slides:
 - type: title
   title: NVDA Basics
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: NVDA Basics
@@ -67,11 +67,11 @@ slides:
   groups:
   - header: Headings
     items:
-    - Press H to jump through headings — check for correct levels, logical hierarchy, and missing headings
+    - Press H to jump through headings and check for correct levels, logical hierarchy, and missing headings
     - Watch for styled text pretending to be a heading, or unexpected heading jumps
   - header: Landmarks
     items:
-    - Press D to cycle through landmarks — check for header, nav, main, and footer
+    - Press D to cycle through landmarks and check for header, nav, main, and footer
     - Watch for a missing or duplicated main region, or landmarks that don't match the visual layout
 - type: body
   title: Testing Links, Buttons, and Forms
@@ -115,7 +115,7 @@ slides:
   title: Key Takeaways
   header: NVDA Basics
   items:
-  - NVDA reveals issues that aren't visible on screen — semantics, focus order, and announcements
+  - NVDA reveals issues that aren't visible on screen: semantics, focus order, and announcements
   - Testing with a real screen reader is what automated scans like Axe can't fully replace
   - Semantic HTML and correct ARIA are what make NVDA testing pass
   - This wraps our core testing skills training series
@@ -125,6 +125,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/screen-readers/
 ---
 
-NVDA is a free screen reader that shows you how users who are blind or visually impaired experience your application. It announces structure, roles, labels, and relationships — and exposes issues that are invisible on screen, like missing labels, incorrect roles, broken focus order, and error messages that never get announced.
+NVDA is a free screen reader that shows you how users who are blind or visually impaired experience your application. It announces structure, roles, labels, and relationships, and exposes issues that are invisible on screen, like missing labels, incorrect roles, broken focus order, and error messages that never get announced.
 
 The lesson covers what to listen for when NVDA launches, the essential commands for testing (Tab, arrow keys, H for headings, D for landmarks, Insert+F7 for the element list), and how to test headings, landmarks, links and buttons, forms, error messages, and dynamic content. It finishes with the issues NVDA surfaces most often and the semantic-HTML habits that prevent them.

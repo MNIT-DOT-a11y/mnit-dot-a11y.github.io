@@ -13,7 +13,7 @@ Headings are ranked `<h1>` through `<h6>`
 
 All pages should at least have a `<h1>` level heading giving the page title. On this page Heading: h1, h2, h3 is the `<h1>`
 
-Heading levels should not be skipped to be more specific (for example, do not skip from <h2> to <h5>). It is permissible to skip headings in the other direction if the outline of the page calls for it (for example, from <h5> to <h2>).
+Heading levels should not be skipped to be more specific, for example do not skip from <h2> to <h5>. It is permissible to skip headings in the other direction if the outline of the page calls for it, for example from <h5> to <h2>.
 
 ## How screen readers use headings
 

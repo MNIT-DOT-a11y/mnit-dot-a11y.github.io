@@ -24,8 +24,8 @@ slides:
 - type: title
   title: Text Spacing
   presenters:
-  - Douglas Rubio – Accessibility Coach
-  - Kim Lanahan-Lahti – Digital Accessibility Coordinator
+  - Douglas Rubio, Accessibility Coach
+  - Kim Lanahan-Lahti, Digital Accessibility Coordinator
 - type: agenda
   title: Agenda
   header: Text Spacing
@@ -136,7 +136,7 @@ slides:
   header: Text Spacing
   items:
   - Fixed heights and hard-coded padding are the most common source of spacing bugs
-  - Test spacing early — issues are easy to catch and easy to prevent
+  - Test spacing early, because issues are easy to catch and easy to prevent
   - Flexible, relative-unit layouts support text spacing, zoom, and magnification alike
   - This wraps our visual accessibility training series
 - type: resources
@@ -145,6 +145,6 @@ slides:
   url: https://mnit-dot-a11y.github.io/how-to-test/text-spacing/
 ---
 
-Users with low vision, dyslexia, or cognitive disabilities often increase line height, paragraph spacing, letter spacing, and word spacing to reduce visual crowding. WCAG 1.4.12 requires that content stay readable and functional when they do — so layouts can't depend on text staying a fixed size.
+Users with low vision, dyslexia, or cognitive disabilities often increase line height, paragraph spacing, letter spacing, and word spacing to reduce visual crowding. WCAG 1.4.12 requires that content stay readable and functional when they do, so layouts can't depend on text staying a fixed size.
 
 This lesson gives you the minimum spacing values, shows how to apply them instantly with the Text Spacing Bookmarklet, and walks through what breaks: fixed-height containers, hard-coded padding, labels that overlap inputs, and hidden overflow that cuts text off. Forms and components like cards, accordions, tabs, and modals get their own checks, followed by the flexible-design habits that prevent breakage in the first place.

@@ -40,14 +40,14 @@ wcag:
       - criteria: Error messages use plain language and avoid technical jargon when possible  
   - name: Robust  
     list:  
-      - criteria: Error dialogs use appropriate system alerts (e.g., modal, high-priority) to convey severity  
+      - criteria: Error dialogs use appropriate system alerts, such as modal or high-priority, to convey severity  
       - criteria: The state of the error (critical, warning, etc.) is conveyed both visually and programmatically  
       - criteria: Error dialogs function consistently across various screen resolutions, input methods, and assistive technologies  
 ---
 
 ## Best practices for focus management
 
-- When an error dialog appears, focus should automatically move to the dialog, typically on the dialog's first actionable element (e.g., the “OK” or “Close” button).
+- When an error dialog appears, focus should automatically move to the dialog, typically on the dialog's first actionable element, such as the “OK” or “Close” button.
 - When the error has been closed, focus should return to the previously focused item.
 
 ## Visual and Sound Cues

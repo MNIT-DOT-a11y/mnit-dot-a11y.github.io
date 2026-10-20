@@ -250,7 +250,7 @@ nvda-forms-and-error-messages-testing:
     - The page has too many headings
     - The font is too small
     answer: 1
-    explain: Every field needs a label associated with it (for example, label for and id). Placeholders
+    explain: Every field needs a label associated with it, for example with label for and id. Placeholders
       disappear and aren't announced consistently.
   - q: After submitting a form with errors, where should keyboard focus go?
     options:
