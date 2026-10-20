@@ -19,17 +19,19 @@ permalink: /training/managers/
 <p class="training-intro">{{ p }}</p>
 {%- endfor -%}
 
-<p>
-  Each module is self-paced micro-learning of about 10 to 30 minutes. Topics are listed below with
-  their learning objectives; lesson pages, videos, and knowledge checks will be linked as they are built.
-</p>
-
-<h2>How this pathway works</h2>
+<h2>How to use this pathway</h2>
 <ul class="training-pathways-list">
   {%- for p in data.principles -%}
   <li><strong>{{ p.lead }}</strong> {{ p.text }}</li>
   {%- endfor -%}
+  {%- for s in data.sequencing -%}
+  <li><strong>{{ s.lead }}.</strong> {{ s.text }}</li>
+  {%- endfor -%}
 </ul>
+<p>
+  Topics are listed below with their learning objectives. Lesson pages, videos, and knowledge checks
+  will be linked as they are built.
+</p>
 
 <h2>Pathway at a glance</h2>
 <div class="training-table-wrap">
@@ -118,10 +120,3 @@ permalink: /training/managers/
   </section>
   {%- endfor -%}
 </div>
-
-<h2>How to use this pathway</h2>
-<ul class="training-pathways-list">
-  {%- for s in data.sequencing -%}
-  <li><strong>{{ s.lead }}.</strong> {{ s.text }}</li>
-  {%- endfor -%}
-</ul>

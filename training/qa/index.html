@@ -17,6 +17,18 @@ permalink: /training/qa/
 
 <p class="training-intro">{{ data.intro }}</p>
 
+<h2>How to use this pathway</h2>
+<p>
+  New to accessibility at MNIT-DOT? Start with Section 1 and work through the lessons in order.
+  Each builds on the previous one. Supervisors and leads can use the sections as an onboarding
+  roadmap. Already comfortable with the basics? Jump to the testing skill or language integration
+  you need.
+</p>
+<p>
+  Each training links to the corresponding <a href="{{ site.baseurl }}/how-to-test/">How-to Test</a>
+  guides on this site, so you can move straight from a lesson to the step-by-step test for a component.
+</p>
+
 <p>
   Each lesson includes a <strong>summary</strong>, a <strong>training video</strong>, a
   <strong>downloadable slide deck</strong>, and a <strong>knowledge check</strong> to assess your
@@ -31,6 +43,9 @@ permalink: /training/qa/
       <span>Section {{ forloop.index }}: {{ section.title }}</span>
     </h2>
     <p class="training-section-desc">{{ section.description }}</p>
+    {%- if section.note -%}
+    <p class="training-section-desc"><strong>How to sign up:</strong> {{ section.note }}</p>
+    {%- endif -%}
     <ol>
       {%- for lesson in section.lessons -%}
       <li>
@@ -40,6 +55,12 @@ permalink: /training/qa/
             <span class="training-lesson-index" aria-hidden="true">{{ lesson_counter }}</span>
             <span class="hidden">Lesson {{ lesson_counter }}:</span>
             <span>{{ lesson.title }}</span>
+          </a>
+        {%- elsif lesson.external_url -%}
+          <a class="training-lesson-card is-ref" href="{{ lesson.external_url }}">
+            <span class="training-lesson-index" aria-hidden="true">&#8599;</span>
+            <span>{{ lesson.title }}</span>
+            <span class="training-lesson-badge">{{ lesson.note | default: "External course" }}</span>
           </a>
         {%- elsif lesson.url -%}
           <a class="training-lesson-card is-ref" href="{{ site.baseurl }}{{ lesson.url }}">
@@ -60,15 +81,3 @@ permalink: /training/qa/
   </section>
   {%- endfor -%}
 </div>
-
-<h2>How to use this pathway</h2>
-<p>
-  New to accessibility at MNIT-DOT? Start with Section 1 and work through the lessons in order.
-  Each builds on the previous one. Supervisors and leads can use the sections as an onboarding
-  roadmap. Already comfortable with the basics? Jump to the testing skill or language integration
-  you need.
-</p>
-<p>
-  Each training links to the corresponding <a href="{{ site.baseurl }}/how-to-test/">How-to Test</a>
-  guides on this site, so you can move straight from a lesson to the step-by-step test for a component.
-</p>

@@ -87,3 +87,27 @@ sections:
       - title: "QA Accessibility Checklist"
         url: /how-to-test/
         note: Reference page
+
+  - id: create-communicate
+    title: "Create & Communicate"
+    description: >-
+      Learn to create accessible documents and verify their accessibility. Complete only the courses
+      relevant to your regular work: Word for creating or editing documents, Excel for working with
+      spreadsheets, PowerPoint for developing presentations, and PDF for saving and sharing PDF files.
+    note: >-
+      These courses are offered separately through the MnDOT Accessibility Training Program.
+      Visit <a href="https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false">MnDOT's Digital Accessibility Program Training SharePoint</a>
+      to sign up for the courses you need.
+    lessons:
+      - title: "Accessible Word"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
+      - title: "Accessible PowerPoint"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
+      - title: "Accessible Excel"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
+      - title: "Accessible PDFs"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"

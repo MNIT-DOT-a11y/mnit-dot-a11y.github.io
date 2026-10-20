@@ -20,6 +20,8 @@
                   href="{{ site.baseurl }}{{ lesson_url }}">
                   {{ lesson.title }}
                 </a>
+              {% elsif lesson.external_url %}
+                <a href="{{ lesson.external_url }}">{{ lesson.title }}</a>
               {% elsif lesson.url %}
                 <a href="{{ site.baseurl }}{{ lesson.url }}">{{ lesson.title }}</a>
               {% else %}
