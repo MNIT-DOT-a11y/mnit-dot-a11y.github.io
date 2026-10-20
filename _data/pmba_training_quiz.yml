@@ -1,21 +1,18 @@
-# Knowledge-check questions for the Business Analysts and Program Managers pathway.
-# Keyed by lesson slug. Same shape as training_quiz.yml:
-#
-# why-accessibility-matters:
-#   questions:
-#     - q: Question text?
-#       options:
-#       - Option A
-#       - Option B
-#       - Option C
-#       - Option D
-#       answer: 1          # zero-based index of the correct option
-#       explain: One-sentence explanation shown after checking answers.
-#
-# A lesson with no entry here (or an empty `questions` list) shows a "knowledge check is being
-# written" note on its lesson page instead of a link. When questions are added, also create
-# training/pm-ba/<slug>-knowledge-check.html (copy one from training/qa/ and change the layout to
-# pmba-training-knowledge-check).
+# Knowledge-check questions, keyed by lesson slug.
+# Two question shapes are supported:
+#   multiple choice:  q, options (list), answer (zero-based index), explain
+#   open question:    q, a (list of answer paragraphs, shown behind "Show answer")
+# A lesson with an empty `questions` list shows a "being written" note instead of a link.
 
 why-accessibility-matters:
+  questions: []
+
+wcag-pour-principles:
+  questions:
+    - q: 'A form error message says only: ''Invalid entry.'' Which POUR principle is most directly involved?'
+      a:
+      - 'The answer is Understandable. The person needs to know what is wrong and how to correct it.'
+      - 'Remember, real accessibility issues can involve more than one principle. For example, an error message must also be available to assistive technology, which relates to Robust. But the main issue here is that the message doesn''t help the person understand or recover from the problem.'
+
+recognizing-common-barriers:
   questions: []

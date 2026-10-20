@@ -283,8 +283,9 @@ $training-gray: #e8e8e8;
 
 .training-content > section {
   scroll-margin-top: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem; // matches .training-jumps so every section gap is equal
   > h2 { margin-bottom: 1.25rem; }
+  > :last-child { margin-bottom: 0; padding-bottom: 0; }
 }
 
 // ---------------------------------------------------------------------------
@@ -806,4 +807,15 @@ $training-gray: #e8e8e8;
   tbody th { font-weight: normal; }
   tbody tr:last-child th,
   tbody tr:last-child td { @include bold; border-bottom: 0; }
+}
+
+// Open (reveal) knowledge-check questions: no radio options, answer behind a disclosure
+.tquiz .tquiz-open {
+  margin: 0 0 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid $color-border-gray;
+  border-radius: .5rem;
+  .tquiz-open-q { margin: 0 0 .75rem 0; line-height: 1.6; }
+  .tquiz-reveal { margin: 0; }
+  .tquiz-reveal p { margin: .5rem 0 0 0; line-height: 1.6; }
 }

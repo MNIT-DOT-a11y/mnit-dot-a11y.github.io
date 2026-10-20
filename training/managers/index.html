@@ -2,7 +2,7 @@
 layout: managers-training
 title: 'Managers & Supervisors Accessibility Learning Pathway'
 seoTitle: 'Accessibility training for managers and supervisors'
-description: 'A leadership-focused accessibility learning pathway for managers and supervisors: people, processes, technology, and sustaining accessible outcomes.'
+description: 'Short, focused accessibility lessons for managers and supervisors, with videos, slide decks, and knowledge checks.'
 permalink: /training/managers/
 ---
 {%- assign data = site.data.managers_training -%}
@@ -20,59 +20,21 @@ permalink: /training/managers/
 {%- endfor -%}
 
 <h2>How to use this pathway</h2>
-<ul class="training-pathways-list">
-  {%- for p in data.principles -%}
-  <li><strong>{{ p.lead }}</strong> {{ p.text }}</li>
-  {%- endfor -%}
-  {%- for s in data.sequencing -%}
-  <li><strong>{{ s.lead }}.</strong> {{ s.text }}</li>
-  {%- endfor -%}
-</ul>
 <p>
-  Topics are listed below with their learning objectives. Lesson pages, videos, and knowledge checks
-  will be linked as they are built.
+  New to accessibility at MNIT-DOT? Start with Section 1 (trainings 1 to 3). Afterward, it&rsquo;s best
+  to complete Sections 2 to 4 in order, though you can choose the order based on your needs. Section 5
+  is best completed after at least one other section is complete. For instance, champion-building,
+  escalation, and vision communication land better once a manager has already thought through their
+  team&rsquo;s people and process gaps.
 </p>
 
-<h2>Pathway at a glance</h2>
-<div class="training-table-wrap">
-  <table class="training-glance">
-    <caption class="hidden">Sections of the Managers &amp; Supervisors pathway with number of trainings and total time</caption>
-    <thead>
-      <tr>
-        <th scope="col">Section</th>
-        <th scope="col">Focus area</th>
-        <th scope="col">Trainings</th>
-        <th scope="col">Total time</th>
-      </tr>
-    </thead>
-    <tbody>
-      {%- assign total = 0 -%}
-      {%- for section in data.sections -%}
-      {%- assign n = section.lessons | size -%}
-      {%- assign total = total | plus: n -%}
-      <tr>
-        <th scope="row"><a href="#{{ section.id }}">Section {{ forloop.index }}: {{ section.title }}</a></th>
-        <td>{{ section.focus }}</td>
-        <td>{{ n }}</td>
-        <td>{{ section.time }}</td>
-      </tr>
-      {%- endfor -%}
-      <tr>
-        <th scope="row">Total</th>
-        <td></td>
-        <td>{{ total }}</td>
-        <td>About 6 hours</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<p class="training-section-desc">
-  The number and length of training sessions in Section 4 depend on the Microsoft applications used
-  in an employee&rsquo;s regular work.
+<p>
+  Each lesson includes a <strong>summary</strong>, a <strong>training video</strong>, a
+  <strong>downloadable slide deck</strong>, and a <strong>knowledge check</strong> to assess your
+  comprehension before moving on. Each lesson takes about 15 to 45 minutes.
 </p>
 
-
-<div class="training-sections training-sections-detailed">
+<div class="training-sections">
   {%- for section in data.sections -%}
   <section class="training-section" id="{{ section.id }}" aria-labelledby="{{ section.id }}-heading">
     <h2 id="{{ section.id }}-heading">
@@ -108,11 +70,8 @@ permalink: /training/managers/
           <span class="training-lesson-card is-soon">
             <span class="training-lesson-index" aria-hidden="true">&middot;</span>
             <span>{{ lesson.title }}</span>
-            <span class="training-lesson-badge">Coming soon{% if lesson.duration %} &middot; {{ lesson.duration }}{% endif %}</span>
+            <span class="training-lesson-badge">Coming soon</span>
           </span>
-        {%- endif -%}
-        {%- if lesson.objective -%}
-        <p class="training-lesson-objective">{{ lesson.objective }}</p>
         {%- endif -%}
       </li>
       {%- endfor -%}

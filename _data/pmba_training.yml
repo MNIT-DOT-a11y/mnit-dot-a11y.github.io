@@ -22,10 +22,10 @@ sections:
     lessons:
       - slug: why-accessibility-matters
         title: "Why Accessibility Matters: Legal, Ethical & Business Case"
-      - title: "WCAG 2.1 AA in Plain Language"
-        status: coming-soon
-      - title: "Recognizing Common Barriers"
-        status: coming-soon
+      - slug: wcag-pour-principles
+        title: "WCAG 2.1 AA in Plain Language: The POUR Principles"
+      - slug: recognizing-common-barriers
+        title: "Recognizing Common Barriers: A Non-Technical Tour"
 
   - id: plan-define
     title: "Plan & Define"

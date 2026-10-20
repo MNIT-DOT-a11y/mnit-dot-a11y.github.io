@@ -1,184 +1,92 @@
-# Managers & Supervisors Accessibility Learning Pathway
-# Drives the left nav (_includes/managers-training-nav.html) and /training/managers/.
-# All topics are `status: coming-soon` until lessons are built; `objective` and `duration` come
-# from Kim's planning document ("Accessibility Learning Pathway for Managers & Supervisors", Oct 2026).
+# Managers and Supervisors Accessibility Learning Pathway
+# Drives the left nav (_includes/managers-training-nav.html), /training/managers/, and lesson pagers.
+# A lesson with a `slug` has a page at /training/managers/<slug>/. `status: coming-soon` lists it unlinked.
 # A lesson with `external_url` links to an external course sign-up.
+# Content source: Kim Lanahan-Lahti, "Manager-Supervisor GitHub Content" (2026-10-13).
 
 intro:
   - >-
-    Managers and supervisors don&rsquo;t write code, requirements, or RFP language themselves, but
-    they do control the people, processes, and technology that determine whether accessibility is
-    implemented. A developer with no time in the sprint for accessibility fixes, a PM whose
-    performance review never mentions accessibility, and a vendor contract with no accessibility
-    clause all trace back to a leadership decision. This pathway ensures those decisions default
-    toward accessibility rather than away from it.
-  - >-
-    This pathway complements the Developer, QA, Program Manager, and Business Analyst pathways.
-    While those pathways teach staff how to do accessible work, this one teaches managers and
-    supervisors how to create the conditions for that work to happen: staffing, planning,
-    resourcing, and holding people accountable. Completion of this learning pathway is mandatory
-    for all new and transferred employees in a Manager or Supervisor role at MNIT-DOT.
-
-principles:
-  - lead: "Leadership, not technical mastery."
-    text: >-
-      Managers and supervisors don&rsquo;t need to run a screen reader test. They need to know
-      what &ldquo;tested&rdquo; means, ask the right questions, and know when something isn&rsquo;t
-      good enough to ship.
-  - lead: "Micro-learning, 10 to 30 minutes."
-    text: Each module is self-paced e-learning.
-
-sequencing:
-  - lead: "Everyone starts with Section 1"
-    text: >-
-      The shared foundation: understanding and responsibilities of the state standards and WCAG.
-  - lead: "Sections 2 to 4 can be taken in order or by relevance"
-    text: >-
-      Complete them in the recommended order, or assign them based on an immediate leadership need.
-  - lead: "Section 5 works best after at least one other section is complete"
-    text: >-
-      Champion-building, escalation, and vision communication land better once a manager has
-      already thought through their own team&rsquo;s people and process gaps.
+    The Manager and Supervisors Accessibility Learning Pathway offers a series of concise, targeted
+    training sessions to build strong accessibility knowledge. This pathway complements the Developer,
+    QA, Project Manager, and Business Analyst pathways. While those pathways teach staff how to do
+    accessible work, this one teaches managers and supervisors how to create the conditions for that
+    work to happen: staffing, planning, resourcing, and accountability.
 
 sections:
   - id: foundations
-    title: "Foundations"
-    focus: "Foundations"
-    time: "45 min"
+    title: "Accessibility Foundations"
     description: >-
-      The shared foundation for every section that follows: why accessibility is a leadership and
-      quality responsibility, what WCAG 2.1 Level AA requires in plain language, and the questions,
-      evidence, and decisions you are accountable for.
+      Learn how accessibility policies, legal obligations, and WCAG 2.1 Level AA standards inform
+      accessibility practices. Understand how digital accessibility strengthens public trust, improves
+      quality, and reduces organizational risk.
     lessons:
-      - title: "Why Accessibility Matters: Legal, Ethical & Business Case"
-        duration: "15 min"
-        status: coming-soon
-        objective: >-
-          Identify the organization&rsquo;s accessibility policy and applicable legal obligations.
-          Describe WCAG 2.1 Level AA as the baseline technical standard and understand that the goal
-          is usable, equitable access, not merely passing a scan.
+      - slug: why-accessibility-matters
+        title: "Why Accessibility Matters: Legal, Ethical & Business Case"
       - title: "Why Accessibility Matters: Inclusion, Quality, and Risk"
-        duration: "15 min"
         status: coming-soon
-        objective: >-
-          Explain why digital accessibility matters to people with disabilities, service delivery,
-          employee experience, public trust, quality, and organizational risk. Recognize that
-          inaccessible technology can prevent people from completing essential tasks independently.
-      - title: "WCAG 2.1 AA in Plain Language: The POUR Principles"
-        duration: "15 min"
-        status: coming-soon
-        objective: >-
-          Describe the four POUR principles and the 50 AA success criteria as categories.
+      - slug: wcag-pour-principles
+        title: "WCAG 2.1 AA in Plain Language: The POUR Principles"
 
   - id: lead-people
     title: "Lead Your People"
-    focus: "People"
-    time: "45 min"
     description: >-
-      How accessibility responsibilities are shared across roles, and how to build accessibility
-      into job descriptions, hiring, and everyday team culture.
+      Understand how accessibility duties are distributed across roles and build accessibility
+      standards into hiring and team practices. Employ practical leadership actions to cultivate an
+      accessibility-first mindset that improves quality and minimizes organizational risks.
     lessons:
       - title: "Accessibility Is a Team Sport: Roles and Responsibilities"
-        duration: "15 min"
         status: coming-soon
-        objective: >-
-          Identify how accessibility responsibilities are shared among leadership, product, business
-          analysis, development, QA, procurement, DAC and content authors. Clarify that no single
-          role can &ldquo;own&rdquo; accessibility alone.
       - title: "Embedding Accessibility into Job Descriptions & Hiring"
-        duration: "15 min"
         status: coming-soon
-        objective: >-
-          Add accessibility expectations and interview questions to position descriptions and hiring
-          panels for roles that develop or touch digital content or systems.
       - title: "Build an Accessibility-First Team Culture"
-        duration: "15 min"
         status: coming-soon
-        objective: >-
-          Use practical leadership behaviors to foster an accessibility-first culture: model
-          accessible communication, ask accessibility questions and include accessibility in team
-          processes.
 
   - id: lead-processes
     title: "Lead Your Processes"
-    focus: "Process"
-    time: "25 min"
     description: >-
-      Plan accessible work (intake, prioritization, capacity, and definitions of done)
-      and make informed vendor accessibility decisions.
+      Learn how to plan accessibility efforts, establish procurement and vendor expectations, and
+      understand testing tools and their results. Use evidence and user impact to prioritize fixes,
+      enhance quality, and lower organizational risk.
     lessons:
       - title: "Plan Capacity, Time, and Risk for Accessibility"
-        duration: "10 min"
         status: coming-soon
-        objective: >-
-          Recognize that accessible outcomes require planned time for training, design, testing,
-          remediation, expert support, and accessible alternatives when needed. Identify common
-          risks created by treating accessibility as last-minute work.
       - title: "Make Informed Vendor Accessibility Decisions"
-        duration: "15 min"
         status: coming-soon
-        objective: >-
-          Explain why accessibility must be a procurement and vendor-management requirement.
-          Identify decision-maker questions about an Accessibility Conformance Report (ACR) or
-          VPAT, supporting evidence, known issues, remediation commitments, and contractual
-          protections.
+      - title: "Accessibility Testing and Remediation Priorities: What Leaders Need to Know"
+        status: coming-soon
 
-  - id: lead-technology
-    title: "Lead Your Technology & Content"
-    focus: "Technology & Content"
-    time: "Up to 3 hr 15 min"
+  - id: lead-communications
+    title: "Lead Your Communications"
     description: >-
-      What &ldquo;tested&rdquo; means, how to read accessibility findings at a leadership level, and
-      how to model accessible communication in the documents, presentations, and spreadsheets you
-      produce. Complete only the Microsoft application accessibility training that applies to the
-      tools you use in your regular work. For example, take the Word course if you create or
-      edit Word documents, the Excel course if you work with spreadsheets, and the PowerPoint course
-      if you develop presentations.
+      Learn to create accessible documents and verify their accessibility. Complete only the courses
+      relevant to your regular work: Word for creating or editing documents, Excel for working with
+      spreadsheets, PowerPoint for developing presentations, and PDF for saving and sharing PDF files.
     note: >-
-      The MnDOT Accessibility Training Program offers courses in Word, PowerPoint, Excel, and PDF
-      accessibility. Visit <a href="https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false">MnDOT's Digital Accessibility Program Training
-      SharePoint</a> to sign up for the courses you need.
+      These courses are offered separately through the MnDOT Accessibility Training Program.
+      Visit <a href="https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false">MnDOT's Digital Accessibility Program Training SharePoint</a>
+      to sign up for the courses you need.
     lessons:
-      - title: "Accessible Communication (Word, Excel, PowerPoint)"
-        duration: "3 hr max"
+      - title: "Accessible Word"
         external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
         note: "Sign up on SharePoint"
-        objective: >-
-          Model accessible communication by applying accessibility practices to the documents,
-          presentations and spreadsheets you produce.
-      - title: "Accessibility Testing and Remediation Priorities: What Leaders Need to Know"
-        duration: "15 min"
-        status: coming-soon
-        objective: >-
-          Understand accessibility testing tools and practices. Interpret accessibility findings at a
-          high level and prioritize remediation based on user impact, task criticality, scope, risk,
-          and feasibility.
+      - title: "Accessible PowerPoint"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
+      - title: "Accessible Excel"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
+      - title: "Accessible PDFs"
+        external_url: "https://mn365.sharepoint.com/sites/DOT_A11y/_layouts/15/Events.aspx?ListGuid=83f2d464-e48b-4627-b790-64a47637c0d8&AudienceTarget=false"
+        note: "Sign up on SharePoint"
 
-  - id: sustain-champion
-    title: "Sustain & Champion"
-    focus: "Sustain & Champion"
-    time: "45 min"
+  - id: sustain-lead
+    title: "Sustain & Lead"
     description: >-
-      Manage accessibility risk, trade-offs, and escalations; know when and how to loop in
-      accessibility specialists; and connect your team&rsquo;s work to agency-level governance,
-      reporting, and stakeholder communication.
+      Understand how to handle accessibility risks, evaluate trade-offs, and identify when to seek
+      help from accessibility experts. Establish clear escalation procedures to enable informed
+      decision-making and minimize organizational risks.
     lessons:
       - title: "Manage Accessibility Risk, Trade-offs, and Escalations"
-        duration: "15 min"
         status: coming-soon
-        objective: >-
-          Distinguish a formal, documented accessibility exception from informal acceptance of an
-          accessibility barrier. Document user impact, scope, available options, decision authority,
-          owner, mitigation, and follow-up date.
       - title: "Escalation Pathways: When and How to Loop in Accessibility Specialists"
-        duration: "15 min"
         status: coming-soon
-        objective: >-
-          Know whom to contact (accessibility coordinator, trainer, accessibility champion) and when,
-          so issues don&rsquo;t stall or get resolved incorrectly.
-      - title: "Accessibility Governance, Reporting & Stakeholder Communication"
-        duration: "15 min"
-        status: coming-soon
-        objective: >-
-          Understand the MNIT-DOT accessibility champion network and reporting dashboards, and how
-          your work feeds agency-level metrics.

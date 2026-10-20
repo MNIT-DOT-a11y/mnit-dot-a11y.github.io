@@ -22,15 +22,33 @@ layout: base
         {{ page.lesson_title | escape }}
       </h1>
 
+      {%- assign mcq_count = 0 -%}
+      {%- for q in quiz.questions -%}{%- if q.options -%}{%- assign mcq_count = mcq_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
       <p class="training-lede">
+        {%- if mcq_count > 0 %}
         Answer the following {{ quiz.questions | size }} question{% if quiz.questions.size != 1 %}s{% endif %} about this lesson.
-        You can review your answers before submitting. Nothing is recorded; this is just for you.
+        You can review your answers before submitting. Nothing is recorded. This is just for you.
+        {%- else %}
+        Think through {% if quiz.questions.size == 1 %}this question{% else %}these {{ quiz.questions | size }} questions{% endif %}
+        about the lesson, then use &ldquo;Show answer&rdquo; to check yourself. Nothing is recorded. This is just for you.
+        {%- endif %}
       </p>
 
       <form class="tquiz" data-tquiz novalidate>
         {%- for q in quiz.questions -%}
         {%- assign qi = forloop.index -%}
         {%- assign qid = page.slug | append: "-q" | append: qi -%}
+        {%- unless q.options -%}
+        <div class="tquiz-question tquiz-open" id="{{ qid }}">
+          <p class="tquiz-open-q"><strong>{{ qi }}.</strong> {{ q.q | escape }}</p>
+          <details class="tquiz-reveal">
+            <summary>Show answer</summary>
+            {%- for para in q.a -%}
+            <p>{{ para | escape }}</p>
+            {%- endfor -%}
+          </details>
+        </div>
+        {%- else -%}
         <fieldset class="tquiz-question" data-tquiz-question data-tquiz-answer="{{ q.answer }}" id="{{ qid }}">
           <legend>{{ qi }}. {{ q.q | escape }}</legend>
           <div class="tquiz-options">
@@ -50,6 +68,7 @@ layout: base
             <p>{{ q.explain | escape }}</p>
           </details>
         </fieldset>
+        {%- endunless -%}
         {%- endfor -%}
 
         <div class="tquiz-actions" data-tquiz-actions hidden>
@@ -59,9 +78,11 @@ layout: base
         <p class="tquiz-result" role="status" data-tquiz-result tabindex="-1"></p>
       </form>
 
+      {%- if mcq_count > 0 %}
       <p class="tquiz-nojs-note" data-tquiz-nojs>
         Without JavaScript, use the &ldquo;Show answer&rdquo; link under each question to check yourself.
       </p>
+      {%- endif %}
 
       <nav aria-label="Lesson navigation" class="training-pager">
         <ul>
