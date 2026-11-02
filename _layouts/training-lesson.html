@@ -15,6 +15,10 @@ layout: base
   Video (optional, add when a recording exists - otherwise the section shows
   a "coming soon" note):
     video_embed - URL for an embedded player (Stream, YouTube, etc.)
+                      For a SharePoint/Stream video use the embed URL
+                      https://mn365.sharepoint.com/sites/<site>/_layouts/15/embed.aspx?UniqueId=<guid>
+                      (the guid is the d=w... value in the share link, with dashes added)
+    video_link      - the normal share link, shown as a sign-in fallback under the player
     video_file - path to an .mp4 served from this site
     video_captions - path to the .vtt caption track (used with video_file)
     video_duration - e.g. "12 minutes"
@@ -81,7 +85,7 @@ layout: base
         <div class="training-video-frame">
           <iframe src="{{ page.video_embed }}"
                   title="{{ page.title | escape }}: lesson video"
-                  allowfullscreen></iframe>
+                  allow="autoplay; fullscreen" allowfullscreen scrolling="no"></iframe>
         </div>
         {%- elsif page.video_file -%}
         <video controls preload="metadata" class="training-video-player">
@@ -99,8 +103,16 @@ layout: base
         {%- endif -%}
         {%- if page.video_embed or page.video_file -%}
         <p class="training-video-meta">
-          Captions are enabled.{% if page.video_duration %} Running time: {{ page.video_duration }}.{% endif %}
+          {%- if page.video_captions %}Captions are enabled.{% endif %}
+          {%- if page.video_duration %} Running time: {{ page.video_duration }}.{% endif %}
           {%- if page.video_transcript %} <a href="{{ site.baseurl }}{{ page.video_transcript }}">Read the transcript</a>.{% endif %}
+        </p>
+        {%- endif -%}
+        {%- if page.video_link -%}
+        <p class="training-video-meta">
+          This video is hosted on SharePoint, so you need to be signed in to your state Microsoft 365
+          account to watch it. If the player stays blank or asks you to sign in,
+          <a href="{{ page.video_link }}">open the video in SharePoint</a> instead.
         </p>
         {%- endif -%}
       </section>
