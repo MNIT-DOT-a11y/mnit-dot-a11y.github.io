@@ -7,6 +7,11 @@ layout: base
     {%- include managers-training-nav.html -%}
 
     <div class="post-content training-content">
+      <h1 class="h-alpha">
+        <span class="h-delta">Training &middot; Lesson {{ page.lesson_number }} of {{ page.lesson_total }} &middot; Knowledge check</span>
+        {{ page.lesson_title | escape }}
+      </h1>
+
       <nav aria-label="Breadcrumb" class="training-breadcrumb">
         <ol>
           <li><a href="{{ site.baseurl }}/training/">Training</a></li>
@@ -17,10 +22,6 @@ layout: base
         </ol>
       </nav>
 
-      <h1 class="h-alpha">
-        <span class="h-delta">Training &middot; Lesson {{ page.lesson_number }} of {{ page.lesson_total }} &middot; Knowledge check</span>
-        {{ page.lesson_title | escape }}
-      </h1>
 
       {%- assign mcq_count = 0 -%}
       {%- for q in quiz.questions -%}{%- if q.options -%}{%- assign mcq_count = mcq_count | plus: 1 -%}{%- endif -%}{%- endfor -%}

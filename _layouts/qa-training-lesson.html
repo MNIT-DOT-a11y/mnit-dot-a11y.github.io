@@ -25,6 +25,11 @@ layout: base
     {%- include qa-training-nav.html -%}
 
     <div class="post-content training-content">
+      <h1 class="h-alpha">
+        <span class="h-delta">Training &middot; Lesson {{ page.lesson_number }} of {{ page.lesson_total }}</span>
+        {{ page.title | escape }}
+      </h1>
+
       <nav aria-label="Breadcrumb" class="training-breadcrumb">
         <ol>
           <li><a href="{{ site.baseurl }}/training/">Training</a></li>
@@ -34,10 +39,6 @@ layout: base
         </ol>
       </nav>
 
-      <h1 class="h-alpha">
-        <span class="h-delta">Training &middot; Lesson {{ page.lesson_number }} of {{ page.lesson_total }}</span>
-        {{ page.title | escape }}
-      </h1>
 
       {% if page.description %}
       <p class="training-lede">{{ page.description | escape }}</p>
