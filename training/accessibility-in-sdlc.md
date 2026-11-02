@@ -9,8 +9,8 @@ section: workflow
 section_title: Developer Workflow Integration
 lesson_number: 15
 lesson_total: 16
-video_embed: "https://mn365.sharepoint.com/sites/MNIT_DOTAccessibility-MNITDOTAccessibilityCoach/_layouts/15/embed.aspx?UniqueId=166aa5c8-b5f0-4364-a76b-d5a7dd78a8f0&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
-video_link: "https://mn365.sharepoint.com/:v:/r/sites/MNIT_DOTAccessibility-MNITDOTAccessibilityCoach/Shared%20Documents/Accessibility%20Microtrainings/Recordings/Developer%20Trainings/Accessibility_in_SDLC.mp4?d=w166aa5c8b5f04364a76bd5a7dd78a8f0&csf=1&web=1&e=75dZv9"
+video_embed: "https://mn365.sharepoint.com/sites/MNIT_DOTAccessibility-MNITDOTAccessibilityCoach/_layouts/15/embed.aspx?UniqueId=8d8ff098-2bba-46cb-a65f-a2ac8206a6f2&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+video_link: "https://mn365.sharepoint.com/:v:/r/sites/MNIT_DOTAccessibility-MNITDOTAccessibilityCoach/Shared%20Documents/Accessibility%20Microtrainings/Recordings/Developer%20Trainings/Accessibility-in-SDLC-lesson-video.mp4?d=w8d8ff0982bba46cba65fa2ac8206a6f2&csf=1&web=1&e=bUkwjS"
 video_duration: 8 minutes
 deck: Accessibility in SDLC.pptx
 prev_slug: error-messaging-and-focus-patterns
