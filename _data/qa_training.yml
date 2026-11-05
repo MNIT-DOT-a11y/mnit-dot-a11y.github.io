@@ -42,6 +42,11 @@ sections:
         title: "Text Spacing Bookmarklet Testing"
       - title: "Focus Visibility & Focus Order Testing"
         status: coming-soon
+      - title: "Mobile Browser Testing"
+        status: coming-soon
+      - title: "How to test on mobile browsers"
+        url: /how-to-test/mobile-browser/
+        note: How-to guide
 
   - id: screen-reader
     title: "Screen Reader Testing Skills"

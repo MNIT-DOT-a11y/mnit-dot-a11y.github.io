@@ -72,6 +72,11 @@
           background-image: var(--icon-document-dark);
         }
       }
+      &.icon-mobile {
+        &:before {
+          background-image: var(--icon-mobile-dark);
+        }
+      }
       &.icon-axe {
         &:before {
           background-image: var(--icon-axe-dark);

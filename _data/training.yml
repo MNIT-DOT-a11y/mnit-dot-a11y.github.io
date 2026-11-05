@@ -44,6 +44,9 @@ sections:
         title: Axe DevTools Basics
       - slug: nvda-basics
         title: NVDA Basics
+      - title: "How to test on mobile browsers"
+        url: /how-to-test/mobile-browser/
+        note: How-to guide
 
   - id: language-specific
     title: Language-Specific Accessibility Integration
