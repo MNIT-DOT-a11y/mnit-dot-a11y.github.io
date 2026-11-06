@@ -410,7 +410,17 @@ $select-color: #333;
 // above each numbered step heading
 // ---------------------------------------------------------------------------
 .how-to-test-wrapper .post-content {
-  > h1.h-alpha { margin-bottom: 2.5rem; }
+  > h1.h-alpha {
+    margin-bottom: 2.5rem;
+    line-height: 1.15;
+    .h-delta {
+      display: block;
+      margin: 0 0 .625rem 0;
+      line-height: 1.4;
+      color: $color-gray-dark;
+    }
+    > br { display: none; } // the layout's line break is redundant once the eyebrow is a block
+  }
   .tidbit { margin: 1.5rem 0 2.5rem 0; }
   h2.divider { margin-top: 3rem; }
   h2.divider + p, h2.divider + ul, h2.divider + ol { margin-top: 1.25rem; }
