@@ -93,14 +93,14 @@ Include complete processes, such as signing in, completing a multistep form, cor
 
 You will turn VoiceOver on and off several times during testing, so set up the shortcut first. Open Settings, then Accessibility, then Accessibility Shortcut, and select VoiceOver. From then on, triple-click the side button, or the Home button on an iPhone that has one, to turn VoiceOver on or off.
 
-### 1. Open the application and turn on VoiceOver
+### Open the application and turn on VoiceOver
 
 1. Open Safari.
 2. Navigate to the application.
 3. Turn on VoiceOver with the shortcut, or open Settings, then Accessibility, then VoiceOver, and turn it on.
 4. Return to Safari.
 
-### 2. Read through the page
+### Read through the page
 
 1. Start at the beginning of the page.
 2. Swipe right with one finger to move to the next item.
@@ -116,7 +116,7 @@ Listen for missing information, unexpected repetition, incorrect announcements, 
 - Meaningful images have appropriate text alternatives.
 - Content is not missing or unnecessarily repeated.
 
-### 3. Navigate by headings, links, and landmarks
+### Navigate by headings, links, and landmarks
 
 1. Rotate two fingers on the screen as though turning a dial to change the VoiceOver rotor setting. The [gesture reference guide](https://media.dequeuniversity.com/en/courses/generic/testing-screen-readers/2.0/docs/voiceover-ios-images-guide.pdf) shows how to rotate two fingers.
 2. Select Headings.
@@ -125,7 +125,7 @@ Listen for missing information, unexpected repetition, incorrect announcements, 
 
 Landmarks identify page regions, such as navigation and main content. If an option is missing from the rotor, add it under Settings, then Accessibility, then VoiceOver, then Rotor. Check that the application's intended structure and navigation are available through these methods.
 
-### 4. Evaluate data tables, when present
+### Evaluate data tables, when present
 
 1. Set the rotor to Tables.
 2. Swipe down or up to move between tables on the page.
@@ -133,7 +133,7 @@ Landmarks identify page regions, such as navigation and main content. If an opti
 
 Verify that users can understand the data and identify the relevant row and column headers. If a caption is provided, confirm that it is available to VoiceOver. A missing caption alone does not automatically constitute a WCAG failure.
 
-### 5. Complete application tasks
+### Complete application tasks
 
 1. Move VoiceOver focus to a link, button, or form control.
 2. Double-tap anywhere on the screen to activate it.
@@ -151,7 +151,7 @@ Verify that users can understand the data and identify the relevant row and colu
 - [Quick reference guide: TalkBack 9.1+ for Android](https://media.dequeuniversity.com/en/courses/generic/testing-screen-readers/2.0/docs/talkback-guide.pdf), Deque University
 - [Quick reference guide with gesture images: TalkBack 9.1+ for Android](https://media.dequeuniversity.com/en/courses/generic/testing-screen-readers/2.0/docs/talkback-images-guide.pdf), Deque University
 
-### 1. Open the application and turn on TalkBack
+### Open the application and turn on TalkBack
 
 1. Open Chrome.
 2. Navigate to the application.
@@ -161,7 +161,7 @@ Verify that users can understand the data and identify the relevant row and colu
 
 Configure a TalkBack shortcut if available. Settings, shortcuts, and gestures may vary by device and TalkBack version, so review the device's TalkBack instructions before starting.
 
-### 2. Read through the page
+### Read through the page
 
 1. Start at the beginning of the page. Use TalkBack's Read from top option if helpful.
 2. Swipe right with one finger to move to the next item.
@@ -177,7 +177,7 @@ When testing a component, begin immediately before it and continue to the item i
 - Meaningful images have appropriate text alternatives.
 - Content is not missing or unnecessarily repeated.
 
-### 3. Navigate by headings, links, and landmarks
+### Navigate by headings, links, and landmarks
 
 1. Use TalkBack's reading controls to select Headings. The [gesture reference guide](https://media.dequeuniversity.com/en/courses/generic/testing-screen-readers/2.0/docs/talkback-images-guide.pdf) shows how to use the reading controls.
 2. Swipe down to move to the next heading or up to move to the previous heading.
@@ -185,11 +185,11 @@ When testing a component, begin immediately before it and continue to the item i
 
 One supported gesture for changing reading controls is to swipe up and then down in one continuous motion. If the control or gesture is unavailable, review TalkBack's reading-control settings or the device tutorial. Check that the application's structure is discoverable and understandable.
 
-### 4. Evaluate data tables, when present
+### Evaluate data tables, when present
 
 Swipe through table cells and check whether the data, reading sequence, and header relationships are understandable. Do not assume that TalkBack provides the same table-navigation options as VoiceOver. Record what users can actually determine on the tested device.
 
-### 5. Complete application tasks
+### Complete application tasks
 
 1. Move TalkBack focus to a link, button, or form control.
 2. Double-tap anywhere on the screen to activate it.

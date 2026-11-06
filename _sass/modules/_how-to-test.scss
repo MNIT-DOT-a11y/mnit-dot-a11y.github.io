@@ -404,3 +404,15 @@ $select-color: #333;
     margin-bottom: 1em;
   }
 }
+
+// ---------------------------------------------------------------------------
+// How-to Test page spacing: room under the page title, around callouts, and
+// above each numbered step heading
+// ---------------------------------------------------------------------------
+.how-to-test-wrapper .post-content {
+  > h1.h-alpha { margin-bottom: 2.5rem; }
+  .tidbit { margin: 1.5rem 0 2.5rem 0; }
+  h2.divider { margin-top: 3rem; }
+  h2.divider + p, h2.divider + ul, h2.divider + ol { margin-top: 1.25rem; }
+  h3 { margin-top: 2rem; }
+}
