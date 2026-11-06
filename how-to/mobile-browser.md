@@ -198,7 +198,7 @@ Swipe through table cells and check whether the data, reading sequence, and head
 5. Evaluate the results using the [shared checklist](#evaluate-screen-reader-behavior-on-both-devices) below.
 
 ## <step-number>4</step-number> Evaluate screen reader behavior on both devices
-{: .divider }
+{: #evaluate-screen-reader-behavior-on-both-devices .divider }
 
 Apply these checks while completing each task.
 
