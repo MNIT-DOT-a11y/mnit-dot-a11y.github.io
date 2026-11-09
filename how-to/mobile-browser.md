@@ -5,7 +5,7 @@ seoTitle: How to test web applications on mobile devices
 permalink: /how-to-test/mobile-browser/
 ---
 
-Use this guidance to evaluate a mobile browser-based application against the WCAG 2.1 Level A and AA requirements. Refer to the [Native app accessibility checklist]({{ site.baseurl }}/native/) for guidance on testing mobile native applications.
+Use this guidance to evaluate a mobile browser-based application against the WCAG 2.1 Level A and AA requirements. For guidance on testing individual components, including corresponding screen reader test cases, refer to the [Native App Accessibility Checklist]({{ site.baseurl }}/native/).
 
 Perform browser-based testing on a mobile device to ensure users can access the same information and complete the same tasks as on desktop. The mobile experience doesn't need to look or feel identical, but it should offer equivalent information, functionality, and outcomes.
 
