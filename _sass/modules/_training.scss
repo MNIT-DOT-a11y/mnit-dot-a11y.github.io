@@ -534,7 +534,12 @@ $training-gray: #e8e8e8;
 // Lesson video
 // ---------------------------------------------------------------------------
 .training-video {
-  max-width: 48rem;
+  // Wider than the text measure so slides in the video stay readable.
+  max-width: 64rem;
+
+  > h2,
+  .training-video-meta,
+  .training-video-pending { max-width: 48rem; }
 
   .training-video-frame {
     position: relative;

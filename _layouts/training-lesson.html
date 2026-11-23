@@ -87,6 +87,7 @@ layout: base
                   title="{{ page.title | escape }}: lesson video"
                   allow="autoplay; fullscreen" allowfullscreen scrolling="no"></iframe>
         </div>
+        <p class="training-video-meta training-video-tip">For the largest view of the slides, select the full screen button in the player controls.</p>
         {%- elsif page.video_file -%}
         <video controls preload="metadata" class="training-video-player">
           <source src="{{ site.baseurl }}{{ page.video_file }}" type="video/mp4">
